@@ -1,0 +1,9 @@
+[
+  {"id":"ordinary-summary","request":"Summarize the supplied earnings-release paragraph in three sentences. No tuning, experiments, grading or agent changes are requested.","required":[],"optional":[]},
+  {"id":"new-grader","request":"Define an evidence-support rubric and two grader calibration examples for our mentor. The experiment itself is already fixed.","required":["evaluation-design"],"optional":["evidence-and-overfitting"]},
+  {"id":"entry-intervention","request":"Design the smallest experiment to compare zero-day versus two-day entry delay, with the candidate stock stream fixed. No results exist yet; existing metrics are agreed.","required":["experiment-design"],"optional":[]},
+  {"id":"repeated-fix","request":"Our deterministic runner produces different results with the same seed. Two attempted fixes changed nothing. Diagnose the next useful investigation step.","required":["progress-and-recovery"],"optional":[]},
+  {"id":"resume-contract","request":"After compaction, recover the status of three agreed deliverables from their artifact list, identify which completion checks remain, and choose the next task.","required":["research-supervisor"],"optional":[]},
+  {"id":"claim-audit","request":"Assess whether the best of eleven prompt runs on the same company cases establishes general improvement. We need an evidence verdict, not a new experiment plan yet.","required":["evidence-and-overfitting"],"optional":[]},
+  {"id":"overlapping-design","request":"Before running our new prompt intervention, design its controlled comparison and define missing case strata, grading metrics and promotion criteria.","required":["experiment-design","evaluation-design"],"optional":["evidence-and-overfitting"]}
+]

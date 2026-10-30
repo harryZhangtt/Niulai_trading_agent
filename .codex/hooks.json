@@ -1,0 +1,31 @@
+{
+  "description": "Load compact mentor policy and router; expose initialization failures. No provider or credential access.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/mentor/session_init.py\"",
+            "timeout": 3,
+            "additionalContextLimit": 4000,
+            "statusMessage": "Loading mentor policy and router"
+          }
+        ]
+      },
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -B \"$(git rev-parse --show-toplevel)/ui/session_init.py\"",
+            "timeout": 3,
+            "additionalContextLimit": 2000,
+            "statusMessage": "Loading UI policy and router"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "jobs": [{
+    "id": "niulai.daily-readiness.v1",
+    "enabled": true,
+    "schedule": {"kind": "daily", "timezone": "America/New_York", "times": ["13:00", "19:00"], "grace_seconds": 3600},
+    "replay_safe": true,
+    "model_profile": "default",
+    "prompt_file": "niulai-runtime/jobs/readiness-prompt.txt",
+    "adapter": "niulai_runtime.job_adapter:prepare_readiness",
+    "adapter_config": {"policy": ".niulai-state/config/shadow.json", "actor": "codex-shadow", "python": ".niulai-state/.venv/bin/python"}
+  }]
+}

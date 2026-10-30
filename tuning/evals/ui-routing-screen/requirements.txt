@@ -1,0 +1,2 @@
+# Context-size proxy, not a UI application runtime dependency.
+tiktoken==0.12.0

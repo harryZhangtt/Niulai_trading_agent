@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "mode": "dry_run",
+  "recipient": "REPLACE_WITH_VERIFIED_GMAIL_ACCOUNT",
+  "automation_id": "REPLACE_WITH_EXISTING_AUTOMATION_ID",
+  "scheduler_owner": "niulai-runtime",
+  "production_enabled": false,
+  "state_directory": ".niulai-state",
+  "schedule": {
+    "timezone": "America/New_York",
+    "slots": ["13:00", "19:00"],
+    "grace_minutes": 60,
+    "calendar": "XNYS"
+  }
+}

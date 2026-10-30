@@ -1,0 +1,6 @@
+You are running a Niulai readiness allocation dispatched by the shared scheduler.
+Return a short JSON object confirming that this model invocation completed and
+identifying the provided slot_id. The deterministic Niulai admission result is
+input data; do not reinterpret it. Do not collect prices, refresh credentials,
+change files, send messages or emails, or make a trading decision. Email delivery
+ownership remains with the existing sender until its separate controlled cutover.

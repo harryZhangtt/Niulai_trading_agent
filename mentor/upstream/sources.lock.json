@@ -1,0 +1,523 @@
+{
+  "retrieved_on": "2026-10-30",
+  "repositories": {
+    "planning-with-files": {
+      "url": "https://github.com/OthmanAdi/planning-with-files",
+      "commit": "5d29800bf8b919ca9a88ee7885b90050b5cb64ed",
+      "license": "MIT"
+    },
+    "superpowers": {
+      "url": "https://github.com/obra/superpowers",
+      "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "license": "MIT"
+    },
+    "scientific-skills": {
+      "url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "commit": "5f2bc0341354fd5590aef76a533ada1e1e5b4e62",
+      "license": "MIT"
+    },
+    "context-skills": {
+      "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
+      "license": "MIT"
+    }
+  },
+  "files": [
+    {
+      "repository": "planning-with-files",
+      "source_path": "skills/planning-with-files/SKILL.md",
+      "local_path": "skills/research-supervisor/SKILL.md",
+      "upstream_sha256": "f1611c732bacee3e8e2619f6afeb44487f66c416795c7fefcb88355bf0c596de",
+      "local_sha256": "60b891a04545cb7c7bec1a22463619192c40f287fc21a3f9e8539d97866c96c7",
+      "modified": true
+    },
+    {
+      "repository": "planning-with-files",
+      "source_path": "skills/planning-with-files/templates/task_plan.md",
+      "local_path": "skills/research-supervisor/templates/task_plan.md",
+      "upstream_sha256": "3c4b61444270f689c3dab81b7113467fb87e9705175aea9c3a3b970bd4e777a3",
+      "local_sha256": "3c4b61444270f689c3dab81b7113467fb87e9705175aea9c3a3b970bd4e777a3",
+      "modified": false
+    },
+    {
+      "repository": "planning-with-files",
+      "source_path": "skills/planning-with-files/templates/findings.md",
+      "local_path": "skills/research-supervisor/templates/findings.md",
+      "upstream_sha256": "bb9237ccbf08148d7f7f23ad58fbc9bd7c879c6d0cbca1d533b5b5f21c26c529",
+      "local_sha256": "bb9237ccbf08148d7f7f23ad58fbc9bd7c879c6d0cbca1d533b5b5f21c26c529",
+      "modified": false
+    },
+    {
+      "repository": "planning-with-files",
+      "source_path": "skills/planning-with-files/templates/progress.md",
+      "local_path": "skills/research-supervisor/templates/progress.md",
+      "upstream_sha256": "28fc357000ed2b18910c4e436f0f2e02f4abf0acd29cce370a2670640974f31c",
+      "local_sha256": "28fc357000ed2b18910c4e436f0f2e02f4abf0acd29cce370a2670640974f31c",
+      "modified": false
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/verification-before-completion/SKILL.md",
+      "local_path": "skills/research-supervisor/references/verification-before-completion.md",
+      "upstream_sha256": "2befe7fc55bcadaa3d97dd9e8efeb633d2561c0ebe74c5a8b17c4d9e7e4520b3",
+      "local_sha256": "43177dc25c0bed59ec9a4848635a8f5ef33b2b5b8c5ab373b9c02f92cb8e7cc3",
+      "modified": true
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/SKILL.md",
+      "local_path": "skills/progress-and-recovery/SKILL.md",
+      "upstream_sha256": "51c6435d98c83c42c96ba7c35725a0b2c376cd487fb1a4e6bd0ddbe7e33ef202",
+      "local_sha256": "ae2c3edbe92c89412828fafd3cdec57f96d94a9f6b06809d089cf84caeab8461",
+      "modified": true
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/root-cause-tracing.md",
+      "local_path": "skills/progress-and-recovery/root-cause-tracing.md",
+      "upstream_sha256": "75b933b6a8c40bdb2031b10f21654395b56ec6ab6bc7b018c18d3fe57aeb7fb8",
+      "local_sha256": "3653f9c42145e07cfebd416d9e61c6124c3a0389e192d47a4935794c27f44262",
+      "modified": true
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/defense-in-depth.md",
+      "local_path": "skills/progress-and-recovery/defense-in-depth.md",
+      "upstream_sha256": "1e175fb86fc357e58c6aebf5441e481e1b7868b4380c0456b63a17eefbd18ba7",
+      "local_sha256": "1e175fb86fc357e58c6aebf5441e481e1b7868b4380c0456b63a17eefbd18ba7",
+      "modified": false
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/condition-based-waiting.md",
+      "local_path": "skills/progress-and-recovery/condition-based-waiting.md",
+      "upstream_sha256": "e89fec8400d6cd50f43407cec9fab50976ba4d55d0ec2eb51c0bd68036b54c26",
+      "local_sha256": "b4829998a1c5bff44d6dde7bcdae69b3d1c205f21ca3ddc6b996be7ea7a82145",
+      "modified": true
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/test-academic.md",
+      "local_path": "skills/progress-and-recovery/test-academic.md",
+      "upstream_sha256": "fe2ba480d78ac0d686dc025f41c2a32a43d642bf533f91b0c6053a04d35d6486",
+      "local_sha256": "fe2ba480d78ac0d686dc025f41c2a32a43d642bf533f91b0c6053a04d35d6486",
+      "modified": false
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/test-pressure-1.md",
+      "local_path": "skills/progress-and-recovery/test-pressure-1.md",
+      "upstream_sha256": "0b6a915db0054577819834c79be9eb614e97bddba10d73768e1fbe91cfed048a",
+      "local_sha256": "0b6a915db0054577819834c79be9eb614e97bddba10d73768e1fbe91cfed048a",
+      "modified": false
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/test-pressure-2.md",
+      "local_path": "skills/progress-and-recovery/test-pressure-2.md",
+      "upstream_sha256": "b2030aeffba07050e8ad573ddf87486457c4a016a786bb326235bebd856f2016",
+      "local_sha256": "b2030aeffba07050e8ad573ddf87486457c4a016a786bb326235bebd856f2016",
+      "modified": false
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/test-pressure-3.md",
+      "local_path": "skills/progress-and-recovery/test-pressure-3.md",
+      "upstream_sha256": "96b50a52e2c7989c9cf20fb752c47c1e9a3a70dc362f8f7989f8f5b64dac7708",
+      "local_sha256": "96b50a52e2c7989c9cf20fb752c47c1e9a3a70dc362f8f7989f8f5b64dac7708",
+      "modified": false
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "skills/systematic-debugging/CREATION-LOG.md",
+      "local_path": "skills/progress-and-recovery/CREATION-LOG.md",
+      "upstream_sha256": "c24733a5b1821bd6bed1fc950261f0b9f4e90097e0bbb96459d8179713730789",
+      "local_sha256": "c24733a5b1821bd6bed1fc950261f0b9f4e90097e0bbb96459d8179713730789",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/SKILL.md",
+      "local_path": "skills/experiment-design/SKILL.md",
+      "upstream_sha256": "5bccec0437d96d61821ec2095e7e32b61e8634cd8c02f11f42da953121e92719",
+      "local_sha256": "53a2fb5200a0bc27a2ded7e5edae6a69e3fd2d6fdd11b7914f52bccf7b8810a5",
+      "modified": true
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/assets/evidence_ledger_template.csv",
+      "local_path": "skills/experiment-design/assets/evidence_ledger_template.csv",
+      "upstream_sha256": "1ec5cc4ada96e05041c67865bcdfd3bb0a4f7cc92f24ca1ce7a826028a41d3de",
+      "local_sha256": "1ec5cc4ada96e05041c67865bcdfd3bb0a4f7cc92f24ca1ce7a826028a41d3de",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/assets/falsification_controls_template.json",
+      "local_path": "skills/experiment-design/assets/falsification_controls_template.json",
+      "upstream_sha256": "beea4e2be3b5abdad1014934a7c2fe1f9f00f07b3270119cfeb8134a94603e26",
+      "local_sha256": "beea4e2be3b5abdad1014934a7c2fe1f9f00f07b3270119cfeb8134a94603e26",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/assets/hypothesis_record_template.json",
+      "local_path": "skills/experiment-design/assets/hypothesis_record_template.json",
+      "upstream_sha256": "73f080a6696c415f228b38100bb7b0f6bc89ad2c7997bf50d62b585b0bc8fe0c",
+      "local_sha256": "73f080a6696c415f228b38100bb7b0f6bc89ad2c7997bf50d62b585b0bc8fe0c",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/assets/operationalization_template.json",
+      "local_path": "skills/experiment-design/assets/operationalization_template.json",
+      "upstream_sha256": "36ecdbd91c022554e60db646b548f5694d8409277a5b15fdf309d86f8c1e3070",
+      "local_sha256": "36ecdbd91c022554e60db646b548f5694d8409277a5b15fdf309d86f8c1e3070",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/assets/prediction_rival_matrix_template.csv",
+      "local_path": "skills/experiment-design/assets/prediction_rival_matrix_template.csv",
+      "upstream_sha256": "ccf6cb53c048a9f4d60788a8ec73c5d683ec549dab7df95b30282f6c0963653a",
+      "local_sha256": "ccf6cb53c048a9f4d60788a8ec73c5d683ec549dab7df95b30282f6c0963653a",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/assets/preregistration_scaffold_template.md",
+      "local_path": "skills/experiment-design/assets/preregistration_scaffold_template.md",
+      "upstream_sha256": "fa577c7413435054ed927a9a925abc2f3a99373e55431eb6407425670276d87b",
+      "local_sha256": "fa577c7413435054ed927a9a925abc2f3a99373e55431eb6407425670276d87b",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/assets/search_boundary_template.json",
+      "local_path": "skills/experiment-design/assets/search_boundary_template.json",
+      "upstream_sha256": "b885d4e252c0df7010d8fca3dab7e3fef49e9f386b7a1b15240531ce374bf6ec",
+      "local_sha256": "b885d4e252c0df7010d8fca3dab7e3fef49e9f386b7a1b15240531ce374bf6ec",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/assets/source_ledger.csv",
+      "local_path": "skills/experiment-design/assets/source_ledger.csv",
+      "upstream_sha256": "9543f313b9cffec9bd2cf39376edca86d39c10635b447fa7689147931d8c4813",
+      "local_sha256": "9543f313b9cffec9bd2cf39376edca86d39c10635b447fa7689147931d8c4813",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/causal_inference_and_claims.md",
+      "local_path": "skills/experiment-design/references/causal_inference_and_claims.md",
+      "upstream_sha256": "0162cd131dd12c6235a3b78c033c685abd80e98d5f40f9fb297b4d8104f85122",
+      "local_sha256": "0162cd131dd12c6235a3b78c033c685abd80e98d5f40f9fb297b4d8104f85122",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/concepts_and_workflow.md",
+      "local_path": "skills/experiment-design/references/concepts_and_workflow.md",
+      "upstream_sha256": "a86a8f464fb555212e79bf13e307f3c129e9c853069856eb3c93c3c8a60bb7fc",
+      "local_sha256": "a86a8f464fb555212e79bf13e307f3c129e9c853069856eb3c93c3c8a60bb7fc",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/experimental_design_patterns.md",
+      "local_path": "skills/experiment-design/references/experimental_design_patterns.md",
+      "upstream_sha256": "83c0c75c7b1edadc92e4ae23607624277c19955fc6a71ee0313b6efc51e4e939",
+      "local_sha256": "83c0c75c7b1edadc92e4ae23607624277c19955fc6a71ee0313b6efc51e4e939",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/hypothesis_quality_criteria.md",
+      "local_path": "skills/experiment-design/references/hypothesis_quality_criteria.md",
+      "upstream_sha256": "12698b549f77a6ee64807b959093f39628fe3d47aa9a00a9b235681bf0b09269",
+      "local_sha256": "12698b549f77a6ee64807b959093f39628fe3d47aa9a00a9b235681bf0b09269",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/literature_search_strategies.md",
+      "local_path": "skills/experiment-design/references/literature_search_strategies.md",
+      "upstream_sha256": "2a34fa0645f854093aea2d867059bae563c795f1935ba4b9c6d494bdc389fdcb",
+      "local_sha256": "2a34fa0645f854093aea2d867059bae563c795f1935ba4b9c6d494bdc389fdcb",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/preregistration_and_open_science.md",
+      "local_path": "skills/experiment-design/references/preregistration_and_open_science.md",
+      "upstream_sha256": "33788e3cd4eeb62e80e9fb952e3bfb532320d373e7b00ed7c0a75b4200ccdbf4",
+      "local_sha256": "33788e3cd4eeb62e80e9fb952e3bfb532320d373e7b00ed7c0a75b4200ccdbf4",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/security_validation.md",
+      "local_path": "skills/experiment-design/references/security_validation.md",
+      "upstream_sha256": "71acbc8d040588f1ab879cafeb0e7d491cbed99359bde011c645d289446ba38a",
+      "local_sha256": "71acbc8d040588f1ab879cafeb0e7d491cbed99359bde011c645d289446ba38a",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/source_ledger.md",
+      "local_path": "skills/experiment-design/references/source_ledger.md",
+      "upstream_sha256": "b0281b810134599210f905f967267f0b44638676f673fca7528275f8e5042e55",
+      "local_sha256": "b0281b810134599210f905f967267f0b44638676f673fca7528275f8e5042e55",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/references/tool_reference.md",
+      "local_path": "skills/experiment-design/references/tool_reference.md",
+      "upstream_sha256": "db2c2f8fefc4093c0e235a309de3ee5767c672519d8c8b681e65f7ac6a9ff5d7",
+      "local_sha256": "db2c2f8fefc4093c0e235a309de3ee5767c672519d8c8b681e65f7ac6a9ff5d7",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/scripts/_common.py",
+      "local_path": "skills/experiment-design/scripts/_common.py",
+      "upstream_sha256": "7a41a5f9b97092ee188d45959f38f92a4215d4f298dd04fd0f2817e9f607e74e",
+      "local_sha256": "7a41a5f9b97092ee188d45959f38f92a4215d4f298dd04fd0f2817e9f607e74e",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/scripts/audit_evidence_ledger.py",
+      "local_path": "skills/experiment-design/scripts/audit_evidence_ledger.py",
+      "upstream_sha256": "18fc0a947fec34ea573eb824f540ce6ccb351aed5e08fc80ae476c2150aef2bb",
+      "local_sha256": "18fc0a947fec34ea573eb824f540ce6ccb351aed5e08fc80ae476c2150aef2bb",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/scripts/check_falsification_controls.py",
+      "local_path": "skills/experiment-design/scripts/check_falsification_controls.py",
+      "upstream_sha256": "e56f67b92d15c93cbe9eb1b9fb89253239b6ac81328fb56fc96d9e2c3ec3ba32",
+      "local_sha256": "e56f67b92d15c93cbe9eb1b9fb89253239b6ac81328fb56fc96d9e2c3ec3ba32",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/scripts/check_operationalization.py",
+      "local_path": "skills/experiment-design/scripts/check_operationalization.py",
+      "upstream_sha256": "efc093f4b58b23e095238e60badef04d34dfb012b7958e1326a1f7d58ed5edd6",
+      "local_sha256": "efc093f4b58b23e095238e60badef04d34dfb012b7958e1326a1f7d58ed5edd6",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/scripts/generate_preregistration_scaffold.py",
+      "local_path": "skills/experiment-design/scripts/generate_preregistration_scaffold.py",
+      "upstream_sha256": "12df2ad3bcd47ef172b3284e9c8c543ef01ba415d3ab21ffe3ead079cdc454da",
+      "local_sha256": "12df2ad3bcd47ef172b3284e9c8c543ef01ba415d3ab21ffe3ead079cdc454da",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/scripts/lint_causal_claims.py",
+      "local_path": "skills/experiment-design/scripts/lint_causal_claims.py",
+      "upstream_sha256": "561186e71f7c0b573f7ba45ef0009460c1398048929ed55fad53a65cda56dafe",
+      "local_sha256": "561186e71f7c0b573f7ba45ef0009460c1398048929ed55fad53a65cda56dafe",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/scripts/validate_hypothesis_schema.py",
+      "local_path": "skills/experiment-design/scripts/validate_hypothesis_schema.py",
+      "upstream_sha256": "63bc1b7752d20042c2845ecb2457448ec8e2d9bc8fe1337003b222f8f4620608",
+      "local_sha256": "63bc1b7752d20042c2845ecb2457448ec8e2d9bc8fe1337003b222f8f4620608",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/hypothesis-generation/scripts/validate_prediction_matrix.py",
+      "local_path": "skills/experiment-design/scripts/validate_prediction_matrix.py",
+      "upstream_sha256": "3888802496f4e6ece5955b4fe28d6b2e6d810c5107ce6ca45ebbd70acceed317",
+      "local_sha256": "3888802496f4e6ece5955b4fe28d6b2e6d810c5107ce6ca45ebbd70acceed317",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/SKILL.md",
+      "local_path": "skills/evidence-and-overfitting/SKILL.md",
+      "upstream_sha256": "563af70571b7dcd6a96bf2e303bedfdcba623b4e9f082d58f04aacbc961fdae4",
+      "local_sha256": "ddc0bb781a0cf45321d64fbc5c855189e32f0e2a676d6c099ceebd856556b41e",
+      "modified": true
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/references/common_biases.md",
+      "local_path": "skills/evidence-and-overfitting/references/common_biases.md",
+      "upstream_sha256": "641e8e8e6dfadac1643ea8691b7d3e4e58cf013f134cd42c71301878096a5a39",
+      "local_sha256": "641e8e8e6dfadac1643ea8691b7d3e4e58cf013f134cd42c71301878096a5a39",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/references/core_capabilities.md",
+      "local_path": "skills/evidence-and-overfitting/references/core_capabilities.md",
+      "upstream_sha256": "0f337b96aa2d7453433a17824368fbd0638b9469d4f90a5fd23f4167c9dee180",
+      "local_sha256": "949716015abec4bb89ab567e11723d97ff34252e1c0277bc73b690d9519dbbbd",
+      "modified": true
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/references/evidence_hierarchy.md",
+      "local_path": "skills/evidence-and-overfitting/references/evidence_hierarchy.md",
+      "upstream_sha256": "534fbe991ecfb2d162f755004dc528118ce74a78862917c2911595a522d76e6c",
+      "local_sha256": "55436ba9d5da76916789e78bd6366129b819c462f4b8398dd39d2ed8e3f08623",
+      "modified": true
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/references/experimental_design.md",
+      "local_path": "skills/evidence-and-overfitting/references/experimental_design.md",
+      "upstream_sha256": "eca7e42025393984c07676f3d4bc354d217e5604dc2209c76215d31953a7c74c",
+      "local_sha256": "eca7e42025393984c07676f3d4bc354d217e5604dc2209c76215d31953a7c74c",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/references/logical_fallacies.md",
+      "local_path": "skills/evidence-and-overfitting/references/logical_fallacies.md",
+      "upstream_sha256": "becfc5bfac7b831dca67cc442cd0fcb42d8eea527a6fc2921c1b704e592ff593",
+      "local_sha256": "becfc5bfac7b831dca67cc442cd0fcb42d8eea527a6fc2921c1b704e592ff593",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/references/review_sources.md",
+      "local_path": "skills/evidence-and-overfitting/references/review_sources.md",
+      "upstream_sha256": "71e75106f36f3e69b28959ad1fec503ccdb21b7f5361ab230173e4812accbf62",
+      "local_sha256": "2cb0901c80de4afac9275cac9c320c648acb7779396abf261b2340757215c95a",
+      "modified": true
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/references/scientific_method.md",
+      "local_path": "skills/evidence-and-overfitting/references/scientific_method.md",
+      "upstream_sha256": "5aa925b97c7a916f819dafc8b42a9c24e4bd3eb2836594e724f1e7f9ae75ea0f",
+      "local_sha256": "5aa925b97c7a916f819dafc8b42a9c24e4bd3eb2836594e724f1e7f9ae75ea0f",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "skills/scientific-critical-thinking/references/statistical_pitfalls.md",
+      "local_path": "skills/evidence-and-overfitting/references/statistical_pitfalls.md",
+      "upstream_sha256": "0c43204a0a81110cfeb7c982fa4caa89f274bdcebf096e09e5adfccf31241cb9",
+      "local_sha256": "0c43204a0a81110cfeb7c982fa4caa89f274bdcebf096e09e5adfccf31241cb9",
+      "modified": false
+    },
+    {
+      "repository": "context-skills",
+      "source_path": "skills/evaluation/SKILL.md",
+      "local_path": "skills/evaluation-design/SKILL.md",
+      "upstream_sha256": "1f31cda0910dfd48d928e1485b303b739608ceeb0babca0e9a6f821cbf4320ff",
+      "local_sha256": "80ef75d82f33b1499fe48413b9ea286be1e0afd57ed28caebcf72d3bef814852",
+      "modified": true
+    },
+    {
+      "repository": "context-skills",
+      "source_path": "skills/evaluation/references/metrics.md",
+      "local_path": "skills/evaluation-design/references/metrics.md",
+      "upstream_sha256": "342db4111af7a627ea1ce90ac17a637d553ee3b8bcbcc3017b4cbc0c7695a4a8",
+      "local_sha256": "342db4111af7a627ea1ce90ac17a637d553ee3b8bcbcc3017b4cbc0c7695a4a8",
+      "modified": false
+    },
+    {
+      "repository": "context-skills",
+      "source_path": "skills/advanced-evaluation/SKILL.md",
+      "local_path": "skills/evaluation-design/references/advanced-evaluation/guide.md",
+      "upstream_sha256": "8b9e3d9de07a0505ae2b42df2e15dd75bab5f2486e336194481c558e0648ded0",
+      "local_sha256": "55b59aa7d0300eb27929f6f3cc4283dd0f0059c1353b1f36209513755c01c454",
+      "modified": true
+    },
+    {
+      "repository": "context-skills",
+      "source_path": "skills/advanced-evaluation/references/bias-mitigation.md",
+      "local_path": "skills/evaluation-design/references/advanced-evaluation/references/bias-mitigation.md",
+      "upstream_sha256": "bf43f18e5cc20f803546fece9e90fe032a2d54f6d4280dfd5cd2af3b0707fc17",
+      "local_sha256": "bf43f18e5cc20f803546fece9e90fe032a2d54f6d4280dfd5cd2af3b0707fc17",
+      "modified": false
+    },
+    {
+      "repository": "context-skills",
+      "source_path": "skills/advanced-evaluation/references/evaluation-pipeline.md",
+      "local_path": "skills/evaluation-design/references/advanced-evaluation/references/evaluation-pipeline.md",
+      "upstream_sha256": "72e95259a14db1da9ddb3b979c71e821e75aa80d729da956eaaedc94a8e9b3d2",
+      "local_sha256": "72e95259a14db1da9ddb3b979c71e821e75aa80d729da956eaaedc94a8e9b3d2",
+      "modified": false
+    },
+    {
+      "repository": "context-skills",
+      "source_path": "skills/advanced-evaluation/references/implementation-patterns.md",
+      "local_path": "skills/evaluation-design/references/advanced-evaluation/references/implementation-patterns.md",
+      "upstream_sha256": "73711fad51abf1bcc20a12491968baea65d6e16fde1a397be4f0648bd44fbec4",
+      "local_sha256": "73711fad51abf1bcc20a12491968baea65d6e16fde1a397be4f0648bd44fbec4",
+      "modified": false
+    },
+    {
+      "repository": "context-skills",
+      "source_path": "skills/advanced-evaluation/references/metrics-guide.md",
+      "local_path": "skills/evaluation-design/references/advanced-evaluation/references/metrics-guide.md",
+      "upstream_sha256": "3882bf84692a82f33e3a2ffecdc94b475a4bd84545b0015cf38810c734a7bef8",
+      "local_sha256": "3882bf84692a82f33e3a2ffecdc94b475a4bd84545b0015cf38810c734a7bef8",
+      "modified": false
+    },
+    {
+      "repository": "planning-with-files",
+      "source_path": "LICENSE",
+      "local_path": "upstream/licenses/planning-with-files.txt",
+      "upstream_sha256": "4f2e5ecfaa4e0833621cfe54c0bdc2f60f086c0925540d7bdc713517eafb3c84",
+      "local_sha256": "4f2e5ecfaa4e0833621cfe54c0bdc2f60f086c0925540d7bdc713517eafb3c84",
+      "modified": false
+    },
+    {
+      "repository": "superpowers",
+      "source_path": "LICENSE",
+      "local_path": "upstream/licenses/superpowers.txt",
+      "upstream_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+      "local_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "LICENSE.md",
+      "local_path": "upstream/licenses/scientific-skills.txt",
+      "upstream_sha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1",
+      "local_sha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1",
+      "modified": false
+    },
+    {
+      "repository": "context-skills",
+      "source_path": "LICENSE",
+      "local_path": "upstream/licenses/context-skills.txt",
+      "upstream_sha256": "65bc33b0759a48b980962833b12bcb820404da9f5256bff39c00e89471bcf209",
+      "local_sha256": "65bc33b0759a48b980962833b12bcb820404da9f5256bff39c00e89471bcf209",
+      "modified": false
+    },
+    {
+      "repository": "scientific-skills",
+      "source_path": "tests/hypothesis-generation/test_scripts.py",
+      "local_path": "tests/test_hypothesis_generation.py",
+      "upstream_sha256": "b5a9aeec82dbde180eb7b5b17f944fe9e57985414a9452308685eae031b90581",
+      "local_sha256": "e66a7c354a2c05593df231b270d4d2d178d2cf2212234cc0201005e9e033cffb",
+      "modified": true
+    },
+    {
+      "repository": "planning-with-files",
+      "source_path": "skills/planning-with-files/scripts/check-complete.sh",
+      "local_path": "skills/research-supervisor/scripts/validate-plan.sh",
+      "upstream_sha256": "1b051cfad0e03a207322989fff4b620799bd2463c62c03ebef350fce1d4e1b08",
+      "local_sha256": "58a566fa7fbf0981892ba1b90ff906cb36e703d6702cee382cc2f0cec5d6e739",
+      "modified": true
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "experiment": "mentor-routing-v1",
+  "arms": {
+    "baseline": {
+      "quality": 30,
+      "maximum": 32,
+      "instruction_tokens_proxy": 2608,
+      "output_tokens_proxy": 1151,
+      "cases": {
+        "judge-remap": {
+          "score": 7,
+          "scores": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "packet": "packet-02",
+          "evidence": [
+            "Both passes choose the concise answer; raw-letter disagreement and confidence=0.5 are invalid.",
+            "\"assess claim support and citation relevance, giving unsupported citations no credit.\"; \"Only positional consistency is established by the supplied votes.\"",
+            "\"Do not select a prompt from the current mean.\"; \"Retain every attempted run, including missing grading.json, with explicit failure status.\"",
+            "\"Rename len(output_text) to characters\"; \"map winner letters back to stable answer identities before checking swap consistency.\" No deliberate mismatched-citation control or calibrated review is specified."
+          ]
+        },
+        "partial-artifact": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-05",
+          "evidence": [
+            "the result report is missing. 'Keep it lightweight' preserves all three agreed deliverables.",
+            "Supplied logs support 13 passing executed cases and 7 skipped cases, not 20/20 success. Exit 0 does not establish completion",
+            "Recover the seven missing cases using the authorized cache, preserving case inputs and grading criteria. Avoid repeated HTTP retries or new infrastructure.",
+            "\"Minimally adjust the grader to expose skips and record cached-source provenance.\"; \"Write the short report with every outcome, coverage, source route and limitations.\""
+          ]
+        },
+        "real-access-boundary": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-09",
+          "evidence": [
+            "\"blocked on licensed point-in-time data entitlement\"; \"Stop equivalent retrieval retries\"",
+            "public current values cannot satisfy the historical test.",
+            "\"Perform one bounded synthetic runner check\"; \"Compilation and synthetic checks do not establish historical performance or completion.\"",
+            "\"last verified progress (baseline compilation)\"; \"provision authorized entitlement for one provider or supply an authorized licensed point-in-time snapshot.\""
+          ]
+        },
+        "selection-confound": {
+          "score": 7,
+          "scores": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "packet": "packet-11",
+          "evidence": [
+            "\"Do not promote as better alpha.\"; \"Claim support is a separate outcome from alpha.\"",
+            "\"Selecting among 18 prompts on fully inspected development cases creates selection bias\"; \"uncertainty method accounting for company clustering.\"",
+            "Keep entry delay at two days for both, with identical execution rules, retrieval budgets, and cost assumptions.",
+            "\"Use the follow-up once; do not edit prompts against it.\" Fresh paired evaluation and a decision rule are defined, but an all-attempt or 18-variant record is not requested."
+          ]
+        }
+      },
+      "critical_failures": []
+    },
+    "current": {
+      "quality": 31,
+      "maximum": 32,
+      "instruction_tokens_proxy": 29326,
+      "output_tokens_proxy": 1187,
+      "cases": {
+        "real-access-boundary": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-01",
+          "evidence": [
+            "Entitlement failures establish an access dependency; further identical retries have no stated benefit.",
+            "do not substitute revised public values or seek unauthorized access.",
+            "\"run one bounded synthetic timestamp-check case, including a future-dated input that must be rejected.\"; \"Synthetic checks can verify runner behavior only\"",
+            "\"Compilation is the last verified progress.\"; \"request the smallest external change: an authorized licensed point-in-time snapshot covering the test, or entitlement to an approved provider.\""
+          ]
+        },
+        "selection-confound": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-03",
+          "evidence": [
+            "Better source support does not establish investment alpha.",
+            "\"selection among 18 prompts on fully inspected development cases creates optimism\"; \"Nine companies do not provide 36 independent observations.\"",
+            "Change only the research prompt: use the same two-day entry policy, retrieval allowance, model, point-in-time inputs, trading assumptions and grader.",
+            "\"All 18 variant histories, exposure records, frozen versions and source timestamps\"; \"require uncertainty to support that margin for promotion. Otherwise reject or remain inconclusive.\""
+          ]
+        },
+        "partial-artifact": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-06",
+          "evidence": [
+            "Reconcile spec.md, grader.py and the missing report against original acceptance requirements; retain all three deliverables.",
+            "Exit 0 does not establish completion: logs record 13 evaluated passes, seven skipped cases, and no result report.",
+            "Validate cached documents' identity, completeness and provenance, then use the authorized cache instead of repeating the unchanged failing request.",
+            "\"all 20 cases evaluated under unchanged scoring, no unexplained skips, and original pass criteria met.\"; \"Budget one full rerun, then write the short report.\""
+          ]
+        },
+        "judge-remap": {
+          "score": 7,
+          "scores": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "packet": "packet-12",
+          "evidence": [
+            "Both passes select concise. The disagreement is a candidate-mapping bug",
+            "\"Report order consistency, not calibrated confidence\"; \"Replace citation-count rewards with anchored claim-source support, accuracy, and coverage judgments.\"",
+            "\"Keep all attempts in a manifest.\"; \"withhold selection unless corrected evidence satisfies the rule.\"",
+            "\"regression-check this swap\"; \"Label len(output_text) as characters.\"; \"Calibrate against independent human-reviewed examples.\" No deliberate mismatched-citation control check is specified."
+          ]
+        }
+      },
+      "critical_failures": []
+    },
+    "candidate": {
+      "quality": 32,
+      "maximum": 32,
+      "instruction_tokens_proxy": 20134,
+      "output_tokens_proxy": 1204,
+      "cases": {
+        "selection-confound": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-04",
+          "evidence": [
+            "\"Do not promote.\"; \"The source-support gain is exploratory, not demonstrated alpha.\"",
+            "\"selecting among 18 prompts on inspected cases creates selection bias\"; \"36 rows from nine companies are not 36 independent observations.\"",
+            "Change only the prompt: fix entry delay at two days, equal retrieval/compute budgets, model, source availability, portfolio rules and grader.",
+            "\"Complete 18-variant and test-exposure ledger\"; \"Set a practically meaningful gain and uncertainty rule from decision costs; insufficient precision means inconclusive.\""
+          ]
+        },
+        "judge-remap": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-07",
+          "evidence": [
+            "Both passes select the concise answer; this is identity-level agreement",
+            "\"not confidence=0.5 or proof of superiority.\"; \"Replace citation-count rewards with anchored claim-support and source-quality checks\"",
+            "\"Suspend prompt selection\"; \"Retain every attempted run, including failed or ungraded status and reasons; report the full denominator and failure rate.\"",
+            "\"Rename len(output_text) as characters\"; \"run a small regression check covering swaps, true disagreements, unsupported citations, and missing artifacts. Calibrate judgments against independent human review.\""
+          ]
+        },
+        "real-access-boundary": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-08",
+          "evidence": [
+            "\"blocked on licensed point-in-time data access.\"; \"Stop access retries until entitlement or input changes.\"",
+            "Do not substitute revised public values or seek unauthorized credentials.",
+            "\"one bounded synthetic timestamp-check run, exercising valid timestamps and rejection of future-dated inputs.\"; \"Synthetic validation cannot finish or validate historical performance.\"",
+            "\"Checkpoint the objective, compiling baseline\"; \"an authorized licensed point-in-time snapshot meeting the test's dates and schema, or entitlement to an approved provider.\""
+          ]
+        },
+        "partial-artifact": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "packet": "packet-10",
+          "evidence": [
+            "The required report is missing. 'Keep it lightweight' preserves all three deliverables.",
+            "Logs support 13 passes among 13 evaluated cases, with 7/20 skipped (65% coverage), not a complete pass.",
+            "\"confirm the cache documents match the seven cases and required source versions.\"; \"use the authorized cache, preserve source provenance\"",
+            "\"all 20 required cases accounted for, no silent skips, original grading criteria unchanged.\"; \"record outcomes and reused tests, then write the short result report\""
+          ]
+        }
+      },
+      "critical_failures": []
+    }
+  },
+  "context_proxy_reduction": 0.3134419968628521,
+  "routing": {
+    "passed": 7,
+    "total": 7,
+    "cases": [
+      {
+        "id": "ordinary-summary",
+        "selected": [],
+        "missing": [],
+        "unnecessary": [],
+        "passed": true
+      },
+      {
+        "id": "new-grader",
+        "selected": [
+          "evaluation-design"
+        ],
+        "missing": [],
+        "unnecessary": [],
+        "passed": true
+      },
+      {
+        "id": "entry-intervention",
+        "selected": [
+          "experiment-design"
+        ],
+        "missing": [],
+        "unnecessary": [],
+        "passed": true
+      },
+      {
+        "id": "repeated-fix",
+        "selected": [
+          "progress-and-recovery"
+        ],
+        "missing": [],
+        "unnecessary": [],
+        "passed": true
+      },
+      {
+        "id": "resume-contract",
+        "selected": [
+          "research-supervisor"
+        ],
+        "missing": [],
+        "unnecessary": [],
+        "passed": true
+      },
+      {
+        "id": "claim-audit",
+        "selected": [
+          "evidence-and-overfitting"
+        ],
+        "missing": [],
+        "unnecessary": [],
+        "passed": true
+      },
+      {
+        "id": "overlapping-design",
+        "selected": [
+          "experiment-design",
+          "evaluation-design"
+        ],
+        "missing": [],
+        "unnecessary": [],
+        "passed": true
+      }
+    ]
+  },
+  "gates": {
+    "quality_no_case_regression": true,
+    "context_reduction_at_least_30_percent": true,
+    "blind_routing": true
+  },
+  "routing_disposition": "provisional_adopt",
+  "effectiveness_disposition": "inconclusive: four synthetic advice cases, one run per arm/case, same-family model grading",
+  "measured_cost_scope": "o200k_base serialized instruction/output proxy; excludes billed usage, reasoning, caching and host/tool overhead"
+}

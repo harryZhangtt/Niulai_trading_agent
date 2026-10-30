@@ -1,5 +1,7 @@
 # Local private archive and runtime data must never enter Git.
 /niulai-private/
+/.niulai-state/
+/.job-runtime/
 **/private/
 **/runtime/
 **/credentials/
@@ -39,6 +41,7 @@ __pycache__/
 node_modules/
 /.codex/*
 !/.codex/config.toml
+!/.codex/hooks.json
 /Niulai_Migration_Report_*.html
 
 # Historical evidence, private audit metadata and snapshot inventory stay local.
@@ -49,3 +52,9 @@ node_modules/
 /niulai/MANIFEST.json
 /niulai/holdings/taxonomy.json
 /niulai/skills/investment-research-financial-services/references/niulai-workflow/references/state-locations.json
+
+# Workspace-local MCP credentials, downloaded binaries, OAuth state and reports.
+/.market-data-mcp/
+
+# Isolated research-source dependencies, public-paper cache and probe state.
+/.research-sources/

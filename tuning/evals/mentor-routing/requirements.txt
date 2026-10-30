@@ -1,0 +1,2 @@
+# Optional tokenizer proxy for repeatable context-size accounting.
+tiktoken==0.12.0

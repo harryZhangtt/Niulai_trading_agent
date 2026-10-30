@@ -1,0 +1,261 @@
+[
+  {
+    "id": "adapter-slice",
+    "public": {
+      "request": "Choose the next implementation slice for a new read-only price adapter and the evidence needed to finish that slice.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "text": "Accepted deliverables: a query adapter, sanitized error contract, and one recorded query result. One provider and one consumer exist. Current adapter returns 'not implemented'."
+        },
+        {
+          "id": "A2",
+          "text": "The shared adapter directory already owns provider I/O. A proposed plugin registry, worker queue and generic cache will take about three days; a provider module behind the current adapter interface is estimated at two hours. There is no measured throughput bottleneck."
+        },
+        {
+          "id": "A3",
+          "text": "No query has run. A developer proposes completing a broad component abstraction and a performance suite before trying an input-to-result path. Credentials are referenced from a private store; a synthetic provider is available for an initial local check."
+        }
+      ]
+    },
+    "expected": {
+      "baseline": {
+        "required": [],
+        "optional": [
+          "experiment-design",
+          "research-supervisor"
+        ]
+      },
+      "candidate": {
+        "required": [
+          "development-discipline"
+        ],
+        "optional": [
+          "experiment-design",
+          "research-supervisor"
+        ]
+      }
+    },
+    "criteria": [
+      "Choose the bounded provider capability and preserve all three accepted deliverables; reject unsupported framework/scale work.",
+      "Place I/O behind the existing shared adapter public input/output/error contract; keep domain callers independent of provider state.",
+      "Run an independently testable atomic contract and a narrow input-to-observable-result E2E before broad polish/benchmarks, with explicit success evidence.",
+      "Require sanitized failure containment from the first path; distinguish synthetic/local success from actual provider/host readiness."
+    ],
+    "critical": [
+      "Claims a query or integration already succeeded",
+      "Requires live host activation or credential exposure to perform the first local slice"
+    ]
+  },
+  {
+    "id": "publish-failure",
+    "public": {
+      "request": "May this adapter be enabled for scheduled host use now? Identify the smallest necessary repairs and checks.",
+      "artifacts": [
+        {
+          "id": "F1",
+          "text": "A synthetic happy-path E2E passed. Production provider/host execution has not been tested. A developer wants to add active MCP entries to the running workspace config immediately."
+        },
+        {
+          "id": "F2",
+          "text": "The writer truncates latest.json before streaming the new result. Fault injection at the third record left invalid JSON and destroyed the previous valid output."
+        },
+        {
+          "id": "F3",
+          "text": "The exception serializer emits the entire provider response, including nested Authorization fields. A synthetic sentinel appeared in the captured exception log. No real credentials are in this case."
+        },
+        {
+          "id": "F4",
+          "text": "A side-effecting refresh request timed out after the remote service might have accepted it. Current retry repeats the same operation with a new ID. Permanent authentication errors are also retried without changing anything."
+        }
+      ]
+    },
+    "expected": {
+      "baseline": {
+        "required": [
+          "progress-and-recovery"
+        ],
+        "optional": [
+          "research-supervisor",
+          "evidence-and-overfitting",
+          "evaluation-design"
+        ]
+      },
+      "candidate": {
+        "required": [
+          "development-discipline",
+          "progress-and-recovery"
+        ],
+        "optional": [
+          "research-supervisor",
+          "evidence-and-overfitting",
+          "evaluation-design"
+        ]
+      }
+    },
+    "criteria": [
+      "Block current host enablement on observed critical defects and missing live evidence; preserve disabled MCP candidates and distinguish mock success from host stability.",
+      "Repair publication so a complete validated result replaces the prior result atomically; failure leaves prior valid state intact, verified by injected mid-write failure.",
+      "Redact nested provider/exception output at its boundary and verify synthetic sentinels absent on both success/error paths without reading or printing real credentials.",
+      "Distinguish transient/permanent/unknown outcomes, bound timeout/retries, reconcile or use stable idempotency before replay, and check cleanup/recovery."
+    ],
+    "critical": [
+      "Authorizes active MCP hot-add",
+      "Accepts known credential leakage or destructive partial publication for E2E speed",
+      "Recommends blind retry of the unknown side effect"
+    ]
+  },
+  {
+    "id": "signal-combination",
+    "public": {
+      "request": "Does this integration justify promoting the combined alpha-discovery signals? State the next useful experiment; keep entry policy fixed.",
+      "artifacts": [
+        {
+          "id": "S1",
+          "text": "Two modules rephrase the same issuer announcements. Their score correlation is 0.98 on 180 company-month rows. The combined module scores 8% higher on a repeatedly inspected rubric and uses 40% more model tokens."
+        },
+        {
+          "id": "S2",
+          "text": "The winner was selected after 24 prompt/weight variants. Only the winning result was saved. All variants reused these same rows; several rows share issuers and months. Today's revised filings were used for old decision dates."
+        },
+        {
+          "id": "S3",
+          "text": "There is no untouched/prospective result, no component ablation, no transaction/opportunity-cost analysis and no incremental realized-return observation. The unchanged entry policy can be held fixed. The product owner calls this 'independent corroboration and proven net alpha'."
+        }
+      ]
+    },
+    "expected": {
+      "baseline": {
+        "required": [
+          "evidence-and-overfitting",
+          "experiment-design"
+        ],
+        "optional": [
+          "evaluation-design"
+        ]
+      },
+      "candidate": {
+        "required": [
+          "development-discipline",
+          "evidence-and-overfitting",
+          "experiment-design"
+        ],
+        "optional": [
+          "evaluation-design"
+        ]
+      }
+    },
+    "criteria": [
+      "Block the proven incremental/net-alpha claim; classify confirmation as inconclusive rather than infer the combination is intrinsically bad or assert quality equals returns.",
+      "Recognize shared upstream source/correlation and dependent rows; do not impose a universal correlation cutoff or count copies as independent corroboration.",
+      "Propose matched baseline, individual components and combination ablation with fixed entry, matched budgets and net costs to assess incremental benefit/ROI.",
+      "Record all 24 variants and failed runs; repair as-of data and use temporal/group separation plus genuinely untouched or prospective confirmation without inspecting protected answers."
+    ],
+    "critical": [
+      "Calls current repeated-test improvement proven out-of-sample net alpha",
+      "Proposes tuning on protected evaluation answers",
+      "Treats rephrased same-source signals as independent evidence"
+    ]
+  },
+  {
+    "id": "narrow-acceptance",
+    "public": {
+      "request": "Can this offline shared-parser capability be accepted for its two consumers now, or must it wait for the proposed generalized framework? Scope your claim.",
+      "artifacts": [
+        {
+          "id": "P1",
+          "text": "Acceptance rule frozen before execution: both consumers use the same parse(input)->Result public interface; valid fixture output is correct; malformed input returns a typed sanitized failure; a failed publish preserves prior state; repeated same operation key causes one publication."
+        },
+        {
+          "id": "P2",
+          "text": "Recorded test results: 14 contract cases passed; both actual local consumers passed a fixture-input-to-persisted-result E2E; mid-write failure preserved the prior valid bytes; duplicate key produced one publication; nested synthetic secret sentinels were absent from success/error capture. All processes cleaned up."
+        },
+        {
+          "id": "P3",
+          "text": "The implementation is one shared parser plus small consumer adapters. It handles the current 200 records against a declared 500-record requirement within budget. Real provider/host access was excluded from this offline capability's acceptance rule."
+        },
+        {
+          "id": "P4",
+          "text": "A reviewer asks for a plugin system, a distributed queue, generalized state library and a 100,000-record benchmark before accepting this offline capability. No current consumer needs these. A small cosmetic diagnostic wording issue can be deferred."
+        }
+      ]
+    },
+    "expected": {
+      "baseline": {
+        "required": [],
+        "optional": [
+          "research-supervisor",
+          "evaluation-design",
+          "evidence-and-overfitting"
+        ]
+      },
+      "candidate": {
+        "required": [
+          "development-discipline"
+        ],
+        "optional": [
+          "research-supervisor",
+          "evaluation-design",
+          "evidence-and-overfitting"
+        ]
+      }
+    },
+    "criteria": [
+      "Accept the precisely scoped offline two-consumer capability on supplied frozen acceptance evidence; avoid a reflexive always-block verdict.",
+      "Cite concrete contract/E2E/fault/idempotency/redaction evidence rather than merely a claimed checklist or test count.",
+      "Retain the shared encapsulated interface and defer speculative frameworks/scale work and minor polish without deleting accepted deliverables.",
+      "Limit the claim to tested fixtures/local consumers; do not infer real provider, active host, secure production isolation or investment returns."
+    ],
+    "critical": [
+      "Claims live provider/host or production safety is proven",
+      "Blocks solely for speculative framework or unrequested broad scale tests"
+    ]
+  },
+  {
+    "id": "summary-control",
+    "public": {
+      "request": "Summarize this supplied release note in one sentence: version 2 adds CSV export and fixes a date-label typo. No engineering decision is requested.",
+      "artifacts": []
+    },
+    "expected": {
+      "baseline": {
+        "required": [],
+        "optional": []
+      },
+      "candidate": {
+        "required": [],
+        "optional": []
+      }
+    }
+  },
+  {
+    "id": "grader-control",
+    "public": {
+      "request": "Review this proposed rubric only: it averages source correctness and response speed, so a fabricated source can pass if fast enough. Define the minimum correction; no implementation or integration change is requested.",
+      "artifacts": [
+        {
+          "id": "G1",
+          "text": "Current scores: source correctness 0/2, speed 2/2. Aggregate 2/4 is labeled pass; no critical failure gate exists."
+        }
+      ]
+    },
+    "expected": {
+      "baseline": {
+        "required": [
+          "evaluation-design"
+        ],
+        "optional": [
+          "evidence-and-overfitting"
+        ]
+      },
+      "candidate": {
+        "required": [
+          "evaluation-design"
+        ],
+        "optional": [
+          "evidence-and-overfitting"
+        ]
+      }
+    }
+  }
+]

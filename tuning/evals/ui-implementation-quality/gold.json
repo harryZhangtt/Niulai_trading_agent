@@ -1,0 +1,169 @@
+{
+  "benchmark": "ui-implementation-quality-v1",
+  "synthetic": true,
+  "holdout_status": "author-created development evidence, not a secure holdout",
+  "task": "Dispatch Desk passenger-notice editor hardening",
+  "cases": [
+    {
+      "id": "Q01",
+      "dimension": "happy_path",
+      "scenario": "normal save and navigation",
+      "criterion": "one committed harbor revision with exact requested title and body; ridge unchanged; saved feedback and navigation still work",
+      "severity": "normal",
+      "expected_seed": "pass",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q02",
+      "dimension": "layout",
+      "scenario": "narrow long-text containment",
+      "criterion": "at 320px document and text remain contained without hiding supplied long notice or history content",
+      "severity": "major",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q03",
+      "dimension": "read_race",
+      "scenario": "late decoded success",
+      "criterion": "late harbor completion after ridge selection cannot replace ridge form or saved preview",
+      "severity": "critical",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q04",
+      "dimension": "read_race",
+      "scenario": "late decoded error",
+      "criterion": "late harbor failure cannot create a current ridge alert or disable saving ridge",
+      "severity": "major",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q05",
+      "dimension": "draft_safety",
+      "scenario": "same-notice edits during pending save",
+      "criterion": "submitted payload persists exactly once; subsequent editable draft text survives completion or editing is safely disabled; saved preview updates",
+      "severity": "critical",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q06",
+      "dimension": "draft_safety",
+      "scenario": "pending save across entity navigation",
+      "criterion": "harbor write remains harbor-only; ridge saved preview and newer ridge draft survive harbor completion",
+      "severity": "critical",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q07",
+      "dimension": "write_safety",
+      "scenario": "duplicate gesture",
+      "criterion": "two synchronous Save activations produce exactly one permanent revision and one operation identity",
+      "severity": "critical",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q08",
+      "dimension": "write_safety",
+      "scenario": "lost reply after commit",
+      "criterion": "bounded automatic or user recovery confirms committed state without a new operation identity or duplicate revision; no diagnostic canary leak",
+      "severity": "critical",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q09",
+      "dimension": "failure_containment",
+      "scenario": "malformed load payload",
+      "criterion": "malformed domain data cannot blank the app; an accessible useful load failure appears; no canary leak; another notice can still load",
+      "severity": "critical",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q10",
+      "dimension": "failure_containment",
+      "scenario": "permanent server rejection",
+      "criterion": "draft survives, no revision commits, and useful accessible feedback excludes raw provider canary from page and browser logs",
+      "severity": "critical",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q11",
+      "dimension": "presentation_boundary",
+      "scenario": "standalone render-only preview",
+      "criterion": "public preview renders and updates supplied props plus visible supplied history with no service reads or writes",
+      "severity": "major",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    },
+    {
+      "id": "Q12",
+      "dimension": "render_work",
+      "scenario": "unrelated draft typing",
+      "criterion": "visible supplied history stays correct while twelve unrelated title keystrokes cause at most one additional expensive subtree execution",
+      "severity": "major",
+      "expected_seed": "fail",
+      "expected_positive_control": "pass"
+    }
+  ],
+  "validity_gates": [
+    "only authorized editable surface changed",
+    "immutable seed fingerprints match",
+    "TypeScript validation passes",
+    "Vite production build passes"
+  ],
+  "editable": {
+    "existing": [
+      "src/App.tsx",
+      "src/Preview.tsx",
+      "src/styles.css"
+    ],
+    "new": "modules beneath src/; src/main.tsx remains immutable"
+  },
+  "public_interfaces": {
+    "NoticePreview": "named export from src/Preview.tsx; props { notice: Notice }; render-only; supplied history visible",
+    "playground": "/preview.html; window.renderNoticePreview(notice)",
+    "service": "vendor/client.ts and vendor/contracts.ts"
+  },
+  "immutable_seed_sha256": {
+    "index.html": "5693775d5157d3918a50cf4de5f762d510f771113c88880a3b8aed0395be6ad5",
+    "package.json": "6930894082e98cf76ba6532611251dd43aeeeb88426ba20648ec29e48860530d",
+    "preview.html": "6432e814629a680bc54caa2ccb38bbfd65db984fcd4f597d1e84e571beb373ff",
+    "src/main.tsx": "25469f5ad0bdef46a843332e309a92aa9ed28bab94362464e110eb2563b97eec",
+    "vendor/RevisionTimeline.tsx": "2ae1e1091350f93c24d5c3b55af5bad361c2e266b9f9e0fe627b3c03257e709d",
+    "vendor/client.ts": "1d6b5652b6bc6252c11f2a850df22172b0a8ed4f773ad19da1d9137b3cb5f641",
+    "vendor/contracts.ts": "538a479aa1fff97d3252e1f1b62b04a811b8940ab7467e58ef29dbe0f9736791",
+    "vendor/preview-entry.tsx": "e6988170bcb37cfa0594a508fac795823ade0477df8ea2e03874a79e12482f44"
+  },
+  "scoring": {
+    "case_weight": 1,
+    "fully_passing": "all twelve cases plus validity gates",
+    "report": "per-case and per-dimension; retain critical failures even when reporting average"
+  },
+  "testing_limits": [
+    "mock service contract, not production service validation",
+    "no visual preference scoring",
+    "no universal accessibility or performance claim",
+    "no production runtime acceptance or email",
+    "one compact author-created task does not establish broad skill effectiveness"
+  ],
+  "isolation": {
+    "solver_packet": [
+      "seed/",
+      "task.md"
+    ],
+    "never_in_solver_packet": [
+      "gold.json",
+      "tests/",
+      "author reference or execution receipts"
+    ],
+    "grader_probe": "tests and immutable vendor component; no solver-modifiable counter"
+  }
+}

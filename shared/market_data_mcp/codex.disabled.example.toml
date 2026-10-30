@@ -1,0 +1,53 @@
+# Candidate only. This file is not loaded by Codex.
+# Generate absolute paths with `python3 manage.py print-config` from this folder.
+# Keep disabled until the separate rollout checks in README.md are complete.
+[mcp_servers.tradingview]
+enabled = false
+command = "/usr/bin/python3"
+args = ["/ABSOLUTE/WORKSPACE/shared/market_data_mcp/manage.py", "serve", "tradingview"]
+cwd = "/ABSOLUTE/WORKSPACE"
+startup_timeout_sec = 5
+tool_timeout_sec = 75
+
+# Uses a project-local adapter for the official REST API; key stays in local state.
+[mcp_servers.finnhub]
+enabled = false
+command = "/usr/bin/python3"
+args = ["/ABSOLUTE/WORKSPACE/shared/market_data_mcp/manage.py", "serve", "finnhub"]
+cwd = "/ABSOLUTE/WORKSPACE"
+startup_timeout_sec = 5
+tool_timeout_sec = 75
+
+# Schwab remains staged pending credentials and a live quote validation.
+[mcp_servers.schwab]
+enabled = false
+command = "/usr/bin/python3"
+args = ["/ABSOLUTE/WORKSPACE/shared/market_data_mcp/manage.py", "serve", "schwab"]
+cwd = "/ABSOLUTE/WORKSPACE"
+startup_timeout_sec = 5
+tool_timeout_sec = 75
+
+# Local REST-backed options adapters; all candidate entries remain disabled.
+[mcp_servers.marketdata]
+enabled = false
+command = "/usr/bin/python3"
+args = ["/ABSOLUTE/WORKSPACE/shared/market_data_mcp/manage.py", "serve", "marketdata"]
+cwd = "/ABSOLUTE/WORKSPACE"
+startup_timeout_sec = 5
+tool_timeout_sec = 75
+
+[mcp_servers.alpaca]
+enabled = false
+command = "/usr/bin/python3"
+args = ["/ABSOLUTE/WORKSPACE/shared/market_data_mcp/manage.py", "serve", "alpaca"]
+cwd = "/ABSOLUTE/WORKSPACE"
+startup_timeout_sec = 5
+tool_timeout_sec = 75
+
+[mcp_servers.massive]
+enabled = false
+command = "/usr/bin/python3"
+args = ["/ABSOLUTE/WORKSPACE/shared/market_data_mcp/manage.py", "serve", "massive"]
+cwd = "/ABSOLUTE/WORKSPACE"
+startup_timeout_sec = 5
+tool_timeout_sec = 75

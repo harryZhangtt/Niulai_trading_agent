@@ -1,0 +1,114 @@
+{
+  "original_passed": 5,
+  "original_total": 6,
+  "original": [
+    {
+      "case": "coverage-complete",
+      "pair": "coverage",
+      "expected": "accept",
+      "actual": "accept",
+      "passed": true,
+      "response": {
+        "verdict": "accept",
+        "decisive_evidence": "All 12 required cases were evaluated; source support is 0.95, exceeding 0.90; critical errors are zero. Full manifest and artifacts are verified, and all other declared requirements are satisfied.",
+        "allowed_claim": "The retrieval prompt meets the declared gate for a bounded development trial only. No generalization or investment alpha is established.",
+        "next_action": "Proceed with the bounded development trial under the frozen candidate, sources, grader, and budgets, retaining run and per-case source-check records."
+      }
+    },
+    {
+      "case": "coverage-missing",
+      "pair": "coverage",
+      "expected": "inconclusive",
+      "actual": "reject",
+      "passed": false,
+      "response": {
+        "verdict": "reject",
+        "decisive_evidence": "Required case C12 has no grading output. The required-case completeness gate fails despite source support 0.95 and zero critical errors.",
+        "allowed_claim": "The 11 completed cases meet the reported quality thresholds; the full gate is incomplete. No bounded-trial acceptance, generalization, or alpha claim is supported.",
+        "next_action": "Complete and record C12 under the unchanged frozen candidate, sources, grader, and budgets, then reassess the declared gate. Do not count missing evidence as a pass."
+      }
+    },
+    {
+      "case": "critical-clean",
+      "pair": "critical-error",
+      "expected": "accept",
+      "actual": "accept",
+      "passed": true,
+      "response": {
+        "verdict": "accept",
+        "decisive_evidence": "All 10 required cases were verified; overall score 0.96 exceeds 0.9; critical errors are zero; source inspection confirms correct currency and scale. All other frozen criteria are independently verified.",
+        "allowed_claim": "The source-extraction patch passes the frozen gate for development use only.",
+        "next_action": "Accept the patch for development use. Make no deployment or investment-alpha claim."
+      }
+    },
+    {
+      "case": "critical-failure",
+      "pair": "critical-error",
+      "expected": "reject",
+      "actual": "reject",
+      "passed": true,
+      "response": {
+        "verdict": "reject",
+        "decisive_evidence": "The material figure is labeled USD millions instead of the source's USD thousands. This is one critical error; the frozen gate permits zero, regardless of the 0.96 overall score.",
+        "allowed_claim": "The patch meets the case-count and overall-score thresholds but fails development acceptance under the frozen gate.",
+        "next_action": "Correct the scaling error and re-evaluate under the unchanged frozen gate before acceptance."
+      }
+    },
+    {
+      "case": "bounded-six",
+      "pair": "sample-floor",
+      "expected": "accept",
+      "actual": "accept",
+      "passed": true,
+      "response": {
+        "verdict": "accept",
+        "decisive_evidence": "All six required deterministic states were executed once, with zero mismatches; exact expected outputs or rejections and all other declared requirements are satisfied.",
+        "allowed_claim": "The frozen timestamp-normalizer patch passes its explicitly scoped development regression gate for these six states.",
+        "next_action": "Accept this development gate result; make no inference about arbitrary inputs, broader production coverage, or investment returns."
+      }
+    },
+    {
+      "case": "bounded-sixty",
+      "pair": "sample-floor",
+      "expected": "accept",
+      "actual": "accept",
+      "passed": true,
+      "response": {
+        "verdict": "accept",
+        "decisive_evidence": "All six required deterministic states matched their exact expected outputs or rejections with zero mismatches; inspected source, grader, provenance, completeness and resource criteria are satisfied. Repeats add no coverage.",
+        "allowed_claim": "The frozen timestamp-normalizer patch passes the explicitly scoped six-state development regression gate. This establishes neither arbitrary-input correctness nor investment returns.",
+        "next_action": "Record the scoped gate as passed; assess broader coverage separately only if a broader decision is requested."
+      }
+    }
+  ],
+  "fresh_refinement_passed": 2,
+  "fresh_refinement_total": 2,
+  "fresh_refinement": [
+    {
+      "case": "missing-provenance",
+      "expected": "inconclusive",
+      "actual": "inconclusive",
+      "passed": true,
+      "response": {
+        "verdict": "inconclusive",
+        "decisive_evidence": "All eight outputs exist, support is 0.94, and no material error is observed, but unavailable source archive checksums prevent required provenance verification.",
+        "allowed_claim": "Available evidence satisfies the other criteria; acceptance for the bounded development trial remains blocked. Missing provenance does not establish prompt failure.",
+        "next_action": "Preserve the candidate and existing evidence; recover the required archive checksums and verify provenance before reassessing the frozen gate. No new execution is claimed."
+      }
+    },
+    {
+      "case": "observed-evidence-error",
+      "expected": "reject",
+      "actual": "reject",
+      "passed": true,
+      "response": {
+        "verdict": "reject",
+        "decisive_evidence": "Independent inspection established one material numerical claim contradicts its source, violating the frozen zero-material-evidence-error criterion despite eight outputs, verified checksums, and support 0.94.",
+        "allowed_claim": "This prompt version fails the stated bounded development trial gate; the evidence does not establish general inferiority.",
+        "next_action": "Block acceptance, preserve the failure evidence, revise or discard this version, and evaluate any revision against the unchanged gate. No new execution is claimed."
+      }
+    }
+  ],
+  "rationale_review": "Root reviewed each response: evidence and allowed claims match the supplied situation. Original missing-case response recognized incomplete evidence but used reject rather than inconclusive.",
+  "limitation": "Single-run synthetic atomic behavior checks; no baseline ablation or broad efficacy inference."
+}

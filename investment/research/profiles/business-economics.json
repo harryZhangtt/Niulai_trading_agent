@@ -1,0 +1,7 @@
+{
+  "id":"business-economics",
+  "version":"1",
+  "requirements":[
+    {"family":"business_realization","question":"What original operating, contractual or regulatory evidence supports the economic claim?","minimum_access":"document","allowed_hosts":["www.sec.gov","sec.gov","www.federalreserve.gov","www.fdic.gov"]}
+  ]
+}

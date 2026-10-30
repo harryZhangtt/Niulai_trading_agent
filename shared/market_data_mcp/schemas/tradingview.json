@@ -1,0 +1,767 @@
+{
+  "source": "https://mcp.tradingview.com/mcp",
+  "verified_at": "2026-10-30",
+  "note": "Public schemas only; does not establish current connectivity or entitlements.",
+  "tools": [
+    {
+      "name": "get_financial_history",
+      "title": "Get financial history",
+      "description": "Quarterly/annual history of fundamentals (revenue, gross profit, operating income, net income, FCF, EPS, EBITDA, total debt) with yoy_pct and period labels.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol in EXCHANGE:TICKER format"
+          },
+          "period": {
+            "type": "string",
+            "description": "fq (quarterly) or fy (annual). Default fq"
+          },
+          "date_from": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), start of the reporting window; other formats are rejected"
+          },
+          "date_to": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), end of the reporting window; other formats are rejected"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Quarterly and annual fundamentals history",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_news",
+      "title": "Get news headlines",
+      "description": "Latest news headlines for a symbol: id, title, published (unix), provider, urgency (1=top, 2=normal), storyPath, link, permission, relatedSymbols, paywall. Paginated: returns limit (default 25) headlines from offset; response carries total_available and has_more \u2014 increase offset to read older headlines (up to 200 total).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol in EXCHANGE:TICKER format"
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language code: en ru de fr es pt it pl tr ar he ko ja vi th ms id zh-Hans zh-Hant ro en_IN. Default en"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Max headlines per call, default 25, cap 200"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Skip this many newest headlines; use with limit to page through all available news (see has_more/total_available in the response)"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Latest news headlines for a symbol",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_financials",
+      "title": "Get financials snapshot",
+      "description": "Current fundamental snapshot: P/E, P/B, margins, ROE/ROA, TTM revenue/income/EBITDA/FCF and YoY growth. Optional metric subset and reporting period (fy/fq/ttm/fh/current).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol in EXCHANGE:TICKER format"
+          },
+          "metric": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional subset of financial metrics (aliases like pe, roe, revenue, fcf or raw TV columns); omit for the full set"
+          },
+          "period": {
+            "type": "string",
+            "description": "Reporting period for metric columns: fy, fq, ttm, fh, current. Default ttm"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Current fundamental snapshot",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_earnings_calendar",
+      "title": "Get earnings calendar",
+      "description": "Upcoming earnings schedule for a list of symbols: for each symbol only the NEXT scheduled report date plus the single MOST RECENT report date, with consensus EPS/revenue forecasts for the next quarter. Not a history: it holds at most two dates per symbol, and date_from/date_to only filter those two dates (a window covering an older quarter returns an empty list). For past quarters use get_financial_history (reported figures) or get_documents (reports, transcripts).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Symbols in EXCHANGE:TICKER format"
+          },
+          "date_from": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), default today. Filters the symbol's two known dates (last report / next scheduled report) \u2014 does not fetch older quarters; other formats are rejected"
+          },
+          "date_to": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), default +180d; other formats are rejected"
+          }
+        },
+        "required": [
+          "symbols"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Earnings dates with EPS and revenue consensus",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_symbol_data",
+      "title": "Get symbol data",
+      "description": "Fetch arbitrary TradingView screener columns for one symbol (escape hatch for advanced queries): stocks, ETFs, crypto, forex, futures, indices, bonds and government bond yields. Use get_screener_columns to discover valid column names.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol in EXCHANGE:TICKER format"
+          },
+          "columns": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "TradingView screener columns to fetch. Default: name description close change change_abs volume market_cap_basic price_earnings_ttm sector industry"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Arbitrary TV screener columns for a single symbol",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_forecasts",
+      "title": "Get analyst forecasts",
+      "description": "Analyst consensus: recommendation + score, buy/hold/sell distribution, price targets with upside_pct, EPS/revenue estimates.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol in EXCHANGE:TICKER format"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Analyst consensus: ratings, price targets, estimates",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_documents",
+      "title": "List filings & transcripts",
+      "description": "List filings and transcripts (10-K/10-Q/8-K, earnings calls) for a symbol with view ids for get_document_view. Supports category/event filters and historical event-date windows.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol in EXCHANGE:TICKER format"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category slug: all, annual_reports, quarterly_reports, interim_reports, company_events, insider_transactions, transcripts, presentations, press_releases, other. Also accepts 10-K / 10-Q / 8-K aliases"
+          },
+          "event": {
+            "type": "string",
+            "description": "Event filter: earning or corporate_event"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "RFC3339 start of the EVENT-date window (inclusive), historical windows work"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "RFC3339 end of the EVENT-date window (inclusive)"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Max documents to return, default 20"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "List of filings and transcripts with view ids",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_economic_symbols",
+      "title": "List economic symbols",
+      "description": "Catalog of economic tickers accepted by get_economic_data (ECONOMICS:). Without arguments returns a compact overview: indicator categories with counts plus every country code. Pass category (e.g. prce, lbr, gdp) or search (substring) for indicator codes and names; add country (e.g. US) to get ready-to-use tickers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "Two-letter country/region code, e.g. US, DE, EU, CN. When set, returns ready-to-use ECONOMICS:* tickers instead of bare indicator codes"
+          },
+          "category": {
+            "type": "string",
+            "description": "Return indicators of one category: gdp, lbr, prce, hlth, mny, trd, gov, bsnss, cnsm, hse, txs, enrg, clmt"
+          },
+          "search": {
+            "type": "string",
+            "description": "Return indicators whose code or name contains this substring (case-insensitive), e.g. inflation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Catalog of economic symbols",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_news_story",
+      "title": "Get news story",
+      "description": "Full text of a news story by its id from get_news: ast_description (AST as string), short_description, summary, permission, provider, copyright.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Story id in urn format from get_news, e.g. urn:newsml:mtnewswires.com:20260810:A123:0"
+          },
+          "lang": {
+            "type": "string",
+            "description": "ISO 639-1 language code, default en"
+          },
+          "user_prostatus": {
+            "type": "string",
+            "description": "pro or non_pro, default non_pro"
+          },
+          "user_country": {
+            "type": "string",
+            "description": "ISO country code"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Full news story text by id",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_screener_columns",
+      "title": "List screener columns",
+      "description": "Catalog of all TradingView screener column names accepted by get_symbol_data, get_symbol_data_batch and run_screener. Without group/search returns a compact overview: groups with column names only. Pass group (e.g. valuation, technicals) or search (substring) to get descriptions and period/timeframe variants; market narrows to stock, etf, crypto or bond.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "market": {
+            "type": "string",
+            "description": "Filter by screener market: stock, etf, crypto, bond or all. Default all"
+          },
+          "group": {
+            "type": "string",
+            "description": "Return full details (descriptions and period/timeframe variants) for one group, e.g. valuation, technicals, income_statement"
+          },
+          "search": {
+            "type": "string",
+            "description": "Return full details for columns whose name or description contains this substring (case-insensitive), e.g. margin"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Catalog of all screener columns",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_ohlcv",
+      "title": "Get OHLCV bars",
+      "description": "Fetch historical OHLCV bars for a symbol at an interval, up to the full available history: at most 5000 bars per call as rows or 8000 as columns (count is capped, see count_limit), optional date_from/date_to window, and paging back in time via date_to=next_date_to when has_more=true. Daily/weekly history goes back to the listing; intraday depth is limited by the data feed to a few thousand bars. Returns aggregate summary and (unless summary=true) the bars as rows [{t (unix sec UTC), o, h, l, c, v}] or, with format=\"columns\", as compact arrays.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol in EXCHANGE:TICKER format, e.g. NASDAQ:NVDA or BINANCE:BTCUSDT"
+          },
+          "interval": {
+            "type": "string",
+            "description": "Bar interval: 1m 5m 15m 30m 1h 4h 1D 1W (use M / 1mo / month for monthly). Default 1D"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Max bars in this response, default 300; capped to 5000 for format=rows and 8000 for format=columns (response size limit, see count_limit); the most recent bars of the window are returned, older ones are reachable via date_to paging (see has_more / next_date_to)"
+          },
+          "date_from": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), inclusive start of the window; other formats are rejected"
+          },
+          "date_to": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), inclusive end of the window; use next_date_to from the previous response to page back in history"
+          },
+          "format": {
+            "type": "string",
+            "description": "Bars layout: rows (default, array of {t,o,h,l,c,v}) or columns (arrays t[], o[], h[], l[], c[], v[] \u2014 about 40% smaller for large windows)"
+          },
+          "summary": {
+            "type": "boolean",
+            "description": "If true, omit the raw bars array and return aggregate statistics only"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Historical OHLCV candles by symbol and timeframe",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_technicals_rating",
+      "title": "Get technical rating",
+      "description": "Full single-timeframe indicator snapshot: RSI, Stoch K/D, CCI20, ADX, MACD, Momentum, AO, EMA/SMA 10-200, VWMA, HullMA9 plus 3 Recommend aggregates (summary/MA/other).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol in EXCHANGE:TICKER format"
+          },
+          "interval": {
+            "type": "string",
+            "description": "Timeframe: 1m 5m 15m 30m 1h 2h 4h 1D 1W 1M. Default 1D"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Full single-timeframe technical indicator snapshot",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "run_screener",
+      "title": "Run screener",
+      "description": "Run the TradingView screener with filters ({field: [min, max]} plus index/sector/industry/analyst_rating), sorting, presets and column selection. Returns rows and totalCount. Use get_screener_columns to discover valid column names for columns and filters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "market": {
+            "type": "string",
+            "description": "Screener market: america, crypto, forex, futures, bonds, cfd, uk, germany, india, japan, ... Default america"
+          },
+          "filters": {
+            "type": "object",
+            "description": "Filters as {field: [min, max]} (null side = unbounded) plus special keys index / sector / industry / analyst_rating, e.g. {\"index\": \"S&P 500\", \"pe\": [null, 15], \"rsi\": [null, 40], \"div_yield\": [2, null]}",
+            "additionalProperties": true
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Column to sort by, default volume"
+          },
+          "sort_order": {
+            "type": "string",
+            "description": "asc or desc, default desc"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Max rows to return, default 100, cap 1000"
+          },
+          "columns": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Screener columns to return"
+          },
+          "symbol_types": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Instrument types to include, e.g. [\"stock\"]"
+          },
+          "filter_preset": {
+            "type": "string",
+            "description": "Named preset: pullback_with_reversal, breakout_with_volume, oversold_healthy, earnings_runup, relative_strength, new_highs"
+          },
+          "symbolset": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Explicit symbol universe, e.g. [\"SYML:SP;SPX\"]"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Screener results for an abstract text query",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_document_view",
+      "title": "Get document text",
+      "description": "Text of a specific document view (summary/transcript) by views[].id from get_documents. Never construct view ids manually.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "view_id": {
+            "type": "string",
+            "description": "Document view id from get_documents views[].id, verbatim \u2014 never construct or edit it"
+          }
+        },
+        "required": [
+          "view_id"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Document text (summary/transcript) by view id",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_economic_calendar",
+      "title": "Get economic calendar",
+      "description": "Macro events (CPI, GDP, rates) filtered by countries, currencies, category and importance. Past windows work (data since 2003-09-01), forward ~31 days.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "countries": {
+            "type": "string",
+            "description": "Comma-separated 2-letter country codes plus regions like EU. Default US"
+          },
+          "currencies": {
+            "type": "string",
+            "description": "Comma-separated ISO currency codes to filter by: USD,JPY,EUR"
+          },
+          "category": {
+            "type": "string",
+            "description": "Event category: gdp, bonds, business, consumer, goverment, health, housing, labor, money, prices, trade, taxes. Default all"
+          },
+          "date_from": {
+            "type": "string",
+            "description": "UTC date/time: YYYY-MM-DD or RFC3339 (other formats are rejected). Default today 00:00. Past works (data since 2003-09-01)"
+          },
+          "date_to": {
+            "type": "string",
+            "description": "UTC date/time: YYYY-MM-DD or RFC3339 (other formats are rejected), default today 23:59. Forward window ~31 days"
+          },
+          "min_importance": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Minimum importance: -1 (all), 0 (medium+high), 1 (high only). Default -1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Macro events (CPI, GDP, rates) by importance and country",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_symbol_data_batch",
+      "title": "Get symbol data (batch)",
+      "description": "Quotes/columns for up to 50 symbols (EXCHANGE:TICKER) in one call; unresolved symbols are reported in `missing` with a reason instead of fabricated zeros. Screener backend errors (429/5xx) are returned as success=false, or as partial=true + warnings when only some markets failed \u2014 such symbols are unavailable, not unknown. Use get_screener_columns to discover valid column names.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Symbols in EXCHANGE:TICKER format, up to 50, deduplicated"
+          },
+          "columns": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "TradingView screener columns to fetch. Default: name description close change change_abs volume market_cap_basic price_earnings_ttm sector industry"
+          }
+        },
+        "required": [
+          "symbols"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Quotes for up to 50 symbols in one call",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_dividends_calendar",
+      "title": "Get dividends calendar",
+      "description": "Dividend data: ex-dates, amount, yield, payment date. Per-symbol mode via symbols[] or market screening mode via date window.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Per-symbol mode: symbols in EXCHANGE:TICKER format"
+          },
+          "market": {
+            "type": "string",
+            "description": "Market screening mode (uses date_from/date_to), e.g. america"
+          },
+          "date_from": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), screening-mode ex-date window start (default now); other formats are rejected"
+          },
+          "date_to": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), screening-mode ex-date window end (default +30d); other formats are rejected"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Max rows in screening mode, default 50, cap 200"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Dividend data: ex-dates, amount, yield, payment date",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_economic_data",
+      "title": "Get economic series",
+      "description": "Time series for an economic indicator (e.g. ECONOMICS:USIRYY): [{date, value}] where value is the actual release value, plus unit/scale when available. Tickers are ECONOMICS:; use get_economic_symbols to discover the available countries and indicator codes instead of guessing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Economic ticker ECONOMICS:<COUNTRY><INDICATOR>, e.g. ECONOMICS:USIRYY. Use get_economic_symbols to discover valid tickers"
+          },
+          "date_from": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), start of the series window (inclusive); other formats are rejected"
+          },
+          "date_to": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD (or RFC3339), end of the series window (inclusive); other formats are rejected"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Economic indicator data series",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "search_symbols",
+      "title": "Search symbols",
+      "description": "Resolve a ticker or company name into routable EXCHANGE:TICKER symbols via fuzzy search. Returns symbol, description, type, exchange, logoid.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Ticker, company name or description to fuzzy-search"
+          },
+          "type_filter": {
+            "type": "string",
+            "description": "Filter by instrument type: stock, etf, bond, forex, index, futures, crypto. Default all"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "title": "Resolve ticker or name into EXCHANGE:TICKER (fuzzy search)",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    }
+  ]
+}

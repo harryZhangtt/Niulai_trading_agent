@@ -1,0 +1,14 @@
+{
+  "name": "trading-agent-market-data-mcp",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "node e2e.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "mcp-remote": "0.15.2"
+  }
+}

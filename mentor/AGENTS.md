@@ -53,17 +53,25 @@ These are behavioral instructions, not an independently running watchdog.
 
 # Skill routing
 
-For mentor tasks, always apply `skills/research-supervisor/SKILL.md` and
-`skills/evidence-and-overfitting/SKILL.md`. Load additional skills by the decision:
+Use the provisional selective-loading contract in `ROUTING.md`. Keep the small
+scope/evidence/progress invariants there and above active. Select full skills for
+the decision at hand; the supervisor and evidence bodies are no longer loaded
+unconditionally. Reuse skills already loaded in the session and add references
+only when needed. Multiple specialists may apply to one decision.
 
-| Trigger | Skill |
-|---|---|
-| Stalled progress, repeated failures, premature stop, or blocker review | `skills/progress-and-recovery/SKILL.md` |
-| Propose or assess a tuning change, isolate its effect | `skills/experiment-design/SKILL.md` |
-| Design/review cases, graders, metrics, splits, or acceptance criteria | `skills/evaluation-design/SKILL.md` |
+The lightweight screen and its limitations are recorded in
+`../tuning/evals/mentor-routing/report.md`. This is procedural skill routing,
+not a change to the underlying model. A loaded body remains in the session's
+context until the host compacts it; routing avoids unnecessary future loads.
 
-Multiple routes may apply. Reuse already-loaded guidance; do not reload all five
-on every step. Ordinary tasks outside mentoring do not activate these skills.
+Five entrypoints contain pinned upstream implementations and local resources;
+`development-discipline` is the sixth, authored for this workspace. Apply it to
+development decisions across components, retaining implementation and test
+ownership in the affected component. Read imported skills' linked investment
+context when applying them. Provenance, retained
+licenses and the evidence-based pruning record live in `upstream/`; see
+`upstream/ADAPTATIONS.md`. Do not substitute a globally installed skill or assume
+that omitted upstream hooks, graders or background services are active.
 For sustained tasks use `state/task.template.json` as a compact record, saved in
 ignored `runtime/`. This template and routing are instruction-based, not a daemon.
 Use `tests/scenarios.md` to review changes to routing or supervision behavior.

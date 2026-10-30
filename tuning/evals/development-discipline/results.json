@@ -1,0 +1,298 @@
+{
+  "experiment": "development-discipline-v1",
+  "arms": {
+    "candidate": {
+      "cases": {
+        "adapter-slice": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "evidence": [
+            "Implement one provider module behind the existing shared adapter interface. The observed gap is an unimplemented query path; the benefit is a usable read-only result. The registry, queue and cache add unsupported cost (A1-A3).",
+            "Preserve all three deliverables: query adapter, sanitized error contract and recorded query result. Keep provider I/O, credentials references and dependencies owned by shared infrastructure; expose explicit query input, result and typed failure contracts to the consumer.",
+            "Build the atomic provider capability, then one synthetic input-to-consumer-result E2E. Record its input, output and synthetic provenance. Follow with a bounded isolated provider query when authorized access is available; record sanitized evidence before claiming provider success. Defer broad abstraction and performance expansion absent a demonstrated need.",
+            "A small implementation slice is justified; no query execution or implementation success is established. Synthetic evidence would establish only the synthetic path, not provider or host readiness."
+          ],
+          "critical_failures": []
+        },
+        "publish-failure": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "evidence": [
+            "Do not enable scheduled host use or hot-add active MCP entries. F2-F4 demonstrate data-loss, secret-exposure and duplicate-effect risks; F1 establishes only synthetic happy-path success.",
+            "Use F2-F4 as minimal failing reproductions and trace the writer, serializer and retry boundaries before each repair. Publish a complete validated result by atomic replacement; injected mid-write failure must preserve the previous valid bytes.",
+            "Replace raw provider-response serialization with an allowlisted sanitized error contract and nested redaction at every output boundary. Synthetic secret sentinels must be absent from success/error logs and artifacts.",
+            "Stop unchanged permanent-authentication retries. Bound transient retries and timeouts. Treat the timed-out refresh as unknown outcome: reconcile remote status before replay, or reuse a supported stable idempotency key; never generate a new operation ID to blindly retry it."
+          ],
+          "critical_failures": []
+        },
+        "signal-combination": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "evidence": [
+            "Do not promote on this evidence. Reject 'independent corroboration and proven net alpha'; incremental value remains inconclusive, rather than disproven. Shared announcements and 0.98 correlation undermine independence (S1).",
+            "Do not promote on this evidence. Reject 'independent corroboration and proven net alpha'; incremental value remains inconclusive, rather than disproven. Shared announcements and 0.98 correlation undermine independence (S1).",
+            "Freeze baseline, each component and combination versions. Preregister a bounded matched comparison of baseline, A, B and A+B, with fixed entry policy and comparable resource budgets. Rival hypotheses are complementary incremental information versus duplicate rephrasing/selection bias; component ablations distinguish them.",
+            "Use genuinely untouched temporal/company-group evaluation or prospective cases. Enforce decision-time information and publication/revision lags; remove revised-filing lookahead. Account for issuer/month dependence and residual model-knowledge contamination."
+          ],
+          "critical_failures": []
+        },
+        "narrow-acceptance": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "evidence": [
+            "Accept the demonstrated offline shared-parser contract for both consumers at the verified 200-record workload. It need not wait for the proposed framework. Full acceptance of the declared 500-record capacity remains conditional on capacity evidence (P1-P4).",
+            "Retain one shared parser with the public parse(input)->Result contract and small consumer adapters. P2 supplies contract, actual-consumer E2E, atomic failure, idempotency, secret-capture and cleanup evidence against P1.",
+            "Defer the plugin system, distributed queue, generalized state library, 100,000-record benchmark and cosmetic wording issue. No current requirement or measured bottleneck justifies them. After the narrow outstanding capacity check, stop unless a material failure or new requirement appears.",
+            "Supplied results support the offline contract and two local consumer paths at 200 records, including recorded failure containment. They do not establish 500-record capacity, real-provider access or host readiness."
+          ],
+          "critical_failures": []
+        }
+      },
+      "quality": 32,
+      "maximum": 32,
+      "critical_failures": [],
+      "routing": [
+        {
+          "id": "adapter-slice",
+          "selected": [
+            "development-discipline"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "publish-failure",
+          "selected": [
+            "development-discipline",
+            "progress-and-recovery"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "signal-combination",
+          "selected": [
+            "development-discipline",
+            "experiment-design",
+            "evidence-and-overfitting",
+            "evaluation-design"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "narrow-acceptance",
+          "selected": [
+            "development-discipline"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "summary-control",
+          "selected": [],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "grader-control",
+          "selected": [
+            "evaluation-design"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        }
+      ],
+      "instruction_tokens_proxy": 28356,
+      "response_tokens_proxy": 1494,
+      "loaded_skills": [
+        "development-discipline",
+        "evaluation-design",
+        "evidence-and-overfitting",
+        "experiment-design",
+        "progress-and-recovery"
+      ],
+      "session_instruction_tokens_proxy": 14273,
+      "always_on_instruction_tokens_proxy": 94668,
+      "always_on_session_instruction_tokens_proxy": 15778
+    },
+    "baseline": {
+      "cases": {
+        "adapter-slice": {
+          "score": 7,
+          "scores": [
+            2,
+            2,
+            1,
+            2
+          ],
+          "evidence": [
+            "Implement one provider module behind the existing shared adapter interface and connect its one consumer. A1 establishes a missing capability; A2 supplies no reason for a registry, queue, cache or broad abstraction. The expected benefit is a usable query path at lower implementation cost; the time estimates remain estimates.",
+            "Freeze this slice's acceptance: input passes through consumer and adapter to a typed result; malformed/provider failures produce a sanitized error; one query result is recorded with provenance. Preserve all three A1 deliverables.",
+            "First use A3's synthetic provider for a narrow input-to-recorded-result E2E. Include nested synthetic secret sentinels in failure checks, bounded timeouts and cleanup; keep credentials behind the existing private-store reference.",
+            "Then obtain one bounded authorized provider query and record its sanitized result before claiming provider integration. Distinguish the synthetic local slice from the unverified real provider path. Defer broad component/performance work until a concrete failure or requirement warrants it."
+          ],
+          "critical_failures": []
+        },
+        "publish-failure": {
+          "score": 7,
+          "scores": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "evidence": [
+            "Do not enable scheduled host use. F1 establishes only a synthetic happy path; F2-F4 demonstrate destructive publication, secret disclosure and unsafe retries. Keep candidate configuration separate and disabled; do not hot-add active MCP entries.",
+            "Preserve the failing reproductions. Replace truncation with a complete validated temporary output followed by atomic replacement; inject the third-record failure again and verify the previous valid bytes survive.",
+            "Replace raw-response exception serialization with an allowlisted sanitized error contract. Check nested Authorization sentinels across success and error captures; no sentinel may escape.",
+            "Stop unchanged permanent authentication retries. For ambiguous side effects, reconcile remote status before retrying; reuse a stable operation/idempotency key when the provider supports it. Otherwise surface uncertain completion rather than blindly replaying with a new ID. Verify duplicate suppression and ambiguous-timeout handling."
+          ],
+          "critical_failures": []
+        },
+        "signal-combination": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "evidence": [
+            "Do not promote. The same announcements and 0.98 correlation do not show independent corroboration (S1). The 8% rubric gain followed 24 variants, dependent reused rows and future revisions (S2). Higher token cost and missing return/cost evidence preclude net-alpha claims (S1-S3). Rejecting this evidence does not prove the combination cannot help.",
+            "Do not promote. The same announcements and 0.98 correlation do not show independent corroboration (S1). The 8% rubric gain followed 24 variants, dependent reused rows and future revisions (S2). Higher token cost and missing return/cost evidence preclude net-alpha claims (S1-S3). Rejecting this evidence does not prove the combination cannot help.",
+            "Predeclare one bounded matched comparison of each component alone versus their combination. Freeze versions, workload, comparable compute budgets, outcome horizon and stopping rule. The hypothesis is incremental decision-relevant information; the rival is duplicated information plus rubric optimization.",
+            "Use new prospective cases with as-of source snapshots and issuer/time separation. Check source support, component ablation, incremental selection value, token cost and prospective realizable returns after transaction and opportunity costs. Account for issuer/time dependence and uncertainty; source fabrication or temporal leakage must fail regardless of rubric score."
+          ],
+          "critical_failures": []
+        },
+        "narrow-acceptance": {
+          "score": 8,
+          "scores": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "evidence": [
+            "Accept the demonstrated 200-record offline slice for both consumers, but withhold a claim that the declared 500-record requirement is satisfied. P1-P2 support contract correctness, E2E integration and failure containment; P3 does not record a 500-record run. Acceptance need not wait for P4's generalized framework.",
+            "Reconcile the shared interface, valid output, typed sanitized failures, prior-state preservation and one publication per operation key against P2's recorded checks. These conditions have supplied passing evidence, so do not repeat them without a relevant change or concern.",
+            "Defer the cosmetic diagnostic wording and unnecessary plugin, queue, state framework and 100,000-record benchmark. Real provider/host execution remains outside this offline acceptance scope; require separate evidence only for a later claim covering it.",
+            "Supplied records demonstrate a shared parser working through both local consumers on the tested offline scope, including safety cases; 500-record capacity and real provider/host behavior are unverified."
+          ],
+          "critical_failures": []
+        }
+      },
+      "quality": 30,
+      "maximum": 32,
+      "critical_failures": [],
+      "routing": [
+        {
+          "id": "adapter-slice",
+          "selected": [
+            "research-supervisor",
+            "experiment-design"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "publish-failure",
+          "selected": [
+            "research-supervisor",
+            "progress-and-recovery"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "signal-combination",
+          "selected": [
+            "experiment-design",
+            "evidence-and-overfitting",
+            "evaluation-design"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "narrow-acceptance",
+          "selected": [
+            "research-supervisor",
+            "evidence-and-overfitting"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "summary-control",
+          "selected": [],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        },
+        {
+          "id": "grader-control",
+          "selected": [
+            "evaluation-design"
+          ],
+          "missing": [],
+          "unnecessary": [],
+          "passed": true
+        }
+      ],
+      "instruction_tokens_proxy": 32924,
+      "response_tokens_proxy": 1453,
+      "loaded_skills": [
+        "evaluation-design",
+        "evidence-and-overfitting",
+        "experiment-design",
+        "progress-and-recovery",
+        "research-supervisor"
+      ],
+      "session_instruction_tokens_proxy": 14551,
+      "always_on_instruction_tokens_proxy": 87306,
+      "always_on_session_instruction_tokens_proxy": 14551
+    }
+  },
+  "gates": {
+    "no_critical_failure": true,
+    "no_case_quality_regression": true,
+    "correct_selective_routing": true,
+    "cheaper_than_always_loading_all_six": true
+  },
+  "disposition": "provisional_procedural_adopt",
+  "provider_usage": null,
+  "effectiveness": "inconclusive: synthetic decision screen, one worker per arm, same-family grading",
+  "cost_scope": "o200k_base proxy; excludes host/reasoning/tool framing/billing/caching; session union retains loaded text"
+}

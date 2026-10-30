@@ -1,0 +1,2 @@
+# Context accounting only; browser/tool dependencies reuse ui/verification's lockfile.
+tiktoken==0.12.0

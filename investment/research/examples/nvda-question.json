@@ -1,0 +1,8 @@
+{
+  "subject":"NVDA",
+  "as_of":"2026-10-30T23:59:59Z",
+  "profile":"accelerated-compute",
+  "claims":[
+    {"id":"gpu-efficiency","question":"How could attention-kernel efficiency change GPU utilization, paid compute demand and vendor value capture?"}
+  ]
+}

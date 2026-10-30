@@ -1,0 +1,4 @@
+This is a harmless scheduler transport probe. Return a JSON object with status
+"awake" and the scheduler-provided slot_id. Do not use tools, access files or
+accounts, send messages, or perform any other work. Your completion will be
+verified from the Codex CLI transport receipt rather than this statement alone.

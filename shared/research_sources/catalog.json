@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "providers": [
+    {
+      "id": "openalex",
+      "operations": [
+        {
+          "name": "discover",
+          "output_access": "metadata"
+        }
+      ],
+      "families": [
+        "technical_research"
+      ],
+      "implementation": "official REST API",
+      "mcp_candidate": "https://github.com/ourresearch/openalex-mcp-server",
+      "role": "Discovery, identifier candidates and citation graph; never substitutes for reading the primary paper"
+    },
+    {
+      "id": "arxiv",
+      "operations": [
+        {
+          "name": "discover",
+          "output_access": "metadata"
+        },
+        {
+          "name": "read",
+          "output_access": "document"
+        }
+      ],
+      "families": [
+        "technical_research"
+      ],
+      "implementation": "official Atom and versioned HTML",
+      "mcp_candidate": "https://github.com/blazickjp/arxiv-mcp-server",
+      "role": "Versioned manuscript, methods/results passages and source sections; publication status still requires appraisal"
+    },
+    {
+      "id": "arxiv_mcp_candidate",
+      "operations": [
+        {
+          "name": "read",
+          "output_access": "document"
+        }
+      ],
+      "families": [
+        "technical_research"
+      ],
+      "implementation": "optional isolated arxiv-mcp-server==0.8.2",
+      "maturity": "one-paper live pilot; not default",
+      "role": "Structured section outline and bounded section reads; explicitly separate local cache materialization from read-only tools"
+    },
+    {
+      "id": "official_document",
+      "operations": [
+        {
+          "name": "read",
+          "output_access": "document"
+        }
+      ],
+      "families": [
+        "issuer_technical",
+        "comparative_technical",
+        "business_realization"
+      ],
+      "implementation": "allowlisted first-party HTTPS document",
+      "role": "Original documentation, benchmark rules or operating evidence; not automatic independent corroboration"
+    },
+    {
+      "id": "web_search",
+      "operations": [
+        {
+          "name": "discover",
+          "output_access": "discovery"
+        }
+      ],
+      "families": [
+        "issuer_technical",
+        "comparative_technical",
+        "business_realization",
+        "technical_research"
+      ],
+      "implementation": "existing authorized native/Work workflow",
+      "role": "Broad discovery and contrary evidence; returned URLs must be opened and ingested before satisfying requirements"
+    }
+  ]
+}

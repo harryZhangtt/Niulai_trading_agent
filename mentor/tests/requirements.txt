@@ -1,0 +1,3 @@
+# Only needed for the installed Skill Creator's frontmatter validator.
+# The upstream hypothesis tools and their tests use the Python standard library.
+PyYAML==6.0.2

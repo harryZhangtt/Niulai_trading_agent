@@ -1,0 +1,4 @@
+Source: https://github.com/vercel-labs/agent-skills/blob/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/README.md
+README License section: MIT
+Skill frontmatter: license: MIT
+No root LICENSE text was present in this pinned checkout.

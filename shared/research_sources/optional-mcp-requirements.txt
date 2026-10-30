@@ -1,0 +1,2 @@
+# Optional isolated candidate; not installed into Codex or enabled at startup.
+arxiv-mcp-server==0.8.2

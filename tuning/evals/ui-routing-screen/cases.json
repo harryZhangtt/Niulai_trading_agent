@@ -1,0 +1,91 @@
+[
+  {
+    "id": "small-polish",
+    "request": "Polish a small existing card's spacing and visual hierarchy within its current design system. No component API, async behavior or performance change is requested.",
+    "required": [
+      "impeccable"
+    ],
+    "optional": [
+      "ui-ux-pro-max"
+    ],
+    "refs": [
+      "skills/impeccable/reference/polish.md"
+    ]
+  },
+  {
+    "id": "shadcn-dialog",
+    "request": "Fix this existing shadcn Radix Dialog: it lacks a DialogTitle and its field composition uses the wrong component API. Inspect the configured base and use the actual components. No async logic or performance redesign is requested.",
+    "required": [
+      "shadcn"
+    ],
+    "optional": [
+      "impeccable",
+      "playwright-cli"
+    ],
+    "refs": []
+  },
+  {
+    "id": "react-waterfall",
+    "request": "Review a Next.js server component that awaits two independent fetches serially. Propose the smallest performance change. No visual change, browser reproduction or mutation workflow is requested.",
+    "required": [
+      "vercel-react-best-practices"
+    ],
+    "optional": [],
+    "refs": []
+  },
+  {
+    "id": "async-browser",
+    "request": "Fix and reproduce a React editor bug: switch A to B then receive A late; double Save; lose a successful write response. Design visible saving/error/uncertain states and test the rendered behavior, final entity and business operation count.",
+    "required": [
+      "async-state-reliability",
+      "impeccable",
+      "playwright-cli"
+    ],
+    "optional": [
+      "vercel-react-best-practices"
+    ],
+    "refs": [
+      "skills/impeccable/reference/harden.md"
+    ]
+  },
+  {
+    "id": "new-direction",
+    "request": "Create a substantial new visual direction for an analysis dashboard from an existing brand brief and inspect the rendered desktop/mobile result. Keep the app's stack and semantic controls.",
+    "required": [
+      "frontend-design",
+      "impeccable",
+      "playwright-cli"
+    ],
+    "optional": [
+      "ui-ux-pro-max"
+    ],
+    "refs": [
+      "skills/impeccable/reference/new-work.md"
+    ]
+  },
+  {
+    "id": "backend-control",
+    "request": "Repair a Python backend's bounded retry behavior and atomic JSON replacement. No browser, markup, UI state or frontend change is involved.",
+    "required": [],
+    "optional": [],
+    "refs": []
+  },
+  {
+    "id": "prose-control",
+    "request": "Summarize this release note only: the dashboard adds CSV export and fixes a button-label typo. No UI editing or engineering decision is requested.",
+    "required": [],
+    "optional": [],
+    "refs": []
+  },
+  {
+    "id": "motion-option",
+    "request": "Advise one purposeful panel transition in an existing React app that already uses Motion, including the reduced-motion option. No implementation, performance profiling or browser run is requested.",
+    "required": [
+      "impeccable"
+    ],
+    "optional": [],
+    "refs": [
+      "skills/impeccable/reference/animate.md"
+    ]
+  }
+]

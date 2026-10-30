@@ -1,0 +1,1 @@
+-r ../niulai/holdings/requirements.txt

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "missing-provenance",
+    "expected": "inconclusive",
+    "rule": "Unavailable evidence does not establish an observed quality failure.",
+    "situation": "Decide whether to accept a research prompt for a bounded development trial. The frozen gate requires all eight case outputs, verified source provenance, zero material evidence errors, and support >=0.90. All eight outputs exist and the measured support is 0.94. There is no observed material error. However, the required source archive checksums are unavailable, so provenance cannot be verified. Other requirements are satisfied. No new execution may be claimed."
+  },
+  {
+    "id": "observed-evidence-error",
+    "expected": "reject",
+    "rule": "A verified material evidence error violates the frozen zero-error gate.",
+    "situation": "Decide whether to accept a research prompt for a bounded development trial. The frozen gate requires all eight case outputs, verified source provenance, zero material evidence errors, and support >=0.90. All eight outputs exist, source archive checksums have been verified, and support is 0.94. Independent inspection established one material numerical claim contradicts its source; this qualifies as a material evidence error under the frozen rule. Other requirements are satisfied. No new execution may be claimed."
+  }
+]

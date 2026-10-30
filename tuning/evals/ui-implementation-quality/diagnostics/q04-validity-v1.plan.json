@@ -1,0 +1,16 @@
+{
+  "identity": "q04-validity-diagnostic-v1",
+  "purpose": "Post-result measurement diagnosis of original Q04; not fresh efficacy evidence or a replacement score.",
+  "blindness": "Anonymous patch-X/patch-Y only; no arm mapping, worker packet, skill exposure, original worker score, or worker transcript is read.",
+  "question": "Does an unchanged draft's disabled Save demonstrate late error contamination, or a valid no-change policy?",
+  "subjects": ["author seed", "author reference", "anonymous patch-X", "anonymous patch-Y"],
+  "counterfactuals": [
+    "D01: all reads healthy; select Ridge; observe pristine state after matched wait; edit a valid title and save.",
+    "D02: initial Harbor failure finishes decoding after Ridge selection; observe pristine Ridge after late failure; edit a valid title and save.",
+    "D03: initial Harbor failure finishes decoding after Ridge selection and a valid Ridge title edit; observe dirty state after late failure, then save."
+  ],
+  "observe_without_requirement": ["Pristine Save disabled/enabled", "alerts and status text before/after late completion", "unchanged draft vs edited draft state"],
+  "business_assertions": ["Valid edited Ridge title can be saved", "exactly one Ridge business operation commits", "committed entity/title/body match request", "Harbor record stays unchanged", "Ridge selection/draft remain correct"],
+  "decision_rule": "If pristine Save is disabled in both healthy and late-failure runs, while valid edited Ridge can save in both and no late alert appears, original Q04's enabled-pristine-Save assertion is an invalid policy constraint. Retain frozen scores and report separate diagnostic implications only.",
+  "preservation": "No implementation or original grader/gold edits; fingerprint applications and original sources before and after."
+}

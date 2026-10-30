@@ -1,0 +1,57 @@
+{
+  "record_version": 1,
+  "change_id": "REPLACE_WITH_UNIQUE_CHANGE_ID",
+  "scope": "REPLACE_WITH_CHANGED_CAPABILITY",
+  "owner": "REPLACE_WITH_COMPONENT_OWNER",
+  "candidate": {
+    "revision": null,
+    "source_fingerprint": null,
+    "sanitized_config_fingerprint": null,
+    "fingerprints_captured_at": null
+  },
+  "criteria_declared_at": null,
+  "criteria": {
+    "expected_business_result": null,
+    "required_real_provider_path": null,
+    "required_coverage": null,
+    "source_freshness_rule": null,
+    "max_start_lateness_seconds": null,
+    "completion_timeout_seconds": null
+  },
+  "execution": {
+    "status": "pending",
+    "job_id": null,
+    "slot_id": null,
+    "attempt_id": null,
+    "codex_thread_id": null,
+    "requested_model_profile": null,
+    "scheduled_at": null,
+    "started_at": null,
+    "completed_at": null,
+    "start_lateness_seconds": null,
+    "turn_completed": false,
+    "exit_code": null,
+    "postconditions": [],
+    "partial_coverage": [],
+    "failure_codes": [],
+    "reconciliations": [],
+    "evidence_paths": [],
+    "candidate_matches_evidence": false
+  },
+  "email_sync": {
+    "status": "pending",
+    "notification_key": null,
+    "recipient_policy_reference": null,
+    "sender_role": null,
+    "subject": null,
+    "message_id": null,
+    "payload_digest": null,
+    "readback_verified_at": null,
+    "evidence_path": null
+  },
+  "acceptance": "unverified",
+  "allowed_claim": null,
+  "remaining_boundaries": [],
+  "reviewed_by": null,
+  "reviewed_at": null
+}

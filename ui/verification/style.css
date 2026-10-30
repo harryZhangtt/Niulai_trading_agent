@@ -1,0 +1,22 @@
+:root { color-scheme: light; --background: #f6f8fb; --foreground: #172538; --muted: #415369; --border: #738398; --primary: #174f91; --primary-foreground: #fff; font: 16px/1.5 system-ui, sans-serif; color: var(--foreground); background: var(--background); }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(100% - 2rem, 42rem); margin: 3rem auto; }
+h1 { font-size: 2rem; line-height: 1.2; margin: .5rem 0; }
+h2 { font-size: 1.25rem; }
+p { overflow-wrap: anywhere; }
+.context { color: var(--muted); margin: 0; }
+nav { display: flex; gap: .75rem; margin: 2rem 0; }
+button, input { font: inherit; min-height: 44px; border: 1px solid var(--border); border-radius: .375rem; }
+button { background: white; padding: .625rem 1rem; color: var(--foreground); cursor: pointer; }
+button[aria-pressed="true"], .actions button:first-child { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+button:disabled { cursor: default; opacity: .65; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+.editor { border-block-start: 1px solid var(--border); padding-block-start: .5rem; }
+label { display: block; font-weight: 600; margin-block: 1.5rem .5rem; }
+input { display: block; width: 100%; padding: .625rem; background: white; }
+input[aria-invalid="true"] { border: 2px solid #9f251b; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+#result { min-height: 3rem; transition: color 120ms ease-out; }
+@media (prefers-reduced-motion: reduce) { #result { transition: none; } }
+@media (max-width: 400px) { main { margin-block: 1.5rem; } }

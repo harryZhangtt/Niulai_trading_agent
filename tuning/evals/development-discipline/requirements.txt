@@ -1,0 +1,2 @@
+# Serialized context proxy only; not a production runtime dependency.
+tiktoken==0.12.0

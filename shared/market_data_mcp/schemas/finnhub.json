@@ -1,0 +1,11 @@
+{
+  "source": "https://finnhub.io/docs/api/introduction",
+  "verified_at": "2026-10-30",
+  "note": "Project-local read-only MCP adapter for official Finnhub REST endpoints; not the hosted OAuth MCP server.",
+  "tools": [
+    {"name":"quote","description":"Finnhub equity quote. Includes the provider timestamp; coverage depends on account entitlements.","inputSchema":{"type":"object","properties":{"symbol":{"type":"string","minLength":1,"maxLength":40}},"required":["symbol"],"additionalProperties":false},"annotations":{"readOnlyHint":true}},
+    {"name":"company_profile","description":"Finnhub free company profile v2 by ticker symbol.","inputSchema":{"type":"object","properties":{"symbol":{"type":"string","minLength":1,"maxLength":40}},"required":["symbol"],"additionalProperties":false},"annotations":{"readOnlyHint":true}},
+    {"name":"symbol_lookup","description":"Find matching ticker symbols using the official Finnhub search endpoint.","inputSchema":{"type":"object","properties":{"query":{"type":"string","minLength":1,"maxLength":120}},"required":["query"],"additionalProperties":false},"annotations":{"readOnlyHint":true}},
+    {"name":"basic_financials","description":"Finnhub basic financial metrics and series. Availability depends on the supplied API key.","inputSchema":{"type":"object","properties":{"symbol":{"type":"string","minLength":1,"maxLength":40}},"required":["symbol"],"additionalProperties":false},"annotations":{"readOnlyHint":true}}
+  ]
+}

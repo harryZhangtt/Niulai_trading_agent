@@ -1,0 +1,375 @@
+[
+  {
+    "id": "complex-01",
+    "pair_id": "scope-transport",
+    "changed_field": "public.request (requested decision scope)",
+    "public": {
+      "request": "For CandidateDesk cd-4.2, bundle B17, decide adoption at this requested scope: the EvidenceCutoff ec-2.1 deterministic helper development gate. State a verdict, decisive evidence IDs, allowed claim, and next action.",
+      "contract": "C17 revision 2 was frozen on 2026-10-16 at 09:00 UTC, before these runs. At helper scope, ec-2.1 build 91af0c2 must reproduce all eight M17 expected JSON payloads exactly, raise only the two specified validation errors, and have median latency at most 3.0 ms over the prescribed 100 repeated invocations. At incremental stock-selection alpha scope, the same bundle must instead complete locked prospective panel P17: sixteen weekly paired decisions versus ap-4.1, with entry policy e-1 fixed and 20 basis points round-trip costs; mean net excess return must exceed 0.30 percentage points and its prespecified weekly-block 90% lower confidence bound must exceed zero, with zero material source errors. These thresholds are local adoption requirements, not universal sample-size rules. Retain every attempt.",
+      "artifacts": [
+        {
+          "id": "P1-MANIFEST",
+          "text": "M17, signed 2026-10-16: T01 before-cutoff => [s1]; T02 equal-to-cutoff => [s2]; T03 one-second-late => []; T04 equivalent timezone => [s4]; T05 malformed date => E_DATE; T06 absent publication => E_MISSING; T07 stable ordering => [s7a,s7b]; T08 later correction => [s8v1]. Expected payloads include normalized UTC timestamps and evidence IDs. The fixtures were authored before ec-2.1."
+        },
+        {
+          "id": "P1-RUN",
+          "text": "Runner R17 on 2026-10-18, build 91af0c2: expected/actual byte comparison T01=P, T02=P, T03=P, T04=P, T05=P, T06=P, T07=P, T08=P. Unexpected exceptions=0. Median of 100 prescribed invocations=1.1 ms. Eight distinct inputs; repetitions reused them. Receipt lists one attempt and its complete stdout."
+        },
+        {
+          "id": "P1-PANEL",
+          "text": "P17 ledger as of 2026-10-19: paired prospective decisions=0/16; outcome rows=0. Development notebook H17 reports historical mean excess +1.20 percentage points on six repeatedly consulted weeks; it has no confidence interval. Notebook labels H17 exploratory and records five prompt variants. Selection prompt in B17 is ap-4.2."
+        },
+        {
+          "id": "P1-MANAGER",
+          "text": "Release note: “Overall readiness 98/100; the helper wins, so publish our stock-selection alpha improvement.” Its score combines formatting, execution time, and historical return. No additional outcomes are attached."
+        }
+      ]
+    },
+    "gold": {
+      "verdict": "accept",
+      "decisive_evidence_ids": [
+        "P1-MANIFEST",
+        "P1-RUN"
+      ],
+      "required_reasoning": [
+        "Identify the requested object as the bounded ec-2.1 helper gate within B17.",
+        "Eight distinct fixture payloads and specified errors match; 1.1 ms is below 3.0 ms. Repeated calls measure timing, not independent generalization.",
+        "P17 incompleteness does not defeat this narrower frozen helper criterion; the manager score does not establish alpha."
+      ],
+      "allowed_claim_boundary": "Support adoption of ec-2.1 build 91af0c2 for the eight-fixture deterministic development gate; preserve the receipt and run broader validation separately.",
+      "prohibited_claims": [
+        "B17 has demonstrated investment alpha.",
+        "The 100 repeated invocations are 100 independent test cases.",
+        "The manager readiness score is a substitute for source or outcome evidence."
+      ]
+    }
+  },
+  {
+    "id": "complex-02",
+    "pair_id": "scope-transport",
+    "changed_field": "public.request (requested decision scope)",
+    "public": {
+      "request": "For CandidateDesk cd-4.2, bundle B17, decide adoption at this requested scope: incremental stock-selection alpha for the ap-4.2 selection prompt against ap-4.1. State a verdict, decisive evidence IDs, allowed claim, and next action.",
+      "contract": "C17 revision 2 was frozen on 2026-10-16 at 09:00 UTC, before these runs. At helper scope, ec-2.1 build 91af0c2 must reproduce all eight M17 expected JSON payloads exactly, raise only the two specified validation errors, and have median latency at most 3.0 ms over the prescribed 100 repeated invocations. At incremental stock-selection alpha scope, the same bundle must instead complete locked prospective panel P17: sixteen weekly paired decisions versus ap-4.1, with entry policy e-1 fixed and 20 basis points round-trip costs; mean net excess return must exceed 0.30 percentage points and its prespecified weekly-block 90% lower confidence bound must exceed zero, with zero material source errors. These thresholds are local adoption requirements, not universal sample-size rules. Retain every attempt.",
+      "artifacts": [
+        {
+          "id": "P1-MANIFEST",
+          "text": "M17, signed 2026-10-16: T01 before-cutoff => [s1]; T02 equal-to-cutoff => [s2]; T03 one-second-late => []; T04 equivalent timezone => [s4]; T05 malformed date => E_DATE; T06 absent publication => E_MISSING; T07 stable ordering => [s7a,s7b]; T08 later correction => [s8v1]. Expected payloads include normalized UTC timestamps and evidence IDs. The fixtures were authored before ec-2.1."
+        },
+        {
+          "id": "P1-RUN",
+          "text": "Runner R17 on 2026-10-18, build 91af0c2: expected/actual byte comparison T01=P, T02=P, T03=P, T04=P, T05=P, T06=P, T07=P, T08=P. Unexpected exceptions=0. Median of 100 prescribed invocations=1.1 ms. Eight distinct inputs; repetitions reused them. Receipt lists one attempt and its complete stdout."
+        },
+        {
+          "id": "P1-PANEL",
+          "text": "P17 ledger as of 2026-10-19: paired prospective decisions=0/16; outcome rows=0. Development notebook H17 reports historical mean excess +1.20 percentage points on six repeatedly consulted weeks; it has no confidence interval. Notebook labels H17 exploratory and records five prompt variants. Selection prompt in B17 is ap-4.2."
+        },
+        {
+          "id": "P1-MANAGER",
+          "text": "Release note: “Overall readiness 98/100; the helper wins, so publish our stock-selection alpha improvement.” Its score combines formatting, execution time, and historical return. No additional outcomes are attached."
+        }
+      ]
+    },
+    "gold": {
+      "verdict": "inconclusive",
+      "decisive_evidence_ids": [
+        "P1-PANEL",
+        "P1-RUN"
+      ],
+      "required_reasoning": [
+        "Identify the requested scope as incremental selection alpha, with entry behavior fixed by C17.",
+        "The prospective panel has no completed decisions or outcomes; the repeatedly consulted historical notebook cannot meet the frozen prospective requirement.",
+        "The helper result is genuine but answers a different question. No valid observed result establishes a decisive alpha-quality violation."
+      ],
+      "allowed_claim_boundary": "Block the alpha adoption claim, retain B17 as a candidate, and collect the locked P17 paired decisions and outcomes without retuning on that panel.",
+      "prohibited_claims": [
+        "ap-4.2 is worse than ap-4.1.",
+        "The missing prospective outcomes alone reject the prompt.",
+        "Helper correctness or 98/100 readiness proves alpha."
+      ]
+    }
+  },
+  {
+    "id": "complex-03",
+    "pair_id": "object-identity",
+    "changed_field": "public.request (evaluated object)",
+    "public": {
+      "request": "Assess this evaluated object under C22: grader g-7.0 build f72b119, for the frozen deterministic grader correctness gate. Give the verdict, decisive evidence IDs, allowed claim, and next action.",
+      "contract": "C22 revision 1 was sealed 2026-10-12, before the 2026-10-15 evaluation. Grader scope requires exact agreement with fixtures GR-01 through GR-04 and a schema-valid artifact: passed is an integer between zero and total, total equals the number of unique case IDs, and pass_rate equals 100 times passed/total. GR-03 explicitly supplies critical_fact_error=true and requires case_pass=false. Prompt scope concerns prompt p-9.0 build 58c8d10 versus p-8.6 on twelve locked source-grounded briefs: all twelve outputs must receive valid calibrated judgments; at least eleven must pass and there may be zero independently verified material source errors. Invalid scores cannot count as favorable observations.",
+      "artifacts": [
+        {
+          "id": "P2-FIXTURE",
+          "text": "GR-03 is a synthetic grader-unit fixture, not a p-9.0 answer. Input: {case_id:GR-03, critical_fact_error:true, citation_count:3}. C22 expected: {case_pass:false}. Two clean g-7.0 invocations returned {case_pass:true}. GR-01, GR-02, and GR-04 returned their expected values. The fixture runner used build f72b119 and recorded both invocations."
+        },
+        {
+          "id": "P2-TRACE",
+          "text": "Debugger excerpt from f72b119: errorFlag = row.criticalFactError ?? false; if (errorFlag) case_pass = false. Input schema field is critical_fact_error. The failing fixture never set criticalFactError. The maintenance ticket identifies a field-name mismatch, with no prompt text changed during reproduction."
+        },
+        {
+          "id": "P2-SCORES",
+          "text": "Prompt run Q22 has twelve unique output receipts Q01–Q12 from p-9.0. g-7.0 summary: {passed:13,total:12,pass_rate:108.3333}. Deterministic validator V22: E_RANGE at summary.passed; artifact excluded from scoring. Raw source joins and independent judgments for Q01–Q12 are pending; receipts establish generation only."
+        },
+        {
+          "id": "P2-MANAGER",
+          "text": "Dashboard memo: “97.2/100, candidate fully cleared; a grader typo cannot matter.” The dashboard normalizes the invalid summary and adds a style score. The attempt ledger retains Q22 and both GR-03 failures; there is no replacement scoring run."
+        }
+      ]
+    },
+    "gold": {
+      "verdict": "reject",
+      "decisive_evidence_ids": [
+        "P2-FIXTURE",
+        "P2-TRACE",
+        "P2-SCORES"
+      ],
+      "required_reasoning": [
+        "Judge g-7.0 correctness, not prompt p-9.0 performance.",
+        "GR-03 has an explicit deterministic expected result; g-7.0 violates it through a reproduced field-name defect.",
+        "The out-of-range summary independently violates the frozen artifact schema; favorable dashboard normalization cannot repair it."
+      ],
+      "allowed_claim_boundary": "Reject grader g-7.0 build f72b119 for C22; fix the schema-field handling and summary generation, retain the failures, and revalidate before rescoring Q22.",
+      "prohibited_claims": [
+        "p-9.0 has a verified material factual error.",
+        "The malformed score can be clipped to twelve passes.",
+        "Three passing grader fixtures compensate for GR-03."
+      ]
+    }
+  },
+  {
+    "id": "complex-04",
+    "pair_id": "object-identity",
+    "changed_field": "public.request (evaluated object)",
+    "public": {
+      "request": "Assess this evaluated object under C22: prompt p-9.0 build 58c8d10, for the frozen twelve-brief prompt performance gate versus p-8.6. Give the verdict, decisive evidence IDs, allowed claim, and next action.",
+      "contract": "C22 revision 1 was sealed 2026-10-12, before the 2026-10-15 evaluation. Grader scope requires exact agreement with fixtures GR-01 through GR-04 and a schema-valid artifact: passed is an integer between zero and total, total equals the number of unique case IDs, and pass_rate equals 100 times passed/total. GR-03 explicitly supplies critical_fact_error=true and requires case_pass=false. Prompt scope concerns prompt p-9.0 build 58c8d10 versus p-8.6 on twelve locked source-grounded briefs: all twelve outputs must receive valid calibrated judgments; at least eleven must pass and there may be zero independently verified material source errors. Invalid scores cannot count as favorable observations.",
+      "artifacts": [
+        {
+          "id": "P2-FIXTURE",
+          "text": "GR-03 is a synthetic grader-unit fixture, not a p-9.0 answer. Input: {case_id:GR-03, critical_fact_error:true, citation_count:3}. C22 expected: {case_pass:false}. Two clean g-7.0 invocations returned {case_pass:true}. GR-01, GR-02, and GR-04 returned their expected values. The fixture runner used build f72b119 and recorded both invocations."
+        },
+        {
+          "id": "P2-TRACE",
+          "text": "Debugger excerpt from f72b119: errorFlag = row.criticalFactError ?? false; if (errorFlag) case_pass = false. Input schema field is critical_fact_error. The failing fixture never set criticalFactError. The maintenance ticket identifies a field-name mismatch, with no prompt text changed during reproduction."
+        },
+        {
+          "id": "P2-SCORES",
+          "text": "Prompt run Q22 has twelve unique output receipts Q01–Q12 from p-9.0. g-7.0 summary: {passed:13,total:12,pass_rate:108.3333}. Deterministic validator V22: E_RANGE at summary.passed; artifact excluded from scoring. Raw source joins and independent judgments for Q01–Q12 are pending; receipts establish generation only."
+        },
+        {
+          "id": "P2-MANAGER",
+          "text": "Dashboard memo: “97.2/100, candidate fully cleared; a grader typo cannot matter.” The dashboard normalizes the invalid summary and adds a style score. The attempt ledger retains Q22 and both GR-03 failures; there is no replacement scoring run."
+        }
+      ]
+    },
+    "gold": {
+      "verdict": "inconclusive",
+      "decisive_evidence_ids": [
+        "P2-SCORES",
+        "P2-FIXTURE"
+      ],
+      "required_reasoning": [
+        "Judge p-9.0 performance, not whether the grader should be retained.",
+        "All twelve generation receipts exist, but C22 requires valid judgments; the invalid g-7.0 artifact supplies none of the required favorable score evidence.",
+        "GR-03 is an injected grader fixture, not a worker answer. No independently verified material error in a p-9.0 output is supplied."
+      ],
+      "allowed_claim_boundary": "Withhold p-9.0 adoption, preserve its twelve outputs and failed scoring attempt, repair and calibrate the grader, then obtain valid judgments on the frozen outputs.",
+      "prohibited_claims": [
+        "Reject p-9.0 because GR-03 contains a critical_fact_error flag.",
+        "p-9.0 passed twelve of twelve.",
+        "Discard Q22 silently and report only a later successful attempt."
+      ]
+    }
+  },
+  {
+    "id": "complex-05",
+    "pair_id": "missing-plus-defect",
+    "changed_field": "public.artifacts[P3-SOURCE].text (FY2025_revenue_eur_m)",
+    "public": {
+      "request": "Decide whether research-brief generator rb-6.4 build c914e31 clears the bounded financial-fact citation development gate C31, not an investment-return claim. Report the decisive evidence and smallest appropriate next step.",
+      "contract": "C31 revision 3 was frozen 2026-08-10, before generation. The panel contains ten required company briefs R01–R10, each with four rubric points and a primary-source join. Adoption requires ten valid outputs and joins, at least 32/40 rubric points, and zero material source errors. For this panel a claimed annual revenue differing from its cited audited table by more than EUR 1 million is a material error. R07 must use the original annual-release table for the stated fiscal years; management commentary or a later estimate cannot replace it. Missing outputs receive no invented scores. The gate tests evidence correctness for this panel only. It neither measures incremental selection alpha nor licenses a causal claim about the generator.",
+      "artifacts": [
+        {
+          "id": "P3-LEDGER",
+          "text": "Run dated 2026-08-16: R01–R09 outputs received; R10 failed before response storage with E_STORE_TIMEOUT. R01–R06 and R08–R09 have signed primary-source joins and 4/4 points each: eight briefs, 32 points. R07 source audit is the separate join below. R10 has neither output nor source join. No replacement run is recorded."
+        },
+        {
+          "id": "P3-OUTPUT",
+          "text": "R07, emitted by build c914e31: “Oriole Components reported FY2025 revenue of EUR 118 million, up 18% from EUR 100 million in FY2024.” Citation: ORI-AR25, table A, revenue line. The output identifies audited annual revenue, not guidance, a currency conversion, or an adjusted segment subtotal."
+        },
+        {
+          "id": "P3-JOIN",
+          "text": "Source auditor receipt J07 resolves ORI-AR25/table-A/revenue to the original issuer annual release dated 2026-08-14, in EUR millions. No restatement or alternative currency is indicated. The source extract is attached as P3-SOURCE. Candidate and extract use the same consolidated reporting perimeter."
+        },
+        {
+          "id": "P3-SOURCE",
+          "text": "ORI-AR25 | original release | table A | consolidated audited revenue | units EUR million\nFY2024_revenue_eur_m: 100\nFY2025_revenue_eur_m: 108"
+        },
+        {
+          "id": "P3-MANAGER",
+          "text": "Manager card: “97/100, ship it; the R10 storage problem is infrastructure.” This is a provisional composite of style and nine received outputs, computed before J07. It does not contain R10 or a completed source audit for R07."
+        }
+      ]
+    },
+    "gold": {
+      "verdict": "reject",
+      "decisive_evidence_ids": [
+        "P3-OUTPUT",
+        "P3-JOIN",
+        "P3-SOURCE",
+        "P3-LEDGER"
+      ],
+      "required_reasoning": [
+        "The exact object is rb-6.4 under the bounded C31 evidence-correctness gate.",
+        "R07 claims 118 against the cited audited 108: a EUR 10 million discrepancy exceeds EUR 1 million; the source implies 8% growth, not 18%.",
+        "That observed critical violation decides rejection even though R10 is missing. Report the missing output without treating it as the reason the version is worse."
+      ],
+      "allowed_claim_boundary": "Reject rb-6.4 for C31 because of the verified R07 source error; fix that behavior and separately repair R10 storage before a complete rerun.",
+      "prohibited_claims": [
+        "The storage timeout is itself evidence of bad financial reasoning.",
+        "Missing R10 forces inconclusive despite the established material violation.",
+        "The high composite or eight good briefs cancel a zero-tolerance violation."
+      ]
+    }
+  },
+  {
+    "id": "complex-06",
+    "pair_id": "missing-plus-defect",
+    "changed_field": "public.artifacts[P3-SOURCE].text (FY2025_revenue_eur_m)",
+    "public": {
+      "request": "Decide whether research-brief generator rb-6.4 build c914e31 clears the bounded financial-fact citation development gate C31, not an investment-return claim. Report the decisive evidence and smallest appropriate next step.",
+      "contract": "C31 revision 3 was frozen 2026-08-10, before generation. The panel contains ten required company briefs R01–R10, each with four rubric points and a primary-source join. Adoption requires ten valid outputs and joins, at least 32/40 rubric points, and zero material source errors. For this panel a claimed annual revenue differing from its cited audited table by more than EUR 1 million is a material error. R07 must use the original annual-release table for the stated fiscal years; management commentary or a later estimate cannot replace it. Missing outputs receive no invented scores. The gate tests evidence correctness for this panel only. It neither measures incremental selection alpha nor licenses a causal claim about the generator.",
+      "artifacts": [
+        {
+          "id": "P3-LEDGER",
+          "text": "Run dated 2026-08-16: R01–R09 outputs received; R10 failed before response storage with E_STORE_TIMEOUT. R01–R06 and R08–R09 have signed primary-source joins and 4/4 points each: eight briefs, 32 points. R07 source audit is the separate join below. R10 has neither output nor source join. No replacement run is recorded."
+        },
+        {
+          "id": "P3-OUTPUT",
+          "text": "R07, emitted by build c914e31: “Oriole Components reported FY2025 revenue of EUR 118 million, up 18% from EUR 100 million in FY2024.” Citation: ORI-AR25, table A, revenue line. The output identifies audited annual revenue, not guidance, a currency conversion, or an adjusted segment subtotal."
+        },
+        {
+          "id": "P3-JOIN",
+          "text": "Source auditor receipt J07 resolves ORI-AR25/table-A/revenue to the original issuer annual release dated 2026-08-14, in EUR millions. No restatement or alternative currency is indicated. The source extract is attached as P3-SOURCE. Candidate and extract use the same consolidated reporting perimeter."
+        },
+        {
+          "id": "P3-SOURCE",
+          "text": "ORI-AR25 | original release | table A | consolidated audited revenue | units EUR million\nFY2024_revenue_eur_m: 100\nFY2025_revenue_eur_m: 118"
+        },
+        {
+          "id": "P3-MANAGER",
+          "text": "Manager card: “97/100, ship it; the R10 storage problem is infrastructure.” This is a provisional composite of style and nine received outputs, computed before J07. It does not contain R10 or a completed source audit for R07."
+        }
+      ]
+    },
+    "gold": {
+      "verdict": "inconclusive",
+      "decisive_evidence_ids": [
+        "P3-LEDGER",
+        "P3-OUTPUT",
+        "P3-SOURCE"
+      ],
+      "required_reasoning": [
+        "R07 now matches 118 and the increase from 100 is 18%; no material source error is established by this join.",
+        "R10 still has no output or source join, so the ten-output frozen acceptance contract cannot be evaluated completely.",
+        "Eight completed 4/4 grades and a correct R07 fact do not supply the missing R10 evidence or a full 40-point panel score."
+      ],
+      "allowed_claim_boundary": "Block acceptance without rejecting rb-6.4 on quality; recover R10 output and source join, finish its and R07’s required rubric grading, and retain the incomplete attempt.",
+      "prohibited_claims": [
+        "rb-6.4 failed a material source criterion.",
+        "R10 may be omitted because its failure was infrastructure.",
+        "The generator has met 32/40 and therefore clears every gate."
+      ]
+    }
+  },
+  {
+    "id": "complex-07",
+    "pair_id": "publication-cutoff",
+    "changed_field": "public.artifacts[P4-SOURCE].text (First_publication_utc)",
+    "public": {
+      "request": "Judge archived replay artifact AR-31 from pipeline pit-2.6 build 603ad84 for the frozen single-record point-in-time provenance regression gate C41. The decision is about this pipeline artifact’s correctness, not selection prompt sp-8 performance or investment alpha.",
+      "contract": "C41 revision 1, frozen 2026-10-20 before replay, fixes decision cutoff 2025-11-03 at 14:00 UTC and exactly one historical member, Merrow Devices (MDV). AR-31 must preserve the registered source revision and reproduce revenue EUR 118 million and annual EPS guidance EUR 4.20. Every included financial fact must derive from an authenticated source first made public at or before the cutoff; publication after the cutoff is an explicit critical provenance failure for this artifact. Period end is not availability time. No later revision may supply fields. This bounded regression gate approves only AR-31 for the listed record and fields; it makes no claim about other dates, pipeline generalization, or model-weight contamination. Preserve replay date, retrieved source version, and publication audit.",
+      "artifacts": [
+        {
+          "id": "P4-ROW",
+          "text": "AR-31, generated 2026-10-23 at 08:04 UTC by build 603ad84: {ticker:MDV, decision_at:2025-11-03T14:00:00Z, period_end:2025-09-30, revenue_eur_m:118, annual_eps_guidance_eur:4.20, source:MDV-Q3-v1}. One row, no other financial inputs. Serialization check and field-by-field comparison returned exact matches."
+        },
+        {
+          "id": "P4-SOURCE",
+          "text": "Authenticated issuer archive MDV-Q3-v1, retrieved 2026-10-23: revenue EUR 118 million; annual EPS guidance EUR 4.20; reporting period ended 2025-09-30. First_publication_utc: 2025-11-03T13:45:00Z. Revision=v1; archive history lists no changed version until v2 on 2025-11-05. The timestamp is the publication audit value, not a search-engine display date."
+        },
+        {
+          "id": "P4-MEMBERSHIP",
+          "text": "Frozen historical-universe manifest U41 records MDV as a member from 2025-01-02 through 2025-12-31 inclusive; the cutoff falls within that interval. Replay receipt binds AR-31 to MDV-Q3-v1 and U41. It records current retrieval, not an asserted historical local download."
+        },
+        {
+          "id": "P4-NOTE",
+          "text": "Developer note: “As-of accuracy 94%; a September period-end and date-filtered search make the row safe.” The 94% dashboard covers unrelated rows and is not a C41 criterion. A separate limitation note says future knowledge in model weights remains untested; AR-31 is a provenance regression artifact, not a blinded outcome study."
+        }
+      ]
+    },
+    "gold": {
+      "verdict": "accept",
+      "decisive_evidence_ids": [
+        "P4-ROW",
+        "P4-SOURCE",
+        "P4-MEMBERSHIP"
+      ],
+      "required_reasoning": [
+        "Evaluate AR-31 correctness under its one-record contract, not general investment-agent performance.",
+        "The authenticated v1 source was public at 13:45, fifteen minutes before the 14:00 cutoff; membership, revision binding, and exact financial fields are documented.",
+        "The period-end shortcut and aggregate dashboard are not the reason for acceptance. Current retrieval is compatible with an archived first-publication audit but does not remove model contamination risk."
+      ],
+      "allowed_claim_boundary": "Approve AR-31 for the specified C41 single-record provenance regression gate and retain the audit; broader pipeline validation and prospective alpha evaluation remain separate.",
+      "prohibited_claims": [
+        "pit-2.6 is generally free of future leakage.",
+        "Date-filtered search removes future knowledge from model weights.",
+        "AR-31 demonstrates sp-8 alpha or establishes a historical blind test."
+      ]
+    }
+  },
+  {
+    "id": "complex-08",
+    "pair_id": "publication-cutoff",
+    "changed_field": "public.artifacts[P4-SOURCE].text (First_publication_utc)",
+    "public": {
+      "request": "Judge archived replay artifact AR-31 from pipeline pit-2.6 build 603ad84 for the frozen single-record point-in-time provenance regression gate C41. The decision is about this pipeline artifact’s correctness, not selection prompt sp-8 performance or investment alpha.",
+      "contract": "C41 revision 1, frozen 2026-10-20 before replay, fixes decision cutoff 2025-11-03 at 14:00 UTC and exactly one historical member, Merrow Devices (MDV). AR-31 must preserve the registered source revision and reproduce revenue EUR 118 million and annual EPS guidance EUR 4.20. Every included financial fact must derive from an authenticated source first made public at or before the cutoff; publication after the cutoff is an explicit critical provenance failure for this artifact. Period end is not availability time. No later revision may supply fields. This bounded regression gate approves only AR-31 for the listed record and fields; it makes no claim about other dates, pipeline generalization, or model-weight contamination. Preserve replay date, retrieved source version, and publication audit.",
+      "artifacts": [
+        {
+          "id": "P4-ROW",
+          "text": "AR-31, generated 2026-10-23 at 08:04 UTC by build 603ad84: {ticker:MDV, decision_at:2025-11-03T14:00:00Z, period_end:2025-09-30, revenue_eur_m:118, annual_eps_guidance_eur:4.20, source:MDV-Q3-v1}. One row, no other financial inputs. Serialization check and field-by-field comparison returned exact matches."
+        },
+        {
+          "id": "P4-SOURCE",
+          "text": "Authenticated issuer archive MDV-Q3-v1, retrieved 2026-10-23: revenue EUR 118 million; annual EPS guidance EUR 4.20; reporting period ended 2025-09-30. First_publication_utc: 2025-11-03T14:15:00Z. Revision=v1; archive history lists no changed version until v2 on 2025-11-05. The timestamp is the publication audit value, not a search-engine display date."
+        },
+        {
+          "id": "P4-MEMBERSHIP",
+          "text": "Frozen historical-universe manifest U41 records MDV as a member from 2025-01-02 through 2025-12-31 inclusive; the cutoff falls within that interval. Replay receipt binds AR-31 to MDV-Q3-v1 and U41. It records current retrieval, not an asserted historical local download."
+        },
+        {
+          "id": "P4-NOTE",
+          "text": "Developer note: “As-of accuracy 94%; a September period-end and date-filtered search make the row safe.” The 94% dashboard covers unrelated rows and is not a C41 criterion. A separate limitation note says future knowledge in model weights remains untested; AR-31 is a provenance regression artifact, not a blinded outcome study."
+        }
+      ]
+    },
+    "gold": {
+      "verdict": "reject",
+      "decisive_evidence_ids": [
+        "P4-ROW",
+        "P4-SOURCE"
+      ],
+      "required_reasoning": [
+        "The judged object is the archived pipeline output; inclusion of unavailable information is an observed artifact violation, not merely missing prompt-performance evidence.",
+        "The authenticated source was first public at 14:15, fifteen minutes after the 14:00 decision; AR-31 nonetheless includes its financial facts.",
+        "A September period end, correct copied numbers, historical membership, and aggregate accuracy do not satisfy the frozen availability rule."
+      ],
+      "allowed_claim_boundary": "Reject AR-31 for C41, quarantine this row from retrospective evidence, and repair or rerun the availability handling using information public by the cutoff.",
+      "prohibited_claims": [
+        "The source is eligible because the reporting period ended before the cutoff.",
+        "The result is only inconclusive even though the artifact has a demonstrated predeclared critical violation.",
+        "sp-8 is proven worse, or all pit-2.6 outputs contain leakage."
+      ]
+    }
+  }
+]

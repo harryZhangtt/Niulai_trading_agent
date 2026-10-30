@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "inventory_kind": "sanitized_source_and_setup_contract",
+  "scope": "Workspace setup contract for shared scheduling/model infrastructure, shared Tiger gateway, Niulai, shared market-data adapters, web access, mentor validation, tuning and UI guidance/verification",
+  "private_state_contents_inspected": false,
+  "absolute_user_paths_included": false,
+  "components": [
+    {
+      "id": "ui-skills-and-verification",
+      "source_paths": [
+        "ui/AGENTS.md",
+        "ui/ROUTING.md",
+        "ui/skills/",
+        "ui/tools/",
+        "ui/tests/",
+        "ui/upstream/",
+        "ui/verification/",
+        "ui/session_init.py",
+        ".codex/hooks.json",
+        ".agents/skills/"
+      ],
+      "dependency_manifests": [
+        "ui/verification/package.json",
+        "ui/verification/package-lock.json",
+        "tuning/evals/ui-routing-screen/requirements.txt"
+      ],
+      "explicit_host_prerequisites": {
+        "node": ">=22.12 for the selected Vite toolchain; verify on target",
+        "python": ">=3.9 for local wrappers and bundle checks",
+        "npm": "explicitly available on target"
+      },
+      "tested_toolchain": {
+        "node": "22.23.1",
+        "npm": "10.9.8",
+        "python": "3.9.6"
+      },
+      "direct_dependency_pins": {
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
+        "@playwright/test": "1.64.1",
+        "@playwright/cli": "0.1.22",
+        "@types/react": "19.2.0",
+        "@types/react-dom": "19.2.0",
+        "typescript": "5.9.3",
+        "vite": "7.1.12",
+        "shadcn": "4.23.0"
+      },
+      "skills": {
+        "imported": [
+          "frontend-design",
+          "ui-ux-pro-max",
+          "impeccable",
+          "shadcn",
+          "vercel-react-best-practices",
+          "playwright-cli"
+        ],
+        "authored": [
+          "async-state-reliability"
+        ],
+        "source_record": "ui/upstream/sources.lock.json",
+        "routing": "ui/ROUTING.md"
+      },
+      "state_paths": [
+        "ui/runtime/",
+        "ui/verification/node_modules/",
+        "ui/runtime/init-verification/codex-home/",
+        "ui/runtime/init-verification/tmp/"
+      ],
+      "cache_paths": [
+        "ui/runtime/cache/",
+        "ui/runtime/npm-cache/",
+        "ui/runtime/npm-logs/",
+        "ui/runtime/browsers/",
+        "ui/runtime/tmp/"
+      ],
+      "entrypoint": "ui/tools/run.py",
+      "documentation_lookup": {
+        "status": "Tested on 2026-10-30 after execution restrictions changed; earlier sandbox DNS failure retained",
+        "command": "python3 ui/tools/run.py shadcn docs button",
+        "receipt_path": "ui/runtime/attempts/04-shadcn-docs-unrestricted/receipt.json",
+        "source_verification": "Official documentation opened through native web tool; returned TSX example verified by direct HTTPS and SHA-256",
+        "authentication_required": false,
+        "claim_scope": "The tested documentation query and returned public sources; no rendered shadcn integration or native-search health claim"
+      },
+      "browser_execution": {
+        "test_channel": "chromium",
+        "mode": "Full workspace-local Chromium, headless; bundled headless-shell crash preserved separately",
+        "daemon_path_override": "PWTEST_DAEMON_SESSION_DIR points to ui/runtime/daemon; pinned implementation-specific override on macOS",
+        "cli_core_version": "1.64.0-alpha-1790635538000",
+        "test_runner_core_version": "1.64.1",
+        "generated_cli_configuration": "ui/runtime/playwright-cli.json points to the full stable-runner browser executable; regenerate on each device/move",
+        "session_idle_timeout_milliseconds": 30000,
+        "production_isolation_claim": false
+      },
+      "active_codex_mcp_registration": false,
+      "authentication": "No public-source or local-fixture authentication required; no private registries configured",
+      "optional_not_activated": [
+        "Motion application dependency",
+        "Magic UI MCP",
+        "shadcn MCP",
+        "Playwright MCP"
+      ],
+      "activation_status": "Repository-local skill discovery and UI SessionStart definition verified; automatic hook execution remains unverified and major-runtime/email acceptance pending; CLI and fixture results are separate",
+      "portability_gaps": [
+        "Reinstall dependencies and browser binaries locally; do not copy runtime/cache/session directories",
+        "Rendered fixture contracts and CLI inspection do not prove target-application or provider integration",
+        "Semantic routing and tokenizer proxies do not establish generated-UI quality or billed usage"
+      ],
+      "runbook": "docs/deployment/frontend.md",
+      "session_initialization": {
+        "event": "SessionStart",
+        "sources": [
+          "startup",
+          "resume",
+          "clear",
+          "compact",
+          "fork"
+        ],
+        "loader": "ui/session_init.py",
+        "policy": [
+          "ui/AGENTS.md",
+          "ui/ROUTING.md"
+        ],
+        "discovery_links": ".agents/skills/ -> canonical ui/skills/ directories",
+        "canonical_skill_count": 7,
+        "timeout_seconds": 3,
+        "additional_context_token_threshold": 2000,
+        "observed_payload_tokens_proxy": 980,
+        "full_skill_bodies_preloaded": false,
+        "status_messages": [
+          "UI_INIT_OK",
+          "UI_INIT_FAILED"
+        ],
+        "definition_and_catalog": "verified with isolated local Codex app-server in three directories",
+        "automatic_execution": "unverified: exact definition is untrusted; no successful actual UI hook event",
+        "direct_script_result": "passed as protocol test only, not host execution",
+        "trust_review": "Supported /hooks review in isolated home stopped at sign-in; no global trust/auth copy or bypass",
+        "major_runtime_acceptance": {
+          "execution": "unverified",
+          "email_sync": "pending",
+          "record": ".job-runtime/acceptance/ui-session-init-20261030/record.json"
+        }
+      }
+    },
+    {
+      "id": "workspace-native-web-search",
+      "source_paths": [
+        ".codex/config.toml",
+        "docs/web-search-routing.md",
+        "docs/web-search-status.md"
+      ],
+      "loaded_configuration": {
+        "web_search": "live"
+      },
+      "activation_evidence": "Configuration file read; requires trusted fresh host session and runtime policies",
+      "connectivity_claim": "No continuous-health claim; verify search and returned-source opening in each new session",
+      "state_paths": [],
+      "dependencies": [],
+      "runbook": "docs/deployment/shared-and-tuning.md"
+    },
+    {
+      "id": "market-data-mcp",
+      "source_paths": [
+        "shared/market_data_mcp/"
+      ],
+      "dependency_manifests": [
+        "shared/market_data_mcp/package.json",
+        "shared/market_data_mcp/package-lock.json"
+      ],
+      "explicit_host_prerequisites": {
+        "node": ">=22",
+        "python": ">=3.9",
+        "launch_environment": "node and python3 resolve in actual host PATH"
+      },
+      "direct_dependency_pins": {
+        "@modelcontextprotocol/sdk": "1.32.2",
+        "mcp-remote": "0.15.2",
+        "schwab_release": "v0.2.3"
+      },
+      "state_paths": [
+        ".market-data-mcp/tradingview/",
+        ".market-data-mcp/schwab/",
+        ".market-data-mcp/credentials.json",
+        ".market-data-mcp/bin/",
+        ".market-data-mcp/runtime/",
+        ".market-data-mcp/tmp/",
+        ".market-data-mcp/reports/",
+        ".market-data-mcp/credentials/"
+      ],
+      "cache_paths": [
+        ".cache/market-data-mcp/npm/",
+        ".market-data-mcp/tmp/node-compile-cache/"
+      ],
+      "credential_values_in_inventory": false,
+      "candidate_configuration": "shared/market_data_mcp/codex.disabled.example.toml",
+      "active_codex_registration": false,
+      "last_documented_provider_status": {
+        "tradingview_final_transport": "2026-10-30 isolated narrow E2E and 53 broad cases passed; no active host registration",
+        "finnhub": "2026-10-30 four REST-backed tools and clean restart checks passed",
+        "schwab": "staged; live check blocked_auth",
+        "tradier": "intentionally omitted",
+        "marketdata": "2026-10-30 AAPL demo expirations, bounded historical chain, returned-contract quote and three restarts passed; limited demo only",
+        "alpaca": "2026-10-30 credentials privately configured; indicative chain/snapshots passed narrow E2E and broad isolated-live matrix; scheduled/email acceptance unverified",
+        "massive": "2026-10-30 credentials privately configured; references and six daily histories passed broad isolated-live checks; scheduled/email acceptance unverified"
+      },
+      "status_evidence": "docs/mcp-stability.md; isolated live reports in ignored .market-data-mcp/reports; no host-stability/quote-accuracy claim",
+      "portability_gaps": [
+        "Node provisioning is explicit, not automated",
+        "Candidate absolute workspace paths must be regenerated",
+        "Template /usr/bin/python3 must be verified on target",
+        "Final provider live acceptance and host stability remain separate rollout gates"
+      ],
+      "runbook": "docs/deployment/shared-and-tuning.md",
+      "shared_tiger_portal": "adapters/tiger.mjs and tiger-query.mjs reuse this portal infrastructure through private pipes; no active host MCP registration",
+      "free_options_adapters": {
+        "implementation": "Local read-only MCP backed by fixed official REST GET endpoints; separate provider modules and shared REST boundary",
+        "marketdata": "Historical price mode only, AAPL demo without key, chain one expiration/side and <=10 strikes; Greek calculation time unverified",
+        "alpaca": "Indicative feed only; <=20 chain snapshots, <=5 explicit contracts, optional strike bounds; Greek availability varies and calculation times unverified",
+        "massive": "<=20 reference rows with optional strike bounds; <=31-day daily OHLC within 2 years before current America/New_York date; no snapshots/Greeks",
+        "pagination": "No automatic following of tokens or next_url",
+        "rate_limits": "Provider-owned quotas; no distributed cross-process credit ledger",
+        "dependencies_added": false
+      },
+      "api_credential_storage": "Hidden interactive prompts; atomic 0600 JSON files under ignored 0700 .market-data-mcp/credentials; no keys in config, URLs or arguments",
+      "verification": {
+        "commands": [
+          "node shared/market_data_mcp/options-verify.mjs",
+          "npm test --prefix shared/market_data_mcp",
+          "python3 -m unittest discover -s shared/market_data_mcp/tests -p test_*.py"
+        ],
+        "isolated_live": "51 cases passed, 56 distinct snapshot contracts and six daily series; supplementary freshness/field checks retained",
+        "offline": "52 Node checks and two atomic credential-store tests passed",
+        "public_report": "docs/options-verification.md",
+        "private_artifacts": ".market-data-mcp/reports/",
+        "scheduled_execution_acceptance": "unverified",
+        "owner_email_sync": "pending; not sent from this task",
+        "handoff_record": ".job-runtime/acceptance/options-alpaca-massive-20261030/record.json",
+        "accuracy_claim": "None; indicative quotes, per-field timestamps and missing Greeks remain explicit"
+      }
+    },
+    {
+      "id": "mentor-validation",
+      "source_paths": [
+        "mentor/AGENTS.md",
+        "mentor/ROUTING.md",
+        "mentor/skills/",
+        "mentor/tests/",
+        "mentor/upstream/sources.lock.json",
+        "mentor/session_init.py",
+        ".agents/skills/",
+        ".codex/hooks.json"
+      ],
+      "dependency_manifests": [
+        "mentor/tests/requirements.txt"
+      ],
+      "runtime_dependencies": [
+        "Python standard library for local tests and bundle verifier"
+      ],
+      "optional_dependency_pins": {
+        "PyYAML": "6.0.2"
+      },
+      "state_paths": [
+        "mentor/runtime/validation-env/",
+        "mentor/runtime/test-tmp/",
+        "mentor/runtime/init-verification/"
+      ],
+      "cache_paths": [
+        ".cache/mentor-validation/pip/"
+      ],
+      "activation_status": "Six repository skills discovered/enabled; local SessionStart definition discovered but untrusted; automatic core/router injection pending human review",
+      "authored_development_skill": {
+        "path": "mentor/skills/development-discipline/SKILL.md",
+        "routing": "Root AGENTS.md routes workspace engineering decisions through mentor/ROUTING.md",
+        "enforcement": "Procedural instructions plus a tested offline evaluation-artifact gate; no CI/release hook or daemon",
+        "behavioral_evaluation": "tuning/evals/development-discipline/protocol.md"
+      },
+      "portability_gaps": [
+        "Imported hypothesis tools declare Python >=3.11; earlier Python3.9.6 checks cover tested cases only",
+        "External Skill Creator frontmatter validator is optional and must not become an undocumented runtime dependency"
+      ],
+      "runbook": "docs/deployment/shared-and-tuning.md",
+      "session_initialization": {
+        "event": "SessionStart",
+        "core_sources": [
+          "mentor/AGENTS.md",
+          "mentor/ROUTING.md"
+        ],
+        "sources_checked": 6,
+        "timeout_seconds": 3,
+        "network_access": false,
+        "failure": "Visible MENTOR_INIT_FAILED; model disclosure and direct-read fallback",
+        "activation": "Discovered by Codex 0.166.0 in three working directories; exact hook trust pending; automatic execution unverified",
+        "host_scope": "Local Codex orchestration; local command hooks unsupported under cloud orchestration",
+        "verification": "python3 -m mentor.tests.verify_session_discovery; isolated CODEX_HOME, no model call or trust bypass"
+      }
+    },
+    {
+      "id": "tuning-development-evaluations",
+      "source_paths": [
+        "tuning/evals/"
+      ],
+      "dependency_manifests": [
+        "tuning/evals/mentor-routing/requirements.txt",
+        "tuning/evals/development-discipline/requirements.txt",
+        "tuning/evals/ui-routing-screen/requirements.txt",
+        "tuning/evals/ui-implementation-quality/requirements.txt"
+      ],
+      "direct_dependency_pins": {
+        "tiktoken": "0.12.0"
+      },
+      "state_paths": [
+        "tuning/runtime/"
+      ],
+      "cache_paths": [
+        "tuning/runtime/tokenizer-cache/",
+        ".cache/tuning/pip/"
+      ],
+      "required_local_environment": [
+        "TMPDIR within workspace",
+        "TIKTOKEN_CACHE_DIR within workspace",
+        "PYTHONDONTWRITEBYTECODE=1"
+      ],
+      "activation_status": "Development protocols and packet builders; not production scheduler jobs",
+      "portability_gaps": [
+        "Packet builders use named versioned output directories and refuse existing manifests",
+        "Fresh model execution and grading must follow each frozen protocol; source copying does not reproduce outcomes"
+      ],
+      "runbook": "docs/deployment/shared-and-tuning.md",
+      "ui_implementation_evaluation": {
+        "source": "tuning/evals/ui-implementation-quality/",
+        "runtime": "tuning/runtime/ui-implementation-quality-v1/",
+        "dependencies": "Existing pinned ui/verification React/TypeScript/Vite/Playwright graph plus optional tiktoken0.12.0",
+        "boundaries": "Only localhost synthetic service, isolated worker apps and full local Chromium; no production jobs/providers/credentials/email",
+        "frozen_comparison": "One task; general and routed fresh workers;12 raw checks;Q04 measurement defect preserved separately",
+        "quality_conclusion": "Incremental skill effectiveness inconclusive;11/11 uncontested checks pass for both repairs",
+        "activation": "Development-only packet builder, grader and evidence aggregator; no automatic background UI reviewer"
+      }
+    },
+    {
+      "id": "shared-job-runtime",
+      "source_paths": [
+        "shared/job_runtime/"
+      ],
+      "dependency_manifests": [
+        "shared/job_runtime/bootstrap-requirements.txt"
+      ],
+      "explicit_host_prerequisites": {
+        "host": "macOS logged-in user session for the provided launchd adapter",
+        "os_utilities": [
+          "launchctl",
+          "/usr/bin/caffeinate"
+        ],
+        "bootstrap_python": "an explicitly selected Python capable of creating the bootstrap venv",
+        "runtime_python": "3.12.16 workspace-owned managed interpreter",
+        "codex_cli": "supported executable explicitly selected through codex_bin; verify version/auth/model access on each device"
+      },
+      "bootstrap_dependency_pins": {
+        "uv": "0.13.6"
+      },
+      "runtime_dependencies": [
+        "Python standard library for the shared engine, supervisor, host and model adapter"
+      ],
+      "state_paths": [
+        ".job-runtime/config/",
+        ".job-runtime/codex-home/",
+        ".job-runtime/engine/",
+        ".job-runtime/runs/",
+        ".job-runtime/logs/",
+        ".job-runtime/launchd/",
+        ".job-runtime/tmp/",
+        ".job-runtime/tests/",
+        ".job-runtime/.venv/",
+        ".job-runtime/bootstrap/",
+        ".job-runtime/python/",
+        ".job-runtime/bin/"
+      ],
+      "cache_paths": [
+        ".job-runtime/cache/"
+      ],
+      "external_filesystem_exception": {
+        "kind": "two per-user login-startup symlinks to workspace-generated plists",
+        "paths": [
+          "~/Library/LaunchAgents/com.local.trading-agent.job-runtime.plist",
+          "~/Library/LaunchAgents/com.local.trading-agent.job-runtime.watchdog.plist"
+        ],
+        "authorization": "Explicit user approval required on the target deployment; no general authorization for other external writes"
+      },
+      "infrastructure_policy_keys": [
+        "python_bin",
+        "tick_seconds",
+        "heartbeat_seconds",
+        "stale_seconds",
+        "max_workers",
+        "retry",
+        "model_profiles",
+        "allocation_files",
+        "source_paths"
+      ],
+      "default_model_policy": {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "timeout_seconds": 120,
+        "automatic_model_fallback": false,
+        "access_claim": "Account-specific availability requires an actual invocation; requested model is separate from observed model metadata"
+      },
+      "retry_policy": {
+        "max_attempts": 3,
+        "backoff_seconds": 30,
+        "max_backoff_seconds": 120,
+        "unknown_outcome": "No blind replay; reconcile actual attempt evidence",
+        "auth_cache_contention": "Centrally derived resource groups queue shared-cache jobs without consuming model attempts"
+      },
+      "activation_status": "Source implements current-session and explicitly authorized persistent login installation; inspect target launchd status, heartbeats, sleep assertion and actual model receipts before claiming a device deployment",
+      "sleep_boundary": "caffeinate prevents idle sleep while the service runs; shutdown, logout, forced/lid sleep, network loss and invalid auth remain execution limits",
+      "current_business_allocation": "Recurring Niulai readiness at 13:00/19:00 New York plus verified one-time full price/holdings/Gmail test; production mail sender not cut over",
+      "portability_gaps": [
+        "Generated private JSON/plists contain device paths and must be regenerated",
+        "Create or explicitly provision one supported local Codex auth cache per device; never automatically reseed or synchronize active rotating caches",
+        "The provided host adapter targets macOS; other operating systems need their own verified host adapter",
+        "Uninstall old service registrations before moving the checkout because per-user service labels are static"
+      ],
+      "runbook": "docs/deployment/job-runtime.md"
+    },
+    {
+      "id": "niulai-controlled-runtime",
+      "source_paths": [
+        "niulai-runtime/",
+        "niulai/holdings/",
+        "niulai/skills/investment-research-financial-services/references/niulai-workflow/"
+      ],
+      "preserved_archives": [
+        "niulai/",
+        "niulai-private/"
+      ],
+      "dependency_manifests": [
+        "niulai-runtime/requirements.txt",
+        "niulai/holdings/requirements.txt"
+      ],
+      "explicit_host_prerequisites": {
+        "python": "3.12.16 exercised toolchain",
+        "shared_scheduler": "Declared separately through shared/job_runtime; Niulai is a job allocation, not host/model infrastructure",
+        "job_python": "adapter_config.python explicitly selects the compatible private Niulai venv; shared runtime does not inherit pandas/exchange-calendar dependencies"
+      },
+      "direct_dependency_pins": {
+        "tigeropen": "3.8.0",
+        "exchange-calendars": "4.11.2",
+        "pandas": "2.2.3",
+        "reportlab": "4.4.9",
+        "cryptography": "50.0.2"
+      },
+      "dependency_lock_limit": "Direct pins and private resolved package listing are not a complete transitive cross-platform hash lock",
+      "state_paths": [
+        ".niulai-state/config/",
+        ".niulai-state/databases/",
+        ".niulai-state/reports/",
+        ".niulai-state/tiger/",
+        ".niulai-state/logs/",
+        ".niulai-state/tmp/",
+        ".niulai-state/.venv/",
+        ".niulai-state/.venv-bootstrap/",
+        ".niulai-state/python/",
+        ".niulai-state/bin/"
+      ],
+      "cache_paths": [
+        ".niulai-state/.cache/pip/",
+        ".niulai-state/.cache/uv/"
+      ],
+      "private_metadata_requirements": [
+        "Verified recipient and automation/scheduler identity",
+        "Verified owner-private Tiger credential-store project/origin/audience",
+        "Authorized account-derived taxonomy for fresh report rendering"
+      ],
+      "credential_transport": "Current Tiger bridge requires a fresh authenticated native Sites result in hidden TTY stdin and uses the existing remote encrypted-store lease; no bearer values belong in persisted job configuration",
+      "delivery_transport": "Transport-neutral outbox and manual replay implemented; host-connected Gmail tool is required for current manual sends; no standalone Gmail OAuth/SMTP sender",
+      "source_allocation": "niulai-runtime/jobs/daily-readiness.json",
+      "source_allocation_scope": "Read-only model readiness with XNYS/slot checks; shell/apps/web disabled model cannot refresh Tiger, collect sources, trade or send email",
+      "independence_limit": "Locally materialized historical replay does not call the old Work task, but historical content and shared credential-store access are distinct from a fully independent fresh scheduled replacement",
+      "portability_gaps": [
+        "Recreate private policies from verified target metadata; placeholders are intentionally invalid",
+        "Transfer or reprovision private data/auth through approved secure procedures, not source copying",
+        "Preserve and reconcile production per-slot email ledger and single refresh ownership before cutover",
+        "Actual unattended source collection, credential access and mailbox readback need separate acceptance"
+      ],
+      "runbook": "docs/deployment/niulai.md",
+      "shared_credential_backend": "shared/tiger/bridge.py owns the lease, secure restore, checkpoint and crash fence; niulai_runtime/tiger.py is a compatibility entry point",
+      "compatibility_report_mode": "The compatibility CLI retains verify and run modes; run stages the preserved report pipeline privately and still requires a fresh host-authenticated Sites result",
+      "module_search_path": "Use both the checkout root and checkout/niulai-runtime in PYTHONPATH when invoking niulai_runtime compatibility or scheduled E2E modules from a non-root working directory",
+      "scheduled_e2e_candidate": {
+        "source": [
+          "niulai-runtime/niulai_runtime/e2e_prepare.py",
+          "niulai-runtime/niulai_runtime/e2e_delivery.py"
+        ],
+        "scope": "Separate explicitly authorized manual-test identity and isolated historical-price replay; no production-slot completion",
+        "status": "One-time full scheduled test independently verified with explicit partial data; model-summary false-negative reconciled without resend; recurring production cutover pending"
+      },
+      "standalone_python_gmail_oauth_sender_implemented": false,
+      "one_time_full_scheduled_test_verified": true,
+      "recurring_production_sender_cutover": false
+    },
+    {
+      "id": "tiger-query-gateway",
+      "source_paths": [
+        "shared/tiger/",
+        "shared/market_data_mcp/adapters/tiger.mjs",
+        "shared/market_data_mcp/tiger-query.mjs",
+        "niulai-runtime/niulai_runtime/tiger.py",
+        "niulai/holdings/niulai_tiger.py"
+      ],
+      "dependency_manifests": [
+        "niulai/holdings/requirements.txt",
+        "shared/market_data_mcp/package.json",
+        "shared/market_data_mcp/package-lock.json",
+        "niulai-runtime/requirements.txt"
+      ],
+      "explicit_host_prerequisites": {
+        "python": "3.12 in .niulai-state/.venv",
+        "node": ">=22 in launch PATH",
+        "launch_directory": "workspace root",
+        "service_context": "fresh authenticated native Sites get_site response per invocation"
+      },
+      "state_paths": [
+        ".niulai-state/config/tiger.json",
+        ".niulai-state/tiger/",
+        ".niulai-state/reports/",
+        ".niulai-state/tmp/"
+      ],
+      "cache_paths": [
+        ".niulai-state/tmp/node-compile-cache/"
+      ],
+      "public_config_template": "shared/tiger/config/tiger.example.json",
+      "credential_owner": "Existing remote owner-private encrypted store and its exclusive lease; no independent refresh cache or broader consent",
+      "read_only_query_tools": [
+        "positions",
+        "assets",
+        "snapshot"
+      ],
+      "query_route": "shared.tiger hidden-input launcher -> private pipe -> isolated Node QueryPortal/in-memory MCP adapter -> private pipe -> shared.tiger.worker -> official read-only SDK",
+      "host_mcp_registration": false,
+      "api_restrictions": [
+        "Exactly one observed STANDARD account",
+        "No account IDs or arbitrary endpoints accepted as query arguments",
+        "No order, trading, quote, bar or transaction-history tools exposed by the new query portal",
+        "Complete requested-read evidence is separate from whole-account coverage and quote freshness"
+      ],
+      "retry_and_recovery": "One portal/worker query attempt; only idempotent credential-store acquire/checkpoint requests retry. Ambiguous reads/rotations/commits preserve the shared crash fence and private profile for reconciliation.",
+      "compatibility_modes": [
+        "niulai_runtime.tiger --mode verify",
+        "niulai_runtime.tiger --mode run"
+      ],
+      "module_search_path": "From outside the checkout, explicitly include the checkout root for shared.* and checkout/niulai-runtime for niulai_runtime.*",
+      "acceptance_claim": "Inspect exact source-version receipts on the deployed device. Existing source README records interactive live reads; neither those reads nor this documentation sweep establish unattended business delivery.",
+      "portability_gaps": [
+        "Native Sites service access remains host-provided",
+        "The query worker selects .niulai-state/.venv/bin/python beneath the checkout; recreate that environment on the target device",
+        "Compatibility report mode still depends explicitly on the preserved Niulai holdings source and private taxonomy",
+        "Reconcile any unresolved shared fence/lease before moving an active credential owner",
+        "Fresh native service context still requires authenticated host",
+        "No unattended service-auth integration",
+        "No automatic reconciliation of uncertain lease/refresh outcomes",
+        "Current live reads do not establish continuous availability or actual token rotation"
+      ],
+      "runbook": "shared/tiger/README.md",
+      "direct_dependency_pins": {
+        "tigeropen": "3.8.0",
+        "@modelcontextprotocol/sdk": "1.32.2"
+      },
+      "credential_values_in_inventory": false,
+      "active_codex_registration": false,
+      "credential_ownership": "Existing remote private OAuth store; local lease/fence and rotation checkpoints; service context only in memory and pipes",
+      "query_tools": [
+        "positions",
+        "assets",
+        "snapshot"
+      ],
+      "retry_policy": {
+        "portal_worker_attempts": 1,
+        "extra_broker_retries": 0,
+        "idempotent_store_attempts": 3
+      }
+    },
+    {
+      "id": "runtime-acceptance-policy",
+      "source_paths": [
+        "AGENTS.md",
+        "docs/deployment/runtime-acceptance.md",
+        "docs/deployment/runtime-acceptance.template.json"
+      ],
+      "state_paths": [
+        ".job-runtime/acceptance/"
+      ],
+      "dependency_manifests": [],
+      "activation_status": "Required shared agent/reviewer acceptance policy for major runtime changes; active peers notified; not an automatic release hook or email daemon",
+      "acceptance_contract": "Changed capability must pass in an actual future-triggered scheduled Codex session, with version-specific evidence and owner email readback",
+      "failure_policy": "Missing evidence remains unverified; partial/failure outcomes are recorded and emailed; uncertain delivery is reconciled before replay",
+      "runbook": "docs/deployment/runtime-acceptance.md"
+    },
+    {
+      "id": "investment-source-coverage",
+      "source_paths": [
+        "investment/AGENTS.md",
+        "investment/research/",
+        "shared/research_sources/",
+        "shared/market_data_mcp/adapters/research-stdio.mjs"
+      ],
+      "dependency_manifests": [
+        "shared/research_sources/requirements.txt",
+        "shared/research_sources/optional-mcp-requirements.txt",
+        "shared/market_data_mcp/package-lock.json"
+      ],
+      "explicit_host_prerequisites": {
+        "python": "3.12 exercised",
+        "node": ">=22 for optional MCP only",
+        "launch_directory": "workspace root"
+      },
+      "direct_dependency_pins": {
+        "jsonschema": "4.25.1",
+        "rfc3339-validator": "0.1.4",
+        "optional_arxiv_mcp_server": "0.8.2"
+      },
+      "state_paths": [
+        ".niulai-state/reports/investment-research/",
+        ".niulai-state/reports/research-sources/",
+        ".research-sources/.venv/",
+        ".research-sources/vendor/"
+      ],
+      "cache_paths": [
+        ".research-sources/cache/pip/",
+        ".niulai-state/reports/research-sources/cache/node/"
+      ],
+      "active_codex_registration": false,
+      "credential_values_in_inventory": false,
+      "activation_boundary": "Maintained local requirement/finalization/completion entry points; original cloud task unchanged; scheduled acceptance separately recorded; runtime artifacts fit the existing approved .niulai-state write scope without permission expansion",
+      "portability_gaps": [
+        "Direct pins are not a complete transitive hash lock",
+        "Authenticated OpenAlex MCP not tested",
+        "Small explicit host/profile catalog; not universal sector coverage",
+        "Reviewer meaning/truth not mechanically certified"
+      ],
+      "runbook": "investment/research/README.md",
+      "scheduled_acceptance": {
+        "status": "passed_for_scoped_source_path",
+        "email_sync": "verified",
+        "date": "2026-10-30",
+        "prior_failures_retained": true
+      },
+      "runtime_node_selection": "Private toolchain metadata resolves/hashes the actual Node executable; no interactive shell shim or global PATH change"
+    }
+  ],
+  "setup_sensitive_source_paths_for_consistency_gate": [
+    ".codex/config.toml",
+    ".gitignore",
+    "AGENTS.md",
+    "shared/setup_audit.py",
+    "shared/job_runtime/*.py",
+    "shared/job_runtime/*requirements.txt",
+    "shared/job_runtime/tests/*.py",
+    "niulai-runtime/niulai_runtime/*.py",
+    "niulai-runtime/config/*",
+    "niulai-runtime/jobs/*",
+    "niulai-runtime/requirements.txt",
+    "shared/market_data_mcp/*.py",
+    "shared/market_data_mcp/*.mjs",
+    "shared/market_data_mcp/*.json",
+    "shared/market_data_mcp/*.toml",
+    "shared/market_data_mcp/auth/*.mjs",
+    "shared/market_data_mcp/adapters/*.mjs",
+    "shared/market_data_mcp/core/*.mjs",
+    "shared/market_data_mcp/schemas/*.json",
+    "shared/market_data_mcp/tests/*.mjs",
+    "docs/web-search-routing.md",
+    "docs/web-search-status.md",
+    "docs/mcp-stability.md",
+    "mentor/tests/requirements.txt",
+    "mentor/AGENTS.md",
+    "mentor/ROUTING.md",
+    "mentor/skills/development-discipline/*.md",
+    "mentor/tests/test_development_evaluation.py",
+    "mentor/tests/verify_skill_bundle.py",
+    "mentor/upstream/sources.lock.json",
+    "tuning/evals/*/requirements.txt",
+    "tuning/evals/mentor-routing/build_packets.py",
+    "tuning/evals/mentor-gates-complex/prepare.py",
+    "tuning/evals/development-discipline/*.py",
+    "tuning/evals/ui-routing-screen/*.py",
+    "ui/AGENTS.md",
+    "ui/ROUTING.md",
+    "ui/skills/*/SKILL.md",
+    "ui/upstream/sources.lock.json",
+    "ui/tools/*.py",
+    "ui/tests/*.py",
+    "ui/verification/*.json",
+    "ui/verification/*.mjs",
+    "ui/verification/*.tsx",
+    "ui/verification/*.css",
+    "ui/verification/*.html",
+    "ui/verification/tests/*.mjs",
+    "shared/tiger/*.py",
+    "shared/tiger/config/*.json",
+    "shared/market_data_mcp/adapters/tiger.mjs",
+    "shared/market_data_mcp/tiger-query.mjs",
+    "shared/tiger/tests/*.py",
+    ".codex/hooks.json",
+    "mentor/session_init.py",
+    "mentor/tests/test_session_init.py",
+    "mentor/tests/verify_session_discovery.py",
+    "shared/market_data_mcp/auth/*.py",
+    "shared/market_data_mcp/tests/test_*.py",
+    "shared/market_data_mcp/README.md",
+    "docs/options-data-sources.md",
+    "docs/deployment/runtime-acceptance.template.json",
+    "ui/session_init.py",
+    "tuning/evals/ui-implementation-quality/*.py",
+    "tuning/evals/ui-implementation-quality/tests/*.cjs",
+    "tuning/evals/ui-implementation-quality/tests/*.mjs",
+    "tuning/evals/ui-implementation-quality/seed/package.json",
+    "shared/market_data_mcp/verification/*.mjs",
+    "shared/market_data_mcp/verification/*.md",
+    "docs/options-verification.md",
+    "investment/AGENTS.md",
+    "investment/research/*.py",
+    "investment/research/profiles/*.json",
+    "investment/research/examples/*.json",
+    "investment/research/tests/*.py",
+    "shared/research_sources/*.py",
+    "shared/research_sources/*.mjs",
+    "shared/research_sources/*.json",
+    "shared/research_sources/*requirements.txt",
+    "shared/research_sources/tests/*.py",
+    "shared/market_data_mcp/adapters/research-stdio.mjs",
+    "tuning/evals/ui-implementation-quality/diagnostics/*.cjs",
+    "tuning/evals/ui-implementation-quality/diagnostics/*.json"
+  ],
+  "change_policy": "Update this sanitized inventory, affected runbook, docs/local-setup.md and setup consistency record for future local setup changes. Never include secret values or private runtime payloads.",
+  "entrypoint": "docs/local-setup.md"
+}

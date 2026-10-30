@@ -1,80 +1,299 @@
 ---
 name: evaluation-design
-description: Design or review agent evaluations, grading rubrics, baselines, data splits, and promotion criteria for investment-agent tuning and mentor supervision.
+description: "Design investment-agent evaluations using upstream agent-evaluation and advanced-evaluation workflows, evidence-first rubrics, matched baselines, pairwise order checks and explicit failure gates."
+license: MIT
+metadata:
+  version: "1.0"
 ---
 
-# Evaluation design
+## Workspace application
 
-Produce the smallest evaluation that can inform the requested decision. Keep
-design guidance here and executable cases/graders in workspace-local `tuning/evals/`
-when needed. Do not create a framework, new agent, or dependency by default.
+Read [Investment-agent context](references/investment-context.md) when applying this skill. This is a project-local adaptation of the pinned sources in [UPSTREAM.md](UPSTREAM.md). Its workflow and bundled resources are active through `mentor/AGENTS.md`; it is not a daemon.
 
-## Define the decision
+# Evaluation Methods for Agent Systems
 
-Identify the behavior being measured, intended users/cases, baseline, candidate
-change, and what evidence would justify adoption. Separate:
+Evaluate agent systems differently from traditional software because agents make dynamic decisions, are non-deterministic between runs, and often lack single correct answers. Build evaluation frameworks that account for these characteristics, provide actionable feedback, catch regressions, and validate that context engineering choices achieve intended effects.
 
-- Alpha discovery: evidence correctness, falsifiable forecasts, calibration, and
-  incremental selection value against a declared benchmark and horizon.
-- Entry policy: incremental decision value with the candidate stream fixed,
-  accounting for costs, unfilled orders, waiting, and missed opportunities.
-- Mentor behavior: verified progress, useful recovery, justified escalation,
-  correct completion, and resource consumption.
+## When to Activate
 
-Hold entry behavior fixed when testing selection; hold selection fixed when
-testing entry. Evaluate their interaction later. Research quality is not proof of
-investment alpha. Evaluate realized outcomes prospectively when necessary.
+Activate this skill when:
+- Testing agent performance systematically
+- Validating context engineering choices
+- Measuring improvements over time
+- Catching regressions before deployment
+- Building quality gates for agent pipelines
+- Comparing different agent configurations
+- Evaluating production systems continuously
 
-## Choose cases and grading
+Do not activate this skill for adjacent work owned by other skills:
+- Designing the LLM judge itself, pairwise comparison, judge calibration, or bias mitigation: [advanced evaluation](references/advanced-evaluation/guide.md).
+- Designing autonomous control surfaces, novelty gates, rollback, or PR approval boundaries: `harness-engineering`.
+- Debugging a specific context failure mode before measuring it: `context-degradation`.
 
-Use cases drawn from the intended workload and observed failures, including
-ambiguous and negative cases. Start small, then expand only when uncertainty or
-coverage affects the decision. Include at least a contrasting case for a proposed
-behavioral rule: recovery should work when an authorized alternative exists;
-escalation should work when a necessary dependency is genuinely unavailable.
+## Core Concepts
 
-Use deterministic checks for verifiable properties. Use anchored rubrics for
-judgment; calibrate model graders against independently reviewed examples before
-relying on their scores. Blind candidate identity/order where practical. Do not
-grade eloquence, verbosity, self-reported confidence, or agent consensus as truth.
-Check source support, not merely the presence of citations.
+When deciding adoption or rejection, read the small [promotion gate](references/promotion-gate.md)
+first. Distinguish an observed failure from insufficient evidence: both can block
+acceptance, but missing evidence alone leaves the candidate's quality inconclusive.
 
-Evaluate both outcome and relevant trace evidence. Penalize fabricated evidence,
-false completion, and pointless repetition; do not reward persistence by itself.
-Keep correctness and evidence failures visible rather than averaging them away
-with speed or style. Report cost separately alongside quality.
+Focus evaluation on outcomes rather than execution paths, because agents may find alternative valid routes to goals. Judge whether the agent achieves the right outcome via a reasonable process, not whether it followed a specific sequence of steps.
 
-## Protect inference
+Use multi-dimensional rubrics instead of single scores because one number hides critical failures in specific dimensions. Capture factual accuracy, completeness, citation accuracy, source quality, and tool efficiency as separate dimensions, then weight them for the use case.
 
-- Define metrics, failure gates, budget, and acceptance rule before results.
-  Distinguish exploratory work from confirmatory tests; do not invent numerical
-  cutoffs or sample-size confidence unsupported by the data.
-- Keep development, validation, and protected tests distinct. The evaluated worker
-  must not edit its grader or acceptance rules or inspect protected answers.
-  Instructions alone do not enforce isolation: state whether the runner actually
-  restricts access. Material already visible in context is not a blind holdout.
-- Record every tried variant, including prompts, model/tool changes, failed runs,
-  and evaluation changes. Repeatedly consulted tests become development evidence.
-- For historical finance cases, use information available at the decision time,
-  including publication lags, revisions, historical membership, and delistings.
-  Date-filtered retrieval does not erase future knowledge in model weights.
-  Label that contamination risk; use prospective evaluation for stronger evidence.
-- Compare candidates on matched cases and comparable resource budgets. Repeat
-  stochastic runs when variability could change the conclusion. Account for
-  temporal or company-level dependence rather than treating all rows as independent.
-- Report effect size and uncertainty appropriate to available data and number of
-  comparisons. A small smoke test verifies basic behavior, not general superiority.
-  Permit an inconclusive result. Promote only on evidence meeting the stated rule.
+Use model-judged evaluation only after deterministic checks and rubrics are stable. When the work centers on judge prompts, pairwise comparison, calibration, or bias mitigation, read [Advanced Evaluation](references/advanced-evaluation/guide.md).
 
-## Deliverable
+Run deterministic validation before LLM judgment whenever the artifact has machine-checkable structure. Schema validity, duplicate keys, rubric math, manifest sync, retrieval status, and required evidence paths should fail fast before an evaluator spends tokens or returns a subjective score.
 
-Provide a concise evaluation specification containing:
+**Performance Drivers**
 
-1. Decision, baseline, candidate, and hypothesis.
-2. Cases, provenance, as-of dates where relevant, and split/access boundaries.
-3. Metrics, grader/rubric, critical failure gates, and grader limitations.
-4. Resource budget, comparison method, acceptance and stopping rules.
-5. Results when run: artifacts, failures, uncertainty, and adopt/reject/inconclusive.
+Apply browsing-agent research when designing evaluation budgets: token usage, tool calls, and model choice can dominate measured performance variance (claim-evaluation-browsecomp-variance).
 
-Adapt detail to the task; a short document or table is sufficient. Do not claim
-tests ran or isolation exists merely because the specification describes them.
+| Factor | Variance Explained | Implication |
+|--------|-------------------|-------------|
+| Token usage | Primary driver | More exploration can improve performance until cost or context quality collapses |
+| Number of tool calls | Secondary driver | More tool use helps only when calls retrieve useful evidence |
+| Model choice | Secondary but multiplicative | Better models often use tokens and tools more efficiently |
+
+Act on these implications when designing evaluations:
+- **Set realistic token budgets**: Evaluate agents with production-realistic token limits, not unlimited resources.
+- **Compare model upgrades against token increases**: Better models may use tokens more efficiently than weaker models with larger budgets.
+- **Validate multi-agent architectures**: Extra agents add tokens and tool calls; evaluate them against single-agent baselines.
+
+## Detailed Topics
+
+### Evaluation Challenges
+
+**Handle Non-Determinism and Multiple Valid Paths**
+
+Design evaluations that tolerate path variation because agents may take completely different valid paths to reach goals. One agent might search three sources while another searches ten; both may produce correct answers. Avoid checking for specific steps. Instead, define outcome criteria (correctness, completeness, quality) and score against those, treating the execution path as informational rather than evaluative.
+
+**Test Context-Dependent Failures**
+
+Evaluate across a range of complexity levels and interaction lengths because agent failures often depend on context in subtle ways. An agent might succeed on simple queries but fail on complex ones, work well with one tool set but fail with another, or degrade after extended interaction as context accumulates. Include simple, medium, complex, and very complex test cases to surface these patterns.
+
+**Score Composite Quality Dimensions Separately**
+
+Break agent quality into separate dimensions (factual accuracy, completeness, coherence, tool efficiency, process quality) and score each independently because an agent might score high on accuracy but low on efficiency, or vice versa. Then compute weighted aggregates tuned to use-case priorities. This approach reveals which dimensions need improvement rather than averaging away the signal.
+
+### Evaluation Rubric Design
+
+**Build Multi-Dimensional Rubrics**
+
+Define rubrics covering key dimensions with descriptive levels from excellent to failed. Include these core dimensions and adapt weights per use case:
+
+- Factual accuracy: Claims match ground truth (weight heavily for knowledge tasks)
+- Completeness: Output covers requested aspects (weight heavily for research tasks)
+- Citation accuracy: Citations match claimed sources (weight for trust-sensitive contexts)
+- Source quality: Uses appropriate primary sources (weight for authoritative outputs)
+- Tool efficiency: Uses right tools a reasonable number of times (weight for cost-sensitive systems)
+
+**Convert Rubrics to Numeric Scores**
+
+Map dimension assessments to numeric scores (0.0 to 1.0), apply per-dimension weights, and calculate weighted overall scores. Set passing thresholds from the declared decision and calibrated examples; do not use generic 0.7/0.9 defaults. Store individual dimension scores alongside the aggregate because the breakdown drives targeted improvement.
+
+### Evaluation Methodologies
+
+**Use LLM-as-Judge for Scale**
+
+Build LLM-based evaluation prompts that include: clear task description, the agent output under test, ground truth when available, an evaluation scale with explicit level descriptions, and a request for structured judgment with reasoning. LLM judges provide consistent, scalable evaluation across large test sets. Use a different model family than the agent being evaluated to avoid self-enhancement bias.
+
+**Supplement with Human Evaluation**
+
+Route edge cases, unusual queries, and a random sample of production traffic to human reviewers because humans notice hallucinated answers, system failures, and subtle biases that automated evaluation misses. Track patterns across human reviews to identify systematic issues and feed findings back into automated evaluation criteria.
+
+**Apply End-State Evaluation for Stateful Agents**
+
+For agents that mutate persistent state (files, databases, configurations), evaluate whether the final state matches expectations rather than how the agent got there. Define expected end-state assertions and verify them programmatically after each test run.
+
+### Test Set Design
+
+**Select Representative Samples**
+
+Choose case count using coverage, effect size, dependence, precision and resource constraints. Small development checks can reveal failures but do not establish general superiority. Sample from real usage patterns, add known edge cases, and ensure coverage across complexity levels.
+
+**Stratify by Complexity**
+
+Structure test sets across complexity levels to prevent easy examples from inflating scores:
+- Simple: single tool call, factual lookup
+- Medium: multiple tool calls, comparison logic
+- Complex: many tool calls, significant ambiguity
+- Very complex: extended interaction, deep reasoning, synthesis
+
+Report scores per stratum alongside overall scores to reveal where the agent actually struggles.
+
+### Context Engineering Evaluation
+
+**Validate Context Strategies Systematically**
+
+Run agents with different context strategies on the same test set and compare quality scores, token usage, and efficiency metrics. This isolates the effect of context engineering from other variables and prevents anecdote-driven decisions.
+
+**Run Degradation Tests**
+
+Test how context degradation affects performance by running agents at different context sizes. Identify performance cliffs where context becomes problematic and establish safe operating limits. Feed these limits back into context management strategies.
+
+### Continuous Evaluation
+
+**Build Automated Evaluation Pipelines**
+
+Integrate evaluation into the development workflow so evaluations run automatically on agent changes. Track results over time, compare versions, and block deployments that regress on key metrics.
+
+**Monitor Production Quality**
+
+Sample production interactions and evaluate them continuously. Calibrate warning and critical thresholds against the workload and cost of errors. Maintain dashboards showing trend analysis over time windows to detect gradual degradation.
+
+## Practical Guidance
+
+### Building Evaluation Frameworks
+
+Follow this sequence to build an evaluation framework, because skipping early steps leads to measurements that do not reflect real quality:
+
+1. Define quality dimensions relevant to the use case before writing any evaluation code, because dimensions chosen later tend to reflect what is easy to measure rather than what matters.
+2. Create rubrics with clear, descriptive level definitions so evaluators (human or LLM) produce consistent scores.
+3. Build test sets from real usage patterns and edge cases, stratified by complexity, with a sample-size rationale matched to the decision.
+4. Implement automated evaluation pipelines that run on every significant change.
+5. Establish baseline metrics before making changes so improvements can be measured against a known reference.
+6. Run evaluations on all significant changes and compare against the baseline.
+7. Track metrics over time for trend analysis because gradual degradation is harder to notice than sudden drops.
+8. Supplement automated evaluation with human review on a regular cadence.
+9. Separate deterministic validation failures from quality judgments so invalid artifacts cannot be laundered by a favorable LLM score.
+
+### Avoiding Evaluation Pitfalls
+
+Guard against these common failures that undermine evaluation reliability:
+
+- **Overfitting to specific paths**: Evaluate outcomes, not specific steps, because agents find novel valid paths.
+- **Ignoring edge cases**: Include diverse test scenarios covering the full complexity spectrum.
+- **Single-metric obsession**: Use multi-dimensional rubrics because a single score hides dimension-specific failures.
+- **Neglecting context effects**: Test with realistic context sizes and histories rather than clean-room conditions.
+- **Skipping human evaluation**: Automated evaluation misses subtle issues that humans catch reliably.
+
+## Examples
+
+**Example 1: Simple Evaluation**
+```python
+def evaluate_agent_response(response, expected):
+    rubric = load_rubric()
+    scores = {}
+    for dimension, config in rubric.items():
+        scores[dimension] = assess_dimension(response, expected, dimension)
+    overall = weighted_average(scores, config["weights"])
+    return {"passed": overall >= declared_threshold, "scores": scores}
+```
+
+**Example 2: Test Set Structure**
+
+Test sets should span multiple complexity levels to ensure comprehensive evaluation:
+
+```python
+test_set = [
+    {
+        "name": "simple_lookup",
+        "input": "What is the capital of France?",
+        "expected": {"type": "fact", "answer": "Paris"},
+        "complexity": "simple",
+        "description": "Single tool call, factual lookup"
+    },
+    {
+        "name": "medium_query",
+        "input": "Compare the revenue of Apple and Microsoft last quarter",
+        "complexity": "medium",
+        "description": "Multiple tool calls, comparison logic"
+    },
+    {
+        "name": "multi_step_reasoning",
+        "input": "Analyze sales data from Q1-Q4 and create a summary report with trends",
+        "complexity": "complex",
+        "description": "Many tool calls, aggregation, analysis"
+    },
+    {
+        "name": "research_synthesis",
+        "input": "Research emerging AI technologies, evaluate their potential impact, and recommend adoption strategy",
+        "complexity": "very_complex",
+        "description": "Extended interaction, deep reasoning, synthesis"
+    }
+]
+```
+
+**Example 3: Deterministic gate before model judgment**
+```python
+def evaluate_pr_candidate(candidate):
+    structure = run_validate_repo(candidate)
+    if not structure.ok:
+        return {"passed": False, "reason": "deterministic validation failed", "details": structure.errors}
+
+    quality = run_rubric_eval(candidate)
+    return {"passed": quality.overall >= declared_threshold, "scores": quality.dimensions}
+```
+
+**Example 4: Quality gate dimensions**
+```yaml
+gate:
+  deterministic:
+    - schema_valid
+    - required_files_present
+    - no_duplicate_ids
+  quality:
+    factual_accuracy: configured_minimum
+    completeness: configured_minimum
+    source_traceability: configured_minimum
+```
+
+## Guidelines
+
+1. Use multi-dimensional rubrics, not single metrics
+2. Evaluate outcomes, not specific execution paths
+3. Cover complexity levels from simple to complex
+4. Test with realistic context sizes and histories
+5. Run evaluations continuously, not just before release
+6. Supplement LLM evaluation with human review
+7. Track metrics over time for trend detection
+8. Set clear pass/fail thresholds based on use case
+
+## Gotchas
+
+1. **Overfitting evals to specific code paths**: Tests pass but the agent fails on slight input variations. Write eval criteria against outcomes and semantics, not surface patterns, and rotate test inputs periodically.
+2. **LLM-judge self-enhancement bias**: Models rate their own outputs higher than independent judges do. Use a different model family as the evaluation judge than the model being evaluated.
+3. **Test set contamination**: Eval examples leak into training data or prompt templates, inflating scores. Keep eval sets versioned and separate from any data used in prompts or fine-tuning.
+4. **Metric gaming**: Optimizing for the metric rather than actual quality produces agents that score well but disappoint users. Cross-validate automated metrics against human judgments regularly.
+5. **Single-dimension scoring**: One aggregate number hides critical failures in specific dimensions. Always report per-dimension scores alongside the overall score, and fail the eval if any single dimension falls below its minimum threshold.
+6. **Eval set too small**: Sample count alone does not establish reliability. Report uncertainty and dependence; expand the sample when uncertainty could change the decision.
+7. **Not stratifying by difficulty**: Easy examples inflate overall scores, masking failures on hard cases. Report scores per complexity stratum and weight the overall score to prevent easy-case dominance.
+8. **Treating eval as one-time**: Evaluation must be continuous, not a launch gate. Agent quality drifts as models update, tools change, and usage patterns evolve. Run evals on every change and on a regular production cadence.
+
+## Local integration
+
+Use [experiment-design](../experiment-design/SKILL.md) for candidate comparisons and [evidence-and-overfitting](../evidence-and-overfitting/SKILL.md) before promotion. The following upstream adjacent-skill names describe optional topics, not installed dependencies. Do not assume a global skill or runtime exists.
+
+## Upstream topic boundaries
+
+This skill owns outcome measurement and quality gates. Adjacent skills own specialized evaluator design and control-loop governance:
+
+- [advanced evaluation](references/advanced-evaluation/guide.md): LLM-as-judge prompt design, pairwise comparison, calibration, and bias mitigation.
+- `harness-engineering`: locked evaluators, editable surfaces, rollback, and human approval boundaries.
+- `context-degradation`: detecting and measuring degradation patterns.
+- `context-optimization`: measuring token, cost, latency, and quality effects of optimizations.
+- `multi-agent-patterns`: evaluating coordination quality and parallelization trade-offs.
+- `tool-design`: evaluating tool selection and recovery effectiveness.
+- `memory-systems`: evaluating memory retrieval and retention quality.
+
+## References
+
+Internal reference:
+- [Metrics Reference](./references/metrics.md) - Read when: designing specific evaluation metrics, choosing scoring scales, or implementing weighted rubric calculations
+
+Internal skills:
+- All other skills connect to evaluation for quality measurement
+
+External resources:
+- LLM evaluation benchmarks - Read when: selecting or building benchmark suites for agent comparison
+- Agent evaluation research papers - Read when: adopting new evaluation methodologies or validating current approach
+- Production monitoring practices - Read when: setting up alerting, dashboards, or sampling strategies for live systems
+
+---
+
+## Skill Metadata
+
+**Created**: 2025-12-20
+**Last Updated**: 2026-05-15
+**Author**: Agent Skills for Context Engineering Contributors
+**Version**: 1.2.0

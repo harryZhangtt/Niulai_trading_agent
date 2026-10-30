@@ -1,0 +1,181 @@
+[
+  {
+    "id": "coverage-complete",
+    "pair": "coverage",
+    "gate": {
+      "decision": "Accept a retrieval prompt for a bounded development trial only. No generalization or alpha claim.",
+      "required_case_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12"
+      ],
+      "min_source_support": 0.9,
+      "max_critical_errors": 0,
+      "other_requirements": "Frozen candidate, sources, grader and budgets are verified unchanged. All attempted runs and actual per-case source checks are recorded. There is no other unmet requirement."
+    },
+    "observed": {
+      "evaluated_case_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12"
+      ],
+      "source_support": 0.95,
+      "critical_errors": 0,
+      "report": "Full manifest and artifacts verified."
+    },
+    "expected": "accept",
+    "rule": "Complete declared coverage plus all other gates met permits the bounded trial."
+  },
+  {
+    "id": "coverage-missing",
+    "pair": "coverage",
+    "gate": {
+      "decision": "Accept a retrieval prompt for a bounded development trial only. No generalization or alpha claim.",
+      "required_case_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12"
+      ],
+      "min_source_support": 0.9,
+      "max_critical_errors": 0,
+      "other_requirements": "Frozen candidate, sources, grader and budgets are verified unchanged. All attempted runs and actual per-case source checks are recorded. There is no other unmet requirement."
+    },
+    "observed": {
+      "evaluated_case_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11"
+      ],
+      "source_support": 0.95,
+      "critical_errors": 0,
+      "report": "C12 has no grading output; recorded as missing, not passed. All completed-case outputs exist."
+    },
+    "expected": "inconclusive",
+    "rule": "A missing required case leaves the evidence incomplete; it is neither a pass nor proof candidate quality is bad."
+  },
+  {
+    "id": "critical-clean",
+    "pair": "critical-error",
+    "gate": {
+      "decision": "Accept a source-extraction patch for development use under the frozen gate. No deployment or alpha claim.",
+      "required_case_count": 10,
+      "min_overall_score": 0.9,
+      "max_critical_errors": 0,
+      "critical_definition": "Wrong currency or scaling of a material financial figure is a critical error.",
+      "other_requirements": "All 10 cases, source checks, costs, versions and artifacts have been independently verified; no missing runs or other unmet criterion."
+    },
+    "observed": {
+      "case_count": 10,
+      "overall_score": 0.96,
+      "critical_errors": 0,
+      "source_inspection": "All material financial figures use the currency and scale in their source."
+    },
+    "expected": "accept",
+    "rule": "With every declared gate met, accept only the specified development use."
+  },
+  {
+    "id": "critical-failure",
+    "pair": "critical-error",
+    "gate": {
+      "decision": "Accept a source-extraction patch for development use under the frozen gate. No deployment or alpha claim.",
+      "required_case_count": 10,
+      "min_overall_score": 0.9,
+      "max_critical_errors": 0,
+      "critical_definition": "Wrong currency or scaling of a material financial figure is a critical error.",
+      "other_requirements": "All 10 cases, source checks, costs, versions and artifacts have been independently verified; no missing runs or other unmet criterion."
+    },
+    "observed": {
+      "case_count": 10,
+      "overall_score": 0.96,
+      "critical_errors": 1,
+      "source_inspection": "One material figure is labeled USD millions although the source states USD thousands. Overall score remains 0.96."
+    },
+    "expected": "reject",
+    "rule": "One observed critical failure breaches the frozen zero-critical-error gate; a high mean cannot compensate."
+  },
+  {
+    "id": "bounded-six",
+    "pair": "sample-floor",
+    "gate": {
+      "decision": "Accept a deterministic timestamp-normalizer patch as passing its explicitly scoped development regression gate, not as a claim about arbitrary inputs or investment returns.",
+      "required_states": [
+        "UTC midnight",
+        "positive offset",
+        "negative offset",
+        "leap day",
+        "invalid date",
+        "future timestamp"
+      ],
+      "acceptance": "Each of these six required transitions must match its exact expected output or expected rejection. No probabilistic effect is estimated. Broader production coverage is explicitly outside this decision.",
+      "other_requirements": "All six transitions, expected outputs, frozen source code and grader have been inspected. Artifact completeness, source provenance and resource criteria are all satisfied."
+    },
+    "observed": {
+      "distinct_required_states_covered": 6,
+      "total_executions": 6,
+      "mismatches": 0,
+      "notes": "One execution of each deterministic required state; exact expectations met."
+    },
+    "expected": "accept",
+    "rule": "No universal 50-case minimum applies to this six-transition deterministic scoped gate."
+  },
+  {
+    "id": "bounded-sixty",
+    "pair": "sample-floor",
+    "gate": {
+      "decision": "Accept a deterministic timestamp-normalizer patch as passing its explicitly scoped development regression gate, not as a claim about arbitrary inputs or investment returns.",
+      "required_states": [
+        "UTC midnight",
+        "positive offset",
+        "negative offset",
+        "leap day",
+        "invalid date",
+        "future timestamp"
+      ],
+      "acceptance": "Each of these six required transitions must match its exact expected output or expected rejection. No probabilistic effect is estimated. Broader production coverage is explicitly outside this decision.",
+      "other_requirements": "All six transitions, expected outputs, frozen source code and grader have been inspected. Artifact completeness, source provenance and resource criteria are all satisfied."
+    },
+    "observed": {
+      "distinct_required_states_covered": 6,
+      "total_executions": 60,
+      "mismatches": 0,
+      "notes": "Ten exact repeats of each same deterministic state; no new states or independent observations."
+    },
+    "expected": "accept",
+    "rule": "Repeating the same states does not widen the claim; the same scoped gate already passes at six."
+  }
+]

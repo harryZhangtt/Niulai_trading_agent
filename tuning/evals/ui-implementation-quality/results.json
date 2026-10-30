@@ -1,0 +1,315 @@
+{
+  "experiment": "ui-implementation-quality-v1",
+  "arms": {
+    "routed": {
+      "worker": "repair-1",
+      "raw_passed": 12,
+      "total": 12,
+      "cases": {
+        "Q01": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q02": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q03": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q04": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q05": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q06": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q07": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q08": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q09": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q10": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q11": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q12": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        }
+      },
+      "critical_failures": [],
+      "typecheck": "passed",
+      "build": "passed",
+      "immutable_contract": "preserved",
+      "initial_inspection": {
+        "issues": [
+          {
+            "description": "Late load replaces another notice and drafts disappear on navigation",
+            "location": "app/src/App.tsx useEffect",
+            "mechanism": "Uncancelled load completion writes global notice/title/body; state has no entity or generation identity",
+            "planned_check": "Delay Harbor decoding, switch Ridge, verify Ridge and per-notice drafts"
+          },
+          {
+            "description": "Rapid saves and retries can append duplicates or lose new typing",
+            "location": "app/src/App.tsx save",
+            "mechanism": "Every invocation creates a new UUID, lacks synchronous in-flight guard and overwrites current draft after await",
+            "planned_check": "Burst clicks, edit while saving, switch entities; assert one operation and retained draft"
+          },
+          {
+            "description": "Untrusted payloads and raw error diagnostics reach UI",
+            "location": "app/src/App.tsx load/save",
+            "mechanism": "Payloads are type-cast and exception.message is displayed",
+            "planned_check": "Malformed notices and synthetic secret errors remain contained; retry available"
+          },
+          {
+            "description": "Preview ignores new props and fetches independently",
+            "location": "app/src/Preview.tsx",
+            "mechanism": "Preview copies props to state and only reloads by id, so saved updates are stale and playground requires service",
+            "planned_check": "Render playground offline, replace same-id props, assert history/body updates and no API call"
+          },
+          {
+            "description": "Expensive timeline work repeats during typing",
+            "location": "app/src/App.tsx NoticePreview prop",
+            "mechanism": "Spread creates new notice identity each render and preview is not memoized",
+            "planned_check": "Count supplied timeline observer before and after typing"
+          },
+          {
+            "description": "Narrow screens and long unbroken text can overflow",
+            "location": "app/src/styles.css main and preview",
+            "mechanism": "Grid children lack min-width:0 and wrapping; actions cannot wrap",
+            "planned_check": "320px viewport plus long title/message/history, check document width and focus"
+          }
+        ]
+      },
+      "routing": {
+        "selected": [
+          "async-state-reliability",
+          "impeccable",
+          "playwright-cli",
+          "vercel-react-best-practices"
+        ],
+        "missing": [],
+        "unnecessary": [],
+        "passed": true
+      },
+      "packet_tokens_proxy": 2998,
+      "declared_skill_resource_tokens_proxy": 12805,
+      "declared_instruction_union_tokens_proxy": 15803,
+      "all_seven_with_same_references_tokens_proxy": 27219,
+      "declared_resources": [
+        "skills/async-state-reliability/SKILL.md",
+        "skills/impeccable/SKILL.md",
+        "skills/impeccable/reference/craft-floor.md",
+        "skills/impeccable/reference/harden.md",
+        "skills/playwright-cli/SKILL.md",
+        "skills/playwright-cli/references/running-code.md",
+        "skills/vercel-react-best-practices/SKILL.md",
+        "skills/vercel-react-best-practices/rules/rerender-memo.md"
+      ],
+      "result_artifact": "tuning/runtime/ui-implementation-quality-v1/repair-1/result.json",
+      "implementation_source_tokens_proxy": 3708
+    },
+    "general": {
+      "worker": "repair-2",
+      "raw_passed": 11,
+      "total": 12,
+      "cases": {
+        "Q01": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q02": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q03": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q04": {
+          "passed": false,
+          "outcome": "failed",
+          "evidence": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Save revision', exact: true })\nExpected: enabled\nReceived: disabled\nTimeout:  2500ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" getByRole('button', { name: 'Save revision', exact: true }) with timeout 2500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Save revision', exact: true })\u001b[22m\n\u001b[2m    9 \u00d7 locator resolved to <button disabled type=\"submit\" aria-busy=\"false\" aria-label=\"Save revision\">Save revision</button>\u001b[22m\n\u001b[2m      - unexpected value \"disabled\"\u001b[22m\n\n\n  85 |   await expect(page.getByLabel('Title', { exact: true })).toHaveValue(notice('ridge').title); await page.waitForTimeout(650);\n  86 |   await expect(page.getByRole('alert')).toHaveCount(0);\n> 87 |   await expect(page.getByRole('button', { name: 'Save revision', exact: true })).toBeEnabled();\n     |                                                                                  ^\n  8"
+          ]
+        },
+        "Q05": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q06": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q07": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q08": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q09": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q10": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q11": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        },
+        "Q12": {
+          "passed": true,
+          "outcome": "passed",
+          "evidence": []
+        }
+      },
+      "critical_failures": [],
+      "typecheck": "passed",
+      "build": "passed",
+      "immutable_contract": "preserved",
+      "initial_inspection": {
+        "issues": [
+          {
+            "description": "Loads overwrite other notices and drafts",
+            "location": "app/src/App.tsx useEffect(selected)",
+            "mechanism": "The promise always sets shared notice/title/body after completion; there is no generation fence, entity cache or dirty-draft protection, and transport decoding can outlive abort.",
+            "planned_check": "Delay Harbor decoding, switch to Ridge, edit, and verify the late result never replaces Ridge; navigate away/back and retain drafts."
+          },
+          {
+            "description": "Rapid clicks and retries append duplicate permanent revisions",
+            "location": "app/src/App.tsx save()",
+            "mechanism": "Each invocation generates a new UUID, saving does not guard entry, and Retry invokes the same unguarded function.",
+            "planned_check": "Double-click while POST is delayed and assert one request; lose a committed response and reconcile through lookup without a second append."
+          },
+          {
+            "description": "Unknown writes have no recovery fence",
+            "location": "app/src/App.tsx save catch/finally",
+            "mechanism": "All errors are shown alike; a fresh save is allowed after an unknown result, so a lost response can duplicate a committed revision.",
+            "planned_check": "Exercise pending, absent, committed and failed lookup outcomes; replay an absent operation only with the original key/entity/payload."
+          },
+          {
+            "description": "Service payloads and errors cross the boundary unchecked",
+            "location": "app/src/App.tsx load and save",
+            "mechanism": "Responses are cast to Notice, empty/oversized values can be submitted, and sensitive error.message is displayed.",
+            "planned_check": "Return malformed/mismatched payloads and sensitive ServiceError diagnostics; verify safe feedback and zero invalid submissions."
+          },
+          {
+            "description": "Save completion can erase newer typing",
+            "location": "app/src/App.tsx save success",
+            "mechanism": "The returned title and body replace whatever the user typed while saving.",
+            "planned_check": "Type during a delayed save; check saved preview reflects the submitted snapshot and the editor retains later text."
+          },
+          {
+            "description": "Preview is coupled to service and ignores prop updates",
+            "location": "app/src/Preview.tsx display state/effect",
+            "mechanism": "It initializes display once, loads independently by id, and never synchronizes same-id prop changes.",
+            "planned_check": "Render and update NoticePreview through /preview.html with network denied; assert fresh supplied title/history and no API calls."
+          },
+          {
+            "description": "Costly history rerenders during editor typing",
+            "location": "app/src/App.tsx notice spread and app/src/Preview.tsx RevisionTimeline",
+            "mechanism": "A new notice object is made on every App render and the supplied expensive formatter has no memo boundary.",
+            "planned_check": "Count supplied timeline observer calls before/after typing and expect no additional formatting."
+          },
+          {
+            "description": "Real-world text can overflow narrow layouts",
+            "location": "app/src/styles.css main and text blocks",
+            "mechanism": "Grid children have implicit minimum widths and long unbroken notice/history text has no wrapping.",
+            "planned_check": "Check 320px viewport and long Unicode/unbroken title/message/history for horizontal overflow and visible focus/feedback."
+          }
+        ]
+      },
+      "routing": null,
+      "packet_tokens_proxy": 2071,
+      "declared_skill_resource_tokens_proxy": 0,
+      "declared_instruction_union_tokens_proxy": 2071,
+      "all_seven_with_same_references_tokens_proxy": null,
+      "declared_resources": [],
+      "result_artifact": "tuning/runtime/ui-implementation-quality-v1/repair-2/result.json",
+      "implementation_source_tokens_proxy": 4292
+    }
+  },
+  "comparison": {
+    "valid_case_ids": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12"
+    ],
+    "invalid_measurements": {
+      "Q04": {
+        "reason": "Enabled-pristine-Save assertion rejects a legitimate no-change policy; edited saves and late-error counterfactuals succeed",
+        "diagnostic": "q04-validity-diagnostic-v1",
+        "raw_result_preserved": true
+      }
+    },
+    "general_valid_passed": 11,
+    "routed_valid_passed": 11,
+    "valid_case_gains": [],
+    "valid_case_regressions": [],
+    "critical_routed_failures": [],
+    "implementation_quality_advantage": "inconclusive",
+    "generalization": "not established: one paired task, one worker per condition"
+  },
+  "author_controls": {
+    "seed_raw_passed": 1,
+    "corrected_reference_raw_passed": 12,
+    "total": 12
+  },
+  "discovery_review": "Both initial inspections identify concrete mechanisms across layout, races/writes/drafts, payload/errors, preview boundary and expensive rendering; raw issue counts differ in grouping and are not comparable defect totals",
+  "provider_usage": null,
+  "cost_scope": "Known serialized packet plus declared skill/reference text; not billing, reasoning, tool outputs or an independently audited load trace",
+  "runtime_acceptance_scope": "Isolated synthetic implementation evaluation; does not accept UI SessionStart activation or scheduled production behavior",
+  "verdict": "inconclusive_incremental_skill_effectiveness; routed implementation works on scoped checks and route is correct"
+}

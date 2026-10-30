@@ -1,0 +1,169 @@
+{
+  "experiment": "ui-routing-screen-v1",
+  "routing_passed": 8,
+  "total": 8,
+  "cases": [
+    {
+      "id": "small-polish",
+      "selected": [
+        "impeccable"
+      ],
+      "references": [
+        "skills/impeccable/reference/polish.md"
+      ],
+      "missing": [],
+      "unnecessary": [],
+      "missing_playbooks": [],
+      "passed": true,
+      "instruction_tokens_proxy": 2589
+    },
+    {
+      "id": "shadcn-dialog",
+      "selected": [
+        "shadcn"
+      ],
+      "references": [],
+      "missing": [],
+      "unnecessary": [],
+      "missing_playbooks": [],
+      "passed": true,
+      "instruction_tokens_proxy": 6630
+    },
+    {
+      "id": "react-waterfall",
+      "selected": [
+        "vercel-react-best-practices"
+      ],
+      "references": [],
+      "missing": [],
+      "unnecessary": [],
+      "missing_playbooks": [],
+      "passed": true,
+      "instruction_tokens_proxy": 2586
+    },
+    {
+      "id": "async-browser",
+      "selected": [
+        "async-state-reliability",
+        "impeccable",
+        "playwright-cli"
+      ],
+      "references": [
+        "skills/impeccable/reference/harden.md"
+      ],
+      "missing": [],
+      "unnecessary": [],
+      "missing_playbooks": [],
+      "passed": true,
+      "instruction_tokens_proxy": 9012
+    },
+    {
+      "id": "new-direction",
+      "selected": [
+        "frontend-design",
+        "impeccable",
+        "playwright-cli"
+      ],
+      "references": [
+        "skills/impeccable/reference/new-work.md"
+      ],
+      "missing": [],
+      "unnecessary": [],
+      "missing_playbooks": [],
+      "passed": true,
+      "instruction_tokens_proxy": 21268
+    },
+    {
+      "id": "backend-control",
+      "selected": [],
+      "references": [],
+      "missing": [],
+      "unnecessary": [],
+      "missing_playbooks": [],
+      "passed": true,
+      "instruction_tokens_proxy": 822
+    },
+    {
+      "id": "prose-control",
+      "selected": [],
+      "references": [],
+      "missing": [],
+      "unnecessary": [],
+      "missing_playbooks": [],
+      "passed": true,
+      "instruction_tokens_proxy": 822
+    },
+    {
+      "id": "motion-option",
+      "selected": [
+        "impeccable"
+      ],
+      "references": [
+        "skills/impeccable/reference/animate.md"
+      ],
+      "missing": [],
+      "unnecessary": [],
+      "missing_playbooks": [],
+      "passed": true,
+      "instruction_tokens_proxy": 2334
+    }
+  ],
+  "router_tokens_proxy": 564,
+  "supplied_router_packet_tokens_proxy": 1295,
+  "routing_response_tokens_proxy": 481,
+  "selected_snapshot_instruction_tokens_proxy": 46063,
+  "all_seven_entrypoints_snapshot_tokens_proxy": 156848,
+  "selected_session_union_instruction_tokens_proxy": 34291,
+  "all_seven_entrypoints_session_tokens_proxy": 19606,
+  "all_seven_with_same_references_snapshot_tokens_proxy": 175249,
+  "all_seven_with_same_references_session_tokens_proxy": 38007,
+  "resources": {
+    "skills/async-state-reliability/SKILL.md": {
+      "tokens_proxy": 518,
+      "sha256": "e53f1394ace144e0e14550ac5c25dad68d6caffa3346597794b6db31bb610af7"
+    },
+    "skills/playwright-cli/SKILL.md": {
+      "tokens_proxy": 4620,
+      "sha256": "1389ce3c1c4e07a06e822ddb02dae75e56198332d583460d6c967e5cf988b989"
+    },
+    "skills/impeccable/SKILL.md": {
+      "tokens_proxy": 466,
+      "sha256": "d059762ad70f8fa25879c7cbe1904bf28dd3cc4176f2c3d1f033691b2c249aaf"
+    },
+    "skills/vercel-react-best-practices/SKILL.md": {
+      "tokens_proxy": 1764,
+      "sha256": "71ed7794962fa6e803ee83030517b5b93a9f70fbfeb431ec4535c5480a8d8355"
+    },
+    "skills/ui-ux-pro-max/SKILL.md": {
+      "tokens_proxy": 3716,
+      "sha256": "79c0f834d7c40dfdb6aafbbe13a757d06d91cd900dd0288d88f94e5ae129cd66"
+    },
+    "skills/shadcn/SKILL.md": {
+      "tokens_proxy": 5808,
+      "sha256": "6ce5be3c66738158b76e39b4d2260a3fd0c6278f3e14a419d29da43ba34a7365"
+    },
+    "skills/frontend-design/SKILL.md": {
+      "tokens_proxy": 1892,
+      "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+    },
+    "skills/impeccable/reference/polish.md": {
+      "tokens_proxy": 1301,
+      "sha256": "73893e18e874e14beccd7fca92335d9036f5a5e068fd8815fd7daceadf186a43"
+    },
+    "skills/impeccable/reference/harden.md": {
+      "tokens_proxy": 2586,
+      "sha256": "98244db22d907a134cac0c94ffb829ba480ba61cfac67ae155ac2f46444da7c9"
+    },
+    "skills/impeccable/reference/new-work.md": {
+      "tokens_proxy": 13468,
+      "sha256": "ef6e0d12db9347f97801a22157b34568a30a0af9e22992407a9412390a52a93b"
+    },
+    "skills/impeccable/reference/animate.md": {
+      "tokens_proxy": 1046,
+      "sha256": "94b4ce6299fea93d9f256b2d25705961a76bc5ea940c56db4145686ebc99df1b"
+    }
+  },
+  "provider_usage": null,
+  "quality_scope": "Semantic routing only; no generated-UI quality comparison. Separate Playwright fixture tests runtime invariants.",
+  "cost_scope": "o200k_base proxy, not billing/latency; entrypoints-only floor excludes conditional references; additional matched counterfactual includes same selected references in both paths"
+}

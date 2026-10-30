@@ -1,0 +1,111 @@
+{
+  "approved": true,
+  "blocking_issues": [],
+  "nonblocking_notes": [
+    {
+      "cases": ["complex-03", "complex-04"],
+      "issue": "C22 states exact pass_rate equality without a rounding tolerance; 13/12*100 is 108.333333..., while the supplied artifact prints 108.3333. This is not label ambiguity because passed=13 with total=12 independently and explicitly fails E_RANGE.",
+      "grading_guidance": "Credit the reproduced GR-03 defect and/or explicit E_RANGE as decisive for the grader. Do not require a solver to identify the printed decimal precision as an additional defect. A future contract revision could state its rounding rule."
+    },
+    {
+      "cases": ["complex-06"],
+      "issue": "The eight completed 4/4 grades already establish 32 known rubric points, which reaches the numeric threshold. The unresolved ten-output/source-join coverage requirement, and the unfinished grading record, prevent acceptance; a solver need not claim that the numeric threshold itself remains unproved.",
+      "grading_guidance": "Credit an inconclusive answer grounded in missing R10 with correct R07 arithmetic, even if it explicitly says the known rubric points reach 32. Do not require the gold phrase about a full 40-point panel score."
+    },
+    {
+      "cases": ["complex-01", "complex-02", "complex-03", "complex-04", "complex-05", "complex-06", "complex-07", "complex-08"],
+      "issue": "The packets provide meaningful bounded complexity through conflicting summaries, object/scope changes, missing evidence, invalid scoring, source joins, and timestamp/revision records. Their explicit contracts make this a synthetic decision screen rather than a test of discovering unstated criteria.",
+      "grading_guidance": "Keep the protocol's development-screen interpretation. The 2 accept / 3 reject / 3 inconclusive balance blocks a perfect always-withhold policy; eight cases do not establish broad effectiveness or statistical superiority."
+    }
+  ],
+  "pair_checks": [
+    {
+      "pair_id": "scope-transport",
+      "cases": ["complex-01", "complex-02"],
+      "public_diff_paths": ["public.request"],
+      "exactly_intended_change": true,
+      "changed_fact": "Requested decision scope changes from the ec-2.1 deterministic helper gate to ap-4.2 incremental stock-selection alpha; contract and all four artifacts are identical.",
+      "case_assessments": [
+        {
+          "case": "complex-01",
+          "expected_verdict": "accept",
+          "supported": true,
+          "reason": "The requested ec-2.1 build is identified, all eight distinct preauthored fixture comparisons pass with no unexpected exception, and median latency 1.1 ms is within 3.0 ms. The retained receipt supports this bounded helper gate; neither 100 reused invocations nor the manager score establishes alpha."
+        },
+        {
+          "case": "complex-02",
+          "expected_verdict": "inconclusive",
+          "supported": true,
+          "reason": "P1-PANEL records 0/16 prospective decisions and zero outcome rows. The six repeatedly consulted historical weeks cannot meet the frozen prospective alpha contract. No valid observed alpha-quality violation is supplied, so the missing panel blocks adoption without rejecting ap-4.2."
+        }
+      ],
+      "consistency_checks": "P1 evidence IDs resolve in both packets. The timing repetition count and distinct input count are explicitly separated. The paired verdict change follows the requested scope, not a changed artifact or favorable summary."
+    },
+    {
+      "pair_id": "object-identity",
+      "cases": ["complex-03", "complex-04"],
+      "public_diff_paths": ["public.request"],
+      "exactly_intended_change": true,
+      "changed_fact": "Evaluated object changes from g-7.0 grader correctness to p-9.0 prompt performance; contract and all four artifacts are identical.",
+      "case_assessments": [
+        {
+          "case": "complex-03",
+          "expected_verdict": "reject",
+          "supported": true,
+          "reason": "P2-FIXTURE records two reproduced true results where GR-03 explicitly requires false. P2-TRACE explains the critical_fact_error/criticalFactError mismatch. The grader's passed=13,total=12 summary separately violates the declared range. These observations reject this grader build under C22."
+        },
+        {
+          "case": "complex-04",
+          "expected_verdict": "inconclusive",
+          "supported": true,
+          "reason": "Q01-Q12 establish generation, while the score artifact is explicitly excluded and valid independent judgments are pending. GR-03 is explicitly a synthetic grader fixture rather than a prompt answer. There is no independently verified material source error in p-9.0 that would justify rejection."
+        }
+      ],
+      "consistency_checks": "Twelve unique Q receipts agree with total=12; passed=13 exceeds that total. All P2 gold evidence IDs exist. The wrong field name matches the reproduced fixture behavior. The baseline reference does not create a competing verdict because valid prompt judgments are absent under any interpretation."
+    },
+    {
+      "pair_id": "missing-plus-defect",
+      "cases": ["complex-05", "complex-06"],
+      "public_diff_paths": ["public.artifacts[3].text"],
+      "exactly_intended_change": true,
+      "changed_fact": "Only FY2025_revenue_eur_m in P3-SOURCE changes from 108 to 118. The candidate's 118/18% claim, FY2024 value 100, source join, missing R10, rubric ledger, request and contract remain identical.",
+      "case_assessments": [
+        {
+          "case": "complex-05",
+          "expected_verdict": "reject",
+          "supported": true,
+          "reason": "The authenticated original-table join establishes 108 against the candidate's audited-revenue claim of 118: EUR 10 million exceeds the EUR 1 million material-error tolerance. The source implies 8% growth, not the claimed 18%. This observed zero-tolerance violation decides rejection despite the separately missing R10."
+        },
+        {
+          "case": "complex-06",
+          "expected_verdict": "inconclusive",
+          "supported": true,
+          "reason": "The cited 118 now matches the candidate, and (118-100)/100 is 18%. R10 still has no stored output or source join, so the ten-record coverage requirement remains unmet without an observed decisive quality violation. The smallest action is to recover the missing evidence and complete the required grading while retaining the incomplete attempt."
+        }
+      ],
+      "consistency_checks": "R01-R06 plus R08-R09 are eight briefs, giving 8*4=32 known points. R01-R09 accounts for nine received outputs; R07 is the separate audit and R10 remains missing. All P3 gold evidence IDs exist. The source extract and output explicitly share units, fiscal years and consolidated perimeter, removing plausible revenue-definition alternatives."
+    },
+    {
+      "pair_id": "publication-cutoff",
+      "cases": ["complex-07", "complex-08"],
+      "public_diff_paths": ["public.artifacts[1].text"],
+      "exactly_intended_change": true,
+      "changed_fact": "Only First_publication_utc in P4-SOURCE changes from 2025-11-03T13:45:00Z to 2025-11-03T14:15:00Z. The cutoff, v1 revision, reproduced facts, membership and all other public text remain identical.",
+      "case_assessments": [
+        {
+          "case": "complex-07",
+          "expected_verdict": "accept",
+          "supported": true,
+          "reason": "The authenticated source was public 15 minutes before the 14:00 UTC cutoff. P4-ROW records exact required financial fields, and P4-MEMBERSHIP binds the registered v1 source and historical member to AR-31. This supports only the specified one-record provenance gate; model-weight contamination remains outside it."
+        },
+        {
+          "case": "complex-08",
+          "expected_verdict": "reject",
+          "supported": true,
+          "reason": "The source was first public 15 minutes after the 14:00 UTC cutoff, yet AR-31 includes its financial facts. This is an observed predeclared critical provenance violation for the requested artifact; correct copying and historical membership do not cure availability."
+        }
+      ],
+      "consistency_checks": "Both timestamp offsets are exactly 15 minutes, and the cutoff lies within the inclusive 2025 membership interval. Replay and retrieval dates are consistent with the frozen C41 date and later replay. Source and row values agree on EUR 118 million and EUR 4.20. All P4 gold evidence IDs exist."
+    }
+  ]
+}
