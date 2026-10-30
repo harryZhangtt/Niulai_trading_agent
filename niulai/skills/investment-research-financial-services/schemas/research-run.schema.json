@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:investment-research:research-run:2026-10-18-2",
+  "title": "Native investment research checkpoint",
+  "description": "Checks record structure only. Source support, cross-reference resolution, file hashes, calculation replay, independent reasoning and actual persistence require inspection with native tools. No claim of forecast truth or external audit follows from validation.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "scope", "status", "request", "subject", "stages"],
+  "properties": {
+    "research_resolution_evidence": {"type": "object", "required": ["version", "status"], "properties": {"version": {"const": "2026-10-24-active-resolution-1"}, "status": {"enum": ["pending", "reviewed"]}, "expected_question_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true}, "ledger_artifact_id": {"$ref": "#/$defs/text"}, "output_artifact_id": {"$ref": "#/$defs/text"}, "review_artifact_id": {"$ref": "#/$defs/text"}, "communication": {"type": "object", "required": ["route"], "properties": {"route": {"enum": ["direct", "rewrite"]}}}}},
+    "critical_data_evidence": {"type": "object", "required": ["version", "status"], "properties": {"version": {"const": "2026-10-24-critical-data-1"}, "status": {"enum": ["pending", "reviewed"]}, "ledger_artifact_id": {"$ref": "#/$defs/text"}, "review_artifact_id": {"$ref": "#/$defs/text"}}},
+    "instrument_profile": {"type": "string", "description": "Optional explicit specialization. equity_options activates the additional options evidence completion gate."},
+    "options_evidence": {"type": "object", "required": ["version", "status"], "properties": {"version": {"const": "2026-10-24-options-evidence-1"}, "status": {"enum": ["research_only", "actionable"]}, "blockers": {"type": "array", "items": {"$ref": "#/$defs/text"}}}},
+    "entry_policy_evidence": {"type": "object", "required": ["version", "status"], "properties": {"version": {"const": "2026-10-23-entry-policy-2"}, "status": {"enum": ["pending", "limited", "compared"]}, "basis": {"enum": ["company_bound", "synthetic", "crypto_bound"]}, "probability_basis": {"enum": ["unknown", "judgment", "calibrated"]}, "common_horizon_years": {"type": "number", "exclusiveMinimum": 0}, "initial_budget": {"type": "number", "exclusiveMinimum": 0}, "information_cutoff": {"type": "string", "minLength": 1}, "limitations": {"type": "string", "minLength": 1}, "baseline_artifact_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}, "source_evidence_artifact_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}, "calibration_artifact_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}, "input_artifact_id": {"type": "string", "minLength": 1}, "output_artifact_id": {"type": "string", "minLength": 1}, "review_artifact_id": {"type": "string", "minLength": 1}, "decision": {"type": "object", "required": ["change", "selected_policy", "rationale"], "properties": {"change": {"enum": ["changed", "unchanged"]}, "selected_policy": {"enum": ["now", "staged", "wait"]}, "rationale": {"type": "string", "minLength": 1}}}}},
+    "valuation_evidence": {"type": "object", "required": ["version", "business_values", "forecast_validation", "probability_basis", "professional_research", "technical_confirmation"], "properties": {"version": {"const": "2026-10-20-valuation-evidence-1"}, "business_values": {"type": "object", "required": ["status", "finding", "artifact_refs"], "properties": {"status": {"enum": ["evidenced", "limited", "not_applicable"]}, "finding": {"type": "string", "minLength": 1}, "artifact_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "limitations": {"type": "string", "minLength": 1}}}, "forecast_validation": {"type": "object", "required": ["status", "finding", "artifact_refs"], "properties": {"status": {"enum": ["evidenced", "limited", "not_applicable"]}, "finding": {"type": "string", "minLength": 1}, "artifact_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "limitations": {"type": "string", "minLength": 1}}}, "probability_basis": {"type": "object", "required": ["status", "finding", "artifact_refs"], "properties": {"status": {"enum": ["evidenced", "limited", "not_applicable"]}, "finding": {"type": "string", "minLength": 1}, "artifact_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "limitations": {"type": "string", "minLength": 1}}}, "professional_research": {"type": "object", "required": ["status", "finding", "artifact_refs"], "properties": {"status": {"enum": ["evidenced", "limited", "not_applicable"]}, "finding": {"type": "string", "minLength": 1}, "artifact_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "limitations": {"type": "string", "minLength": 1}}}, "technical_confirmation": {"type": "object", "required": ["status", "finding", "artifact_refs"], "properties": {"status": {"enum": ["evidenced", "limited", "not_applicable"]}, "finding": {"type": "string", "minLength": 1}, "artifact_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "limitations": {"type": "string", "minLength": 1}}}}},
+    "crypto_evidence": {"type": "object", "required": ["version", "status"], "properties": {"version": {"const": "2026-10-23-crypto-1"}, "status": {"enum": ["pending", "limited", "reviewed"]}, "assessment_artifact_id": {"$ref": "#/$defs/text"}, "review_artifact_id": {"$ref": "#/$defs/text"}}},
+    "rationale_evidence": {"type": "object", "required": ["version", "status"], "properties": {"version": {"const": "2026-10-23-rationale-cycle-1"}, "status": {"enum": ["pending", "reviewed"]}, "dependency_lock_artifact_id": {"$ref": "#/$defs/text"}, "card_artifact_id": {"$ref": "#/$defs/text"}, "diagram_artifact_id": {"$ref": "#/$defs/text"}, "review_artifact_id": {"$ref": "#/$defs/text"}, "presentation_artifact_id": {"$ref": "#/$defs/text"}}},
+    "schema_version": {"enum": ["2026-10-18-research-run-2", "2026-10-23-research-run-3"]},
+    "run_id": {"$ref": "#/$defs/text"},
+    "scope": {"enum": ["company_full", "fund_full", "narrow", "crypto_full"]},
+    "status": {"enum": ["in_progress", "partial", "complete"]},
+    "request": {"$ref": "#/$defs/text"},
+    "bounded_request": {"$ref": "#/$defs/text"},
+    "subject": {
+      "type": "object",
+      "required": ["ticker", "security_type"],
+      "properties": {
+        "ticker": {"$ref": "#/$defs/text"},
+        "security_type": {"enum": ["company", "fund", "leveraged_fund", "inverse_fund", "structured_fund", "structured_product", "etn", "unknown", "cryptoasset", "equity_options"]},
+        "identity_claim_ids": {"$ref": "#/$defs/refs"},
+        "cutoff": {"type": "string", "format": "date-time"},
+        "quote_timestamp": {"type": ["string", "null"], "format": "date-time"},
+        "fiscal_periods": {"$ref": "#/$defs/refs"},
+        "units": {"$ref": "#/$defs/text"},
+        "economics_classification": {"$ref": "#/$defs/text"}
+      }
+    },
+    "skill_revision": {"$ref": "#/$defs/text"},
+    "policy_versions": {
+      "type": "object",
+      "required": ["growth_aware", "modeling", "leveraged_funds"],
+      "properties": {"growth_aware": {"const": "2026-10-15-growth-aware-1"}, "modeling": {"const": "2026-10-15-modeling-1"}, "leveraged_funds": {"const": "2026-10-18-leveraged-funds-2"}, "entry_policy": {"const": "2026-10-23-entry-policy-2"}, "crypto": {"const": "2026-10-23-crypto-1"}, "rationale": {"const": "2026-10-23-rationale-cycle-1"}}
+    },
+    "stages": {"$ref": "#/$defs/stages"},
+    "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}},
+    "artifacts": {"type": "array", "items": {"$ref": "#/$defs/artifact"}},
+    "coverage": {"type": "object", "additionalProperties": {"$ref": "#/$defs/topic"}},
+    "model": {"$ref": "#/$defs/model"},
+    "audit": {"$ref": "#/$defs/audit"},
+    "result": {
+      "type": "object",
+      "required": ["label", "recommendation", "publication_status", "report_artifact_id"],
+      "properties": {
+        "label": {"enum": ["full_research", "partial_research", "bounded_answer"]},
+        "recommendation": {"enum": ["none", "conditional_investment_conclusion"]},
+        "publication_status": {"enum": ["draft", "saved"]},
+        "report_artifact_id": {"$ref": "#/$defs/text"},
+        "missing_stages": {"$ref": "#/$defs/refs"},
+        "missing_topics": {"$ref": "#/$defs/refs"}
+      }
+    },
+    "persistence": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["unsaved", "saved"]},
+        "receipts": {"type": "array", "items": {"type": "object", "required": ["artifact_id", "file_id", "version", "confirmed_at", "sha256"], "properties": {"artifact_id": {"$ref": "#/$defs/text"}, "file_id": {"$ref": "#/$defs/text"}, "version": {"type": ["string", "integer"]}, "confirmed_at": {"type": "string", "format": "date-time"}, "sha256": {"$ref": "#/$defs/hash"}}}}
+      },
+      "allOf": [{"if": {"properties": {"status": {"const": "saved"}}}, "then": {"required": ["receipts"], "properties": {"receipts": {"minItems": 1}}}}]
+    },
+    "recovery": {
+      "type": "object",
+      "properties": {
+        "objective": {"$ref": "#/$defs/text"},
+        "next_actions": {"$ref": "#/$defs/refs"},
+        "contradictions": {"type": "array", "items": {"type": "string"}},
+        "supersedes_run_id": {"$ref": "#/$defs/text"},
+        "input_revision": {"$ref": "#/$defs/text"},
+        "catalog_reference": {"$ref": "#/$defs/text"}
+      }
+    },
+    "profit_scalability": {"$ref": "#/$defs/profitScalability"}
+  },
+  "allOf": [
+    {"if": {"properties": {"instrument_profile": {"const": "equity_options"}}, "required": ["instrument_profile"]}, "then": {"required": ["options_evidence"]}},
+    {"if": {"properties": {"options_evidence": {"properties": {"status": {"const": "research_only"}}, "required": ["status"]}}, "required": ["options_evidence"]}, "then": {"properties": {"status": {"enum": ["in_progress", "partial"]}, "result": {"properties": {"recommendation": {"const": "none"}}}}}},
+    {"if": {"required": ["schema_version", "scope"], "properties": {"schema_version": {"const": "2026-10-23-research-run-3"}, "scope": {"enum": ["company_full", "fund_full", "crypto_full"]}}}, "then": {"required": ["policy_versions", "rationale_evidence"], "properties": {"policy_versions": {"required": ["rationale", "entry_policy"]}}}},
+    {"if": {"required": ["schema_version", "status", "scope"], "properties": {"schema_version": {"const": "2026-10-23-research-run-3"}, "status": {"const": "complete"}, "scope": {"enum": ["company_full", "fund_full", "crypto_full"]}}}, "then": {"properties": {"rationale_evidence": {"required": ["dependency_lock_artifact_id", "card_artifact_id", "diagram_artifact_id", "review_artifact_id"], "properties": {"status": {"const": "reviewed"}}}}}},
+    {"if": {"properties": {"scope": {"const": "narrow"}}}, "then": {"required": ["bounded_request"], "properties": {"result": {"properties": {"recommendation": {"const": "none"}}}}}},
+    {"if": {"properties": {"scope": {"const": "company_full"}}}, "then": {"properties": {"subject": {"properties": {"security_type": {"enum": ["company", "equity_options"]}}}}}},
+    {"if": {"required": ["subject"], "properties": {"subject": {"required": ["security_type"], "properties": {"security_type": {"const": "equity_options"}}}}}, "then": {"required": ["instrument_profile", "options_evidence"], "properties": {"instrument_profile": {"const": "equity_options"}, "scope": {"const": "company_full"}}}},
+    {"if": {"properties": {"scope": {"const": "fund_full"}}}, "then": {"properties": {"subject": {"properties": {"security_type": {"enum": ["fund", "leveraged_fund", "inverse_fund", "structured_fund", "structured_product", "etn"]}}}}}},
+    {
+      "if": {"properties": {"status": {"const": "partial"}}},
+      "then": {
+        "required": ["result"],
+        "properties": {"result": {"required": ["missing_stages", "missing_topics"], "properties": {"label": {"const": "partial_research"}, "recommendation": {"const": "none"}}, "anyOf": [{"properties": {"missing_stages": {"minItems": 1}}}, {"properties": {"missing_topics": {"minItems": 1}}}]}}
+      }
+    },
+    {
+      "if": {"required": ["result"], "properties": {"result": {"properties": {"publication_status": {"const": "saved"}}}}},
+      "then": {"required": ["persistence"], "properties": {"persistence": {"properties": {"status": {"const": "saved"}}}, "stages": {"properties": {"persistence": {"$ref": "#/$defs/completedStage"}}}}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "complete"}}},
+      "then": {
+        "required": ["skill_revision", "policy_versions", "sources", "claims", "coverage", "artifacts", "audit", "result", "persistence"],
+        "properties": {"subject": {"required": ["identity_claim_ids", "cutoff", "fiscal_periods", "units"], "properties": {"security_type": {"not": {"const": "unknown"}}, "identity_claim_ids": {"minItems": 1}, "fiscal_periods": {"minItems": 1}}}, "sources": {"minItems": 1, "contains": {"properties": {"source_type": {"const": "primary"}}}}, "claims": {"minItems": 1}, "artifacts": {"minItems": 1}, "audit": {"$ref": "#/$defs/completedAudit"}, "stages": {"properties": {"identity": {"$ref": "#/$defs/completedStage"}, "methodology": {"$ref": "#/$defs/completedStage"}, "sources": {"$ref": "#/$defs/completedStage"}, "coverage": {"$ref": "#/$defs/completedStage"}, "review": {"$ref": "#/$defs/completedStage"}, "report": {"$ref": "#/$defs/completedStage"}}}}
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "complete"}, "scope": {"enum": ["company_full", "fund_full", "crypto_full"]}}},
+      "then": {
+        "required": ["model", "profit_scalability"],
+        "properties": {"result": {"properties": {"label": {"const": "full_research"}}}, "stages": {"properties": {"model": {"$ref": "#/$defs/completedStage"}}}, "coverage": {"required": ["scope_prior_thesis", "business_economics", "industry_technology", "operating_cash_quality", "expectations_valuation", "scenarios_decision", "edge_falsification", "review_publication", "profit_scalability_value_capture"], "additionalProperties": {"$ref": "#/$defs/completedTopic"}}, "model": {"$ref": "#/$defs/completedModel"}, "subject": {"required": ["quote_timestamp"], "properties": {"quote_timestamp": {"type": "string", "format": "date-time"}}}, "audit": {"properties": {"numerical_checks": {"minItems": 1}}}}
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "complete"}, "scope": {"const": "fund_full"}}},
+      "then": {
+        "properties": {"coverage": {"required": ["payoff_reset_benchmark", "cost_financing_collateral", "path_probability_tails", "holdings_portfolio_overlap"]}, "model": {"properties": {"framework": {"enum": ["linear_reset", "nonlinear_payoff", "asset_equity_bridge", "nav_total_return"]}}, "required": ["payoff_source_claim_ids", "calibration_artifact_ids", "outcome_artifact_ids"]}}
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "complete"}, "scope": {"const": "company_full"}}},
+      "then": {
+        "properties": {"subject": {"required": ["economics_classification"]}, "model": {"required": ["sbc_treatment", "sbc_bridge_artifact_id", "capital_schedule_artifact_ids", "reverse_expectations_artifact_ids", "market_case_artifact_id"], "properties": {"framework": {"enum": ["FCFF_WACC", "FCFE_KE", "DDM", "residual_income", "NAV"]}, "sbc_treatment": {"enum": ["economic_expense", "dilution_or_offset_repurchases"]}, "scope_label": {"enum": ["selected_linked_schedules", "operating_capital_financing_schedules", "integrated_three_statement", "dividend_capital_adequacy_schedules", "residual_income_book_equity_schedules", "lookthrough_nav_schedules"]}, "capital_schedule_artifact_ids": {"minItems": 1}, "reverse_expectations_artifact_ids": {"minItems": 1}}, "allOf": [{"if": {"properties": {"framework": {"enum": ["DDM", "residual_income", "NAV"]}}}, "then": {"required": ["scope_notes"]}}]}}
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "complete"}, "scope": {"const": "narrow"}}},
+      "then": {"properties": {"result": {"properties": {"label": {"const": "bounded_answer"}}}, "coverage": {"required": ["bounded_question"], "properties": {"bounded_question": {"$ref": "#/$defs/completedTopic"}}}}}
+    }
+,
+    {"if": {"required": ["policy_versions", "scope"], "properties": {"scope": {"enum": ["company_full", "fund_full", "crypto_full"]}, "policy_versions": {"required": ["entry_policy"], "properties": {"entry_policy": {"const": "2026-10-23-entry-policy-2"}}}}}, "then": {"required": ["entry_policy_evidence"]}},
+    {"if": {"required": ["policy_versions", "scope", "status"], "properties": {"scope": {"enum": ["company_full", "fund_full", "crypto_full"]}, "policy_versions": {"required": ["entry_policy"], "properties": {"entry_policy": {"const": "2026-10-23-entry-policy-2"}}}, "status": {"const": "complete"}}}, "then": {"properties": {"entry_policy_evidence": {"required": ["basis", "probability_basis", "common_horizon_years", "initial_budget", "information_cutoff", "limitations", "baseline_artifact_ids", "source_evidence_artifact_ids", "input_artifact_id", "output_artifact_id", "review_artifact_id", "decision"], "properties": {"status": {"const": "compared"}, "basis": {"enum": ["company_bound", "crypto_bound"]}, "probability_basis": {"enum": ["judgment", "calibrated"]}}}}}},
+    {"if": {"properties": {"scope": {"const": "crypto_full"}}}, "then": {"required": ["crypto_evidence", "policy_versions"], "properties": {"subject": {"properties": {"security_type": {"const": "cryptoasset"}}}, "policy_versions": {"required": ["crypto", "entry_policy"]}}}},
+    {"if": {"properties": {"scope": {"const": "crypto_full"}, "status": {"const": "complete"}}}, "then": {"properties": {"crypto_evidence": {"required": ["assessment_artifact_id", "review_artifact_id"], "properties": {"status": {"const": "reviewed"}}}, "entry_policy_evidence": {"properties": {"basis": {"const": "crypto_bound"}}}, "model": {"properties": {"framework": {"enum": ["crypto_hybrid", "network_cashflow", "monetary_demand"]}, "scope_label": {"const": "token_economics"}}, "required": ["reverse_expectations_artifact_ids", "market_case_artifact_id"]}}}}
+  ],
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "refs": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "nonemptyRefs": {"allOf": [{"$ref": "#/$defs/refs"}, {"minItems": 1}]},
+    "stage": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {"status": {"enum": ["pending", "in_progress", "complete", "blocked", "not_applicable"]}, "evidence_refs": {"$ref": "#/$defs/refs"}, "limitations": {"type": "array", "items": {"type": "string"}}}
+    },
+    "completedStage": {"allOf": [{"$ref": "#/$defs/stage"}, {"required": ["evidence_refs"], "properties": {"status": {"const": "complete"}, "evidence_refs": {"minItems": 1}}}]},
+    "stages": {
+      "type": "object",
+      "required": ["identity", "methodology", "sources", "coverage", "model", "review", "report", "persistence"],
+      "properties": {
+        "identity": {"$ref": "#/$defs/stage"},
+        "methodology": {"$ref": "#/$defs/stage"},
+        "sources": {"$ref": "#/$defs/stage"},
+        "coverage": {"$ref": "#/$defs/stage"},
+        "model": {"$ref": "#/$defs/stage"},
+        "review": {"$ref": "#/$defs/stage"},
+        "report": {"$ref": "#/$defs/stage"},
+        "persistence": {"$ref": "#/$defs/stage"}
+      },
+      "additionalProperties": false
+    },
+    "artifact": {
+      "type": "object",
+      "required": ["id", "path", "sha256", "kind", "depends_on"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"},
+        "path": {"$ref": "#/$defs/text"},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "kind": {"enum": ["source_snapshot", "model_code", "model_inputs", "model_outputs", "model_checks", "command_receipt", "review", "report", "other"]},
+        "depends_on": {"type": "array", "items": {"type": "object", "required": ["artifact_id", "sha256"], "properties": {"artifact_id": {"$ref": "#/$defs/text"}, "sha256": {"$ref": "#/$defs/hash"}}}}
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["id", "url", "title", "source_type", "published_at", "retrieved_at", "reporting_period", "snapshot_artifact_id", "passages"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"},
+        "url": {"type": "string", "format": "uri"},
+        "title": {"$ref": "#/$defs/text"},
+        "source_type": {"enum": ["primary", "secondary", "user_context"]},
+        "published_at": {"type": ["string", "null"], "format": "date-time"},
+        "retrieved_at": {"type": ["string", "null"], "format": "date-time"},
+        "reporting_period": {"type": ["string", "null"]},
+        "snapshot_artifact_id": {"$ref": "#/$defs/text"},
+        "passages": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "locator", "text"], "properties": {"id": {"$ref": "#/$defs/text"}, "locator": {"$ref": "#/$defs/text"}, "text": {"$ref": "#/$defs/text"}}}},
+        "retrieval_date": {"type": "string", "format": "date"},
+        "retrieval_precision": {"enum": ["date_only", "timestamp"]}
+      },
+      "allOf": [
+        {"if": {"properties": {"retrieved_at": {"type": "null"}}}, "then": {"required": ["retrieval_date", "retrieval_precision"], "properties": {"retrieval_precision": {"const": "date_only"}}}},
+        {"if": {"required": ["retrieval_precision"], "properties": {"retrieval_precision": {"const": "date_only"}}}, "then": {"properties": {"retrieved_at": {"type": "null"}}}}
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "required": ["id", "kind", "statement", "evidence_refs", "artifact_refs"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"},
+        "kind": {"enum": ["reported_fact", "management_guidance", "consensus", "analyst_assumption", "interpretation"]},
+        "statement": {"$ref": "#/$defs/text"},
+        "evidence_refs": {"type": "array", "items": {"type": "object", "required": ["source_id", "passage_id", "relationship"], "properties": {"source_id": {"$ref": "#/$defs/text"}, "passage_id": {"$ref": "#/$defs/text"}, "relationship": {"enum": ["supports", "opposes", "mixed", "context"]}}}},
+        "artifact_refs": {"$ref": "#/$defs/refs"}
+      },
+      "anyOf": [{"properties": {"evidence_refs": {"minItems": 1}}}, {"properties": {"artifact_refs": {"minItems": 1}}}],
+      "allOf": [{"if": {"properties": {"kind": {"enum": ["reported_fact", "management_guidance", "consensus"]}}}, "then": {"properties": {"evidence_refs": {"minItems": 1}}}}]
+    },
+    "topic": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["pending", "in_progress", "evidenced", "blocked", "not_applicable"]},
+        "finding": {"$ref": "#/$defs/text"},
+        "claim_ids": {"$ref": "#/$defs/refs"},
+        "artifact_refs": {"$ref": "#/$defs/refs"},
+        "report_anchor": {"$ref": "#/$defs/text"},
+        "reason": {"$ref": "#/$defs/text"}
+      }
+    },
+    "completedTopic": {
+      "allOf": [
+        {"$ref": "#/$defs/topic"},
+        {"required": ["finding", "claim_ids", "artifact_refs", "report_anchor"], "properties": {"status": {"enum": ["evidenced", "not_applicable"]}, "claim_ids": {"minItems": 1}, "artifact_refs": {"minItems": 1}}},
+        {"if": {"properties": {"status": {"const": "not_applicable"}}}, "then": {"required": ["reason"]}}
+      ]
+    },
+    "numericalCheck": {
+      "type": "object",
+      "required": ["id", "definition", "case", "period", "units", "actual", "expected", "tolerance", "input_artifact_ids", "output_artifact_id", "status"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"},
+        "definition": {"$ref": "#/$defs/text"},
+        "case": {"$ref": "#/$defs/text"},
+        "period": {"$ref": "#/$defs/text"},
+        "units": {"$ref": "#/$defs/text"},
+        "actual": {"type": "number"},
+        "expected": {"type": "number"},
+        "tolerance": {"type": "number", "minimum": 0},
+        "input_artifact_ids": {"$ref": "#/$defs/nonemptyRefs"},
+        "output_artifact_id": {"$ref": "#/$defs/text"},
+        "status": {"enum": ["passed", "failed", "not_performed"]}
+      }
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "framework": {"$ref": "#/$defs/text"},
+        "scope_label": {"$ref": "#/$defs/text"},
+        "code_artifact_ids": {"$ref": "#/$defs/refs"},
+        "input_artifact_ids": {"$ref": "#/$defs/refs"},
+        "output_artifact_ids": {"$ref": "#/$defs/refs"},
+        "command_artifact_ids": {"$ref": "#/$defs/refs"},
+        "sensitivity_artifact_ids": {"$ref": "#/$defs/refs"},
+        "horizon": {"$ref": "#/$defs/text"},
+        "distribution_policy": {"$ref": "#/$defs/text"},
+        "probability_basis": {"enum": ["analyst_judgment", "historical_frequency", "calibrated_model"]},
+        "scenarios": {"type": "array", "items": {"type": "object", "required": ["name", "weight", "input_artifact_ids", "output_artifact_ids"], "properties": {"name": {"$ref": "#/$defs/text"}, "weight": {"type": "number", "minimum": 0, "maximum": 1}, "input_artifact_ids": {"$ref": "#/$defs/nonemptyRefs"}, "output_artifact_ids": {"$ref": "#/$defs/nonemptyRefs"}}}},
+        "checks": {"type": "array", "items": {"$ref": "#/$defs/numericalCheck"}},
+        "sbc_treatment": {"$ref": "#/$defs/text"},
+        "sbc_bridge_artifact_id": {"$ref": "#/$defs/text"},
+        "capital_schedule_artifact_ids": {"$ref": "#/$defs/refs"},
+        "reverse_expectations_artifact_ids": {"$ref": "#/$defs/refs"},
+        "market_case_artifact_id": {"$ref": "#/$defs/text"},
+        "payoff_source_claim_ids": {"$ref": "#/$defs/nonemptyRefs"},
+        "calibration_artifact_ids": {"$ref": "#/$defs/nonemptyRefs"},
+        "outcome_artifact_ids": {"$ref": "#/$defs/nonemptyRefs"},
+        "limitations": {"type": "array", "items": {"type": "string"}},
+        "scope_notes": {"$ref": "#/$defs/text"}
+      }
+    },
+    "completedModel": {
+      "allOf": [
+        {"$ref": "#/$defs/model"},
+        {"required": ["framework", "scope_label", "code_artifact_ids", "input_artifact_ids", "output_artifact_ids", "command_artifact_ids", "sensitivity_artifact_ids", "horizon", "distribution_policy", "probability_basis", "scenarios", "checks", "limitations"], "properties": {"code_artifact_ids": {"minItems": 1}, "input_artifact_ids": {"minItems": 1}, "output_artifact_ids": {"minItems": 1}, "command_artifact_ids": {"minItems": 1}, "sensitivity_artifact_ids": {"minItems": 1}, "scenarios": {"minItems": 3}, "checks": {"minItems": 1, "items": {"properties": {"status": {"const": "passed"}}}}}}
+      ]
+    },
+    "audit": {
+      "type": "object",
+      "properties": {
+        "author_id": {"$ref": "#/$defs/text"},
+        "factual_samples": {"type": "array", "items": {"type": "object", "required": ["claim_id", "source_id", "passage_id", "reported", "verified", "units", "period", "status"], "properties": {"claim_id": {"$ref": "#/$defs/text"}, "source_id": {"$ref": "#/$defs/text"}, "passage_id": {"$ref": "#/$defs/text"}, "reported": {"type": ["number", "string"], "minLength": 1}, "verified": {"type": ["number", "string"], "minLength": 1}, "units": {"$ref": "#/$defs/text"}, "period": {"$ref": "#/$defs/text"}, "status": {"enum": ["matched", "mismatch", "unverified"]}}}},
+        "numerical_checks": {"type": "array", "items": {"$ref": "#/$defs/numericalCheck"}},
+        "command_artifact_ids": {"$ref": "#/$defs/refs"},
+        "independent_review": {"type": "object", "required": ["reviewer_id", "review_artifact_id", "reviewed_artifact_ids", "source_review", "reasoning_review"], "properties": {"reviewer_id": {"$ref": "#/$defs/text"}, "review_artifact_id": {"$ref": "#/$defs/text"}, "reviewed_artifact_ids": {"$ref": "#/$defs/nonemptyRefs"}, "source_review": {"enum": ["complete", "incomplete"]}, "reasoning_review": {"enum": ["complete", "incomplete"]}}},
+        "findings": {"type": "array", "items": {"type": "object", "required": ["id", "description", "disposition"], "properties": {"id": {"$ref": "#/$defs/text"}, "description": {"$ref": "#/$defs/text"}, "disposition": {"enum": ["unresolved", "fixed", "explained"]}, "rationale": {"$ref": "#/$defs/text"}, "evidence_artifact_ids": {"$ref": "#/$defs/refs"}}}},
+        "warnings_reviewed_artifact_id": {"$ref": "#/$defs/text"}
+      }
+    },
+    "completedAudit": {
+      "allOf": [
+        {"$ref": "#/$defs/audit"},
+        {"required": ["author_id", "factual_samples", "numerical_checks", "command_artifact_ids", "independent_review", "findings", "warnings_reviewed_artifact_id"], "properties": {"factual_samples": {"minItems": 1, "items": {"properties": {"status": {"const": "matched"}}}}, "numerical_checks": {"items": {"properties": {"status": {"const": "passed"}}}}, "command_artifact_ids": {"minItems": 1}, "independent_review": {"properties": {"source_review": {"const": "complete"}, "reasoning_review": {"const": "complete"}}}, "findings": {"items": {"required": ["rationale", "evidence_artifact_ids"], "properties": {"disposition": {"enum": ["fixed", "explained"]}, "evidence_artifact_ids": {"minItems": 1}}}}}}
+      ]
+    },
+    "profitScalability": {
+      "type": "object",
+      "description": "Trace usage/adoption to revenue, owner profit and retained value. Specify actual economic units; do not assume disclosed token prices, marginal margins or positive operating leverage. For funds, analyze underlying industry/holdings profit scalability and the wrapper leverage/funding costs as appropriate. Missing public unit data permits bounded sensitivities and an explicit not-established assessment.",
+      "required": [
+        "economic_unit",
+        "usage_to_revenue_mechanism",
+        "variable_and_fixed_costs",
+        "value_capture_and_outside_options",
+        "seat_or_legacy_cannibalization",
+        "reinvestment_and_sbc",
+        "measurement_status",
+        "assessment",
+        "claim_ids",
+        "artifact_refs",
+        "sensitivity_artifact_ids",
+        "limitations"
+      ],
+      "properties": {
+        "economic_unit": {"$ref": "#/$defs/text"},
+        "usage_to_revenue_mechanism": {"$ref": "#/$defs/text"},
+        "variable_and_fixed_costs": {"$ref": "#/$defs/text"},
+        "value_capture_and_outside_options": {"$ref": "#/$defs/text"},
+        "seat_or_legacy_cannibalization": {"$ref": "#/$defs/text"},
+        "reinvestment_and_sbc": {"$ref": "#/$defs/text"},
+        "measurement_status": {"enum": ["measured", "modelled_sensitivity", "not_publicly_identifiable"]},
+        "assessment": {"enum": ["positive", "linear", "negative", "mixed", "not_established"]},
+        "claim_ids": {"$ref": "#/$defs/nonemptyRefs"},
+        "artifact_refs": {"$ref": "#/$defs/nonemptyRefs"},
+        "sensitivity_artifact_ids": {"$ref": "#/$defs/nonemptyRefs"},
+        "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      },
+      "allOf": [{"if": {"properties": {"measurement_status": {"const": "not_publicly_identifiable"}}}, "then": {"properties": {"limitations": {"minItems": 1}}}}]
+    }
+  }
+}

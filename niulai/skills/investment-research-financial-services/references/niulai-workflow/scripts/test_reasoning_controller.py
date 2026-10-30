@@ -1,0 +1,20 @@
+import unittest
+from reasoning_controller import choose,decode
+class TestController(unittest.TestCase):
+ def setUp(self):self.p={'version':1,'required_checks_pass':True,'material_contradiction':False,'decision_sensitive':False,'relevant_evidence_weak':False,'baseline_valid':True,'external_access_blocked':False,'remaining_calls':5,'remaining_tokens':5000,'evidence_refs':['source_hash']}
+ def test_fast(self):self.assertEqual(choose(self.p)['route'],'FAST');self.assertEqual(choose(self.p)['max_extra_tool_calls'],0)
+ def test_focused(self):self.p['decision_sensitive']=True;self.assertEqual(choose(self.p)['route'],'FOCUSED')
+ def test_deep(self):self.p.update(decision_sensitive=True,relevant_evidence_weak=True);self.assertEqual(choose(self.p)['route'],'DEEP')
+ def test_invalid_first_repairs(self):self.p.update(required_checks_pass=False,decision_sensitive=True,relevant_evidence_weak=True);self.assertEqual(choose(self.p)['route'],'FOCUSED')
+ def test_contradiction(self):self.p['material_contradiction']=True;self.assertEqual(choose(self.p)['route'],'FOCUSED')
+ def test_stale_baseline(self):self.p['baseline_valid']=False;self.assertEqual(choose(self.p)['route'],'FOCUSED')
+ def test_external_no_endless_retry(self):self.p.update(external_access_blocked=True,decision_sensitive=True);self.assertEqual(choose(self.p)['route'],'BLOCKED_EXTERNAL')
+ def test_budget_wait(self):self.p.update(decision_sensitive=True,remaining_tokens=0);self.assertEqual(choose(self.p)['route'],'BUDGET_WAIT')
+ def test_deep_downgrade(self):self.p.update(decision_sensitive=True,relevant_evidence_weak=True,remaining_calls=1);self.assertEqual(choose(self.p)['route'],'FOCUSED');self.assertEqual(choose(self.p)['max_extra_tool_calls'],1)
+ def test_no_budget_overrun(self):self.p.update(decision_sensitive=True,remaining_tokens=100);self.assertEqual(choose(self.p)['incremental_model_token_budget'],100)
+ def test_missing_flags(self):self.p.pop('decision_sensitive');self.assertRaises(ValueError,choose,self.p)
+ def test_bool_budget(self):self.p['remaining_calls']=True;self.assertRaises(ValueError,choose,self.p)
+ def test_string_flags(self):self.p['baseline_valid']='false';self.assertRaises(ValueError,choose,self.p)
+ def test_no_evidence(self):self.p['evidence_refs']=[];self.assertRaises(ValueError,choose,self.p)
+ def test_duplicate_json(self):self.assertRaises(ValueError,decode,'{"version":1,"version":1}')
+if __name__=='__main__':unittest.main()

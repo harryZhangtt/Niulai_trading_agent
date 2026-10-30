@@ -1,0 +1,15 @@
+interface:
+  display_name: Investment Research — Financial Services
+  short_description: Cost-aware research with evidence and execution checks
+  default_prompt: Use $investment-research-financial-services to research my ticker
+    through the full pipeline, verify the evidence and model, independently review
+    it, and save the completed research record.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

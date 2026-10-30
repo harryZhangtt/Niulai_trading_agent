@@ -1,0 +1,61 @@
+{
+  "repository": "https://github.com/anthropics/financial-services",
+  "revision": "574ed3624aebd0418c7e96cd101262f30210ab26",
+  "retrieved_at": "2026-10-03",
+  "mode": "selected unmodified upstream workflow references; local adapter in SKILL.md",
+  "files": [
+    {
+      "path": "references/upstream/idea-generation/WORKFLOW.md",
+      "sha256": "e5f49f0f513fc434bb3448c8a942f6f99f66457e425a65b9375bb230922e9a45"
+    },
+    {
+      "path": "references/upstream/sector-overview/WORKFLOW.md",
+      "sha256": "8d4b7b47c3fe1591bde0a4260b1ffbe489e7ddbe3eddd3dbeb046ce29f315608"
+    },
+    {
+      "path": "references/upstream/thesis-tracker/WORKFLOW.md",
+      "sha256": "6b4ce2967c5e01c6b42f5c140fa1e94dee2713b5d2de3eb71957ff5a5c11469b"
+    },
+    {
+      "path": "references/upstream/catalyst-calendar/WORKFLOW.md",
+      "sha256": "12ac4ae7659ab848a8910dfceadab5b21479f23c8d3e0c57a3f5bf814bcf8186"
+    },
+    {
+      "path": "references/upstream/earnings-preview/WORKFLOW.md",
+      "sha256": "a30d383a6f1c06b732b4d34e422dd2ff18f6340db67229a3347d057d52697f33"
+    },
+    {
+      "path": "references/upstream/earnings-analysis/WORKFLOW.md",
+      "sha256": "4db857c27a53141b6ebc38ec9ee7f0020dec59cab084ae6753e53366d118c8ee"
+    },
+    {
+      "path": "references/upstream/earnings-analysis/references/workflow.md",
+      "sha256": "c8922b00e1f7fbbb23afc7601430bbb9c8bf0ac995f478bdd3b368aad6cf0a01"
+    },
+    {
+      "path": "references/upstream/earnings-analysis/references/report-structure.md",
+      "sha256": "60da5bd7cde0d93f197d21618bf801978022c4b24b91f2ed9ba21eb2945dc586"
+    },
+    {
+      "path": "references/upstream/earnings-analysis/references/best-practices.md",
+      "sha256": "a688e6b53d408fcfc36cb5490e9e2a75b82789f876f14ba22119bf19db655d09"
+    },
+    {
+      "path": "references/upstream/competitive-analysis/WORKFLOW.md",
+      "sha256": "65c6e2a68ba67660076e1f5b7d3602f71b3e97d3cdc1f2a6b03c12c05c24f1f9"
+    },
+    {
+      "path": "references/upstream/competitive-analysis/references/schemas.md",
+      "sha256": "4bc65ebead267d789a0824342d7e59ac7ff133e873f3c32675bf351d472c9e6d"
+    },
+    {
+      "path": "references/upstream/competitive-analysis/references/frameworks.md",
+      "sha256": "93b3f437c8da7a48e8a77603bd4eb47aba5880e40afdc1d77b8e590bd02c61b7"
+    },
+    {
+      "path": "references/upstream/comps-analysis/WORKFLOW.md",
+      "sha256": "2d49d9d694297da6ca3b084564ce10ed496f4ff21f275dae6b6c50d7b4dd889a"
+    }
+  ],
+  "packaging_note": "Upstream SKILL.md files renamed WORKFLOW.md to package as references; file contents unmodified."
+}

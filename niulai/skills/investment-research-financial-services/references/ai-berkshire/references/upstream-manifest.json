@@ -1,0 +1,51 @@
+{
+  "source_url": "https://github.com/xbtlin/ai-berkshire",
+  "upstream_commit": "ab56abcb31ef8e3a92d925f1b18fb339341ac9d3",
+  "retrieved_utc": "2026-10-15",
+  "license": "MIT",
+  "policy_version": "2026-10-15-growth-aware-1",
+  "local_modifications": "Prepend policy gate to three canonical workflows; preserve original remainder. Add parent skill, growth-aware policy and valuation primitives. Compatibility references use the preserved upstream generator through a local output-path wrapper. No upstream push.",
+  "files": {
+    "skills/quality-screen.md": {
+      "upstream_sha256": "8f1b5539ffaaf512f2dc73a714c1aa0d31ae58c2f598ba15f86990bca3f11a40",
+      "local_sha256": "1b71d25a0236743dea1eef96447ec683e7c9f02b9e8d7d6eca0ef2021451886b",
+      "modification": "policy-gate prefix only"
+    },
+    "skills/investment-checklist.md": {
+      "upstream_sha256": "d63896f656e99b6a39070083f41c3bd84194c7490bda5af88e20ffe6369bd5a7",
+      "local_sha256": "fb74ac20e8a754ad84ae0ee7a3e954eee7611ecb4946f74c84d85ff135686af7",
+      "modification": "policy-gate prefix only"
+    },
+    "skills/industry-funnel.md": {
+      "upstream_sha256": "9fa30918718e0c54722a06a132fb773f8bc660097138cca2224d88be10b0a867",
+      "local_sha256": "2f0b2aa8c8ddaf1471091212c06f027d605c38338d632a0b4541e4fea07c9d37",
+      "modification": "policy-gate prefix only"
+    },
+    "LICENSE": {
+      "upstream_sha256": "81b843bec8a087f4c20e5be8ad744cfe1a169dc0b4f0147cbe61e6cd3da39981",
+      "local_sha256": "81b843bec8a087f4c20e5be8ad744cfe1a169dc0b4f0147cbe61e6cd3da39981",
+      "modification": "none"
+    },
+    "AGENTS.md": {
+      "upstream_sha256": "d3d75821ad8377e6a6734c0b3ce3e7a0e92afde24d47bfce873c5b75ecc3506e",
+      "local_sha256": "d3d75821ad8377e6a6734c0b3ce3e7a0e92afde24d47bfce873c5b75ecc3506e",
+      "modification": "none"
+    },
+    "tools/financial_rigor.py": {
+      "upstream_sha256": "dee5c9de8c2dd71f1fd1cd7467dda6e5315ffa98132b82ce393b3e3e8c74fce7",
+      "local_sha256": "dee5c9de8c2dd71f1fd1cd7467dda6e5315ffa98132b82ce393b3e3e8c74fce7",
+      "modification": "none"
+    },
+    "tools/report_audit.py": {
+      "upstream_sha256": "8848c1f4db06cd7145c519161d15e895ce14b39a437bd8859b72ba74b94b7e7b",
+      "local_sha256": "8848c1f4db06cd7145c519161d15e895ce14b39a437bd8859b72ba74b94b7e7b",
+      "modification": "none"
+    },
+    "scripts/sync-codex-skills.py": {
+      "upstream_sha256": "beb560f710be1942183a85c077323b277c589952ce7f5a4f8678820177f1df7d",
+      "local_sha256": "beb560f710be1942183a85c077323b277c589952ce7f5a4f8678820177f1df7d",
+      "modification": "none"
+    }
+  },
+  "installation": "Bundled within existing investment-research-financial-services personal skill; mandatory adapter routing. This is not a separate installed skill."
+}

@@ -1,0 +1,428 @@
+{
+  "version": "2026-10-23-rationale-cycle-1",
+  "ticker": "REPLACE",
+  "scope": "company_full",
+  "as_of": "REPLACE_WITH_UTC_CUTOFF",
+  "issued_at": "REPLACE_WITH_ACTUAL_UTC_ISSUANCE",
+  "cohort_id": "REPLACE",
+  "thesis_family": "REPLACE",
+  "origin": "prospective",
+  "action": "wait",
+  "quote_unit": "USD/share",
+  "entry_period": "REPLACE_TARGET_PERIOD",
+  "limitations": "REPLACE_WITH_REAL_LIMITS",
+  "methodology_applications": {
+    "ai_berkshire": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "workflow_paths": [
+        "references/ai-berkshire/WORKFLOW.md"
+      ]
+    },
+    "anthropic_financial_services": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "workflow_paths": [
+        "references/upstream/sector-overview/WORKFLOW.md"
+      ]
+    }
+  },
+  "nodes": {
+    "business": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "status": "not_established"
+    },
+    "moat": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "status": "not_established"
+    },
+    "capture": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "status": "not_established"
+    },
+    "double_beat": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "status": "not_established"
+    },
+    "expectations": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "status": "not_established"
+    },
+    "cycle": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "status": "not_established"
+    },
+    "catalyst": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "status": "not_established"
+    },
+    "decision": {
+      "finding": "REPLACE_WITH_SOURCED_FINDING",
+      "claim_ids": [
+        "REPLACE_CLAIM_ID"
+      ],
+      "model_artifact_ids": [
+        "REPLACE_MODEL_OUTPUT_ID"
+      ],
+      "status": "not_established"
+    }
+  },
+  "beat_test": {
+    "finding": "REPLACE_WITH_SOURCED_FINDING",
+    "claim_ids": [
+      "REPLACE_CLAIM_ID"
+    ],
+    "model_artifact_ids": [
+      "REPLACE_MODEL_OUTPUT_ID"
+    ],
+    "basis": "unavailable",
+    "period": "REPLACE_TARGET_PERIOD",
+    "revenue_metric": "REPLACE",
+    "profit_metric": "REPLACE"
+  },
+  "metrics": {
+    "entry_low": {
+      "artifact_id": "REPLACE_MODEL_OUTPUT_ID",
+      "pointer": "/entry_low",
+      "units": "USD/share",
+      "period": "REPLACE_TARGET_PERIOD",
+      "units_pointer": "REPLACE_UNITS_JSON_POINTER",
+      "period_pointer": "REPLACE_PERIOD_JSON_POINTER"
+    },
+    "entry_high": {
+      "artifact_id": "REPLACE_MODEL_OUTPUT_ID",
+      "pointer": "/entry_high",
+      "units": "USD/share",
+      "period": "REPLACE_TARGET_PERIOD",
+      "units_pointer": "REPLACE_UNITS_JSON_POINTER",
+      "period_pointer": "REPLACE_PERIOD_JSON_POINTER"
+    },
+    "horizon_months": {
+      "artifact_id": "REPLACE_MODEL_OUTPUT_ID",
+      "pointer": "/horizon_months",
+      "units": "months",
+      "period": "REPLACE_TARGET_PERIOD",
+      "units_pointer": "REPLACE_UNITS_JSON_POINTER",
+      "period_pointer": "REPLACE_PERIOD_JSON_POINTER"
+    }
+  },
+  "catalyst_limitations": "REPLACE_WITH_ATTEMPTS_UNKNOWN_TIMING_MAGNITUDE_AND_REOPENING_TRIGGER",
+  "cycle_challenge": {
+    "industry": "REPLACE",
+    "adoption_stage": "unknown",
+    "industry_state": "unknown",
+    "expectations_state": "unknown",
+    "indicators": [
+      {
+        "finding": "REPLACE_WITH_SOURCED_FINDING",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ],
+        "family": "demand",
+        "units": "REPLACE",
+        "available_at": "REPLACE_WITH_ACTUAL_AVAILABILITY"
+      },
+      {
+        "finding": "REPLACE_WITH_SOURCED_FINDING",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ],
+        "family": "supply",
+        "units": "REPLACE",
+        "available_at": "REPLACE_WITH_ACTUAL_AVAILABILITY"
+      },
+      {
+        "finding": "REPLACE_WITH_SOURCED_FINDING",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ],
+        "family": "inventory",
+        "units": "REPLACE",
+        "available_at": "REPLACE_WITH_ACTUAL_AVAILABILITY"
+      }
+    ],
+    "hypotheses": [
+      {
+        "finding": "REPLACE_WITH_SOURCED_FINDING",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ],
+        "next_observation": "REPLACE",
+        "falsifier": "REPLACE"
+      },
+      {
+        "finding": "REPLACE_WITH_SOURCED_FINDING",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ],
+        "next_observation": "REPLACE",
+        "falsifier": "REPLACE"
+      }
+    ],
+    "normalization": {
+      "status": "applied",
+      "cases": {
+        "peak": {
+          "artifact_id": "REPLACE_MODEL_OUTPUT_ID",
+          "pointer": "/peak",
+          "units": "USD/share",
+          "period": "REPLACE_TARGET_PERIOD",
+          "units_pointer": "REPLACE_UNITS_JSON_POINTER",
+          "period_pointer": "REPLACE_PERIOD_JSON_POINTER"
+        },
+        "normalized": {
+          "artifact_id": "REPLACE_MODEL_OUTPUT_ID",
+          "pointer": "/normalized",
+          "units": "USD/share",
+          "period": "REPLACE_TARGET_PERIOD",
+          "units_pointer": "REPLACE_UNITS_JSON_POINTER",
+          "period_pointer": "REPLACE_PERIOD_JSON_POINTER"
+        },
+        "adverse": {
+          "artifact_id": "REPLACE_MODEL_OUTPUT_ID",
+          "pointer": "/adverse",
+          "units": "USD/share",
+          "period": "REPLACE_TARGET_PERIOD",
+          "units_pointer": "REPLACE_UNITS_JSON_POINTER",
+          "period_pointer": "REPLACE_PERIOD_JSON_POINTER"
+        }
+      }
+    },
+    "economic_questions": {
+      "scarcity_and_supply_response": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_LINKED_ANSWER_OR_EXPLAINED_LIMIT",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "demand_quality": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_LINKED_ANSWER_OR_EXPLAINED_LIMIT",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "durability_vs_mean_reversion": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_LINKED_ANSWER_OR_EXPLAINED_LIMIT",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "funding_and_survival": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_LINKED_ANSWER_OR_EXPLAINED_LIMIT",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "expectations_and_returns": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_LINKED_ANSWER_OR_EXPLAINED_LIMIT",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "disconfirming_path": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_LINKED_ANSWER_OR_EXPLAINED_LIMIT",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      }
+    },
+    "numerical_check": {
+      "input_artifact_id": "REPLACE_CYCLE_PACKET_ID",
+      "output_artifact_id": "REPLACE_CYCLE_RESULT_ID",
+      "case_calculation_ids": {
+        "peak": "REPLACE_PEAK_ID",
+        "normalized": "REPLACE_NORMALIZED_ID",
+        "adverse": "REPLACE_ADVERSE_ID"
+      },
+      "display_fcff_bindings": {
+        "peak": {
+          "artifact_id": "REPLACE_CYCLE_RESULT_ID",
+          "pointer": "/results/REPLACE_PEAK_ID/totals/fcff",
+          "units": "currency:REPLACE",
+          "period": "REPLACE_START/REPLACE_END"
+        },
+        "normalized": {
+          "artifact_id": "REPLACE_CYCLE_RESULT_ID",
+          "pointer": "/results/REPLACE_NORMALIZED_ID/totals/fcff",
+          "units": "currency:REPLACE",
+          "period": "REPLACE_START/REPLACE_END"
+        },
+        "adverse": {
+          "artifact_id": "REPLACE_CYCLE_RESULT_ID",
+          "pointer": "/results/REPLACE_ADVERSE_ID/totals/fcff",
+          "units": "currency:REPLACE",
+          "period": "REPLACE_START/REPLACE_END"
+        }
+      }
+    }
+  },
+  "forecasts": [
+    {
+      "id": "REPLACE_FORECAST_ID",
+      "target": "REPLACE_OBSERVABLE_METRIC",
+      "kind": "mean",
+      "prediction": null,
+      "units": "REPLACE",
+      "period": "REPLACE_TARGET_PERIOD",
+      "resolve_after": "REPLACE_WITH_RESOLUTION_DATE",
+      "resolution_rule": "REPLACE_FIRST_REPORTED_OR_RESTATED_RULE",
+      "resolution_source": "REPLACE_PRIMARY_SOURCE",
+      "model_binding": {
+        "artifact_id": "REPLACE_MODEL_OUTPUT_ID",
+        "pointer": "/forecast",
+        "units": "REPLACE",
+        "period": "REPLACE_TARGET_PERIOD",
+        "units_pointer": "REPLACE_UNITS_JSON_POINTER",
+        "period_pointer": "REPLACE_PERIOD_JSON_POINTER"
+      }
+    }
+  ],
+  "first_principles": {
+    "version": "2026-10-23-first-principles-1",
+    "questions": {
+      "customer_job": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_IMPLICATION",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "alternatives_and_economics": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_IMPLICATION",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "reference_class": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_IMPLICATION",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "adoption_to_capture": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_IMPLICATION",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "falsification": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_IMPLICATION",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      },
+      "cycle_mechanism": {
+        "finding": "REPLACE_WITH_EVIDENCE_AND_MODEL_IMPLICATION",
+        "claim_ids": [
+          "REPLACE_CLAIM_ID"
+        ],
+        "model_artifact_ids": [
+          "REPLACE_MODEL_OUTPUT_ID"
+        ]
+      }
+    },
+    "numerical_check": {
+      "input_artifact_id": "REPLACE_ADOPTION_PACKET_ID",
+      "output_artifact_id": "REPLACE_RECOMPUTED_ADOPTION_RESULT_ID"
+    }
+  }
+}

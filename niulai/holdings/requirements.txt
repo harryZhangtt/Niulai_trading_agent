@@ -1,0 +1,5 @@
+tigeropen==3.8.0
+exchange-calendars==4.11.2
+pandas==2.2.3
+reportlab==4.4.9
+cryptography==50.0.2

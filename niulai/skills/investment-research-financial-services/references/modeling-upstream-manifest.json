@@ -1,0 +1,55 @@
+{
+  "repository": "https://github.com/anthropics/financial-services",
+  "revision": "574ed3624aebd0418c7e96cd101262f30210ab26",
+  "retrieved_at": "2026-10-15",
+  "license": "Apache-2.0",
+  "mode": "selected unmodified official model-builder references; local execution corrections only in references/modeling-adaptation.md",
+  "files": [
+    {
+      "source_path": "plugins/agent-plugins/model-builder/skills/dcf-model/SKILL.md",
+      "path": "references/modeling-upstream/dcf-model/WORKFLOW.md",
+      "sha256": "2bb3ed672ab2fa76f8820ee919b158a67dc6df10e7052eeb661599140a9a2494"
+    },
+    {
+      "source_path": "plugins/agent-plugins/model-builder/skills/dcf-model/TROUBLESHOOTING.md",
+      "path": "references/modeling-upstream/dcf-model/TROUBLESHOOTING.md",
+      "sha256": "6e605b455032973465f685535251a7d2d889a2dad9b05ba8d6dfc01f801b28d0"
+    },
+    {
+      "source_path": "plugins/agent-plugins/model-builder/skills/dcf-model/requirements.txt",
+      "path": "references/modeling-upstream/dcf-model/requirements.txt",
+      "sha256": "c007f21b5659d4a29dfde17ad586b31ace9e2c5cdb2aeaa39950a7f7c6a75a8f"
+    },
+    {
+      "source_path": "plugins/agent-plugins/model-builder/skills/dcf-model/scripts/validate_dcf.py",
+      "path": "references/modeling-upstream/dcf-model/scripts/validate_dcf.py",
+      "sha256": "6892a153a0b834f0f31d8676602341a4d721bbb2c294dbed64a03262512e738a"
+    },
+    {
+      "source_path": "plugins/agent-plugins/model-builder/skills/3-statement-model/SKILL.md",
+      "path": "references/modeling-upstream/3-statement-model/WORKFLOW.md",
+      "sha256": "bc2aeb423a3cc9e6ab973dcc4e3c6682427c751e20d8b3a0eec057eab67b1e83"
+    },
+    {
+      "source_path": "plugins/agent-plugins/model-builder/skills/3-statement-model/references/formatting.md",
+      "path": "references/modeling-upstream/3-statement-model/references/formatting.md",
+      "sha256": "7e1c5ca7dd566f6821a6094efcbe48913d984766d7278178111ec4c67aca8778"
+    },
+    {
+      "source_path": "plugins/agent-plugins/model-builder/skills/3-statement-model/references/formulas.md",
+      "path": "references/modeling-upstream/3-statement-model/references/formulas.md",
+      "sha256": "5761041366248bba14782f72082b9396c7e47291491999ea85be1c9c2875df5e"
+    },
+    {
+      "source_path": "plugins/agent-plugins/model-builder/skills/3-statement-model/references/sec-filings.md",
+      "path": "references/modeling-upstream/3-statement-model/references/sec-filings.md",
+      "sha256": "9765c2f789b8d87baeca89b7f3a5ddc68d6068c06b39b4445224197d6e444e93"
+    },
+    {
+      "source_path": "LICENSE",
+      "path": "references/modeling-upstream/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    }
+  ],
+  "packaging_note": "Only SKILL.md filenames renamed WORKFLOW.md; every bundled source file is byte-for-byte unchanged. Original eight-workflow bundle and manifest remain untouched."
+}

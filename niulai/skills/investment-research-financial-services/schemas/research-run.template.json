@@ -1,0 +1,64 @@
+{
+  "schema_version": "2026-10-23-research-run-3",
+  "policy_versions": {
+    "growth_aware": "2026-10-15-growth-aware-1",
+    "modeling": "2026-10-15-modeling-1",
+    "leveraged_funds": "2026-10-18-leveraged-funds-2",
+    "entry_policy": "2026-10-23-entry-policy-2",
+    "rationale": "2026-10-23-rationale-cycle-1"
+  },
+  "rationale_evidence": {"version": "2026-10-23-rationale-cycle-1", "status": "pending"},
+  "entry_policy_evidence": {"version": "2026-10-23-entry-policy-2", "status": "pending"},
+  "run_id": "REPLACE_WITH_ACTUAL_RUN_ID",
+  "scope": "company_full",
+  "status": "in_progress",
+  "request": "REPLACE_WITH_ACTUAL_USER_REQUEST",
+  "subject": {
+    "ticker": "REPLACE",
+    "security_type": "company"
+  },
+  "stages": {
+    "identity": {
+      "status": "pending"
+    },
+    "methodology": {
+      "status": "pending"
+    },
+    "sources": {
+      "status": "pending"
+    },
+    "coverage": {
+      "status": "pending"
+    },
+    "model": {
+      "status": "pending"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "report": {
+      "status": "pending"
+    },
+    "persistence": {
+      "status": "pending"
+    }
+  },
+  "sources": [],
+  "claims": [],
+  "coverage": {
+    "profit_scalability_value_capture": {
+      "status": "pending"
+    }
+  },
+  "artifacts": [],
+  "persistence": {
+    "status": "unsaved"
+  },
+  "recovery": {
+    "objective": "REPLACE_WITH_ACTUAL_OBJECTIVE",
+    "next_actions": [
+      "Verify instrument identity and cutoff; load prior saved context."
+    ],
+    "contradictions": []
+  }
+}

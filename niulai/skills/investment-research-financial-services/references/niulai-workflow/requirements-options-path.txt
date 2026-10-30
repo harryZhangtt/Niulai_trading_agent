@@ -1,0 +1,5 @@
+# Optional path research only; core alerts do not import these.
+# Test receipt records installed transitive dependency versions.
+arch==8.0.0
+numpy==2.3.5
+exchange-calendars==4.11.2

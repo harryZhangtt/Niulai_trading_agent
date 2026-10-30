@@ -1,0 +1,13 @@
+{
+  "objective": "",
+  "deliverables": [],
+  "scope_changes": [],
+  "current_uncertainty": "",
+  "last_verified_progress": {"description": "", "evidence": []},
+  "obstacle": null,
+  "next_action": "",
+  "budget": {"time_limit": null, "token_limit": null, "attempt_limit": null, "usage_source": "unavailable"},
+  "experiments": [],
+  "blocker": null,
+  "status": "in_progress"
+}

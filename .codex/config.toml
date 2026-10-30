@@ -1,0 +1,4 @@
+# Workspace-local native Codex web search. No global settings are modified.
+# Requires a trusted project; higher-priority runtime policies may override it.
+# This selects live search; it does not repair search-service connectivity.
+web_search = "live"

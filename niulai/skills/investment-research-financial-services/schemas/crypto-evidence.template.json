@@ -1,0 +1,107 @@
+{
+  "version": "2026-10-23-crypto-1",
+  "ticker": "REPLACE",
+  "stablecoin_or_l2_exposure": true,
+  "topics": {
+    "identity_rights": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "baseline_thesis_delta": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "user_jobs_substitution": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "protocol_delivery_security": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "layered_value_capture": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "supply_staking": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "regional_adoption_regulation": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "rates_liquidity": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "valuation_reverse": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "technical_market_structure": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    },
+    "portfolio_execution": {
+      "status": "limited",
+      "finding": "REPLACE with evidenced finding",
+      "source_ids": [],
+      "artifact_refs": [],
+      "limitations": "REPLACE with actual limitation",
+      "decision_impact": "REPLACE with impact"
+    }
+  },
+  "accounting": {
+    "fee_beneficiaries": "REPLACE with economic treatment",
+    "issuance_treatment": "REPLACE with economic treatment",
+    "burn_treatment": "REPLACE with economic treatment",
+    "monetary_premium_overlap": "REPLACE with economic treatment"
+  },
+  "comparators": [],
+  "supply_reconciliation": {
+    "status": "unavailable",
+    "reason": "REPLACE after source recovery attempt",
+    "decision_impact": "REPLACE"
+  }
+}
