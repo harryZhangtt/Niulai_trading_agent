@@ -214,3 +214,31 @@ A separate authorized corrected request succeeded. Its final model-summary
 format rejection was reconciled against actual delivery without another send.
 Field-specific sanitized format diagnostics and trusted artifact postconditions
 now distinguish this case from security, permission and transport failures.
+
+
+## Explicit private writable scope for business jobs
+
+A central business model profile may set `writable_roots`, for example
+`[".job-runtime/calculation"]`. An explicit list replaces the historical default
+Niulai grant. With no field, Niulai behavior is preserved. Job allocations and
+model context cannot add roots. The executor rejects source/absolute/traversal,
+symlink, missing/foreign-owner directories and any ancestor/descendant overlap
+with its auth home before launching. Each selected root must be an existing
+relative private directory under `.job-runtime/` or `.niulai-state/`. The receipt
+records sanitized relative grants. This changes no global approval or app setting.
+
+The first scheduled calculator trial started on time but returned blocked before
+a report; source inspection found only Niulai state was granted while calculator
+outputs use separate calculator state. The failed attempt remains recorded. A
+new scheduled trial after the explicit scope and service-code restart is required
+before claiming the calculator profile works. Restart the daemon after Python
+executor source changes; config SIGHUP alone does not reload imported code.
+
+
+The calculator's second trial exposed a macOS nested-sandbox restriction, not a
+reason to expand global approvals. Its component now uses the existing adapter
+interface for an attempt-scoped host request bridge: Codex calls a fixed client,
+the host runs the unchanged OS-restricted compute workers, and the completion
+adapter verifies trusted host evidence. There is no new persistent daemon or
+network listener. The allocator remains separate from generic scheduling/model/
+retry infrastructure; numeric formulas remain below this adapter.

@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "skills": {
+    "frontend-design": {
+      "role": "visual-authority"
+    },
+    "impeccable": {
+      "role": "workflow"
+    },
+    "ui-ux-pro-max": {
+      "role": "reference",
+      "aliases": [
+        "uiux",
+        "ui-ux-promax",
+        "ui-ux-pro-max-skill"
+      ]
+    },
+    "shadcn": {
+      "role": "engineering"
+    },
+    "vercel-react-best-practices": {
+      "role": "engineering"
+    },
+    "playwright-cli": {
+      "role": "verification"
+    },
+    "async-state-reliability": {
+      "role": "engineering"
+    },
+    "hallmark": {
+      "role": "visual-authority"
+    },
+    "opendesign": {
+      "role": "workflow",
+      "aliases": [
+        "open-design"
+      ]
+    },
+    "design-taste-frontend": {
+      "role": "visual-authority",
+      "aliases": [
+        "taste",
+        "taste-skill"
+      ]
+    },
+    "landing-page-generator": {
+      "role": "workflow",
+      "aliases": [
+        "landing-page"
+      ]
+    },
+    "cinematic-ui": {
+      "role": "visual-authority",
+      "aliases": [
+        "cinematic",
+        "cinemaic-ui"
+      ]
+    },
+    "pencilplaybook": {
+      "role": "workflow",
+      "aliases": [
+        "pencil",
+        "pencil-playbook"
+      ],
+      "tools": [
+        "pencil"
+      ]
+    },
+    "design-md-chrome": {
+      "role": "workflow",
+      "aliases": [
+        "design-md",
+        "design-md-chrome-extension"
+      ]
+    },
+    "gsap-core": {
+      "role": "engineering",
+      "aliases": [
+        "gsap"
+      ]
+    },
+    "gsap-frameworks": {
+      "role": "engineering",
+      "requires": [
+        "gsap-core"
+      ]
+    },
+    "gsap-performance": {
+      "role": "engineering",
+      "requires": [
+        "gsap-core"
+      ]
+    },
+    "gsap-plugins": {
+      "role": "engineering",
+      "requires": [
+        "gsap-core"
+      ]
+    },
+    "gsap-react": {
+      "role": "engineering",
+      "requires": [
+        "gsap-core"
+      ]
+    },
+    "gsap-scrolltrigger": {
+      "role": "engineering",
+      "requires": [
+        "gsap-core"
+      ]
+    },
+    "gsap-timeline": {
+      "role": "engineering",
+      "requires": [
+        "gsap-core"
+      ]
+    },
+    "gsap-utils": {
+      "role": "engineering",
+      "requires": [
+        "gsap-core"
+      ]
+    }
+  },
+  "decisions": {
+    "visual-direction": [
+      "frontend-design",
+      "impeccable"
+    ],
+    "design-brief": [
+      "opendesign"
+    ],
+    "hallmark-design": [
+      "hallmark"
+    ],
+    "taste-design": [
+      "design-taste-frontend"
+    ],
+    "landing-page": [
+      "landing-page-generator"
+    ],
+    "cinematic": [
+      "cinematic-ui"
+    ],
+    "layout": [
+      "ui-ux-pro-max"
+    ],
+    "hardening": [
+      "impeccable"
+    ],
+    "components": [
+      "shadcn"
+    ],
+    "react-performance": [
+      "vercel-react-best-practices"
+    ],
+    "async-state": [
+      "async-state-reliability",
+      "impeccable"
+    ],
+    "browser": [
+      "playwright-cli"
+    ],
+    "pencil-design": [
+      "pencilplaybook"
+    ],
+    "design-md": [
+      "design-md-chrome"
+    ],
+    "backend-only": [],
+    "gsap-core": [
+      "gsap-core"
+    ],
+    "gsap-frameworks": [
+      "gsap-frameworks"
+    ],
+    "gsap-performance": [
+      "gsap-performance"
+    ],
+    "gsap-plugins": [
+      "gsap-plugins"
+    ],
+    "gsap-react": [
+      "gsap-react"
+    ],
+    "gsap-scrolltrigger": [
+      "gsap-scrolltrigger"
+    ],
+    "gsap-timeline": [
+      "gsap-timeline"
+    ],
+    "gsap-utils": [
+      "gsap-utils"
+    ]
+  }
+}

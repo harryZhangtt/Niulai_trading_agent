@@ -185,6 +185,25 @@ class ModelTests(unittest.TestCase):
         self.fake(SUCCESS);(self.base/'run').mkdir()
         self.assertEqual(self.run_model()['code'],'MODEL_RUN_DIRECTORY_EXISTS')
 
+    def test_trusted_process_observer_records_owned_process_and_failure_reaps_it(self):
+        self.fake(SUCCESS); observed = []
+        result = self.run_model(context={'process_observer': observed.append})
+        self.assertEqual(result['status'], 'succeeded')
+        self.assertEqual(len(observed), 1)
+        self.assertIs(type(observed[0]), int)
+        self.fake('time.sleep(60)'); failed = []
+        def observer(pid): failed.append(pid); raise ValueError('SYNTHETIC_PRIVATE_CANARY')
+        result = run_codex(self.profile, 'synthetic', ROOT, self.base / 'observer-failed', context={'process_observer': observer})
+        self.assertEqual(result['code'], 'MODEL_PROCESS_OBSERVER_FAILED')
+        self.assertNotIn('SYNTHETIC_PRIVATE_CANARY', json.dumps(result))
+        with self.assertRaises(ProcessLookupError): os.kill(failed[0], 0)
+
+    def test_process_observer_must_be_callable_before_any_launch(self):
+        self.fake(SUCCESS)
+        result = self.run_model(context={'process_observer': 'not callable'})
+        self.assertEqual(result['code'], 'MODEL_PROCESS_OBSERVER_INVALID')
+        self.assertFalse((self.base / 'run/probe.json').exists())
+
 
 if __name__ == '__main__':
     unittest.main()

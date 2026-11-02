@@ -1,0 +1,305 @@
+{
+  "schema_version": 2,
+  "id": "atomic-actions-development-v1",
+  "split": "development",
+  "blindness": "unblinded",
+  "purpose": "Evaluate source-grounded answers to four bounded research questions through the existing versioned acquire, read, and numeric comparison actions.",
+  "budget": {
+    "max_cases": 4,
+    "max_actions_per_case": 6,
+    "max_model_turns_per_case": 7,
+    "max_total_fresh_http": 12,
+    "max_total_seconds": 720
+  },
+  "allowed_actions": [
+    "evidence.acquire_document@1.1.1",
+    "evidence.read@1.1.1",
+    "evidence.compare_numeric@1.1.1"
+  ],
+  "terminal_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "answer",
+      "claims",
+      "limitations",
+      "unresolved"
+    ],
+    "properties": {
+      "answer": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 10000
+      },
+      "claims": {
+        "type": "array",
+        "maxItems": 16,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "subject",
+            "metric",
+            "value",
+            "unit",
+            "period",
+            "basis",
+            "source_ref",
+            "passage_locator"
+          ],
+          "properties": {
+            "subject": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "metric": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 2000
+            },
+            "unit": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 200
+            },
+            "period": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 200
+            },
+            "basis": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 300
+            },
+            "source_ref": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            },
+            "passage_locator": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            }
+          }
+        }
+      },
+      "limitations": {
+        "type": "array",
+        "maxItems": 12,
+        "items": {
+          "type": "string",
+          "maxLength": 1500
+        }
+      },
+      "unresolved": {
+        "type": "array",
+        "maxItems": 12,
+        "items": {
+          "type": "string",
+          "maxLength": 1500
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "nvda_eps_basis_q1fy25",
+      "critical": true,
+      "input_question": "What diluted earnings-per-share figures does NVIDIA's first-quarter fiscal-2025 release report, and how should an analyst distinguish their accounting and share bases? Explain whether the figures describe the same measurement and what qualifications are needed before comparing them with a figure obtained today.",
+      "public_sources": [
+        {
+          "id": "nvidia_release",
+          "provider": "official_document",
+          "capability": "read",
+          "target": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+          "read_guidance": [
+            "Opening reported-results paragraphs",
+            "Q1 Fiscal 2025 Summary",
+            "Stock-split announcement"
+          ]
+        }
+      ],
+      "target_dimensions": [
+        "source_identity",
+        "reporting_period",
+        "accounting_basis",
+        "share_basis",
+        "citation_support"
+      ],
+      "required_artifacts": [
+        "Acquired original release",
+        "Read passage supporting the reported figures and their bases"
+      ],
+      "comparison_packet_roles": [
+        {
+          "id": "eps_basis_contrast",
+          "optional": true,
+          "purpose": "Compare the release's two EPS observations with their distinct source definitions retained."
+        }
+      ],
+      "limits": {
+        "max_actions": 6,
+        "max_model_turns": 7,
+        "max_seconds": 180
+      }
+    },
+    {
+      "id": "nvda_historical_vs_latest_period",
+      "critical": true,
+      "input_question": "An analyst wants NVIDIA's latest quarterly revenue at the current run cutoff and has this release available. What revenue information can this source establish, what is reported versus forward-looking, and which parts of the analyst's request remain unresolved? Ground the answer in the article rather than dates in surrounding page navigation.",
+      "public_sources": [
+        {
+          "id": "nvidia_release",
+          "provider": "official_document",
+          "capability": "read",
+          "target": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+          "read_guidance": [
+            "Article publication date and opening results",
+            "Q1 Fiscal 2025 Summary",
+            "Outlook"
+          ]
+        }
+      ],
+      "target_dimensions": [
+        "article_period_vs_retrieval_time",
+        "reported_vs_forecast",
+        "scope_of_completion",
+        "citation_support"
+      ],
+      "required_artifacts": [
+        "Acquired original release",
+        "Read passage locating reported revenue, its period, and outlook"
+      ],
+      "comparison_packet_roles": [],
+      "limits": {
+        "max_actions": 6,
+        "max_model_turns": 7,
+        "max_seconds": 180
+      }
+    },
+    {
+      "id": "flashattention3_h100_scope",
+      "critical": true,
+      "input_question": "Using the specified FlashAttention-3 revision, explain the mechanisms behind its attention-performance results and identify the hardware and timing controls used in its benchmarks. How far can those results support a claim about end-to-end inference performance or NVIDIA investment demand today? State the important remaining limits.",
+      "public_sources": [
+        {
+          "id": "flashattention3_v2",
+          "provider": "arxiv",
+          "capability": "read",
+          "target": "2407.08608v2",
+          "url": "https://arxiv.org/html/2407.08608v2",
+          "read_guidance": [
+            "Abstract",
+            "Section 3 algorithm",
+            "Section 5 discussion and limitations",
+            "Appendix C.1 system and libraries"
+          ],
+          "host_resolved_section_hints": true
+        }
+      ],
+      "target_dimensions": [
+        "exact_revision",
+        "mechanism",
+        "benchmark_controls",
+        "kernel_vs_end_to_end_scope",
+        "economic_extrapolation",
+        "citation_support"
+      ],
+      "required_artifacts": [
+        "Acquired exact original revision",
+        "Read mechanism passage",
+        "Read benchmark setup passage",
+        "Read relevant limitations passage"
+      ],
+      "comparison_packet_roles": [],
+      "limits": {
+        "max_actions": 6,
+        "max_model_turns": 7,
+        "max_seconds": 180
+      }
+    },
+    {
+      "id": "nvda_revenue_units_periods",
+      "critical": true,
+      "input_question": "The supplied source-bound packets contain revenue observations selected from the release's headline and summary table, including adjacent table columns. Which comparisons are meaningful, which require transformation or remain incompatible, and do the comparable observations establish a material conflict? Explain your reconciliation with the source's precision and lineage visible.",
+      "public_sources": [
+        {
+          "id": "nvidia_release",
+          "provider": "official_document",
+          "capability": "read",
+          "target": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+          "read_guidance": [
+            "Revenue headline",
+            "Q1 Fiscal 2025 Summary units, column headers, and revenue row"
+          ]
+        }
+      ],
+      "target_dimensions": [
+        "units",
+        "period_identity",
+        "numeric_comparison",
+        "reporting_precision",
+        "shared_upstream_lineage",
+        "citation_support"
+      ],
+      "required_artifacts": [
+        "Acquired original release",
+        "Read headline and table context",
+        "Comparison results for the three supplied packet roles"
+      ],
+      "comparison_packet_roles": [
+        {
+          "id": "raw_units_contrast",
+          "optional": false,
+          "purpose": "Headline and same-period table observation retaining their originally stated units."
+        },
+        {
+          "id": "adjacent_period_contrast",
+          "optional": false,
+          "purpose": "Two table observations with their distinct column periods retained."
+        },
+        {
+          "id": "normalized_same_period",
+          "optional": false,
+          "purpose": "Headline and matching table observation in one declared unit, preserving original precision and predeclared tolerance."
+        }
+      ],
+      "limits": {
+        "max_actions": 6,
+        "max_model_turns": 7,
+        "max_seconds": 180
+      }
+    }
+  ]
+}

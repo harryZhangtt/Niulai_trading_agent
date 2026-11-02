@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "batch_id": "nvda-official-source",
+  "query": "Acquire one public original issuer disclosure; preserve bytes and acquisition receipts.",
+  "requirements": [{
+    "id": "issuer-q1-fy2025",
+    "subject": "NVDA",
+    "access": "document",
+    "routes": [{"capability": "official_document.read", "parameters": {"url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025"}}],
+    "max_attempts": 1,
+    "cache_max_age_seconds": 3600,
+    "timeout_seconds": 40
+  }],
+  "budget": {"deadline_seconds": 60, "max_workers": 1, "max_provider_calls": 1}
+}

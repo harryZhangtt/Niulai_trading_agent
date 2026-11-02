@@ -3,6 +3,9 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
+import stat
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_STATE = ROOT / '.niulai-state/reports/research-sources'
@@ -44,24 +47,41 @@ def private_path(path, *, create=False):
         for parent in [path, *path.parents]:
             if parent == ROOT or parent == ROOT / 'investment':
                 break
-            parent.chmod(0o700)
+            # A scheduled worker can have a narrow writable child under an
+            # already-private read-only ancestor. Do not request write-mode
+            # authority merely to set an unchanged mode. An insecure ancestor
+            # still requires a real chmod and fails if it cannot be secured.
+            if stat.S_IMODE(parent.stat().st_mode) != 0o700:
+                parent.chmod(0o700)
     return path
 
 
 def save(directory, value, *, suffix='json'):
     raw = value if isinstance(value, bytes) else encoded(value)
+    require(isinstance(suffix, str) and re.fullmatch(r'[a-z0-9]{1,16}', suffix), 'ARTIFACT_SUFFIX_INVALID')
+    require(len(raw) <= 8 * 1024 * 1024, 'ARTIFACT_TOO_LARGE')
     directory = private_path(directory, create=True)
     sha = hashlib.sha256(raw).hexdigest()
     path = directory / (sha + '.' + suffix)
+    # A final hash name is visible only after its bytes are complete and durable.
+    # Hard-link publication is atomic and does not clobber another writer.
+    fd, pending = tempfile.mkstemp(prefix='.pending-', dir=directory)
     try:
-        fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY | os.O_NOFOLLOW, 0o600)
-    except FileExistsError:
-        require(not path.is_symlink() and path.read_bytes() == raw, 'ARTIFACT_COLLISION')
-    else:
         with os.fdopen(fd, 'wb') as stream:
             stream.write(raw)
             stream.flush()
             os.fsync(stream.fileno())
+        try:
+            os.link(pending, path)
+        except FileExistsError:
+            require(not path.is_symlink() and path.read_bytes() == raw, 'ARTIFACT_COLLISION')
+        parent_fd = os.open(directory, os.O_RDONLY)
+        try:
+            os.fsync(parent_fd)
+        finally:
+            os.close(parent_fd)
+    finally:
+        os.unlink(pending)
     return {'path': str(path), 'sha256': sha}
 
 

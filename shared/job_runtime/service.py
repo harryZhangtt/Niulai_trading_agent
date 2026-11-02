@@ -21,6 +21,19 @@ STOP = threading.Event()
 RELOAD = threading.Event()
 
 
+def validate_reload(engine, jobs):
+    """Reject changed persisted schedules before replacing the working engine."""
+    import hashlib
+    with engine._db() as db:
+        for job in jobs:
+            if not job['enabled']:
+                continue
+            row = db.execute('SELECT schedule_hash FROM jobs WHERE job_id=?', (job['id'],)).fetchone()
+            observed = hashlib.sha256(json.dumps(job['schedule'], sort_keys=True).encode()).hexdigest()
+            if row and row['schedule_hash'] != observed:
+                raise ConfigError('SCHEDULE_CHANGE_REQUIRES_NEW_JOB_ID')
+
+
 def atomic(path, value):
     if path.is_symlink() or any(a.is_symlink() for a in path.parents):
         raise ConfigError('ATOMIC_PATH_SYMLINK')
@@ -127,13 +140,21 @@ def serve(workspace, config_path):
             if RELOAD.is_set():
                 # Reload only between completed ticks; running attempts retain
                 # their original model and allocation. Durable slots persist.
-                config,jobs=load(config_path,workspace)
-                for relative in config['source_paths']:
-                    candidate=str(inside(workspace / relative,workspace))
-                    if candidate not in sys.path:sys.path.insert(0,candidate)
-                engine=Engine(state/'engine',resource_jobs(config,jobs),config['retry'],dispatcher(config,workspace),workspace_root=workspace,
-                              max_workers=config['max_workers'])
-                RELOAD.clear()
+                try:
+                    candidate_config,candidate_jobs=load(config_path,workspace)
+                    validate_reload(engine,candidate_jobs)
+                    candidate_engine=Engine(state/'engine',resource_jobs(candidate_config,candidate_jobs),candidate_config['retry'],
+                        dispatcher(candidate_config,workspace),workspace_root=workspace,max_workers=candidate_config['max_workers'])
+                    for relative in candidate_config['source_paths']:
+                        candidate=str(inside(workspace / relative,workspace))
+                        if candidate not in sys.path:sys.path.insert(0,candidate)
+                    config,jobs,engine=candidate_config,candidate_jobs,candidate_engine
+                    atomic(state/'reload-status.json',{'at':datetime.now(timezone.utc).isoformat(),'accepted':True,'code':'CONFIG_RELOAD_ACCEPTED'})
+                except Exception as exc:
+                    code=str(exc) if isinstance(exc,ConfigError) else 'CONFIG_RELOAD_REJECTED'
+                    atomic(state/'reload-status.json',{'at':datetime.now(timezone.utc).isoformat(),'accepted':False,'code':code})
+                finally:
+                    RELOAD.clear()
             started=time.monotonic()
             summary=engine.tick(datetime.now(timezone.utc))
             atomic(state/'status.json',{**engine.status(),'pid':os.getpid(),'last_tick':datetime.now(timezone.utc).isoformat(),

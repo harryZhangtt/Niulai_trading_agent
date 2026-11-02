@@ -1,0 +1,11 @@
+{
+  "version":"current_checkout_frozen_for_trial",
+  "native_work_routing":{"kind":"instruction_only","entrypoint":"docs/web-search-routing.md","wired_to_cli_model_adapter":false},
+  "document_acquisition":{"kind":"executable","entrypoint":"shared.actions.invoke evidence.acquire_document@1.1.1","saas_issuer_hosts_supported":false,"rejected_probes":6,"probe_network_calls":0,"no_domain_enablement_for_trial":true},
+  "cache":{"kind":"executable_library","entrypoint":"Cache(Store).get_or_fetch","native_work_integration":false,"default_action_acquire_integration":false,"cold_trial":true},
+  "source_routing":{"kind":"static_compatibility","saas_profile_available":false,"exact_sec_html_potentially_compatible":true,"sec_coverage_not_assumed":true},
+  "payload_and_typing":{"kind":"executable","applicable_when_registered_acquisition_is_used":true,"does_not_certify_economic_truth":true},
+  "validation_matrices":{"scope":"NVIDIA/FlashAttention","demonstrates_saas_coverage":false},
+  "cli_execution":{"web_search":"explicitly_disabled_in_existing_model/campaign/business_adapters","trial_will_not_modify_those_adapters":true},
+  "claim":"A means the existing add-on workflow and applicable primitives, not a complete automated SaaS web stack. Actual use and gaps must be recorded."
+}

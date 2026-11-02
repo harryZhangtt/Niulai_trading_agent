@@ -27,3 +27,25 @@ Optional Motion and Magic UI are reference-only. Public shadcn and Playwright
 CLIs provide the current concrete capability without active MCP registrations.
 No private registry, commercial template, Motion+ or Magic UI Pro entitlement
 has been tested. The local fixture cannot establish safety of a future app.
+# Expanded catalog, 2026-11-02
+
+The three `expansion-identity.json`, `expansion-motion-tools.json` and
+`expansion-pages.json` receipts record exact added repositories, immutable pins,
+upstream/local hashes, retained licenses and changes. Their records are merged
+into `sources.lock.json`; authored Design MD adapter resources are explicitly
+listed as `local_files`. No original imported resource is silently treated as a
+locally authored exemption.
+
+Compact Hallmark/Taste/OpenDesign adapters retain complete upstream entrypoints
+as `UPSTREAM-SKILL.md`. OpenDesign specialists are internal `GUIDE.md` references,
+avoiding recursive catalog discovery collisions. The source snapshots retain
+upstream behavior, while entrypoints document local precedence and safe commands.
+Concrete script changes remove global history/browser/package fallbacks, contain
+local preview servers and repair demonstrated overflow, JSX/link and CTA defects.
+The Design MD source is an extension; its explicitly local skill adapter uses
+pinned modules without activating an extension. Generated skill text is data.
+Pencil actual editor operations remain capability-gated, not mocked into success.
+
+See [the expansion report](../tests/expansion-report.md) for executed checks,
+source identities, context-cost proxies and unverified scope. The original
+provenance/adaptation record follows.

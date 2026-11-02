@@ -1,5 +1,19 @@
 # Investment requirements and source coverage
 
+The unregistered runtime-information-catalog candidate is described in
+[the catalog and labeling design](../../docs/plans/runtime-information-catalog.md).
+It compiles question plans from current evidence/capability context and keeps
+document/claim label contracts separate. It does not replace the full-company
+requirements or completion gates below. Its strict historical context screening
+does not authenticate archived source versions or implement the future replay
+search/open broker. The deployment runbook records component/preflight results
+and the remaining retrieval A/B integration work.
+
+The scoped evidence/action pilot has a separate
+[runtime runbook](../../docs/deployment/investment-research.md). It exercises
+original-source extraction, versioned action integrity, ordered phases, scoped
+use checks and snapshot CRUD. It does not replace the full-research gate below.
+
 This maintained investment adapter separates **what evidence is needed** from
 **how it is acquired**. It composes with the preserved Niulai research validators;
 it does not replace the financial model, review, valuation or entry-policy gates.

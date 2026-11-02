@@ -21,6 +21,13 @@ class CutoverEvidence:
 
 
 @dataclass(frozen=True)
+class ParallelRunEvidence:
+    """Explicit user authorization for two senders; never a cutover receipt."""
+    authorization_receipt: str
+    runtime_owner: str
+
+
+@dataclass(frozen=True)
 class Admission:
     allowed: bool
     reason: str
@@ -33,7 +40,8 @@ class Admission:
 
 def admit(config: RuntimeConfig, now: datetime, calendar, actor_id: str,
           manual_request_id: str | None = None, completed_keys=(),
-          cutover: CutoverEvidence | None = None) -> Admission:
+          cutover: CutoverEvidence | None = None,
+          parallel: ParallelRunEvidence | None = None) -> Admission:
     """Evaluate a wake using actual aware time; never call with backdated time.
 
     Tests can inject time/calendar. Production calendar must be a real XNYS
@@ -64,9 +72,12 @@ def admit(config: RuntimeConfig, now: datetime, calendar, actor_id: str,
     if config.mode == "production":
         if not config.production_enabled:
             return reject("PRODUCTION_DISABLED")
-        if not isinstance(cutover, CutoverEvidence) or cutover.runtime_owner != actor_id or not all(
+        transferred = isinstance(cutover, CutoverEvidence) and cutover.runtime_owner == actor_id and all(
                 isinstance(x, str) and x.strip() for x in (
-                    cutover.previous_sender_disabled_receipt, cutover.delivery_ledger_import_receipt)):
+                    cutover.previous_sender_disabled_receipt, cutover.delivery_ledger_import_receipt))
+        authorized_parallel = (isinstance(parallel, ParallelRunEvidence) and parallel.runtime_owner == actor_id
+                               and isinstance(parallel.authorization_receipt, str) and bool(parallel.authorization_receipt.strip()))
+        if not transferred and not authorized_parallel:
             return reject("CUTOVER_EVIDENCE_REQUIRED")
     if calendar is None or getattr(calendar, "name", None) != config.calendar:
         return reject("XNYS_CALENDAR_REQUIRED")

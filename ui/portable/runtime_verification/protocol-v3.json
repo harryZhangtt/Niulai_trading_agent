@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "id": "harry-ui-conversation-persistence-v3",
+  "frozen_before_model_results": true,
+  "scope": "Prospective outcome-aligned conformance in fresh real Codex app-server threads; no retrospective v2 acceptance and no host hook/reliability guarantee.",
+  "model": "gpt-6.1-sol",
+  "effort": "low",
+  "turn_timeout_seconds": 120,
+  "max_model_turns": 10,
+  "transport": "stdio app-server; native skill input only on activation turn",
+  "grading": {
+    "positive": "Actual successful bundle resolver for current task; at least one selected expert from the predeclared relevant allowed_experts has actual returned guide content in current uncompacted context; requested artifact exists and changes. Activation required on explicit invocation turns only. Preferred expert selection is reported separately and does not override valid alternative procedures.",
+    "activation": "Actual activate.py success output includes HARRY_UI_SESSION_ENABLED; no final-message-only credit.",
+    "negative": "No bundle resolver or activation command, no new bundle expert reads, and requested artifact exists or changes.",
+    "compaction": "Actual contextCompaction completed item or thread/compacted notification, not a requested/acknowledged RPC alone. Require expert guide returned again after compaction.",
+    "resume": "New app-server PID resumes the same persisted thread ID; later UI turn must independently satisfy positive grading.",
+    "fresh_thread": "A new native thread in the SAME target project receives only the fresh UI task, without skill attachment or activation. Its keyed receipt must remain absent; the original enabled thread receipt must remain unchanged. An optional restore may return INACTIVE. No activation/resolver/bundle guide read is allowed.",
+    "claims": "Only successful tool item events and independent local artifact postconditions count. Self-reported enablement/read/completion is insufficient. Root/canonical UI routing is recorded separately and never counted as Harry bundle use.",
+    "limitations": "One bounded deterministic sequence is conformance evidence, not a statistical reliability estimate. No unseen tasks, performance superiority, automatic startup or release acceptance claim.",
+    "allowed_route_rationale": "Existing-product typography, overflow, large-text and keyboard-accessibility changes overlap focused layout and Impeccable polish/hardening. Before any candidate v3 model call, these cases permit ui-ux-pro-max or impeccable. Original baseline strict results stay unchanged. Other positive cases retain their single relevant expert.",
+    "durable_state": "Each unnamed enabled or unknown-state UI task must execute bundle scripts/session.py restore and return HARRY_UI_SESSION_ACTIVE before routing. A scope-checked native-thread/project/fingerprint/private receipt is read independently after every task. Explicit disable must execute session.py disable and return DISABLED. A known-disabled post-compaction task may use no Harry helper; if a helper is called, it must be a successful restore returning only DISABLED. That task must preserve exact disabled receipt bytes and must not activate, resolve or load bundle experts. Fresh thread may restore INACTIVE, must retain absent own receipt and unchanged original enabled receipt, and must not activate/resolve/load bundle experts. Backend makes no session helper calls. Final assistant claims do not count.",
+    "disabled_receipt_consulted": "Diagnostic true only for actual successful session.py restore output DISABLED on the known-disabled task; false when no such tool event exists. The harness independent receipt read, prior helper output, a remembered disabled state or a final assistant claim never counts as the worker consulting the receipt."
+  },
+  "cases": [
+    {
+      "id": "activate",
+      "expect": "positive",
+      "expert": "impeccable",
+      "artifact": "panel.html",
+      "attach_skill": true,
+      "prompt": "Use $harry-ui-skill-set for this conversation. In this fixture, create panel.html as a compact accessible project status panel with three rows, a heading and an update button. Keep it self-contained, use the palette in brief.txt, and implement the artifact now. This is existing-product polish rather than a new brand direction. Also record only the native CODEX_THREAD_ID and CODEX_SESSION_ID environment values, if present, into identity.json; do not read any other environment values.",
+      "allowed_experts": [
+        "impeccable"
+      ],
+      "receipt_expected": "enabled",
+      "session_check": "enable"
+    },
+    {
+      "id": "unnamed_layout",
+      "expect": "positive",
+      "expert": "ui-ux-pro-max",
+      "artifact": "panel.html",
+      "prompt": "The status panel needs clearer typography and spacing on a 360px phone. Refine the type scale, row alignment and wrapping in panel.html while preserving its palette and controls. Make the actual file change.",
+      "allowed_experts": [
+        "ui-ux-pro-max",
+        "impeccable"
+      ],
+      "receipt_expected": "enabled",
+      "session_check": "active"
+    },
+    {
+      "id": "backend_diversion",
+      "expect": "negative",
+      "artifact": "totals.py",
+      "prompt": "Switch to a backend-only utility. Create totals.py with a pure summarize(rows) function that returns count and sum of numeric amounts; reject a nonnumeric amount with ValueError. Run a tiny inline check. No web page changes are needed.",
+      "receipt_expected": "enabled",
+      "session_check": "none"
+    },
+    {
+      "id": "unnamed_hardening",
+      "expect": "positive",
+      "expert": "impeccable",
+      "artifact": "panel.html",
+      "prompt": "Back to panel.html: harden the update interaction with a visible pending state, a useful failure message and a retry button. Prevent duplicate submits while pending, use semantic controls and keep it self-contained. Implement the change.",
+      "allowed_experts": [
+        "impeccable"
+      ],
+      "receipt_expected": "enabled",
+      "session_check": "active"
+    },
+    {
+      "id": "compact",
+      "operation": "compact"
+    },
+    {
+      "id": "unnamed_after_compaction",
+      "expect": "positive",
+      "expert": "ui-ux-pro-max",
+      "artifact": "panel.html",
+      "prompt": "In panel.html improve the narrow-screen layout for unusually long project names and large text. Preserve all interactive states. Change the file and check that the controls still have accessible names.",
+      "allowed_experts": [
+        "ui-ux-pro-max",
+        "impeccable"
+      ],
+      "receipt_expected": "enabled",
+      "session_check": "active"
+    },
+    {
+      "id": "restart_resume",
+      "operation": "restart_resume"
+    },
+    {
+      "id": "unnamed_after_resume",
+      "expect": "positive",
+      "expert": "impeccable",
+      "artifact": "panel.html",
+      "prompt": "Polish panel.html's keyboard experience. Make focus visible, ensure status changes are announced and add an obvious dismiss control for the error. Preserve the current layout and palette. Implement the change.",
+      "allowed_experts": [
+        "ui-ux-pro-max",
+        "impeccable"
+      ],
+      "receipt_expected": "enabled",
+      "session_check": "active"
+    },
+    {
+      "id": "disable",
+      "expect": "negative",
+      "artifact": "panel.html",
+      "prompt": "Disable the Harry UI skill set mode for the rest of this conversation. Then make a small direct change in panel.html: change the heading to Project overview. Preserve the existing styling.",
+      "receipt_expected": "disabled",
+      "session_check": "disable"
+    },
+    {
+      "id": "compact_disabled",
+      "operation": "compact"
+    },
+    {
+      "id": "unnamed_disabled_after_compaction",
+      "expect": "negative",
+      "artifact": "panel.html",
+      "prompt": "In panel.html, change the update button label to Refresh projects and the document title to Team status. Apply this small direct edit and preserve the styling.",
+      "receipt_expected": "disabled",
+      "session_check": "disabled_optional"
+    },
+    {
+      "id": "reenable",
+      "expect": "positive",
+      "expert": "impeccable",
+      "artifact": "panel.html",
+      "attach_skill": true,
+      "prompt": "Use $harry-ui-skill-set again for this conversation. Polish panel.html so the error message tells a user what to do next and the retry control has a clear label. Implement the change with the existing palette and layout.",
+      "allowed_experts": [
+        "impeccable"
+      ],
+      "receipt_expected": "enabled",
+      "session_check": "enable"
+    },
+    {
+      "id": "fresh_thread",
+      "operation": "fresh_thread",
+      "expect": "negative",
+      "artifact": "fresh.html",
+      "prompt": "Create fresh.html as a small self-contained accessible settings card for digest frequency with Daily and Weekly options, using brief.txt's palette. Implement the file now. Do not install dependencies.",
+      "receipt_expected": "absent",
+      "session_check": "inactive_optional"
+    }
+  ],
+  "variant_substitutions": {
+    "fresh-v1": {
+      "panel.html": "board.html",
+      "Project overview": "Workspace overview",
+      "360px": "390px",
+      "project": "workspace",
+      "Project": "Workspace",
+      "Daily": "Morning",
+      "Weekly": "Evening"
+    }
+  },
+  "containment": "No external actions, network/MCP/apps, global config or hook writes, dependency installation or copied auth. Shell only for local fixture artifacts and installed guide tools. Existing auth cache serialized by the shared nonblocking runtime.lock. No OS sandbox claim. All attempt data retained; no automatic model retry or fallback.",
+  "independent_project": true,
+  "project_doc_max_bytes": 0,
+  "isolation": "Nested initialized Git repository; project_doc_max_bytes=0 per-thread override prevents parent AGENTS from reinforcing standalone portable-package behavior. No routing advice supplied by harness.",
+  "durable_receipt_postconditions": true,
+  "fresh_thread_same_project": true,
+  "prospective_revision": {
+    "prior_protocol_sha256": "faddd29f08503552a56ede48787c97a475e44b0ee73391e73ed12e8fe966a147",
+    "prior_run": "ui/runtime/harry-ui-persistence-20261102/candidate-runtime-v2/result.json",
+    "prior_verdict": "conformance_failed; 9/10 task turns passed",
+    "reason": "Independent review found that an already-disabled context may correctly honor the user stop without executing Harry helpers. V3 preserves mandatory active-turn restoration and all state/scope/no-reenable gates, but makes consultation during known disabled context optional and reports actual consultation separately. Prior v2 results are never regraded as a pass."
+  }
+}

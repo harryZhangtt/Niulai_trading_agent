@@ -1,0 +1,9 @@
+# Validation-only direct dependencies; no production environment changes.
+QuantLib==1.44
+mpmath==1.3.0
+numpy==2.3.5
+arch==8.0.0
+exchange-calendars==4.11.2
+pandas==2.2.3
+hypothesis==6.170.14
+openpyxl==3.1.5

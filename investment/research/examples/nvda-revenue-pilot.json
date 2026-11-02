@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "case_id": "nvda-fy2025-q1-revenue-rounding",
+  "source_url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+  "source_title": "NVIDIA Announces Financial Results for First Quarter Fiscal 2025",
+  "publication_date": "2024-05-22",
+  "publication_precision": "day",
+  "entity": "NVDA",
+  "metric": "revenue",
+  "definition": "reported consolidated quarterly revenue",
+  "period": "FY2025Q1",
+  "period_end": "2024-04-28",
+  "basis": "GAAP",
+  "unit": "USD millions",
+  "upstream_lineage": "NVIDIA:FY2025Q1:earnings-release",
+  "anchors": {
+    "headline": {
+      "start": 856,
+      "end": 897,
+      "text": "Record quarterly revenue of $26.0 billion"
+    },
+    "table_units": {
+      "start": 3888,
+      "end": 3930,
+      "text": "($ in millions, except earnings\nper share)"
+    },
+    "table_column": {
+      "start": 3931,
+      "end": 3938,
+      "text": "Q1 FY25"
+    },
+    "table_value": {
+      "start": 3963,
+      "end": 3978,
+      "text": "Revenue\n$26,044"
+    }
+  },
+  "observations": [
+    {
+      "id": "headline",
+      "value": "26000",
+      "original_value": "26.0",
+      "original_unit": "USD billions",
+      "normalization": "multiply by 1000; exact decimal conversion"
+    },
+    {
+      "id": "table",
+      "value": "26044",
+      "original_value": "26044",
+      "original_unit": "USD millions",
+      "normalization": "identity"
+    }
+  ],
+  "comparison": {
+    "absolute_tolerance": "50",
+    "relative_tolerance": "0",
+    "expected_difference": "44",
+    "expected_outcome": "within_headline_rounding_precision"
+  },
+  "scope": "same-release extraction and rounding reconciliation",
+  "limitations": [
+    "Both observations have one issuer upstream; this is not independent corroboration of business outlook.",
+    "Headline has lower reporting precision than table; retain both values rather than average them.",
+    "Source availability for a new live receipt remains first-observed time; this fixture does not establish an exact historical publication timestamp.",
+    "Offsets refer to the inspected capture and must be reselected against newly fetched text before use."
+  ]
+}

@@ -1,0 +1,632 @@
+{
+  "schema_version": 1,
+  "repositories": {
+    "landing-page-generator": {
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "commit": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0",
+      "license": "MIT",
+      "source_kind": "pinned upstream skill with documented workspace adaptation"
+    },
+    "cinematic-ui": {
+      "url": "https://github.com/akseolabs-seo/cinematic-ui",
+      "commit": "37651d0f59e83a5236e8773aa915cce93f2e7fc3",
+      "license": "MIT",
+      "source_kind": "pinned upstream skill with documented workspace adaptation"
+    }
+  },
+  "files": [
+    {
+      "path": "skills/landing-page-generator/LICENSE",
+      "repository": "landing-page-generator",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
+      "local_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/SKILL.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/SKILL.md",
+      "upstream_sha256": "91933e82084d9b665130a2220a616babd8a26d0d52ce37806f98f53d654fe314",
+      "local_sha256": "edc46256e5d568c866f5c74f4234b5adc53ddc7d45a15d2efc23bc57e311f06c",
+      "modified": true
+    },
+    {
+      "path": "skills/landing-page-generator/references/conversion-patterns.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/references/conversion-patterns.md",
+      "upstream_sha256": "6dd90cb5c8ce62cae2ccb6dd983b96ae549ec3c137059bb5c5f93433bde9e1e5",
+      "local_sha256": "6dd90cb5c8ce62cae2ccb6dd983b96ae549ec3c137059bb5c5f93433bde9e1e5",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/references/copy-frameworks.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/references/copy-frameworks.md",
+      "upstream_sha256": "ed238c8627a7e379bdf1ce44ef68c7278dfac5bf75e2e57dd2925fb260ae0812",
+      "local_sha256": "ed238c8627a7e379bdf1ce44ef68c7278dfac5bf75e2e57dd2925fb260ae0812",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/references/landing-page-patterns.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/references/landing-page-patterns.md",
+      "upstream_sha256": "51b1b82fd53922960bb7c5b49f9963357f0dd389ac0cc954bafe19e2293502af",
+      "local_sha256": "51b1b82fd53922960bb7c5b49f9963357f0dd389ac0cc954bafe19e2293502af",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/references/seo-checklist.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/references/seo-checklist.md",
+      "upstream_sha256": "6172f2059c0bebb7789112e7a6da149f5869fcd3140fc48c64aed98f8436e5e7",
+      "local_sha256": "6172f2059c0bebb7789112e7a6da149f5869fcd3140fc48c64aed98f8436e5e7",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/scripts/landing_page_scaffolder.py",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/scripts/landing_page_scaffolder.py",
+      "upstream_sha256": "cfa4f2f633976a5ad316aa7ab93cd38288e3788157c4e32e5ed2a77160f68755",
+      "local_sha256": "15c9a4b8c490670b0f8d91150d68d207f177eda2b06533be4d7a33a7a7f1efe7",
+      "modified": true
+    },
+    {
+      "path": "skills/cinematic-ui/.gitignore",
+      "repository": "cinematic-ui",
+      "upstream_path": ".gitignore",
+      "upstream_sha256": "32b2a8a2b0015fb94a7ead914d1f8d96f5b52bb015dc01c52fe03a6918b34f2e",
+      "local_sha256": "32b2a8a2b0015fb94a7ead914d1f8d96f5b52bb015dc01c52fe03a6918b34f2e",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/CHANGELOG.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "CHANGELOG.md",
+      "upstream_sha256": "d97986e02e8779ed5397fad876b1dc89a03bc3c6e8e10ef77d1405e5df24f0f2",
+      "local_sha256": "d97986e02e8779ed5397fad876b1dc89a03bc3c6e8e10ef77d1405e5df24f0f2",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/LICENSE",
+      "repository": "cinematic-ui",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "local_sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/README.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "README.md",
+      "upstream_sha256": "acb917ea83b0cbb480ee98aa58510b3305092540e58dd4d5f26272f4d85a2427",
+      "local_sha256": "acb917ea83b0cbb480ee98aa58510b3305092540e58dd4d5f26272f4d85a2427",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/README.zh-TW.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "README.zh-TW.md",
+      "upstream_sha256": "083d4103f2cb5591e3416694eb37a0e0a3979ad040aa7bf842f80147b6ef489c",
+      "local_sha256": "083d4103f2cb5591e3416694eb37a0e0a3979ad040aa7bf842f80147b6ef489c",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/SKILL.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "SKILL.md",
+      "upstream_sha256": "80eeee9680a38de7e5c8f30dba3768bab6ae0e42e7d692f2004eb2f020fa80a0",
+      "local_sha256": "c7f922035f556a611ab94252eb48dfee0b2e8778f857bdc177644600ea437f01",
+      "modified": true
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/beichen-er.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/beichen-er.jpg",
+      "upstream_sha256": "c953ef27e5069624b41095bec48dcfbba1878c436e916e00f5be39029851f43d",
+      "local_sha256": "c953ef27e5069624b41095bec48dcfbba1878c436e916e00f5be39029851f43d",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/latent-film-lab.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/latent-film-lab.jpg",
+      "upstream_sha256": "bb1de32869017c82a27efc15e3c951a9e8e93cb4bb3ed891aa35dda88c6103f4",
+      "local_sha256": "bb1de32869017c82a27efc15e3c951a9e8e93cb4bb3ed891aa35dda88c6103f4",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/lattice-kiki.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/lattice-kiki.jpg",
+      "upstream_sha256": "71303404c1103a5eabad3096580653c0f1363508ee5fa1fcb678a0dff8aad213",
+      "local_sha256": "71303404c1103a5eabad3096580653c0f1363508ee5fa1fcb678a0dff8aad213",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/lattice-matrix.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/lattice-matrix.jpg",
+      "upstream_sha256": "26884bde9ba9a72eda00583038a7ec6e69e948a614058f1714db5bbf267e329b",
+      "local_sha256": "26884bde9ba9a72eda00583038a7ec6e69e948a614058f1714db5bbf267e329b",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/lockwork.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/lockwork.jpg",
+      "upstream_sha256": "0b539b504cb0ae5a374269e852e69afc6448991cceca95395a5f223ddd6bd4ed",
+      "local_sha256": "0b539b504cb0ae5a374269e852e69afc6448991cceca95395a5f223ddd6bd4ed",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/lull.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/lull.jpg",
+      "upstream_sha256": "99b68d1647c4eef3a8282f9cceb6946bb03d2a023fd9b3a99e7c9d3c3ace7c40",
+      "local_sha256": "99b68d1647c4eef3a8282f9cceb6946bb03d2a023fd9b3a99e7c9d3c3ace7c40",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/odd-lot.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/odd-lot.jpg",
+      "upstream_sha256": "ae0022d44c305f5b921cd7f0407358c13379a4cb11103df70f82f0d97ed93c21",
+      "local_sha256": "ae0022d44c305f5b921cd7f0407358c13379a4cb11103df70f82f0d97ed93c21",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/purser.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/purser.jpg",
+      "upstream_sha256": "ee8122a3528a98cdcf1131ab5f020dae39918453aa5c7ae30596928cded8d998",
+      "local_sha256": "ee8122a3528a98cdcf1131ab5f020dae39918453aa5c7ae30596928cded8d998",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/retour.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/retour.jpg",
+      "upstream_sha256": "ea2d181440bd608a11eb84073239dc385aa03b0495969d8b319bf87704487b32",
+      "local_sha256": "ea2d181440bd608a11eb84073239dc385aa03b0495969d8b319bf87704487b32",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/tieout.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/tieout.jpg",
+      "upstream_sha256": "c6b2d2c5d8f58c6ff6151d8f3d597508a86b828a63d742ab645687f8b1059bcf",
+      "local_sha256": "c6b2d2c5d8f58c6ff6151d8f3d597508a86b828a63d742ab645687f8b1059bcf",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/launch-film-en.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/launch-film-en.jpg",
+      "upstream_sha256": "92b668985dccf23c1a154576c78d3e1e38e99ac3335990282963077d79cecf09",
+      "local_sha256": "92b668985dccf23c1a154576c78d3e1e38e99ac3335990282963077d79cecf09",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/launch-film.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/launch-film.jpg",
+      "upstream_sha256": "759f6805d5c6c29f8babd6103c4194511fcf1fc5f481d96c7542e3b1d58038de",
+      "local_sha256": "759f6805d5c6c29f8babd6103c4194511fcf1fc5f481d96c7542e3b1d58038de",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/looks.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/looks.jpg",
+      "upstream_sha256": "676f0a36be39474cf1f49aae077e76b14d086c24aefcf60d429ba75b93c5ca9b",
+      "local_sha256": "676f0a36be39474cf1f49aae077e76b14d086c24aefcf60d429ba75b93c5ca9b",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/README.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/README.md",
+      "upstream_sha256": "09e2e42c406bf55a8cd1f8498125fb7f7f70dea063364543db7b99096e9b67af",
+      "local_sha256": "09e2e42c406bf55a8cd1f8498125fb7f7f70dea063364543db7b99096e9b67af",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/app-shell.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/app-shell.html",
+      "upstream_sha256": "a5cef3236f5e8194e9f59eeff4f5a1be3b53b947a1d15edf491f37fb1a8dbe8c",
+      "local_sha256": "a5cef3236f5e8194e9f59eeff4f5a1be3b53b947a1d15edf491f37fb1a8dbe8c",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/app.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/app.js",
+      "upstream_sha256": "9e8a69899683e0f7ce06c169a132caf8c5ba18120b373abc240d08dc255f3585",
+      "local_sha256": "9e8a69899683e0f7ce06c169a132caf8c5ba18120b373abc240d08dc255f3585",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/fixtures.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/fixtures.js",
+      "upstream_sha256": "45b95e2d6523e685d4bef10e40f2ad193957f29cd22d0cc1fdf8459304e0bbb3",
+      "local_sha256": "45b95e2d6523e685d4bef10e40f2ad193957f29cd22d0cc1fdf8459304e0bbb3",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade-assets/CREDITS.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade-assets/CREDITS.md",
+      "upstream_sha256": "11609799a2d87ba07af2d6650f59546160045348d8d8b859e8f36ef98501cec7",
+      "local_sha256": "11609799a2d87ba07af2d6650f59546160045348d8d8b859e8f36ef98501cec7",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade-assets/fog.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade-assets/fog.jpg",
+      "upstream_sha256": "53b402e1102743476d641643af19001c63771487626f6f5689b18e9dc59cf4e9",
+      "local_sha256": "53b402e1102743476d641643af19001c63771487626f6f5689b18e9dc59cf4e9",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade-assets/fog.mp4",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade-assets/fog.mp4",
+      "upstream_sha256": "31f4c9c8b9e082e9137acee3998e1d730a58c08e553728ffc038d1f0ce226ee9",
+      "local_sha256": "31f4c9c8b9e082e9137acee3998e1d730a58c08e553728ffc038d1f0ce226ee9",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade-assets/photo.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade-assets/photo.jpg",
+      "upstream_sha256": "f31ff94c34e2459131a99280a37028e3cda778e22b39619da193a6460494ed5f",
+      "local_sha256": "f31ff94c34e2459131a99280a37028e3cda778e22b39619da193a6460494ed5f",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade.html",
+      "upstream_sha256": "4de48be53d8c32df6a1c523817a7f012c3013ac800851538f20b248544bc5ceb",
+      "local_sha256": "4de48be53d8c32df6a1c523817a7f012c3013ac800851538f20b248544bc5ceb",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade.js",
+      "upstream_sha256": "682a792e87466dd041200ad388cb8423ddd8c19abb118ed37c1c23a7bb2ebae5",
+      "local_sha256": "682a792e87466dd041200ad388cb8423ddd8c19abb118ed37c1c23a7bb2ebae5",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/looks.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/looks.js",
+      "upstream_sha256": "f7b217349242fe2b987440941f286b7629c174d98c85a2776028a4309050c95c",
+      "local_sha256": "f7b217349242fe2b987440941f286b7629c174d98c85a2776028a4309050c95c",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/plane.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/plane.js",
+      "upstream_sha256": "facd98d29e8272e29dba1b98c525b170e98a9a5ee494f2d7e8190ebe671da32a",
+      "local_sha256": "facd98d29e8272e29dba1b98c525b170e98a9a5ee494f2d7e8190ebe671da32a",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/props.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/props.js",
+      "upstream_sha256": "2e22b973f050d16912c5ef1ed2ba02a11e72eaaf52d246561df2578911d74fb0",
+      "local_sha256": "2e22b973f050d16912c5ef1ed2ba02a11e72eaaf52d246561df2578911d74fb0",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/reel.css",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/reel.css",
+      "upstream_sha256": "e28ab7119b9f7c3226c2ceace799f8417f0f1df9e0f7b3ec31af335eee2b7751",
+      "local_sha256": "e28ab7119b9f7c3226c2ceace799f8417f0f1df9e0f7b3ec31af335eee2b7751",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/reel.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/reel.js",
+      "upstream_sha256": "3ff9ca8ac50b4c8c45e18c2d8315ac1066810b612c65f27dd682ac28a037e240",
+      "local_sha256": "3ff9ca8ac50b4c8c45e18c2d8315ac1066810b612c65f27dd682ac28a037e240",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/site-dom.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/site-dom.html",
+      "upstream_sha256": "e2c28ccd97de9d3ac8a795c8beca7e4d659f38dcdb7c9c55392e93cbaccf89f1",
+      "local_sha256": "e2c28ccd97de9d3ac8a795c8beca7e4d659f38dcdb7c9c55392e93cbaccf89f1",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/site.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/site.html",
+      "upstream_sha256": "16661a329cfd0b0b23a19075fa8981240c7756468f88e6fbf5b2dabc32a7ef79",
+      "local_sha256": "16661a329cfd0b0b23a19075fa8981240c7756468f88e6fbf5b2dabc32a7ef79",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/stage.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/stage.js",
+      "upstream_sha256": "3493830b6ad336e9740c8b0cd1da9d605c5c57cda743c6ab288721702a490284",
+      "local_sha256": "3493830b6ad336e9740c8b0cd1da9d605c5c57cda743c6ab288721702a490284",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/type-fx.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/type-fx.html",
+      "upstream_sha256": "01fb50bf5098694a67f6ea7526a80c41204945dab5ffc15d61a66818e0d389d0",
+      "local_sha256": "01fb50bf5098694a67f6ea7526a80c41204945dab5ffc15d61a66818e0d389d0",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/type-fx.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/type-fx.js",
+      "upstream_sha256": "dc7ad41be0bc9e33b74cb29351e061a338c5943558b05c206f63fd6dfb2f1d56",
+      "local_sha256": "dc7ad41be0bc9e33b74cb29351e061a338c5943558b05c206f63fd6dfb2f1d56",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/app-mode.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/app-mode.md",
+      "upstream_sha256": "909d16ebea5c912f52c47b4f2d3b636bd3c17e1280e7ff687cb38d57557179e7",
+      "local_sha256": "909d16ebea5c912f52c47b4f2d3b636bd3c17e1280e7ff687cb38d57557179e7",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/art-direction.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/art-direction.md",
+      "upstream_sha256": "a2b028163b76567ccdd3e27a198deba743112ffb224beea7760416e1bbad7463",
+      "local_sha256": "a2b028163b76567ccdd3e27a198deba743112ffb224beea7760416e1bbad7463",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/award-reel.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/award-reel.md",
+      "upstream_sha256": "35d737ef3178464e7a6a4aa652a5adc96c84efa5162b4f8155f787acc316725f",
+      "local_sha256": "35d737ef3178464e7a6a4aa652a5adc96c84efa5162b4f8155f787acc316725f",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/directors.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/directors.md",
+      "upstream_sha256": "87e9cf56614a25108d9b9c250933a1bf72844f62b4b1ceef9ee583d503af7878",
+      "local_sha256": "d137c53a9ddd797f6f83f494bc11ebe926f268c14729f626a3b873e88928c73f",
+      "modified": true
+    },
+    {
+      "path": "skills/cinematic-ui/references/editing-and-motion.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/editing-and-motion.md",
+      "upstream_sha256": "ab4f9b38784ce7b7c9f3e34b2ca849b9e7a294d33447ede199d9f1024a936ec1",
+      "local_sha256": "ab4f9b38784ce7b7c9f3e34b2ca849b9e7a294d33447ede199d9f1024a936ec1",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/film-grammar.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/film-grammar.md",
+      "upstream_sha256": "a29315a52dbb8779872184e8d8fda966fe7740f2855f8d1cbc95cc3a1ec01b27",
+      "local_sha256": "a29315a52dbb8779872184e8d8fda966fe7740f2855f8d1cbc95cc3a1ec01b27",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/film-research.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/film-research.md",
+      "upstream_sha256": "d54b16f9e03397a2bcc0a8ace9e8c602174c959151c5204d48e1c3b45e2df13a",
+      "local_sha256": "d54b16f9e03397a2bcc0a8ace9e8c602174c959151c5204d48e1c3b45e2df13a",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/grades.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/grades.md",
+      "upstream_sha256": "1e7748df061fa7a0be6df29092bc51d103c111b3cb0cd6c5192217c725340ddc",
+      "local_sha256": "1e7748df061fa7a0be6df29092bc51d103c111b3cb0cd6c5192217c725340ddc",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/looks.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/looks.md",
+      "upstream_sha256": "9ae4fce0ab250b135e4ec28e47849a8ab4ad358c397ec6aebe18694cc09c5e09",
+      "local_sha256": "9ae4fce0ab250b135e4ec28e47849a8ab4ad358c397ec6aebe18694cc09c5e09",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/production-design.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/production-design.md",
+      "upstream_sha256": "e69369ab2d35a44f1ede5ad2cd831a42ce5b0938a215aadae92f4948e328c822",
+      "local_sha256": "e69369ab2d35a44f1ede5ad2cd831a42ce5b0938a215aadae92f4948e328c822",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/screening.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/screening.md",
+      "upstream_sha256": "064a6c863939b53a23994923fd52272c60092f14cd30b3bc412609148689880b",
+      "local_sha256": "064a6c863939b53a23994923fd52272c60092f14cd30b3bc412609148689880b",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/storyboard.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/storyboard.md",
+      "upstream_sha256": "e6b94e969b65cb84df30cea433a94c3d42967f22326ac52c469672fe5bf82da9",
+      "local_sha256": "e6b94e969b65cb84df30cea433a94c3d42967f22326ac52c469672fe5bf82da9",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/type-motion.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/type-motion.md",
+      "upstream_sha256": "c506f48207201e1fdceeae9d46ad226fac7d6d550186e1aa1d70ddd90d84c577",
+      "local_sha256": "c506f48207201e1fdceeae9d46ad226fac7d6d550186e1aa1d70ddd90d84c577",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/vfx-threejs.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/vfx-threejs.md",
+      "upstream_sha256": "5975547ef5ddee0dd70f446fc9a214e15146e0ec2e372bc4b744b6cd23ebe66f",
+      "local_sha256": "5975547ef5ddee0dd70f446fc9a214e15146e0ec2e372bc4b744b6cd23ebe66f",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/app-screening.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/app-screening.mjs",
+      "upstream_sha256": "3e02e632fa6dccd090397aea88483b0ee389c36f4b37cefcea979fbc33cff2db",
+      "local_sha256": "3e02e632fa6dccd090397aea88483b0ee389c36f4b37cefcea979fbc33cff2db",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/copy-check.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/copy-check.mjs",
+      "upstream_sha256": "984a441de6bdf045dbffeb023e40349e7e231a36487a038fc31c43510671a615",
+      "local_sha256": "984a441de6bdf045dbffeb023e40349e7e231a36487a038fc31c43510671a615",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/find-footage.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/find-footage.mjs",
+      "upstream_sha256": "1b46e229400dc5ce4256232d766d370e6c3baa996f57b514b292411cf7b3d2ad",
+      "local_sha256": "1b46e229400dc5ce4256232d766d370e6c3baa996f57b514b292411cf7b3d2ad",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/generate-image.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/generate-image.mjs",
+      "upstream_sha256": "e46dca948f4fa4866f8f49ce418954f589763b55c630f0bc4e7b340cfedd9481",
+      "local_sha256": "e46dca948f4fa4866f8f49ce418954f589763b55c630f0bc4e7b340cfedd9481",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/grade-from-stills.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/grade-from-stills.mjs",
+      "upstream_sha256": "d29bc158542825334efa29141aeb1b3bbfb1e01f87bfce134f764c2fb749195b",
+      "local_sha256": "d29bc158542825334efa29141aeb1b3bbfb1e01f87bfce134f764c2fb749195b",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/lib.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/lib.mjs",
+      "upstream_sha256": "950db25224df4e0d163dcca368e9bf95b7568ba7a71fb3fede8f37ac3ad35b04",
+      "local_sha256": "bea6878db9084107ac5e2cf601d7d4f3b90c2b0c699bf50a4e63816215e5723b",
+      "modified": true
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/render-film.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/render-film.mjs",
+      "upstream_sha256": "850032ffce5bb8882b389e65258f365973e56500a3a4ecb94f1dcbfb3808131d",
+      "local_sha256": "850032ffce5bb8882b389e65258f365973e56500a3a4ecb94f1dcbfb3808131d",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/screening.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/screening.mjs",
+      "upstream_sha256": "20d1730f6620dc4ece23f36da4b5554693eb35e6979c61a4345456db78a03999",
+      "local_sha256": "20d1730f6620dc4ece23f36da4b5554693eb35e6979c61a4345456db78a03999",
+      "modified": false
+    }
+  ],
+  "requested_mapping": {
+    "landing page generator": "landing-page-generator; original maintained alirezarezvani skill, not the deprecated kostja94 compatibility entry",
+    "cinematic ui": "cinematic-ui; original akseolabs-seo skill",
+    "ui.ux promax": "ui-ux-pro-max; existing local pinned installation verified, not duplicated"
+  },
+  "adaptations": [
+    {
+      "skill": "cinematic-ui",
+      "paths": [
+        "SKILL.md",
+        "references/directors.md"
+      ],
+      "change": "Narrow discovery to explicit cinematic decisions; keep filmography and artifacts in local ignored runtime; clarify one visual authority and optional unverified dependencies."
+    },
+    {
+      "skill": "cinematic-ui",
+      "paths": [
+        "scripts/lib.mjs"
+      ],
+      "change": "Use pinned @playwright/test and workspace-managed Chromium instead of global modules or installed browser channels; reject malformed URL decoding, sibling path escapes and symlink escapes in the loopback static server."
+    },
+    {
+      "skill": "landing-page-generator",
+      "paths": [
+        "SKILL.md"
+      ],
+      "change": "Preserve target design system and existing authorization; prohibit fabricated social proof; explain optional absent sibling skills and unmeasured performance targets; document local script invocation."
+    },
+    {
+      "skill": "landing-page-generator",
+      "paths": [
+        "scripts/landing_page_scaffolder.py"
+      ],
+      "change": "Validate config shape, design style, URL schemes and CSS markup before output; encode JSX text/attributes and JSON metadata; preserve prior artifact on validation failure; add section anchors, mobile grid/text reflow, focus and multiline CTA hitbox layout."
+    },
+    {
+      "skill": "landing-page-generator",
+      "paths": [
+        "LICENSE"
+      ],
+      "change": "Retain root upstream MIT license alongside the installed skill."
+    }
+  ],
+  "verification": {
+    "existing_uiux_file_hashes": 73,
+    "existing_uiux_hash_errors": 0,
+    "existing_uiux_searches": 3,
+    "python_behavior_tests": 4,
+    "browser_cases": 10,
+    "static_server_checks": 6,
+    "quick_validation": "both valid; invoked with existing project-local PyYAML",
+    "cinematic_cli_screenings": [
+      "normal desktop+mobile: exit 0, no mechanical flags",
+      "reduced desktop+mobile: exit 0, no mechanical flags"
+    ],
+    "source_tests": [
+      "ui/tests/test_page_skills.py",
+      "ui/tests/page_skill_browser.mjs",
+      "ui/tests/fixtures/page-skills/"
+    ],
+    "evidence": "ui/runtime/expansion-20261102/page-specialists",
+    "auth_required_for_installed_local_path": false,
+    "limitations": [
+      "Local synthetic Chromium smoke tests, not a comparative quality benchmark or proof of general improvement.",
+      "Cinematic demonstration has no __reel; upstream screening used even-scroll positions, not one scrubbed timeline.",
+      "Film research and measured film grade remain unverified.",
+      "GSAP/Three.js/Lenis, external media APIs, paid image generation, ffmpeg video, other browsers and actual host/scheduled/email acceptance were not exercised."
+    ]
+  }
+}

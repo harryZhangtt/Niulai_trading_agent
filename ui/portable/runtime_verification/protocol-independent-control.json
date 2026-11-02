@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "harry-ui-independent-baseline-compact-control-v1",
+  "frozen_before_model_results": true,
+  "scope": "Targeted standalone explicit-only baseline: activation, real compaction, one unnamed UI task. No broad reliability claim.",
+  "model": "gpt-6.1-sol",
+  "effort": "low",
+  "turn_timeout_seconds": 120,
+  "max_model_turns": 2,
+  "transport": "stdio app-server; native skill input only on activation turn",
+  "grading": {
+    "positive": "Completed successful bundle resolver command for the current UI task; expected expert GUIDE.md content actually returned by a successful command now or previously in the same uncompacted context; requested artifact exists and its hash changes.",
+    "activation": "Actual activate.py success output includes HARRY_UI_SESSION_ENABLED; no final-message-only credit.",
+    "negative": "No bundle resolver or activation command, no new bundle expert reads, and requested artifact exists or changes.",
+    "compaction": "Actual contextCompaction completed item or thread/compacted notification, not a requested/acknowledged RPC alone. Require expert guide returned again after compaction.",
+    "resume": "New app-server PID resumes the same persisted thread ID; later UI turn must independently satisfy positive grading.",
+    "fresh_thread": "New thread receives UI prompt without skill attachment or activation; bundle mode must not be assumed.",
+    "claims": "Only successful tool item events and independent local artifact postconditions count. Self-reported enablement/read/completion is insufficient. Root/canonical UI routing is recorded separately and never counted as Harry bundle use.",
+    "limitations": "One bounded deterministic sequence is conformance evidence, not a statistical reliability estimate. No unseen tasks, performance superiority, automatic startup or release acceptance claim."
+  },
+  "cases": [
+    {
+      "id": "activate",
+      "expect": "positive",
+      "expert": "impeccable",
+      "artifact": "panel.html",
+      "attach_skill": true,
+      "prompt": "Use $harry-ui-skill-set for this conversation. In this fixture, create panel.html as a compact accessible project status panel with three rows, a heading and an update button. Keep it self-contained, use the palette in brief.txt, and implement the artifact now. This is existing-product polish rather than a new brand direction. Also record only the native CODEX_THREAD_ID and CODEX_SESSION_ID environment values, if present, into identity.json; do not read any other environment values."
+    },
+    {
+      "id": "compact",
+      "operation": "compact"
+    },
+    {
+      "id": "unnamed_after_compaction",
+      "expect": "positive",
+      "expert": "ui-ux-pro-max",
+      "artifact": "panel.html",
+      "prompt": "In panel.html improve the narrow-screen layout for unusually long project names and large text. Preserve all interactive states. Change the file and check that the controls still have accessible names."
+    }
+  ],
+  "variant_substitutions": {
+    "fresh-v1": {
+      "panel.html": "board.html",
+      "Project overview": "Workspace overview",
+      "360px": "390px",
+      "project": "workspace",
+      "Project": "Workspace",
+      "Daily": "Morning",
+      "Weekly": "Evening"
+    }
+  },
+  "containment": "No external actions, network/MCP/apps, global config or hook writes, dependency installation or copied auth. Shell only for local fixture artifacts and installed guide tools. Existing auth cache serialized by the shared nonblocking runtime.lock. No OS sandbox claim. All attempt data retained; no automatic model retry or fallback.",
+  "independent_project": true,
+  "project_doc_max_bytes": 0,
+  "isolation": "Nested initialized Git repository; project_doc_max_bytes=0 per-thread override prevents parent AGENTS from reinforcing standalone portable-package behavior. No routing advice supplied by harness."
+}

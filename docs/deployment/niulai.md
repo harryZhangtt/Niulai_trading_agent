@@ -1,5 +1,35 @@
 # Niulai runtime deployment and migration
 
+The [recurring business path](../../niulai-runtime/docs/recurring.md) is active
+as an explicitly authorized parallel Codex sender alongside ChatGPT. It uses
+NYSE13:00/19:00 America/New_York, a60-minute grace and a5-minute missing-data
+recovery consumer. The old readiness allocation is no longer in active config.
+The checked-in business allocation remains disabled for safe redeployment;
+the private active allocation and current service receipts establish activation.
+
+The final candidate passed actual future-triggered scheduled partial delivery,
+quiescent restart, source recovery, one correction and duplicate suppression.
+Native Gmail draft MIME is verified before claim, then sent by draft ID and
+verified again against exact complete HTML and both PDF bytes. Holdings files
+stayed byte-identical and recovery made no second Sites/Tiger call. The recovered
+report fetched66/66 symbols and retained87rule rows:85valid and2explicit errors.
+Holdings P&L covers48/49 rows. These financial gaps remain PARTIAL.
+
+The acceptance uses the same recurring business adapter in a separate test
+namespace. First real production-slot delivery remains pending the next XNYS
+session; one test does not establish perpetual punctuality. The deployed inputs
+are the versioned imported v30 baseline; a fresh authoritative Library export has
+not been verified. Parallel operation is not sole-sender cutover. Future cutover
+still requires latest state/ledger reconciliation and verified old-sender disablement.
+
+The earlier cloud partial email was attributed to ChatGPT Work, whose price
+collection was interrupted by canceled approval/proxy403. Codex's earlier daily
+allocation only ran readiness and could not send mail. During development, one
+operator-canceled test and one direct-send INVALID_ARGUMENT/unknown attempt were
+preserved. The unknown outbox entry was never reset or resent. An invalid
+schedule reload now leaves the healthy scheduler running; changing a persisted
+schedule requires a new job ID. Private acceptance records retain every attempt.
+
 This guide covers `niulai-runtime/`, its explicit dependency on the preserved
 `niulai/` source snapshot, and private `.niulai-state/`. For shared model,
 scheduler, host supervision and retry infrastructure, use
@@ -18,8 +48,8 @@ Niulai's holdings or investment-research modules.
 | Preserved holdings pipeline | Fresh source collection, calculations, HTML and PDF | Requires private taxonomy and authorized broker/source access |
 
 A one-time full scheduled portfolio email has been verified through the separate
-Codex business executor. A standalone Python Gmail OAuth sender and recurring
-production-email cutover remain unimplemented.
+Codex business executor. There is no standalone Python Gmail OAuth sender. The native Gmail business
+transport is active in parallel; sole-sender cutover has not been performed.
 The checked-in `jobs/daily-readiness.json` is a readiness allocation, not a
 production-mail allocation. Its enabled flag does not prove that a scheduler is
 installed. Inspect actual host status and durable run receipts separately.

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Harry UI skill set"
+  short_description: "Enable selective UI guidance for this session"
+  default_prompt: "Use $harry-ui-skill-set to enable selective UI routing for this conversation."
+policy:
+  allow_implicit_invocation: true

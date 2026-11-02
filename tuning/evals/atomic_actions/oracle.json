@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "id": "atomic-actions-development-oracle-v1",
+  "split": "development",
+  "blindness": "unblinded",
+  "status": "authored_for_orchestrator_review_before_sealing",
+  "scope": "Four correlated development cases; not a held-out benchmark, reliability estimate, or investment-alpha evaluation.",
+  "source_specs": {
+    "nvidia_release": {
+      "public_url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+      "title": "NVIDIA Announces Financial Results for First Quarter Fiscal 2025",
+      "native_revision": null,
+      "publication_day": "2024-05-22",
+      "raw_sha256": "ed91f75c7c7dcc9a8263ec10ee50068b9ba9fbd4dfbfefce662b23685f5dc017",
+      "normalized_text_sha256": "007645dcc1e1690aad5fc6898e5825426f12dc0eea1ad73df1ef9e3ef0da20b3",
+      "lineage": "NVIDIA:FY2025Q1:earnings-release",
+      "reference_capture_observed_at": "2026-10-31T03:12:29.871700+00:00",
+      "locator_policy": "Offsets identify this normalized reference capture only; host rebinds anchors and section context before sealing a fresh capture.",
+      "anchors": {
+        "publication_day": {
+          "public_locator": "Article heading and publication date",
+          "short_anchor": "May 22, 2024",
+          "reference_span": {
+            "start": 843,
+            "end": 855
+          }
+        },
+        "period_end": {
+          "public_locator": "Opening reported-results paragraph",
+          "short_anchor": "first quarter ended April 28, 2024",
+          "reference_span": {
+            "start": 1225,
+            "end": 1259
+          }
+        },
+        "gaap_eps": {
+          "public_locator": "Opening EPS paragraph",
+          "short_anchor": "GAAP earnings per diluted share was $5.98",
+          "reference_span": {
+            "start": 1358,
+            "end": 1399
+          }
+        },
+        "non_gaap_eps": {
+          "public_locator": "Opening EPS paragraph",
+          "short_anchor": "Non-GAAP earnings per diluted share was $6.12",
+          "reference_span": {
+            "start": 1463,
+            "end": 1508
+          }
+        },
+        "split_trading_day": {
+          "public_locator": "Stock-split announcement; read preceding split-adjusted-trading context",
+          "short_anchor": "Monday, June 10, 2024.",
+          "reference_span": {
+            "start": 3545,
+            "end": 3567
+          }
+        },
+        "headline_revenue": {
+          "public_locator": "Revenue headline",
+          "short_anchor": "Record quarterly revenue of $26.0 billion",
+          "reference_span": {
+            "start": 856,
+            "end": 897
+          }
+        },
+        "table_units": {
+          "public_locator": "Q1 Fiscal 2025 Summary; GAAP subsection",
+          "short_anchor": "($ in millions, except earnings\nper share)",
+          "reference_span": {
+            "start": 3888,
+            "end": 3930
+          }
+        },
+        "table_columns": {
+          "public_locator": "Q1 Fiscal 2025 Summary; GAAP column headers",
+          "short_anchor": "Q1 FY25\nQ4 FY24\nQ1 FY24",
+          "reference_span": {
+            "start": 3931,
+            "end": 3954
+          }
+        },
+        "table_revenue": {
+          "public_locator": "Q1 Fiscal 2025 Summary; GAAP revenue row",
+          "short_anchor": "Revenue\n$26,044\n$22,103\n$7,192",
+          "reference_span": {
+            "start": 3963,
+            "end": 3993
+          }
+        },
+        "outlook": {
+          "public_locator": "Outlook for second quarter of fiscal 2025",
+          "short_anchor": "Revenue is expected to be $28.0 billion, plus or minus 2%.",
+          "reference_span": {
+            "start": 4761,
+            "end": 4819
+          }
+        }
+      }
+    },
+    "flashattention3_v2": {
+      "public_url": "https://arxiv.org/html/2407.08608v2",
+      "title": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision",
+      "native_revision": "2407.08608v2",
+      "revision_available_at": "2024-07-12T22:15:02Z",
+      "raw_sha256": "4d5e9ca3a40bdc9f47df848d9e236c29ede70bd18cfbc9f047ddeb17377aa93a",
+      "normalized_text_sha256": "efb6e29d5d3ea25b1eb9759165e967a866167f83d8dc8706822e33294af46bcf",
+      "lineage": "arxiv:2407.08608v2",
+      "reference_capture_observed_at": "2026-10-31T03:12:28.312923+00:00",
+      "locator_policy": "Offsets identify this normalized reference capture only; host rebinds anchors and section context before sealing a fresh capture.",
+      "anchors": {
+        "mechanism": {
+          "public_locator": "Abstract; supported by section 3.1",
+          "short_anchor": "overlap overall computation and data movement via warp-specialization",
+          "reference_span": {
+            "start": 2660,
+            "end": 2729
+          }
+        },
+        "softmax": {
+          "public_locator": "Abstract; supported by section 3.2",
+          "short_anchor": "interleave block-wise matmul and softmax operations",
+          "reference_span": {
+            "start": 2738,
+            "end": 2789
+          }
+        },
+        "low_precision": {
+          "public_locator": "Abstract; supported by section 3.3",
+          "short_anchor": "block quantization and incoherent processing",
+          "reference_span": {
+            "start": 2799,
+            "end": 2843
+          }
+        },
+        "hardware": {
+          "public_locator": "Appendix C.1 System and libraries",
+          "short_anchor": "H100 80GB SXM5 (700W)",
+          "reference_span": {
+            "start": 74232,
+            "end": 74253
+          }
+        },
+        "gpu_clock": {
+          "public_locator": "Appendix C.1 System and libraries",
+          "short_anchor": "fix the GPU clock speed to 1830MHz",
+          "reference_span": {
+            "start": 74517,
+            "end": 74551
+          }
+        },
+        "repeats": {
+          "public_locator": "Appendix C.1 System and libraries",
+          "short_anchor": "repeat the benchmarks 100 times",
+          "reference_span": {
+            "start": 74635,
+            "end": 74666
+          }
+        },
+        "aggregate": {
+          "public_locator": "Appendix C.1 System and libraries",
+          "short_anchor": "take the average timing",
+          "reference_span": {
+            "start": 74671,
+            "end": 74694
+          }
+        },
+        "limitations": {
+          "public_locator": "Section 5 Discussion, Limitations, Conclusion",
+          "short_anchor": "optimizing for LLM inference",
+          "reference_span": {
+            "start": 42260,
+            "end": 42288
+          }
+        },
+        "training_scope": {
+          "public_locator": "Section 5 Discussion, Limitations, Conclusion",
+          "short_anchor": "understanding the effects of low-precision attention in large-scale training",
+          "reference_span": {
+            "start": 42646,
+            "end": 42722
+          }
+        }
+      }
+    }
+  },
+  "common_rules": {
+    "citation_support": "Claims must reference the exact locator issued by an actual successful registered read, bound to the source version. The host resolves the range; model-invented offsets or locators are rejected. Source-grounded review still checks semantic support.",
+    "answer_policy": "Accept substantively equivalent explanations; no required prose or scripted response.",
+    "output_schema_policy": "The terminal schema constrains types, not answer values or pass labels.",
+    "usage_policy": "Calls, model turns, tokens, cost, and execution references are host-owned; unknown usage remains unknown.",
+    "source_time_policy": "Article content dates, original revision dates, first observation, and run cutoff are distinct. Never invent an exact publication time from a day-only article date.",
+    "failure_policy": "Missing or inaccessible evidence leaves the affected result unverified; fabricated support or an observed critical contradiction fails the case."
+  },
+  "cases": {
+    "nvda_eps_basis_q1fy25": {
+      "source_ids": [
+        "nvidia_release"
+      ],
+      "expected_facts": [
+        {
+          "id": "gaap_eps",
+          "subject": "NVDA",
+          "metric": "diluted EPS",
+          "value": "5.98",
+          "unit": "USD per diluted share",
+          "period": "FY2025Q1",
+          "basis": "GAAP, as reported before the announced split",
+          "anchors": [
+            "gaap_eps",
+            "period_end"
+          ]
+        },
+        {
+          "id": "adjusted_eps",
+          "subject": "NVDA",
+          "metric": "diluted EPS",
+          "value": "6.12",
+          "unit": "USD per diluted share",
+          "period": "FY2025Q1",
+          "basis": "non-GAAP, as reported before the announced split",
+          "anchors": [
+            "non_gaap_eps",
+            "period_end"
+          ]
+        }
+      ],
+      "expected_relationships": [
+        "The two reported EPS values have different accounting definitions; neither is an extraction conflict merely because the amounts differ.",
+        "The release predates the announced split-adjusted trading. A present-day comparison needs an explicitly matched share basis, reporting period, and accounting definition."
+      ],
+      "required_limits": [
+        "Do not silently substitute a later split-adjusted database figure for the values actually reported in this release.",
+        "Do not present this historical quarter as current EPS or compare GAAP and non-GAAP as interchangeable measures."
+      ],
+      "optional_comparison": {
+        "role": "eps_basis_contrast",
+        "complete_packet_expected_status": "not_comparable",
+        "retained_mismatch": "definition",
+        "note": "The existing comparator basis field is reported for both; GAAP versus non-GAAP distinction must remain in the definition metadata."
+      },
+      "critical_criteria": [
+        {
+          "id": "eps_values_and_labels",
+          "criterion": "Identify both reported values with their distinct GAAP/non-GAAP labels and correct period."
+        },
+        {
+          "id": "share_basis_visible",
+          "criterion": "Recognize that applying a figure obtained today requires matching the split/share basis; identify the article as a historical report."
+        },
+        {
+          "id": "eps_source_supported",
+          "criterion": "Cite actual read passages supporting the values and relevant reporting/share context."
+        }
+      ],
+      "critical_failures": [
+        "Swap the GAAP and non-GAAP amounts.",
+        "Treat their difference as two conflicting estimates of one identically defined observation.",
+        "Use an unlabelled split conversion or call the release current earnings."
+      ]
+    },
+    "nvda_historical_vs_latest_period": {
+      "source_ids": [
+        "nvidia_release"
+      ],
+      "cutoff_condition": "Host freezes a current run cutoff after May 2024; supplied sources contain no newer quarterly financial report.",
+      "expected_facts": [
+        {
+          "id": "article_day",
+          "value": "2024-05-22",
+          "precision": "day",
+          "anchors": [
+            "publication_day"
+          ]
+        },
+        {
+          "id": "reported_revenue",
+          "subject": "NVDA",
+          "metric": "reported consolidated quarterly revenue",
+          "value": "26044",
+          "unit": "USD millions",
+          "period": "FY2025Q1",
+          "period_end": "2024-04-28",
+          "basis": "reported historical result",
+          "anchors": [
+            "period_end",
+            "table_units",
+            "table_columns",
+            "table_revenue"
+          ]
+        },
+        {
+          "id": "revenue_outlook",
+          "subject": "NVDA",
+          "metric": "next-quarter revenue guidance",
+          "value": "28.0",
+          "unit": "USD billions",
+          "period": "FY2025Q2",
+          "basis": "management outlook, plus or minus 2 percent",
+          "anchors": [
+            "outlook"
+          ]
+        }
+      ],
+      "expected_relationships": [
+        "The headline reports the same historical revenue at lower precision than the summary table.",
+        "The next-quarter amount is management guidance in this release, not a reported result for that quarter.",
+        "A retrieval today or newer sidebar news does not make the 2024 article the latest quarterly earnings report."
+      ],
+      "required_limits": [
+        "The latest-quarter request remains unresolved from the supplied release alone.",
+        "A newer issuer report or filing is needed before supplying current/latest quarterly revenue; continue with the supported historical facts."
+      ],
+      "critical_criteria": [
+        {
+          "id": "historical_period",
+          "criterion": "Identify the source period and quarter end rather than assign the retrieval year to its results."
+        },
+        {
+          "id": "forecast_separated",
+          "criterion": "Keep the outlook amount and its future quarter distinct from reported revenue."
+        },
+        {
+          "id": "latest_gap_preserved",
+          "criterion": "Explicitly preserve the latest-period evidence gap rather than fill it from memory, navigation, or a forecast."
+        }
+      ],
+      "critical_failures": [
+        "Describe FY2025Q1 revenue as the latest quarter at the frozen current cutoff.",
+        "Promote the outlook into a reported result.",
+        "Use newer navigation dates as the article publication date or as support for financial results."
+      ]
+    },
+    "flashattention3_h100_scope": {
+      "source_ids": [
+        "flashattention3_v2"
+      ],
+      "expected_facts": [
+        {
+          "id": "revision",
+          "value": "2407.08608v2",
+          "basis": "selected manuscript revision"
+        },
+        {
+          "id": "asynchrony",
+          "value": "Overlap computation and data movement with warp specialization/Tensor Core and TMA asynchrony.",
+          "anchors": [
+            "mechanism"
+          ]
+        },
+        {
+          "id": "pipeline",
+          "value": "Interleave matrix multiplications and softmax work to improve overlap.",
+          "anchors": [
+            "softmax"
+          ]
+        },
+        {
+          "id": "fp8_method",
+          "value": "Use FP8 low precision with block quantization and incoherent processing.",
+          "anchors": [
+            "low_precision"
+          ]
+        },
+        {
+          "id": "hardware",
+          "value": "H100 80GB SXM5",
+          "unit": "700W configuration",
+          "anchors": [
+            "hardware"
+          ]
+        },
+        {
+          "id": "clock",
+          "value": "1830",
+          "unit": "MHz",
+          "anchors": [
+            "gpu_clock"
+          ]
+        },
+        {
+          "id": "repeats",
+          "value": "100",
+          "unit": "benchmark repetitions",
+          "aggregation": "average timing",
+          "anchors": [
+            "repeats",
+            "aggregate"
+          ]
+        }
+      ],
+      "expected_relationships": [
+        "Results concern the authors' attention-kernel benchmarks under specified hardware, precision, shapes, and software conditions.",
+        "A direct arXiv read and an MCP extraction of this paper have the same upstream."
+      ],
+      "required_limits": [
+        "Kernel results do not by themselves measure full application inference performance, adoption, GPU unit demand, vendor revenue, or valuation.",
+        "The paper names LLM inference optimization and effects of low precision in large-scale training as remaining work.",
+        "No independent reproduction or verified peer-review status is supplied by these actions."
+      ],
+      "optional_facts": [
+        {
+          "value": "740",
+          "unit": "TFLOPs/s",
+          "scope": "up to, FP16 attention performance"
+        },
+        {
+          "value": "1.2",
+          "unit": "PFLOPs/s",
+          "scope": "close to, FP8 attention performance"
+        }
+      ],
+      "critical_criteria": [
+        {
+          "id": "paper_revision_and_mechanisms",
+          "criterion": "Use the exact selected revision and explain asynchrony/overlap and pipelining; retain FP8 scope when making low-precision claims."
+        },
+        {
+          "id": "benchmark_controls",
+          "criterion": "Report the H100 80GB SXM5 setup, fixed 1830 MHz clock, and 100 repetitions averaged, using the setup passage."
+        },
+        {
+          "id": "extrapolation_bounded",
+          "criterion": "Separate kernel evidence from end-to-end inference and present-day economic or investment conclusions, with concrete paper limits."
+        }
+      ],
+      "critical_failures": [
+        "Claim that 100 repetitions are 100 independent external replications.",
+        "Treat theoretical FP16 maximum throughput as the measured kernel result, or mix FP16 and FP8 numbers without labels.",
+        "Infer a current revenue or demand change solely from kernel efficiency.",
+        "Claim generic current/latest library or paper status without evidence."
+      ]
+    },
+    "nvda_revenue_units_periods": {
+      "source_ids": [
+        "nvidia_release"
+      ],
+      "expected_facts": [
+        {
+          "id": "headline",
+          "value": "26.0",
+          "unit": "USD billions",
+          "period": "FY2025Q1",
+          "anchors": [
+            "headline_revenue"
+          ]
+        },
+        {
+          "id": "matching_table",
+          "value": "26044",
+          "unit": "USD millions",
+          "period": "FY2025Q1",
+          "anchors": [
+            "table_units",
+            "table_columns",
+            "table_revenue"
+          ]
+        },
+        {
+          "id": "adjacent_table",
+          "value": "22103",
+          "unit": "USD millions",
+          "period": "FY2024Q4",
+          "anchors": [
+            "table_units",
+            "table_columns",
+            "table_revenue"
+          ]
+        }
+      ],
+      "comparison_expectations": [
+        {
+          "role": "raw_units_contrast",
+          "complete_packet_expected_status": "not_comparable",
+          "retained_mismatch": "unit",
+          "required_explanation": "Original scales differ; raw subtraction cannot establish a source disagreement."
+        },
+        {
+          "role": "adjacent_period_contrast",
+          "complete_packet_expected_status": "not_comparable",
+          "retained_mismatch": "period",
+          "required_explanation": "The table columns describe distinct quarters and cannot cross-check one observation.",
+          "incomplete_metadata_expected_status": "unverified",
+          "incomplete_metadata_condition": "Reported prior-quarter value/end retained, but prior-quarter start unknown; do not invent it."
+        },
+        {
+          "role": "normalized_same_period",
+          "normalization": "Multiply the headline billions by 1000 to obtain USD millions.",
+          "values": [
+            "26000",
+            "26044"
+          ],
+          "absolute_difference": "44",
+          "absolute_tolerance": "50",
+          "relative_tolerance": "0",
+          "tolerance_basis": "Half the headline's 0.1-billion rounding increment, declared before evaluating the discrepancy.",
+          "complete_packet_expected_status": "shared_upstream_corroboration",
+          "required_explanation": "Difference is compatible with headline reporting precision; both observations remain one issuer upstream."
+        }
+      ],
+      "required_limits": [
+        "Retain the original values, units, period columns, and normalized values; do not silently average them.",
+        "Same-release arithmetic consistency is not independent corroboration of business outlook.",
+        "Missing dates or lineage produce an unverified comparison, not permission to invent metadata."
+      ],
+      "critical_criteria": [
+        {
+          "id": "three_comparison_roles",
+          "criterion": "Use source-bound comparison outputs to distinguish original-unit and different-period incompatibility from normalized same-period consistency."
+        },
+        {
+          "id": "precision_reconciliation",
+          "criterion": "Explain the conversion, 44-million difference, and predeclared rounding tolerance without silently replacing either observation."
+        },
+        {
+          "id": "source_lineage_retained",
+          "criterion": "State that agreement within this issuer release does not establish independent corroboration."
+        }
+      ],
+      "critical_failures": [
+        "Treat the different-period column as a conflicting estimate for FY2025Q1.",
+        "Compare raw billion and million values as though their units matched.",
+        "Report two independent sources or silently average the observations.",
+        "Change the tolerance after observing the difference to force agreement."
+      ]
+    }
+  }
+}

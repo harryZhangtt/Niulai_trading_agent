@@ -1,0 +1,50 @@
+{
+  "id": "browser-cooperation-retrieval",
+  "version": 3,
+  "split": "development",
+  "blindness": "unblinded",
+  "metrics": ["anchor_hits", "anchor_total", "source_bound", "elapsed_seconds", "provider_items", "approval_events", "reauth_events", "tokens", "cost"],
+  "budget": {"provider_items": 24, "wall_seconds": 360},
+  "cases": [
+    {
+      "id": "nvda_rounding",
+      "critical": true,
+      "input": {
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+        "question": "Preserve the quarterly headline revenue and the more precise Q1 FY25 table value with units. Do not average them.",
+        "stratum": "issuer_html_table"
+      },
+      "expected": {"patterns": ["26\\.0\\s+billion", "26,?044", "Q1\\s*FY25"], "scope": "retrieval anchors only; known development case, not independent source corroboration"}
+    },
+    {
+      "id": "msft_period_units",
+      "critical": true,
+      "input": {
+        "url": "https://www.microsoft.com/en-us/Investor/earnings/fy-2025-Q4/press-release-webcast",
+        "question": "Retrieve quarterly revenue, the exact table value and the quarter-end date; retain GAAP/currency/units.",
+        "stratum": "issuer_rendered_table"
+      },
+      "expected": {"patterns": ["76\\.4\\s+billion", "76,?441", "June\\s+30,?\\s+2025"], "scope": "retrieval anchors; no causal/economic quality or current-data claim"}
+    },
+    {
+      "id": "lora_abstract",
+      "critical": true,
+      "input": {
+        "url": "https://arxiv.org/abs/2106.09685v2",
+        "question": "Read the paper title and abstract; report this as abstract access, not a full paper read.",
+        "stratum": "paper_abstract"
+      },
+      "expected": {"patterns": ["Low.Rank Adaptation of Large Language Models", "trainable", "rank"], "scope": "abstract page, not full-document evidence"}
+    },
+    {
+      "id": "lora_pdf_control",
+      "critical": true,
+      "input": {
+        "url": "https://arxiv.org/pdf/2106.09685v2",
+        "question": "Read the paper title from the original PDF using the existing PDF route. Do not invent EgoLite PDF extraction.",
+        "stratum": "pdf_negative_treatment_control"
+      },
+      "expected": {"patterns": ["Low.Rank Adaptation of Large Language Models"], "scope": "PDF route preservation control; same reader in both arms"}
+    }
+  ]
+}

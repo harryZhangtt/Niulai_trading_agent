@@ -17,7 +17,7 @@ class UIInitializationTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix='ui init with spaces ', dir=parent)
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        for name in CORE + ('ui/session_init.py',) + tuple('ui/skills/{}/SKILL.md'.format(s) for s in SKILLS):
+        for name in CORE + ('ui/session_init.py', 'ui/route.py', 'ui/catalog.json') + tuple('ui/skills/{}/SKILL.md'.format(s) for s in SKILLS):
             target = self.root / name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / name, target)
@@ -45,6 +45,8 @@ class UIInitializationTests(unittest.TestCase):
     def test_happy_path_visible_status_compact_context_no_full_skill_bodies(self):
         result = initialize(self.root, self.event)
         self.assertIn('UI_INIT_OK', result['systemMessage'])
+        self.assertIn('Harry UI routing resources are ready for this session', result['systemMessage'])
+        self.assertNotIn('skill set is enabled', result['systemMessage'])
         context = result['hookSpecificOutput']['additionalContext']
         for name in CORE:
             self.assertIn((self.root / name).read_text(), context)
@@ -65,6 +67,25 @@ class UIInitializationTests(unittest.TestCase):
         context = self.check_failure(initialize(self.root, self.event))
         self.assertIn('ui/ROUTING.md', context)
         self.assertIn('ui/skills/shadcn/SKILL.md', context)
+
+    def test_missing_or_duplicate_catalog_fails_visibly(self):
+        catalog = self.root / 'ui/catalog.json'
+        catalog.unlink()
+        self.assertIn('ui/catalog.json', self.check_failure(initialize(self.root, self.event)))
+        catalog.write_text('{"schema_version":1,"schema_version":1}')
+        self.check_failure(self.protocol(json.dumps(self.event).encode()))
+
+    def test_fifo_catalog_and_policy_return_failure_without_blocking(self):
+        for name in ('ui/catalog.json', 'ui/AGENTS.md'):
+            source = self.root / name
+            original = source.read_bytes()
+            source.unlink()
+            os.mkfifo(source)
+            try:
+                self.check_failure(self.protocol(json.dumps(self.event).encode()))
+            finally:
+                source.unlink()
+                source.write_bytes(original)
 
     def test_escaped_source_is_not_read_or_echoed(self):
         outside = self.root.parent / (self.root.name + '-outside')

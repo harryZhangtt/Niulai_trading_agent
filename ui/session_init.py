@@ -3,12 +3,21 @@
 import hashlib
 import json
 from pathlib import Path
-import re
 import sys
 
+if __package__:
+    from .route import RouteError, read_catalog, read_source, valid_entrypoint
+else:
+    from route import RouteError, read_catalog, read_source, valid_entrypoint
+
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ('frontend-design', 'impeccable', 'ui-ux-pro-max', 'shadcn',
-          'vercel-react-best-practices', 'playwright-cli', 'async-state-reliability')
+# Retain a public discovery list for the standalone catalog verifier. Runtime
+# initialization re-reads the selected workspace's bounded catalog and fails
+# visibly if it is invalid; an import-time error must not break hook JSON output.
+try:
+    SKILLS = tuple(read_catalog(ROOT)['skills'])
+except RouteError:
+    SKILLS = ()
 CORE = ('ui/AGENTS.md', 'ui/ROUTING.md')
 SOURCES = ('startup', 'resume', 'clear', 'compact', 'fork')
 MAX_INPUT_BYTES = 65536
@@ -17,7 +26,7 @@ MAX_CONTEXT_BYTES = 10000
 
 
 def failed(codes):
-    notice = 'UI_INIT_FAILED: ' + ', '.join(codes)
+    notice = 'UI_INIT_FAILED: Harry UI skill set could not be enabled; ' + ', '.join(codes)
     return {'continue': True, 'systemMessage': notice,
             'hookSpecificOutput': {'hookEventName': 'SessionStart', 'additionalContext':
                 notice + '\nTell the user UI initialization failed before substantive UI work. '
@@ -29,6 +38,10 @@ def failed(codes):
 def initialize(root, event):
     root = root.resolve()
     failures, texts, hashes = [], {}, {}
+    try:
+        skills = tuple(read_catalog(root)['skills'])
+    except RouteError:
+        return failed(['ui/catalog.json'])
     if not isinstance(event, dict):
         return failed(['invalid_input'])
     if event.get('hook_event_name') != 'SessionStart':
@@ -41,21 +54,14 @@ def initialize(root, event):
             raise ValueError()
     except (KeyError, ValueError, TypeError):
         failures.append('workspace_mismatch')
-    for name in CORE + tuple('ui/skills/{}/SKILL.md'.format(s) for s in SKILLS):
+    for name in CORE + tuple('ui/skills/{}/SKILL.md'.format(s) for s in skills):
         path = root / name
         try:
-            if not path.resolve().is_relative_to(root) or path.resolve() != path:
-                raise ValueError()
-            with path.open('rb') as source:
-                data = source.read(MAX_SOURCE_BYTES + 1)
-            if not data or len(data) > MAX_SOURCE_BYTES:
-                raise ValueError()
+            data = read_source(path, root, MAX_SOURCE_BYTES)
             content = data.decode('utf-8')
             if name.endswith('SKILL.md'):
                 skill = path.parent.name
-                frontmatter = re.match(r'\A---\n(.*?)\n---(?:\n|$)', content, re.S)
-                names = re.findall(r'^name:\s*(.*?)\s*$', frontmatter.group(1), re.M) if frontmatter else []
-                if names != [skill]:
+                if not valid_entrypoint(content, skill):
                     raise ValueError()
                 link = root / '.agents/skills' / skill
                 if not link.is_symlink() or link.resolve() != path.parent.resolve():
@@ -70,8 +76,10 @@ def initialize(root, event):
         failures.append('context_size_limit')
     if failures:
         return failed(failures)
-    notice = 'UI_INIT_OK: compact UI policy/router loaded; seven skill sources and discovery links verified.'
-    context = (notice + '\nLoad full bodies and references only for the decision at hand.\n'
+    notice = ('UI_INIT_OK: Harry UI routing resources are ready for this session '
+              '({} skill sources and discovery links verified).'.format(len(skills)))
+    context = (notice + '\nThis checks resources, not durable opt-in. Only a successful native-thread '
+               'activation or restore may attest enabled mode. Load bodies selectively.\n'
                + '\n'.join('{} sha256={}'.format(name, hashes[name]) for name in CORE)
                + '\n\n' + '\n\n'.join('SOURCE: {}\n{}'.format(name, texts[name]) for name in CORE))
     return {'continue': True, 'systemMessage': notice, 'hookSpecificOutput': {

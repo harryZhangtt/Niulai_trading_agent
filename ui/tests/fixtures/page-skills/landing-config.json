@@ -1,0 +1,73 @@
+{
+  "brand": "Field Notes",
+  "title": "Field Notes \u2014 research evidence without the spreadsheet maze",
+  "meta_description": "Keep the source, connect your claim, and hand over a clear research trail. Explore Field Notes with a local example before you choose your workflow.",
+  "design_style": "enterprise",
+  "nav_links": [
+    {
+      "text": "How it works",
+      "url": "#features"
+    },
+    {
+      "text": "Plans",
+      "url": "#pricing"
+    }
+  ],
+  "nav_cta": {
+    "text": "Compare plans",
+    "url": "#pricing"
+  },
+  "hero": {
+    "headline": "Keep your research connected.",
+    "subheadline": "From the first source to the final decision, leave a trail that the next person can follow.",
+    "primary_cta": {
+      "text": "Find your plan",
+      "url": "#pricing"
+    },
+    "secondary_cta": {
+      "text": "See the process",
+      "url": "#features"
+    }
+  },
+  "features": {
+    "title": "An evidence trail that stays useful",
+    "subtitle": "A small workflow for a team that needs to know where each claim began.",
+    "items": [
+      {
+        "title": "Capture the source",
+        "description": "Keep public references beside the claim they support."
+      },
+      {
+        "title": "See what changed",
+        "description": "Review a decision with its context and its open questions."
+      },
+      {
+        "title": "Hand it over",
+        "description": "Give your next reviewer a clear place to begin."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Choose your workflow",
+    "plans": [
+      {
+        "name": "Local example",
+        "price": "0",
+        "description": "Explore the interaction with synthetic data.",
+        "features": [
+          "Local-only example",
+          "No account required"
+        ],
+        "cta_text": "Return to overview",
+        "cta_url": "#hero"
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Start with one clear evidence trail.",
+    "subheadline": "The example stays on this device. Nothing is submitted.",
+    "text": "Review the process",
+    "url": "#features"
+  },
+  "footer_text": "Field Notes \u00b7 Synthetic product used for local skill verification."
+}

@@ -58,3 +58,7 @@ node_modules/
 
 # Isolated research-source dependencies, public-paper cache and probe state.
 /.research-sources/
+
+# Generated portable skill distributions; rebuild from ui/portable source.
+/ui/portable/candidate/
+/ui/portable/ui-skill-router/

@@ -75,7 +75,7 @@ punctuality, unrestricted production readiness or coverage of unrelated jobs.
 Email the result to the user's recipient from the validated owner-private
 delivery policy, for success, partial, failure and blocked/unverified outcomes.
 Use a stable change/run identifier and subject such as
-`Niulai triggered | Runtime acceptance | <status> | <change-id>`.
+`[CODEX] Runtime acceptance | <status> | <change-id>`.
 
 Include the change/scope, execution verdict, scheduled/actual timing, job and
 session IDs, verified outputs, coverage/as-of limits, failure codes, recovery or

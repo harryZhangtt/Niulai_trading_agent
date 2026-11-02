@@ -21,7 +21,7 @@ GMAIL = 'connector_2128aebfecb84f64a069897515042a44'
 SITES = 'connector_20205bf7d4e99a89d7154bb849718324'
 BASE = {'codex_bin','model','effort','timeout_seconds','auth_home','max_output_bytes'}
 CAPS = {'apps','shell','phase'}
-OPTIONAL_CAPS = {'approval_mode'}
+OPTIONAL_CAPS = {'approval_mode','writable_roots'}
 SECRET = re.compile(r'(?i)(?:\beyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|'
                     r'\bbearer\s+[A-Za-z0-9._-]+|\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}|'
                     r'\b(?:access_token|refresh_token|client_secret|siwc_bypass_bearer_token)\b)')
@@ -49,10 +49,48 @@ def _profile_caps(profile):
     approval=profile.get('approval_mode','never')
     _require(approval in ('never','automatic_review') and
              (profile['phase']=='business' or approval=='never'),'BUSINESS_APPROVAL_MODE_INVALID')
+    _require('writable_roots' not in profile or profile['shell'],
+             'BUSINESS_WRITABLE_ROOTS_INVALID')
     apps=profile['apps']
     _require(isinstance(apps,list) and 1 <= len(apps) <= 2 and len(set(apps))==len(apps)
              and all(x in (GMAIL,SITES) for x in apps), 'BUSINESS_APPS_POLICY_INVALID')
     return {k:v for k,v in profile.items() if k in BASE}
+
+
+def _writable_roots(profile, workspace, auth_home):
+    """Validate central-profile grants; job input/context cannot expand them."""
+    if not profile['shell']:return []
+    if 'writable_roots' in profile:
+        roots=profile['writable_roots']
+    else:
+        # Preserve the existing Niulai profile's default capability. An explicit
+        # list replaces this grant; it never silently adds Niulai state back.
+        state=workspace/'.niulai-state'
+        _require(state.is_dir() and not state.is_symlink(),'BUSINESS_PRIVATE_STATE_REQUIRED')
+        roots=['.niulai-state']
+    _require(isinstance(roots,list) and len(roots)<=8 and all(isinstance(x,str) for x in roots)
+             and len(set(roots))==len(roots),'BUSINESS_WRITABLE_ROOTS_INVALID')
+    resolved=[]
+    for relative in roots:
+        path=Path(relative)
+        _require(bool(relative) and not path.is_absolute() and '..' not in path.parts
+                 and bool(path.parts) and path.parts[0] in ('.job-runtime','.niulai-state'),
+                 'BUSINESS_WRITABLE_ROOT_REJECTED')
+        candidate=workspace/path
+        allowed=workspace/path.parts[0]
+        _require(candidate.resolve().is_relative_to(allowed.resolve()),'BUSINESS_WRITABLE_ROOT_REJECTED')
+        for ancestor in [candidate,*candidate.parents]:
+            if ancestor==workspace:break
+            _require(not ancestor.is_symlink(),'BUSINESS_WRITABLE_ROOT_SYMLINK')
+        _require(candidate.is_dir(),'BUSINESS_WRITABLE_ROOT_MISSING')
+        _require(candidate.stat().st_uid==os.getuid(),'BUSINESS_WRITABLE_ROOT_OWNER')
+        candidate=candidate.resolve()
+        auth=Path(auth_home).resolve()
+        _require(not candidate.is_relative_to(auth) and not auth.is_relative_to(candidate),
+                 'BUSINESS_WRITABLE_AUTH_OVERLAP')
+        _require(candidate not in resolved,'BUSINESS_WRITABLE_ROOTS_INVALID')
+        resolved.append(candidate)
+    return resolved
 
 
 def _stream(process, prompt, timeout, maximum, cancel):
@@ -222,6 +260,7 @@ def run_business(profile, prompt, workspace, run_dir, context=None):
     try:
         workspace=Path(workspace).resolve(strict=True);base=_profile_caps(profile)
         binary,home,timeout,maximum=_profile(base,workspace)
+        writable_roots=_writable_roots(profile,workspace,home)
         lock=_private_path(home/'runtime.lock',workspace);fd=os.open(lock,os.O_CREAT|os.O_RDWR|os.O_NOFOLLOW,0o600)
         try:fcntl.flock(fd,fcntl.LOCK_EX|fcntl.LOCK_NB)
         except BlockingIOError:return {'status':'retryable','code':'MODEL_AUTH_CACHE_BUSY','receipt':receipt}
@@ -249,8 +288,7 @@ def run_business(profile, prompt, workspace, run_dir, context=None):
         if profile['shell']:
             # Business source is read-only; writes are limited to these private
             # state roots. Do not give the model the repository as writable cwd.
-            private_state=workspace/'.niulai-state';_require(private_state.is_dir() and not private_state.is_symlink(),'BUSINESS_PRIVATE_STATE_REQUIRED')
-            cmd+=['--add-dir',str(private_state)]
+            for root in writable_roots:cmd+=['--add-dir',str(root)]
             overrides['sandbox_workspace_write.network_access']=True
         for key,value in overrides.items():cmd+=['-c',key+'='+json.dumps(value)]
         cmd+=['-']
@@ -259,6 +297,7 @@ def run_business(profile, prompt, workspace, run_dir, context=None):
         raw,errors,reason=_stream(process,prompt.encode(),timeout,maximum,context.get('cancel_event'))
         receipt.update(ended_at=datetime.now(timezone.utc).isoformat(),exit_code=process.returncode,
                        phase=profile['phase'],approval_mode=profile.get('approval_mode','never'),
+                       writable_roots=[str(x.relative_to(workspace)) for x in writable_roots],
                        run_directory=str(run_dir.relative_to(workspace)))
         if reason:return {'status':'unknown','code':reason,'receipt':receipt}
         meta=_metadata(raw)

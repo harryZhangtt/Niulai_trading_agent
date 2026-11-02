@@ -1,0 +1,65 @@
+{
+  "id": "saas_web_infra_ab",
+  "version": "1.0.0",
+  "split": "development",
+  "blindness": "arm_labels_withheld_from_reviewer; answer keys not supplied to researchers; no OS isolation",
+  "question": "What are the latest material SaaS product, pricing and business-model transitions responding to AI disruption, and what recent reported evidence establishes monetization, adoption or paid conversion?",
+  "cutoff": "2026-10-31T04:54:10Z",
+  "preferred_window_start": "2026-07-01",
+  "companies": [
+    "ServiceNow",
+    "Salesforce",
+    "Adobe"
+  ],
+  "arms": {
+    "A": "Web search with our infrastructure add-ons, frozen as actually available; no assumption of completeness and no new feature/domain enablement during trial.",
+    "B": "Normal web search and source opening, competent baseline; no workspace-specific routing/cache/source adapters or add-on repair."
+  },
+  "base_backend": "native tools.web__run search_query/open/find in fresh research-agent sessions, inherited identical requested model/reasoning configuration",
+  "model_control": "Both arms use fresh fork-none researcher contexts with inherited parent model and effort; no model override. Backend identity/tokens not exposed by this host are unknown.",
+  "source_scope": "Public sources only; prefer opened original issuer/official sources for company assertions and an independent perspective where useful. More sources alone are not quality.",
+  "common_tasks": [
+    "For each company identify the latest material product/pricing/strategy development, with event and publication dates.",
+    "Report the most recent relevant measured AI adoption/monetization/paid-conversion evidence, specifying metric definition, period, product scope, units and reported versus forecast status.",
+    "Explain the economic mechanism and one concrete counterevidence item, uncertainty or limitation that could change the conclusion.",
+    "If paid conversion or recognized AI revenue is not disclosed, preserve the gap rather than manufacture a number."
+  ],
+  "common_output": "One company record each: latest_update, commercial_evidence, economic_interpretation, counterevidence_or_limits, unresolved, sources(URL/title/publication_date/event_date/access_state). Answers exclude implementation diagnostics; process traces are separate.",
+  "budget_per_arm": {
+    "max_provider_operations": 12,
+    "max_search_query_items": 6,
+    "max_open_items": 8,
+    "max_wall_seconds": 600,
+    "max_answer_words": 1000,
+    "max_fresh_research_sessions": 1
+  },
+  "counting": "Every search_query/open/find item counts, including failures/retries/fallbacks; batching is not free. Max12 total provider items, max6 query items and max8 open items. Local readiness probes separately recorded within wall budget. Tokens/cost unexposed by host stay unknown.",
+  "A_available_policy": [
+    "Read frozen docs/web-search-routing.md and use its actual circuit/fallback policy where applicable.",
+    "Inspect source capability compatibility using existing code; do not bypass the current domain allowlist or invent a SaaS adapter.",
+    "Use only currently applicable adapters/cache/evidence checks; record executable, instruction-only, unavailable and unused components separately.",
+    "No cached prior research/reference answer is preloaded; cold trial. A routing failure is not a source fact or evidence nothing changed."
+  ],
+  "B_policy": "Use normal native search and opens only; standard query refinement is allowed within budget. No workspace add-ons, cache, direct HTTP or reading A/reference data. If the native route fails, preserve it and do not repeatedly call the broken transport.",
+  "transport_rule": "Compare source/answer quality only when both use the same base backend. Different backend/model fallback cannot be counted as a clean add-on quality effect; report route-conditioned or inconclusive results. Do not cripple competent normal search.",
+  "grading_dimensions_0_to_2": {
+    "recent_material_coverage": "0 no usable recent requirement;1partial;2latest verified material update plus recent commercial evidence",
+    "factual_accuracy": "0material false claim;1minor imprecision/unsupported ambiguity;2material facts supported. Correct abstention can scoreaccuracy2butcoverage0.",
+    "source_claim_support": "0missing/contradictory support;1snippet-only or incomplete source reading;2opened relevant originals support material claims",
+    "metric_definition_fidelity": "0conflates targets/ARR/ACV/usage/free users with achieved recognized revenue/paid conversion;1incomplete qualifiers;2definition/period/scope retained",
+    "economic_reasoning": "0unsupported causal thesis;1one-sided or weakly linked;2mechanism plus concrete counterevidence/limitations, facts separated from inference",
+    "uncertainty_handling": "0fabricated certainty or hidden material gap;1generic qualification;2specific unresolved claims and what evidence would resolve them"
+  },
+  "critical_failures": [
+    "Invented current numerical fact/source/date",
+    "Forecast represented as achieved result",
+    "ARR/ACV represented as recognized AI revenue",
+    "Free/adoption usage represented as paid conversion",
+    "Claimed source reading contradicted by access evidence",
+    "Material unsupported conclusion"
+  ],
+  "analysis": "Report paired per-company dimension vectors, critical-error counts, supported material requirements out of six, retrieval coverage, route failures, calls and latency separately. Do not average critical failures away or sum correlated claims as independent samples. Reviewer sees randomized anonymous labels/order and same frozen rubric/reference, not process/arm labels.",
+  "decision": "Descriptive paired smoke test only. Report observed advantage, no observed advantage, tradeoff or inconclusive. Three correlated company cases and one run per arm cannot establish statistical superiority or investment alpha. No automatic promotion. Preserve all attempts and any rubric/reference amendment.",
+  "reference_policy": "Independent primary-source reference built before researcher outputs. Valid additional sources may be adjudicated under the unchanged rubric; log new evidence rather than treating the reference as exhaustive ground truth. Capability probe exposed ServiceNow facts before reference freeze; disclose this development pre-exposure.",
+  "stopping": "One completed live run per arm. Retry only for an explicitly observed transient failure within the same declared budget; do not rerun merely for an unfavorable answer. Stop on missing access or exhausted limits."
+}

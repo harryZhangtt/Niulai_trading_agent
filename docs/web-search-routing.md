@@ -48,3 +48,20 @@ no dependencies, credentials, global settings, or automatic network changes.
 > Do not use local files, account integrations, or make settings changes.
 
 Diagnostic evidence and smoke-test results: `docs/web-search-status.md`.
+
+## Optional EgoLite candidate
+
+`shared/web_access/` implements an opt-in session router and pinned navigation/
+snapshot connector. It does not change this incumbent live workflow, intercept
+native tools or install a browser/MCP. Native discovery and ordinary opening stay
+first; rendered/authorized-session reads may escalate when the candidate is
+explicitly configured and validated. Preserve existing PDF handling and route
+provenance. Semantic snapshots are rendered extracts, not automatic full-source
+or independent-corroboration evidence.
+
+EgoLite is disabled in source configuration. Its external installation/onboarding
+requires a workspace exception; current live paired results and scheduled
+acceptance are unverified. See [setup and recovery](deployment/web-access.md)
+and the [matched evaluation protocol](../tuning/evals/browser_cooperation/README.md).
+The existing session-scoped native circuit and authorized Work fallback still
+apply. A new diagnostic CLI process does not reset the real agent's circuit.

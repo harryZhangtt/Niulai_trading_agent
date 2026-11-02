@@ -2,9 +2,10 @@
 
 This directory adds tested configuration, Tiger access and email-delivery
 boundaries around the preserved `../niulai/` source snapshot. The separate
-`shared/job_runtime/` service is installed with readiness allocations and has
-completed a one-time full scheduled business test. The existing production cloud
-sender has not been replaced.
+`shared/job_runtime/` service now runs the [recurring combined digest](docs/recurring.md)
+as a user-authorized parallel sender. Future-triggered partial/recovery/readback,
+restart and duplicate checks passed. The existing ChatGPT sender remains active;
+first actual production-slot receipt is pending the next XNYS session.
 
 ## Ownership and storage
 

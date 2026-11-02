@@ -1,0 +1,169 @@
+{
+  "id": "evidence_runtime_conformance",
+  "version": "1.0.0",
+  "split": "development",
+  "blindness": "unblinded",
+  "cases": [
+    {
+      "id": "earnings_fact",
+      "critical": true,
+      "input": {
+        "entity": "NVDA",
+        "period": "FY2025Q1",
+        "source_url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+        "question": "Reconcile headline and reported GAAP revenue.",
+        "unit": "USD millions",
+        "basis": "GAAP",
+        "period_end": "2024-04-28"
+      },
+      "expected": {
+        "headline_usd_millions": "26000",
+        "table_usd_millions": "26044",
+        "absolute_difference": "44",
+        "absolute_tolerance": "50",
+        "independent_sources": false
+      }
+    },
+    {
+      "id": "phase_resume",
+      "critical": true,
+      "input": {
+        "pause_after": "comparison"
+      },
+      "expected": {
+        "same_id": true,
+        "same_deadline": true,
+        "same_releases": true,
+        "comparison_runs": 1
+      }
+    },
+    {
+      "id": "source_roster",
+      "critical": true,
+      "input": {
+        "cases": [
+          "openalex.discover",
+          "arxiv.discover",
+          "arxiv.read",
+          "arxiv_mcp_candidate.read",
+          "official_document.nvidia_release",
+          "official_document.nvidia_blackwell",
+          "official_document.amd_rocm",
+          "official_document.google_tpu",
+          "official_document.mlcommons",
+          "official_document.sec_filing",
+          "web_search.discover"
+        ]
+      },
+      "expected": {
+        "omitted_cases": 0,
+        "coverage_reported_separately": true,
+        "mcp_fresh_remote_http": "unknown"
+      }
+    },
+    {
+      "id": "cache_cold_warm",
+      "critical": true,
+      "input": {
+        "case": "official_document.nvidia_release"
+      },
+      "expected": {
+        "cold_acquisitions": 1,
+        "additional_warm_calls": 0,
+        "same_source_ref": true
+      }
+    },
+    {
+      "id": "cache_singleflight",
+      "critical": true,
+      "input": {
+        "concurrent_identical_requests": 5
+      },
+      "expected": {
+        "provider_callbacks": 1,
+        "cache_hits": 4
+      }
+    },
+    {
+      "id": "cache_hundred_warm",
+      "critical": true,
+      "input": {
+        "warm_reads": 100
+      },
+      "expected": {
+        "cache_hits": 100,
+        "additional_provider_calls": 0
+      }
+    },
+    {
+      "id": "cache_bad_identity",
+      "critical": true,
+      "input": {
+        "fault": "wrong_exact_url_key"
+      },
+      "expected": {
+        "status": "unavailable",
+        "reason": "CACHE_URL_MISMATCH"
+      }
+    },
+    {
+      "id": "cache_stale_policy",
+      "critical": true,
+      "input": {
+        "fault": "controlled_TTL_expiry"
+      },
+      "expected": {
+        "without_policy": "unavailable",
+        "explicit_fixed_fact_policy": "cache_fallback",
+        "original_time_preserved": true
+      }
+    },
+    {
+      "id": "cache_corruption",
+      "critical": true,
+      "input": {
+        "fault": "corrupt_private_copy"
+      },
+      "expected": {
+        "status": "unavailable",
+        "reason": "ARTIFACT_HASH_MISMATCH",
+        "quarantined": true
+      }
+    },
+    {
+      "id": "cache_claim_eligibility",
+      "critical": true,
+      "input": {
+        "method": "metamorphic_payload_check_vs_cache_result"
+      },
+      "expected": {
+        "ineligible_source_cannot_be_used": true,
+        "metadata_is_not_document": true,
+        "min_ineligible_cases": 1,
+        "min_metadata_rejections": 1
+      }
+    }
+  ],
+  "metrics": [
+    "case_correctness",
+    "source_capabilities_returned",
+    "source_attempts_total",
+    "source_attempts_usable",
+    "cache_warm_hit_count",
+    "cache_warm_read_count",
+    "provider_calls_observed_excluding_mcp",
+    "latency_seconds",
+    "observed_tokens",
+    "observed_cost"
+  ],
+  "budget": {
+    "source_operations": 11,
+    "source_seconds": 420,
+    "cache_seconds": 180,
+    "cache_live_issuer_acquisitions": 1,
+    "phase_actions": 4,
+    "phase_model_turns": 3,
+    "phase_seconds": 300,
+    "combined_seconds": 1000
+  }
+}

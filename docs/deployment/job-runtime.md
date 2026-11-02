@@ -1,5 +1,9 @@
 # Deploy the shared Codex job runtime
 
+Optional temporary implementation work uses the separately scoped
+[development campaign](development-campaign.md). It has its own state and
+expiring launchd label; it does not modify the primary job allocations.
+
 Major runtime changes are subject to the shared
 [scheduled Codex acceptance and email contract](runtime-acceptance.md): exercise
 the changed capability in an actual scheduled session, retain version-specific
@@ -357,3 +361,47 @@ and updates the slot without dispatching. Conflicting evidence is rejected.
 Trusted completion adapters may automatically verify canonical artifacts and
 accepted/readback delivery after a harmless formatting failure; rejected fields,
 sensitive output, path violations and tool approval denials are excluded.
+
+
+## Explicit private writable scope for business jobs
+
+A central business model profile may set `writable_roots`, for example
+`[".job-runtime/calculation"]`. An explicit list replaces the historical default
+Niulai grant. With no field, Niulai behavior is preserved. Job allocations and
+model context cannot add roots. The executor rejects source/absolute/traversal,
+symlink, missing/foreign-owner directories and any ancestor/descendant overlap
+with its auth home before launching. Each selected root must be an existing
+relative private directory under `.job-runtime/` or `.niulai-state/`. The receipt
+records sanitized relative grants. This changes no global approval or app setting.
+
+The first scheduled calculator trial started on time but returned blocked before
+a report; source inspection found only Niulai state was granted while calculator
+outputs use separate calculator state. The failed attempt remains recorded. A
+new scheduled trial after the explicit scope and service-code restart is required
+before claiming the calculator profile works. Restart the daemon after Python
+executor source changes; config SIGHUP alone does not reload imported code.
+
+
+The calculator's second trial exposed a macOS nested-sandbox restriction, not a
+reason to expand global approvals. Its component now uses the existing adapter
+interface for an attempt-scoped host request bridge: Codex calls a fixed client,
+the host runs the unchanged OS-restricted compute workers, and the completion
+adapter verifies trusted host evidence. There is no new persistent daemon or
+network listener. The allocator remains separate from generic scheduling/model/
+retry infrastructure; numeric formulas remain below this adapter.
+# Safe configuration reload, 2026-10-31
+
+SIGHUP validates enabled allocations against persisted schedule hashes before
+replacing the working engine. A rejected reload leaves the current engine running
+and writes a sanitized`reload-status.json`. Changing a persisted schedule requires
+a new job ID; editing a one-time job's timestamp is not a postponement mechanism.
+Preserve earlier attempts and verify quiescence before an intentional restart.
+An invalid config on cold startup still needs correction; reload retention is
+not a bypass of allocation validation or unknown-outcome fences.
+
+The datasource integration exposed a strict response-schema rejection for
+`uniqueItems`. The investment executor omits this unsupported transport constraint
+while still enforcing the complete original schema locally. The shared model
+adapter classifies `invalid_json_schema` / invalid response-format schema errors
+as permanent configuration rejection rather than retryable transport failure.
+The first failed scheduled receipt remains preserved; a repair requires new proof.

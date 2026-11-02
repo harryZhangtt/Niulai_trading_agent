@@ -1,0 +1,70 @@
+{
+  "id": "now_contribution_handoff",
+  "version": "1.0.1",
+  "split": "development",
+  "purpose": "Test actual structured agent contribution, host provenance/scope/arithmetic checks and independent source-grounded review; no promise of significant gain.",
+  "arms": {
+    "A": "Structured contribution instructions plus application-owned mechanical validation before candidate completion.",
+    "B": "Competent generic source-based research in the existing ordered phase runner; same closed output shape, source packet and configured model; structure-only completion, no new contribution validator. This is not the existing full-company finalizer."
+  },
+  "controls": "Same case, dated baseline, evidence excerpts, source access, requested model/effort, schema, per-case turn/deadline limits and independent reviewer. Retrieval is fixed before arms to isolate the handoff workflow. No native tools during model calls.",
+  "cases": [
+    "meter_refinement",
+    "meter_already_known",
+    "launch_scope",
+    "usage_entitlements",
+    "acv_target",
+    "margin_counterevidence",
+    "forecast_q2",
+    "historical_vintage"
+  ],
+  "budget_per_arm": {
+    "max_model_turns": 16,
+    "max_wall_seconds": 1920,
+    "max_provider_source_calls": 0
+  },
+  "per_case": {
+    "max_model_turns": 2,
+    "deadline_seconds": 240,
+    "configured_model_timeout_max": 120,
+    "narrative_word_instruction": 900
+  },
+  "primary_quality_metrics": [
+    "source_supported_fact_precision",
+    "unsupported_economic_inferences",
+    "false_novelty_claims",
+    "unproved_link_coverage",
+    "counterevidence_quality",
+    "unsupported_forecast_revisions"
+  ],
+  "review_dimensions_0_to_2": {
+    "fact_support": "0 material unsupported/false;1 partial or imprecise;2 exact source/type/period support",
+    "baseline_novelty": "0 repeats old hypothesis as discovery or misses a clear delta;1 partial distinction;2 correct new/refined/known/contrary classification",
+    "mechanism_calibration": "0 meter/launch/usage converted to achieved economics;1 qualified but incomplete chain;2 explicit conditional mechanism and limits",
+    "unproved_links": "0 material links hidden;1 some specific missing links;2 relevant billing, net price, paid adoption, bundling/displacement or cost links identified without padding",
+    "counterevidence": "0 one-sided or incorrect;1 generic or partial;2 relevant specific alternatives and adverse evidence with scope preserved",
+    "forecast_discipline": "0 unsupported numeric change, wrong target or actual/forecast conflation;1 incomplete support;2 explicit defensible revision or no-change, no reward merely for abstention; not applicable stays null"
+  },
+  "critical_failures": [
+    "invented evidence/source/version or quotation",
+    "future or unverified old-version evidence used as historical fact",
+    "asset meter or ACV target asserted as achieved recognized revenue",
+    "unqualified causal attribution of company beat/margin change to one product",
+    "unsupported material forecast promoted as an observed fact"
+  ],
+  "mechanical_fault_experiment": "Separately mutate an actually valid proposal: unknown evidence ID, wrong revision/lifecycle/source hash, entity/period/currency/unit/basis, invented quote, stale baseline, wrong forecast period/currency/unit, nonfinite forecast. Compare generic schema acceptance with the new typed boundary; this is boundary-coverage testing, not natural agent behavior or proof the older full-company workflow admits false evidence.",
+  "prediction_outcomes": "Only FY2025Q2 actual subscription revenue is verified; two controlled questions share it. FY2025Q3 outcome remains missing. Report signed/absolute errors by case and unique target; no regression, statistical significance, psychological-bias or general forecast improvement claim from one resolved target.",
+  "bias_interpretation": "Unsupported optimistic inference, repeated-driver novelty and unjustified numerical extrapolation are operational proxies. Genuine bias reduction requires prospective resolved forecasts across independent periods/companies; a fluent or conservative response is not automatically less biased.",
+  "review_method": "Anonymous labels randomized per case. Reviewer sees original excerpts, baseline and proposals but not arm/process labels or later outcomes. Evidence-first scores, paired order check. Same-family AI with no human calibration or OS-isolated blindness; disagreements retained.",
+  "decision": "Descriptive development result. A supported quality improvement requires fewer unsupported inferences or false-novelty claims with no added critical error and no factual-support regression. Guardrail fault rejection is reported separately. Ties/tradeoffs/inconclusive are allowed; no rerun until A wins.",
+  "stopping": "One planned live run per arm per version. Stop for a confirmed implementation defect; repair under a new sealed version and retain the failed/incomplete original. Never rerun merely for unfavorable quality. Existing envelope repairs remain bounded to two turns.",
+  "limitations": [
+    "NOW and its motivating sources are already development material",
+    "Controlled source-bound baselines are not historical fund forecasts",
+    "Current retrieved dated issuer documents do not establish original historical bytes",
+    "Modern model weights may contain later outcomes",
+    "Eight correlated questions are not eight independent investments",
+    "Active production jobs, source allowlists, authentication and MCP configuration remain unchanged"
+  ],
+  "implementation_revision": "Fix evidence-versus-claim identity: distinct claims may share an evidence ID. Reviews bind by fact_index. Original v1 was stopped for observed false blocks; its full roster, partial results and failed ledgers remain intact."
+}

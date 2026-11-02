@@ -31,6 +31,48 @@
       "commit": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03",
       "license": "MIT",
       "source_kind": "generated official skill directory; per-file upstream hashes recorded"
+    },
+    "hallmark": {
+      "url": "https://github.com/Nutlope/hallmark",
+      "commit": "4f6a46c6dc325d40ab268c93e25c7b96676ebccd",
+      "license": "MIT"
+    },
+    "taste-skill": {
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "commit": "12af471f627f866411b4bd785b19646d3672784c",
+      "license": "MIT"
+    },
+    "opendesign": {
+      "url": "https://github.com/manalkaff/opendesign",
+      "commit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+      "license": "MIT"
+    },
+    "gsap-skills": {
+      "url": "https://github.com/greensock/gsap-skills",
+      "commit": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "license": "MIT"
+    },
+    "pencilplaybook": {
+      "url": "https://github.com/stevembarclay/pencilplaybook",
+      "commit": "b7324295d73d67ea0a672cf16832880c111df0ed",
+      "license": "MIT"
+    },
+    "design-md-chrome": {
+      "url": "https://github.com/bergside/design-md-chrome",
+      "commit": "8e07614fb18752ab1ee14dd65a8ff93e63c9b13b",
+      "license": "MIT"
+    },
+    "landing-page-generator": {
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "commit": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0",
+      "license": "MIT",
+      "source_kind": "pinned upstream skill with documented workspace adaptation"
+    },
+    "cinematic-ui": {
+      "url": "https://github.com/akseolabs-seo/cinematic-ui",
+      "commit": "37651d0f59e83a5236e8773aa915cce93f2e7fc3",
+      "license": "MIT",
+      "source_kind": "pinned upstream skill with documented workspace adaptation"
     }
   },
   "files": [
@@ -1930,6 +1972,2772 @@
       "upstream_sha256": "6028f0b677912216822fdaf76ae6b8863c429916ed4a9626b73f4de4506f8ee4",
       "local_sha256": "6028f0b677912216822fdaf76ae6b8863c429916ed4a9626b73f4de4506f8ee4",
       "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/LICENSE",
+      "repository": "design-md-chrome",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "56e2dc0100744b958d87e5fc790f4e5ed2b5f483d6f2cbade4b6f7a0f5a03862",
+      "local_sha256": "56e2dc0100744b958d87e5fc790f4e5ed2b5f483d6f2cbade4b6f7a0f5a03862",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/content-script.js",
+      "repository": "design-md-chrome",
+      "upstream_path": "content-script.js",
+      "upstream_sha256": "09624d1b6577fb3d2fe1a41f7733ecf378e16c27677f9cc7b20633267af7b570",
+      "local_sha256": "09624d1b6577fb3d2fe1a41f7733ecf378e16c27677f9cc7b20633267af7b570",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/lib/generate-design-md.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "lib/generate-design-md.mjs",
+      "upstream_sha256": "618db7aa9ab4bb4fb226f6c8bcdc3c3cf64933d000caf125f59207cf806146c4",
+      "local_sha256": "618db7aa9ab4bb4fb226f6c8bcdc3c3cf64933d000caf125f59207cf806146c4",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/lib/generate-skill-md.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "lib/generate-skill-md.mjs",
+      "upstream_sha256": "3028c5bfec4dd65dcc9220ad49cade78b73652b926350e48a67abf3171134e19",
+      "local_sha256": "3028c5bfec4dd65dcc9220ad49cade78b73652b926350e48a67abf3171134e19",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/lib/normalize.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "lib/normalize.mjs",
+      "upstream_sha256": "692f059e8b15987f4419d495b48043e49633907772411691b5946f7f5f2802ec",
+      "local_sha256": "692f059e8b15987f4419d495b48043e49633907772411691b5946f7f5f2802ec",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/lib/validate.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "lib/validate.mjs",
+      "upstream_sha256": "60f12f31b713c940384f229226bbfecf4c5d20c69c3aa296e588f106a300017f",
+      "local_sha256": "60f12f31b713c940384f229226bbfecf4c5d20c69c3aa296e588f106a300017f",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/tests/run-tests.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "tests/run-tests.mjs",
+      "upstream_sha256": "dd45c18a79242a82dc107e4f7961801b53034dc2c2f1caf2a7846bcbef7dde4a",
+      "local_sha256": "dd45c18a79242a82dc107e4f7961801b53034dc2c2f1caf2a7846bcbef7dde4a",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-core/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-core/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-core/SKILL.md",
+      "upstream_sha256": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3",
+      "local_sha256": "eff24249c70892a22bc38209ee8d709823578784defcfa791c3f3dab1f626461",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-frameworks/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-frameworks/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-frameworks/SKILL.md",
+      "upstream_sha256": "842d9d3659ec3ddc8abbdc524708f8facf81f468ac25d0577f48c759c4fa31e6",
+      "local_sha256": "1f009610e3ce63fe968aafb5aa5d7b779d630e6ff1b888dbcc09178cf8eae6c2",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-performance/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-performance/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-performance/SKILL.md",
+      "upstream_sha256": "cb5408d6fba707aabcbfe3320317a14c1f8fca6070074e5261047930f50d441e",
+      "local_sha256": "9660eaf731e84a0e402db18abb64e31b091dd8bc6252654561021d530f1d8692",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-plugins/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-plugins/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-plugins/SKILL.md",
+      "upstream_sha256": "5838b856c74c07fbc9fa99b6dfd1eee34ea554c3e530c30e0d58014b707d70a4",
+      "local_sha256": "1a0cdf85045bffafa2619b878e465e92c6fe3145ec76b6ed188b6e3e6bad9908",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-react/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-react/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-react/SKILL.md",
+      "upstream_sha256": "88e2a5312b45e8cc7b3c496637ff5bc9af2ae9c925b555c8b235b34cbc989d74",
+      "local_sha256": "58e84be71e3fa5dd04dc796db4868a1acf0070b314e9b5b2899b9ee7fe1d3149",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-scrolltrigger/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-scrolltrigger/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-scrolltrigger/SKILL.md",
+      "upstream_sha256": "9351b6666a4749c0740406ea363aaccb99a087ff45cc5e8b99a0f367facf3ef4",
+      "local_sha256": "9f487827f65fee157009b0aba16e78860485db4b3fbf04c815b3e025c3451f75",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-timeline/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-timeline/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-timeline/SKILL.md",
+      "upstream_sha256": "1a8b0f39cc4be3ed3d834b89672e4ae2f151b901dc3450bebf10bbc45379fe02",
+      "local_sha256": "65c05e49eec88481b769e054f7bb2ce0dbbd298e1f4dde4d93277b690a8419a4",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-utils/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-utils/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-utils/SKILL.md",
+      "upstream_sha256": "1927bcc4ea95b38203404ad5ea1d060b15c4a886c65ae53e885ff1793aabe0ba",
+      "local_sha256": "f63116b9a7669b404cf2e1fd1b350a71f85f9d45c8cb204f3ae010160e17d6bd",
+      "modified": true
+    },
+    {
+      "path": "skills/pencilplaybook/LICENSE",
+      "repository": "pencilplaybook",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "bd6cd2f5696038398954a040c20912509f13a0751629fab3682b96b639db7187",
+      "local_sha256": "bd6cd2f5696038398954a040c20912509f13a0751629fab3682b96b639db7187",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/SKILL.md",
+      "repository": "pencilplaybook",
+      "upstream_path": "SKILL.md",
+      "upstream_sha256": "880345da12e31cedfa19660395733e2ae7e7a49b2e359adde67bbf3bd22cfd34",
+      "local_sha256": "b987a6753cf797829ac411e1233125aec058a7f021b2d2c02776f7d0fed3991e",
+      "modified": true
+    },
+    {
+      "path": "skills/pencilplaybook/onboarding.md",
+      "repository": "pencilplaybook",
+      "upstream_path": "onboarding.md",
+      "upstream_sha256": "434d73136918b96dcf4fed610332f7c896366c8fbc7ed9016ce797ccefc72437",
+      "local_sha256": "761bae976e053606ac2364012a4281bc564b19baa2dc3564a00a487ac1bb9087",
+      "modified": true
+    },
+    {
+      "path": "skills/pencilplaybook/presets/bloom.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/bloom.json",
+      "upstream_sha256": "0b7bc8161444e61b55edbfef113dec5890fa6aa2bb652aabf2c18dad78470303",
+      "local_sha256": "0b7bc8161444e61b55edbfef113dec5890fa6aa2bb652aabf2c18dad78470303",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/ember.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/ember.json",
+      "upstream_sha256": "a0ddcaa604d8ee2770921c59848868a77c2c43328737c71eb4618ead0b85b630",
+      "local_sha256": "a0ddcaa604d8ee2770921c59848868a77c2c43328737c71eb4618ead0b85b630",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/grove.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/grove.json",
+      "upstream_sha256": "120873af8ff3574741615309653da2c4f86d8873fc24e20e29817330b7d52bbc",
+      "local_sha256": "120873af8ff3574741615309653da2c4f86d8873fc24e20e29817330b7d52bbc",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/material.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/material.json",
+      "upstream_sha256": "52e6660862791ab4a20938e924a09fa62b16b934270ecd13c4c72f81452d6e2e",
+      "local_sha256": "52e6660862791ab4a20938e924a09fa62b16b934270ecd13c4c72f81452d6e2e",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/midnight.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/midnight.json",
+      "upstream_sha256": "8dc7e9e23359d636d76711d82bc3ff489e137129643d93db8104ef8d80827552",
+      "local_sha256": "8dc7e9e23359d636d76711d82bc3ff489e137129643d93db8104ef8d80827552",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/minimal.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/minimal.json",
+      "upstream_sha256": "b3211612051dfe02f0d32488966b0d4d944143da16deec8aaeff76fc478c12d7",
+      "local_sha256": "b3211612051dfe02f0d32488966b0d4d944143da16deec8aaeff76fc478c12d7",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/volt.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/volt.json",
+      "upstream_sha256": "648246a84da15fc5df26af77be9dcc58a5e51355d21a3f8a7bca0a99747f2b2b",
+      "local_sha256": "648246a84da15fc5df26af77be9dcc58a5e51355d21a3f8a7bca0a99747f2b2b",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/references/tool-reference.md",
+      "repository": "pencilplaybook",
+      "upstream_path": "references/tool-reference.md",
+      "upstream_sha256": "50070a7e790a4d5d0af3885d6a859ccaef64d825290c4cbed1af0f2ab6bd079c",
+      "local_sha256": "50070a7e790a4d5d0af3885d6a859ccaef64d825290c4cbed1af0f2ab6bd079c",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/setup.md",
+      "repository": "pencilplaybook",
+      "upstream_path": "setup.md",
+      "upstream_sha256": "d3bb95e7ab633b2930c3566c7790b5867150f43031ab93d80c54668645a1b4c9",
+      "local_sha256": "3b73a84b3b2ec6e7992a4a7ccf4836a7649f36c599ec57006435fe762b2392d1",
+      "modified": true
+    },
+    {
+      "path": "upstream/licenses/design-md-chrome.LICENSE",
+      "repository": "design-md-chrome",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "56e2dc0100744b958d87e5fc790f4e5ed2b5f483d6f2cbade4b6f7a0f5a03862",
+      "local_sha256": "56e2dc0100744b958d87e5fc790f4e5ed2b5f483d6f2cbade4b6f7a0f5a03862",
+      "modified": false
+    },
+    {
+      "path": "upstream/licenses/gsap-skills.LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/LICENSE",
+      "repository": "landing-page-generator",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
+      "local_sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/SKILL.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/SKILL.md",
+      "upstream_sha256": "91933e82084d9b665130a2220a616babd8a26d0d52ce37806f98f53d654fe314",
+      "local_sha256": "edc46256e5d568c866f5c74f4234b5adc53ddc7d45a15d2efc23bc57e311f06c",
+      "modified": true
+    },
+    {
+      "path": "skills/landing-page-generator/references/conversion-patterns.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/references/conversion-patterns.md",
+      "upstream_sha256": "6dd90cb5c8ce62cae2ccb6dd983b96ae549ec3c137059bb5c5f93433bde9e1e5",
+      "local_sha256": "6dd90cb5c8ce62cae2ccb6dd983b96ae549ec3c137059bb5c5f93433bde9e1e5",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/references/copy-frameworks.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/references/copy-frameworks.md",
+      "upstream_sha256": "ed238c8627a7e379bdf1ce44ef68c7278dfac5bf75e2e57dd2925fb260ae0812",
+      "local_sha256": "ed238c8627a7e379bdf1ce44ef68c7278dfac5bf75e2e57dd2925fb260ae0812",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/references/landing-page-patterns.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/references/landing-page-patterns.md",
+      "upstream_sha256": "51b1b82fd53922960bb7c5b49f9963357f0dd389ac0cc954bafe19e2293502af",
+      "local_sha256": "51b1b82fd53922960bb7c5b49f9963357f0dd389ac0cc954bafe19e2293502af",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/references/seo-checklist.md",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/references/seo-checklist.md",
+      "upstream_sha256": "6172f2059c0bebb7789112e7a6da149f5869fcd3140fc48c64aed98f8436e5e7",
+      "local_sha256": "6172f2059c0bebb7789112e7a6da149f5869fcd3140fc48c64aed98f8436e5e7",
+      "modified": false
+    },
+    {
+      "path": "skills/landing-page-generator/scripts/landing_page_scaffolder.py",
+      "repository": "landing-page-generator",
+      "upstream_path": "product-team/skills/landing-page-generator/scripts/landing_page_scaffolder.py",
+      "upstream_sha256": "cfa4f2f633976a5ad316aa7ab93cd38288e3788157c4e32e5ed2a77160f68755",
+      "local_sha256": "15c9a4b8c490670b0f8d91150d68d207f177eda2b06533be4d7a33a7a7f1efe7",
+      "modified": true
+    },
+    {
+      "path": "skills/cinematic-ui/.gitignore",
+      "repository": "cinematic-ui",
+      "upstream_path": ".gitignore",
+      "upstream_sha256": "32b2a8a2b0015fb94a7ead914d1f8d96f5b52bb015dc01c52fe03a6918b34f2e",
+      "local_sha256": "32b2a8a2b0015fb94a7ead914d1f8d96f5b52bb015dc01c52fe03a6918b34f2e",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/CHANGELOG.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "CHANGELOG.md",
+      "upstream_sha256": "d97986e02e8779ed5397fad876b1dc89a03bc3c6e8e10ef77d1405e5df24f0f2",
+      "local_sha256": "d97986e02e8779ed5397fad876b1dc89a03bc3c6e8e10ef77d1405e5df24f0f2",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/LICENSE",
+      "repository": "cinematic-ui",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "local_sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/README.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "README.md",
+      "upstream_sha256": "acb917ea83b0cbb480ee98aa58510b3305092540e58dd4d5f26272f4d85a2427",
+      "local_sha256": "acb917ea83b0cbb480ee98aa58510b3305092540e58dd4d5f26272f4d85a2427",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/README.zh-TW.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "README.zh-TW.md",
+      "upstream_sha256": "083d4103f2cb5591e3416694eb37a0e0a3979ad040aa7bf842f80147b6ef489c",
+      "local_sha256": "083d4103f2cb5591e3416694eb37a0e0a3979ad040aa7bf842f80147b6ef489c",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/SKILL.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "SKILL.md",
+      "upstream_sha256": "80eeee9680a38de7e5c8f30dba3768bab6ae0e42e7d692f2004eb2f020fa80a0",
+      "local_sha256": "c7f922035f556a611ab94252eb48dfee0b2e8778f857bdc177644600ea437f01",
+      "modified": true
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/beichen-er.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/beichen-er.jpg",
+      "upstream_sha256": "c953ef27e5069624b41095bec48dcfbba1878c436e916e00f5be39029851f43d",
+      "local_sha256": "c953ef27e5069624b41095bec48dcfbba1878c436e916e00f5be39029851f43d",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/latent-film-lab.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/latent-film-lab.jpg",
+      "upstream_sha256": "bb1de32869017c82a27efc15e3c951a9e8e93cb4bb3ed891aa35dda88c6103f4",
+      "local_sha256": "bb1de32869017c82a27efc15e3c951a9e8e93cb4bb3ed891aa35dda88c6103f4",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/lattice-kiki.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/lattice-kiki.jpg",
+      "upstream_sha256": "71303404c1103a5eabad3096580653c0f1363508ee5fa1fcb678a0dff8aad213",
+      "local_sha256": "71303404c1103a5eabad3096580653c0f1363508ee5fa1fcb678a0dff8aad213",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/lattice-matrix.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/lattice-matrix.jpg",
+      "upstream_sha256": "26884bde9ba9a72eda00583038a7ec6e69e948a614058f1714db5bbf267e329b",
+      "local_sha256": "26884bde9ba9a72eda00583038a7ec6e69e948a614058f1714db5bbf267e329b",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/lockwork.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/lockwork.jpg",
+      "upstream_sha256": "0b539b504cb0ae5a374269e852e69afc6448991cceca95395a5f223ddd6bd4ed",
+      "local_sha256": "0b539b504cb0ae5a374269e852e69afc6448991cceca95395a5f223ddd6bd4ed",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/lull.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/lull.jpg",
+      "upstream_sha256": "99b68d1647c4eef3a8282f9cceb6946bb03d2a023fd9b3a99e7c9d3c3ace7c40",
+      "local_sha256": "99b68d1647c4eef3a8282f9cceb6946bb03d2a023fd9b3a99e7c9d3c3ace7c40",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/odd-lot.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/odd-lot.jpg",
+      "upstream_sha256": "ae0022d44c305f5b921cd7f0407358c13379a4cb11103df70f82f0d97ed93c21",
+      "local_sha256": "ae0022d44c305f5b921cd7f0407358c13379a4cb11103df70f82f0d97ed93c21",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/purser.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/purser.jpg",
+      "upstream_sha256": "ee8122a3528a98cdcf1131ab5f020dae39918453aa5c7ae30596928cded8d998",
+      "local_sha256": "ee8122a3528a98cdcf1131ab5f020dae39918453aa5c7ae30596928cded8d998",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/retour.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/retour.jpg",
+      "upstream_sha256": "ea2d181440bd608a11eb84073239dc385aa03b0495969d8b319bf87704487b32",
+      "local_sha256": "ea2d181440bd608a11eb84073239dc385aa03b0495969d8b319bf87704487b32",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/demos/tieout.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/demos/tieout.jpg",
+      "upstream_sha256": "c6b2d2c5d8f58c6ff6151d8f3d597508a86b828a63d742ab645687f8b1059bcf",
+      "local_sha256": "c6b2d2c5d8f58c6ff6151d8f3d597508a86b828a63d742ab645687f8b1059bcf",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/launch-film-en.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/launch-film-en.jpg",
+      "upstream_sha256": "92b668985dccf23c1a154576c78d3e1e38e99ac3335990282963077d79cecf09",
+      "local_sha256": "92b668985dccf23c1a154576c78d3e1e38e99ac3335990282963077d79cecf09",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/launch-film.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/launch-film.jpg",
+      "upstream_sha256": "759f6805d5c6c29f8babd6103c4194511fcf1fc5f481d96c7542e3b1d58038de",
+      "local_sha256": "759f6805d5c6c29f8babd6103c4194511fcf1fc5f481d96c7542e3b1d58038de",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/docs/looks.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "docs/looks.jpg",
+      "upstream_sha256": "676f0a36be39474cf1f49aae077e76b14d086c24aefcf60d429ba75b93c5ca9b",
+      "local_sha256": "676f0a36be39474cf1f49aae077e76b14d086c24aefcf60d429ba75b93c5ca9b",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/README.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/README.md",
+      "upstream_sha256": "09e2e42c406bf55a8cd1f8498125fb7f7f70dea063364543db7b99096e9b67af",
+      "local_sha256": "09e2e42c406bf55a8cd1f8498125fb7f7f70dea063364543db7b99096e9b67af",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/app-shell.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/app-shell.html",
+      "upstream_sha256": "a5cef3236f5e8194e9f59eeff4f5a1be3b53b947a1d15edf491f37fb1a8dbe8c",
+      "local_sha256": "a5cef3236f5e8194e9f59eeff4f5a1be3b53b947a1d15edf491f37fb1a8dbe8c",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/app.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/app.js",
+      "upstream_sha256": "9e8a69899683e0f7ce06c169a132caf8c5ba18120b373abc240d08dc255f3585",
+      "local_sha256": "9e8a69899683e0f7ce06c169a132caf8c5ba18120b373abc240d08dc255f3585",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/fixtures.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/fixtures.js",
+      "upstream_sha256": "45b95e2d6523e685d4bef10e40f2ad193957f29cd22d0cc1fdf8459304e0bbb3",
+      "local_sha256": "45b95e2d6523e685d4bef10e40f2ad193957f29cd22d0cc1fdf8459304e0bbb3",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade-assets/CREDITS.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade-assets/CREDITS.md",
+      "upstream_sha256": "11609799a2d87ba07af2d6650f59546160045348d8d8b859e8f36ef98501cec7",
+      "local_sha256": "11609799a2d87ba07af2d6650f59546160045348d8d8b859e8f36ef98501cec7",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade-assets/fog.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade-assets/fog.jpg",
+      "upstream_sha256": "53b402e1102743476d641643af19001c63771487626f6f5689b18e9dc59cf4e9",
+      "local_sha256": "53b402e1102743476d641643af19001c63771487626f6f5689b18e9dc59cf4e9",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade-assets/fog.mp4",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade-assets/fog.mp4",
+      "upstream_sha256": "31f4c9c8b9e082e9137acee3998e1d730a58c08e553728ffc038d1f0ce226ee9",
+      "local_sha256": "31f4c9c8b9e082e9137acee3998e1d730a58c08e553728ffc038d1f0ce226ee9",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade-assets/photo.jpg",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade-assets/photo.jpg",
+      "upstream_sha256": "f31ff94c34e2459131a99280a37028e3cda778e22b39619da193a6460494ed5f",
+      "local_sha256": "f31ff94c34e2459131a99280a37028e3cda778e22b39619da193a6460494ed5f",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade.html",
+      "upstream_sha256": "4de48be53d8c32df6a1c523817a7f012c3013ac800851538f20b248544bc5ceb",
+      "local_sha256": "4de48be53d8c32df6a1c523817a7f012c3013ac800851538f20b248544bc5ceb",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/grade.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/grade.js",
+      "upstream_sha256": "682a792e87466dd041200ad388cb8423ddd8c19abb118ed37c1c23a7bb2ebae5",
+      "local_sha256": "682a792e87466dd041200ad388cb8423ddd8c19abb118ed37c1c23a7bb2ebae5",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/looks.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/looks.js",
+      "upstream_sha256": "f7b217349242fe2b987440941f286b7629c174d98c85a2776028a4309050c95c",
+      "local_sha256": "f7b217349242fe2b987440941f286b7629c174d98c85a2776028a4309050c95c",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/plane.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/plane.js",
+      "upstream_sha256": "facd98d29e8272e29dba1b98c525b170e98a9a5ee494f2d7e8190ebe671da32a",
+      "local_sha256": "facd98d29e8272e29dba1b98c525b170e98a9a5ee494f2d7e8190ebe671da32a",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/props.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/props.js",
+      "upstream_sha256": "2e22b973f050d16912c5ef1ed2ba02a11e72eaaf52d246561df2578911d74fb0",
+      "local_sha256": "2e22b973f050d16912c5ef1ed2ba02a11e72eaaf52d246561df2578911d74fb0",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/reel.css",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/reel.css",
+      "upstream_sha256": "e28ab7119b9f7c3226c2ceace799f8417f0f1df9e0f7b3ec31af335eee2b7751",
+      "local_sha256": "e28ab7119b9f7c3226c2ceace799f8417f0f1df9e0f7b3ec31af335eee2b7751",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/reel.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/reel.js",
+      "upstream_sha256": "3ff9ca8ac50b4c8c45e18c2d8315ac1066810b612c65f27dd682ac28a037e240",
+      "local_sha256": "3ff9ca8ac50b4c8c45e18c2d8315ac1066810b612c65f27dd682ac28a037e240",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/site-dom.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/site-dom.html",
+      "upstream_sha256": "e2c28ccd97de9d3ac8a795c8beca7e4d659f38dcdb7c9c55392e93cbaccf89f1",
+      "local_sha256": "e2c28ccd97de9d3ac8a795c8beca7e4d659f38dcdb7c9c55392e93cbaccf89f1",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/site.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/site.html",
+      "upstream_sha256": "16661a329cfd0b0b23a19075fa8981240c7756468f88e6fbf5b2dabc32a7ef79",
+      "local_sha256": "16661a329cfd0b0b23a19075fa8981240c7756468f88e6fbf5b2dabc32a7ef79",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/stage.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/stage.js",
+      "upstream_sha256": "3493830b6ad336e9740c8b0cd1da9d605c5c57cda743c6ab288721702a490284",
+      "local_sha256": "3493830b6ad336e9740c8b0cd1da9d605c5c57cda743c6ab288721702a490284",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/type-fx.html",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/type-fx.html",
+      "upstream_sha256": "01fb50bf5098694a67f6ea7526a80c41204945dab5ffc15d61a66818e0d389d0",
+      "local_sha256": "01fb50bf5098694a67f6ea7526a80c41204945dab5ffc15d61a66818e0d389d0",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/kit/type-fx.js",
+      "repository": "cinematic-ui",
+      "upstream_path": "kit/type-fx.js",
+      "upstream_sha256": "dc7ad41be0bc9e33b74cb29351e061a338c5943558b05c206f63fd6dfb2f1d56",
+      "local_sha256": "dc7ad41be0bc9e33b74cb29351e061a338c5943558b05c206f63fd6dfb2f1d56",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/app-mode.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/app-mode.md",
+      "upstream_sha256": "909d16ebea5c912f52c47b4f2d3b636bd3c17e1280e7ff687cb38d57557179e7",
+      "local_sha256": "909d16ebea5c912f52c47b4f2d3b636bd3c17e1280e7ff687cb38d57557179e7",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/art-direction.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/art-direction.md",
+      "upstream_sha256": "a2b028163b76567ccdd3e27a198deba743112ffb224beea7760416e1bbad7463",
+      "local_sha256": "a2b028163b76567ccdd3e27a198deba743112ffb224beea7760416e1bbad7463",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/award-reel.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/award-reel.md",
+      "upstream_sha256": "35d737ef3178464e7a6a4aa652a5adc96c84efa5162b4f8155f787acc316725f",
+      "local_sha256": "35d737ef3178464e7a6a4aa652a5adc96c84efa5162b4f8155f787acc316725f",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/directors.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/directors.md",
+      "upstream_sha256": "87e9cf56614a25108d9b9c250933a1bf72844f62b4b1ceef9ee583d503af7878",
+      "local_sha256": "d137c53a9ddd797f6f83f494bc11ebe926f268c14729f626a3b873e88928c73f",
+      "modified": true
+    },
+    {
+      "path": "skills/cinematic-ui/references/editing-and-motion.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/editing-and-motion.md",
+      "upstream_sha256": "ab4f9b38784ce7b7c9f3e34b2ca849b9e7a294d33447ede199d9f1024a936ec1",
+      "local_sha256": "ab4f9b38784ce7b7c9f3e34b2ca849b9e7a294d33447ede199d9f1024a936ec1",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/film-grammar.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/film-grammar.md",
+      "upstream_sha256": "a29315a52dbb8779872184e8d8fda966fe7740f2855f8d1cbc95cc3a1ec01b27",
+      "local_sha256": "a29315a52dbb8779872184e8d8fda966fe7740f2855f8d1cbc95cc3a1ec01b27",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/film-research.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/film-research.md",
+      "upstream_sha256": "d54b16f9e03397a2bcc0a8ace9e8c602174c959151c5204d48e1c3b45e2df13a",
+      "local_sha256": "d54b16f9e03397a2bcc0a8ace9e8c602174c959151c5204d48e1c3b45e2df13a",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/grades.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/grades.md",
+      "upstream_sha256": "1e7748df061fa7a0be6df29092bc51d103c111b3cb0cd6c5192217c725340ddc",
+      "local_sha256": "1e7748df061fa7a0be6df29092bc51d103c111b3cb0cd6c5192217c725340ddc",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/looks.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/looks.md",
+      "upstream_sha256": "9ae4fce0ab250b135e4ec28e47849a8ab4ad358c397ec6aebe18694cc09c5e09",
+      "local_sha256": "9ae4fce0ab250b135e4ec28e47849a8ab4ad358c397ec6aebe18694cc09c5e09",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/production-design.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/production-design.md",
+      "upstream_sha256": "e69369ab2d35a44f1ede5ad2cd831a42ce5b0938a215aadae92f4948e328c822",
+      "local_sha256": "e69369ab2d35a44f1ede5ad2cd831a42ce5b0938a215aadae92f4948e328c822",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/screening.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/screening.md",
+      "upstream_sha256": "064a6c863939b53a23994923fd52272c60092f14cd30b3bc412609148689880b",
+      "local_sha256": "064a6c863939b53a23994923fd52272c60092f14cd30b3bc412609148689880b",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/storyboard.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/storyboard.md",
+      "upstream_sha256": "e6b94e969b65cb84df30cea433a94c3d42967f22326ac52c469672fe5bf82da9",
+      "local_sha256": "e6b94e969b65cb84df30cea433a94c3d42967f22326ac52c469672fe5bf82da9",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/type-motion.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/type-motion.md",
+      "upstream_sha256": "c506f48207201e1fdceeae9d46ad226fac7d6d550186e1aa1d70ddd90d84c577",
+      "local_sha256": "c506f48207201e1fdceeae9d46ad226fac7d6d550186e1aa1d70ddd90d84c577",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/references/vfx-threejs.md",
+      "repository": "cinematic-ui",
+      "upstream_path": "references/vfx-threejs.md",
+      "upstream_sha256": "5975547ef5ddee0dd70f446fc9a214e15146e0ec2e372bc4b744b6cd23ebe66f",
+      "local_sha256": "5975547ef5ddee0dd70f446fc9a214e15146e0ec2e372bc4b744b6cd23ebe66f",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/app-screening.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/app-screening.mjs",
+      "upstream_sha256": "3e02e632fa6dccd090397aea88483b0ee389c36f4b37cefcea979fbc33cff2db",
+      "local_sha256": "3e02e632fa6dccd090397aea88483b0ee389c36f4b37cefcea979fbc33cff2db",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/copy-check.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/copy-check.mjs",
+      "upstream_sha256": "984a441de6bdf045dbffeb023e40349e7e231a36487a038fc31c43510671a615",
+      "local_sha256": "984a441de6bdf045dbffeb023e40349e7e231a36487a038fc31c43510671a615",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/find-footage.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/find-footage.mjs",
+      "upstream_sha256": "1b46e229400dc5ce4256232d766d370e6c3baa996f57b514b292411cf7b3d2ad",
+      "local_sha256": "1b46e229400dc5ce4256232d766d370e6c3baa996f57b514b292411cf7b3d2ad",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/generate-image.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/generate-image.mjs",
+      "upstream_sha256": "e46dca948f4fa4866f8f49ce418954f589763b55c630f0bc4e7b340cfedd9481",
+      "local_sha256": "e46dca948f4fa4866f8f49ce418954f589763b55c630f0bc4e7b340cfedd9481",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/grade-from-stills.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/grade-from-stills.mjs",
+      "upstream_sha256": "d29bc158542825334efa29141aeb1b3bbfb1e01f87bfce134f764c2fb749195b",
+      "local_sha256": "d29bc158542825334efa29141aeb1b3bbfb1e01f87bfce134f764c2fb749195b",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/lib.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/lib.mjs",
+      "upstream_sha256": "950db25224df4e0d163dcca368e9bf95b7568ba7a71fb3fede8f37ac3ad35b04",
+      "local_sha256": "bea6878db9084107ac5e2cf601d7d4f3b90c2b0c699bf50a4e63816215e5723b",
+      "modified": true
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/render-film.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/render-film.mjs",
+      "upstream_sha256": "850032ffce5bb8882b389e65258f365973e56500a3a4ecb94f1dcbfb3808131d",
+      "local_sha256": "850032ffce5bb8882b389e65258f365973e56500a3a4ecb94f1dcbfb3808131d",
+      "modified": false
+    },
+    {
+      "path": "skills/cinematic-ui/scripts/screening.mjs",
+      "repository": "cinematic-ui",
+      "upstream_path": "scripts/screening.mjs",
+      "upstream_sha256": "20d1730f6620dc4ece23f36da4b5554693eb35e6979c61a4345456db78a03999",
+      "local_sha256": "20d1730f6620dc4ece23f36da4b5554693eb35e6979c61a4345456db78a03999",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/LICENSE",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/LICENSE",
+      "upstream_sha256": "06088a8b94598626f27612dea42300154bf7be967c85d9d3eee4490cb056af7d",
+      "local_sha256": "06088a8b94598626f27612dea42300154bf7be967c85d9d3eee4490cb056af7d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/SKILL.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/SKILL.md",
+      "upstream_sha256": "25a1ff92d925b2389e8409f42fb8ad7e033fceca8b5d1f07ed4ca4c28da53dc3",
+      "local_sha256": "e6c87fa1185f3ffe488a3b7bafb48512ef267d6db03e10d7f34a886862f1d875",
+      "modified": true
+    },
+    {
+      "path": "skills/hallmark/UPSTREAM-SKILL.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/SKILL.md",
+      "upstream_sha256": "25a1ff92d925b2389e8409f42fb8ad7e033fceca8b5d1f07ed4ca4c28da53dc3",
+      "local_sha256": "25a1ff92d925b2389e8409f42fb8ad7e033fceca8b5d1f07ed4ca4c28da53dc3",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/agents/openai.yaml",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/agents/openai.yaml",
+      "upstream_sha256": "0bc6fa7d573c926e8d3fe04a5afc8191096e5aa7287598a59b6c7e6321b53298",
+      "local_sha256": "0bc6fa7d573c926e8d3fe04a5afc8191096e5aa7287598a59b6c7e6321b53298",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/anatomy.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/anatomy.md",
+      "upstream_sha256": "70f570279d42ac0bef4af809c80b522e550c6dacaaa0a93349a0fff0d5b93500",
+      "local_sha256": "70f570279d42ac0bef4af809c80b522e550c6dacaaa0a93349a0fff0d5b93500",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/brand-truth.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/brand-truth.md",
+      "upstream_sha256": "01c17c45d3b213f80ef28c93548d1b99aa2afad75ed8b236811ba56169c3f068",
+      "local_sha256": "01c17c45d3b213f80ef28c93548d1b99aa2afad75ed8b236811ba56169c3f068",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/comp.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/comp.md",
+      "upstream_sha256": "597f16de607e136f93ea5829c9d82663223a1c1c0423d581b55fa0b51c08f37f",
+      "local_sha256": "597f16de607e136f93ea5829c9d82663223a1c1c0423d581b55fa0b51c08f37f",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/craft.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/craft.md",
+      "upstream_sha256": "1b7b40f81f0fe1c04dce133696182ca1229d16162f8f3203603f24a0f585c41c",
+      "local_sha256": "1b7b40f81f0fe1c04dce133696182ca1229d16162f8f3203603f24a0f585c41c",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/dark-mode.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/dark-mode.md",
+      "upstream_sha256": "99e86439eed1caa9e898a31baa05e65c856c53918faf6fdcb5d71a8e0f1ef131",
+      "local_sha256": "99e86439eed1caa9e898a31baa05e65c856c53918faf6fdcb5d71a8e0f1ef131",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/data-viz.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/data-viz.md",
+      "upstream_sha256": "1a26f9e8e16ca065d7412d2db57200698459cdbda498e08e8eaf0ea7a82097dc",
+      "local_sha256": "1a26f9e8e16ca065d7412d2db57200698459cdbda498e08e8eaf0ea7a82097dc",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/design-md.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/design-md.md",
+      "upstream_sha256": "839d4cd8d5b07007854e9c6de95491691725f2968a0922f9b8fcfdbe42e2784c",
+      "local_sha256": "839d4cd8d5b07007854e9c6de95491691725f2968a0922f9b8fcfdbe42e2784c",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/direction.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/direction.md",
+      "upstream_sha256": "19e00099e95be52df2ae893881e29a23cd7a5ee5dc8434a87588376818851642",
+      "local_sha256": "19e00099e95be52df2ae893881e29a23cd7a5ee5dc8434a87588376818851642",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/export-formats.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/export-formats.md",
+      "upstream_sha256": "3078bcb08e6324904ee156b6871dc0f47aa170e5d4baf09d43a5c48c46ca7c6b",
+      "local_sha256": "3078bcb08e6324904ee156b6871dc0f47aa170e5d4baf09d43a5c48c46ca7c6b",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/flow.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/flow.md",
+      "upstream_sha256": "45565a78e3c7fdc33791c5074c8640199e2f711e62131cd4ef1cb337010b6e85",
+      "local_sha256": "45565a78e3c7fdc33791c5074c8640199e2f711e62131cd4ef1cb337010b6e85",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/fonts.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/fonts.md",
+      "upstream_sha256": "87d50b1b32b9c901d9df5376870cf6d8e39334f468fe9a582a2720d9da5586ec",
+      "local_sha256": "87d50b1b32b9c901d9df5376870cf6d8e39334f468fe9a582a2720d9da5586ec",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/gates.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/gates.md",
+      "upstream_sha256": "63ad234a1acab5e081dfe8ecf2331518a43cbf42760dc5c6ababfb24d7b3e50c",
+      "local_sha256": "63ad234a1acab5e081dfe8ecf2331518a43cbf42760dc5c6ababfb24d7b3e50c",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/genres/atmospheric.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/genres/atmospheric.md",
+      "upstream_sha256": "39c2ba5b282fcc934742aeb410d1bb4d6c65f1da1514b0f18a9600aa8f13f289",
+      "local_sha256": "39c2ba5b282fcc934742aeb410d1bb4d6c65f1da1514b0f18a9600aa8f13f289",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/genres/editorial.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/genres/editorial.md",
+      "upstream_sha256": "1d47311bfd4d3e4c02f88f25e4852d920d168eb838370fee77b917bcc6e3592c",
+      "local_sha256": "1d47311bfd4d3e4c02f88f25e4852d920d168eb838370fee77b917bcc6e3592c",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/genres/modern-minimal.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/genres/modern-minimal.md",
+      "upstream_sha256": "5f84b3c056be101707c6f2d7ac929e879f5ab7b009ac8426156c11054193cd9b",
+      "local_sha256": "5f84b3c056be101707c6f2d7ac929e879f5ab7b009ac8426156c11054193cd9b",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/genres/playful.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/genres/playful.md",
+      "upstream_sha256": "974e13a9ada8b49e2cfcc05efb8235be60103acef02e390d8f819cd8e2abd3a9",
+      "local_sha256": "974e13a9ada8b49e2cfcc05efb8235be60103acef02e390d8f819cd8e2abd3a9",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/imagery.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/imagery.md",
+      "upstream_sha256": "b5a4abaa3fd949ac2e2890c9aa37b2953587ed419fdd1b4ff343a4fc04838e7e",
+      "local_sha256": "b5a4abaa3fd949ac2e2890c9aa37b2953587ed419fdd1b4ff343a4fc04838e7e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/interaction-and-states.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/interaction-and-states.md",
+      "upstream_sha256": "08e232008734fce86b1ec6085db72342e90d2f855351eb84f20ea3799fe0808a",
+      "local_sha256": "08e232008734fce86b1ec6085db72342e90d2f855351eb84f20ea3799fe0808a",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/layout.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/layout.md",
+      "upstream_sha256": "fa904b5b46f19ca08ee325c99deb1cf30c67acb00106e7b74945c30e428c7eab",
+      "local_sha256": "fa904b5b46f19ca08ee325c99deb1cf30c67acb00106e7b74945c30e428c7eab",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/01-bento-grid.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/01-bento-grid.md",
+      "upstream_sha256": "1efd7da3e1857d22da50307af0effa92200198b59c26f0e429b8ffcaa9cd96ae",
+      "local_sha256": "1efd7da3e1857d22da50307af0effa92200198b59c26f0e429b8ffcaa9cd96ae",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/02-long-document.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/02-long-document.md",
+      "upstream_sha256": "4d7524c16b764daef6fd8bc5e6757dcc4d886addf33f324b32f024c64bcbc573",
+      "local_sha256": "4d7524c16b764daef6fd8bc5e6757dcc4d886addf33f324b32f024c64bcbc573",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/03-marquee-hero.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/03-marquee-hero.md",
+      "upstream_sha256": "cb379a2eb56d8503265ab541ef9711e59bb2d51dadedfe3e47ccb697b3948e79",
+      "local_sha256": "cb379a2eb56d8503265ab541ef9711e59bb2d51dadedfe3e47ccb697b3948e79",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/04-stat-led.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/04-stat-led.md",
+      "upstream_sha256": "2a065807340244d188de455fdb21c7ff8906bb95240873d0993f734c85c8f4a1",
+      "local_sha256": "2a065807340244d188de455fdb21c7ff8906bb95240873d0993f734c85c8f4a1",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/05-workbench.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/05-workbench.md",
+      "upstream_sha256": "6bc0ccd0604afef8c749706189cf91b35078bcc52738eb29603840db0db151c6",
+      "local_sha256": "6bc0ccd0604afef8c749706189cf91b35078bcc52738eb29603840db0db151c6",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/06-conversational-faq.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/06-conversational-faq.md",
+      "upstream_sha256": "000a182731d543eaa9e2fda2be50fd4032ff25ed83a6befbbb0cd03567dbe15b",
+      "local_sha256": "000a182731d543eaa9e2fda2be50fd4032ff25ed83a6befbbb0cd03567dbe15b",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/07-manifesto.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/07-manifesto.md",
+      "upstream_sha256": "3ac47d67fa8e0ee8db2fba2fd329c5ffcbf981a0b760e482748935f6e3411c46",
+      "local_sha256": "3ac47d67fa8e0ee8db2fba2fd329c5ffcbf981a0b760e482748935f6e3411c46",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/08-photographic.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/08-photographic.md",
+      "upstream_sha256": "d07d2508845277b68cb8cacc8f82d8fac84b69063277ec277d19a7f59fe43992",
+      "local_sha256": "d07d2508845277b68cb8cacc8f82d8fac84b69063277ec277d19a7f59fe43992",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/09-quote-led.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/09-quote-led.md",
+      "upstream_sha256": "1609ddc34d842c730e4d18bacc010b1b43cfa59892043c523b51bdffead0fb56",
+      "local_sha256": "1609ddc34d842c730e4d18bacc010b1b43cfa59892043c523b51bdffead0fb56",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/10-specimen.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/10-specimen.md",
+      "upstream_sha256": "18313a17c6512afda417c8c19f4e0bea1549ecd5fc43e87ba89fb4e526b56eea",
+      "local_sha256": "18313a17c6512afda417c8c19f4e0bea1549ecd5fc43e87ba89fb4e526b56eea",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/11-catalogue.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/11-catalogue.md",
+      "upstream_sha256": "20708e7e61ed610506971f48d36eec88512423b77855f78cc8c65b75ba90e0ae",
+      "local_sha256": "20708e7e61ed610506971f48d36eec88512423b77855f78cc8c65b75ba90e0ae",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/12-letter.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/12-letter.md",
+      "upstream_sha256": "0d6779b5da3e3a44b573b3665daefe489fbd4857c1124ca4b8ff0fe6fc17a34f",
+      "local_sha256": "0d6779b5da3e3a44b573b3665daefe489fbd4857c1124ca4b8ff0fe6fc17a34f",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/13-index-first.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/13-index-first.md",
+      "upstream_sha256": "ba7b085f91a8c2eb0baf376b88e4307b38250a2d4dd707fb22f2e5faeb32a7e2",
+      "local_sha256": "ba7b085f91a8c2eb0baf376b88e4307b38250a2d4dd707fb22f2e5faeb32a7e2",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/14-narrative-workflow.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/14-narrative-workflow.md",
+      "upstream_sha256": "4e120a5cb04a54aa172a5d2b5e727c27603ccddf37a2f8c9a15756993a9337fc",
+      "local_sha256": "4e120a5cb04a54aa172a5d2b5e727c27603ccddf37a2f8c9a15756993a9337fc",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/15-split-studio.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/15-split-studio.md",
+      "upstream_sha256": "49c758082ce6d4a6e541bb8706412fe4eb92ffd9dd772208b6a21142aa4bf3c6",
+      "local_sha256": "49c758082ce6d4a6e541bb8706412fe4eb92ffd9dd772208b6a21142aa4bf3c6",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/16-feature-stack.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/16-feature-stack.md",
+      "upstream_sha256": "df26d2d4094b3059c0a35db94389524b0ba76f8fe64e89d4e6ba3def7eed1ece",
+      "local_sha256": "df26d2d4094b3059c0a35db94389524b0ba76f8fe64e89d4e6ba3def7eed1ece",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/17-type-specimen.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/17-type-specimen.md",
+      "upstream_sha256": "4ff06c001a10f973b9c70b1a0fa21ea1ce54ac0e3727cf8b5ec2e0a1b6bf568d",
+      "local_sha256": "4ff06c001a10f973b9c70b1a0fa21ea1ce54ac0e3727cf8b5ec2e0a1b6bf568d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/18-portfolio-grid.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/18-portfolio-grid.md",
+      "upstream_sha256": "d035dee299e329efeea7dd3b4b897b11f0547f03ac4c2f0c62a3fd422d30f618",
+      "local_sha256": "d035dee299e329efeea7dd3b4b897b11f0547f03ac4c2f0c62a3fd422d30f618",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/19-map-diagram.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/19-map-diagram.md",
+      "upstream_sha256": "b8c0021c01fb8a970907caefa74a8c462cb573a2666fc4b223082812f9b19399",
+      "local_sha256": "b8c0021c01fb8a970907caefa74a8c462cb573a2666fc4b223082812f9b19399",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/20-ecosystem-index.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/20-ecosystem-index.md",
+      "upstream_sha256": "27b1909d028f553efbc112ecd5a8c843e191e97a286bf2bd258daad86bfa64c4",
+      "local_sha256": "27b1909d028f553efbc112ecd5a8c843e191e97a286bf2bd258daad86bfa64c4",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures/21-component-playground.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures/21-component-playground.md",
+      "upstream_sha256": "830b52f62bdb722f3bd954f4f9ce60fc8c6e521ba2cc1f173e6c0fc3b5611413",
+      "local_sha256": "830b52f62bdb722f3bd954f4f9ce60fc8c6e521ba2cc1f173e6c0fc3b5611413",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/macrostructures.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/macrostructures.md",
+      "upstream_sha256": "3389dbc0434bd9a6161896a19b4ec6664859d49f1b0329cd0e8fae6f045e1c43",
+      "local_sha256": "3389dbc0434bd9a6161896a19b4ec6664859d49f1b0329cd0e8fae6f045e1c43",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/microinteractions.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/microinteractions.md",
+      "upstream_sha256": "e7ec31f08e58edcdb8986fc57d276466c1f7b08445756f3a7cf6f46e8b5a8c8e",
+      "local_sha256": "e7ec31f08e58edcdb8986fc57d276466c1f7b08445756f3a7cf6f46e8b5a8c8e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/patterns.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/patterns.md",
+      "upstream_sha256": "bb15954cb04083c9a3b796dda5df5c33c9c05dddf2341d7befe2571e715f613b",
+      "local_sha256": "bb15954cb04083c9a3b796dda5df5c33c9c05dddf2341d7befe2571e715f613b",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/redesign.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/redesign.md",
+      "upstream_sha256": "cd3fc1dd10af22bb0374b41340fbab8f2b3be997ea5b63716da3d44ba0bb0552",
+      "local_sha256": "cd3fc1dd10af22bb0374b41340fbab8f2b3be997ea5b63716da3d44ba0bb0552",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/responsive.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/responsive.md",
+      "upstream_sha256": "7ed0cd54fda3351be9e7b5514ebf4a5306a837cf3d893b31e96c7fd490b348ea",
+      "local_sha256": "7ed0cd54fda3351be9e7b5514ebf4a5306a837cf3d893b31e96c7fd490b348ea",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/review-finish.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/review-finish.md",
+      "upstream_sha256": "9d00de59e71ee2516212140b0512d6d2e90a120d4a328eeba9cb12396ff38d64",
+      "local_sha256": "9d00de59e71ee2516212140b0512d6d2e90a120d4a328eeba9cb12396ff38d64",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/review-hero.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/review-hero.md",
+      "upstream_sha256": "e84702982bcad34fc8ef4aaf032a5482356912992ce72d84b12e05cd4a519fb2",
+      "local_sha256": "e84702982bcad34fc8ef4aaf032a5482356912992ce72d84b12e05cd4a519fb2",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/scroll-choreography.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/scroll-choreography.md",
+      "upstream_sha256": "809c0fc84011412766db10e3e14def2b3ce02f0452d7fb2e60adecfa85991393",
+      "local_sha256": "809c0fc84011412766db10e3e14def2b3ce02f0452d7fb2e60adecfa85991393",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/texture.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/texture.md",
+      "upstream_sha256": "b5749c008fef0511188d491aec0c5556b19f6731b13539934ecc1cb584a2e756",
+      "local_sha256": "b5749c008fef0511188d491aec0c5556b19f6731b13539934ecc1cb584a2e756",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/README.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/README.md",
+      "upstream_sha256": "aece9d5f273ef6a4eb3e59833bc428c17232ad4ade1247637355636087d5264d",
+      "local_sha256": "aece9d5f273ef6a4eb3e59833bc428c17232ad4ade1247637355636087d5264d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/almanac.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/almanac.jpg",
+      "upstream_sha256": "a78b5a78a662ebd6a54be31b581bfd7447d391cff549c503025f0f762f4bddb5",
+      "local_sha256": "a78b5a78a662ebd6a54be31b581bfd7447d391cff549c503025f0f762f4bddb5",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/almanac.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/almanac.md",
+      "upstream_sha256": "b5c85e7c96cda4f13af81dd42c020c7eae7c4f63b4530b7e9fcef09340d96efc",
+      "local_sha256": "b5c85e7c96cda4f13af81dd42c020c7eae7c4f63b4530b7e9fcef09340d96efc",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/arcade.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/arcade.jpg",
+      "upstream_sha256": "dad3bbcf4cc25bf8e97e03d034ceed2f2bf0f8a9ea308afe60b559f04bb40f04",
+      "local_sha256": "dad3bbcf4cc25bf8e97e03d034ceed2f2bf0f8a9ea308afe60b559f04bb40f04",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/arcade.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/arcade.md",
+      "upstream_sha256": "a6e6d644412e9cbe0172fa784bc05a69767c792a642ab860e6da1af33ef861f9",
+      "local_sha256": "a6e6d644412e9cbe0172fa784bc05a69767c792a642ab860e6da1af33ef861f9",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/atelier.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/atelier.jpg",
+      "upstream_sha256": "1f7d16373c8ab9d949084599c87777060c24b298fec9fd382fe7cc0066d6ec03",
+      "local_sha256": "1f7d16373c8ab9d949084599c87777060c24b298fec9fd382fe7cc0066d6ec03",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/atelier.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/atelier.md",
+      "upstream_sha256": "8cffffd26a857adab803fd0e1c5eb49ade86cd486a8dc3c576728032a84a5ccf",
+      "local_sha256": "8cffffd26a857adab803fd0e1c5eb49ade86cd486a8dc3c576728032a84a5ccf",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/bloom.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/bloom.jpg",
+      "upstream_sha256": "6dcda211f142627c455ec800442038475341cfcbdae83c529753283427066081",
+      "local_sha256": "6dcda211f142627c455ec800442038475341cfcbdae83c529753283427066081",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/bloom.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/bloom.md",
+      "upstream_sha256": "2965adfc995a5605078f45b4ca09a549f1587e6b960fa1986890850668543660",
+      "local_sha256": "2965adfc995a5605078f45b4ca09a549f1587e6b960fa1986890850668543660",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/blueprint.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/blueprint.jpg",
+      "upstream_sha256": "dec761657594b854635572f498e6d7428068b132e314df782b07d31e7e06d777",
+      "local_sha256": "dec761657594b854635572f498e6d7428068b132e314df782b07d31e7e06d777",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/blueprint.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/blueprint.md",
+      "upstream_sha256": "9de09c493df045f8b3f720638248d21f857b076be264e7ee0262e9877a5040d6",
+      "local_sha256": "9de09c493df045f8b3f720638248d21f857b076be264e7ee0262e9877a5040d6",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/broadside.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/broadside.jpg",
+      "upstream_sha256": "86e56076fb37223a448c354ea1148890167e85036b3189c51296a176c97bc978",
+      "local_sha256": "86e56076fb37223a448c354ea1148890167e85036b3189c51296a176c97bc978",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/broadside.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/broadside.md",
+      "upstream_sha256": "9a4ebceef5ca462a0b7ade98250a07ad33cfa40f97f6e78434e638fa9e626222",
+      "local_sha256": "9a4ebceef5ca462a0b7ade98250a07ad33cfa40f97f6e78434e638fa9e626222",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/brutal.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/brutal.jpg",
+      "upstream_sha256": "cafd8a53eb83fe09efb0250f2006fd517c3218959afc337024bfe775e4bc7bbf",
+      "local_sha256": "cafd8a53eb83fe09efb0250f2006fd517c3218959afc337024bfe775e4bc7bbf",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/brutal.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/brutal.md",
+      "upstream_sha256": "4e087f62f815635cbf9c1a7f2a58db77c610ae97f31bef70acd777871859aa97",
+      "local_sha256": "4e087f62f815635cbf9c1a7f2a58db77c610ae97f31bef70acd777871859aa97",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/carnival.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/carnival.jpg",
+      "upstream_sha256": "9a0a139afb7f1ca0ac65d55157432c5ed91e23371b7b6116e3e6937b675712a5",
+      "local_sha256": "9a0a139afb7f1ca0ac65d55157432c5ed91e23371b7b6116e3e6937b675712a5",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/carnival.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/carnival.md",
+      "upstream_sha256": "fc8e876e5a1c23bda103719b61a7440e203ff91ff050ebded53f732108c43b82",
+      "local_sha256": "fc8e876e5a1c23bda103719b61a7440e203ff91ff050ebded53f732108c43b82",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/cobalt.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/cobalt.jpg",
+      "upstream_sha256": "695cf419c3cc734c8fa9e6d23e0692385990bcd55349bb689300431392d0e3cd",
+      "local_sha256": "695cf419c3cc734c8fa9e6d23e0692385990bcd55349bb689300431392d0e3cd",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/cobalt.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/cobalt.md",
+      "upstream_sha256": "d24a5609f0c42e6ff6a1976d5f7f0651ec40eed69db5d6c4680c1385a65f2007",
+      "local_sha256": "d24a5609f0c42e6ff6a1976d5f7f0651ec40eed69db5d6c4680c1385a65f2007",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/console.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/console.jpg",
+      "upstream_sha256": "665f07532303613d55c3832ac7141c2b007cb3a34bb245882bef3ab74e6e1cf1",
+      "local_sha256": "665f07532303613d55c3832ac7141c2b007cb3a34bb245882bef3ab74e6e1cf1",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/console.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/console.md",
+      "upstream_sha256": "d52eda46d5480ab0123f78ab83ea1187813f4b26ddb02d0f4e61e2b511ae6309",
+      "local_sha256": "d52eda46d5480ab0123f78ab83ea1187813f4b26ddb02d0f4e61e2b511ae6309",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/coral.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/coral.jpg",
+      "upstream_sha256": "dbb7596586c0563122935ab602e627cc621fe6939013619b6a1c552d5f25a03e",
+      "local_sha256": "dbb7596586c0563122935ab602e627cc621fe6939013619b6a1c552d5f25a03e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/coral.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/coral.md",
+      "upstream_sha256": "f8444921b5e751b3b9be94d448aaee502e509729aa89411ff887087777bb1c28",
+      "local_sha256": "f8444921b5e751b3b9be94d448aaee502e509729aa89411ff887087777bb1c28",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/darkroom.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/darkroom.jpg",
+      "upstream_sha256": "d8a7136d01223a7b6d2193d30c0c2e549e2967da65fb69fd33eee55df9f149c1",
+      "local_sha256": "d8a7136d01223a7b6d2193d30c0c2e549e2967da65fb69fd33eee55df9f149c1",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/darkroom.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/darkroom.md",
+      "upstream_sha256": "946e2233f310dde0304f970070408a7ff6581e3b442faaa14da80f39e31e9499",
+      "local_sha256": "946e2233f310dde0304f970070408a7ff6581e3b442faaa14da80f39e31e9499",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/dose.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/dose.jpg",
+      "upstream_sha256": "7bdf523555d21e8c89b04ab77af15a816a3c7bf84055c7c780b77d891cd4c735",
+      "local_sha256": "7bdf523555d21e8c89b04ab77af15a816a3c7bf84055c7c780b77d891cd4c735",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/dose.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/dose.md",
+      "upstream_sha256": "780a5e57a813b3008ac6a8c7287affc5516a68e51310d77df890286f6d6369f5",
+      "local_sha256": "780a5e57a813b3008ac6a8c7287affc5516a68e51310d77df890286f6d6369f5",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/dusk.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/dusk.jpg",
+      "upstream_sha256": "f38be2c20d3d2183dfdb127fc2a9df71e3f16e413b8fda56146567a05e5a9514",
+      "local_sha256": "f38be2c20d3d2183dfdb127fc2a9df71e3f16e413b8fda56146567a05e5a9514",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/dusk.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/dusk.md",
+      "upstream_sha256": "47cf0ede99ba90b88cec14eb2ec80d5fd9e003e9ed3878708275553e2c52d4bf",
+      "local_sha256": "47cf0ede99ba90b88cec14eb2ec80d5fd9e003e9ed3878708275553e2c52d4bf",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/editorial.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/editorial.jpg",
+      "upstream_sha256": "a5f3ecdbe561cfbe06374706beac154bc47a77b12ac964c742b412eec6a3e0df",
+      "local_sha256": "a5f3ecdbe561cfbe06374706beac154bc47a77b12ac964c742b412eec6a3e0df",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/editorial.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/editorial.md",
+      "upstream_sha256": "cafd967f2ac736c9927a749de1b8f4216183e3fa3adce95e638d124b2de5876f",
+      "local_sha256": "cafd967f2ac736c9927a749de1b8f4216183e3fa3adce95e638d124b2de5876f",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/formwork.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/formwork.jpg",
+      "upstream_sha256": "dc52b44d0dd300d54d0fad5f18b032e7b29f0288da546fbfa4dd73baa0d4e255",
+      "local_sha256": "dc52b44d0dd300d54d0fad5f18b032e7b29f0288da546fbfa4dd73baa0d4e255",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/formwork.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/formwork.md",
+      "upstream_sha256": "e2c0f88b2a83eec6ac076be536cd71cfd883bb21a234c268bba0ccd12e773416",
+      "local_sha256": "e2c0f88b2a83eec6ac076be536cd71cfd883bb21a234c268bba0ccd12e773416",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/furrow.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/furrow.jpg",
+      "upstream_sha256": "2f6decb95504070eaf484c051da77a4ec0713d2b2cc55eabdc7d99ce740acc99",
+      "local_sha256": "2f6decb95504070eaf484c051da77a4ec0713d2b2cc55eabdc7d99ce740acc99",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/furrow.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/furrow.md",
+      "upstream_sha256": "16f9ffc0fe9588754d25a96a32d6ca25e4b5a918623e90a1ee0dc5006953fc89",
+      "local_sha256": "16f9ffc0fe9588754d25a96a32d6ca25e4b5a918623e90a1ee0dc5006953fc89",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/garden.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/garden.jpg",
+      "upstream_sha256": "a0d649ed96f7462dbef00047685151a3ca3e8a72e9672f240b21a82d798a9740",
+      "local_sha256": "a0d649ed96f7462dbef00047685151a3ca3e8a72e9672f240b21a82d798a9740",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/garden.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/garden.md",
+      "upstream_sha256": "2f2197da95ef795a10eeef1c60f9ae98e62ca110c34260035b9789c1f3486185",
+      "local_sha256": "2f2197da95ef795a10eeef1c60f9ae98e62ca110c34260035b9789c1f3486185",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/grid.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/grid.jpg",
+      "upstream_sha256": "511ed8d58f8abb1fe86d53166c3966c4046c1000ccc7075d6c312ba3efc67f70",
+      "local_sha256": "511ed8d58f8abb1fe86d53166c3966c4046c1000ccc7075d6c312ba3efc67f70",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/grid.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/grid.md",
+      "upstream_sha256": "0f81c1efa45ec32ae3bd24b15eb96144edff8e018eec7a3d6a6a8bb25e42f520",
+      "local_sha256": "0f81c1efa45ec32ae3bd24b15eb96144edff8e018eec7a3d6a6a8bb25e42f520",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/halftone.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/halftone.jpg",
+      "upstream_sha256": "a84cb1876366b5e1070ce1a70b22f263a7a963372587ff92076c0492c7f2d9db",
+      "local_sha256": "a84cb1876366b5e1070ce1a70b22f263a7a963372587ff92076c0492c7f2d9db",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/halftone.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/halftone.md",
+      "upstream_sha256": "a19da44930e5c475cf9c285f939d959ab590da17faea21426387332a5d8ca682",
+      "local_sha256": "a19da44930e5c475cf9c285f939d959ab590da17faea21426387332a5d8ca682",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/hedgerow.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/hedgerow.jpg",
+      "upstream_sha256": "ac564eb0f3c8553cd5a077b8f5da38a1bb1d2c7a78e4e8ebb8aafe91ee448f95",
+      "local_sha256": "ac564eb0f3c8553cd5a077b8f5da38a1bb1d2c7a78e4e8ebb8aafe91ee448f95",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/hedgerow.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/hedgerow.md",
+      "upstream_sha256": "23371c7894032ccc4f51236539d535d9c47b201b3007a40949db234c19b84ddd",
+      "local_sha256": "23371c7894032ccc4f51236539d535d9c47b201b3007a40949db234c19b84ddd",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/hum.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/hum.jpg",
+      "upstream_sha256": "22c73e8bdb16fd96165cc4d003a82cf321e1d274f6c3c538015e0d3ae823802e",
+      "local_sha256": "22c73e8bdb16fd96165cc4d003a82cf321e1d274f6c3c538015e0d3ae823802e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/hum.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/hum.md",
+      "upstream_sha256": "180ef874894a544230f4e3a867a7120da3a79d5994d15737e806e0373e4cc5c7",
+      "local_sha256": "180ef874894a544230f4e3a867a7120da3a79d5994d15737e806e0373e4cc5c7",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/index.json",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/index.json",
+      "upstream_sha256": "df8299332a805b9c8504c10574258a98057fb9e63e87e85a7e8bbb76333fb403",
+      "local_sha256": "df8299332a805b9c8504c10574258a98057fb9e63e87e85a7e8bbb76333fb403",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/ink.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/ink.jpg",
+      "upstream_sha256": "18802cca6d7428c50a0e9d3051f7aa321f0f4749e14dd941107b30266346c62e",
+      "local_sha256": "18802cca6d7428c50a0e9d3051f7aa321f0f4749e14dd941107b30266346c62e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/ink.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/ink.md",
+      "upstream_sha256": "7dd419ccec59a33461c86d894856085edaeddd6139f8eb9eff22f22e45fbdf9f",
+      "local_sha256": "7dd419ccec59a33461c86d894856085edaeddd6139f8eb9eff22f22e45fbdf9f",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/kiln.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/kiln.jpg",
+      "upstream_sha256": "2ef6da1860464f7d189d6e0e371b97b1e17b4ee107e1e68b7555aafc96685123",
+      "local_sha256": "2ef6da1860464f7d189d6e0e371b97b1e17b4ee107e1e68b7555aafc96685123",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/kiln.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/kiln.md",
+      "upstream_sha256": "94909cf878a89b88ba96d3a69dfccb64ce32968a3a4544a920a9c927d5a56fd4",
+      "local_sha256": "94909cf878a89b88ba96d3a69dfccb64ce32968a3a4544a920a9c927d5a56fd4",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/loom.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/loom.jpg",
+      "upstream_sha256": "a71f16f59ec0c9710d5f6cd4f3eec0fbe3536e31b194b1e25dbb924618765f64",
+      "local_sha256": "a71f16f59ec0c9710d5f6cd4f3eec0fbe3536e31b194b1e25dbb924618765f64",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/loom.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/loom.md",
+      "upstream_sha256": "835789caae2ef444b1db967411856f79ddcf844c8a988f75a62f3f5d4b53d819",
+      "local_sha256": "835789caae2ef444b1db967411856f79ddcf844c8a988f75a62f3f5d4b53d819",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/lumen.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/lumen.jpg",
+      "upstream_sha256": "d7f66625e11d7d495c89748c6f43db49b5542040d1c091a109802a7098d1cc84",
+      "local_sha256": "d7f66625e11d7d495c89748c6f43db49b5542040d1c091a109802a7098d1cc84",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/lumen.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/lumen.md",
+      "upstream_sha256": "8a202bde1d9eb9b4615b0f0e2279adeb5c95a82dedd003fdba1613c70b715450",
+      "local_sha256": "8a202bde1d9eb9b4615b0f0e2279adeb5c95a82dedd003fdba1613c70b715450",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/manifesto.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/manifesto.jpg",
+      "upstream_sha256": "c900e70ac48d01d133acdcbda0310d9c0fd53a0474d7a1b1344291a70b3c89bd",
+      "local_sha256": "c900e70ac48d01d133acdcbda0310d9c0fd53a0474d7a1b1344291a70b3c89bd",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/manifesto.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/manifesto.md",
+      "upstream_sha256": "326c63f732128ed5cda8ff3187793ffe9bcb56936387367cc932b5a3e216b862",
+      "local_sha256": "326c63f732128ed5cda8ff3187793ffe9bcb56936387367cc932b5a3e216b862",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/midnight.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/midnight.jpg",
+      "upstream_sha256": "6f49568b885ba74035faa5a2608c51a079cd7a2eebe7e1967fa0225958b0c82e",
+      "local_sha256": "6f49568b885ba74035faa5a2608c51a079cd7a2eebe7e1967fa0225958b0c82e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/midnight.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/midnight.md",
+      "upstream_sha256": "cb29035685b63a56762c291dc4246c6a66c6ec6d8bc4559d6823ee2d2a80e40d",
+      "local_sha256": "cb29035685b63a56762c291dc4246c6a66c6ec6d8bc4559d6823ee2d2a80e40d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/newsprint.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/newsprint.jpg",
+      "upstream_sha256": "fdac566be09a8ea6891f79ccb70f1f2c47abe12a3fb476c3874031eece6e0fe6",
+      "local_sha256": "fdac566be09a8ea6891f79ccb70f1f2c47abe12a3fb476c3874031eece6e0fe6",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/newsprint.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/newsprint.md",
+      "upstream_sha256": "2fd477d10f9dde600993486a7dab5ff5f643c8821833cb3837f176005eafb5e0",
+      "local_sha256": "2fd477d10f9dde600993486a7dab5ff5f643c8821833cb3837f176005eafb5e0",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/overprint.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/overprint.jpg",
+      "upstream_sha256": "415342811cfecc22d267d93afb07c12dfa12d8823a2e2c5852c9a587d9f462de",
+      "local_sha256": "415342811cfecc22d267d93afb07c12dfa12d8823a2e2c5852c9a587d9f462de",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/overprint.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/overprint.md",
+      "upstream_sha256": "79010c27e619fad842da18559658c83cec86172266b00bb5933871b3f7bf852b",
+      "local_sha256": "79010c27e619fad842da18559658c83cec86172266b00bb5933871b3f7bf852b",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/pasteup.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/pasteup.jpg",
+      "upstream_sha256": "664423a43e4906e63ab9610b8c327af1baddb611a14109b453a7ed04505ba0c2",
+      "local_sha256": "664423a43e4906e63ab9610b8c327af1baddb611a14109b453a7ed04505ba0c2",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/pasteup.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/pasteup.md",
+      "upstream_sha256": "7e8d5013bda81e945f27b401f967f08e41bbc7d10ddc14d1ef7dd91c25f95c3d",
+      "local_sha256": "7e8d5013bda81e945f27b401f967f08e41bbc7d10ddc14d1ef7dd91c25f95c3d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/piste.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/piste.jpg",
+      "upstream_sha256": "39c73cb56040dc5ab13b6bb7927d0dfdacfc7802ef1d22d9c1c13f39faf1500b",
+      "local_sha256": "39c73cb56040dc5ab13b6bb7927d0dfdacfc7802ef1d22d9c1c13f39faf1500b",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/piste.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/piste.md",
+      "upstream_sha256": "79c1b4b7297467d9a0d057ad790d475f4b88a41af1867172dfd77b951cda803a",
+      "local_sha256": "79c1b4b7297467d9a0d057ad790d475f4b88a41af1867172dfd77b951cda803a",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/refract.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/refract.jpg",
+      "upstream_sha256": "43b0c7245536dc7f83608b3881221a90e68f78a6c7223006b75e47cc86b1a719",
+      "local_sha256": "43b0c7245536dc7f83608b3881221a90e68f78a6c7223006b75e47cc86b1a719",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/refract.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/refract.md",
+      "upstream_sha256": "74970c11c5759685610608fc569e18eb409f12ac479c3409c9156a8a352c5fdc",
+      "local_sha256": "74970c11c5759685610608fc569e18eb409f12ac479c3409c9156a8a352c5fdc",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/ribbon.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/ribbon.jpg",
+      "upstream_sha256": "a5848452f358eb7e8f7fae3b1592fe04b9f1fb09c92551c372def878529512d0",
+      "local_sha256": "a5848452f358eb7e8f7fae3b1592fe04b9f1fb09c92551c372def878529512d0",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/ribbon.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/ribbon.md",
+      "upstream_sha256": "0bcc8708d3ceec0cb246fa134a4fcf8e019fa8012af1f87646737cc1c8b324a1",
+      "local_sha256": "0bcc8708d3ceec0cb246fa134a4fcf8e019fa8012af1f87646737cc1c8b324a1",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/rim.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/rim.jpg",
+      "upstream_sha256": "bbc6f916316da6f6d03b01dfc798efd0c8f8b94d80155049f0a1a497a3560811",
+      "local_sha256": "bbc6f916316da6f6d03b01dfc798efd0c8f8b94d80155049f0a1a497a3560811",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/rim.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/rim.md",
+      "upstream_sha256": "ac134e8ccbda501b660f4cd83ace56059f2b254b187f574a612460c7c796e49f",
+      "local_sha256": "ac134e8ccbda501b660f4cd83ace56059f2b254b187f574a612460c7c796e49f",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/riso.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/riso.jpg",
+      "upstream_sha256": "b02f0c68760cab70cf971cacc2669fe32472f1f3eb2998f8c7706c4fafb678ca",
+      "local_sha256": "b02f0c68760cab70cf971cacc2669fe32472f1f3eb2998f8c7706c4fafb678ca",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/riso.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/riso.md",
+      "upstream_sha256": "333577e736f793c94161994dd8087c583ab53dd5af50a5dc63c3bfc5f4bf28ad",
+      "local_sha256": "333577e736f793c94161994dd8087c583ab53dd5af50a5dc63c3bfc5f4bf28ad",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/solstice.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/solstice.jpg",
+      "upstream_sha256": "5d6bcf025a79c4b117ccc2ede5cc69f5334bfc65ed8107b1068a9689cfff7abf",
+      "local_sha256": "5d6bcf025a79c4b117ccc2ede5cc69f5334bfc65ed8107b1068a9689cfff7abf",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/solstice.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/solstice.md",
+      "upstream_sha256": "6813e8556faa9e34637ce52a2cefadbf74795e7956503f14cf1c672c3f92c5d1",
+      "local_sha256": "6813e8556faa9e34637ce52a2cefadbf74795e7956503f14cf1c672c3f92c5d1",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/specimen.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/specimen.jpg",
+      "upstream_sha256": "9735716ddda7bba0f62d1d35743256ad1b718038fbd6924e341bceb3dfa62150",
+      "local_sha256": "9735716ddda7bba0f62d1d35743256ad1b718038fbd6924e341bceb3dfa62150",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/specimen.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/specimen.md",
+      "upstream_sha256": "f9ed583e2adfe885eced94374fed3f697ff932705eee029a9c226d4db39667ed",
+      "local_sha256": "f9ed583e2adfe885eced94374fed3f697ff932705eee029a9c226d4db39667ed",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/spore.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/spore.jpg",
+      "upstream_sha256": "b2493347715fb49d6d30040ae3ea85885571709bd588f2222722a1af317a704a",
+      "local_sha256": "b2493347715fb49d6d30040ae3ea85885571709bd588f2222722a1af317a704a",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/spore.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/spore.md",
+      "upstream_sha256": "2b4f30287f6779404104a98bddd2f2876f000abad2533228c9aa105b3c30ca7d",
+      "local_sha256": "2b4f30287f6779404104a98bddd2f2876f000abad2533228c9aa105b3c30ca7d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/sport.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/sport.jpg",
+      "upstream_sha256": "51a51694055ef122de7e6be01f5d881fec696d86df5192557aefd90d12bb1b84",
+      "local_sha256": "51a51694055ef122de7e6be01f5d881fec696d86df5192557aefd90d12bb1b84",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/sport.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/sport.md",
+      "upstream_sha256": "5714651df7c46925357d33876e498ac4ecaa3c8b3d50bee5ead3bf7ce54d863a",
+      "local_sha256": "5714651df7c46925357d33876e498ac4ecaa3c8b3d50bee5ead3bf7ce54d863a",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/squeeze.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/squeeze.jpg",
+      "upstream_sha256": "570529d5d842ca14a60d9689d3c4997eac31e463c5a9df3d386d39f36091224b",
+      "local_sha256": "570529d5d842ca14a60d9689d3c4997eac31e463c5a9df3d386d39f36091224b",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/squeeze.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/squeeze.md",
+      "upstream_sha256": "d007f2f09a6d8da5cf53a9fe98bc9cb3ead7f013d71569b605e65e7f295b2cb5",
+      "local_sha256": "d007f2f09a6d8da5cf53a9fe98bc9cb3ead7f013d71569b605e65e7f295b2cb5",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/sticker.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/sticker.jpg",
+      "upstream_sha256": "ccbf946b230eae35f8ba35b7ceb362bd082b0c6240e1ff3695a07f9e948d6320",
+      "local_sha256": "ccbf946b230eae35f8ba35b7ceb362bd082b0c6240e1ff3695a07f9e948d6320",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/sticker.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/sticker.md",
+      "upstream_sha256": "5c266f131f506d7ba2e51e12015141e8d1ac394523ce537504a6b21336f0f953",
+      "local_sha256": "5c266f131f506d7ba2e51e12015141e8d1ac394523ce537504a6b21336f0f953",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/studio.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/studio.jpg",
+      "upstream_sha256": "d4b8670539d50ebc17c64ad5f13fbd01dbf6bf47cc3421baf688a496112d6daf",
+      "local_sha256": "d4b8670539d50ebc17c64ad5f13fbd01dbf6bf47cc3421baf688a496112d6daf",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/studio.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/studio.md",
+      "upstream_sha256": "7e0352a5de3485bbc61043c412258490aa7750eab03a5534a422a717f44db194",
+      "local_sha256": "7e0352a5de3485bbc61043c412258490aa7750eab03a5534a422a717f44db194",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/terminal.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/terminal.jpg",
+      "upstream_sha256": "0843a7120876a7e4f89acbd122fe7f6d4dab72caad99746c5a574eb8f5a8552e",
+      "local_sha256": "0843a7120876a7e4f89acbd122fe7f6d4dab72caad99746c5a574eb8f5a8552e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/terminal.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/terminal.md",
+      "upstream_sha256": "cb5104b31d31e2ece13cc736a2ee5819d9b80a3272ff5a905e0f772c2865f19e",
+      "local_sha256": "cb5104b31d31e2ece13cc736a2ee5819d9b80a3272ff5a905e0f772c2865f19e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/terrazzo.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/terrazzo.jpg",
+      "upstream_sha256": "8f22ce7fac3fed6479bac56a0061477491c9055398b5bc7d7d856d66188f357d",
+      "local_sha256": "8f22ce7fac3fed6479bac56a0061477491c9055398b5bc7d7d856d66188f357d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/terrazzo.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/terrazzo.md",
+      "upstream_sha256": "9f2a03aa0670fe7caef3789e077eb917483034a38c756b45977ea9f27ee1dc02",
+      "local_sha256": "9f2a03aa0670fe7caef3789e077eb917483034a38c756b45977ea9f27ee1dc02",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/ultraviolet.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/ultraviolet.jpg",
+      "upstream_sha256": "66cb4ad24a61fb16f5cf0e97f4d81be67993e3d237d4af0b67e71e4f0e6961db",
+      "local_sha256": "66cb4ad24a61fb16f5cf0e97f4d81be67993e3d237d4af0b67e71e4f0e6961db",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/ultraviolet.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/ultraviolet.md",
+      "upstream_sha256": "b706384370d51ad849faaa87f80c2beeff9d14ca2f253385d20e28ac09bc9569",
+      "local_sha256": "b706384370d51ad849faaa87f80c2beeff9d14ca2f253385d20e28ac09bc9569",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/vantage.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/vantage.jpg",
+      "upstream_sha256": "d64768e186ad62d32f1546c5c97ce55f4e97d1879686a0bbfdf394de353916a4",
+      "local_sha256": "d64768e186ad62d32f1546c5c97ce55f4e97d1879686a0bbfdf394de353916a4",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/vantage.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/vantage.md",
+      "upstream_sha256": "08405ead89e69270c2fa5946c6d3f7905168d10eb06a34502c5c129d262f96db",
+      "local_sha256": "08405ead89e69270c2fa5946c6d3f7905168d10eb06a34502c5c129d262f96db",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/vellum.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/vellum.jpg",
+      "upstream_sha256": "4b4116033ad5ea3a65e0ec720f43e0e9cd1c7494e4ae95c09610782240b9a48d",
+      "local_sha256": "4b4116033ad5ea3a65e0ec720f43e0e9cd1c7494e4ae95c09610782240b9a48d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/vellum.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/vellum.md",
+      "upstream_sha256": "4914d9e6ca704d55b57fe6630ca2edc1ed49dea0fdd0912c97d437939fd3e893",
+      "local_sha256": "4914d9e6ca704d55b57fe6630ca2edc1ed49dea0fdd0912c97d437939fd3e893",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/wayfind.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/wayfind.jpg",
+      "upstream_sha256": "3fc6e32cd77b7455a10237ba7424048bd2fb94bdc955bdd5395da173d9b3b574",
+      "local_sha256": "3fc6e32cd77b7455a10237ba7424048bd2fb94bdc955bdd5395da173d9b3b574",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/wayfind.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/wayfind.md",
+      "upstream_sha256": "7849521b843f82a3956727e0d06a595d6ecec5f501f4c31f577bf4bd1bae9e2c",
+      "local_sha256": "7849521b843f82a3956727e0d06a595d6ecec5f501f4c31f577bf4bd1bae9e2c",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/werkstatt.jpg",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/werkstatt.jpg",
+      "upstream_sha256": "5cd183720988973306ff568fa7f21a7c7cb345621dfa1d288a33d22f785aac20",
+      "local_sha256": "5cd183720988973306ff568fa7f21a7c7cb345621dfa1d288a33d22f785aac20",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/references/themes/werkstatt.md",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/references/themes/werkstatt.md",
+      "upstream_sha256": "b3a31e2acb8a15ca46bbb194f23b9555ef19d9c70ceb1cf67d9fde3b55b7e08a",
+      "local_sha256": "b3a31e2acb8a15ca46bbb194f23b9555ef19d9c70ceb1cf67d9fde3b55b7e08a",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/capture.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/capture.mjs",
+      "upstream_sha256": "17c36f7400c2633ac37d87b236894385f6e72c3026ab916deed27b5e17e1cc2a",
+      "local_sha256": "17c36f7400c2633ac37d87b236894385f6e72c3026ab916deed27b5e17e1cc2a",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/exemplars/atmospheric.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/exemplars/atmospheric.html",
+      "upstream_sha256": "10a6bc8f44a8ad3e3874dddaf2444888d95efb4b3e72c6d403cd258259202f8d",
+      "local_sha256": "10a6bc8f44a8ad3e3874dddaf2444888d95efb4b3e72c6d403cd258259202f8d",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/exemplars/editorial.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/exemplars/editorial.html",
+      "upstream_sha256": "51c9177037da9ec810d81ce809df358c48b33c19c88dbda5192c2d1508ee5c50",
+      "local_sha256": "51c9177037da9ec810d81ce809df358c48b33c19c88dbda5192c2d1508ee5c50",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/exemplars/modern-minimal.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/exemplars/modern-minimal.html",
+      "upstream_sha256": "48ac41ca0235a29b613a736e989864e845497d348fc2183156e0790785adac6a",
+      "local_sha256": "48ac41ca0235a29b613a736e989864e845497d348fc2183156e0790785adac6a",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/exemplars/playful.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/exemplars/playful.html",
+      "upstream_sha256": "810cddd441d619cfceb6815177c60412d7f91a1e30971141830f77f29a1c6615",
+      "local_sha256": "810cddd441d619cfceb6815177c60412d7f91a1e30971141830f77f29a1c6615",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/eyebrow-fail/index.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/eyebrow-fail/index.html",
+      "upstream_sha256": "777a97f5c636bdd32623ab92f53b003a48e21b0ccda33166a0ddcedad41074b8",
+      "local_sha256": "777a97f5c636bdd32623ab92f53b003a48e21b0ccda33166a0ddcedad41074b8",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/eyebrow-pass/index.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/eyebrow-pass/index.html",
+      "upstream_sha256": "e79cc0979f3d47295812d1f373f4ea8e95c94f2a18624ae2c064e3fdbc4476f8",
+      "local_sha256": "e79cc0979f3d47295812d1f373f4ea8e95c94f2a18624ae2c064e3fdbc4476f8",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/kept/after.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/kept/after.html",
+      "upstream_sha256": "3943056c96c322c2bd55fbd19170de48f01815981d0430a094538737dae1a204",
+      "local_sha256": "3943056c96c322c2bd55fbd19170de48f01815981d0430a094538737dae1a204",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/kept/before.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/kept/before.html",
+      "upstream_sha256": "6e9ad44ebca1d553b0f6a0096f613e3bd9800dbb222b42c4996a247dee08b72f",
+      "local_sha256": "6e9ad44ebca1d553b0f6a0096f613e3bd9800dbb222b42c4996a247dee08b72f",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/slopped.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/slopped.html",
+      "upstream_sha256": "f324387e624f20e10bea32fd4c29d53865c3b4c261e723dc7965ef48ea39466e",
+      "local_sha256": "f324387e624f20e10bea32fd4c29d53865c3b4c261e723dc7965ef48ea39466e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/tailwind-fail/Feature.vue",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/tailwind-fail/Feature.vue",
+      "upstream_sha256": "a0b1f3810f0b3621459d52921795a6c99f0dba53a9b0445cbf53e8529b801cf2",
+      "local_sha256": "a0b1f3810f0b3621459d52921795a6c99f0dba53a9b0445cbf53e8529b801cf2",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/tailwind-fail/Hero.tsx",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/tailwind-fail/Hero.tsx",
+      "upstream_sha256": "4b0a2d0996d44173178d3f3ad4313836a3464993658798a491e92e4adbe9a576",
+      "local_sha256": "4b0a2d0996d44173178d3f3ad4313836a3464993658798a491e92e4adbe9a576",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/tailwind-fail/index.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/tailwind-fail/index.html",
+      "upstream_sha256": "668e6026f6517b456d8b10d07f21e33f32476cbedef86e90bdf6bcc3785c120c",
+      "local_sha256": "668e6026f6517b456d8b10d07f21e33f32476cbedef86e90bdf6bcc3785c120c",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/tailwind-fail/style.css",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/tailwind-fail/style.css",
+      "upstream_sha256": "520dac1bf1b9ac4c3c4e05506a91a804849413172ec500f9e21a01c94542c5fc",
+      "local_sha256": "520dac1bf1b9ac4c3c4e05506a91a804849413172ec500f9e21a01c94542c5fc",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/tailwind-pass/Hero.tsx",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/tailwind-pass/Hero.tsx",
+      "upstream_sha256": "c81aed17aaba4936fc51fcbc07b642481c7dad6cbbd87ac8dd56384290b6edf3",
+      "local_sha256": "c81aed17aaba4936fc51fcbc07b642481c7dad6cbbd87ac8dd56384290b6edf3",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/tailwind-pass/index.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/tailwind-pass/index.html",
+      "upstream_sha256": "7d7fb9c531b872458c049fc9bbed93edf8bf506f5f2fbff8d4a66ffc1f7e6cc2",
+      "local_sha256": "7d7fb9c531b872458c049fc9bbed93edf8bf506f5f2fbff8d4a66ffc1f7e6cc2",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/tailwind-pass/style.css",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/tailwind-pass/style.css",
+      "upstream_sha256": "b3d42d5cd53476942b34253a2dcad284548302ce551bef56fb1af6f9d4c8ebbb",
+      "local_sha256": "b3d42d5cd53476942b34253a2dcad284548302ce551bef56fb1af6f9d4c8ebbb",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/fixtures/waiver/index.html",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/fixtures/waiver/index.html",
+      "upstream_sha256": "9ac592d4ea4fef4f33551b678ed9ce03570d8c3c8afaa23717446d41dbc106bc",
+      "local_sha256": "9ac592d4ea4fef4f33551b678ed9ce03570d8c3c8afaa23717446d41dbc106bc",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/imagegen.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/imagegen.mjs",
+      "upstream_sha256": "0e9e2dde64a0b1a7d45085b3d9ec51f49f2927e544400bfa33207fb2c9b579cc",
+      "local_sha256": "0e9e2dde64a0b1a7d45085b3d9ec51f49f2927e544400bfa33207fb2c9b579cc",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/install-hook.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/install-hook.mjs",
+      "upstream_sha256": "f0ce8b6e834652bcc560438952701ef467f4b29ee5d577e917632cb7d92ddc76",
+      "local_sha256": "f0ce8b6e834652bcc560438952701ef467f4b29ee5d577e917632cb7d92ddc76",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/install.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/install.mjs",
+      "upstream_sha256": "f4d6959d35f5e01efb94f2f88b43f10e8d296e9bd2ff06e5c002c7f87aeeb488",
+      "local_sha256": "f4d6959d35f5e01efb94f2f88b43f10e8d296e9bd2ff06e5c002c7f87aeeb488",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/lint-hook.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/lint-hook.mjs",
+      "upstream_sha256": "04fd40ab9dfaffb049da6b8b69811e306a5dee8c9acfc4d6817987d8a4671738",
+      "local_sha256": "04fd40ab9dfaffb049da6b8b69811e306a5dee8c9acfc4d6817987d8a4671738",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/photos.json",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/photos.json",
+      "upstream_sha256": "1ee6836583e8048400876351c0605bc3f08515fecfe68aca3712b9e75498bc65",
+      "local_sha256": "1ee6836583e8048400876351c0605bc3f08515fecfe68aca3712b9e75498bc65",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/picture.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/picture.mjs",
+      "upstream_sha256": "21db01db66d393d58d2dd799e7614a6033d1a56891d9d9d8cae0c42ed42592c1",
+      "local_sha256": "21db01db66d393d58d2dd799e7614a6033d1a56891d9d9d8cae0c42ed42592c1",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/refcheck.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/refcheck.mjs",
+      "upstream_sha256": "1ef973e33a21411505349779dfc37e417d39418d8e566cf197585b5c2b0d7e16",
+      "local_sha256": "1ef973e33a21411505349779dfc37e417d39418d8e566cf197585b5c2b0d7e16",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/sloplint-render.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/sloplint-render.mjs",
+      "upstream_sha256": "3af79afa100a9804f248ade24d5128cea4fde1ef6d1a279f1dd935bfe6dc41cd",
+      "local_sha256": "b4bf54fd8035283bd4de68c6ddfd12c8882de208fcd326794d50fd9801322e06",
+      "modified": true
+    },
+    {
+      "path": "skills/hallmark/scripts/sloplint.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/sloplint.mjs",
+      "upstream_sha256": "530b8d5a5ad0bb19b3e06a74600523bef3f3397de47e43de045e7862d73ca11e",
+      "local_sha256": "530b8d5a5ad0bb19b3e06a74600523bef3f3397de47e43de045e7862d73ca11e",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/theme.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/theme.mjs",
+      "upstream_sha256": "246f8773c5772986c1f382a8c60e7e2194df4b8c04851f59fd4ff216accd158f",
+      "local_sha256": "246f8773c5772986c1f382a8c60e7e2194df4b8c04851f59fd4ff216accd158f",
+      "modified": false
+    },
+    {
+      "path": "skills/hallmark/scripts/theme.test.mjs",
+      "repository": "hallmark",
+      "upstream_path": "skills/hallmark/scripts/theme.test.mjs",
+      "upstream_sha256": "ce427fdd47290584c6707ff2a14db978db8a40c3fbd9f8fb19cc34bb823d1edc",
+      "local_sha256": "ce427fdd47290584c6707ff2a14db978db8a40c3fbd9f8fb19cc34bb823d1edc",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/LICENSE",
+      "repository": "taste-skill",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "4575a543ab88dad12ccea7d97e563d0bce5b448b06072e65d3264497dad326df",
+      "local_sha256": "4575a543ab88dad12ccea7d97e563d0bce5b448b06072e65d3264497dad326df",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/README.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/README.md",
+      "upstream_sha256": "5e33fd716b3e1ffaca9340f645d44c193f9b446107fa67f0cce498d33025672c",
+      "local_sha256": "5e33fd716b3e1ffaca9340f645d44c193f9b446107fa67f0cce498d33025672c",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/SKILL.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/SKILL.md",
+      "upstream_sha256": "3435ed963b15a1b6447746ec8844ab2cd38d8d2e8ead3451937f42df01e408c4",
+      "local_sha256": "9b9eb20ffef8024e76e4e64f82066c4bab0911648cddfcab5643a984f2e1f658",
+      "modified": true
+    },
+    {
+      "path": "skills/design-taste-frontend/UPSTREAM-SKILL.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/SKILL.md",
+      "upstream_sha256": "3435ed963b15a1b6447746ec8844ab2cd38d8d2e8ead3451937f42df01e408c4",
+      "local_sha256": "3435ed963b15a1b6447746ec8844ab2cd38d8d2e8ead3451937f42df01e408c4",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/assets/app.css",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/assets/app.css",
+      "upstream_sha256": "16518c3a999fb81b2698137f1f743128c189272e8b1d411c4b02598c6755b67f",
+      "local_sha256": "16518c3a999fb81b2698137f1f743128c189272e8b1d411c4b02598c6755b67f",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/assets/base.css",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/assets/base.css",
+      "upstream_sha256": "aa6ea21613c79e06e06dea3d33200c78590c89b0346bb976ec07947bb45ceafa",
+      "local_sha256": "aa6ea21613c79e06e06dea3d33200c78590c89b0346bb976ec07947bb45ceafa",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/assets/base.js",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/assets/base.js",
+      "upstream_sha256": "8d50416125596b84c0083d5d5ffba09add57db4b06cbf0eedac2d4999b7653bc",
+      "local_sha256": "8d50416125596b84c0083d5d5ffba09add57db4b06cbf0eedac2d4999b7653bc",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/assets/charts.js",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/assets/charts.js",
+      "upstream_sha256": "a7e916594729576b7c7e37048a68508a3243fe8fbc9654775cd245232e9f8100",
+      "local_sha256": "a7e916594729576b7c7e37048a68508a3243fe8fbc9654775cd245232e9f8100",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/assets/scenes/stage.css",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/assets/scenes/stage.css",
+      "upstream_sha256": "b5c587dac45ac6fcc34ae7cb4aa2b3e43797b2ef5d71fd32b48483bda3fca3e0",
+      "local_sha256": "b5c587dac45ac6fcc34ae7cb4aa2b3e43797b2ef5d71fd32b48483bda3fca3e0",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/assets/scenes/stage.js",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/assets/scenes/stage.js",
+      "upstream_sha256": "9ce782a94406e6a230c49ca5f87e56aff9d436da3f56416b1659421f8976bc2b",
+      "local_sha256": "9ce782a94406e6a230c49ca5f87e56aff9d436da3f56416b1659421f8976bc2b",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/evals/evals.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/evals/evals.json",
+      "upstream_sha256": "df0ee2a248cd5445c0e1600eb095dc0d43dd312f5b4bb4316a78471ae0d22a74",
+      "local_sha256": "df0ee2a248cd5445c0e1600eb095dc0d43dd312f5b4bb4316a78471ae0d22a74",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/app.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/app.json",
+      "upstream_sha256": "3678ccbe1e8d05feff6d4f07fa16a0d610aefeea5e697e842a876713ba763cf5",
+      "local_sha256": "3678ccbe1e8d05feff6d4f07fa16a0d610aefeea5e697e842a876713ba763cf5",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/directions.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/directions.json",
+      "upstream_sha256": "d71e3824af33a92d9e1ca543e17f80baa5b7a30c815df5125cfe3300a14892c1",
+      "local_sha256": "d71e3824af33a92d9e1ca543e17f80baa5b7a30c815df5125cfe3300a14892c1",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/heroes.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/heroes.json",
+      "upstream_sha256": "98d5e01104412a5fb27936f9c686f3bc0a5f76ce0793186d3de46b982c65b172",
+      "local_sha256": "98d5e01104412a5fb27936f9c686f3bc0a5f76ce0793186d3de46b982c65b172",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/motions.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/motions.json",
+      "upstream_sha256": "51815dd09a823c829897f99ed9ea7dc5c35bd305ac989b8a0632ea6d42a3f08b",
+      "local_sha256": "51815dd09a823c829897f99ed9ea7dc5c35bd305ac989b8a0632ea6d42a3f08b",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/palettes.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/palettes.json",
+      "upstream_sha256": "a14be9f45baba848c53436f4aa44eb4f1925ad3e232c5d1dcddf4f565661a525",
+      "local_sha256": "a14be9f45baba848c53436f4aa44eb4f1925ad3e232c5d1dcddf4f565661a525",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/photos.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/photos.json",
+      "upstream_sha256": "8fc3b76bca90f44675bd99d99bb4ce95b0756c6c5d4141b7e917d11d90e61520",
+      "local_sha256": "8fc3b76bca90f44675bd99d99bb4ce95b0756c6c5d4141b7e917d11d90e61520",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/sections.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/sections.json",
+      "upstream_sha256": "7c2c8a470a22501176948661f803434db8c542a511281752c717252de80c1ad8",
+      "local_sha256": "7c2c8a470a22501176948661f803434db8c542a511281752c717252de80c1ad8",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/sites.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/sites.json",
+      "upstream_sha256": "a2bc4d0cff8ebff481f0dfd4879c106d5e1e16cb3122f9ab3702184a5e1f3502",
+      "local_sha256": "a2bc4d0cff8ebff481f0dfd4879c106d5e1e16cb3122f9ab3702184a5e1f3502",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/library/type.json",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/library/type.json",
+      "upstream_sha256": "dbabf41a468775cf6cc5ea5f3c898b0663293822e167b72b02feba1ef03ebf37",
+      "local_sha256": "dbabf41a468775cf6cc5ea5f3c898b0663293822e167b72b02feba1ef03ebf37",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/app-screens.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/app-screens.md",
+      "upstream_sha256": "55e937ec30de605b53a11310b446f328a3ce7403de24fff008920a00be1a5ed4",
+      "local_sha256": "55e937ec30de605b53a11310b446f328a3ce7403de24fff008920a00be1a5ed4",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/colour.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/colour.md",
+      "upstream_sha256": "6556bcc7eed48b7bc2d0d281c28bf57c1b75e94d7ca0bde49f5d9df8c6a09351",
+      "local_sha256": "6556bcc7eed48b7bc2d0d281c28bf57c1b75e94d7ca0bde49f5d9df8c6a09351",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/copy.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/copy.md",
+      "upstream_sha256": "676edbe75d5f3cfd8a793010ea9f730525ae074b231a674c2426264d3398262e",
+      "local_sha256": "676edbe75d5f3cfd8a793010ea9f730525ae074b231a674c2426264d3398262e",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/critique.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/critique.md",
+      "upstream_sha256": "9c2f4392674530b3f02ac529fba53d82ab37b85f401c4c1989fbe98d6217f0b4",
+      "local_sha256": "9c2f4392674530b3f02ac529fba53d82ab37b85f401c4c1989fbe98d6217f0b4",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/imagery.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/imagery.md",
+      "upstream_sha256": "518def6b2c643b295e13e66b09b66f2e3fc1421d3cf6c7dbb1dc749097ad2ad9",
+      "local_sha256": "518def6b2c643b295e13e66b09b66f2e3fc1421d3cf6c7dbb1dc749097ad2ad9",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/layout.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/layout.md",
+      "upstream_sha256": "40080640719b07737afb94a8868afef87767a1ab4892814d9b6882e2d283453b",
+      "local_sha256": "40080640719b07737afb94a8868afef87767a1ab4892814d9b6882e2d283453b",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/motion.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/motion.md",
+      "upstream_sha256": "79f94d8469898d2bf6186c198ad86ddf691a67c6536eaec36a4ec101285d9a37",
+      "local_sha256": "79f94d8469898d2bf6186c198ad86ddf691a67c6536eaec36a4ec101285d9a37",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/research.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/research.md",
+      "upstream_sha256": "83433646a352cae588591e05bc0a75fe1deadff55ede8851bc8dd5dd483adfc5",
+      "local_sha256": "83433646a352cae588591e05bc0a75fe1deadff55ede8851bc8dd5dd483adfc5",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/scenes.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/scenes.md",
+      "upstream_sha256": "733ac7258a1a28f2f6ae8205bc36ba66c563594ad0a2e2f829c5eaaba3199a61",
+      "local_sha256": "733ac7258a1a28f2f6ae8205bc36ba66c563594ad0a2e2f829c5eaaba3199a61",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/tells.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/tells.md",
+      "upstream_sha256": "8e6de4411c43d3108f832b3f33bb1a2a838148a72b92a176df893b67d99a0da9",
+      "local_sha256": "8e6de4411c43d3108f832b3f33bb1a2a838148a72b92a176df893b67d99a0da9",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/references/type.md",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/references/type.md",
+      "upstream_sha256": "6353ff1d0ce2f9913628c88fbcb7dad3cc3877e61196848bce99e33a17d20611",
+      "local_sha256": "6353ff1d0ce2f9913628c88fbcb7dad3cc3877e61196848bce99e33a17d20611",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/assets.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/assets.mjs",
+      "upstream_sha256": "b4b4b99b5634735f5a0b4213169cda5240ee6bbed8ed8042ad1bcf2b6607c1fa",
+      "local_sha256": "b4b4b99b5634735f5a0b4213169cda5240ee6bbed8ed8042ad1bcf2b6607c1fa",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/draw.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/draw.mjs",
+      "upstream_sha256": "6c2047d207d2400d3b099956dfe2ac306203b614246e66bc8760212a7f797dbf",
+      "local_sha256": "129527158894f12f1d5e0473304a93d52c55160ceed1d142ef39ffc7fb343640",
+      "modified": true
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/inspect.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/inspect.mjs",
+      "upstream_sha256": "c0d7366f789b3f594787b37a525d1d7096104a499aac8a97ae04b405046cf02c",
+      "local_sha256": "c0d7366f789b3f594787b37a525d1d7096104a499aac8a97ae04b405046cf02c",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/lib/app-draw.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/lib/app-draw.mjs",
+      "upstream_sha256": "aa0802d341d19b53ec14ec21746e428be49a8ec3ed7b30253194105fc18a8df6",
+      "local_sha256": "b4a1f73c65c632ed73d4ba95fcf6710760b7b47a4a3ff75d1be583d9163f3fa7",
+      "modified": true
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/lib/cdp.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/lib/cdp.mjs",
+      "upstream_sha256": "320fb75c6454a97b88458e5c33559a1188042aa0041bd5eff53455900236c88a",
+      "local_sha256": "8535b52d492cda66a5be4c5ea29c71039fc5b478de960a6a0c5a90203c7e7f73",
+      "modified": true
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/lib/inspection-files.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/lib/inspection-files.mjs",
+      "upstream_sha256": "5635c0d5fbe0f5bd012e58534bcd554ff7440a4e5c724a61a61c476c7f42e918",
+      "local_sha256": "5635c0d5fbe0f5bd012e58534bcd554ff7440a4e5c724a61a61c476c7f42e918",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/lib/probe.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/lib/probe.mjs",
+      "upstream_sha256": "a5a17df891e438f55f196d8233601c3c79c873755f442c1ac5c3568de4e6bb48",
+      "local_sha256": "89c4c9d8ea753b662df45f62ae1217e0cebb8153e9ab95ec6db0f2f97218596c",
+      "modified": true
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/lib/rules.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/lib/rules.mjs",
+      "upstream_sha256": "8244aa9f53e77a59a562410310414e6b1a0f0cf002ce8f5aa792740b7f0149bf",
+      "local_sha256": "8244aa9f53e77a59a562410310414e6b1a0f0cf002ce8f5aa792740b7f0149bf",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/lint.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/lint.mjs",
+      "upstream_sha256": "05f2fae2f56fc051b539cdbacb43a6f78fbbfb9644bb74aa11be472ff12dcaf5",
+      "local_sha256": "05f2fae2f56fc051b539cdbacb43a6f78fbbfb9644bb74aa11be472ff12dcaf5",
+      "modified": false
+    },
+    {
+      "path": "skills/design-taste-frontend/scripts/scenes.mjs",
+      "repository": "taste-skill",
+      "upstream_path": "skills/taste-skill/scripts/scenes.mjs",
+      "upstream_sha256": "234ec582e2b841457c33033feeeba8535f9ac285495a74d08dc533a1566c90d5",
+      "local_sha256": "234ec582e2b841457c33033feeeba8535f9ac285495a74d08dc533a1566c90d5",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/LICENSE",
+      "repository": "opendesign",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "29ccd701af29fa098651596c7dbd7e2549ba44edff0b2c2382e27f4cab3935d3",
+      "local_sha256": "29ccd701af29fa098651596c7dbd7e2549ba44edff0b2c2382e27f4cab3935d3",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/SKILL.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/opendesign/SKILL.md",
+      "upstream_sha256": "0a23bb5df5247ae55ddcd08ad6ee5a16d8b458c03f5cf6cb9aad58358ad2ac4f",
+      "local_sha256": "500cad9bb95853ba1f76256ce5eb768306f8e387e6072442b239a910d6227403",
+      "modified": true
+    },
+    {
+      "path": "skills/opendesign/UPSTREAM-SKILL.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/opendesign/SKILL.md",
+      "upstream_sha256": "0a23bb5df5247ae55ddcd08ad6ee5a16d8b458c03f5cf6cb9aad58358ad2ac4f",
+      "local_sha256": "0a23bb5df5247ae55ddcd08ad6ee5a16d8b458c03f5cf6cb9aad58358ad2ac4f",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/create-design-system/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/create-design-system/SKILL.md",
+      "upstream_sha256": "2a3507878fd2b78ce713c7bfdae6f275253bd6cffb5ff021ee36c16f4b4b0b7a",
+      "local_sha256": "2a3507878fd2b78ce713c7bfdae6f275253bd6cffb5ff021ee36c16f4b4b0b7a",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/frontend-design/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/frontend-design/SKILL.md",
+      "upstream_sha256": "74e15d6e8f37d617cbe72d63af87d4657f47d79a47f28da05eabfd575ffceeca",
+      "local_sha256": "74e15d6e8f37d617cbe72d63af87d4657f47d79a47f28da05eabfd575ffceeca",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/handoff-to-claude-code/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/handoff-to-claude-code/SKILL.md",
+      "upstream_sha256": "a91550132c0b7b3439a244ab9bd45c72bf8b2753d6eb1d89ad4271b88467d3cf",
+      "local_sha256": "a91550132c0b7b3439a244ab9bd45c72bf8b2753d6eb1d89ad4271b88467d3cf",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/interactive-prototype/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/interactive-prototype/SKILL.md",
+      "upstream_sha256": "cea6ea4ce5689c9038083ea8f21a8a6c07886ddeff68d8f7aae19c30179b54fb",
+      "local_sha256": "cea6ea4ce5689c9038083ea8f21a8a6c07886ddeff68d8f7aae19c30179b54fb",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/make-a-deck/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/make-a-deck/SKILL.md",
+      "upstream_sha256": "d52636e0c98fee6df86f26b348f2ac37701d1004698e457cb2782a0a868b3d6e",
+      "local_sha256": "d52636e0c98fee6df86f26b348f2ac37701d1004698e457cb2782a0a868b3d6e",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/make-tweakable/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/make-tweakable/SKILL.md",
+      "upstream_sha256": "b8dced07b7d52a694259b20379d027572062ca3139066643011c38ea471c1686",
+      "local_sha256": "b8dced07b7d52a694259b20379d027572062ca3139066643011c38ea471c1686",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/run-opendesign/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/run-opendesign/SKILL.md",
+      "upstream_sha256": "fbb0300c2819ac0a69abfb70a8c36fb7f876a8f54ae283b15009bb3278920b60",
+      "local_sha256": "a1c95f638ffd08b12473452dc505dbe314918b2696ad06b4c14cac3f9c8acad4",
+      "modified": true
+    },
+    {
+      "path": "skills/opendesign/references/specialists/run-opendesign/UPSTREAM-SKILL.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/run-opendesign/SKILL.md",
+      "upstream_sha256": "fbb0300c2819ac0a69abfb70a8c36fb7f876a8f54ae283b15009bb3278920b60",
+      "local_sha256": "fbb0300c2819ac0a69abfb70a8c36fb7f876a8f54ae283b15009bb3278920b60",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/setup-opendesign/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/setup-opendesign/SKILL.md",
+      "upstream_sha256": "4d9ad88ed32d27c01b599a854c8927e7e99d5a368efb3ff312bbe166e510923d",
+      "local_sha256": "900c7217660b882d90a63dc78a715a97a76e8ac824b375203a79a7b80b220eb5",
+      "modified": true
+    },
+    {
+      "path": "skills/opendesign/references/specialists/setup-opendesign/UPSTREAM-SKILL.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/setup-opendesign/SKILL.md",
+      "upstream_sha256": "4d9ad88ed32d27c01b599a854c8927e7e99d5a368efb3ff312bbe166e510923d",
+      "local_sha256": "4d9ad88ed32d27c01b599a854c8927e7e99d5a368efb3ff312bbe166e510923d",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/references/specialists/wireframe/GUIDE.md",
+      "repository": "opendesign",
+      "upstream_path": "skills/wireframe/SKILL.md",
+      "upstream_sha256": "c162169cec63310426e95ab2db202a89fd145cdd3ab4970e42e08ff85e87f5f0",
+      "local_sha256": "c162169cec63310426e95ab2db202a89fd145cdd3ab4970e42e08ff85e87f5f0",
+      "modified": false
+    },
+    {
+      "path": "skills/opendesign/viewer.html",
+      "repository": "opendesign",
+      "upstream_path": "skills/opendesign/viewer.html",
+      "upstream_sha256": "997514c7e099015531f64ab7e6fc267eecd8577f1379cfb7d06a386943d5b5f9",
+      "local_sha256": "997514c7e099015531f64ab7e6fc267eecd8577f1379cfb7d06a386943d5b5f9",
+      "modified": false
     }
+  ],
+  "local_files": [
+    "skills/async-state-reliability/SKILL.md",
+    "skills/design-md-chrome/SKILL.md",
+    "skills/design-md-chrome/scripts/extract.mjs",
+    "skills/design-md-chrome/tests/local-extractor.test.mjs"
   ]
 }

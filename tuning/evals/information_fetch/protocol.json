@@ -1,0 +1,53 @@
+{
+  "id": "information_fetch_richness",
+  "version": "0.1.0",
+  "status": "design_and_preflight_only_not_a_sealed_or_dispatched_AB",
+  "decision": "Does the data layer provide a more complete, deeper, timely and consistently usable candidate information set without reduced integrity?",
+  "out_of_scope": ["forecast_accuracy", "priced_in", "valuation", "investment_returns"],
+  "population": {
+    "source": "frozen read-only current research database roster; private refs in preflight record",
+    "registered_securities": 74,
+    "entity_labels": 81,
+    "associations": 713,
+    "verified_original_availability_times": 0,
+    "protected_scopes": "Preserve existing exclusions. Do not read protected report bodies or holdout answers.",
+    "selection_limit": "Current database population, not a reconstructed historical investable universe. Registry gaps retained."
+  },
+  "arms": {
+    "A": "Actually available web-search add-ons: runtime information manifest, static capability defaults, supported cache/retry/fallback and typed ingestion. Unavailable/unused features are separately disclosed.",
+    "B": "Competent normal search and source opening; same eligible historical corpus/backend, model/effort, source access and resources. Common time and safety gates apply."
+  },
+  "reference_standard": {
+    "owner": "mentor-side source-grounded hindsight reference, separate from worker context",
+    "item": ["entity", "information_need", "source_version_ref", "first_verified_available_at", "topic", "epistemic_status", "scope_and_definition", "underlying_lineage", "supported_contribution", "limitations"],
+    "construction": "Systematic dated issuer/technical/legal/customer/contrary source review, including no-change and adverse windows, before comparable worker dispatch. Later outcomes may locate earlier sources but cannot become earlier evidence.",
+    "incompleteness": "Report bounded reference coverage. Adjudicate valid additional discoveries from the union under unchanged rules, with additions logged and arm identity withheld where possible.",
+    "review_limit": "No human calibration or protected blindness claimed by model agreement. Modern weight contamination persists."
+  },
+  "temporal_gates_required_before_dispatch": [
+    "Filter source-version availability before emitting result titles, snippets, counts or body content to the worker.",
+    "Unknown publication/version times cannot satisfy a strict historical evidence requirement.",
+    "Effective date is not publication date. An old heading does not authenticate a newer body.",
+    "Apply the same filter to old context, discovery catalogs, redirects, cached payloads and fallback routes.",
+    "Cache keys bind source version and cutoff; hits preserve dates and require eligible bytes. No cache poisoning across future and past runs.",
+    "Worker accesses only host-approved replay search/open operations; no live web, filesystem, shell or apps. Verify actual tool-event logs.",
+    "Oracle references and future information remain host-only. Capability-restricted replay is not an OS isolation claim.",
+    "Returned observations bind source version, passage, metric scope and knowledge status; unsupported model-memory facts receive no credit."
+  ],
+  "primary_metrics": ["supported_reference_coverage", "relevant_information_breadth", "specific_mechanism_and_constraint_depth", "scoped_customer_economics_and_adoption_depth", "incremental_nonduplicate_candidate_information", "checkpoint_bounded_detection_lag", "continuity_and_revision_capture"],
+  "integrity_metrics": ["source_supported_precision", "future_information_exposure", "false_currentness", "definition_errors", "lineage_inflation", "false_blocking", "explicit_missing_coverage"],
+  "operational_metrics": ["content_usable_fetch_rate", "integrity_valid_cache_reuse", "observed_retry_and_fallback_use", "latency", "calls", "tokens", "cost"],
+  "critical_failures": ["any future/oracle information exposed to worker", "invented source or successful read", "old date attached to unverified newer body", "forecast/ACV/usage mislabeled as recognized revenue", "failed retrieval reported as no change", "required case or question silently deleted"],
+  "pilot_limits": {"max_case_windows": 10, "max_provider_items_per_case_per_arm": 12, "max_question_nodes": 12, "max_expansions": 1, "max_case_seconds": 600},
+  "counting": "Every attempted provider item including failures, retries and alternatives counts. Cache/local calls, model usage and unknown charges are separate. Exact run-level model/call ceilings must be sealed once eligible corpus and executor are known.",
+  "rollout": [
+    "Complete all-entity deterministic inventory/temporal preflight before semantic claims.",
+    "Prepare NOW 24-month monthly/event roster, eligible source versions and source-bound reference items.",
+    "Run at most ten preselected matched windows including NOW and other database securities; source/readiness strata and adverse/no-change controls frozen before outputs.",
+    "Expand to two anchor cutoffs for every current database security in bounded batches; retain unresolved registry labels and all missing/unrun cases.",
+    "Add prospective capture to measure real publication-to-ingest lag."
+  ],
+  "decision_rule": "First require no critical integrity failure. Report paired supported additions/misses and resource differences by ticker/event. Support only the measured scope if richness improves without a material integrity/coverage regression within the frozen budget; otherwise tradeoff or inconclusive. No arbitrary significance or forecast threshold.",
+  "stopping": "Freeze through existing seal/begin/finish before comparable execution. Keep every attempt. New sources/policy/grader require a new version. Stop and diagnose leakage or implementation false blocks; no quality-driven reruns until A wins.",
+  "currently_pending": ["authenticated historical document versions", "host-only source-grounded oracle packets", "historical search/open broker", "sealed run-level budgets and tool/model pins", "actual retrieval AB", "full-population semantic coverage", "production integration acceptance"]
+}

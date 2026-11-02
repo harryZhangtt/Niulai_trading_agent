@@ -1,0 +1,725 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-30T16:28:05.919707+00:00",
+  "stage": "copy_only_candidate",
+  "production_wiring": false,
+  "stable_operator_api": false,
+  "numerical_certification": "unverified",
+  "scheduled_codex_acceptance": "unverified",
+  "files": [
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/ai-berkshire/scripts/valuation_core.py",
+      "copy_path": "legacy/valuation/valuation_core.py",
+      "sha256": "e2341dd6097c23f04b91072f82b2884f3868e178cd336a126d36e71c075ebc2e",
+      "bytes": 7421,
+      "kind": "calculator",
+      "capabilities": [
+        "dcf_present_value",
+        "gross_debt_wacc",
+        "terminal_fcff",
+        "enterprise_to_equity_bridge",
+        "scenario_expected_wealth"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Forecasts analyst-owned; inherited Decimal contexts and probability tolerance unchanged"
+      ],
+      "top_level_definitions": [
+        "d",
+        "pv",
+        "gross_debt_wacc",
+        "terminal_fcff",
+        "equity_value",
+        "expected_wealth",
+        "validate_policy"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/ai-berkshire/scripts/leveraged_funds.py",
+      "copy_path": "legacy/valuation/leveraged_funds.py",
+      "sha256": "692e1ce861fd8266adfff0aaac3c4b7ca9457fd5d326d907b51406f7f34552cf",
+      "bytes": 13951,
+      "kind": "calculator",
+      "capabilities": [
+        "compounding",
+        "drawdown",
+        "reset_leverage",
+        "weighted_quantiles",
+        "tail_mean",
+        "block_resampling",
+        "path_summaries"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Float-based inherited arithmetic; assumed outcome weights are not calibrated probabilities"
+      ],
+      "top_level_definitions": [
+        "_number",
+        "_series",
+        "analyze_returns",
+        "simulate_reset_path",
+        "iid_expected_wealth",
+        "mix_fund_cash",
+        "annual_nav_cost_debits",
+        "_validate_weights",
+        "weighted_quantile",
+        "lower_tail_mean",
+        "summarize_paths",
+        "moving_block_sample",
+        "eligible_start_indices"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/entry_policy_ev.py",
+      "copy_path": "legacy/workflow/entry_policy_ev.py",
+      "sha256": "cf7257637ce347b1c2f16a204a7e1066432a4928030b2cbb387972f70a3c384a",
+      "bytes": 7914,
+      "kind": "calculator",
+      "capabilities": [
+        "scenario_expected_value",
+        "discrete_case_replay",
+        "paired_entry_comparison"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Supplied discrete paths only; not an executable-fill backtest"
+      ],
+      "top_level_definitions": [
+        "finite",
+        "validate",
+        "payoff",
+        "compare",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/options_payoff_checks.py",
+      "copy_path": "legacy/workflow/options_payoff_checks.py",
+      "sha256": "1c85613cbccc2e2816e89c045e1dfc01e0ee56b0b06d7222198ce7b2451fd02c",
+      "bytes": 26083,
+      "kind": "calculator",
+      "capabilities": [
+        "long_call_payoff",
+        "debit_spread_payoff",
+        "fees_and_budget",
+        "contract_identity"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Inherited supported deliverables and fee conventions only"
+      ],
+      "top_level_definitions": [
+        "OptionsCheckError",
+        "fail",
+        "obj",
+        "text",
+        "number",
+        "count",
+        "stamp",
+        "day",
+        "parse_contract_id",
+        "bind_contract_id",
+        "out",
+        "seconds",
+        "quote",
+        "leg",
+        "affordable",
+        "option_case",
+        "share_case",
+        "_calculate",
+        "calculate",
+        "decode_packet",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/options_scenario_checks.py",
+      "copy_path": "legacy/workflow/options_scenario_checks.py",
+      "sha256": "517bc0f8b3b4126f95c88c214e13281f06d74b65bded856ba97ca3ab6a197d53",
+      "bytes": 8782,
+      "kind": "calculator",
+      "capabilities": [
+        "european_bsm",
+        "greeks",
+        "implied_volatility",
+        "scenario_repricing"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "European continuous-yield diagnostics; no American execution fair value or physical probability"
+      ],
+      "top_level_definitions": [
+        "OptionError",
+        "number",
+        "inputs",
+        "cdf",
+        "bounds",
+        "bsm",
+        "implied_vol",
+        "iv_interval",
+        "calculate",
+        "decode_packet",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/options_surface_checks.py",
+      "copy_path": "legacy/workflow/options_surface_checks.py",
+      "sha256": "f9198994489b87a44d5181c54889d2750b27bf3a67900745ccc252b7f1126919",
+      "bytes": 10816,
+      "kind": "calculator",
+      "capabilities": [
+        "total_variance_surface",
+        "smile_interpolation",
+        "sampled_static_checks"
+      ],
+      "dependencies": [
+        "options_scenario_checks",
+        "options_payoff_checks"
+      ],
+      "limitations": [
+        "Common-support interpolation only; no extrapolation or certified arbitrage freedom"
+      ],
+      "top_level_definitions": [
+        "stamp",
+        "num",
+        "line",
+        "surface",
+        "price_checks",
+        "calculate",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/options_american_checks.py",
+      "copy_path": "legacy/workflow/options_american_checks.py",
+      "sha256": "21109103aab9c4fdc94e51f32422f3c1e4e565a052fc6270646628be362e8f7f",
+      "bytes": 12048,
+      "kind": "calculator",
+      "capabilities": [
+        "american_fd_price",
+        "european_fd_price",
+        "grid_convergence"
+      ],
+      "dependencies": [
+        "options_payoff_checks",
+        "optional:QuantLib==1.44"
+      ],
+      "limitations": [
+        "Date-level flat-vol model; lazy dependency; serial adapter or separate workers"
+      ],
+      "top_level_definitions": [
+        "ModelError",
+        "num",
+        "date",
+        "keys",
+        "validate",
+        "_quantlib",
+        "_price",
+        "_checked",
+        "calculate",
+        "decode_packet",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/options_path_checks.py",
+      "copy_path": "legacy/workflow/options_path_checks.py",
+      "sha256": "45fb88837c31ab6ba596653f91c1346875faca26338151e8ae3256120afa5bd6",
+      "bytes": 14520,
+      "kind": "calculator",
+      "capabilities": [
+        "conditional_gbm_paths",
+        "stationary_bootstrap",
+        "expiry_pnl_distribution",
+        "sampled_touch",
+        "wilson_mc_interval"
+      ],
+      "dependencies": [
+        "options_payoff_checks",
+        "optional:numpy==2.3.5",
+        "optional:exchange-calendars==4.11.2",
+        "optional:arch==8.0.0 for bootstrap"
+      ],
+      "limitations": [
+        "Conditional physical assumptions; no calibrated forecast; Monte Carlo interval excludes model uncertainty"
+      ],
+      "top_level_definitions": [
+        "PathError",
+        "shape",
+        "finite",
+        "integer",
+        "decode_packet",
+        "digest",
+        "wilson",
+        "percentiles",
+        "summary",
+        "calculate",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/options_decision_bounds.py",
+      "copy_path": "legacy/workflow/options_decision_bounds.py",
+      "sha256": "242d59d1a8079f418934cdd29a320b65c43791cdbe6a66fb4d45b62e0fa41248",
+      "bytes": 6805,
+      "kind": "calculator",
+      "capabilities": [
+        "expectation_bounds",
+        "scenario_probability_bounds"
+      ],
+      "dependencies": [
+        "options_payoff_checks"
+      ],
+      "limitations": [
+        "Bounds over supplied cases and probability constraints only"
+      ],
+      "top_level_definitions": [
+        "expectation_bounds",
+        "_expectation_bounds",
+        "calculate",
+        "_calculate",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/cycle_checks.py",
+      "copy_path": "legacy/workflow/cycle_checks.py",
+      "sha256": "1b4c93dd9a079c757851bfee48aa59b58be3406fcb24fe032b12c70222c672cb",
+      "bytes": 32226,
+      "kind": "calculator",
+      "capabilities": [
+        "cycle_financial_arithmetic",
+        "period_and_unit_checks"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Versioned explicit packet; inherited conventions unchanged"
+      ],
+      "top_level_definitions": [
+        "CycleCheckError",
+        "_fail",
+        "_obj",
+        "_text",
+        "_identifier",
+        "_list",
+        "_number",
+        "_date",
+        "_time",
+        "_period",
+        "_unit",
+        "_out",
+        "_period_out",
+        "_same_period",
+        "_positive",
+        "_annual",
+        "_ratio",
+        "_Calculator",
+        "canonical_json",
+        "calculate",
+        "_pairs",
+        "decode_packet",
+        "load_packet",
+        "_atomic_output",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/cycle_vintage_checks.py",
+      "copy_path": "legacy/workflow/cycle_vintage_checks.py",
+      "sha256": "a1ef94e6584373af2c26e56605b408f4ee257c5cb431d5aaf65bb6978cfa89d6",
+      "bytes": 8785,
+      "kind": "calculator",
+      "capabilities": [
+        "point_in_time_case_validation",
+        "vintage_replay_checks"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Evidence/vintage consistency checks; not a general market replay engine"
+      ],
+      "top_level_definitions": [
+        "VintageError",
+        "_object",
+        "_text",
+        "_date",
+        "_time",
+        "_utc",
+        "_value",
+        "_identity",
+        "_rows",
+        "_canonical",
+        "decode_packet",
+        "calculate",
+        "_save",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/holdings/analytics.py",
+      "copy_path": "legacy/holdings/analytics.py",
+      "sha256": "02d4fd02b9b144deaa508989d3e5d2aeac17108fc0e25268b491a0e312ce7111",
+      "bytes": 18766,
+      "kind": "calculator_or_support",
+      "capabilities": [
+        "position_aggregations",
+        "exposure_proxies",
+        "concentration",
+        "ratios"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Legacy provenance checks and CLI behavior retained; not a newly certified pure operator"
+      ],
+      "top_level_definitions": [
+        "num",
+        "total",
+        "pct",
+        "ratio",
+        "taxonomy_map",
+        "breakdown",
+        "build",
+        "enrich",
+        "serial",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/holdings/daily_performance.py",
+      "copy_path": "legacy/holdings/daily_performance.py",
+      "sha256": "2d929268a05971a2ba69f04fa0965399b5f05460fa1086ef3ed11ab334587e86",
+      "bytes": 15561,
+      "kind": "calculator_or_support",
+      "capabilities": [
+        "close_to_close_pnl",
+        "quantity_reconciliation",
+        "history_daily_points"
+      ],
+      "dependencies": [
+        "session_date",
+        "exchange-calendars for session-bound paths"
+      ],
+      "limitations": [
+        "Legacy provenance checks and CLI behavior retained; not a newly certified pure operator"
+      ],
+      "top_level_definitions": [
+        "number",
+        "verified_value",
+        "history_daily_points",
+        "enrich_daily",
+        "compute_close_to_close_pnl"
+      ]
+    },
+    {
+      "source_path": "niulai/holdings/daily_return_rate.py",
+      "copy_path": "legacy/holdings/daily_return_rate.py",
+      "sha256": "e21c6ba19dcd3fdc8051d9545bd2906afb57dbfacc482a8c429ed31c47928064",
+      "bytes": 1048,
+      "kind": "calculator_or_support",
+      "capabilities": [
+        "long_stock_gross_capital_return"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Legacy provenance checks and CLI behavior retained; not a newly certified pure operator"
+      ],
+      "top_level_definitions": [
+        "daily_return_rate"
+      ]
+    },
+    {
+      "source_path": "niulai/holdings/position_totals.py",
+      "copy_path": "legacy/holdings/position_totals.py",
+      "sha256": "a72a49209e74ac50d5514520a69428898100c55f7a77637dd17780f914318bd5",
+      "bytes": 2692,
+      "kind": "calculator_or_support",
+      "capabilities": [
+        "position_net_gross_totals",
+        "nav_cash_residual"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Legacy provenance checks and CLI behavior retained; not a newly certified pure operator"
+      ],
+      "top_level_definitions": [
+        "attach_totals"
+      ]
+    },
+    {
+      "source_path": "niulai/holdings/session_date.py",
+      "copy_path": "legacy/holdings/session_date.py",
+      "sha256": "0b7ed3f217c70ca4c1ba1e27b0a6c949fa140459dd7628b3f975b78d7d0a100b",
+      "bytes": 2541,
+      "kind": "calculator_or_support",
+      "capabilities": [
+        "xnys_completed_sessions"
+      ],
+      "dependencies": [
+        "exchange-calendars"
+      ],
+      "limitations": [
+        "Legacy provenance checks and CLI behavior retained; not a newly certified pure operator"
+      ],
+      "top_level_definitions": [
+        "completed_sessions",
+        "latest_completed_session",
+        "select_available_session"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/modeling-upstream/dcf-model/scripts/validate_dcf.py",
+      "copy_path": "legacy/validation/validate_dcf.py",
+      "sha256": "6892a153a0b834f0f31d8676602341a4d721bbb2c294dbed64a03262512e738a",
+      "bytes": 11623,
+      "kind": "validator",
+      "capabilities": [
+        "excel_dcf_checks"
+      ],
+      "dependencies": [
+        "optional:openpyxl; upstream range not locked"
+      ],
+      "limitations": [
+        "Reads spreadsheet formula strings/cached values; not an Excel recalculation engine"
+      ],
+      "top_level_definitions": [
+        "DCFModelValidator",
+        "validate_dcf_model",
+        "main"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/ai-berkshire/scripts/test_valuation_core.py",
+      "copy_path": "legacy/valuation/test_valuation_core.py",
+      "sha256": "25a7e223d553ba2bb7992ae0cb87be8f83220a287c0d4f0d52affcd623826cf4",
+      "bytes": 4579,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "ValuationChecks"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/ai-berkshire/scripts/test_leveraged_funds.py",
+      "copy_path": "legacy/valuation/test_leveraged_funds.py",
+      "sha256": "17e25b3596f78fe9608b9a42a10512eba4214723883f463c22c54924ffe4426b",
+      "bytes": 12818,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "independent_decimal_path",
+        "LinearResetTests",
+        "DistributionTests",
+        "PortfolioAndSamplingTests"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/test_options_payoff_checks.py",
+      "copy_path": "legacy/workflow/test_options_payoff_checks.py",
+      "sha256": "be40e1728b9a9d0d250df8ecd0ea4f41de9e0eb8a21a4a38a00e827bb4e120bc",
+      "bytes": 20166,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "example_packet",
+        "OptionsTests"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/test_options_scenario_checks.py",
+      "copy_path": "legacy/workflow/test_options_scenario_checks.py",
+      "sha256": "97c7617590d1fe2e566d2ee4ef1e4e0c5ce2f71c36824855e64ad7946e4daeb8",
+      "bytes": 7329,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "example_packet",
+        "OptionsTests"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/test_options_surface_checks.py",
+      "copy_path": "legacy/workflow/test_options_surface_checks.py",
+      "sha256": "44ff1f480ffd17b368a50ba22f06a72be0a0d25c33287f7a6be9297a593cbd30",
+      "bytes": 6662,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "fixture",
+        "Tests"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/test_options_american_checks.py",
+      "copy_path": "legacy/workflow/test_options_american_checks.py",
+      "sha256": "8a3b3641b6d41cbce39fbd942afa10baae23b7e7b6da521c41eef2c96969e174",
+      "bytes": 7673,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "fixture",
+        "Validation",
+        "Numerical"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/test_options_path_checks.py",
+      "copy_path": "legacy/workflow/test_options_path_checks.py",
+      "sha256": "902a5607f719ef1b49376482734093dc39172b0b628ebfca26a828ec827e6d1f",
+      "bytes": 6714,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "fixture",
+        "boot",
+        "Paths"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/test_options_decision_bounds.py",
+      "copy_path": "legacy/workflow/test_options_decision_bounds.py",
+      "sha256": "8a9e5dcab5a4f20cbc32f446cd910e1c816f25c1e871931a5088e0a59fbcded0",
+      "bytes": 3427,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "fixture",
+        "BoundsTests"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/test_cycle_checks.py",
+      "copy_path": "legacy/workflow/test_cycle_checks.py",
+      "sha256": "239cb6ae137b773d76e464069f59b273c208276f7e3c805cd40cee3efdd96021",
+      "bytes": 26476,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "example_packet",
+        "CycleChecksTest"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts/test_cycle_vintage_checks.py",
+      "copy_path": "legacy/workflow/test_cycle_vintage_checks.py",
+      "sha256": "39418be4cb4964534c713aad7337ea3390c2d36cdaf24c32605f5f15d6880474",
+      "bytes": 7623,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "example",
+        "VintageTests"
+      ]
+    },
+    {
+      "source_path": "niulai/holdings/test_analytics.py",
+      "copy_path": "legacy/holdings/test_analytics.py",
+      "sha256": "d9edf7e867c5cc991e33b01e0da47db6acab86afc13806bab26f1d8342392988",
+      "bytes": 4594,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "fixture",
+        "AnalyticsTests"
+      ]
+    },
+    {
+      "source_path": "niulai/holdings/test_execution_pnl_independent.py",
+      "copy_path": "legacy/holdings/test_execution_pnl_independent.py",
+      "sha256": "1aab5a22a2c58eebda1e70eaf8128f4a6461ed65ca3c4498ad59901f433a298d",
+      "bytes": 5273,
+      "kind": "inherited_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [],
+      "top_level_definitions": [
+        "fixture",
+        "fill",
+        "oracle",
+        "ExecutionIndependentTests"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/tests/test_entry_policy_ev.py",
+      "copy_path": "legacy/original_tests/test_entry_policy_ev.py",
+      "sha256": "3f898862b6db632c7850dcde13a3072107a5afed65d8c8df2ba359f5cddcbc86",
+      "bytes": 4495,
+      "kind": "reference_test",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": [
+        "Original source-tree-relative import retained; not selected by candidate smoke command"
+      ],
+      "top_level_definitions": [
+        "fixture",
+        "EntryPolicyTests"
+      ]
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/requirements-options-american.txt",
+      "copy_path": "requirements/options-american.txt",
+      "sha256": "55254402a762ebb792af8d0d0d25e13fa1cf38290bab639d9762c68b5a49e22f",
+      "bytes": 171,
+      "kind": "dependency_or_license_reference",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": []
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/niulai-workflow/requirements-options-path.txt",
+      "copy_path": "requirements/options-path.txt",
+      "sha256": "52e0f17b4db57c8fa67d12fdb83a91d8df36b1a502185aaa2948308b10432907",
+      "bytes": 181,
+      "kind": "dependency_or_license_reference",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": []
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/modeling-upstream/dcf-model/requirements.txt",
+      "copy_path": "requirements/upstream-dcf.txt",
+      "sha256": "c007f21b5659d4a29dfde17ad586b31ace9e2c5cdb2aeaa39950a7f7c6a75a8f",
+      "bytes": 115,
+      "kind": "dependency_or_license_reference",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": []
+    },
+    {
+      "source_path": "niulai/skills/investment-research-financial-services/references/modeling-upstream/LICENSE",
+      "copy_path": "legacy/validation/UPSTREAM-LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "kind": "dependency_or_license_reference",
+      "capabilities": [],
+      "dependencies": [],
+      "limitations": []
+    }
+  ],
+  "missing_capabilities": [
+    "calibrated_real_world_probability_surface",
+    "general_historical_execution_replay_engine"
+  ],
+  "copy_policy": "Exact file bytes; original imports, formulas, errors, policies and limitations retained. No private state or fixtures copied."
+}

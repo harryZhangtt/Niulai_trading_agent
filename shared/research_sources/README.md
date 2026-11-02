@@ -1,5 +1,11 @@
 # Research-source acquisition
 
+`store.py` adds observation CRUD and durable requirement due checks. Local
+integrity/revision checks remain separate from investment use policy. See
+[the scoped runtime runbook](../../docs/deployment/investment-research.md).
+The explicit issuer-document allowlist also includes `nvidianews.nvidia.com`
+for the inspected original NVIDIA release.
+
 Fetchers return source facts and immutable receipts. They never select investment
 requirements, mark a thesis complete or modify a financial model. The separate
 [investment adapter](../../investment/research/README.md) owns those decisions.
@@ -139,3 +145,12 @@ reference and uses the absolute binary, so an interactive `fnm` shim is not a hi
 runtime dependency. Configuration refuses to overwrite an existing pointer; review
 and explicitly migrate that pointer when replacing Node. Do not change global PATH,
 shell profiles or the runtime's permission boundaries to make a test pass.
+
+The incremental runtime cache and live capability matrix are documented in
+[the scoped runtime runbook](../../docs/deployment/investment-research.md#current-incremental-candidate-immutable-execution-and-cache-validation).
+`cache.py` reuses Store SQLite; `source_matrix.py`, `cache_matrix.py` and
+`runtime_validation.py` expose bounded validation commands. Captured replay,
+actual acquisition, cache integrity, requirement eligibility and semantic support
+are reported separately. A source hit with inadequate coverage cannot become a
+completed critical input. No new global dependency, active MCP entry or daemon
+is installed by these modules.

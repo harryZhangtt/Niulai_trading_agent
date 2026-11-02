@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "version": "acquisition-contract-1.0.0",
+  "status": "reusable_gate_and_design_only_not_a_dispatched_experiment",
+  "boundary": "Acquisition finds and opens candidate information. Interpretation explains a supplied packet. Interpretation-only results cannot satisfy this acquisition gate.",
+  "sealing": {
+    "entrypoints": "Existing evidence_runtime.contracts.seal/begin and information_fetch.acquisition.finish",
+    "before_dispatch": ["question text/hash", "same dated baseline/hash", "cutoff and exposure policy", "requested model/effort and observable resolved model identity", "same search/open backend", "candidate and baseline config/code fingerprints", "provider-item, search, open, wall-time, token and monetary limits", "resource dimensions explicitly unobservable", "required facets and prior/reference canonical economic units", "critical cases", "cold/warm/fault cohort", "full case roster, metric names and grader source closure"],
+    "worker_excludes": ["gold/reference units", "reviewer decisions", "other arm's output", "future source metadata or body"],
+    "ledger": "Register every attempt before work. Finish once; retain failed and unknown outcomes. No quality-driven reruns or overwritten contracts. Changed source/policy/grader starts a new version."
+  },
+  "frozen_input_fields": ["cohort", "question_sha256", "baseline_sha256", "cutoff", "model_sha256", "backend", "arm_config_sha256", "cache_required_arms", "worker_ids", "facets", "resource_limits"],
+  "resources": {
+    "numeric_limits": "Observed usage must be present and within each numeric cap; unknown cannot satisfy a numeric monetary/token limit.",
+    "unobservable_limit": "Freeze null only for an explicitly unobservable dimension; preserve unknown metrics and make no corresponding efficiency claim.",
+    "counting": "Count each search/open/find item and all failed/retried/fallback items. Cache/local attempts are separate. Batch adapter dispatches are not HTTP request counts."
+  },
+  "required_run_evidence": {
+    "kind": "acquisition_eval_run",
+    "bindings": "execution_id, arm, config_sha256, question_sha256, baseline_sha256, cutoff, model_sha256, backend and cohort",
+    "search_receipt_refs": "Nonempty actual host search traces, with request_ref, raw response_ref, timestamps, execution/backend binding and returned source-version hashes.",
+    "open_receipt_refs": "Nonempty actual open/read traces with raw response bytes and source-version hashes; scored units must originate from an opened source.",
+    "cache_attempt_refs": "Actual Cache attempt refs whenever cache was claimed or required for that arm. Ordinary baseline may declare no cache; absence cannot establish cache benefit.",
+    "exposure_ref": "Host source/version screen before first worker exposure, including result titles/snippets/counts and body; unknown/future versions cannot enter worker context. Source raw/text hashes and max observed/available/modified/updated/version times are rechecked.",
+    "receipt_authentication_limit": "The gate checks retained bytes, links and timing, not signatures. Trusted host capture and the sealed runner must create these receipts. Handwritten booleans or model prose are not execution evidence."
+  },
+  "economic_unit": {
+    "canonical_fields": ["entity", "product", "metric", "period", "cohort", "unit", "currency", "epistemic_status", "value_or_condition"],
+    "required_support": ["exact opened source-version reference and quote", "scope/definition", "original underlying lineage", "reviewed canonical economic key", "facet mapping", "first verified availability and provenance when known"],
+    "deduplication": "Canonicalize equivalent meanings before hashing. Rewording, sentence splitting, syndication, IR/newsroom mirrors and repeated citations do not create new units. Keep source versions and independent corroborating lineages separately; a revision is not automatically a new economic mechanism.",
+    "economic_links": ["counted/used units", "purchased units and entitlements", "net incremental customer spend", "recognized revenue", "incremental cost/profit"],
+    "scope": "A meter/launch/target is not paid adoption, actual recognized revenue or profit. Explicit gaps remain gaps. Source counts and supported-claim counts are not economic-unit breadth."
+  },
+  "pooled_review": {
+    "owner": "Independent host-side reviewer after both immutable outputs exist",
+    "packet": "Pool A union B candidates under neutral IDs, remove arm labels, prompts, process diagnostics and identifying file paths; provide exact sources and unchanged rubric. Host retains mapping and run refs separately.",
+    "labels": ["judged or unjudged", "supported or unsupported", "canonical economic key", "original lineage", "facets", "verified availability/provenance"],
+    "incomplete_reference": "Reference coverage is bounded. Valid additions outside the frozen reference can count after the same blind review; log additions without changing old gold or rubric.",
+    "unknowns": "All pooled candidates must be accounted for. Unjudged items in either arm block an improvement claim for both. Invalid/future evidence blocks grading rather than becoming novel information.",
+    "blindness_limit": "Packet separation and a distinct reviewer identity are not OS isolation or human-calibrated ground truth; disclose residual same-family and shared-filesystem risks."
+  },
+  "metrics": ["supported_unit_precision with judged denominator", "unique supported new canonical units versus prior baseline", "bounded reference coverage", "facet coverage", "redundancy", "unjudged and pooled-unjudged counts", "original-lineage count", "event/period coverage", "verified detection lag or unknown", "calls, latency, tokens and cost with unknowns"],
+  "forbidden_shortcuts": ["0-to-2 novelty correctness rubric used as acquisition quantity", "supported sentence count used as unique economic information", "retrieval timestamp used as original publication time", "old publication date used to authenticate a newer body", "unjudged/future units counted as improvement", "same pinned packet with zero acquisitions passed as acquisition A/B"],
+  "cohorts": {
+    "cold": "No prior cache preload. Primary information richness and coverage comparison.",
+    "warm_cache": "Separate repeated-query efficiency comparison; retained source dates cannot become newer.",
+    "fault": "Separate controlled retry/fallback test; injected failure is not a natural outage or freshness gain."
+  },
+  "decision": "First require valid controls, actual acquisition traces, complete eligible pooled review and no critical error. Report A-minus-B unique-new/reference/facet/precision/time/resource differences without a weighted ceiling score. Accept only the observed scoped advantage with no material integrity or coverage regression; ties, tradeoffs and inconclusive results are valid. One NOW workload is not population superiority, significance, calibrated label accuracy or investment alpha."
+}

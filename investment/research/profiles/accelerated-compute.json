@@ -1,10 +1,10 @@
 {
   "id": "accelerated-compute",
-  "version": "1",
+  "version": "2",
   "requirements": [
     {"family":"issuer_technical","question":"Which documented architecture/software capabilities and constraints support this claim?","minimum_access":"document","allowed_hosts":["docs.nvidia.com","developer.nvidia.com"],"issuer_override":"NVDA"},
     {"family":"technical_research","question":"What methods/results and workload assumptions support or challenge the mechanism?","minimum_access":"document","allowed_hosts":["arxiv.org"]},
     {"family":"comparative_technical","question":"What competitor/customer or comparable benchmark evidence challenges the issuer's account?","minimum_access":"document","allowed_hosts":["rocm.docs.amd.com","docs.cloud.google.com","mlcommons.org"]},
-    {"family":"business_realization","question":"How does the technical effect reach paid demand, price, owner cash or per-share value?","minimum_access":"document","allowed_hosts":["www.sec.gov","sec.gov","investor.nvidia.com"]}
+    {"family":"business_realization","question":"How does the technical effect reach paid demand, price, owner cash or per-share value?","minimum_access":"document","allowed_hosts":["www.sec.gov","sec.gov","investor.nvidia.com","nvidianews.nvidia.com"]}
   ]
 }

@@ -2,19 +2,174 @@
 
 Use with [local setup](../local-setup.md). `ui/` is a separate capability category
 parallel to `mentor/`. Read [ui/AGENTS.md](../../ui/AGENTS.md) and its selective
-[router](../../ui/ROUTING.md). Six pinned imported skill packages and one local
-async-state skill are repository-local. Pins/licenses/adaptations are in
+[router](../../ui/ROUTING.md). Twenty-two catalogued entrypoints are
+repository-local: twenty imported/adapted entrypoints and two local
+procedures/adapters. Pins/licenses/adaptations are in
 `ui/upstream/`. The React/TypeScript verification fixture is synthetic; it is
 not a production investment UI or application deployment.
 
 ## Startup, discovery and visible status
 
+### User-scoped Harry UI wrapper
+
+User authorization on 2026-11-02 permits the self-contained skill payload at
+`~/.agents/skills/harry-ui-skill-set` for this account's repositories. Source,
+packaging and tests remain in `ui/portable/`. Only its root `SKILL.md` is
+discoverable; all 22 experts are internal `GUIDE.md` resources. This is an owned
+copy, not a symlink to this checkout. The
+[official skills documentation](https://learn.chatgpt.com/docs/build-skills)
+describes this user-scope discovery location and explicit `$skill` invocation.
+
+Invoke `$harry-ui-skill-set` once per conversation. Activation now writes a private,
+atomic native-thread receipt under the target's
+`.ui-skill-runtime/harry-ui-sessions/`, keyed by hashed `CODEX_THREAD_ID` and bound
+to the target and bundle fingerprint. It stores no prompts, credentials or raw
+account data; its own ignore file excludes runtime state from Git. The native ID
+is observed in this Codex runtime, not a documented cross-version promise. If it
+is unavailable, scope or integrity is unknown, activation fails visibly.
+
+`agents/openai.yaml` now permits implicit selection on UI requests. This lets
+Codex rediscover the wrapper after history compaction; it does not automatically
+opt in a fresh thread. Enabled/uncertain UI routing calls `session.py restore`
+before the resolver and actual guide reads. Fresh threads remain inactive until
+explicit activation. Disable writes a tombstone; known-disabled work can stay
+quiet without helper calls, and compaction/upgrades never silently re-enable it.
+Same-thread resume restores the receipt; `CODEX_SESSION_ID` is not used because
+different forked threads may share it. No global enable flag or hook is added.
+
+The prior two-turn/context-only check did not establish durable persistence.
+Actual runtime baseline lost bundle use after compaction and restart/resume.
+The patched manual sequence recovered all enabled UI turns but scored 9/10 under
+its original strict rule requiring even disabled work to call the helper. That
+failure remains preserved. A prospective v3 aligns known-off behavior with the
+user goal and retains every active/scope/privacy gate. See
+[runtime persistence verification](../../ui/portable/runtime_verification/report.md)
+for real tool traces and the passing fresh scheduled v3 sequence:10/10 task
+turns,2 native compactions,new-PID resume,disabled/fresh-thread isolation and
+independently verified cleanup. The configured-owner summary has exact recipient/subject/HTML raw readback;
+remaining limits are recorded separately. Automatic
+host-hook execution is a separate unverified claim.
+
+The intent-card comparison ran before publication: final v2 matched the full
+router on 12/12 fresh cases with zero extra guides, halving policy-token proxy
+size while reducing reported input-plus-output by 2.13%. The failed v1 and all
+four calls are preserved. See [the intent report](../../tuning/evals/ui-intent-lightweight/report.md)
+and [session/global verification](../../ui/tests/harry-ui-session-report.md).
+These are small classification screens, not universal accuracy or billing claims.
+
+From the workspace root, build a new named candidate (existing destinations are
+never overwritten), verify it, and exercise the portable tests:
+
+Commit the maintained `ui/portable/` templates, scripts and tests. Generated
+distribution copies in `ui/portable/candidate/`, `ui/portable/ui-skill-router/`
+and `ui/runtime/` are ignored local artifacts; recreate them with the builder
+instead of committing duplicate expert payloads.
+
+```sh
+python3 -B ui/portable/package.py --name harry-ui-skill-set \
+  --output ui/runtime/<new-build>/harry-ui-skill-set
+python3 -B ui/portable/verify.py ui/runtime/<new-build>/harry-ui-skill-set
+UI_SKILL_BUNDLE="$PWD/ui/runtime/<new-build>/harry-ui-skill-set" \
+UI_SKILL_TEST_RUNTIME="$PWD/ui/runtime/<new-tests>" \
+  python3 -B -m unittest discover -s ui/portable/tests -p 'test_*.py' -v
+```
+
+Publication is a separate explicitly authorized operation; staging must exist,
+be outside the discovery root and be on the same filesystem:
+
+```sh
+mkdir -p ui/runtime/<install-staging>
+python3 -B ui/portable/manage.py install \
+  --bundle "$PWD/ui/runtime/<new-build>/harry-ui-skill-set" \
+  --skills-root "$HOME/.agents/skills" \
+  --stage-parent "$PWD/ui/runtime/<install-staging>" \
+  --allowed-root "$PWD" --allow-user-scope
+```
+
+The manager derives the validated package identity and publishes exclusively;
+an existing target is preserved. Save its installation ID and manifest hash in
+ignored machine receipts. Rollback removes only the unchanged payload with the
+matching receipt:
+
+```sh
+python3 -B ui/portable/manage.py rollback --name harry-ui-skill-set \
+  --skills-root "$HOME/.agents/skills" \
+  --stage-parent "$PWD/ui/runtime/<install-staging>" \
+  --allowed-root "$PWD" --allow-user-scope \
+  --installation-id <ID-from-owned-install-receipt>
+```
+
+Changed/added files or a mismatched owner block removal; reconcile rather than
+deleting user data. No global Codex settings, profiles, MCP, browsers, tools or
+dependencies are installed. Target repositories own their runtime state and
+toolchains. Standalone installed commands work from any working directory:
+
+```sh
+python3 -B "$HOME/.agents/skills/harry-ui-skill-set/scripts/activate.py" --project "$PWD"
+python3 -B "$HOME/.agents/skills/harry-ui-skill-set/scripts/session.py" restore --project "$PWD"
+python3 -B "$HOME/.agents/skills/harry-ui-skill-set/scripts/resolve.py" --decision async-state
+```
+
+To disable the current native thread, run `scripts/session.py disable --project
+<target>` or ask Codex to disable the mode. Explicit re-enable uses `activate.py`.
+Unknown/corrupt/foreign state is preserved, not overwritten. On a validated bundle
+update, enabled state refreshes its fingerprint; disabled tombstones remain off.
+The runtime directory is target-owned; installed resources remain immutable.
+
+For an existing owned installation use `manage.py upgrade` with the current
+`--installation-id` and a validated candidate. It atomically exchanges directories
+and retains the exact previous payload/receipt at the reported workspace rollback
+path. `restore-upgrade` requires both matching IDs and that retained path. Changed
+or uncertain payloads are held for reconciliation; no gap or unowned overwrite
+is accepted. Source tests cover interrupted/post-validation failure paths.
+
+Runtime tests use real `codex app-server` threads, native tool events, actual
+`thread/compact/start`, process restart/resume and independent artifacts/receipt
+readback. They use nested Git roots with `project_doc_max_bytes=0` to exclude this
+workspace's reinforcing instructions; no routing reminders are supplied on later
+UI prompts. All model/auth/cache/log paths are local and the shared auth cache is
+serialized without copying it. Use the existing job-runtime Python environment:
+
+```sh
+.job-runtime/.venv/bin/python -B -m unittest \
+  ui.portable.runtime_verification.test_run \
+  ui.portable.runtime_verification.test_scheduled -v
+.job-runtime/.venv/bin/python -B -m ui.portable.runtime_verification.run \
+  --record <new-record> --stage candidate --protocol candidate-v3
+```
+
+Future acceptance uses an isolated `once` Engine, unique GUI launchd label and a
+workspace-private plist. Run local checks and the setup sync gate before staging:
+
+```sh
+.job-runtime/.venv/bin/python -B -m ui.portable.runtime_verification.scheduled \
+  stage --name <unique-name> --delay-seconds 90
+```
+
+Bootstrap only the returned plist into `gui/$UID`. `RunAtLoad` is false; the
+future scheduler tick claims the durable once slot and launches the actual
+Codex sequence. It yields to actual active primary claims and imminent daily/once business work;
+interval cadence alone does not permanently starve it. The shared auth cache
+remains exclusively locked without copying credentials. It never retries unknown outcomes,
+independently replays raw tool/state evidence and self-unloads its own label after
+completion. Use its `status --record <record>` command for readback; manual cleanup
+may `bootout` only that unique returned label. Primary scheduler allocations,
+labels, database and global filesystem links remain untouched. Notifications
+follow the configured-owner acceptance contract; an email is not runtime proof.
+
+Fresh catalog discovery was observed from two independent Git roots and this
+checkout. A two-turn client preserved activation and correctly excluded UI from
+backend work without reinvocation. Native/browser helpers remain prerequisite-
+gated; these checks do not prove execution in every repository or an OS sandbox.
+
+### Repository startup definition
+
 The project-local `.codex/hooks.json` has a separate synchronous UI SessionStart
 entry alongside the unchanged mentor entry. It calls
 `python3 -B "$(git rev-parse --show-toplevel)/ui/session_init.py"` for startup,
 resume, clear, compact and fork, with a three-second timeout and a 2,000-token
-additional-context threshold. The standard-library loader validates seven
-canonical skill entrypoints and their relative `.agents/skills/` discovery links,
+additional-context threshold. The standard-library loader validates all
+entrypoints in `ui/catalog.json` and their relative `.agents/skills/` discovery links,
 then supplies only `ui/AGENTS.md` and `ui/ROUTING.md`. It does not preload full
 skill bodies, install tools, browse, inspect credentials or start a monitor.
 
@@ -58,6 +213,77 @@ are pending and belong to the coordinating parent task. Direct/unit/catalog
 checks do not satisfy that gate. See the [startup report](../../ui/tests/session-init-report.md).
 
 ## Versions and installation
+
+### Expanded catalog, 2026-11-02
+
+The [expansion report](../../ui/tests/expansion-report.md) maps each requested name
+to its primary source and independent checks. The checked-in package copies,
+licenses and `sources.lock.json` are the installation; no skill installer or
+network download is needed after cloning. The fifteen added entrypoints comprise
+Hallmark, portable OpenDesign, Taste, eight official GSAP skills, Pencil Playbook,
+Landing Page Generator, Cinematic UI and a local Design MD Chrome adapter. The
+existing UI/UX Pro Max copy remains pinned and was verified without replacement.
+
+`ui/catalog.json` is the canonical selection/discovery inventory. The synchronous
+loader validates its names, all 22 canonical sources and discovery links. It
+still injects only the compact policy/router. An isolated fresh Codex catalog
+check found all 22 in three working directories; the hook remains **untrusted**,
+so actual automatic initialization and future-scheduled acceptance are
+**unverified**. Do not mistake a direct `UI_INIT_OK` test for a current host event.
+
+The public plan resolver takes explicit decisions interpreted by the agent:
+
+```sh
+python3 -B ui/route.py --decision landing-page --decision cinematic \
+  --decision gsap-react --decision gsap-scrolltrigger --decision browser
+python3 -B ui/route.py --skill taste
+python3 -B ui/route.py --decision pencil-design --guidance-only
+```
+
+It emits `UI_ROUTE_OK`, `UI_ROUTE_BLOCKED` or `UI_ROUTE_FAILED`. Multiple flags
+compose compatible procedures; a second visual authority fails visibly. Tool
+availability is explicitly caller-declared, not tested by the resolver. Pencil
+guidance can be read, but actual editing requires Pencil editor/MCP operations
+and independent screenshot verification. No Pencil app/server or Chrome
+extension was activated. OpenDesign is the portable `manalkaff/opendesign`
+suite, not a similarly named desktop/daemon product. Local DESIGN.md extraction
+uses the existing pinned Playwright and quarantines generated skill text as data.
+
+Keep Hallmark/Taste history, temporary profiles, generated sites, extracted tokens
+and screenshots under `ui/runtime/`. The adapted skills document their safe
+commands. Hallmark static procedures work without Puppeteer; native rendered
+lint remains gated by absent local Puppeteer, with the existing Playwright route
+available for independent UI checks. Optional image/video/research APIs were not
+provisioned. No authentication was needed for public-source/local-fixture checks.
+
+GSAP packages are application dependencies, not installed production services.
+Independent tests used an ignored isolated fixture with GSAP **3.15.0**,
+`@gsap/react` **2.1.2**, React/DOM **19.2.0**, Vue **3.5.44**, and the existing
+verification esbuild/Playwright. A target app must declare the packages it uses.
+Do not depend on the test fixture's node_modules in production. Canonical UI
+verification dependency pins below are unchanged.
+
+Core source and routing checks are reproducible after the normal setup:
+
+```sh
+python3 -B -m unittest discover -s ui/tests -p 'test_*.py' -v
+python3 -B ui/tests/verify_bundle.py
+node --test ui/tests/taste_mobile_overflow.cjs
+node ui/tests/page_skill_browser.mjs
+node --test ui/skills/design-md-chrome/tests/local-extractor.test.mjs
+PYTHONPATH="$PWD" python3 -B ui/tests/verify_session_discovery.py --record <new-run-name>
+```
+
+Generated independent-model artifacts and their raw browser receipts are ignored,
+not portable source dependencies. Re-running the frozen route screen requires
+fresh worker output under `ui/runtime/expansion-20261102/router-screen/`; the
+protocol and original source-size measurements are in the expansion report.
+`ui/tests/summarize_expansion.py` supports the existing optional tokenizer
+environment from the tuning runbook. These are instruction-token proxies, not
+actual billed usage or quality/ROI superiority. For a fresh generated combined
+example, run `ui/tests/verify_expansion_behavior.mjs --site <built-fixture> --output
+<new-evidence-directory>` with workspace-local paths. All browser/server resources
+must close. Missing live tools block only their corresponding operational claim.
 
 Use explicitly provisioned Node **>=22.12**, npm and Python **>=3.9**. The tested
 macOS arm64 host used Node **22.23.1**, npm **10.9.8** and Python **3.9.6**. This

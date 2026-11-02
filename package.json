@@ -1,0 +1,12 @@
+{
+  "name": "trading-agent-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.18.3",
+  "engines": {"node": ">=22.12"},
+  "scripts": {
+    "dev": "node ui/datasource/dev.mjs",
+    "dev:status": "node ui/datasource/dev.mjs --status",
+    "build": "pnpm --dir ui/datasource build",
+    "test:datasource": "node --test ui/datasource/tests/server.test.mjs"
+  }
+}

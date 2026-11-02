@@ -1,0 +1,370 @@
+{
+  "schema_version": 1,
+  "repositories": {
+    "gsap-skills": {
+      "url": "https://github.com/greensock/gsap-skills",
+      "commit": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "license": "MIT"
+    },
+    "pencilplaybook": {
+      "url": "https://github.com/stevembarclay/pencilplaybook",
+      "commit": "b7324295d73d67ea0a672cf16832880c111df0ed",
+      "license": "MIT"
+    },
+    "design-md-chrome": {
+      "url": "https://github.com/bergside/design-md-chrome",
+      "commit": "8e07614fb18752ab1ee14dd65a8ff93e63c9b13b",
+      "license": "MIT"
+    }
+  },
+  "files": [
+    {
+      "path": "skills/design-md-chrome/LICENSE",
+      "repository": "design-md-chrome",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "56e2dc0100744b958d87e5fc790f4e5ed2b5f483d6f2cbade4b6f7a0f5a03862",
+      "local_sha256": "56e2dc0100744b958d87e5fc790f4e5ed2b5f483d6f2cbade4b6f7a0f5a03862",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/content-script.js",
+      "repository": "design-md-chrome",
+      "upstream_path": "content-script.js",
+      "upstream_sha256": "09624d1b6577fb3d2fe1a41f7733ecf378e16c27677f9cc7b20633267af7b570",
+      "local_sha256": "09624d1b6577fb3d2fe1a41f7733ecf378e16c27677f9cc7b20633267af7b570",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/lib/generate-design-md.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "lib/generate-design-md.mjs",
+      "upstream_sha256": "618db7aa9ab4bb4fb226f6c8bcdc3c3cf64933d000caf125f59207cf806146c4",
+      "local_sha256": "618db7aa9ab4bb4fb226f6c8bcdc3c3cf64933d000caf125f59207cf806146c4",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/lib/generate-skill-md.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "lib/generate-skill-md.mjs",
+      "upstream_sha256": "3028c5bfec4dd65dcc9220ad49cade78b73652b926350e48a67abf3171134e19",
+      "local_sha256": "3028c5bfec4dd65dcc9220ad49cade78b73652b926350e48a67abf3171134e19",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/lib/normalize.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "lib/normalize.mjs",
+      "upstream_sha256": "692f059e8b15987f4419d495b48043e49633907772411691b5946f7f5f2802ec",
+      "local_sha256": "692f059e8b15987f4419d495b48043e49633907772411691b5946f7f5f2802ec",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/lib/validate.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "lib/validate.mjs",
+      "upstream_sha256": "60f12f31b713c940384f229226bbfecf4c5d20c69c3aa296e588f106a300017f",
+      "local_sha256": "60f12f31b713c940384f229226bbfecf4c5d20c69c3aa296e588f106a300017f",
+      "modified": false
+    },
+    {
+      "path": "skills/design-md-chrome/tests/run-tests.mjs",
+      "repository": "design-md-chrome",
+      "upstream_path": "tests/run-tests.mjs",
+      "upstream_sha256": "dd45c18a79242a82dc107e4f7961801b53034dc2c2f1caf2a7846bcbef7dde4a",
+      "local_sha256": "dd45c18a79242a82dc107e4f7961801b53034dc2c2f1caf2a7846bcbef7dde4a",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-core/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-core/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-core/SKILL.md",
+      "upstream_sha256": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3",
+      "local_sha256": "eff24249c70892a22bc38209ee8d709823578784defcfa791c3f3dab1f626461",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-frameworks/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-frameworks/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-frameworks/SKILL.md",
+      "upstream_sha256": "842d9d3659ec3ddc8abbdc524708f8facf81f468ac25d0577f48c759c4fa31e6",
+      "local_sha256": "1f009610e3ce63fe968aafb5aa5d7b779d630e6ff1b888dbcc09178cf8eae6c2",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-performance/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-performance/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-performance/SKILL.md",
+      "upstream_sha256": "cb5408d6fba707aabcbfe3320317a14c1f8fca6070074e5261047930f50d441e",
+      "local_sha256": "9660eaf731e84a0e402db18abb64e31b091dd8bc6252654561021d530f1d8692",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-plugins/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-plugins/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-plugins/SKILL.md",
+      "upstream_sha256": "5838b856c74c07fbc9fa99b6dfd1eee34ea554c3e530c30e0d58014b707d70a4",
+      "local_sha256": "1a0cdf85045bffafa2619b878e465e92c6fe3145ec76b6ed188b6e3e6bad9908",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-react/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-react/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-react/SKILL.md",
+      "upstream_sha256": "88e2a5312b45e8cc7b3c496637ff5bc9af2ae9c925b555c8b235b34cbc989d74",
+      "local_sha256": "58e84be71e3fa5dd04dc796db4868a1acf0070b314e9b5b2899b9ee7fe1d3149",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-scrolltrigger/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-scrolltrigger/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-scrolltrigger/SKILL.md",
+      "upstream_sha256": "9351b6666a4749c0740406ea363aaccb99a087ff45cc5e8b99a0f367facf3ef4",
+      "local_sha256": "9f487827f65fee157009b0aba16e78860485db4b3fbf04c815b3e025c3451f75",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-timeline/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-timeline/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-timeline/SKILL.md",
+      "upstream_sha256": "1a8b0f39cc4be3ed3d834b89672e4ae2f151b901dc3450bebf10bbc45379fe02",
+      "local_sha256": "65c05e49eec88481b769e054f7bb2ce0dbbd298e1f4dde4d93277b690a8419a4",
+      "modified": true
+    },
+    {
+      "path": "skills/gsap-utils/LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    },
+    {
+      "path": "skills/gsap-utils/SKILL.md",
+      "repository": "gsap-skills",
+      "upstream_path": "skills/gsap-utils/SKILL.md",
+      "upstream_sha256": "1927bcc4ea95b38203404ad5ea1d060b15c4a886c65ae53e885ff1793aabe0ba",
+      "local_sha256": "f63116b9a7669b404cf2e1fd1b350a71f85f9d45c8cb204f3ae010160e17d6bd",
+      "modified": true
+    },
+    {
+      "path": "skills/pencilplaybook/LICENSE",
+      "repository": "pencilplaybook",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "bd6cd2f5696038398954a040c20912509f13a0751629fab3682b96b639db7187",
+      "local_sha256": "bd6cd2f5696038398954a040c20912509f13a0751629fab3682b96b639db7187",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/SKILL.md",
+      "repository": "pencilplaybook",
+      "upstream_path": "SKILL.md",
+      "upstream_sha256": "880345da12e31cedfa19660395733e2ae7e7a49b2e359adde67bbf3bd22cfd34",
+      "local_sha256": "b987a6753cf797829ac411e1233125aec058a7f021b2d2c02776f7d0fed3991e",
+      "modified": true
+    },
+    {
+      "path": "skills/pencilplaybook/onboarding.md",
+      "repository": "pencilplaybook",
+      "upstream_path": "onboarding.md",
+      "upstream_sha256": "434d73136918b96dcf4fed610332f7c896366c8fbc7ed9016ce797ccefc72437",
+      "local_sha256": "761bae976e053606ac2364012a4281bc564b19baa2dc3564a00a487ac1bb9087",
+      "modified": true
+    },
+    {
+      "path": "skills/pencilplaybook/presets/bloom.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/bloom.json",
+      "upstream_sha256": "0b7bc8161444e61b55edbfef113dec5890fa6aa2bb652aabf2c18dad78470303",
+      "local_sha256": "0b7bc8161444e61b55edbfef113dec5890fa6aa2bb652aabf2c18dad78470303",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/ember.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/ember.json",
+      "upstream_sha256": "a0ddcaa604d8ee2770921c59848868a77c2c43328737c71eb4618ead0b85b630",
+      "local_sha256": "a0ddcaa604d8ee2770921c59848868a77c2c43328737c71eb4618ead0b85b630",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/grove.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/grove.json",
+      "upstream_sha256": "120873af8ff3574741615309653da2c4f86d8873fc24e20e29817330b7d52bbc",
+      "local_sha256": "120873af8ff3574741615309653da2c4f86d8873fc24e20e29817330b7d52bbc",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/material.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/material.json",
+      "upstream_sha256": "52e6660862791ab4a20938e924a09fa62b16b934270ecd13c4c72f81452d6e2e",
+      "local_sha256": "52e6660862791ab4a20938e924a09fa62b16b934270ecd13c4c72f81452d6e2e",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/midnight.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/midnight.json",
+      "upstream_sha256": "8dc7e9e23359d636d76711d82bc3ff489e137129643d93db8104ef8d80827552",
+      "local_sha256": "8dc7e9e23359d636d76711d82bc3ff489e137129643d93db8104ef8d80827552",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/minimal.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/minimal.json",
+      "upstream_sha256": "b3211612051dfe02f0d32488966b0d4d944143da16deec8aaeff76fc478c12d7",
+      "local_sha256": "b3211612051dfe02f0d32488966b0d4d944143da16deec8aaeff76fc478c12d7",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/presets/volt.json",
+      "repository": "pencilplaybook",
+      "upstream_path": "presets/volt.json",
+      "upstream_sha256": "648246a84da15fc5df26af77be9dcc58a5e51355d21a3f8a7bca0a99747f2b2b",
+      "local_sha256": "648246a84da15fc5df26af77be9dcc58a5e51355d21a3f8a7bca0a99747f2b2b",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/references/tool-reference.md",
+      "repository": "pencilplaybook",
+      "upstream_path": "references/tool-reference.md",
+      "upstream_sha256": "50070a7e790a4d5d0af3885d6a859ccaef64d825290c4cbed1af0f2ab6bd079c",
+      "local_sha256": "50070a7e790a4d5d0af3885d6a859ccaef64d825290c4cbed1af0f2ab6bd079c",
+      "modified": false
+    },
+    {
+      "path": "skills/pencilplaybook/setup.md",
+      "repository": "pencilplaybook",
+      "upstream_path": "setup.md",
+      "upstream_sha256": "d3bb95e7ab633b2930c3566c7790b5867150f43031ab93d80c54668645a1b4c9",
+      "local_sha256": "3b73a84b3b2ec6e7992a4a7ccf4836a7649f36c599ec57006435fe762b2392d1",
+      "modified": true
+    },
+    {
+      "path": "upstream/licenses/design-md-chrome.LICENSE",
+      "repository": "design-md-chrome",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "56e2dc0100744b958d87e5fc790f4e5ed2b5f483d6f2cbade4b6f7a0f5a03862",
+      "local_sha256": "56e2dc0100744b958d87e5fc790f4e5ed2b5f483d6f2cbade4b6f7a0f5a03862",
+      "modified": false
+    },
+    {
+      "path": "upstream/licenses/gsap-skills.LICENSE",
+      "repository": "gsap-skills",
+      "upstream_path": "LICENSE",
+      "upstream_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "local_sha256": "51b04b06556662dd817e8f4aa6d06bc7139dc73739e1319a7233cfde3e147b90",
+      "modified": false
+    }
+  ],
+  "local_files": [
+    "skills/design-md-chrome/SKILL.md",
+    "skills/design-md-chrome/scripts/extract.mjs",
+    "skills/design-md-chrome/tests/local-extractor.test.mjs"
+  ],
+  "adaptations": {
+    "gsap-skills": "Added workspace scope/dependency/cleanup note to each official skill; copied MIT license into each isolated skill folder. Bodies otherwise retained.",
+    "pencilplaybook": "Selected root SKILL, references, presets, LICENSE only; omitted nested .claude skill pack, binary media, Python caches and repo admin docs. Moved unsupported version field to metadata; changed hardcoded .claude paths; added workspace/tool-availability caveat and replaced setup/onboarding with local configuration workflow so installed skill is not edited or globals changed. Upstream numerical defaults treated as guidance, not independently established science/compliance.",
+    "design-md-chrome": "Upstream contains a Chrome extension rather than a source SKILL.md. Added clearly local wrapper and CLI using pinned content-script+normalize/generate/validate modules. Real DOM is evaluated in local Playwright with only Chrome message registration shimmed; no extension installation. Raw page prose, query/hash, input values are not persisted. Generated SKILL remains untrusted/quarantined data."
+  },
+  "smoke_evidence": {
+    "gsap": "runtime/expansion-20261102/motion-tools/gsap-fixture/results.json",
+    "pencil": "runtime/expansion-20261102/motion-tools/pencil-smoke.json",
+    "design-md-chrome": {
+      "upstream_test_command": "node ui/skills/design-md-chrome/tests/run-tests.mjs",
+      "local_test_command": "node --test ui/skills/design-md-chrome/tests/local-extractor.test.mjs",
+      "local_cases_passed": 3
+    },
+    "skill_creator_validator": "runtime/expansion-20261102/motion-tools/skill-validation-with-local-yaml.json"
+  },
+  "availability": {
+    "pencilplaybook": {
+      "required_tool_group": "pencil",
+      "minimum_tools": [
+        "get_editor_state",
+        "batch_design",
+        "snapshot_layout",
+        "get_screenshot",
+        "get_variables",
+        "set_variables"
+      ],
+      "tool_catalog_matches": [],
+      "live_canvas": "unverified",
+      "auth_or_setup_url": "https://www.pencil.dev/"
+    },
+    "design-md-chrome": {
+      "local_extractor": "tested via existing local Playwright",
+      "personal_chrome_extension": "not installed or activated",
+      "extension_url": "https://chromewebstore.google.com/detail/designmd-style-extractor/ogpdnchdjiibhobphelbbkemnnemkfma"
+    },
+    "gsap": {
+      "isolated_dependencies": {
+        "gsap": "3.15.0",
+        "@gsap/react": "2.1.2",
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
+        "vue": "3.5.44"
+      },
+      "target_application_dependencies": "not changed"
+    }
+  },
+  "acceptance": "Local source/fixture evidence only. Actual SessionStart host hook, future-scheduled session and email acceptance are unverified."
+}

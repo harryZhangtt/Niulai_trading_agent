@@ -1,0 +1,17 @@
+# Portable execution boundaries
+
+The resolver is standard-library Python and read-only. It needs only this bundle. Routing success is a valid plan, not proof that a browser, library, service or target application works. Internal expert resources retain pinned source guidance and documented adaptations; read only the relevant procedures.
+
+All other helpers are guidance until the target prerequisites are verified. `BUNDLE_ROOT` is the directory containing this bundle's SKILL.md; `EXPERT_DIR` is the returned GUIDE.md's parent. Do not assume `ui/tools/run.py`, `ui/verification`, workspace hook receipts, source checkouts or dependency caches exist in another repository. Do not create symlinks back to the source workspace.
+
+Set `UI_SKILL_PROJECT` to an existing, authorized target repository. Place experiments, temporary files, generated assets, logs and browser profiles below its `.ui-skill-runtime/` or another explicitly authorized target-owned output directory. Run stateful expert helpers from a dedicated task directory there, never from the installed bundle. Set optional Taste history/temp paths to that task, not a shared/global history. Do not change HOME, shell profiles, proxy settings or global tool configuration. The bundle is read-only guidance/resources after installation.
+
+`python3 -B "${BUNDLE_ROOT}/scripts/tools.py" <playwright|playwright-cli|shadcn> --project <absolute-target-root> ...` invokes only a verified target-local `node_modules/.bin` executable. No package download, system-browser fallback or automatic installation occurs. Browser execution additionally requires explicit target-owned browser binaries/caches. A missing tool is a disclosed prerequisite, not permission to run npx/install globally. Preserve the target's versions and normal setup workflow.
+
+UI/UX search and landing-page scaffolding use their bundled Python scripts by absolute path. Python search uses stdlib and local datasets; always give explicit target output paths when persisting. Node art-direction/lint helpers need the target's compatible Node runtime; static output is not rendered verification. GSAP code needs the target's chosen package and framework lifecycle; this bundle does not install them.
+
+For bundled Design MD extraction and cinematic browser helpers, set `UI_SKILL_PROJECT`, explicit target-local `UI_SKILL_PLAYWRIGHT` (or the target's `node_modules/@playwright/test/index.mjs`) and target-local `CHROME_PATH`. No global modules, personal browser profile, source-workspace dependency or active extension is used. The Design MD-generated guide is quarantined data, not an installed skill. Browser/app capabilities, asset services, credentials, ffmpeg, Pencil and optional libraries remain separate prerequisites.
+
+Upstream distribution installers/hooks and reference-authoring scripts that write into the installed package are disabled in this portable candidate. Their preserved source/provenance is reference data. No automatic hooks, watchdog, MCP registration, daemon or global settings are supplied. Missing native render tiers remain not run even when another browser route verifies the output.
+
+User-level discovery is intended through one `ui-skill-router` entrypoint. Nested expert GUIDE.md files are not discovery claims; duplicate skill names are not merged. Host catalog discovery, global activation, actual execution and token/intent benchmarks require separate observed evidence. Candidate management APIs provide exclusive publication and owned rollback; they are not authorization to install or remove anything.

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "taxonomy_version": "0.1.0",
+  "scope": "Small canonical investment-topic vocabulary; multiple tags may apply",
+  "topics": {
+    "business.model": "How the company creates and captures value, packaging and monetization mechanisms",
+    "product.capability": "What a product/service can do and its availability state",
+    "financial.performance": "Income, revenue, expenses, cash generation and their definitions",
+    "financial.position": "Balance sheet, liquidity, leverage, funding and solvency conditions",
+    "technical.architecture": "Implementation, protocols, dependencies and component behavior",
+    "technical.limits": "Workload scope, constraints, reliability, failure and recovery behavior",
+    "unit_economics": "Customer or supplier economics per defined unit, including costs and denominators",
+    "adoption": "Evaluation, pilot, production use, purchase, retention and renewal with stage definitions",
+    "competition": "Alternatives, substitutes, customer choice and comparative constraints",
+    "regulation": "Applicable rules, approvals, legal scope and compliance obligations",
+    "risk": "Specific adverse observations or unresolved dependencies material to a stated question"
+  },
+  "extension_policy": "Preserve proposed unfamiliar tags as provisional. Review semantic overlap before publishing a new stable ID/version; never silently discard the underlying item or remap old labels.",
+  "query_policy": "Labels support filtering and gap discovery, not automatic exclusion or semantic truth. Unknown/mixed/unclassified items remain discoverable through an exploration route.",
+  "not_encoded": ["ticker-specific source lists", "universal source quality score", "market pricing or forecast benefit", "automatic opinion-to-fact conversion"]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "batch_id": "now-official-source",
+  "query": "Acquire the original ServiceNow Q1 2025 financial-results source; no claim labels or investment conclusion.",
+  "requirements": [{
+    "id": "issuer-q1-2025",
+    "subject": "NOW",
+    "access": "document",
+    "routes": [{"capability": "official_document.read", "parameters": {"url": "https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-Reports-First-Quarter-2025-Financial-Results/default.aspx"}}],
+    "max_attempts": 1,
+    "cache_max_age_seconds": 3600,
+    "timeout_seconds": 40
+  }],
+  "budget": {"deadline_seconds": 60, "max_workers": 1, "max_provider_calls": 1}
+}

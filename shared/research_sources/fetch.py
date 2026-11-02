@@ -13,7 +13,8 @@ from .artifacts import ROOT, SOURCE_STATE, SourceError, private_path, read, requ
 
 HOSTS = {'arxiv.org', 'export.arxiv.org', 'api.openalex.org', 'docs.nvidia.com',
          'developer.nvidia.com', 'rocm.docs.amd.com', 'docs.cloud.google.com',
-         'mlcommons.org', 'www.sec.gov', 'sec.gov', 'investor.nvidia.com'}
+         'mlcommons.org', 'www.sec.gov', 'sec.gov', 'investor.nvidia.com', 'nvidianews.nvidia.com',
+         'newsroom.servicenow.com', 'investor.servicenow.com'}
 PAPER_ID = re.compile(r'^\d{4}\.\d{4,5}v[1-9]\d*$')
 
 
@@ -57,18 +58,25 @@ class Document(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.chunks = []; self.headings = []; self.skip = 0; self.heading = None
+        self.labels = []; self.label = None; self.password_field = False
 
     def handle_starttag(self, tag, attrs):
         if tag in ('script', 'style'):
             self.skip += 1
         if tag in ('h1', 'h2', 'h3', 'h4'):
             self.heading = []
+        if tag in ('title', 'h1'):
+            self.label = []
+        if tag == 'input' and str(dict(attrs).get('type') or '').lower() == 'password':
+            self.password_field = True
 
     def handle_endtag(self, tag):
         if tag in ('script', 'style'):
             self.skip = max(0, self.skip - 1)
         if tag in ('h1', 'h2', 'h3', 'h4') and self.heading is not None:
             self.headings.append(' '.join(self.heading)); self.heading = None
+        if tag in ('title', 'h1') and self.label is not None:
+            self.labels.append(' '.join(self.label)); self.label = None
 
     def handle_data(self, data):
         value = ' '.join(data.split())
@@ -77,14 +85,50 @@ class Document(HTMLParser):
         self.chunks.append(value)
         if self.heading is not None:
             self.heading.append(value)
+        if self.label is not None:
+            self.label.append(value)
+
+
+def _payload_error(parser):
+    """Recognize page-level failure, not error vocabulary inside a document."""
+    text = '\n'.join(parser.chunks)
+    # Reference pages can legitimately be titled with an HTTP error. An
+    # explanatory introduction distinguishes that case from an outage wrapper.
+    reference = re.search(r'\bthis (?:guide|reference|document|tutorial) '
+                          r'(?:explains|describes|documents|covers)\b', text[:1600], re.I)
+    failure = (r'(?:(?:http\s+)?(?:error\s+)?(?:401|403|407|429|500|502|503|504)'
+               r'(?:\s*[-:]?\s*(?:unauthorized|forbidden|proxy authentication required|'
+               r'too many requests|internal server error|bad gateway|service unavailable|gateway timeout))?'
+               r'|service (?:unavailable|temporarily unavailable)|bad gateway|gateway timeout|'
+               r'internal server error|authentication (?:failed|required)|authorization required|'
+               r'unauthorized|forbidden|access denied|too many requests|rate limit(?: exceeded)?|'
+               r'just a moment(?:\.{3})?|(?:please )?verify (?:that )?you are (?:a )?human|'
+               r'checking your browser|sorry,? you have been blocked|robot check|'
+               r'captcha(?: verification)?|page not found|404(?:\s*[-:]?\s*not found)?)')
+    if not reference and any(re.fullmatch(failure + r'[.!]?', label.strip(), re.I) for label in parser.labels[:4]):
+        return True
+    login = any(re.fullmatch(r'(?:log[ -]?in|sign[ -]?in)(?: required| to continue| to .{1,80})?[.!]?',
+                             label.strip(), re.I) for label in parser.labels[:4])
+    if login and not reference and (parser.password_field or re.search(
+            r'password|sign in to continue|login required|log in to continue', text[:2000], re.I)):
+        return True
+    # Some services send a JSON error in a nominal HTML response. Only parse an
+    # otherwise bare visible payload; code examples embedded in prose remain docs.
+    visible = '\n'.join(chunk for chunk in parser.chunks if chunk not in parser.labels).strip()
+    try:
+        payload = json.loads(visible)
+    except (ValueError, TypeError):
+        payload = None
+    return isinstance(payload, dict) and (bool(payload.get('error')) or payload.get('success') is False
+        or str(payload.get('status', '')).lower() in {'error', 'failed', 'failure', 'unauthorized', 'forbidden'}
+        or str(payload.get('status_code', payload.get('code', ''))) in {'401', '403', '407', '429', '500', '502', '503', '504'})
 
 
 def document_receipt(directory, *, provider, url, raw, identifier, published_at=None, version=None, metadata=None):
     parser = Document(); parser.feed(raw.decode('utf-8'))
     text = '\n'.join(parser.chunks)
-    require(len(text) > 200 and parser.headings and not any(
-        s in text[:600].lower() for s in ('just a moment', 'verify you are human', 'access denied', 'page not found')),
-        'SOURCE_DOCUMENT_INVALID')
+    require(not _payload_error(parser), 'SOURCE_PAYLOAD_ERROR')
+    require(len(text) > 200 and parser.headings, 'SOURCE_DOCUMENT_INVALID')
     observed = datetime.now(timezone.utc).isoformat()
     receipt = {'schema_version': 1, 'provider': provider, 'source_url': url,
         'upstream_id': identifier, 'source_version': version, 'published_at': published_at,

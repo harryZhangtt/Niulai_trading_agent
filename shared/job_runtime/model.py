@@ -126,7 +126,8 @@ def _classify(messages, returncode):
                                        'unsupported model', 'invalid model')):
         return 'failed', 'MODEL_UNAVAILABLE'
     if any(token in value for token in ('unrecognized', 'unknown field', 'invalid config',
-                                       'unexpected argument', 'invalid value', 'output schema')):
+                                       'unexpected argument', 'invalid value', 'output schema',
+                                       'invalid_json_schema', 'invalid schema for response_format')):
         return 'failed', 'MODEL_CONFIGURATION_REJECTED'
     if any(token in value for token in ('rate limit', 'rate_limit', '429', 'temporarily unavailable',
                                        '503', '502', '504', 'connection reset', 'stream disconnected',
@@ -222,7 +223,8 @@ def _run_codex_locked(profile: dict, prompt: str, workspace: Path, run_dir: Path
         _require(not run_dir.exists(), 'MODEL_RUN_DIRECTORY_EXISTS')
         run_dir = _private_path(run_dir, workspace, directory=True)
         context = context or {}
-        _require(set(context) <= {'response_schema', 'cancel_event'}, 'MODEL_CONTEXT_INVALID')
+        _require(set(context) <= {'response_schema', 'cancel_event', 'process_observer'}, 'MODEL_CONTEXT_INVALID')
+        _require(context.get('process_observer') is None or callable(context['process_observer']), 'MODEL_PROCESS_OBSERVER_INVALID')
         if context.get('cancel_event') is not None and context['cancel_event'].is_set():
             return {'status': 'retryable', 'code': 'MODEL_CANCELLED_BEFORE_START', 'receipt': receipt}
         env = _environment(workspace, home, run_dir)
@@ -256,6 +258,12 @@ def _run_codex_locked(profile: dict, prompt: str, workspace: Path, run_dir: Path
             process = subprocess.Popen(cmd, cwd=workspace, env=env, stdin=input_stream,
                                        stdout=output, stderr=errors, start_new_session=True,
                                        pass_fds=(lock_fd,))
+            if context.get('process_observer') is not None:
+                try:
+                    context['process_observer'](process.pid)
+                except BaseException:
+                    _terminate(process)
+                    raise ModelError('MODEL_PROCESS_OBSERVER_FAILED') from None
             deadline = time.monotonic() + timeout
             while process.poll() is None:
                 if time.monotonic() >= deadline:

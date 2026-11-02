@@ -1,0 +1,596 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Independent source-grounded reference for a bounded SaaS AI-disruption web-research comparison. Not a trial arm, investment recommendation, grader, or threshold definition.",
+  "cutoff_utc": "2026-10-31T04:54:10Z",
+  "preferred_update_start": "2026-07-01",
+  "case_roster_fixed": [
+    "ServiceNow",
+    "Salesforce",
+    "Adobe"
+  ],
+  "reference_built_after_cutoff": true,
+  "temporal_rule": "Use public releases dated on or before cutoff. Retrieval occurred afterward. Publication days are observed where stated; current-page content has no independently archived as-of revision proof.",
+  "trial_arm_outputs_seen": false,
+  "pre_exposure": [
+    {
+      "phase": "native_route_probe_before_reference_freeze",
+      "topic": "ServiceNow latest 2026 AI monetization Q3 earnings",
+      "search_started_utc": "2026-10-31T04:52:37.031Z",
+      "search_ended_utc": "2026-10-31T04:52:41.394Z",
+      "official_open_started_utc": "2026-10-31T04:52:43.869Z",
+      "official_open_ended_utc": "2026-10-31T04:52:52.499Z",
+      "exposed_material": "Search snippets about ServiceNow Q3 AI ACV, Flow and AI consumption; opened official Q3 financial tables, Q4/full-year guidance and call details. Capability probe only; do not classify as a trial or untouched oracle.",
+      "url": "https://investor.servicenow.com/news/news-details/2026/ServiceNow-Reports-Third-Quarter-2026-Financial-Results/default.aspx"
+    }
+  ],
+  "acquisition": {
+    "route": "Native tools.web__run search_query/open/find only",
+    "fallback_used": false,
+    "transport_errors_observed": [],
+    "reference_web_tool_calls": 10,
+    "earlier_probe_web_tool_calls": 2,
+    "total_web_tool_calls": 12,
+    "batching_note": "Tool-call count, with multiple public searches or source operations batched per call. Raw receipts retain every subrequest.",
+    "initialization": "Actual MENTOR_INIT_OK output was unavailable; mentor/AGENTS.md and mentor/ROUTING.md were read as disclosed fallback."
+  },
+  "global_cautions": [
+    "Company-reported operating metrics are descriptive; they do not establish causal returns, durable pricing power, or investment alpha.",
+    "ARR and ACV are annualized contract measures; usage, activations, trials, pilots and paid-customer growth are different units. None should be relabeled as recognized AI revenue or a paid-conversion percentage.",
+    "Repeated earnings transcripts or issuer press-release mirrors share an upstream lineage and are not independent measurement corroboration. Independent analyst views are labeled separately.",
+    "Bounded discovery supports latest-among-retrieved reporting. It does not prove no newer material release exists.",
+    "Published dates preceding cutoff support temporal inclusion, but exact archived page revisions and publication-time precision were not independently established.",
+    "Financial-data two-independent-source corroboration is not fully satisfied for management-only AI operating metrics; preserve single-lineage disclosure status rather than fabricate confirmation."
+  ],
+  "sources": [
+    {
+      "id": "N1",
+      "company": "ServiceNow",
+      "url": "https://investor.servicenow.com/news/news-details/2026/ServiceNow-Reports-Third-Quarter-2026-Financial-Results/default.aspx",
+      "title": "ServiceNow Reports Third Quarter 2026 Financial Results",
+      "source_role": "issuer earnings release; primary",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "reporting_period_end": "2026-09-30",
+      "availability_precision": "Publication/event day observed; intraday release time not established; call at 21:00 GMT.",
+      "read_status": "opened",
+      "locations": [
+        "release lines 26-47",
+        "business highlights lines 47-53"
+      ],
+      "facts_paraphrased": [
+        "Raised the year-end 2026 AI ACV objective to USD 1.7 billion; this is a target.",
+        "Management reported year-to-date agentic-AI consumption in production at more than 13 times the prior-year comparison.",
+        "The October 28 OpenAI partnership expansion begins with a ChatGPT plugin using Action Fabric; cyber-security, Codex and voice-related initiatives include planned development."
+      ]
+    },
+    {
+      "id": "N2",
+      "company": "ServiceNow",
+      "url": "https://newsroom.servicenow.com/press-releases/details/2026/Introducing-Flow-by-ServiceNow-a-new-AI-service-desk-that-deploys-instantly/default.aspx",
+      "title": "Introducing Flow by ServiceNow: a new AI-native service desk that deploys instantly",
+      "source_role": "issuer product and availability announcement; primary",
+      "publication_date": "2026-10-01",
+      "event_date": "2026-10-01",
+      "availability_precision": "Announcement day observed. Controlled release with North American priority; broader North America/EMEA availability expected in Q4 2026.",
+      "read_status": "opened",
+      "locations": [
+        "lines 16-34",
+        "lines 59-61"
+      ],
+      "facts_paraphrased": [
+        "Flow is a standalone conversational service desk using Slack/Teams channels and repeatable workflow automation, without requiring an existing platform purchase.",
+        "Existing eligible AI customers can deploy through consumption-based usage without a separate procurement step.",
+        "The release describes controlled access and a free-trial signup; it supplies no realized Flow revenue or paid-conversion rate."
+      ]
+    },
+    {
+      "id": "N3",
+      "company": "ServiceNow",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/10/29/servicenow-now-q3-2026-earnings-call-transcript/",
+      "title": "ServiceNow (NOW) Q3 2026 Earnings Call Transcript",
+      "source_role": "third-party transcript of management statements; secondary carrier, not independent operating measurement",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-28",
+      "availability_precision": "Publication day from dated URL/search metadata; event day tied to official call.",
+      "read_status": "opened",
+      "locations": [
+        "lines 224 and 267-270",
+        "lines 283-286",
+        "takeaways lines 183-188"
+      ],
+      "facts_paraphrased": [
+        "Q3 AI net new ACV increased 65% year over year; Control Tower net new ACV increased more than sixfold.",
+        "Management described retaining seat-based contracts while adding consumption, and a possible fivefold revenue-per-user opportunity, which is an aspiration.",
+        "The CEO described Flow as globally shipping on October 28, later than N2's controlled-release notice; country-by-country fulfillment was not verified.",
+        "Deployment support remains material; transcript discussion includes a roughly 25-basis-point subscription-to-services reclassification."
+      ]
+    },
+    {
+      "id": "S1",
+      "company": "Salesforce",
+      "url": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Delivers-Record-Second-Quarter-Fiscal-2027-Results/default.aspx",
+      "title": "Salesforce Delivers Record Second Quarter Fiscal 2027 Results",
+      "source_role": "issuer earnings release and metric definitions; primary",
+      "publication_date": "2026-08-26",
+      "event_date": "2026-08-26",
+      "reporting_period_end": "2026-07-31",
+      "availability_precision": "Publication day and fiscal quarter-end observed.",
+      "read_status": "opened",
+      "locations": [
+        "lines 30-56",
+        "Other Metrics lines 545-548"
+      ],
+      "facts_paraphrased": [
+        "Agentforce ARR exceeded USD 1.5 billion, increasing more than 240% year over year; the combined Agentforce/Data 360 amount was nearly USD 3.9 billion.",
+        "Beginning Q2 FY27, Agentforce ARR expanded to include Slackbot and Headless 360; comparisons need this scope warning.",
+        "Quarterly production Agentic Work Units were 3.2 billion, up 97% quarter over quarter; cumulative units reached 7.0 billion."
+      ]
+    },
+    {
+      "id": "S2",
+      "company": "Salesforce",
+      "url": "https://www.salesforce.com/news/stories/salesforce-simplifies-editions-2026/",
+      "title": "New Salesforce Editions Bundle Everything Businesses Need for Agentic Transformation",
+      "source_role": "issuer pricing and packaging announcement; primary",
+      "publication_date": "2026-09-03",
+      "event_date": "2026-09-03",
+      "availability_precision": "Announcement day observed; industry-edition price changes were deferred until later autumn; customer agreements govern.",
+      "read_status": "opened",
+      "locations": [
+        "lines 14-28",
+        "lines 40-59"
+      ],
+      "facts_paraphrased": [
+        "Core, Advanced and Max bundle AI, Slack, analytics, security and support with Flex Credits.",
+        "Published monthly per-user list prices were USD 195, USD 395 and USD 550; included credits were 500,000, 1 million and 2.75 million respectively.",
+        "Max kept the preceding top-tier price. Headless capacity inclusion was described as future. Legacy-customer prices were not automatically changed.",
+        "Some service-agent packaging uses payment tied to resolved issues; this does not mean every Agentforce SKU uses outcomes pricing."
+      ]
+    },
+    {
+      "id": "S3",
+      "company": "Salesforce",
+      "url": "https://www.salesforce.com/news/stories/aiforce-announcement/",
+      "title": "Salesforce Unveils AIforce, Bringing the Full Power of Its Platform to Any Interface",
+      "source_role": "issuer product announcement and adoption statement; primary",
+      "publication_date": "2026-09-15",
+      "event_date": "2026-09-15",
+      "availability_precision": "Announcement day observed. Salesforce in Claude described as beta; future additions distinguished from current components.",
+      "read_status": "opened",
+      "locations": [
+        "lines 16-45",
+        "lines 54-58",
+        "lines 73-79"
+      ],
+      "facts_paraphrased": [
+        "AIforce exposes existing CRM data, logic, permissions and actions to interfaces including Claude, Slack and Lightning through its Headless Toolkit.",
+        "The launch connects Claudeforce, Slackforce and Agentforce Coworker; Salesforce in Claude had 37 sales skills and was in beta.",
+        "Coworker recorded 100,000 activated users within its first 35 days. Activation does not identify paying users, sustained use or a conversion rate."
+      ]
+    },
+    {
+      "id": "S4",
+      "company": "Salesforce",
+      "url": "https://www.forrester.com/blogs/from-crm-to-the-agentic-enterprise-salesforces-biggest-dreamforce-2026-reveals/",
+      "title": "From CRM To The Agentic Enterprise: Salesforce's Biggest Dreamforce 2026 Reveals",
+      "source_role": "independent industry-analyst interpretation; separate from issuer measurement",
+      "publication_date": "2026-09-29",
+      "event_date": "2026-09-15/2026-09-17",
+      "availability_precision": "Publication day and Dreamforce event interval observed.",
+      "read_status": "opened",
+      "locations": [
+        "lines 199-225"
+      ],
+      "facts_paraphrased": [
+        "Forrester identifies enterprise data, logic and security as the economic foundation behind the interface shift.",
+        "It questions how fully the products and acquisitions will integrate, flags legacy transition and multiplayer permissions, and warns that bundled prices can be difficult for smaller deployments.",
+        "It recommends negotiating billable-action definitions and license conversions; these observations limit claims that more buying options automatically reduce cost."
+      ]
+    },
+    {
+      "id": "S5",
+      "company": "Salesforce",
+      "url": "https://www.techradar.com/pro/salesforce-ai-agent-platform-hasnt-delivered-meaningful-growth-two-years-after-launch-customers-report-finds",
+      "title": "Salesforce AI agent platform hasn't delivered meaningful growth two years after launch, customers report finds",
+      "source_role": "independent trade reporting of TD Cowen survey, via The Register; original survey not read",
+      "publication_date": "2026-08-25",
+      "event_date": null,
+      "availability_precision": "Search metadata gives 2026-08-25 10:10 UTC; underlying survey period and sample not established.",
+      "read_status": "opened",
+      "locations": [
+        "lines 139-156"
+      ],
+      "facts_paraphrased": [
+        "Reports partner concerns about customer data readiness and agent maturity.",
+        "Reports 33% of surveyed partners meeting or exceeding commercial targets versus 43% the preceding quarter; this is a partner-survey outcome, not Salesforce revenue or a randomized customer-ROI result."
+      ]
+    },
+    {
+      "id": "A1",
+      "company": "Adobe",
+      "url": "https://www.adobe.com/cc-shared/assets/investor-relations/pdfs/01906202/c6yetrerew.pdf",
+      "title": "Adobe Q3 FY2026 Earnings Script and Slides",
+      "source_role": "issuer prepared earnings remarks; primary",
+      "publication_date": "2026-09-10",
+      "event_date": "2026-09-10",
+      "reporting_period_end": "2026-08-28",
+      "availability_precision": "Call day observed on document; period-end tied to A4. Public PDF revision timestamp not independently verified.",
+      "read_status": "opened",
+      "locations": [
+        "lines 0-25 and 52-53",
+        "lines 136-138",
+        "lines 260-276"
+      ],
+      "facts_paraphrased": [
+        "AI-first ending ARR exceeded USD 650 million and grew more than 150% year over year.",
+        "Firefly app/credit-pack ending ARR grew 40% quarter over quarter; no absolute amount was provided in these remarks.",
+        "Creative FREEMIUM monthly active users exceeded 100 million, up more than 70% year over year; Acrobat AI Assistant MAU doubled sequentially.",
+        "Brand Visibility paying-customer count doubled sequentially, without absolute counts or a funnel conversion denominator."
+      ]
+    },
+    {
+      "id": "A2",
+      "company": "Adobe",
+      "url": "https://news.adobe.com/news/2026/10/adobe-and-nvidia-expand-collaboration-to-speed-agentic-creation",
+      "title": "Adobe and NVIDIA Expand Collaboration to Speed Agentic Creation",
+      "source_role": "issuer product/performance partnership announcement; primary, self-reported tests",
+      "publication_date": "2026-10-15",
+      "event_date": "2026-10-15",
+      "availability_precision": "Page shows 10:00 AM without established timezone. Brand Concierge/Nemotron version promised later in 2026.",
+      "read_status": "opened",
+      "locations": [
+        "lines 3-14",
+        "lines 19-39"
+      ],
+      "facts_paraphrased": [
+        "Expanded GPU optimization across creative apps and Frame.io; optimized Brand Concierge with Nemotron.",
+        "Claims include up to twice the speed in selected app work and roughly fivefold embedding generation in selected Frame.io workloads.",
+        "These are performance claims, not adoption, conversion or revenue; benchmark selection and future Brand Concierge availability limit generalization.",
+        "MAX was scheduled for November 10-12, after cutoff, and is not a completed launch at cutoff."
+      ]
+    },
+    {
+      "id": "A3",
+      "company": "Adobe",
+      "url": "https://news.adobe.com/news/2026/09/adobe-productivity-agent-in-acrobat-now-transforms-complex-documents",
+      "title": "Adobe Productivity Agent in Acrobat Now Transforms Complex Documents into Understandable Visuals, Audio and Presentations",
+      "source_role": "issuer product and plan-availability announcement; primary",
+      "publication_date": "2026-09-09",
+      "event_date": "2026-09-09",
+      "availability_precision": "Page shows 6:00 AM without established timezone. Named individual and enterprise plans stated as available.",
+      "read_status": "opened",
+      "locations": [
+        "lines 3-15",
+        "lines 20-38",
+        "lines 48-52"
+      ],
+      "facts_paraphrased": [
+        "Acrobat adds document-to-visual, presentation and audio workflows, plus enterprise repository questions and structured extraction.",
+        "Adobe extends document workflows into external AI/browser platforms while emphasizing citations, document expertise and enterprise controls.",
+        "Audio/visual features are in Acrobat Studio, Acrobat Express and AI Assistant Plus; enterprise Knowledge Base/Analyzer are in Studio for enterprise. The announcement provides no universal new list price."
+      ]
+    },
+    {
+      "id": "A4",
+      "company": "Adobe",
+      "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000156/adbe10qq326unofficialpdf.pdf",
+      "title": "Adobe Form 10-Q, Q3 FY2026",
+      "source_role": "issuer regulatory filing hosted at SEC; primary",
+      "publication_date": null,
+      "event_date": "2026-08-28",
+      "availability_precision": "Quarter-end observed; search says published September 2026. Exact filing day not verified.",
+      "read_status": "opened",
+      "locations": [
+        "lines 1458-1478",
+        "lines 797-809"
+      ],
+      "facts_paraphrased": [
+        "Total Adobe ARR is the annual subscription-contract value across the two customer groups, measured using annual currency conventions.",
+        "Reported total ARR was USD 27.50 billion and included Semrush's contribution.",
+        "Revenue recognition follows delivery/control and contractual accounting; ARR and remaining obligations are not already-recognized revenue.",
+        "The filing describes a commercially oriented model/partner ecosystem and content-to-marketing workflow integration."
+      ]
+    },
+    {
+      "id": "A5",
+      "company": "Adobe",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/09/11/adobe-adbe-q3-2026-earnings-call-transcript/",
+      "title": "Adobe (ADBE) Q3 2026 Earnings Call Transcript",
+      "source_role": "third-party transcript of earnings Q&A; secondary carrier, not independent measurement",
+      "publication_date": "2026-09-11",
+      "event_date": "2026-09-10",
+      "availability_precision": "Publication date and call date stated in search result; transcript disclaimer notes possible errors and LLM-assisted preparation.",
+      "read_status": "opened",
+      "locations": [
+        "lines 347-351",
+        "lines 375-380",
+        "lines 170-172 versus A1"
+      ],
+      "facts_paraphrased": [
+        "Management emphasized value and engagement before monetization, with continuing adjustment of conversion timing and paywalls; no uniform paid-conversion rate was supplied.",
+        "The transcript's summary labels the 100-million creative cohort as premium, conflicting with the official prepared remarks' freemium category. Use A1's authoritative label.",
+        "Repeating A1's AI-first ARR does not create an independently measured second source."
+      ]
+    }
+  ],
+  "companies": [
+    {
+      "company": "ServiceNow",
+      "ticker": "NOW",
+      "latest_material_ai_response": {
+        "latest_retrieved_date": "2026-10-28",
+        "fact": "External-interface execution through a ChatGPT plugin/Action Fabric and other governed-agent integrations; October standalone Flow provides a faster conversational alternative to a traditional service-desk rollout.",
+        "source_ids": [
+          "N1",
+          "N2"
+        ],
+        "business_model_interpretation": "Retain the workflow/governance platform and seat contracts while monetizing agentic activity through consumption; Flow addresses the AI-native service-desk entry point.",
+        "interpretation": true
+      },
+      "most_recent_reported_metrics": [
+        {
+          "name": "AI net new ACV growth",
+          "value": 65,
+          "unit": "percent year over year",
+          "period": "Q3 calendar 2026, ended 2026-09-30",
+          "reported_on": "2026-10-28",
+          "definition": "Growth in the new annual contract value attributed by management to AI solutions during the quarter; not total AI ACV, lifetime contract value or recognized AI revenue.",
+          "definition_precision": "Annual contract value label established; full AI-category and netting methodology not verified.",
+          "source_ids": [
+            "N3"
+          ]
+        },
+        {
+          "name": "Agentic AI production consumption growth",
+          "value": ">13x",
+          "unit": "year-over-year ratio",
+          "period": "2026 year to date through Q3 versus corresponding prior-year period",
+          "reported_on": "2026-10-28",
+          "definition": "Issuer-reported agentic usage in production, not an amount of paid revenue; absolute units and billable fraction undisclosed.",
+          "source_ids": [
+            "N1"
+          ]
+        },
+        {
+          "name": "2026 AI ACV objective",
+          "value": 1700000000,
+          "currency": "USD",
+          "period": "year-end 2026 target",
+          "classification": "forward-looking target, not achieved monetization",
+          "source_ids": [
+            "N1"
+          ]
+        }
+      ],
+      "economic_defense_thesis": {
+        "status": "supported as strategy; economic sufficiency unproven",
+        "inference": "Enterprise workflows, security and cross-agent governance can remain valuable as chat interfaces replace portals; consumption may capture activity beyond seats.",
+        "source_ids": [
+          "N1",
+          "N2",
+          "N3"
+        ]
+      },
+      "concrete_counterevidence_or_limits": [
+        {
+          "observation": "Flow's October 1 launch was controlled, while the October 28 CEO called it globally shipping; actual geography and procurement availability need reconciliation.",
+          "source_ids": [
+            "N2",
+            "N3"
+          ]
+        },
+        {
+          "observation": "Large deployments still use implementation expertise, and future revenue-per-user opportunity is an aspiration rather than demonstrated paid conversion.",
+          "source_ids": [
+            "N3"
+          ]
+        }
+      ],
+      "mandatory_cautions": [
+        "Do not describe the USD 1.7 billion target as booked or recognized AI revenue.",
+        "Do not convert production usage growth into revenue or conversion growth.",
+        "Do not confuse total-platform large deals with AI-only deals or imply Flow's universal general availability is independently verified."
+      ],
+      "latest_coverage_confidence": {
+        "earnings": "high for Q3 as latest retrieved completed earnings",
+        "products": "medium; October 28 official update plus October 1 dedicated launch",
+        "economic_realization": "limited; management contract/usage metrics without recognized AI revenue"
+      },
+      "gaps": [
+        "No independently audited AI-specific recognized-revenue line or paid-conversion denominator.",
+        "Exact AI ACV taxonomy, absolute production-usage base and billable fraction not verified.",
+        "No exhaustive search of every October product or competitor release."
+      ]
+    },
+    {
+      "company": "Salesforce",
+      "ticker": "CRM",
+      "latest_material_ai_response": {
+        "latest_retrieved_date": "2026-09-15",
+        "fact": "AIforce makes CRM data and governed actions usable from outside the fixed Salesforce UI; September 3 Core/Advanced/Max packaging embeds AI and usage credits in paid editions.",
+        "source_ids": [
+          "S2",
+          "S3"
+        ],
+        "business_model_interpretation": "Defend the system of record and enterprise business logic while interfaces move to agents; combine recurring per-user editions with consumption and selected resolved-issue pricing.",
+        "interpretation": true
+      },
+      "most_recent_reported_metrics": [
+        {
+          "name": "Agentforce Coworker activated users",
+          "value": 100000,
+          "unit": "activated users",
+          "period": "first 35 days of Coworker; as disclosed 2026-09-15",
+          "reported_on": "2026-09-15",
+          "definition": "User activation count, with no verified paid share, repeat-use threshold or conversion denominator.",
+          "source_ids": [
+            "S3"
+          ]
+        },
+        {
+          "name": "Agentforce ARR",
+          "value": ">1500000000",
+          "currency": "USD annualized",
+          "period": "Q2 FY2027 ended 2026-07-31",
+          "reported_on": "2026-08-26",
+          "definition": "Annualized recurring value of active designated generative-AI subscription agreements at period-end; Q2 FY27 scope includes Slackbot and Headless 360.",
+          "source_ids": [
+            "S1"
+          ]
+        },
+        {
+          "name": "Agentic Work Units",
+          "value": 3200000000,
+          "unit": "production tasks during quarter",
+          "period": "Q2 FY2027; 97% growth quarter over quarter",
+          "reported_on": "2026-08-26",
+          "definition": "Discrete tasks executed by AI agents in production across Agentforce and Slack, such as resolving cases, changing records or triggering workflows; not unique customers, paid tasks or recognized revenue.",
+          "source_ids": [
+            "S1"
+          ]
+        }
+      ],
+      "economic_defense_thesis": {
+        "status": "supported as product architecture; value capture uncertain",
+        "inference": "Existing data, workflows, permissions and governance can be reused through any interface, preserving enterprise dependence even when staff stop opening traditional CRM screens.",
+        "source_ids": [
+          "S3",
+          "S4"
+        ]
+      },
+      "concrete_counterevidence_or_limits": [
+        {
+          "observation": "Forrester warns that integration, legacy-product transitions, multiplayer permissions and total cost remain unresolved; extra bundled capacity is not proof of lower customer cost.",
+          "source_ids": [
+            "S4"
+          ]
+        },
+        {
+          "observation": "Trade reporting of partner surveys describes immature data and adoption barriers; the underlying survey sample was not inspected.",
+          "source_ids": [
+            "S5"
+          ]
+        }
+      ],
+      "mandatory_cautions": [
+        "Disclose Agentforce ARR's Q2 FY27 inclusion change before interpreting the growth rate.",
+        "Do not call combined Agentforce/Data 360 ARR pure Agentforce or pure AI revenue.",
+        "Coworker activation and AWUs do not establish paid conversion or customer ROI.",
+        "Distinguish beta/future components from generally available components and list prices from negotiated realized prices."
+      ],
+      "latest_coverage_confidence": {
+        "earnings": "high for Q2 FY27 as latest retrieved completed quarter",
+        "products": "medium; September 15 launch and September 29 independent review; no complete October inventory",
+        "economic_realization": "limited; contract run rate and production tasks without recognized AI-only revenue"
+      },
+      "gaps": [
+        "No same-scope reconstructed Agentforce ARR growth series.",
+        "No uniform paid-customer conversion rate, billable AWU fraction or gross margin per agent task.",
+        "No exhaustive search of October releases; source dates alone do not prove historical page revisions."
+      ]
+    },
+    {
+      "company": "Adobe",
+      "ticker": "ADBE",
+      "latest_material_ai_response": {
+        "latest_retrieved_date": "2026-10-15",
+        "fact": "October NVIDIA collaboration accelerates agentic creation and enterprise personalization; September Acrobat Productivity Agent turns documents into outputs and extends Adobe workflows into external AI interfaces.",
+        "source_ids": [
+          "A2",
+          "A3"
+        ],
+        "business_model_interpretation": "Preserve creative/document workflow and enterprise distribution value while widening the acquisition funnel; monetize through designated AI products, credits and paid plans rather than relying on the desktop interface alone.",
+        "interpretation": true
+      },
+      "most_recent_reported_metrics": [
+        {
+          "name": "AI-first ending ARR",
+          "value": ">650000000",
+          "currency": "USD annualized",
+          "period": "Q3 FY2026 ended 2026-08-28; >150% year-over-year growth",
+          "reported_on": "2026-09-10",
+          "definition": "Adobe-designated AI-first product ARR. Overall ARR means annual subscription-contract value; exact AI-first category composition and detailed calculation were not verified in opened sources.",
+          "source_ids": [
+            "A1",
+            "A4"
+          ],
+          "definition_precision": "Category label reported; full taxonomy unverified; not recognized AI revenue."
+        },
+        {
+          "name": "Firefly ending ARR growth",
+          "value": 40,
+          "unit": "percent quarter over quarter",
+          "period": "Q3 FY2026; Firefly app and credit packs",
+          "reported_on": "2026-09-10",
+          "definition": "Growth in the disclosed Firefly app/credit-pack annual recurring contract measure; absolute dollar amount missing in these remarks.",
+          "source_ids": [
+            "A1"
+          ]
+        },
+        {
+          "name": "Creative freemium monthly active users",
+          "value": ">100000000",
+          "unit": "monthly active users",
+          "period": "Q3 FY2026; >70% year-over-year growth",
+          "reported_on": "2026-09-10",
+          "definition": "Freemium audience includes Firefly, Express and web/mobile creative apps; not 100 million paid subscribers.",
+          "source_ids": [
+            "A1"
+          ]
+        },
+        {
+          "name": "Brand Visibility paying-customer growth",
+          "value": "2x",
+          "unit": "quarter-over-quarter paying-customer count ratio",
+          "period": "Q3 FY2026",
+          "reported_on": "2026-09-10",
+          "definition": "Count growth for one solution; neither absolute customers nor free-to-paid conversion denominator provided.",
+          "source_ids": [
+            "A1"
+          ]
+        }
+      ],
+      "economic_defense_thesis": {
+        "status": "supported as strategy; conversion economics unproven",
+        "inference": "Document expertise, source-linked answers, production creative workflows and enterprise distribution may keep Adobe valuable as generative models commoditize; integrating external models/interfaces can protect workflow ownership.",
+        "source_ids": [
+          "A3",
+          "A4"
+        ]
+      },
+      "concrete_counterevidence_or_limits": [
+        {
+          "observation": "Management continues to tune free-user monetization and paywall timing; rising MAU and use do not settle conversion economics.",
+          "source_ids": [
+            "A5"
+          ]
+        },
+        {
+          "observation": "AI-first/Firefly ARR disclosures omit a recognized AI-revenue line and several absolute bases; October performance tests are selected workloads and some product availability is future.",
+          "source_ids": [
+            "A1",
+            "A2"
+          ]
+        }
+      ],
+      "mandatory_cautions": [
+        "Keep AI-first ARR separate from broader AI-influenced ARR and total company ARR.",
+        "Use FREEMIUM for the >100 million creative MAU cohort; a third-party transcript's premium label conflicts with the official source.",
+        "Do not convert doubling paid-customer counts into a conversion rate.",
+        "Do not count November 10-12 MAX as an already completed October launch.",
+        "Do not call selected performance speedups adoption, monetization or universal performance results."
+      ],
+      "latest_coverage_confidence": {
+        "earnings": "high for Q3 FY2026 as latest retrieved completed quarter",
+        "products": "medium; October 15 partner optimization and September 9 product release found",
+        "economic_realization": "limited; AI-specific ARR without verified category taxonomy or conversion denominator"
+      },
+      "gaps": [
+        "Exact AI-first ARR category composition was not established.",
+        "No recognized AI revenue, uniform paid-conversion rate or full absolute bases for several growth metrics.",
+        "No independently replicated optimization benchmarks or exhaustive October launch inventory."
+      ]
+    }
+  ],
+  "completion_note": "All three fixed cases have primary sources, metric units/periods, economic-defense interpretation and concrete limitations. This is a bounded reference with explicit evidence gaps; no grader thresholds or trial-answer-dependent edits were made."
+}

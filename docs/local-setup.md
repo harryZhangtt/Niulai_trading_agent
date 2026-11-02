@@ -1,18 +1,29 @@
 # Local deployment source of truth
 
+For the2026-10-31 recurring email addition, use the
+[Niulai business runbook](../niulai-runtime/docs/recurring.md): private parallel
+authorization, branch checkpoints/retries, canonical `[CODEX]` reports and exact
+native Gmail verification. Parallel sending is authorized; it is not sole-sender
+cutover. Future scheduled business acceptance still applies.
+
 Update this guide or its linked runbooks in the same change as any installation,
 dependency, configuration, runtime-path, credential-handling or recovery change.
 Keep private values out of documentation and the sanitized inventory.
 
 | Component | Source | Private state | Runbook |
 | --- | --- | --- | --- |
+| Scoped evidence/actions/phase runtime | `shared/actions/`, `shared/research_sources/store.py`, `investment/research/` | Existing private research roots and `.job-runtime/runs/` | [Research runtime](deployment/investment-research.md) |
 | Shared wake/scheduling/models/retries | `shared/job_runtime/` | `.job-runtime/` | [Job runtime](deployment/job-runtime.md) |
+| Copied calculation candidate (inactive) | `shared/calculation/` | `.job-runtime/calculation/` | [Calculations](deployment/calculation.md) |
 | Investment evidence requirements and coverage | `investment/research/` | `.niulai-state/reports/investment-research/` | [Investment source contract](../investment/research/README.md) |
 | Research-source acquisition | `shared/research_sources/` | `.research-sources/`, `.niulai-state/reports/research-sources/` | [Source tools](../shared/research_sources/README.md) |
+| Optional Jev source labeling and development evaluation | `shared/typed_judge/`, `investment/research/source_labeler.py`, `tuning/evals/label_accuracy/` | Existing private research roots, `.job-runtime/credentials/` and acceptance records | [Jev setup and recovery](deployment/jev-labeling.md) |
+| Native search + EgoLite candidate (disabled) | `shared/web_access/`, `tuning/evals/browser_cooperation/` | `.research-sources/web-access/` | [Browser cooperation](deployment/web-access.md) |
 | Niulai admission/report/email adapters | `niulai-runtime/`, preserved `niulai/` | `.niulai-state/` | [Niulai](deployment/niulai.md) |
 | Shared Tiger credentials/query gateway | `shared/tiger/`, shared MCP portal | `.niulai-state/` | [Tiger gateway](../shared/tiger/README.md) |
 | Market-data adapters | `shared/market_data_mcp/` | `.market-data-mcp/` | [Shared and tuning](deployment/shared-and-tuning.md) |
 | Mentor validation/tuning | `mentor/`, `tuning/` | component runtime directories | [Shared and tuning](deployment/shared-and-tuning.md) |
+| Local datasource UI and temporal runtime inspection | `ui/datasource/`, `investment/research/datasource*.py` | Existing private research roots and `ui/runtime/` | [Datasource](deployment/datasource.md) |
 | UI guidance and isolated React/browser verification | `ui/` | `ui/runtime/` | [Frontend](deployment/frontend.md) |
 
 UI skills also have repository discovery links and a compact SessionStart
@@ -40,6 +51,12 @@ or active market MCP registration is supplied. See the shared runbook for exact
 data delays, bounded scopes and deployment status.
 
 ## Shared scheduler bootstrap on another Mac
+
+Temporary acquisition A/B review continuation uses the separate
+[six-hour review/capture runbook](deployment/review-campaign.md), existing research
+Python environment and existing model/auth owner. It requires explicit finite
+schedule activation and new future-session acceptance; it is not automatically
+enabled by installing the shared scheduler.
 
 Prerequisites: private checkout, installed and authenticated Codex CLI, Python 3
 for bootstrapping, and an interactive macOS login. Linux/systemd and Windows
@@ -120,3 +137,31 @@ optional tokenizer requirements, reproduction and evidence limits.
 The preparation helper creates configuration/allocation files with exclusive
 creation and never overwrites an existing login or policy during concurrent or
 repeated preparation. `auth_present` is file presence, not a live login check.
+
+The [2026-11-02 UI skill expansion](../ui/tests/expansion-report.md) records the
+22-entrypoint catalog, selective resolver, independent browser checks and external
+Pencil/extension/runtime acceptance limits. Follow the frontend runbook for paths
+and reproduction; no global skill or browser installation is required.
+
+The optional native EgoLite skill transport and its closed host capability are
+covered in [browser runtime deployment](deployment/web-access.md). It requires
+real `/skills` activation; direct CLI probes alone do not accept it. The candidate
+uses an isolated temporary common-Engine allocation and leaves recurring jobs
+unchanged until their own integration/acceptance.
+
+The [datasource runbook](deployment/datasource.md#registered-controlled-native-acquisition-comparisons) also documents bounded registered native-comparison projection and its separate quality, lineage and availability denominators. It uses the existing local dependencies and read-only API.
+
+The [Harry UI session wrapper](../ui/tests/harry-ui-session-report.md) is the
+authorized user-scope exception for cross-repository UI guidance. Its portable
+build, exclusive publication and owned rollback are in the frontend runbook.
+Generated portable distributions remain ignored and are rebuilt from source.
+Intent/token evaluation precedes publication. Activation is once per native
+conversation. The [runtime persistence repair](../ui/portable/runtime_verification/report.md)
+adds private target-local thread receipts, restore-before-routing and explicit
+disable/re-enable behavior across compaction and resume. Implicit discovery is
+enabled without auto-enabling a fresh thread. Owned atomic upgrades retain exact
+rollback payloads; no global settings or hooks are changed. Fresh scheduled
+v3 execution passed10/10 tasks with actual compaction/resume and independent
+raw-evidence/cleanup verification and exact configured-owner email readback. The original
+and strict-v2 failures remain preserved; automatic repository hooks are separate
+and still unverified.

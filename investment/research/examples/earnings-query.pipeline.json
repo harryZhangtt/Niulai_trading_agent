@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "pipeline_id": "earnings_revenue_query",
+  "pipeline_version": "0.2.0",
+  "budget": {
+    "max_actions": 4,
+    "max_model_turns": 3,
+    "deadline_seconds": 300
+  },
+  "phases": [
+    {
+      "id": "comparison",
+      "objective": "Reconcile exact same-release revenue extractions under declared rounding precision.",
+      "mode": "action",
+      "gate": "action_success",
+      "action": "evidence.compare_numeric@1",
+      "arguments": {
+        "packet_ref": {
+          "$bind": "request.packet_ref"
+        }
+      }
+    },
+    {
+      "id": "interpretation",
+      "objective": "Inspect the original source passage with evidence.read before returning the scoped same-release reconciliation. Explain the actual difference and precision; distinguish one issuer upstream from independent corroboration. Return JSON proposals only; application code executes actions. Do not invoke native tools.",
+      "mode": "agent",
+      "gate": "structured_output",
+      "permitted_actions": [
+        "evidence.read@1"
+      ],
+      "inputs": {
+        "source_ref": {
+          "$bind": "request.source_ref"
+        },
+        "comparison": {
+          "$bind": "phases.comparison.data"
+        },
+        "requirement_ref": {
+          "$bind": "request.requirement_ref"
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "conclusion",
+          "independent_sources",
+          "source_ref",
+          "comparison_input_sha256",
+          "explanation",
+          "unresolved_gaps"
+        ],
+        "properties": {
+          "conclusion": {
+            "type": "string",
+            "const": "same_release_rounding_reconciled"
+          },
+          "independent_sources": {
+            "type": "boolean",
+            "const": false
+          },
+          "source_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          },
+          "comparison_input_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 3000
+          },
+          "unresolved_gaps": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "string",
+              "maxLength": 500
+            }
+          }
+        }
+      }
+    }
+  ]
+}

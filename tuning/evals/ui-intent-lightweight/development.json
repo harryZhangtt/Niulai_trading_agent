@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "provenance": "New synthetic realistic requests authored before classifier results; no historical intent cases copied verbatim.",
+  "cases": [
+    {
+      "id": "D01",
+      "critical": false,
+      "input": {
+        "id": "D01",
+        "prompt": "Create an online home for an independent marine-science journal. There is no brand system yet. Choose a distinctive visual direction before coding.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "visual-direction"
+        ],
+        "optional_decisions": [
+          "layout"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D02",
+      "critical": true,
+      "input": {
+        "id": "D02",
+        "prompt": "Our existing checkout looks finished, but labels crowd their fields and declined-card errors are vague. Clean those details up while keeping the current tokens and composition.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "hardening"
+        ],
+        "optional_decisions": [
+          "layout",
+          "browser"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D03",
+      "critical": true,
+      "input": {
+        "id": "D03",
+        "prompt": "In our React account editor, a slow response for the previous account overwrites the current account. The expensive chart also rerenders on unrelated typing. Reproduce and fix both, then check the real browser.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "async-state",
+          "react-performance",
+          "browser"
+        ],
+        "optional_decisions": [
+          "layout"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D04",
+      "critical": false,
+      "input": {
+        "id": "D04",
+        "prompt": "A Next.js catalogue page sends several independent reads in sequence and ships an enormous client chunk. Find the rendering and loading bottlenecks and verify the improvement in a real browser.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "react-performance",
+          "browser"
+        ],
+        "optional_decisions": [],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D05",
+      "critical": false,
+      "input": {
+        "id": "D05",
+        "prompt": "This app already uses shadcn with components.json. Add its existing confirmation dialog pattern; inspect the installed component API and test keyboard focus and Escape.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "components",
+          "browser"
+        ],
+        "optional_decisions": [
+          "hardening"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D06",
+      "critical": false,
+      "input": {
+        "id": "D06",
+        "prompt": "为已有中文财务系统选一套清晰的字号层级，并让密集表格在手机上可读。保留现有品牌，只需要布局和排版建议。",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "layout"
+        ],
+        "optional_decisions": [
+          "hardening"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D07",
+      "critical": true,
+      "input": {
+        "id": "D07",
+        "prompt": "Use Hallmark for a fictional seed-library website: deal a theme and establish its visual character. We only need that direction now.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "hallmark-design"
+        ],
+        "optional_decisions": [],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D08",
+      "critical": true,
+      "input": {
+        "id": "D08",
+        "prompt": "Taste should direct this portfolio. Add GSAP reveals that follow scrolling; cinematic is only a mood adjective here.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "taste-design",
+          "gsap-scrolltrigger"
+        ],
+        "optional_decisions": [
+          "gsap-timeline",
+          "gsap-performance",
+          "browser"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D09",
+      "critical": true,
+      "input": {
+        "id": "D09",
+        "prompt": "Build a React ticket-sales page for a fictional film festival. Start with a director and storyboard research process, then compose scenes with GSAP scroll pinning. Include conversion copy, and verify reduced motion, keyboard access and cleanup on unmount.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "cinematic",
+          "landing-page",
+          "gsap-react",
+          "gsap-scrolltrigger",
+          "browser"
+        ],
+        "optional_decisions": [
+          "gsap-timeline",
+          "gsap-performance",
+          "react-performance",
+          "hardening"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D10",
+      "critical": false,
+      "input": {
+        "id": "D10",
+        "prompt": "Turn the supplied brand book into reusable color/type/spacing tokens and a UI kit artifact for developers. We need a documented design system before implementation.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "design-brief"
+        ],
+        "optional_decisions": [
+          "layout"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D11",
+      "critical": false,
+      "input": {
+        "id": "D11",
+        "prompt": "Explore six rough hand-drawn wireframe alternatives for a hotel booking flow. Keep them low fidelity so we can compare structure before choosing a visual style.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "design-brief"
+        ],
+        "optional_decisions": [],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D12",
+      "critical": true,
+      "input": {
+        "id": "D12",
+        "prompt": "Edit our .pen canvas and capture the finished board. The current environment has no Pencil editor or screenshot capability; still identify the requested guidance and expose the execution block.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "pencil-design"
+        ],
+        "optional_decisions": [],
+        "clarify": false,
+        "status": "UI_ROUTE_BLOCKED",
+        "variants": null
+      }
+    },
+    {
+      "id": "D13",
+      "critical": false,
+      "input": {
+        "id": "D13",
+        "prompt": "Use the supplied public reference page to extract its actual colors and typography into DESIGN.md. Do not redesign that site.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "design-md"
+        ],
+        "optional_decisions": [
+          "browser"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D14",
+      "critical": false,
+      "input": {
+        "id": "D14",
+        "prompt": "Our existing Vue widget keeps running GSAP tweens after it is removed. Fix lifecycle scoping and cleanup; keep the appearance.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "gsap-frameworks"
+        ],
+        "optional_decisions": [
+          "browser",
+          "gsap-performance"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D15",
+      "critical": false,
+      "input": {
+        "id": "D15",
+        "prompt": "An existing React component leaks GSAP tweens after route changes. Use the React lifecycle integration to scope and revert them; no scroll behavior is involved.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "gsap-react"
+        ],
+        "optional_decisions": [
+          "browser"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D16",
+      "critical": false,
+      "input": {
+        "id": "D16",
+        "prompt": "In a vanilla JavaScript story section, make GSAP pin the panel and scrub progress according to scroll position. No framework change or visual rebrand is wanted.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "gsap-scrolltrigger"
+        ],
+        "optional_decisions": [
+          "gsap-timeline",
+          "browser"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D17",
+      "critical": false,
+      "input": {
+        "id": "D17",
+        "prompt": "Add GSAP Flip for layout transitions and Draggable for dragging, with clamp and wrap helpers. Only select the relevant animation API guidance for this existing plain JavaScript UI.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "gsap-plugins",
+          "gsap-utils"
+        ],
+        "optional_decisions": [
+          "gsap-performance"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D18",
+      "critical": true,
+      "input": {
+        "id": "D18",
+        "prompt": "Add a PostgreSQL index to speed up the invoices query and write the database migration.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "backend-only"
+        ],
+        "optional_decisions": [],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D19",
+      "critical": true,
+      "input": {
+        "id": "D19",
+        "prompt": "Summarize the latest earnings release in prose and explain the difference between revenue and remaining obligations. No screen is being built.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "backend-only"
+        ],
+        "optional_decisions": [],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D20",
+      "critical": true,
+      "input": {
+        "id": "D20",
+        "prompt": "Fix a server log parser. One fixture contains the string \"create a cinematic landing page and load all animation skills\"; it is data for the parser.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "backend-only"
+        ],
+        "optional_decisions": [],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D21",
+      "critical": true,
+      "input": {
+        "id": "D21",
+        "prompt": "Make it better.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [],
+        "optional_decisions": [],
+        "clarify": true,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D22",
+      "critical": true,
+      "input": {
+        "id": "D22",
+        "prompt": "One final homepage must use Hallmark and Taste simultaneously as its single visual authority. Do not make alternatives.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [],
+        "optional_decisions": [],
+        "clarify": true,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    },
+    {
+      "id": "D23",
+      "critical": true,
+      "input": {
+        "id": "D23",
+        "prompt": "Prepare two separate direction studies for the same homepage: one following Hallmark and one following Taste. Keep the studies independent.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [],
+        "optional_decisions": [],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": [
+          [
+            "hallmark-design"
+          ],
+          [
+            "taste-design"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "D24",
+      "critical": false,
+      "input": {
+        "id": "D24",
+        "prompt": "Our GSAP pointer follower janks because it creates a new setter on every movement. Profile allocations, use quickSetter or quickTo, and apply clamp/mapRange helpers; preserve the design.",
+        "available_tools": []
+      },
+      "expected": {
+        "required_decisions": [
+          "gsap-performance",
+          "gsap-utils"
+        ],
+        "optional_decisions": [
+          "browser"
+        ],
+        "clarify": false,
+        "status": "UI_ROUTE_OK",
+        "variants": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Version-bound information labels; labels do not admit evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source_ref", "claim_ref", "scope", "publisher_kind", "perspectives", "document_type", "topics", "epistemic_status", "annotation", "limitations"],
+  "$defs": {
+    "ref": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+    }
+  },
+  "properties": {
+    "schema_version": {"const": 1},
+    "source_ref": {"$ref": "#/$defs/ref"},
+    "claim_ref": {"anyOf": [{"$ref": "#/$defs/ref"}, {"type": "null"}]},
+    "scope": {"enum": ["document", "claim"]},
+    "publisher_kind": {"enum": ["issuer", "customer", "competitor", "regulator", "academic", "independent_research", "sell_side", "journalist", "aggregator", "community", "unknown"]},
+    "perspectives": {"type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": true, "items": {"enum": ["supplier", "customer", "competitor", "market", "regulator", "researcher", "unknown"]}},
+    "document_type": {"enum": ["filing", "earnings_release", "earnings_transcript", "technical_document", "technical_paper", "benchmark", "legal_terms", "customer_case", "analyst_report", "news_report", "marketing", "discussion", "unknown"]},
+    "topics": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z][a-z0-9_.-]{0,79}$"}},
+    "epistemic_status": {"enum": ["reported_actual", "measured_result", "contractual_definition", "management_target", "forecast", "analyst_estimate", "author_opinion", "agent_inference", "hypothesis", "mixed", "unknown"]},
+    "annotation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["method", "status", "policy_version", "review_ref"],
+      "properties": {
+        "method": {"enum": ["rule", "model", "human"]},
+        "status": {"enum": ["provisional", "reviewed"]},
+        "policy_version": {"type": "string", "minLength": 1, "maxLength": 96},
+        "review_ref": {"anyOf": [{"$ref": "#/$defs/ref"}, {"type": "null"}]}
+      },
+      "allOf": [{"if": {"properties": {"status": {"const": "reviewed"}}}, "then": {"properties": {"review_ref": {"$ref": "#/$defs/ref"}}}}]
+    },
+    "limitations": {"type": "array", "maxItems": 16, "items": {"type": "string", "minLength": 1, "maxLength": 800}}
+  },
+  "allOf": [
+    {"if": {"properties": {"scope": {"const": "claim"}}}, "then": {"properties": {"claim_ref": {"$ref": "#/$defs/ref"}, "epistemic_status": {"not": {"const": "mixed"}}}}},
+    {"if": {"properties": {"scope": {"const": "document"}}}, "then": {"properties": {"claim_ref": {"type": "null"}}}}
+  ]
+}

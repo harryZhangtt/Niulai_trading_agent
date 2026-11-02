@@ -9,6 +9,13 @@ and official documentation is permitted; do not alter those external resources.
 Use project-local dependency environments and explicitly configure local cache
 and output paths. Do not add hidden dependencies on global skills or packages.
 
+User-authorized exception, 2026-11-02: publish the self-contained
+`harry-ui-skill-set` package under `~/.agents/skills/harry-ui-skill-set` for this
+user's repositories after the intent/token evaluation. Maintain its source and
+tests in `ui/portable/`; preserve owned install/rollback receipts locally. This
+permits that skill payload, not global configuration, hooks, browsers or package
+installation. Target projects still own their dependencies, caches and state.
+
 # Separation of responsibilities
 
 Keep these concerns in distinct modules/directories when implementing them:
@@ -67,7 +74,7 @@ does not change the separately running cloud task or claim an OS-level sandbox.
 # Frontend design
 
 At startup, resume, fork or compaction, the local UI SessionStart definition
-loads only `ui/AGENTS.md` and `ui/ROUTING.md` after checking seven canonical skill
+loads only `ui/AGENTS.md` and `ui/ROUTING.md` after checking the catalogued canonical skill
 sources and repo-local discovery links. Require `UI_INIT_OK` from the latest
 actual hook output before claiming automatic initialization. Report
 `UI_INIT_FAILED`, or missing/skipped/untrusted output as unverified, before UI
@@ -118,6 +125,23 @@ complete with a failing gate. Never put credentials or private account data into
 these files; distinguish tested, active, candidate and unverified behavior.
 
 # Major runtime acceptance — required across agents
+
+User decision, 2026-10-31: the recurring Codex combined price/holdings sender is
+authorized to run alongside the existing ChatGPT sender. The later explicit
+parallel-run instruction supersedes the earlier shadow-only handoff. Preserve
+the original logical delivery key in the local outbox and brand Codex subjects;
+do not invent old-sender disablement or describe parallel operation as cutover.
+Each sender may issue its own report during this authorized comparison period.
+Future-triggered business-path and exact-readback acceptance still applies.
+
+For newly composed emails initiated by Codex in this workspace, start the
+subject with `[CODEX]`, including tests, acceptance summaries and 补发 messages.
+Identify manual versus scheduled execution and the request/slot ID in the body
+when available. This identifies the orchestrator, not the underlying GPT model.
+Preserve imported historical subjects and immutable accepted/sending payloads;
+never resend an old message solely to change branding. Existing exact-parity
+tests remain historical evidence until a new candidate explicitly adopts the
+new subject. This is an agent instruction, not an installed Gmail middleware.
 
 User decision, 2026-10-30: a major runtime change is not accepted until a real
 future-triggered scheduled Codex session successfully exercises the changed

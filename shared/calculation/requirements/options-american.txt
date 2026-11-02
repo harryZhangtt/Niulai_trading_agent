@@ -1,0 +1,3 @@
+# Optional American/European finite-difference diagnostic; never required by core alerts.
+# Latest stable verified on PyPI 2026-10-24; released 2026-10-13.
+QuantLib==1.44
