@@ -1,0 +1,130 @@
+{
+  "$id": "factor-local-official-source-inventory-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "coordinating_session_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_status": {
+          "const": "reported-but-unavailable-not-adopted"
+        },
+        "exact_receipts_available_to_this_artifact": {
+          "const": false
+        },
+        "receipt_urls_imported": {
+          "const": false
+        },
+        "reported_date": {
+          "const": "2026-11-05"
+        },
+        "reported_live_verified": {
+          "const": true
+        }
+      },
+      "required": [
+        "reported_date",
+        "reported_live_verified",
+        "exact_receipts_available_to_this_artifact",
+        "receipt_urls_imported",
+        "evidence_status"
+      ],
+      "type": "object"
+    },
+    "kind": {
+      "const": "factor_local_official_source_inventory"
+    },
+    "live_fetch_performed": {
+      "const": false
+    },
+    "nonclaims": {
+      "const": [
+        "No source was live-fetched in this task.",
+        "References do not prove host behavior, installed versions, paths, context, VM identity, containment, performance, capacity, cost, or runtime acceptance.",
+        "Contract validation is not Docker or Colima execution evidence."
+      ]
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "sources": {
+      "const": [
+        {
+          "claims": [
+            "Colima supports Docker runtimes and configurable CPU, memory, disk, and VM type."
+          ],
+          "evidence_status": "reference-not-live-verified",
+          "id": "colima-readme",
+          "live_fetched_in_task": false,
+          "official": true,
+          "title": "Colima README",
+          "url": "https://github.com/abiosoft/colima/blob/main/README.md"
+        },
+        {
+          "claims": [
+            "Colima operational behavior and troubleshooting require host-specific verification."
+          ],
+          "evidence_status": "reference-not-live-verified",
+          "id": "colima-faq",
+          "live_fetched_in_task": false,
+          "official": true,
+          "title": "Colima FAQ",
+          "url": "https://github.com/abiosoft/colima/blob/main/docs/FAQ.md"
+        },
+        {
+          "claims": [
+            "Compose service declarations include restart, read-only, tmpfs, network, capabilities, security options, resource and logging controls."
+          ],
+          "evidence_status": "reference-not-live-verified",
+          "id": "docker-compose-services",
+          "live_fetched_in_task": false,
+          "official": true,
+          "title": "Docker Compose file reference: services",
+          "url": "https://docs.docker.com/reference/compose-file/services/"
+        },
+        {
+          "claims": [
+            "Docker exposes CPU, memory, swap, PID and relative CPU-share controls; host behavior must be tested."
+          ],
+          "evidence_status": "reference-not-live-verified",
+          "id": "docker-resource-constraints",
+          "live_fetched_in_task": false,
+          "official": true,
+          "title": "Docker Engine resource constraints",
+          "url": "https://docs.docker.com/engine/containers/resource_constraints/"
+        },
+        {
+          "claims": [
+            "The local logging driver supports bounded rotation configuration."
+          ],
+          "evidence_status": "reference-not-live-verified",
+          "id": "docker-logging-local",
+          "live_fetched_in_task": false,
+          "official": true,
+          "title": "Docker local file logging driver",
+          "url": "https://docs.docker.com/engine/logging/drivers/local/"
+        },
+        {
+          "claims": [
+            "Docker restart policies distinguish no restart from unless-stopped behavior."
+          ],
+          "evidence_status": "reference-not-live-verified",
+          "id": "docker-restart-policy",
+          "live_fetched_in_task": false,
+          "official": true,
+          "title": "Start containers automatically",
+          "url": "https://docs.docker.com/engine/containers/start-containers-automatically/"
+        }
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "live_fetch_performed",
+    "nonclaims",
+    "schema_version",
+    "sources",
+    "coordinating_session_verification"
+  ],
+  "type": "object"
+}

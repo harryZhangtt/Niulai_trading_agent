@@ -1,0 +1,244 @@
+{
+  "$id": "factor-local-docker-colima-profile-v2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "apply_allowed": {
+      "const": false
+    },
+    "blockers": {
+      "const": [
+        "docker-context-unverified",
+        "vm-identity-unverified",
+        "controller-image-digest-unresolved",
+        "proxy-image-digest-unresolved",
+        "executor-image-digest-unresolved",
+        "evaluator-image-digest-unresolved",
+        "checker-image-digest-unresolved",
+        "release-digest-unresolved",
+        "host-headroom-unmeasured",
+        "disposable-lifecycle-unrun",
+        "pressure-behavior-unverified",
+        "future-io-sources-unresolved",
+        "output-promotion-root-unresolved",
+        "future-io-conformance-unverified",
+        "internal-network-identity-unresolved",
+        "egress-network-identity-unresolved",
+        "dual-network-conformance-unverified",
+        "stable-lifecycle-conformance-unverified",
+        "linux-userspace-base-release-unresolved",
+        "oci-architecture-unresolved",
+        "in-image-verifier-digests-unresolved",
+        "image-contract-conformance-unverified",
+        "official-source-live-verification-receipts-unavailable",
+        "runtime-acceptance-unrun"
+      ]
+    },
+    "frozen_v1": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_profile": {
+          "const": "factor/docker/local/runtime-profile.json"
+        },
+        "contract_profile_sha256": {
+          "const": "0018efdecd22659125880e398f831ab7e93ede52e81724908d2c17c467950d1a"
+        },
+        "excluded_paths": {
+          "const": [
+            "numeric-version-directories/**",
+            "__pycache__/**",
+            ".DS_Store",
+            "editor.swp"
+          ]
+        },
+        "file_count": {
+          "const": 18
+        },
+        "root": {
+          "const": "factor/docker/local"
+        },
+        "tree_algorithm": {
+          "const": "sha256(concat(relative_path_utf8,NUL,file_sha256_ascii,LF))-explicit-manifest-v1"
+        },
+        "tree_sha256": {
+          "const": "405fd69ce4cecdf128a925082aa0e3f1a1c8a8ab179c6dc98b7a3a6c56ada2f4"
+        }
+      },
+      "required": [
+        "contract_profile",
+        "contract_profile_sha256",
+        "excluded_paths",
+        "file_count",
+        "root",
+        "tree_algorithm",
+        "tree_sha256"
+      ],
+      "type": "object"
+    },
+    "host_state": {
+      "additionalProperties": false,
+      "properties": {
+        "change_global_current_docker_context": {
+          "const": false
+        },
+        "colima_config": {
+          "additionalProperties": false,
+          "properties": {
+            "autoActivate": {
+              "const": false
+            }
+          },
+          "required": [
+            "autoActivate"
+          ],
+          "type": "object"
+        },
+        "colima_environment": {
+          "additionalProperties": false,
+          "properties": {
+            "COLIMA_HOME": {
+              "const": "$WORKSPACE/factor/runtime/local/colima"
+            },
+            "COLIMA_PROFILE": {
+              "const": "factor-mining"
+            }
+          },
+          "required": [
+            "COLIMA_HOME",
+            "COLIMA_PROFILE"
+          ],
+          "type": "object"
+        },
+        "docker_context": {
+          "type": "null"
+        },
+        "expected_future_docker_context": {
+          "const": "colima-factor-mining"
+        },
+        "vm_identity": {
+          "type": "null"
+        },
+        "docker_context_state": {
+          "const": "uninspected-unknown"
+        },
+        "vm_identity_state": {
+          "const": "uninspected-unknown"
+        }
+      },
+      "required": [
+        "change_global_current_docker_context",
+        "colima_config",
+        "colima_environment",
+        "docker_context",
+        "expected_future_docker_context",
+        "vm_identity",
+        "docker_context_state",
+        "vm_identity_state"
+      ],
+      "type": "object"
+    },
+    "installation_evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_sha256": {
+          "const": "ecc4d2651e22b5e1d32c9cf32ac3bee2f3cfaa60dbf6cc13d8de4af6aaf67a8a"
+        },
+        "exact_match_required": {
+          "const": true
+        },
+        "path": {
+          "const": "installation-receipt.json"
+        },
+        "source": {
+          "const": "installed-tool-observation"
+        },
+        "tools_bound": {
+          "const": [
+            "colima",
+            "docker",
+            "compose",
+            "buildx",
+            "lima"
+          ]
+        }
+      },
+      "required": [
+        "canonical_sha256",
+        "exact_match_required",
+        "path",
+        "source",
+        "tools_bound"
+      ],
+      "type": "object"
+    },
+    "kind": {
+      "const": "factor_local_docker_colima_profile"
+    },
+    "limitations": {
+      "const": [
+        "installation-evidence-only",
+        "package-observation-does-not-establish-runtime-history",
+        "no-docker-daemon-query",
+        "docker-context-uninspected-unknown",
+        "vm-identity-uninspected-unknown",
+        "no-image-or-release-evidence",
+        "no-capacity-lifecycle-pressure-network-mount-or-oci-evidence",
+        "no-runtime-acceptance",
+        "not-runnable"
+      ]
+    },
+    "nonclaims": {
+      "const": [
+        "docker-daemon-available",
+        "runtime-activation-history-known",
+        "colima-vm-created-or-running",
+        "colima-vm-never-previously-active",
+        "docker-context-created-or-selected",
+        "docker-context-never-previously-active",
+        "images-present-or-verified",
+        "release-ready",
+        "production-ready"
+      ]
+    },
+    "profile_id": {
+      "const": "factor-local-docker-colima-v2"
+    },
+    "resolved_blockers": {
+      "const": [
+        "colima-version-unverified",
+        "docker-version-unverified",
+        "colima-path-unverified",
+        "docker-path-unverified"
+      ]
+    },
+    "runnable": {
+      "const": false
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "selection": {
+      "const": "local-docker-replaces-paid-gcp-activation"
+    },
+    "status": {
+      "const": "selected-disabled"
+    }
+  },
+  "required": [
+    "apply_allowed",
+    "blockers",
+    "frozen_v1",
+    "host_state",
+    "installation_evidence",
+    "kind",
+    "limitations",
+    "nonclaims",
+    "profile_id",
+    "resolved_blockers",
+    "runnable",
+    "schema_version",
+    "selection",
+    "status"
+  ],
+  "type": "object"
+}

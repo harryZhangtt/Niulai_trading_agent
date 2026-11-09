@@ -1,0 +1,105 @@
+{
+  "apply_allowed": false,
+  "blockers": [
+    "docker-context-unverified",
+    "vm-identity-unverified",
+    "controller-image-digest-unresolved",
+    "proxy-image-digest-unresolved",
+    "executor-image-digest-unresolved",
+    "evaluator-image-digest-unresolved",
+    "checker-image-digest-unresolved",
+    "release-digest-unresolved",
+    "host-headroom-unmeasured",
+    "disposable-lifecycle-unrun",
+    "pressure-behavior-unverified",
+    "future-io-sources-unresolved",
+    "output-promotion-root-unresolved",
+    "future-io-conformance-unverified",
+    "internal-network-identity-unresolved",
+    "egress-network-identity-unresolved",
+    "dual-network-conformance-unverified",
+    "stable-lifecycle-conformance-unverified",
+    "linux-userspace-base-release-unresolved",
+    "oci-architecture-unresolved",
+    "in-image-verifier-digests-unresolved",
+    "image-contract-conformance-unverified",
+    "official-source-live-verification-receipts-unavailable",
+    "runtime-acceptance-unrun"
+  ],
+  "frozen_v1": {
+    "contract_profile": "factor/docker/local/runtime-profile.json",
+    "contract_profile_sha256": "0018efdecd22659125880e398f831ab7e93ede52e81724908d2c17c467950d1a",
+    "excluded_paths": [
+      "numeric-version-directories/**",
+      "__pycache__/**",
+      ".DS_Store",
+      "editor.swp"
+    ],
+    "file_count": 18,
+    "root": "factor/docker/local",
+    "tree_algorithm": "sha256(concat(relative_path_utf8,NUL,file_sha256_ascii,LF))-explicit-manifest-v1",
+    "tree_sha256": "405fd69ce4cecdf128a925082aa0e3f1a1c8a8ab179c6dc98b7a3a6c56ada2f4"
+  },
+  "host_state": {
+    "change_global_current_docker_context": false,
+    "colima_config": {
+      "autoActivate": false
+    },
+    "colima_environment": {
+      "COLIMA_HOME": "$WORKSPACE/factor/runtime/local/colima",
+      "COLIMA_PROFILE": "factor-mining"
+    },
+    "docker_context": null,
+    "expected_future_docker_context": "colima-factor-mining",
+    "vm_identity": null,
+    "docker_context_state": "uninspected-unknown",
+    "vm_identity_state": "uninspected-unknown"
+  },
+  "installation_evidence": {
+    "canonical_sha256": "ecc4d2651e22b5e1d32c9cf32ac3bee2f3cfaa60dbf6cc13d8de4af6aaf67a8a",
+    "exact_match_required": true,
+    "path": "installation-receipt.json",
+    "source": "installed-tool-observation",
+    "tools_bound": [
+      "colima",
+      "docker",
+      "compose",
+      "buildx",
+      "lima"
+    ]
+  },
+  "kind": "factor_local_docker_colima_profile",
+  "limitations": [
+    "installation-evidence-only",
+    "package-observation-does-not-establish-runtime-history",
+    "no-docker-daemon-query",
+    "docker-context-uninspected-unknown",
+    "vm-identity-uninspected-unknown",
+    "no-image-or-release-evidence",
+    "no-capacity-lifecycle-pressure-network-mount-or-oci-evidence",
+    "no-runtime-acceptance",
+    "not-runnable"
+  ],
+  "nonclaims": [
+    "docker-daemon-available",
+    "runtime-activation-history-known",
+    "colima-vm-created-or-running",
+    "colima-vm-never-previously-active",
+    "docker-context-created-or-selected",
+    "docker-context-never-previously-active",
+    "images-present-or-verified",
+    "release-ready",
+    "production-ready"
+  ],
+  "profile_id": "factor-local-docker-colima-v2",
+  "resolved_blockers": [
+    "colima-version-unverified",
+    "docker-version-unverified",
+    "colima-path-unverified",
+    "docker-path-unverified"
+  ],
+  "runnable": false,
+  "schema_version": 2,
+  "selection": "local-docker-replaces-paid-gcp-activation",
+  "status": "selected-disabled"
+}

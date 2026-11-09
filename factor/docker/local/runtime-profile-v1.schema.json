@@ -1,0 +1,1169 @@
+{
+  "$id": "factor-local-docker-colima-profile-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "apply_allowed": {
+      "const": false
+    },
+    "artifacts": {
+      "additionalProperties": false,
+      "properties": {
+        "image_digests": {
+          "additionalProperties": false,
+          "properties": {
+            "checker": {
+              "type": "null"
+            },
+            "controller": {
+              "type": "null"
+            },
+            "evaluator": {
+              "type": "null"
+            },
+            "executor": {
+              "type": "null"
+            },
+            "proxy": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "checker",
+            "controller",
+            "evaluator",
+            "executor",
+            "proxy"
+          ],
+          "type": "object"
+        },
+        "release_digest": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "image_digests",
+        "release_digest"
+      ],
+      "type": "object"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_service_restart": {
+          "const": "no"
+        },
+        "attempt_timeout_seconds": {
+          "const": 3600
+        },
+        "cancel_grace_seconds": {
+          "const": 30
+        },
+        "lease_owner": {
+          "const": "engine"
+        },
+        "max_retries_per_attempt": {
+          "const": 1
+        },
+        "permanent_failure_retry": {
+          "const": false
+        },
+        "restart_owner": {
+          "const": "host-authority-for-stable-engine-for-attempt"
+        },
+        "retry_owner": {
+          "const": "engine"
+        },
+        "retry_transient_only": {
+          "const": true
+        },
+        "stable_service_restart": {
+          "const": "no"
+        },
+        "unknown_lease_state": {
+          "const": "unknown"
+        },
+        "unknown_outcome_action": {
+          "const": "fence-and-reconcile-before-retry"
+        }
+      },
+      "required": [
+        "attempt_service_restart",
+        "attempt_timeout_seconds",
+        "cancel_grace_seconds",
+        "lease_owner",
+        "max_retries_per_attempt",
+        "permanent_failure_retry",
+        "restart_owner",
+        "retry_owner",
+        "retry_transient_only",
+        "stable_service_restart",
+        "unknown_lease_state",
+        "unknown_outcome_action"
+      ],
+      "type": "object"
+    },
+    "blockers": {
+      "const": [
+        "colima-version-unverified",
+        "docker-version-unverified",
+        "colima-path-unverified",
+        "docker-path-unverified",
+        "docker-context-unverified",
+        "vm-identity-unverified",
+        "controller-image-digest-unresolved",
+        "proxy-image-digest-unresolved",
+        "executor-image-digest-unresolved",
+        "evaluator-image-digest-unresolved",
+        "checker-image-digest-unresolved",
+        "release-digest-unresolved",
+        "host-headroom-unmeasured",
+        "disposable-lifecycle-unrun",
+        "pressure-behavior-unverified",
+        "future-io-sources-unresolved",
+        "output-promotion-root-unresolved",
+        "future-io-conformance-unverified",
+        "internal-network-identity-unresolved",
+        "egress-network-identity-unresolved",
+        "dual-network-conformance-unverified",
+        "stable-lifecycle-conformance-unverified",
+        "linux-userspace-base-release-unresolved",
+        "oci-architecture-unresolved",
+        "in-image-verifier-digests-unresolved",
+        "image-contract-conformance-unverified",
+        "official-source-live-verification-receipts-unavailable",
+        "runtime-acceptance-unrun"
+      ]
+    },
+    "capacity": {
+      "additionalProperties": false,
+      "properties": {
+        "assumptions_measured": {
+          "const": false
+        },
+        "autoscaling": {
+          "const": false
+        },
+        "burst_executor_concurrency_max": {
+          "const": 2
+        },
+        "burst_requires_explicit_authority": {
+          "const": true
+        },
+        "default_executor_concurrency": {
+          "const": 1
+        },
+        "preemption": {
+          "const": false
+        },
+        "static_host_headroom_primary": {
+          "const": true
+        }
+      },
+      "required": [
+        "assumptions_measured",
+        "autoscaling",
+        "burst_executor_concurrency_max",
+        "burst_requires_explicit_authority",
+        "default_executor_concurrency",
+        "preemption",
+        "static_host_headroom_primary"
+      ],
+      "type": "object"
+    },
+    "contracts": {
+      "additionalProperties": false,
+      "properties": {
+        "services": {
+          "const": "service-declarations.json"
+        },
+        "sources": {
+          "const": "source-inventory.json"
+        }
+      },
+      "required": [
+        "services",
+        "sources"
+      ],
+      "type": "object"
+    },
+    "future_io_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "active_mounts": {
+          "const": []
+        },
+        "arbitrary_mounts": {
+          "const": false
+        },
+        "closed_inputs": {
+          "additionalProperties": false,
+          "properties": {
+            "bundle": {
+              "additionalProperties": false,
+              "properties": {
+                "allow_symlinks": {
+                  "const": false
+                },
+                "destination": {
+                  "const": "/input/bundle"
+                },
+                "kind": {
+                  "const": "directory"
+                },
+                "mount_options": {
+                  "const": [
+                    "ro",
+                    "noexec",
+                    "nodev",
+                    "nosuid"
+                  ]
+                },
+                "path_escape_policy": {
+                  "const": "reject"
+                },
+                "read_only": {
+                  "const": true
+                },
+                "recursive": {
+                  "const": false
+                },
+                "source_identity": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "allow_symlinks",
+                "destination",
+                "kind",
+                "mount_options",
+                "path_escape_policy",
+                "read_only",
+                "recursive",
+                "source_identity"
+              ],
+              "type": "object"
+            },
+            "dataset": {
+              "additionalProperties": false,
+              "properties": {
+                "allow_symlinks": {
+                  "const": false
+                },
+                "destination": {
+                  "const": "/input/dataset"
+                },
+                "kind": {
+                  "const": "directory"
+                },
+                "mount_options": {
+                  "const": [
+                    "ro",
+                    "noexec",
+                    "nodev",
+                    "nosuid"
+                  ]
+                },
+                "path_escape_policy": {
+                  "const": "reject"
+                },
+                "read_only": {
+                  "const": true
+                },
+                "recursive": {
+                  "const": false
+                },
+                "source_identity": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "allow_symlinks",
+                "destination",
+                "kind",
+                "mount_options",
+                "path_escape_policy",
+                "read_only",
+                "recursive",
+                "source_identity"
+              ],
+              "type": "object"
+            },
+            "request": {
+              "additionalProperties": false,
+              "properties": {
+                "allow_symlinks": {
+                  "const": false
+                },
+                "destination": {
+                  "const": "/input/request"
+                },
+                "kind": {
+                  "const": "directory"
+                },
+                "mount_options": {
+                  "const": [
+                    "ro",
+                    "noexec",
+                    "nodev",
+                    "nosuid"
+                  ]
+                },
+                "path_escape_policy": {
+                  "const": "reject"
+                },
+                "read_only": {
+                  "const": true
+                },
+                "recursive": {
+                  "const": false
+                },
+                "source_identity": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "allow_symlinks",
+                "destination",
+                "kind",
+                "mount_options",
+                "path_escape_policy",
+                "read_only",
+                "recursive",
+                "source_identity"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "bundle",
+            "dataset",
+            "request"
+          ],
+          "type": "object"
+        },
+        "docker_socket": {
+          "const": false
+        },
+        "output_promotion": {
+          "additionalProperties": false,
+          "properties": {
+            "allow_symlinks": {
+              "const": false
+            },
+            "allowlist": {
+              "const": [
+                "result.json",
+                "artifacts/"
+              ]
+            },
+            "container_destination": {
+              "const": "/output"
+            },
+            "host_destination_root": {
+              "type": "null"
+            },
+            "max_bytes": {
+              "const": 1073741824
+            },
+            "overwrite": {
+              "const": false
+            },
+            "path_escape_policy": {
+              "const": "reject"
+            },
+            "promotion_gate": {
+              "const": "attempt-succeeded-and-host-plus-in-image-verified"
+            },
+            "promotion_owner": {
+              "const": "engine"
+            },
+            "staging_kind": {
+              "const": "bounded-tmpfs"
+            },
+            "unknown_outcome_action": {
+              "const": "fence-and-reconcile-before-promotion-or-retry"
+            }
+          },
+          "required": [
+            "allow_symlinks",
+            "allowlist",
+            "container_destination",
+            "host_destination_root",
+            "max_bytes",
+            "overwrite",
+            "path_escape_policy",
+            "promotion_gate",
+            "promotion_owner",
+            "staging_kind",
+            "unknown_outcome_action"
+          ],
+          "type": "object"
+        },
+        "secrets": {
+          "const": false
+        },
+        "status": {
+          "const": "blocked-unresolved-identities"
+        }
+      },
+      "required": [
+        "active_mounts",
+        "arbitrary_mounts",
+        "closed_inputs",
+        "docker_socket",
+        "output_promotion",
+        "secrets",
+        "status"
+      ],
+      "type": "object"
+    },
+    "future_network_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "attachments": {
+          "additionalProperties": false,
+          "properties": {
+            "checker": {
+              "const": []
+            },
+            "controller": {
+              "const": [
+                "internal"
+              ]
+            },
+            "evaluator": {
+              "const": []
+            },
+            "executor": {
+              "const": []
+            },
+            "proxy": {
+              "const": [
+                "internal",
+                "egress"
+              ]
+            }
+          },
+          "required": [
+            "checker",
+            "controller",
+            "evaluator",
+            "executor",
+            "proxy"
+          ],
+          "type": "object"
+        },
+        "network_identities": {
+          "additionalProperties": false,
+          "properties": {
+            "egress": {
+              "type": "null"
+            },
+            "internal": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "egress",
+            "internal"
+          ],
+          "type": "object"
+        },
+        "policies": {
+          "additionalProperties": false,
+          "properties": {
+            "controller_bypass": {
+              "const": false
+            },
+            "controller_direct_egress": {
+              "const": false
+            },
+            "controller_egress_attachment": {
+              "const": false
+            },
+            "controller_proxy_only": {
+              "const": true
+            },
+            "default_external_attachment": {
+              "const": false
+            },
+            "egress_is_proxy_only": {
+              "const": true
+            },
+            "internal_is_internal_only": {
+              "const": true
+            },
+            "proxy_is_sole_egress_bridge": {
+              "const": true
+            },
+            "scientific_attempt_network": {
+              "const": "none"
+            }
+          },
+          "required": [
+            "controller_bypass",
+            "controller_direct_egress",
+            "controller_egress_attachment",
+            "controller_proxy_only",
+            "default_external_attachment",
+            "egress_is_proxy_only",
+            "internal_is_internal_only",
+            "proxy_is_sole_egress_bridge",
+            "scientific_attempt_network"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "blocked-unresolved-identities"
+        }
+      },
+      "required": [
+        "attachments",
+        "network_identities",
+        "policies",
+        "status"
+      ],
+      "type": "object"
+    },
+    "host_state": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_classes": {
+          "const": [
+            "config",
+            "cache",
+            "runtime"
+          ]
+        },
+        "artifacts_must_be_git_ignored": {
+          "const": true
+        },
+        "artifacts_root": {
+          "const": "$WORKSPACE/factor/runtime/local"
+        },
+        "change_global_current_docker_context": {
+          "const": false
+        },
+        "colima_config": {
+          "additionalProperties": false,
+          "properties": {
+            "autoActivate": {
+              "const": false
+            }
+          },
+          "required": [
+            "autoActivate"
+          ],
+          "type": "object"
+        },
+        "colima_environment": {
+          "additionalProperties": false,
+          "properties": {
+            "COLIMA_HOME": {
+              "const": "$WORKSPACE/factor/runtime/local/colima"
+            },
+            "COLIMA_PROFILE": {
+              "const": "factor-mining"
+            }
+          },
+          "required": [
+            "COLIMA_HOME",
+            "COLIMA_PROFILE"
+          ],
+          "type": "object"
+        },
+        "context_discovery": {
+          "const": "future-activation-discover-and-validate"
+        },
+        "default_colima_home": {
+          "const": "~/.colima"
+        },
+        "default_colima_home_policy": {
+          "const": "prohibited-fail-closed"
+        },
+        "docker_wrapper_required_args": {
+          "const": [
+            "--context",
+            "colima-factor-mining"
+          ]
+        },
+        "expected_docker_context": {
+          "const": "colima-factor-mining"
+        },
+        "workspace_token": {
+          "const": "$WORKSPACE"
+        }
+      },
+      "required": [
+        "artifact_classes",
+        "artifacts_must_be_git_ignored",
+        "artifacts_root",
+        "change_global_current_docker_context",
+        "colima_config",
+        "colima_environment",
+        "context_discovery",
+        "default_colima_home",
+        "default_colima_home_policy",
+        "docker_wrapper_required_args",
+        "expected_docker_context",
+        "workspace_token"
+      ],
+      "type": "object"
+    },
+    "image_contracts": {
+      "additionalProperties": false,
+      "properties": {
+        "checker": {
+          "additionalProperties": false,
+          "properties": {
+            "base_image_digest": {
+              "type": "null"
+            },
+            "base_release": {
+              "type": "null"
+            },
+            "contract_id": {
+              "const": "checker-linux-oci-v1"
+            },
+            "host_verifier_required": {
+              "const": true
+            },
+            "immutable_image_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_is_additive": {
+              "const": true
+            },
+            "in_image_verifier_path": {
+              "const": "/usr/local/bin/verify-image-contract"
+            },
+            "linux_userspace_required": {
+              "const": true
+            },
+            "oci_architecture": {
+              "type": "null"
+            },
+            "oci_os": {
+              "const": "linux"
+            }
+          },
+          "required": [
+            "base_image_digest",
+            "base_release",
+            "contract_id",
+            "host_verifier_required",
+            "immutable_image_digest",
+            "in_image_verifier_digest",
+            "in_image_verifier_is_additive",
+            "in_image_verifier_path",
+            "linux_userspace_required",
+            "oci_architecture",
+            "oci_os"
+          ],
+          "type": "object"
+        },
+        "controller": {
+          "additionalProperties": false,
+          "properties": {
+            "base_image_digest": {
+              "type": "null"
+            },
+            "base_release": {
+              "type": "null"
+            },
+            "contract_id": {
+              "const": "controller-linux-oci-v1"
+            },
+            "host_verifier_required": {
+              "const": true
+            },
+            "immutable_image_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_is_additive": {
+              "const": true
+            },
+            "in_image_verifier_path": {
+              "const": "/usr/local/bin/verify-image-contract"
+            },
+            "linux_userspace_required": {
+              "const": true
+            },
+            "oci_architecture": {
+              "type": "null"
+            },
+            "oci_os": {
+              "const": "linux"
+            }
+          },
+          "required": [
+            "base_image_digest",
+            "base_release",
+            "contract_id",
+            "host_verifier_required",
+            "immutable_image_digest",
+            "in_image_verifier_digest",
+            "in_image_verifier_is_additive",
+            "in_image_verifier_path",
+            "linux_userspace_required",
+            "oci_architecture",
+            "oci_os"
+          ],
+          "type": "object"
+        },
+        "evaluator": {
+          "additionalProperties": false,
+          "properties": {
+            "base_image_digest": {
+              "type": "null"
+            },
+            "base_release": {
+              "type": "null"
+            },
+            "contract_id": {
+              "const": "evaluator-linux-oci-v1"
+            },
+            "host_verifier_required": {
+              "const": true
+            },
+            "immutable_image_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_is_additive": {
+              "const": true
+            },
+            "in_image_verifier_path": {
+              "const": "/usr/local/bin/verify-image-contract"
+            },
+            "linux_userspace_required": {
+              "const": true
+            },
+            "oci_architecture": {
+              "type": "null"
+            },
+            "oci_os": {
+              "const": "linux"
+            }
+          },
+          "required": [
+            "base_image_digest",
+            "base_release",
+            "contract_id",
+            "host_verifier_required",
+            "immutable_image_digest",
+            "in_image_verifier_digest",
+            "in_image_verifier_is_additive",
+            "in_image_verifier_path",
+            "linux_userspace_required",
+            "oci_architecture",
+            "oci_os"
+          ],
+          "type": "object"
+        },
+        "executor": {
+          "additionalProperties": false,
+          "properties": {
+            "base_image_digest": {
+              "type": "null"
+            },
+            "base_release": {
+              "type": "null"
+            },
+            "contract_id": {
+              "const": "executor-linux-oci-v1"
+            },
+            "host_verifier_required": {
+              "const": true
+            },
+            "immutable_image_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_is_additive": {
+              "const": true
+            },
+            "in_image_verifier_path": {
+              "const": "/usr/local/bin/verify-image-contract"
+            },
+            "linux_userspace_required": {
+              "const": true
+            },
+            "oci_architecture": {
+              "type": "null"
+            },
+            "oci_os": {
+              "const": "linux"
+            }
+          },
+          "required": [
+            "base_image_digest",
+            "base_release",
+            "contract_id",
+            "host_verifier_required",
+            "immutable_image_digest",
+            "in_image_verifier_digest",
+            "in_image_verifier_is_additive",
+            "in_image_verifier_path",
+            "linux_userspace_required",
+            "oci_architecture",
+            "oci_os"
+          ],
+          "type": "object"
+        },
+        "proxy": {
+          "additionalProperties": false,
+          "properties": {
+            "base_image_digest": {
+              "type": "null"
+            },
+            "base_release": {
+              "type": "null"
+            },
+            "contract_id": {
+              "const": "proxy-linux-oci-v1"
+            },
+            "host_verifier_required": {
+              "const": true
+            },
+            "immutable_image_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_digest": {
+              "type": "null"
+            },
+            "in_image_verifier_is_additive": {
+              "const": true
+            },
+            "in_image_verifier_path": {
+              "const": "/usr/local/bin/verify-image-contract"
+            },
+            "linux_userspace_required": {
+              "const": true
+            },
+            "oci_architecture": {
+              "type": "null"
+            },
+            "oci_os": {
+              "const": "linux"
+            }
+          },
+          "required": [
+            "base_image_digest",
+            "base_release",
+            "contract_id",
+            "host_verifier_required",
+            "immutable_image_digest",
+            "in_image_verifier_digest",
+            "in_image_verifier_is_additive",
+            "in_image_verifier_path",
+            "linux_userspace_required",
+            "oci_architecture",
+            "oci_os"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "checker",
+        "controller",
+        "evaluator",
+        "executor",
+        "proxy"
+      ],
+      "type": "object"
+    },
+    "kind": {
+      "const": "factor_local_docker_colima_profile"
+    },
+    "limitations": {
+      "const": [
+        "proposed-contract-only",
+        "validator-tested-only",
+        "no-live-docker-or-colima-evidence",
+        "capacity-and-cost-unmeasured",
+        "no-runtime-acceptance",
+        "not-runnable",
+        "no-global-docker-context-change"
+      ]
+    },
+    "live_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "colima_path": {
+          "type": "null"
+        },
+        "colima_version": {
+          "type": "null"
+        },
+        "docker_context": {
+          "type": "null"
+        },
+        "docker_path": {
+          "type": "null"
+        },
+        "docker_version": {
+          "type": "null"
+        },
+        "vm_identity": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "colima_path",
+        "colima_version",
+        "docker_context",
+        "docker_path",
+        "docker_version",
+        "vm_identity"
+      ],
+      "type": "object"
+    },
+    "orchestration": {
+      "additionalProperties": false,
+      "properties": {
+        "compose_scaling": {
+          "const": "explicit-only"
+        },
+        "custom_pressure_daemon": {
+          "const": false
+        },
+        "kubernetes": {
+          "const": false
+        },
+        "redis": {
+          "const": false
+        },
+        "swarm": {
+          "const": false
+        }
+      },
+      "required": [
+        "compose_scaling",
+        "custom_pressure_daemon",
+        "kubernetes",
+        "redis",
+        "swarm"
+      ],
+      "type": "object"
+    },
+    "platform": {
+      "additionalProperties": false,
+      "properties": {
+        "container_runtime": {
+          "const": "docker"
+        },
+        "cpu": {
+          "const": 6
+        },
+        "disk_bytes": {
+          "const": 42949672960
+        },
+        "memory_bytes": {
+          "const": 12884901888
+        },
+        "provider": {
+          "const": "colima"
+        },
+        "vm_type": {
+          "const": "vz"
+        }
+      },
+      "required": [
+        "container_runtime",
+        "cpu",
+        "disk_bytes",
+        "memory_bytes",
+        "provider",
+        "vm_type"
+      ],
+      "type": "object"
+    },
+    "pressure_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "admission_under_pressure": {
+          "const": "block-new-leases"
+        },
+        "auto_shrink_running_memory": {
+          "const": false
+        },
+        "colima_stop_preconditions": {
+          "const": [
+            "queue-drained",
+            "no-running-attempt",
+            "no-unknown-attempt"
+          ]
+        },
+        "running_attempt_under_pressure": {
+          "const": "finish-or-cancel-current-bounded-attempt"
+        }
+      },
+      "required": [
+        "admission_under_pressure",
+        "auto_shrink_running_memory",
+        "colima_stop_preconditions",
+        "running_attempt_under_pressure"
+      ],
+      "type": "object"
+    },
+    "profile_id": {
+      "const": "factor-local-docker-colima-v1"
+    },
+    "runnable": {
+      "const": false
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "selection": {
+      "const": "local-docker-replaces-paid-gcp-activation"
+    },
+    "stable_lifecycle_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "backoff_seconds": {
+          "const": [
+            5,
+            15,
+            45
+          ]
+        },
+        "docker_restart_policy": {
+          "const": "no"
+        },
+        "healthcheck": {
+          "additionalProperties": false,
+          "properties": {
+            "interval_seconds": {
+              "const": 10
+            },
+            "retries": {
+              "const": 3
+            },
+            "start_period_seconds": {
+              "const": 20
+            },
+            "timeout_seconds": {
+              "const": 3
+            }
+          },
+          "required": [
+            "interval_seconds",
+            "retries",
+            "start_period_seconds",
+            "timeout_seconds"
+          ],
+          "type": "object"
+        },
+        "host_reconciliation": {
+          "additionalProperties": false,
+          "properties": {
+            "unknown_state_action": {
+              "const": "fence-and-reconcile-before-restart"
+            },
+            "verify_container_identity": {
+              "const": true
+            },
+            "verify_health_and_readiness": {
+              "const": true
+            },
+            "verify_image_digest": {
+              "const": true
+            },
+            "verify_network_attachments": {
+              "const": true
+            }
+          },
+          "required": [
+            "unknown_state_action",
+            "verify_container_identity",
+            "verify_health_and_readiness",
+            "verify_image_digest",
+            "verify_network_attachments"
+          ],
+          "type": "object"
+        },
+        "max_restarts": {
+          "const": 3
+        },
+        "owner": {
+          "const": "host-authority"
+        },
+        "readiness": {
+          "additionalProperties": false,
+          "properties": {
+            "controller": {
+              "const": "healthcheck-passed-and-proxy-ready"
+            },
+            "proxy": {
+              "const": "healthcheck-passed"
+            }
+          },
+          "required": [
+            "controller",
+            "proxy"
+          ],
+          "type": "object"
+        },
+        "restart_storm_action": {
+          "const": "block-new-leases-fence-stable-services-and-reconcile"
+        },
+        "restart_window_seconds": {
+          "const": 300
+        }
+      },
+      "required": [
+        "backoff_seconds",
+        "docker_restart_policy",
+        "healthcheck",
+        "host_reconciliation",
+        "max_restarts",
+        "owner",
+        "readiness",
+        "restart_storm_action",
+        "restart_window_seconds"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "const": "selected-disabled"
+    }
+  },
+  "required": [
+    "apply_allowed",
+    "artifacts",
+    "authority",
+    "blockers",
+    "capacity",
+    "contracts",
+    "future_io_contract",
+    "future_network_contract",
+    "host_state",
+    "image_contracts",
+    "kind",
+    "limitations",
+    "live_identity",
+    "orchestration",
+    "platform",
+    "pressure_policy",
+    "profile_id",
+    "runnable",
+    "schema_version",
+    "selection",
+    "stable_lifecycle_contract",
+    "status"
+  ],
+  "type": "object"
+}

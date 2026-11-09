@@ -1,0 +1,148 @@
+{
+  "runtime_observation": {
+    "colima_service_status": "none",
+    "daemon_queried": false,
+    "daemon_state": "unqueried-unknown",
+    "docker_context_inspected": false,
+    "docker_context_state": "uninspected-unknown",
+    "home_docker_config": {
+      "after_aggregate_sha256": "5ad38304b535c2987dbd24657c1a11b884984ff600d9f389deb0d4e634fee792",
+      "before_aggregate_sha256": "5ad38304b535c2987dbd24657c1a11b884984ff600d9f389deb0d4e634fee792",
+      "contents_and_metadata_unchanged": true,
+      "entry_count": 0,
+      "state_after": "absent",
+      "state_before": "absent"
+    },
+    "matching_processes": [],
+    "process_names_checked": [
+      "colima",
+      "lima",
+      "limactl",
+      "lima-hostagent",
+      "hostagent",
+      "qemu-system-aarch64",
+      "qemu-system-x86_64",
+      "vz",
+      "gvproxy"
+    ],
+    "runtime_history_inferred": false,
+    "service_or_process_observation_scope": "point-in-time-only",
+    "vm_inspected": false,
+    "vm_state": "uninspected-unknown"
+  },
+  "commands": [
+    {
+      "command": "command -v colima; command -v docker; brew --prefix docker-compose; brew --prefix docker-buildx; command -v limactl",
+      "output": "/opt/homebrew/bin/colima\n/opt/homebrew/bin/docker\n/opt/homebrew/opt/docker-compose\n/opt/homebrew/opt/docker-buildx\n/opt/homebrew/bin/limactl",
+      "purpose": "path-discovery"
+    },
+    {
+      "command": "/opt/homebrew/bin/colima version",
+      "output": "colima version 0.10.3\ngit commit: 00f6c297e92a82c04a4ab507db0a61435650d7e8",
+      "purpose": "version-only"
+    },
+    {
+      "command": "/opt/homebrew/bin/docker --version",
+      "output": "Docker version 29.9.3, build 5457199aa5",
+      "purpose": "client-version-only"
+    },
+    {
+      "command": "/opt/homebrew/lib/docker/cli-plugins/docker-compose version",
+      "output": "Docker Compose version 5.7.0",
+      "purpose": "plugin-version-only"
+    },
+    {
+      "command": "/opt/homebrew/lib/docker/cli-plugins/docker-buildx version",
+      "output": "github.com/docker/buildx v0.38.2 Homebrew",
+      "purpose": "plugin-version-only"
+    },
+    {
+      "command": "/opt/homebrew/bin/limactl --version",
+      "output": "limactl version 2.2.1",
+      "purpose": "dependency-version-only"
+    },
+    {
+      "command": "shasum -a 256 <five recorded executable paths>",
+      "output": "per-tool sha256 fields",
+      "purpose": "file-hash"
+    },
+    {
+      "command": "brew services list | select exact colima row",
+      "output": "colima none",
+      "purpose": "service-state-read-only"
+    },
+    {
+      "command": "ps -axo pid=,comm= | exact-basename filter over process_names_checked",
+      "output": "none",
+      "purpose": "process-absence-read-only"
+    },
+    {
+      "command": "aggregate ~/.docker tree state before and after version/hash probes",
+      "output": "absent before; absent after; contents_and_metadata_unchanged=true",
+      "purpose": "no-global-config-mutation"
+    }
+  ],
+  "credentials_recorded": false,
+  "host": {
+    "architecture": "arm64",
+    "platform": "Darwin"
+  },
+  "installation_state": "homebrew-packages-observed",
+  "kind": "factor_local_installation_receipt",
+  "observed_at": "2026-11-05T19:43:52+08:00",
+  "receipt_id": "factor-local-installation-observation-20261105-v2",
+  "schema_version": 2,
+  "source": "installed-tool-observation",
+  "tools": {
+    "buildx": {
+      "build": null,
+      "commit": null,
+      "dependency_role": "docker-cli-plugin",
+      "executable_path": "/opt/homebrew/lib/docker/cli-plugins/docker-buildx",
+      "homebrew_prefix": "/opt/homebrew/opt/docker-buildx",
+      "install_state": "installed-package-observed",
+      "sha256": "b0c443c3bafc5fd0e7d6cbb19478ce0d0b35122e5e257b53bd714ce80ab123a6",
+      "version": "0.38.2"
+    },
+    "colima": {
+      "build": null,
+      "commit": "00f6c297e92a82c04a4ab507db0a61435650d7e8",
+      "dependency_role": "future-vm-provider",
+      "executable_path": "/opt/homebrew/bin/colima",
+      "homebrew_prefix": "/opt/homebrew/opt/colima",
+      "install_state": "installed-package-observed",
+      "sha256": "55278419bd4288e4ab11eb30be13f5e655f3886c0979b68e435df910dbc9bbdf",
+      "version": "0.10.3"
+    },
+    "compose": {
+      "build": null,
+      "commit": null,
+      "dependency_role": "docker-cli-plugin",
+      "executable_path": "/opt/homebrew/lib/docker/cli-plugins/docker-compose",
+      "homebrew_prefix": "/opt/homebrew/opt/docker-compose",
+      "install_state": "installed-package-observed",
+      "sha256": "f826c82d69e24647e080eab992f8aa0abc14ade04762780044c4a7602b7275fc",
+      "version": "5.7.0"
+    },
+    "docker": {
+      "build": "5457199aa5",
+      "commit": null,
+      "dependency_role": "client-only-observation",
+      "executable_path": "/opt/homebrew/bin/docker",
+      "homebrew_prefix": "/opt/homebrew/opt/docker",
+      "install_state": "installed-package-observed",
+      "sha256": "07e3a894d913ccbd07b11d984edde25b0d683bfc2fec986d3e378eef035bc219",
+      "version": "29.9.3"
+    },
+    "lima": {
+      "build": null,
+      "commit": null,
+      "dependency_role": "colima-dependency",
+      "executable_path": "/opt/homebrew/bin/limactl",
+      "homebrew_prefix": "/opt/homebrew/opt/lima",
+      "install_state": "installed-package-observed",
+      "sha256": "e79b14815dc7e51629e064dba950120c4c9323e2b8ba6a52fe816b15f7f9803d",
+      "version": "2.2.1"
+    }
+  }
+}

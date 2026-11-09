@@ -25,6 +25,23 @@ Keep private values out of documentation and the sanitized inventory.
 | Mentor validation/tuning | `mentor/`, `tuning/` | component runtime directories | [Shared and tuning](deployment/shared-and-tuning.md) |
 | Local datasource UI and temporal runtime inspection | `ui/datasource/`, `investment/research/datasource*.py` | Existing private research roots and `ui/runtime/` | [Datasource](deployment/datasource.md) |
 | UI guidance and isolated React/browser verification | `ui/` | `ui/runtime/` | [Frontend](deployment/frontend.md) |
+| Optional selected-disabled factor-mining Docker candidate | `factor/docker/local/` | Future-only ignored `factor/runtime/local/` | [v1 selection](plans/factor-mining-production-selection-local-docker-20261105.md) and [v2 installation evidence](plans/factor-mining-local-docker-installation-v2-20261105.md) |
+
+## Optional selected-disabled local Docker candidate
+
+`factor/docker/local/` records an optional, non-runnable Colima/Docker factor-mining
+candidate. V1 contains exact disabled contracts; v2 records a 2026-11-05 Darwin
+arm64 observation of Homebrew-installed Colima 0.10.3, Docker CLI 29.9.3,
+Compose 5.7.0, Buildx 0.38.2 and Lima 2.2.1 at the receipt-bound paths and
+hashes. This is installation evidence from one host, not a prerequisite or a
+portable claim that another host has those tools. `runnable=false`,
+`apply_allowed=false`, `autoActivate=false`, actual Docker context/VM identities
+remain null, and no daemon, VM, context, container, network or package operation
+is authorized. Future state must remain under ignored `factor/runtime/local/`;
+activation requires a separate reviewed and explicitly approved change after all
+retained blockers and intended-runtime acceptance requirements are satisfied.
+Run the inert validators from the workspace root as documented in
+`factor/docker/local/README.md` and `factor/docker/local/v2/README.md`.
 
 UI skills also have repository discovery links and a compact SessionStart
 definition parallel to mentor startup. Source/protocol checks pass, while actual

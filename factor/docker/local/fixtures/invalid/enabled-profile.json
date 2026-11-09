@@ -1,0 +1,105 @@
+{
+  "apply_allowed": true,
+  "artifacts": {
+    "image_digests": {
+      "checker": null,
+      "controller": null,
+      "evaluator": null,
+      "executor": null,
+      "proxy": null
+    },
+    "release_digest": null
+  },
+  "authority": {
+    "attempt_service_restart": "no",
+    "attempt_timeout_seconds": 3600,
+    "cancel_grace_seconds": 30,
+    "lease_owner": "engine",
+    "max_retries_per_attempt": 1,
+    "permanent_failure_retry": false,
+    "restart_owner": "docker-only-for-stable-services",
+    "retry_owner": "engine",
+    "retry_transient_only": true,
+    "stable_service_restart": "unless-stopped",
+    "unknown_lease_state": "unknown",
+    "unknown_outcome_action": "fence-and-reconcile-before-retry"
+  },
+  "blockers": [
+    "colima-version-unverified",
+    "docker-version-unverified",
+    "colima-path-unverified",
+    "docker-path-unverified",
+    "docker-context-unverified",
+    "vm-identity-unverified",
+    "controller-image-digest-unresolved",
+    "proxy-image-digest-unresolved",
+    "executor-image-digest-unresolved",
+    "evaluator-image-digest-unresolved",
+    "checker-image-digest-unresolved",
+    "release-digest-unresolved",
+    "host-headroom-unmeasured",
+    "disposable-lifecycle-unrun",
+    "pressure-behavior-unverified",
+    "runtime-acceptance-unrun"
+  ],
+  "capacity": {
+    "assumptions_measured": false,
+    "autoscaling": false,
+    "burst_executor_concurrency_max": 2,
+    "burst_requires_explicit_authority": true,
+    "default_executor_concurrency": 1,
+    "preemption": false,
+    "static_host_headroom_primary": true
+  },
+  "contracts": {
+    "services": "service-declarations.json",
+    "sources": "source-inventory.json"
+  },
+  "kind": "factor_local_docker_colima_profile",
+  "limitations": [
+    "proposed-contract-only",
+    "validator-tested-only",
+    "no-live-docker-or-colima-evidence",
+    "capacity-and-cost-unmeasured",
+    "no-runtime-acceptance",
+    "not-runnable"
+  ],
+  "live_identity": {
+    "colima_path": null,
+    "colima_version": null,
+    "docker_context": null,
+    "docker_path": null,
+    "docker_version": null,
+    "vm_identity": null
+  },
+  "orchestration": {
+    "compose_scaling": "explicit-only",
+    "custom_pressure_daemon": false,
+    "kubernetes": false,
+    "redis": false,
+    "swarm": false
+  },
+  "platform": {
+    "container_runtime": "docker",
+    "cpu": 6,
+    "disk_bytes": 42949672960,
+    "memory_bytes": 12884901888,
+    "provider": "colima",
+    "vm_type": "vz"
+  },
+  "pressure_policy": {
+    "admission_under_pressure": "block-new-leases",
+    "auto_shrink_running_memory": false,
+    "colima_stop_preconditions": [
+      "queue-drained",
+      "no-running-attempt",
+      "no-unknown-attempt"
+    ],
+    "running_attempt_under_pressure": "finish-or-cancel-current-bounded-attempt"
+  },
+  "profile_id": "factor-local-docker-colima-v1",
+  "runnable": false,
+  "schema_version": 1,
+  "selection": "local-docker-replaces-paid-gcp-activation",
+  "status": "selected-disabled"
+}
