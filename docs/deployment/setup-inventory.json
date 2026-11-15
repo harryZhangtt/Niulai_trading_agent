@@ -1134,6 +1134,45 @@
         "ui/portable/ui-skill-router/",
         "ui/runtime/"
       ]
+    },
+    {
+      "id": "isolated-langchain-pilot",
+      "source_paths": [
+        "tuning/langchain_pilot/"
+      ],
+      "dependency_manifests": [
+        "tuning/langchain_pilot/requirements.in",
+        "tuning/langchain_pilot/requirements.lock.txt"
+      ],
+      "runbook": "docs/deployment/langchain-pilot.md",
+      "python": "3.12.16",
+      "direct_dependency_pins": {
+        "langchain": "1.5.0",
+        "langgraph": "1.2.22",
+        "langchain-openai": "1.8.0",
+        "langgraph-cli[inmem]": "0.4.43",
+        "python-dotenv": "1.2.4"
+      },
+      "state_paths": [
+        ".langchain-pilot/runtime/",
+        ".langchain-pilot/.venv/",
+        ".langchain-pilot/.env (owner-private OpenAI key only; never committed)"
+      ],
+      "cache_paths": [
+        ".langchain-pilot/cache/",
+        ".langchain-pilot/tmp/"
+      ],
+      "production_activation": false,
+      "development_endpoint": "http://127.0.0.1:2024",
+      "dashboard_port": "7270 belongs to the existing datasource app; separate from Agent Server",
+      "studio_connection": "Native Chrome connection and trading_pilot graph/node visibility verified on 2026-11-15; no LangSmith API key supplied and cloud tracing disabled",
+      "integration_scope": "Development graph directly imports the existing pure valuation calculator; full Trading Agent orchestration remains unimplemented",
+      "model_connection": "Default cooperative session-model-v1: explicit private binding/revision, messages and tool schemas out, assistant messages in; no API key/Ferry/token copy or automatic native wakeup. Optional official OpenAI Responses route requires its own local Platform key and remains live-unverified.",
+      "focused_test_result": "42 executed, 42 passed, 0 skipped; independent bounded re-review reports no findings for reviewed recovery/run-binding reproductions",
+      "verification": "Cooperative public-API calculator E2Es returned 10 and 15 with one tool call and independent checks; prior candidate graceful restart and same-host revision rebind passed. Latest recovery source live restart canary pending; actual second-native-host handoff, unattended dispatch and optional API live inference unverified.",
+      "runtime_acceptance": "Unverified; no business or scheduled acceptance",
+      "session_state": "Private .langchain-pilot/runtime/session-engine binding history and per-request attempt receipts; graph checkpoints own workflow state. Failed/processed/dispatching/unknown attempts fenced; only confirmed same-request graph rejection permits a new attempt.",
+      "migration_plan": "docs/plans/langchain-agent-migration.md (proposed research slice, no business graph implementation)"
     }
   ],
   "setup_sensitive_source_paths_for_consistency_gate": [
@@ -1290,7 +1329,13 @@
     "tuning/evals/ui-intent-lightweight/*.md",
     "ui/portable/runtime_verification/*.py",
     "ui/portable/runtime_verification/*.json",
-    "ui/portable/runtime_verification/*.md"
+    "ui/portable/runtime_verification/*.md",
+    "tuning/langchain_pilot/*.py",
+    "tuning/langchain_pilot/requirements.in",
+    "tuning/langchain_pilot/requirements.lock.txt",
+    "tuning/langchain_pilot/langgraph.json",
+    "tuning/langchain_pilot/ACCEPTANCE.md",
+    "tuning/langchain_pilot/openai.env.example"
   ],
   "change_policy": "Update this sanitized inventory, affected runbook, docs/local-setup.md and setup consistency record for future local setup changes. Never include secret values or private runtime payloads.",
   "entrypoint": "docs/local-setup.md"

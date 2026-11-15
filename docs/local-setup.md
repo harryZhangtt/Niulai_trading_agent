@@ -165,3 +165,19 @@ v3 execution passed10/10 tasks with actual compaction/resume and independent
 raw-evidence/cleanup verification and exact configured-owner email readback. The original
 and strict-v2 failures remain preserved; automatic repository hooks are separate
 and still unverified.
+
+The [isolated LangChain pilot](deployment/langchain-pilot.md)
+keeps dependencies and dev-server state local. Its default session engine accepts
+model replies from an explicitly configured chat session; LangChain owns tools,
+workflow state and result checks. Cooperative calculator E2Es returned `"10"` and
+`"15"` with one tool call. No API key, Ferry route or copied login token is needed
+for this mode, and no automatic session wake-up/dispatcher is provided. A later
+session can rebind and continue the same graph thread through the public CLI.
+The optional official OpenAI API engine separately requires `OPENAI_API_KEY` or
+the ignored owner-private `.langchain-pilot/.env`; its live pass is unverified.
+The Agent Server uses `127.0.0.1:2024`, separate from dashboard port 7270. Native
+Chrome Studio connection/graph visibility were verified, with cloud tracing
+disabled. The latest recovery source passed 42 provider-free controls and bounded
+independent review; its live reload/restart canary is pending. Full agent migration,
+unattended execution, actual second-host handoff and scheduled production/email
+acceptance remain unverified. See the [incremental migration plan](plans/langchain-agent-migration.md).

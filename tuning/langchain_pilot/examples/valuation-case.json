@@ -1,0 +1,8 @@
+{
+  "case_id": "synthetic-fcff-one-period",
+  "fcff": ["110"],
+  "terminal_ev": "0",
+  "rate": "0.1",
+  "net_debt": "0",
+  "shares": "10"
+}

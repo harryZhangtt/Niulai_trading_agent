@@ -1,0 +1,6 @@
+{
+  "dependencies": ["../.."],
+  "graphs": {
+    "trading_pilot": "tuning.langchain_pilot.graph:graph"
+  }
+}
