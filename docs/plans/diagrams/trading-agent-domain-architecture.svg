@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="850" viewBox="0 0 1600 850" role="img" aria-labelledby="title desc"><title id="title">Trading Agent 业务职责总览</title><desc id="desc">投资研究和持仓组合是并列业务职责。原子能力先独立验收，研究可按需读取只读快照。管理建议、本地记录修改与券商执行分别定义，最终 pipeline 组合仍为 TBD。凭证和真实账户数据不进入云端测试。</desc><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#475569"/></marker></defs><style>text{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;fill:#172b4d}.title{font-size:28px;font-weight:700}.head{font-size:22px;font-weight:700}.text{font-size:17px}.small{font-size:15px;fill:#526581}.edge{fill:none;stroke:#475569;stroke-width:2;marker-end:url(#a)}.dash{stroke-dasharray:7 5}</style><rect width="1600" height="850" fill="#f8fafc"/>
+<text x="40" y="48" class="title" text-anchor="start">Trading Agent：研究与持仓组合并列</text>
+<text x="40" y="83" class="text" text-anchor="start">原子能力先验收，LangSmith 观测与评测先接通；业务 pipeline 的最终组合为 TBD。</text>
+<rect x="570" y="115" width="460" height="80" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="800.0" y="146" class="head" text-anchor="middle">Trading Agent 应用入口</text>
+<text x="800.0" y="175" class="text" text-anchor="middle">手动与 Studio 先行，部署／调度后置</text>
+<path d="M800 195V225H390V270" class="edge"/>
+<path d="M800 225H1150V270" class="edge"/>
+<rect x="60" y="270" width="660" height="375" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.6"/>
+<text x="390.0" y="301" class="head" text-anchor="middle">投资研究</text>
+<text x="390.0" y="330" class="text" text-anchor="middle">需求与证据契约</text>
+<text x="390.0" y="356" class="text" text-anchor="middle">数据获取 → 基本面分析／可选因子</text>
+<text x="390.0" y="382" class="text" text-anchor="middle">实际独立复核 → 来源覆盖 → 研究记录</text>
+<text x="390" y="476" class="text" text-anchor="middle">复用研究能力，步骤与分支按配置确定</text>
+<text x="390" y="522" class="small" text-anchor="middle">Coverage 不证明持仓完整，也不授予账户管理权限</text>
+<rect x="800" y="270" width="740" height="375" rx="14" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.6"/>
+<text x="1170.0" y="301" class="head" text-anchor="middle">持仓／组合</text>
+<rect x="825" y="350" width="210" height="110" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="930.0" y="381" class="head" text-anchor="middle">持仓获取</text>
+<text x="930.0" y="410" class="text" text-anchor="middle">positions / assets</text>
+<text x="930.0" y="436" class="text" text-anchor="middle">snapshot 与来源回执</text>
+<rect x="1060" y="350" width="210" height="110" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="1165.0" y="381" class="head" text-anchor="middle">组合分析</text>
+<text x="1165.0" y="410" class="text" text-anchor="middle">集中度／敞口</text>
+<text x="1165.0" y="436" class="text" text-anchor="middle">NAV／现金／收益口径</text>
+<rect x="1295" y="350" width="220" height="110" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="1405.0" y="381" class="head" text-anchor="middle">管理建议</text>
+<text x="1405.0" y="410" class="text" text-anchor="middle">持有／增减仓／退出</text>
+<text x="1405.0" y="436" class="text" text-anchor="middle">保留证据与限制</text>
+<path d="M1035 405H1060" class="edge"/>
+<path d="M1270 405H1295" class="edge"/>
+<path d="M825 405H722" class="edge dash"/>
+<text x="760" y="388" class="small" text-anchor="middle">只读快照</text>
+<text x="1170" y="515" class="text" text-anchor="middle">建议不修改账户持仓，也不自动触发下单</text>
+<rect x="825" y="548" width="690" height="75" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="1.6"/>
+<text x="1170.0" y="579" class="head" text-anchor="middle">记录修改与券商执行分别定义</text>
+<text x="1170.0" y="608" class="text" text-anchor="middle">本地记录修改需独立授权契约；本轮不接入券商下单</text>
+<rect x="60" y="690" width="1480" height="105" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="800.0" y="721" class="head" text-anchor="middle">共享基础接口与各自的状态所有者</text>
+<text x="800.0" y="750" class="text" text-anchor="middle">shared/tiger：凭证、租约与只读快照；shared/research_sources：来源；shared/calculation：计算</text>
+<text x="800.0" y="776" class="text" text-anchor="middle">真实账户 payload 与私有归档留在本地；云端 dataset 与追踪先用合成数据</text>
+<text x="40" y="830" class="small" text-anchor="start">逻辑职责示意。维护接口不等于各项真实运行已验收；研究与组合的最终流程仍待确定。</text>
+</svg>

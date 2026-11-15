@@ -3,3 +3,4 @@ langgraph==1.2.22
 langchain-openai==1.8.0
 langgraph-cli[inmem]==0.4.43
 python-dotenv==1.2.4
+langsmith==0.14.17

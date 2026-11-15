@@ -177,7 +177,17 @@ The optional official OpenAI API engine separately requires `OPENAI_API_KEY` or
 the ignored owner-private `.langchain-pilot/.env`; its live pass is unverified.
 The Agent Server uses `127.0.0.1:2024`, separate from dashboard port 7270. Native
 Chrome Studio connection/graph visibility were verified, with cloud tracing
-disabled. The latest recovery source passed 42 provider-free controls and bounded
-independent review; its live reload/restart canary is pending. Full agent migration,
+disabled. Commit `989149d` passed the graceful restart canary, preserving eight
+prior threads and returning `"15"` with one tool call and independent readback.
+The current additive observability candidate passed 51 provider-free controls. Full agent migration,
 unattended execution, actual second-host handoff and scheduled production/email
 acceptance remain unverified. See the [incremental migration plan](plans/langchain-agent-migration.md).
+
+The pilot also provides a separate opt-in [LangSmith atomic prerequisite canary](deployment/langchain-pilot.md#opt-in-langsmith-prerequisite-canary).
+It explicitly pins the already-locked LangSmith SDK 0.14.17 and reads only the
+owner-private, ignored `.langchain-pilot/langsmith.env` for platform authentication.
+It does not enable tracing on the running Agent Server. It uses public synthetic
+calculator cases, a pinned private prompt and a deterministic code evaluator;
+model calls, actual holdings and the full research pipeline remain separate gates.
+Keep keys and cloud/runtime receipts out of source control. Preserve unknown
+attempts and reconcile their recorded identities before rerunning effects.

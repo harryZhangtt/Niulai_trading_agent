@@ -81,7 +81,7 @@
 <text x="1385.0" y="890" class="body" text-anchor="middle">确定性检查先行 · 独立重读证据</text>
 <text x="1385.0" y="912" class="body" text-anchor="middle">评分 → run → prompt → 工具回执</text>
 <text x="1155" y="980" class="body" text-anchor="start">前置验收：成功 + 受控失败 + 冻结用例对照</text>
-<text x="1155" y="1010" class="small" text-anchor="start">目前平台接入尚未验证，当前 tracing 仍关闭。</text>
+<text x="1155" y="1010" class="small" text-anchor="start">已验计算器链路；主服务 tracing 仍关闭。</text>
 <text x="1155" y="1035" class="small" text-anchor="start">注册不等于托管；会话引擎仍需宿主回复。</text>
 <rect x="40" y="1130" width="1050" height="150" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="1.6"/>
 <text x="65" y="1162" class="heading" text-anchor="start">独立能力与基础设施 · 通过接口调用</text>
@@ -103,5 +103,5 @@
 <text x="1155" y="1195" class="body" text-anchor="start">Tuning：冻结对照、执行实验、独立评分</text>
 <text x="1155" y="1224" class="body" text-anchor="start">Mentor：实验指导、进度与验收复核</text>
 <text x="1155" y="1252" class="small" text-anchor="start">证据仍由各领域契约校验，平台展示关联结果。</text>
-<text x="40" y="1315" class="small" text-anchor="start">目标依赖示意，pipeline 的最终配置为 TBD。实线：研究依赖；虚线：可选调用或后续接入。平台与总图均未验收。</text>
+<text x="40" y="1315" class="small" text-anchor="start">目标依赖示意，pipeline 的最终配置为 TBD。实线：研究依赖；虚线：可选调用或后续接入。整体门禁与总图仍待验收。</text>
 </svg>

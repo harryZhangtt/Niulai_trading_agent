@@ -16,7 +16,9 @@ It does not activate a production integration or replace existing services.
 - Cache/build/temp: `.langchain-pilot/cache/` and `.langchain-pilot/tmp/`.
 - Dev persistence and private receipts: `.langchain-pilot/runtime/`.
 - Direct pins: LangChain 1.5.0, LangGraph 1.2.22, langchain-openai 1.8.0,
-  langgraph-cli[inmem] 0.4.43, python-dotenv 1.2.4. Resolved hash lock includes Agent Server 0.18.0.
+  langgraph-cli[inmem] 0.4.43, python-dotenv 1.2.4, LangSmith SDK 0.14.17.
+  The SDK was already in the resolved hash lock; declaring it directly adds no
+  package installation. The lock includes Agent Server 0.18.0.
 - `requirements.lock.txt` is the install contract. `requirements.in` is the small
   explicit direct dependency list. Re-resolve only as a separately tested update.
 
@@ -202,6 +204,84 @@ canary is pending. Tests and review do not upgrade that unverified boundary.
 Historical Ferry failures/unknowns are retained separately. The optional official
 API route has no verified live inference pass. No native automatic dispatcher,
 production scheduler, broker, email or cloud tracing has been activated.
+
+## Opt-in LangSmith prerequisite canary
+
+The separate `observability` CLI traces one **public synthetic atomic calculator**.
+It does not enable tracing on the running Agent Server, invoke a model provider,
+read holdings, upload private fixtures, deploy the agent or change scheduling.
+The default `serve` launcher still forces cloud tracing off. Its native session
+model spans and broader Trading Agent instrumentation remain unverified.
+
+LangSmith SDK 0.14.17 is explicitly pinned and already present in the hash lock.
+Use an account/workspace key with the permissions needed for the requested Agent,
+private prompt, dataset and experiment operations. The client uses the explicit
+US API endpoint `https://api.smith.langchain.com`; another region is untested.
+It does not inherit an endpoint override from the private credential file.
+
+The key is read only from ignored `.langchain-pilot/langsmith.env`: a regular,
+owner-owned, no-symlink file with exact mode 0600 and at most 16 KiB. Its only
+field is `LANGSMITH_API_KEY`. The nonsecret template is
+`tuning/langchain_pilot/langsmith.env.example`. Preserve an existing private file;
+edit the value locally after setting its permissions. Never put the value in
+source, arguments, reports or chat. It is separate from a model-provider key.
+No OpenAI/Ferry key is needed for this deterministic capability and code grader.
+
+Register or reuse an EXTERNAL Agent with identifier `trading-agent` through the
+LangSmith **Connect an existing agent** flow. Registration is a platform record,
+not a deployment. The CLI retrieves and checks that identity, then uses its local
+environment. Cloud identities, prompt commit, dataset timestamp and receipts stay
+in ignored `.langchain-pilot/runtime/langsmith-bootstrap/`, not this runbook.
+
+From the workspace root:
+
+```sh
+LANGSMITH_TRACING=false PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.observability bootstrap
+LANGSMITH_TRACING=false PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.observability trace
+LANGSMITH_TRACING=false PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.observability evaluate
+LANGSMITH_TRACING=false PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.verify_observability
+```
+
+Only the CLI's explicit allowlisted tracing context is enabled. Bootstrap creates
+one private prompt version and three public synthetic examples (nominal, debt,
+invalid shares), then rereads their exact contents and pins the dataset `as_of`.
+The CLI accepts no arbitrary case input. The runnable's internal fixture check
+rejects drift before tools, but LangChain callbacks may record inputs before its
+body executes. It is not a pre-trace privacy filter for future private callers.
+The canary emits genuine LangChain prompt, validation and calculator-tool spans,
+plus a deliberate failure. Evaluation uses a local deterministic code grader;
+it is not an online or LLM evaluator and makes no model-call claim. The prompt is
+loaded at its recorded commit; the calculator itself does not call a model.
+
+Unknown writes are not silently replayed. If bootstrap stopped after cloud objects
+were created, `observability reconcile-bootstrap` only rereads them and completes
+the local manifest after exact validation. It cannot recreate missing objects.
+If a trace is not immediately readable, retain its `trace-attempt-*.json` receipt
+and use `observability reconcile-trace --attempt <owned-filename>`; this reads
+those exact run IDs and never reruns the capability. The SDK can acknowledge
+writes before query visibility. On rate limits, pause reads and honor the service
+window instead of creating more target runs.
+
+The independent readback checks experiment run/example bindings, outputs and
+persisted feedback, the positive and controlled-failure traces, project counts,
+and absence of the credential in the retrieved payloads. Readiness is scoped to
+this atomic path. All deliberate trials remain in the test project; their error
+rate is a controlled-test statistic, not real Trading Agent reliability.
+
+Current proof and failures are retained privately. Independent cloud readback
+confirmed three run/example/output bindings and three persisted passing feedback
+records, the exact positive/tool and controlled-failure spans, and matching
+monitoring counters. It also checked the retrieved payloads for the credential.
+The test project contains four roots and two deliberate failures across the
+retained trace trials. The overall migration gate stays unverified until the
+applicable atomic capabilities and model-session tracing are exercised. Managed
+online/LLM evaluators and actual holdings were not activated. Legacy SDK read helpers currently emit a deprecation
+notice for removal after 2027-01-31; changing those pinned interfaces is a separate
+source/runtime check, not a reason to replace the environment globally.
 
 ## Stop, recover and acceptance
 

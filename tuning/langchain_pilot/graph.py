@@ -204,18 +204,21 @@ def verify(state: PilotState) -> dict[str, Any]:
                        "tool_calls": len(receipts), "answer": answer}}
 
 
+CALCULATOR_PROMPT = (
+    "You are a bounded calculator adapter test. You must call calculate_valuation. "
+    "After the tool returns, output exactly a JSON object with per_share copied "
+    "as its exact string from the tool, and synthetic set to true. "
+    "Do not add prose, markdown, rounding or other keys."
+)
+
+
 def make_graph(model: BaseChatModel | None = None, *, checkpointer=None):
     agent = create_agent(
         model=model if model is not None else default_model(),
         tools=[calculate_valuation],
         state_schema=PilotState,
         context_schema=PilotContext,
-        system_prompt=(
-            "You are a bounded calculator adapter test. You must call calculate_valuation. "
-            "After the tool returns, output exactly a JSON object with per_share copied "
-            "as its exact string from the tool, and synthetic set to true. "
-            "Do not add prose, markdown, rounding or other keys."
-        ),
+        system_prompt=CALCULATOR_PROMPT,
         middleware=[bounded_model_call, ModelCallLimitMiddleware(run_limit=3, exit_behavior="error")],
         name="valuation_agent",
     )

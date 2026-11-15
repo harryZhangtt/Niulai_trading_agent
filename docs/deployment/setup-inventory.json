@@ -1151,12 +1151,14 @@
         "langgraph": "1.2.22",
         "langchain-openai": "1.8.0",
         "langgraph-cli[inmem]": "0.4.43",
-        "python-dotenv": "1.2.4"
+        "python-dotenv": "1.2.4",
+        "langsmith": "0.14.17"
       },
       "state_paths": [
         ".langchain-pilot/runtime/",
         ".langchain-pilot/.venv/",
-        ".langchain-pilot/.env (owner-private OpenAI key only; never committed)"
+        ".langchain-pilot/.env (owner-private OpenAI key only; never committed)",
+        ".langchain-pilot/langsmith.env (owner-private LangSmith key only; never committed)"
       ],
       "cache_paths": [
         ".langchain-pilot/cache/",
@@ -1165,14 +1167,18 @@
       "production_activation": false,
       "development_endpoint": "http://127.0.0.1:2024",
       "dashboard_port": "7270 belongs to the existing datasource app; separate from Agent Server",
-      "studio_connection": "Native Chrome connection and trading_pilot graph/node visibility verified on 2026-11-15; no LangSmith API key supplied and cloud tracing disabled",
+      "studio_connection": "Native Chrome Studio graph/node visibility verified on 2026-11-15; Agent Server still has cloud tracing disabled. The separate opt-in atomic CLI uses its own private LangSmith key.",
       "integration_scope": "Development graph directly imports the existing pure valuation calculator; full Trading Agent orchestration remains unimplemented",
       "model_connection": "Default cooperative session-model-v1: explicit private binding/revision, messages and tool schemas out, assistant messages in; no API key/Ferry/token copy or automatic native wakeup. Optional official OpenAI Responses route requires its own local Platform key and remains live-unverified.",
-      "focused_test_result": "42 executed, 42 passed, 0 skipped; independent bounded re-review reports no findings for reviewed recovery/run-binding reproductions",
-      "verification": "Cooperative public-API calculator E2Es returned 10 and 15 with one tool call and independent checks; prior candidate graceful restart and same-host revision rebind passed. Latest recovery source live restart canary pending; actual second-native-host handoff, unattended dispatch and optional API live inference unverified.",
+      "focused_test_result": "51 provider-free controls in the current candidate; verify latest recorded test output. Atomic cloud evidence is separate from model-session and full-agent acceptance.",
+      "verification": "Cooperative public-API calculator E2Es returned 10 and 15 with one tool call and independent checks. Commit 989149d graceful restart preserved eight prior threads and binding revision 2; its fresh per-share-15 canary passed independent readback. Actual second-native-host handoff, unattended dispatch and optional API live inference remain unverified.",
       "runtime_acceptance": "Unverified; no business or scheduled acceptance",
       "session_state": "Private .langchain-pilot/runtime/session-engine binding history and per-request attempt receipts; graph checkpoints own workflow state. Failed/processed/dispatching/unknown attempts fenced; only confirmed same-request graph rejection permits a new attempt.",
-      "migration_plan": "docs/plans/langchain-agent-migration.md (proposed research slice, no business graph implementation)"
+      "migration_plan": "docs/plans/langchain-agent-migration.md (atomic capabilities first; research and holdings/portfolio siblings; business composition TBD)",
+      "observability_profile": "Explicit CLI-only public synthetic atomic calculator canary; EXTERNAL Agent registration, private pinned prompt, timestamped frozen dataset, LangChain spans and deterministic local SDK evaluator. Main Agent Server tracing remains off; no model calls or holdings acquisition.",
+      "credential_handling": "Owner-private no-symlink 0600 LangSmith file; key never in source, argv or logs; explicit US API endpoint; cloud fixtures contain no private account data.",
+      "observability_limitations": "Overall migration prerequisite remains scoped/unverified until all applicable capabilities pass. Native session-model tracing, holdings live retrieval, managed online/LLM evaluators and deployed runtime are not established.",
+      "atomic_observability_evidence": "Exact cloud run/example/output and persisted feedback readback: 3/3 public synthetic calculator cases, private pinned prompt, real LangChain child/tool spans and controlled failure, matching monitoring counts. No native session-model or holdings live acceptance."
     }
   ],
   "setup_sensitive_source_paths_for_consistency_gate": [
@@ -1335,7 +1341,8 @@
     "tuning/langchain_pilot/requirements.lock.txt",
     "tuning/langchain_pilot/langgraph.json",
     "tuning/langchain_pilot/ACCEPTANCE.md",
-    "tuning/langchain_pilot/openai.env.example"
+    "tuning/langchain_pilot/openai.env.example",
+    "tuning/langchain_pilot/langsmith.env.example"
   ],
   "change_policy": "Update this sanitized inventory, affected runbook, docs/local-setup.md and setup consistency record for future local setup changes. Never include secret values or private runtime payloads.",
   "entrypoint": "docs/local-setup.md"

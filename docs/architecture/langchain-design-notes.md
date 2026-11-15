@@ -14,6 +14,8 @@
 
 这些机制帮助确定如何组合与替换能力。原子能力先行、pipeline 的具体步骤为 TBD，以及观测评测先于业务迁移，是本项目在用户要求下作出的设计决定，并非教程已经替本项目给出的完整架构。
 
+后续持仓源码审查补充了另一个边界：Trading Agent 的投资研究与持仓／组合分别提供能力。研究可以读取限定范围的持仓上下文，coverage 不能证明全账户覆盖或授权修改持仓。持仓获取、组合分析、管理建议、本地记录修改与券商执行继续分开，详见[持仓能力审查](holdings-boundary-review.md)。
+
 ## 示例按当前版本重新核对
 
 本地锁定依赖为 LangChain 1.5.0、LangGraph 1.2.22。当前安装源码中的 `create_agent` 返回编译后的 StateGraph，因此不能把它一概当作只会线性执行的链，再重复实现一遍模型工具循环。[官方 Agents 说明](https://docs.langchain.com/oss/python/langchain/agents)作为版本核对入口。
@@ -35,7 +37,7 @@ LangSmith Agent Registry、prompt 管理、datasets 与 evaluator 的前置验�
 - [Prompt 管理](https://docs.langchain.com/langsmith/manage-prompts-programmatically)：固定实际使用的版本或 commit。
 - [目标函数评测](https://docs.langchain.com/langsmith/evaluate-llm-application)：分别评估原子能力和完整 pipeline。
 
-现阶段云端 tracing 仍关闭，平台接入与完整 pipeline 均未验收。计算器 E2E 的通过，只证明已经验证的模型与工具边界。阅读资料和写好方案，不能替代这些运行证据。
+现有 Agent Server 的云端 tracing 仍关闭。平台认证、EXTERNAL Agent 身份及计算器原子能力的 opt-in 观测评测已经实际回读，三条冻结用例的 feedback 均通过。真实会话模型追踪、持仓能力和完整 pipeline 仍未验收。计算器证据只适用于已验证的范围。阅读资料和写好方案，不能替代这些运行证据。
 
 ## 后续从这里继续
 
