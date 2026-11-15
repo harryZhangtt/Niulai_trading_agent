@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1340" viewBox="0 0 1680 1340" role="img" aria-labelledby="title desc">
+<title id="title">投资研究目标架构与迁移前置观测</title>
+<desc id="desc">先为现有 Agent 验证 LangSmith 注册、追踪、监控、prompt 版本和评测，再迁移研究总图。研究总图协调数据获取、基本面分析、可选因子挖掘、独立复核与来源覆盖。公共工具和模型通过接口注入，调度部署后置。该图描述目标，未宣称业务总图或云端观测已经实现。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#475569"/></marker></defs>
+<style>text{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;fill:#172b4d} .title{font-size:29px;font-weight:700} .heading{font-size:22px;font-weight:700} .label{font-size:19px;font-weight:600} .body{font-size:16px} .small{font-size:14px;fill:#526581} .edge{fill:none;stroke:#475569;stroke-width:2;stroke-linejoin:round;marker-end:url(#arrow)} .optional{stroke-dasharray:7 5} .muted{fill:#64748b}</style>
+<rect width="1680" height="1340" fill="#f8fafc"/>
+
+<text x="40" y="48" class="title" text-anchor="start">投资研究目标架构</text>
+<text x="40" y="80" class="body" text-anchor="start">原子能力先验收，研究 pipeline 的组合步骤为 TBD；观测与评测是业务迁移前置。</text>
+<rect x="390" y="110" width="350" height="65" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="565.0" y="139" class="label" text-anchor="middle">当前入口：原子能力 / Studio</text>
+<text x="565.0" y="165" class="body" text-anchor="middle">先独立验收，再组合流程</text>
+<rect x="1190" y="110" width="450" height="65" rx="14" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="1415.0" y="139" class="label" text-anchor="middle">后续阶段：云端执行 / 调度</text>
+<text x="1415.0" y="165" class="body" text-anchor="middle">部署同一份代码，不重建业务逻辑</text>
+<path d="M1190 142 H760" class="edge optional"/>
+<text x="970" y="132" class="small" text-anchor="middle">部署阶段接入</text>
+<rect x="40" y="220" width="1050" height="870" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.6"/>
+<text x="65" y="255" class="heading" text-anchor="start">研究 pipeline · 目标结构，步骤 TBD</text>
+<text x="1065" y="255" class="small" text-anchor="end">业务迁移阶段</text>
+<rect x="1130" y="220" width="510" height="870" rx="14" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.6"/>
+<text x="1155" y="255" class="heading" text-anchor="start">迁移前置：LangSmith 平台接入</text>
+<text x="1155" y="283" class="small" text-anchor="start">先对已有能力验收；执行可以继续在本地。</text>
+<path d="M565 175 V300" class="edge"/>
+<path d="M565 370 V425" class="edge"/>
+<path d="M565 505 V535 H310 V570" class="edge"/>
+<path d="M565 505 V535 H835 V570" class="edge optional"/>
+<path d="M310 660 V700 H565 V735" class="edge"/>
+<path d="M835 660 V700 H565 V735" class="edge optional"/>
+<path d="M565 805 V855" class="edge"/>
+<path d="M565 935 V990" class="edge"/>
+<path d="M390 895 H310" class="edge"/>
+<rect x="390" y="300" width="350" height="70" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="565.0" y="329" class="label" text-anchor="middle">问题与版本化流程配置</text>
+<text x="565.0" y="355" class="body" text-anchor="middle">范围 / 截止时间 / 选用能力与分支</text>
+<rect x="390" y="425" width="350" height="80" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="565.0" y="454" class="label" text-anchor="middle">数据获取子流程</text>
+<text x="565.0" y="480" class="body" text-anchor="middle">来源回执 / 原文片段 / 数据快照</text>
+<rect x="100" y="570" width="420" height="90" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="310.0" y="599" class="label" text-anchor="middle">基本面分析与估值子流程</text>
+<text x="310.0" y="625" class="body" text-anchor="middle">模型分析与受限工具调用</text>
+<text x="310.0" y="647" class="body" text-anchor="middle">复用现有财务计算接口</text>
+<rect x="620" y="570" width="430" height="90" rx="14" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.6"/>
+<text x="835.0" y="599" class="label" text-anchor="middle">因子挖掘子流程 · 按任务启用</text>
+<text x="835.0" y="625" class="body" text-anchor="middle">PIT → RD-Agent → Qlib</text>
+<text x="835.0" y="647" class="body" text-anchor="middle">独立评估与准入 → manifest</text>
+<text x="868" y="524" class="small" text-anchor="middle">可选分支</text>
+<rect x="390" y="735" width="350" height="70" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="565.0" y="764" class="label" text-anchor="middle">研究草稿与结果汇总</text>
+<text x="565.0" y="790" class="body" text-anchor="middle">保留证据引用与各分支原始结论</text>
+<rect x="390" y="855" width="350" height="80" rx="14" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.6"/>
+<text x="565.0" y="884" class="label" text-anchor="middle">独立复核与来源覆盖子流程</text>
+<text x="565.0" y="910" class="body" text-anchor="middle">实际复核回执 + coverage.validate</text>
+<rect x="80" y="860" width="230" height="70" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="1.6"/>
+<text x="195.0" y="889" class="label" text-anchor="middle">缺口 / 阻塞</text>
+<text x="195.0" y="915" class="body" text-anchor="middle">有预算才补证</text>
+<rect x="390" y="990" width="350" height="70" rx="14" fill="#fff" stroke="#bfdbfe" stroke-width="1.6"/>
+<text x="565.0" y="1019" class="label" text-anchor="middle">研究记录</text>
+<text x="565.0" y="1045" class="body" text-anchor="middle">草稿；完整研究走维护中的完成入口</text>
+<text x="620" y="968" class="small" text-anchor="start">通过领域校验</text>
+<path d="M1090 745 H1130" class="edge optional"/>
+<text x="1110" y="730" class="small" text-anchor="middle">关联</text>
+<rect x="1160" y="315" width="450" height="90" rx="14" fill="#fff" stroke="#a7f3d0" stroke-width="1.6"/>
+<text x="1385.0" y="344" class="label" text-anchor="middle">同一个 Agent 的平台记录</text>
+<text x="1385.0" y="370" class="body" text-anchor="middle">工作区可查 · local 环境先接</text>
+<text x="1385.0" y="392" class="body" text-anchor="middle">后续部署关联同一身份</text>
+<rect x="1160" y="445" width="450" height="90" rx="14" fill="#fff" stroke="#a7f3d0" stroke-width="1.6"/>
+<text x="1385.0" y="474" class="label" text-anchor="middle">Tracing 与 Monitoring</text>
+<text x="1385.0" y="500" class="body" text-anchor="middle">总流程 / 子流程 / 节点 / 每次调用</text>
+<text x="1385.0" y="522" class="body" text-anchor="middle">成功、失败、等待、重试都可查</text>
+<rect x="1160" y="575" width="450" height="90" rx="14" fill="#fff" stroke="#a7f3d0" stroke-width="1.6"/>
+<text x="1385.0" y="604" class="label" text-anchor="middle">Datasets 与版本</text>
+<text x="1385.0" y="630" class="body" text-anchor="middle">冻结输入 / A-B 配置 / 数据与代码指纹</text>
+<text x="1385.0" y="652" class="body" text-anchor="middle">对照组与全部 attempt 保留</text>
+<rect x="1160" y="705" width="450" height="90" rx="14" fill="#fff" stroke="#a7f3d0" stroke-width="1.6"/>
+<text x="1385.0" y="734" class="label" text-anchor="middle">Prompt 管理</text>
+<text x="1385.0" y="760" class="body" text-anchor="middle">明确版本或 commit / schema</text>
+<text x="1385.0" y="782" class="body" text-anchor="middle">实际 run 必须能回查所用版本</text>
+<rect x="1160" y="835" width="450" height="100" rx="14" fill="#fff" stroke="#a7f3d0" stroke-width="1.6"/>
+<text x="1385.0" y="864" class="label" text-anchor="middle">Evaluator 与实验结果</text>
+<text x="1385.0" y="890" class="body" text-anchor="middle">确定性检查先行 · 独立重读证据</text>
+<text x="1385.0" y="912" class="body" text-anchor="middle">评分 → run → prompt → 工具回执</text>
+<text x="1155" y="980" class="body" text-anchor="start">前置验收：成功 + 受控失败 + 冻结用例对照</text>
+<text x="1155" y="1010" class="small" text-anchor="start">目前平台接入尚未验证，当前 tracing 仍关闭。</text>
+<text x="1155" y="1035" class="small" text-anchor="start">注册不等于托管；会话引擎仍需宿主回复。</text>
+<rect x="40" y="1130" width="1050" height="150" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="65" y="1162" class="heading" text-anchor="start">独立能力与基础设施 · 通过接口调用</text>
+<rect x="65" y="1180" width="235" height="75" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.6"/>
+<text x="182.5" y="1209" class="label" text-anchor="middle">数据源适配</text>
+<text x="182.5" y="1235" class="body" text-anchor="middle">来源、版本与限流</text>
+<rect x="320" y="1180" width="235" height="75" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.6"/>
+<text x="437.5" y="1209" class="label" text-anchor="middle">计算工具</text>
+<text x="437.5" y="1235" class="body" text-anchor="middle">维护中的公共函数</text>
+<rect x="575" y="1180" width="235" height="75" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.6"/>
+<text x="692.5" y="1209" class="label" text-anchor="middle">模型接口</text>
+<text x="692.5" y="1235" class="body" text-anchor="middle">会话 / 后续 API 引擎</text>
+<rect x="830" y="1180" width="235" height="75" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.6"/>
+<text x="947.5" y="1209" class="label" text-anchor="middle">证据与回执</text>
+<text x="947.5" y="1235" class="body" text-anchor="middle">不可变引用与 hash</text>
+<path d="M565 1130 V1092" class="edge optional"/>
+<rect x="1130" y="1130" width="510" height="150" rx="14" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.6"/>
+<text x="1155" y="1162" class="heading" text-anchor="start">Tuning 与 Mentor</text>
+<text x="1155" y="1195" class="body" text-anchor="start">Tuning：冻结对照、执行实验、独立评分</text>
+<text x="1155" y="1224" class="body" text-anchor="start">Mentor：实验指导、进度与验收复核</text>
+<text x="1155" y="1252" class="small" text-anchor="start">证据仍由各领域契约校验，平台展示关联结果。</text>
+<text x="40" y="1315" class="small" text-anchor="start">目标依赖示意，pipeline 的最终配置为 TBD。实线：研究依赖；虚线：可选调用或后续接入。平台与总图均未验收。</text>
+</svg>
