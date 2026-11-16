@@ -1,0 +1,37 @@
+{
+  "artifact_type": "append_only_supersession_lineage",
+  "history_policy": {
+    "preserve_exact_bytes": true,
+    "versions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "status": "OPEN",
+  "supersedes_claims_only": true,
+  "v5_claim_disposition": "CONTRADICTED_NEVER_RELY_AS_PASS",
+  "v6_claim_disposition": "OPEN_CONTRADICTED_HISTORY_NEVER_RELY_AS_PASS",
+  "v7_claim_disposition": "OPEN_CONTRADICTED_HISTORY_NEVER_RELY_AS_PASS",
+  "v7_open_review": {
+    "bytes": 10536,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v7-independent-review-open-fable-20261112-8e9a8076.json",
+    "sha256": "3ebc954c253ae104f97ef5fe52e0fb96ac6d70a0eb273677e022145962dc258a",
+    "verdict": "OPEN"
+  },
+  "v7_producer_closure": {
+    "bytes": 8319,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/source-closure-v7.json",
+    "sha256": "8e04fa3601b1b6fcf9e1419572501465c006bb824d07cd82861d9a0aaf134750",
+    "trusted_as_pass": false,
+    "trusted_complete_for_v7_source_identity": true
+  },
+  "v8_additive_only": true,
+  "v8_fresh_independent_review": "PENDING",
+  "version": 8
+}

@@ -1,0 +1,247 @@
+{
+  "packet": {
+    "artifacts": {
+      "artifact_root": null,
+      "artifact_root_mode": "0700",
+      "raw_retention": null,
+      "reconciliation_owner": null,
+      "retention_owner": null,
+      "rollback_target": null,
+      "runtime_root": null
+    },
+    "budgets": {
+      "cache_enabled": false,
+      "concurrency": 1,
+      "fallbacks": 1,
+      "open_items": 2,
+      "provider_call_seconds": null,
+      "provider_items": 3,
+      "raw_result_limit_bytes": 65536,
+      "run_wall_seconds": null,
+      "search_items": 1
+    },
+    "case": {
+      "alternate_html_url": "https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-Reports-First-Quarter-2025-Financial-Results/default.aspx",
+      "canonical_disclosure_id": "servicenow-q1-2025-financial-results",
+      "case_id": "now-q1-2025-financial-results-positive-control-v1",
+      "issuer_id": "NOW",
+      "primary_pdf_url": "https://s205.q4cdn.com/537566246/files/doc_news/ServiceNow-Reports-First-Quarter-2025-Financial-Results-2025.pdf",
+      "question": "What does the official Q1 2025 release establish, and what remains unestablished?",
+      "quote_preselected": false,
+      "search_query": "site:newsroom.servicenow.com \"ServiceNow Reports First Quarter 2025 Financial Results\"",
+      "selection_bias": "NOW is repeatedly inspected development evidence and may only be a positive control."
+    },
+    "effective_config": {
+      "inputs": {
+        "acceptance_policy": {
+          "path": "docs/deployment/runtime-acceptance.md",
+          "sha256": "6e1acdd976cc9bec5d3180d575fff3cbce28f3150cff95345b3e45b57dcff048"
+        },
+        "alternate_policy": {
+          "path": "investment/research/acquisition_orchestration.py",
+          "sha256": "18b202a613a5508e3f73b7d720451c118c109b33ea2b8438aed378742d1f7b58"
+        },
+        "backend_model_config": {
+          "path": ".job-runtime/config/runtime.json",
+          "sha256": "03f8be8cd1d9fd70e7502979c2fd44a73a31517371a9733dd149d907898e816c"
+        },
+        "budgets_deadlines": {
+          "path": "docs/plans/live-provider-acquisition-e2e.md",
+          "sha256": "f3f45183805cb6ae38b383329732e201f07ba03b2756e56ffd026aeb3a1c8f00"
+        },
+        "cache_store": {
+          "path": "shared/research_sources/cache.py",
+          "sha256": "7213314de96797445eff614aca8fe40218ff311b50e7d7d36c9262d12a0aac1c"
+        },
+        "case_packet": {
+          "path": "tuning/evals/information_fetch/live_e2e/readiness-case-packet.json",
+          "sha256": "252cbeb308a4a6b306c3dba46d209921d2f91fadee98102184964cc25dda654c"
+        },
+        "checker": {
+          "path": "investment/research/acquisition_trace.py",
+          "sha256": "e59eaa18a078139a09f78ebd420c3499d251541ad539d96a8bb1f615b7267b95"
+        },
+        "controller": {
+          "path": "investment/research/acquisition_orchestration.py",
+          "sha256": "18b202a613a5508e3f73b7d720451c118c109b33ea2b8438aed378742d1f7b58"
+        },
+        "driver": {
+          "path": "investment/research/acquisition_driver.py",
+          "sha256": "f516d78ff561197ccec7f26755f9ae98c732a2efad3664ffe37f3cc8bf0de1ca"
+        },
+        "evidence_schemas": {
+          "path": "tuning/evals/information_fetch/live_e2e/readiness.schema.json",
+          "sha256": "d04f40e87ff1802570089ef9abcdabafbd3d19905d317cebd98a3ae58deb7fd3"
+        },
+        "host_web": {
+          "path": "shared/research_sources/host_web.py",
+          "sha256": "b8d0d63c93639520a234e4731a8bd85e6d8f7320fcb8ba6e9c2850c450582650"
+        },
+        "projection": {
+          "path": "investment/research/acquisition_projection.py",
+          "sha256": "9dedc413796530b6a3d0e02cfa5f2bf6e02d06afc339740c41a36dac3fd8a0d0"
+        },
+        "retention_gc_policy": {
+          "path": "docs/deployment/acquisition-live-e2e.md",
+          "sha256": "dcd0ff6c448e36945eb202a6b0eb4911982adde58545c78a647ecba0d02c6fc2"
+        },
+        "rollback_target": {
+          "path": "docs/deployment/acquisition-live-e2e.md",
+          "sha256": "dcd0ff6c448e36945eb202a6b0eb4911982adde58545c78a647ecba0d02c6fc2"
+        },
+        "runner": {
+          "path": "investment/research/acquisition_runner.py",
+          "sha256": "bdad4ab33f9b00f349c5bfe7571cfe2b435fa4cd5a256434a33f29a2678f3ebb"
+        },
+        "runtime_interpreter": {
+          "path": ".research-sources/.venv/pyvenv.cfg",
+          "sha256": "d4c5398217364b6e341a3c631e5f2fb1c8accaabd72aca5497fbdf73d88d0d0a"
+        },
+        "taxonomy": {
+          "path": "shared/research_sources/acquisition_contracts.py",
+          "sha256": "a43b5ee0536d07c900bb59b5e75fedb7b4a7144c6a9bc749d2d5f5091bf37fe8"
+        }
+      },
+      "required_inputs": [
+        "runner",
+        "driver",
+        "controller",
+        "host_web",
+        "cache_store",
+        "taxonomy",
+        "alternate_policy",
+        "evidence_schemas",
+        "checker",
+        "projection",
+        "backend_model_config",
+        "runtime_interpreter",
+        "case_packet",
+        "budgets_deadlines",
+        "retention_gc_policy",
+        "rollback_target",
+        "acceptance_policy"
+      ],
+      "sha256": "2dc1a3ab54dd9c6b0fbfa2d5a65794c66fcd118ea0274e1eba804356eaa91f7c"
+    },
+    "equivalence_review": {
+      "caveat": "Q4 CDN is the hosting intermediary; approval establishes publisher-authorized representation, not byte identity or complete textual parity.",
+      "disclosure_date_match": true,
+      "publisher_control": true,
+      "rationale": "The ServiceNow Newsroom HTML page explicitly labels and links the 244 KB PDF as the PDF-format download of the same titled and dated release.",
+      "release_identity_match": true,
+      "representation_relationship": true,
+      "reviewer_id": "independent-live-browser-review",
+      "status": "approved",
+      "title_match": true
+    },
+    "identity_rules": {
+      "attempt_id": "new_per_attempt",
+      "dispatch_id": "stable_per_possible_effect",
+      "execution_id": "new_per_run",
+      "experiment_id": "unresolved",
+      "operation_id": "stable_per_operation",
+      "trace_id": "new_per_run"
+    },
+    "limitations": [
+      "The approved pair is development positive-control evidence; no quote is preselected.",
+      "Q4 CDN is an intermediary and equivalence does not establish byte identity or complete textual parity.",
+      "The template does not establish provider readiness, acquisition quality, or investment alpha."
+    ],
+    "prohibitions": [
+      "provider_call",
+      "network_call",
+      "email",
+      "scheduler",
+      "trading",
+      "protected_holdout",
+      "niulai_private",
+      "quote_preselection"
+    ],
+    "question_contract": {
+      "capability_ids": [
+        "web_search",
+        "official_document"
+      ],
+      "depends_on": [],
+      "evidence_to_seek": "One literal source-grounded observation from the sealed disclosure.",
+      "facet": "current_disclosure",
+      "id": "now-q1-2025:issuer",
+      "priority": "required",
+      "source_roles": [
+        "issuer_document"
+      ],
+      "stop_rule": "Stop after one reviewed candidate support unit or an explicit terminal gap."
+    },
+    "repository_evidence": [
+      {
+        "path": "docs/plans/live-provider-acquisition-e2e.md",
+        "sha256": "f3f45183805cb6ae38b383329732e201f07ba03b2756e56ffd026aeb3a1c8f00"
+      },
+      {
+        "path": "docs/plans/now-contribution-e2e.md",
+        "sha256": "b25233af96b240d742937f8cafcc8b0e9b61c73f314d6b2a62b5d3578efa5009"
+      },
+      {
+        "path": "shared/research_sources/acquisition_contracts.py",
+        "sha256": "a43b5ee0536d07c900bb59b5e75fedb7b4a7144c6a9bc749d2d5f5091bf37fe8"
+      },
+      {
+        "path": "tuning/evals/information_fetch/live_e2e/readiness-case-packet.json",
+        "sha256": "252cbeb308a4a6b306c3dba46d209921d2f91fadee98102184964cc25dda654c"
+      },
+      {
+        "path": "tuning/evals/information_fetch/live_e2e/readiness-case-packet.schema.json",
+        "sha256": "cc2a2c3cd591342ece26bede52b11fc1d2f2481439a39f6f7f933706c0b72eff"
+      }
+    ],
+    "run_kind": "narrow",
+    "schema_version": "live-provider-readiness-3",
+    "source_contract": {
+      "cutoff": null,
+      "eligible_body_rules": [
+        "exact_url_match",
+        "screened_before_exposure",
+        "literal_quote_selected_only_after_screening"
+      ],
+      "eligible_pdf_failure_codes": [
+        "HOST_WEB_BODY_TOO_LARGE",
+        "HOST_WEB_SOURCE_INACCESSIBLE"
+      ],
+      "evidence_facet": "current issuer disclosure",
+      "required_access_level": "document",
+      "required_capability": "official_document",
+      "source_role": "issuer_document",
+      "unparseable_predeclared": false
+    },
+    "status": "not_ready",
+    "stop_rules": [
+      "no_find",
+      "no_second_query",
+      "no_unchanged_retry",
+      "no_second_alternate",
+      "no_provider_switch",
+      "no_curl_substitution",
+      "stop_on_unknown_outcome",
+      "stop_on_policy_transient_circuit_or_post_dispatch_deadline"
+    ],
+    "unresolved": [
+      "cutoff",
+      "deadlines",
+      "runtime_and_artifact_roots",
+      "retention_and_rollback_owners",
+      "effective_config_hash"
+    ],
+    "url_policy": {
+      "allowed_hosts": [
+        "newsroom.servicenow.com",
+        "s205.q4cdn.com"
+      ],
+      "normalization": "exact_https_url_bytes",
+      "redirects": "reject_unless_frozen_target_matches"
+    }
+  },
+  "seal": {
+    "algorithm": "sha256",
+    "packet_sha256": "4d14b0e87d968c0acd7bf94b0a86471fb2127a0e493d3746df107637a43ebc74"
+  }
+}

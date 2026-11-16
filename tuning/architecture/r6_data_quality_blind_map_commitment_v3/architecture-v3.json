@@ -1,0 +1,109 @@
+{
+  "activation": false,
+  "allowed_claim": "Disabled provider-free v3 fixed-chain validator and denial surface locally close the v2 chronology/authority/schema findings; authentic artifacts, independent rereview, and final block authority remain absent.",
+  "chronology": {
+    "authority": "No duck-typed or caller-supplied authority/store/root/review digest. Public authorize_opening accepts zero arguments, imports the exact file-identity-pinned human validator, calls its no-argument fixed-root API, and accepts only exact fixed artifact pins.",
+    "boundary_order": [
+      "pre-call v3 map transaction receipt",
+      "fixed independently reviewed human registry and G1/G2 grants",
+      "fixed independently reviewed final block grant binding exact commitment",
+      "four no-replace attempt receipts binding grant review plus commitment plus request/result refs",
+      "four evaluation packet records binding exact attempt receipts",
+      "human grade records binding exact packet records and fixed human grant/review refs",
+      "derived metrics binding exact grades",
+      "final manifest binding the whole exact sequence"
+    ],
+    "immutability": "Fixed owner-root 0700; nested directories 0700; all chain files regular owner-owned 0600; dirfd/O_NOFOLLOW reads; exact path/bytes/SHA/mode pins; canonical JSON; no-replace refs and monotone sequences.",
+    "private_map_boundary": "Receipt and commitment may be read first; the private map is read only after authentic human validation, complete fixed pins, exact chronology cross-field validation, and exact external request/result/evaluation/grade/metric artifact rereads."
+  },
+  "countable": false,
+  "current_state": {
+    "authentic_chain_pins": 0,
+    "authentic_human_pins": 0,
+    "authentic_human_reviews": "ABSENT",
+    "decision": "DENY_BEFORE_PRIVATE_MAP_READ",
+    "deny_reason": "AUTHENTIC_HUMAN_AUTHORITY_ABSENT_OR_PENDING",
+    "final_block_grant": "ABSENT",
+    "private_map_read": false,
+    "provider_attempt_receipts": "ABSENT"
+  },
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "final_block_authority": "REQUIRED_PENDING",
+  "impact_class": "inert/local disabled candidate",
+  "independent_rereview": "REQUIRED_PENDING_NOT_PRODUCER_CREATED",
+  "leak_scan": {
+    "files_scanned_by_category": {
+      "architecture": 2336,
+      "logs": 4331,
+      "other": 154386,
+      "source": 13890
+    },
+    "label_values_disclosed": false,
+    "labels_checked": 4,
+    "matching_paths_by_category": {
+      "architecture": 0,
+      "logs": 0,
+      "other": 0,
+      "source": 0
+    },
+    "result": "PASS",
+    "value_suppressing": true
+  },
+  "open_review_binding": {
+    "bytes": 11517,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json",
+    "sha256": "d7a453c4b04442c233bf830d8a8b5747400b15e237f3337a95e0474f6a602963",
+    "verdict": "OPEN"
+  },
+  "owner": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3",
+  "predecessors": {
+    "v1": "OPEN_HISTORY_PRESERVED_UNCHANGED",
+    "v1_private_map_sha256": "fd7d7adfe3e7c53d5b4293426ae6d07c1fdd2aa1fbbe39d031183e2587862e7a",
+    "v1_producer_verification_sha256": "5a2a437464476bb102d224e247354c2d15ec27b62fdcdd845d7fc768a617f648",
+    "v2": "OPEN_HISTORY_PRESERVED_UNCHANGED",
+    "v2_private_map_sha256": "8c0affb05319a96f4044a5cc663827b6b6c7613e6cddc0c4d08ca23ae169515d",
+    "v2_producer_verification_sha256": "65598f229232900a9b7380f3fb1ef6eead71a6364fdee5f472d2462b5f0d8461"
+  },
+  "runtime_artifacts": {
+    "private_map": {
+      "bytes": 897,
+      "labels_disclosed": false,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/owner-private-canonical-map-v3.json",
+      "sha256": "540a744cd31fe3a764363b647f1269da5f9c60a3cd8a0d104eb16fc849ac88dd"
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "fields": [
+        "canonical_bytes",
+        "canonical_digest",
+        "schema",
+        "version"
+      ],
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/sanitized-commitment-v3.json",
+      "sha256": "e984924176b4d53fef088c758628902166ed257f307fea431cd00509e20b9489"
+    },
+    "transaction_receipt": {
+      "bytes": 451,
+      "committed_last": true,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/transaction-receipt-v3.json",
+      "sha256": "527061acd538e4191e67a790eb82efa3583cd0a7cefd9f300fb787e210b4add4"
+    }
+  },
+  "schema_contract": "Eleven closed Draft 2020-12 schemas encode nonempty IDs, exact cell enums, exact path enums, exact array cardinalities and uniqueness, nested additionalProperties=false, and fixed commitment receipt paths. Runtime validators additionally enforce exact canonical ref bytes/SHA, cross-field identity, chronology, G3 cardinality, and manifest closure.",
+  "status": "DISABLED_FIXED_CHAIN_VALIDATOR_PENDING_AUTHENTIC_ARTIFACTS_INDEPENDENT_REREVIEW_AND_FINAL_BLOCK_AUTHORITY",
+  "version": "r6-data-quality-blind-map-commitment-architecture-v3"
+}

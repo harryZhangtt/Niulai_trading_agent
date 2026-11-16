@@ -1,0 +1,47 @@
+.detail { min-width: 0; max-width: 100%; width: 100%; box-sizing: border-box; padding: 28px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); color: var(--ink); }
+.detail p, .detail li, .detail h2, .detail code { overflow-wrap: anywhere; }
+.heading { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: 16px; min-width: 0; }
+.heading > div { min-width: 0; max-width: 100%; }
+.heading h2 { margin: 0; font-size: 1.18rem; line-height: 1.5; font-weight: 550; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.heading p { color: var(--muted); margin: 8px 0 0; font-size: .8rem; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-subtle); padding: 4px; margin: 24px 0; }
+.tabs button { min-height: 44px; flex: 1 1 auto; padding: 10px 14px; border: 0; border-radius: 9px; background: transparent; color: var(--muted); font-size: .84rem; font-weight: 500; cursor: pointer; transition: background-color 160ms ease, color 160ms ease; }
+.tabs button:hover { color: var(--ink); background: var(--surface); }
+.tabs button[aria-pressed='true'] { color: var(--ink); background: var(--blue-tint); }
+.tabs button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.sections { display: grid; gap: 28px; }
+.sections > section + section { border-top: 1px solid var(--border); padding-top: 24px; }
+.detail h3 { margin: 0 0 16px; font-size: 1rem; font-weight: 550; }
+.outcomes, .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.outcomes > div { padding: 17px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-subtle); min-width: 0; }
+.facts > div { min-width: 0; padding: 12px 0; }
+.outcomes dt, .facts dt { color: var(--muted); font-size: .8rem; margin-bottom: 9px; }
+.outcomes dd, .facts dd { margin: 0; color: var(--ink); font-size: .88rem; line-height: 1.6; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.note { color: var(--muted); font-size: .81rem; line-height: 1.7; margin: 18px 0 0; }
+.technical { border-top: 1px solid var(--border); padding-top: 22px; }
+.technical summary { cursor: pointer; font-weight: 500; color: var(--text-accent); font-size: .87rem; min-height: 44px; }
+.technical dl { display: grid; gap: 12px; margin: 16px 0; }
+.technical dl > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; }
+.technical dt { color: var(--muted); font-size: .8rem; }
+.technical dd { margin: 0; min-width: 0; }
+.technical code, .artifacts code { display: block; color: var(--muted); overflow-wrap: anywhere; font-size: .75rem; }
+.artifacts { display: grid; gap: 12px; }
+.artifacts p { display: grid; gap: 6px; padding: 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-subtle); font-size: .82rem; }
+.artifacts strong { font-weight: 550; }
+.artifacts span { color: var(--muted); }
+.limitations { display: grid; gap: 12px; padding-inline-start: 22px; font-size: .85rem; color: var(--muted); line-height: 1.7; }
+.stamp { color: var(--muted); font-size: .77rem; border-top: 1px solid var(--border); padding-top: 18px; margin: 28px 0 0; }
+@media (max-width: 760px) {
+  .detail { padding: 24px 16px; border-radius: 0 0 16px 16px; }
+  .outcomes { grid-template-columns: 1fr; }
+  .facts { gap: 12px; }
+  .technical dl > div { grid-template-columns: 1fr; gap: 7px; }
+  .tabs { gap: 4px; }
+  .tabs button { flex-basis: calc(50% - 4px); }
+}
+@media (prefers-reduced-motion: reduce) { .tabs button { transition: none; } }
+@media (forced-colors: active) { .detail, .tabs, .outcomes > div, .artifacts p { border-color: CanvasText; } .tabs button[aria-pressed='true'] { outline: 1px solid Highlight; } }
+@media (max-width: 760px) {
+  .heading p, .tabs button, .outcomes dt, .outcomes dd, .facts dt, .facts dd, .note, .technical summary, .technical dt, .technical code, .artifacts p, .artifacts code, .limitations, .stamp { font-size: 14px; }
+  .detail :global(.notice), .detail :global(.notice p), .detail :global(.badge) { font-size: 14px; line-height: 1.65; }
+}

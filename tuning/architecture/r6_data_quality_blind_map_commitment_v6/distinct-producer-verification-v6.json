@@ -1,0 +1,244 @@
+{
+  "activation": false,
+  "allowed_claim": "Distinct producer evidence that v6 implements all 13 repairs and fails closed on real scan coverage errors; not independent review, trust, activation, countability, P0-v10 reclosure, live/runtime acceptance, or business authorization.",
+  "artifact_type": "distinct_provider_free_producer_verification",
+  "artifacts": {
+    "architecture": {
+      "bytes": 7260,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v6/architecture-v6.json",
+      "sha256": "764a59366c063ce9e9ec15cb1d54aeccdf5484f49ca7c29b00970b1864a08c5d"
+    },
+    "decision": {
+      "bytes": 5254,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v6/decision-v6.json",
+      "sha256": "a47f9beb0e49ef77b24dce296475a8ef2621a0ce614553e47ae7c3e53d5b08bb"
+    },
+    "protocol": {
+      "bytes": 5079,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v6/protocol-v6.json",
+      "sha256": "34ad636333ba809253a881da10287cc5fe1c1224b1cdaca2ab5b93ca9deae2e1"
+    },
+    "source_closure": {
+      "bytes": 38513,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v6/source-closure-v6.json",
+      "sha256": "5c6bc73de593fb4c6c60c16d7ad907c6b6ee772b6d6498a8225103630cae49ed"
+    }
+  },
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 23467,
+    "countable": false,
+    "finding_count": 13,
+    "mode": "0644",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-open-v1-fable-20261113.json",
+    "sha256": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8",
+    "trusted": false,
+    "verdict": "OPEN"
+  },
+  "closed_findings": [
+    {
+      "id": "OPEN-V5-01",
+      "result": "Public chain and exact current receipt/commitment transaction binding are compared through a public-only read before the expected-binding map read."
+    },
+    {
+      "id": "OPEN-V5-02",
+      "result": "A fixed owner-private O_EXCL/O_NOFOLLOW reservation spans create or recovery; a loser denies before namespace inspection."
+    },
+    {
+      "id": "OPEN-V5-03",
+      "result": "Failure cleanup receives only the failing transaction owned-name to transaction-ID to inode/device map; no namespace-wide deletion exists."
+    },
+    {
+      "id": "OPEN-V5-04",
+      "result": "Cleanup performs atomic no-replace rename to transaction quarantine before identity verification and never unlinks or renames after stat."
+    },
+    {
+      "id": "OPEN-V5-05",
+      "result": "Manifest oneOf branches bind g3_required false to 8 grades/final 24 and true to 12 grades/final 28."
+    },
+    {
+      "id": "OPEN-V5-06",
+      "result": "G3 false exact pin, record, artifact, authority, and grade sets exclude every G3 path; G3 true requires all exact G3 paths."
+    },
+    {
+      "id": "OPEN-V5-07",
+      "result": "Sanitized commitment instances and schema use r6-data-quality-blind-map-commitment-v6."
+    },
+    {
+      "id": "OPEN-V5-08",
+      "result": "Leak scan returns ERROR/DENY for every oversized, unreadable, symlinked, special, or racy entry instead of PASS."
+    },
+    {
+      "id": "OPEN-V5-09",
+      "result": "Leak traversal is descriptor-relative O_NOFOLLOW with before/open/after/name identity continuity and never follows private-map symlinks."
+    },
+    {
+      "id": "OPEN-V5-10",
+      "result": "Every fixed source, chain, map, commitment, receipt, lock, stage, and scan read checks an exact maximum before allocation."
+    },
+    {
+      "id": "OPEN-V5-11",
+      "result": "Maintained G3 probes cover pending, noncountable, missing, digest-mismatched, and authority-reference-mismatched cases before map read."
+    },
+    {
+      "id": "OPEN-V5-12",
+      "result": "The v4 cross-record/nested probes, map uniqueness/order probes, conditional manifest probes, chronology barriers, and reviewed cases are restored."
+    },
+    {
+      "id": "OPEN-V5-13",
+      "result": "Dead seal, verify_seal, and _name_identity helpers are removed; active identity/hash paths are directly tested."
+    }
+  ],
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fresh_independent_review": "REQUIRED_NEXT_NOT_PERFORMED_BY_PRODUCER",
+  "p0_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "public_surface": {
+    "authentic_chain_pins": 0,
+    "authentic_human_pins": 0,
+    "authorize_opening_parameters": 0,
+    "current_decision": "DENY_BEFORE_PRIVATE_MAP_READ",
+    "private_map_values_disclosed": false,
+    "public_builders_examples_fixtures": 0
+  },
+  "review_history": [
+    {
+      "bytes": 7019,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v1-independent-review-open-v1.json",
+      "sha256": "df607b44d873590be8d402eba0f95e0265c4cdf4f7a12f85b0e3d484c34802f5",
+      "state": "PRESERVED_OPEN_HISTORY"
+    },
+    {
+      "bytes": 11517,
+      "mode": "0600",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json",
+      "sha256": "d7a453c4b04442c233bf830d8a8b5747400b15e237f3337a95e0474f6a602963",
+      "state": "PRESERVED_OPEN_HISTORY"
+    },
+    {
+      "bytes": 10160,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v3-independent-review-open-v1-fable-20261111.json",
+      "sha256": "b3ee0407e73f6f13a1c541f2cfe632abfb911d4562a59d41e740409b9e82c4bd",
+      "state": "PRESERVED_OPEN_HISTORY"
+    },
+    {
+      "bytes": 11626,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v4-independent-review-open-v1-fable-20261111.json",
+      "sha256": "df79e13a5bbfcfce8f3a1fb0f12dee01f7783598dfe9e89d8a12ef200e7113ba",
+      "state": "PRESERVED_OPEN_HISTORY"
+    },
+    {
+      "bytes": 7188,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-clean-v1-fable-20261111.json",
+      "sha256": "b2647ca1dd095c69b20a54941c580026fd8e94fa21972d25210d7b9e73c6bb0e",
+      "state": "REVOKED_BY_LATER_OPEN_REVIEW"
+    },
+    {
+      "bytes": 23467,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-open-v1-fable-20261113.json",
+      "sha256": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8",
+      "state": "CURRENT_OPEN_BASELINE"
+    }
+  ],
+  "runtime_bindings": [
+    {
+      "bytes": 235,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v6/.released-417fa227751e5dec32a2f01891943c2c-9bd2395f2ff7ed758130e44c63c63c73.json",
+      "sha256": "16931683a69c134c133061b2577a70f8545607c73e241454b1fb649387aa537f"
+    },
+    {
+      "bytes": 942,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v6/owner-private-canonical-map-v6.json",
+      "sha256": "0be68f8f2d90542df1fb1bbb8d1e0b40e3437ab601efa724b36b55012f3d5dc7"
+    },
+    {
+      "bytes": 281,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v6/sanitized-commitment-v6.json",
+      "sha256": "0eb328f5c0f7905a6af547cf44e936fc881c3ad90cb19ff8ce2bfe7dacebb32c"
+    },
+    {
+      "bytes": 619,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v6/transaction-receipt-v6.json",
+      "sha256": "5a3d27e2d476f8add054261ba4d5f0f6cc43e50bf72fe56ac6119921e5a26e05"
+    }
+  ],
+  "status": "PRODUCER_PASS_FAIL_CLOSED_SCAN_DENY_PENDING_FRESH_INDEPENDENT_REVIEW_AND_P0_V10_RECLOSURE",
+  "subject": "r6_data_quality_blind_map_commitment_v6",
+  "test_evidence": {
+    "evidence_integrity": {
+      "failed": 0,
+      "passed": 1,
+      "skipped": 0
+    },
+    "frozen_reviewed_subjects": {
+      "exact": 29,
+      "mismatches": 0
+    },
+    "g3": {
+      "false_external_artifacts": 21,
+      "false_grade_records": 8,
+      "pending_mismatch_negatives": 5,
+      "true_external_artifacts": 25,
+      "true_grade_records": 12
+    },
+    "isolated_lifecycles": {
+      "failed": 0,
+      "passed": 25
+    },
+    "preserved_regressions": {
+      "failed": 0,
+      "host_schema_dependency": "in-memory compatibility shim; historical files unchanged",
+      "passed": 52,
+      "skipped": 0
+    },
+    "schemas": {
+      "inherited_contracts": 11,
+      "lock_contract": 1,
+      "negative_probes_restored": true,
+      "published": 12
+    },
+    "v6_core_suite": {
+      "failed": 0,
+      "passed": 12,
+      "skipped": 0
+    },
+    "workspace_leak_scan": {
+      "decision": "DENY",
+      "errors": 542,
+      "label_values_disclosed": false,
+      "matching_paths": 0,
+      "oversize": 131,
+      "racy": 0,
+      "status": "ERROR",
+      "symlink": 411,
+      "unreadable": 0
+    }
+  },
+  "trusted": false,
+  "verdict": "PRODUCER_PASS_PENDING_REVIEW_NOT_ACCEPTANCE",
+  "version": "r6-data-quality-blind-map-commitment-distinct-producer-verification-v6"
+}

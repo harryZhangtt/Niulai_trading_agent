@@ -7,9 +7,16 @@ Preserve the target application's design system, stack and behavior. The
 verification fixture is synthetic and is not the investment application.
 
 All tools, browser binaries, caches, sessions, screenshots and traces stay below
-`ui/` or another explicitly declared workspace-local component path. Invoke the
-pinned tools through `python3 ui/tools/run.py` from the workspace root. The user
-authorized the separate `harry-ui-skill-set` user-scope package; its portable
+`ui/` or another explicitly declared workspace-local component path. Treat
+`ui/artifacts/` as an ignored confidential quarantine, not a browser/public root.
+Use `ui/tools/private_artifacts.py` only to create unique future paths below
+`ui/artifacts/future-private-v1/`; direct historical paths and replacement are
+forbidden. An unknown post-create outcome requires reconciliation, not blind
+retry. The tool must not migrate, recursively chmod or delete historical
+artifacts. Public publication requires a separate allowlisted root, manifest and
+owner approval and is not implemented. Invoke the pinned tools through `python3 ui/tools/run.py` from the
+workspace root. The user authorized the separate `harry-ui-skill-set` user-scope
+package; its portable
 helpers use the target repository's tools and state. No global tool installation,
 background monitor or active MCP registration is supplied.
 

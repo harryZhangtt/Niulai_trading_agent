@@ -1,0 +1,142 @@
+{
+  "activation": false,
+  "allowed_claim": "Distinct provider-free producer verification only. v5 remains disabled, untrusted, noncountable, and pending fresh independent review; it authorizes no opening, provider call, scheduler change, live run, or business effect.",
+  "artifact_type": "distinct_provider_free_producer_verification",
+  "artifacts": {
+    "architecture": {
+      "bytes": 5470,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v5/architecture-v5.json",
+      "sha256": "9e13db763f60c0fd5adf9758a5c3e65e0b488ff52f46598f9ba7a468f7e41822"
+    },
+    "decision": {
+      "bytes": 2527,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v5/decision-v5.json",
+      "sha256": "11820b6a95095c5b95a3a46924f3e48f1dcc02b5aec4c98fbe1fc33d564ce8f3"
+    },
+    "protocol": {
+      "bytes": 2901,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v5/protocol-v5.json",
+      "sha256": "8d32c919c910d251d573ff539a53490575d430b56359bd900b0d5cc898add0a1"
+    },
+    "source_closure": {
+      "bytes": 28153,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v5/source-closure-v5.json",
+      "sha256": "2a969a3e71de7c280d26ec98a75974bec832e6562ce5427ae4b0971b478b0018"
+    }
+  },
+  "baseline_open_review": {
+    "bytes": 11626,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v4-independent-review-open-v1-fable-20261111.json",
+    "sha256": "df79e13a5bbfcfce8f3a1fb0f12dee01f7783598dfe9e89d8a12ef200e7113ba",
+    "verdict": "OPEN"
+  },
+  "closed_findings": [
+    {
+      "id": "OPEN-V4-1",
+      "result": "Manifest is the first fixed chronology read; its exact boolean g3_required drives the exact compiled source-pinned validator call with FIXED_WORKSPACE_ROOT. G3 true requires exact registry/review plus G3 grant/review pins and exact grade authority equality before private-map read; missing/forged G3 denies."
+    },
+    {
+      "id": "OPEN-V4-2",
+      "result": "Blind map uses exact fixed cell_order prefixItems and exactly four unique opaque labels; Draft 2020-12 and runtime both reject duplicate labels and reversed cell order."
+    },
+    {
+      "id": "OPEN-V4-3",
+      "result": "107 rows independently match descriptor-read bytes, SHA-256, and actual modes; historical v2 OPEN review is bound as 0600 and synthetic 0644 drift rejects."
+    }
+  ],
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fresh_independent_review": "PENDING",
+  "public_surface": {
+    "authentic_chain_pins": 0,
+    "authentic_human_pins": 0,
+    "authorize_opening_parameters": 0,
+    "current_decision": "DENY_BEFORE_PRIVATE_MAP_READ",
+    "private_map_values_disclosed": false,
+    "public_builders_examples_fixtures": 0
+  },
+  "runtime_bindings": [
+    {
+      "bytes": 833,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v5/owner-private-canonical-map-v5.json",
+      "sha256": "de4b600ba7b12b0f6721f188d71095054605d925401c71594eaedc0c28c64679"
+    },
+    {
+      "bytes": 161,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v5/sanitized-commitment-v5.json",
+      "sha256": "29b87dc51d5e2cf18a0b51b3866bcf5e90c4d1b0e3eff3bfa6bae56a3c4a310d"
+    },
+    {
+      "bytes": 451,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v5/transaction-receipt-v5.json",
+      "sha256": "fef28cb3e9fd6337d4c98cc95e38cdaa1b8c3c612d8474e73741c2362022a336"
+    }
+  ],
+  "status": "PASS_PROVIDER_FREE_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "subject": "r6_data_quality_blind_map_commitment_v5",
+  "test_evidence": {
+    "closure": {
+      "exact": 107,
+      "mode_mismatches": 0,
+      "rows": 107,
+      "synthetic_mode_drift_rejected": true,
+      "v2_review_mode": "0600"
+    },
+    "g3_authority": {
+      "false_probe_passed": true,
+      "fixed_root_and_manifest_value_call_verified": true,
+      "forged_g3_denied_before_private_map": true,
+      "missing_g3_denied_before_private_map": true,
+      "true_probe_passed": true
+    },
+    "label_scan": {
+      "label_values_disclosed": false,
+      "labels_checked": 4,
+      "matching_paths": 0,
+      "status": "PASS"
+    },
+    "regressions": {
+      "evaluation_v3": 12,
+      "failed": 0,
+      "passed": 44,
+      "skipped": 0,
+      "v1": 9,
+      "v2": 11,
+      "v3": 6,
+      "v4": 6
+    },
+    "schemas": {
+      "draft_2020_12_metaschema_passed": 11,
+      "duplicate_label_rejected_by_schema_and_runtime": true,
+      "published": 11,
+      "reversed_cell_order_rejected_by_schema_and_runtime": true
+    },
+    "v5_suite": {
+      "failed": 0,
+      "passed": 8,
+      "skipped": 0,
+      "tests": 8
+    }
+  },
+  "trusted": false,
+  "verdict": "PASS_PROVIDER_FREE_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "version": "r6-data-quality-blind-map-commitment-producer-verification-v5"
+}

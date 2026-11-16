@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"RD-Agent synthetic runner request v2",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","kind","request_id","purpose","authority_binding","engine","limits"],
+  "properties":{
+    "schema_version":{"const":2},
+    "kind":{"const":"rdagent_synthetic_runner_request"},
+    "request_id":{"type":"string","pattern":"^[a-z0-9][a-z0-9_.-]{0,95}$"},
+    "purpose":{"const":"synthetic-contract-verification"},
+    "authority_binding":{"$ref":"#/$defs/binding"},
+    "engine":{"$ref":"#/$defs/engine"},
+    "limits":{"type":"object","additionalProperties":false,"required":["artifact_bytes"],"properties":{"artifact_bytes":{"type":"integer","minimum":256,"maximum":65536}}}
+  },
+  "$defs":{
+    "sha":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "binding":{"type":"object","additionalProperties":false,"required":["authority_id","authority_policy_sha256","genesis_sha256","admission_policy_sha256","dataset_event_sha256","nonce_event_sha256","nonce_sha256","builder_receipt_sha256","observation_set_sha256","feature_snapshot_sha256","evaluation_population_sha256","split_fingerprints","semantic_config_sha256"],"properties":{"authority_id":{"const":"factor-admission-main-v1"},"authority_policy_sha256":{"const":"ed5ab71c758489d8e3c3917794a80054abe5c31d5885fc8c808b5535986c0d81"},"genesis_sha256":{"const":"e13a6f0d6c55d7a482dfaeb85657406df2418e72850015a3950cfca724693ce5"},"admission_policy_sha256":{"const":"d010b96585994ba2bc712ba96d580cbc2cd669b03bbf41eaeee2b855c53c0b9f"},"dataset_event_sha256":{"$ref":"#/$defs/sha"},"nonce_event_sha256":{"$ref":"#/$defs/sha"},"nonce_sha256":{"$ref":"#/$defs/sha"},"builder_receipt_sha256":{"$ref":"#/$defs/sha"},"observation_set_sha256":{"$ref":"#/$defs/sha"},"feature_snapshot_sha256":{"$ref":"#/$defs/sha"},"evaluation_population_sha256":{"$ref":"#/$defs/sha"},"split_fingerprints":{"type":"object","additionalProperties":false,"required":["development","validation","protected"],"properties":{"development":{"$ref":"#/$defs/sha"},"validation":{"$ref":"#/$defs/sha"},"protected":{"$ref":"#/$defs/sha"}}},"semantic_config_sha256":{"$ref":"#/$defs/sha"}}},
+    "engine":{"type":"object","additionalProperties":false,"required":["rdagent_revision","rdagent_tree","qlib_profile","qlib_revision","qlib_tree","adapter_version"],"properties":{"rdagent_revision":{"const":"484776c211e4fbbeef03e0ec00d6bbee7362a4f4"},"rdagent_tree":{"const":"d4444284fb4554f75f352ecb1f072cedbf4c6421"},"qlib_profile":{"const":"qlib-rdagent-compatible"},"qlib_revision":{"const":"2fb9380b342556ddb50a4b24e4fe8655d548b2b8"},"qlib_tree":{"const":"0f541590a9efecb9bfb5342155be50461ad7d002"},"adapter_version":{"const":"rdagent-adapter-v2-synthetic"}}}
+  }
+}

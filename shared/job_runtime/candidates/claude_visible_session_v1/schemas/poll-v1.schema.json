@@ -1,0 +1,108 @@
+{
+  "$id": "claude-visible-session-poll-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "observed_at": {
+          "const": "2099-01-01T00:00:01Z"
+        },
+        "ordinal": {
+          "const": 1
+        },
+        "status": {
+          "const": "running"
+        }
+      },
+      "required": [
+        "ordinal",
+        "status",
+        "observed_at"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "observed_at": {
+          "const": "2099-01-01T00:00:02Z"
+        },
+        "ordinal": {
+          "const": 2
+        },
+        "status": {
+          "const": "succeeded"
+        }
+      },
+      "required": [
+        "ordinal",
+        "status",
+        "observed_at"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "observed_at": {
+          "const": "2099-01-01T00:00:01Z"
+        },
+        "ordinal": {
+          "const": 1
+        },
+        "status": {
+          "const": "queued"
+        }
+      },
+      "required": [
+        "ordinal",
+        "status",
+        "observed_at"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "observed_at": {
+          "const": "2099-01-01T00:00:02Z"
+        },
+        "ordinal": {
+          "const": 2
+        },
+        "status": {
+          "const": "running"
+        }
+      },
+      "required": [
+        "ordinal",
+        "status",
+        "observed_at"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "observed_at": {
+          "const": "2099-01-01T00:00:03Z"
+        },
+        "ordinal": {
+          "const": 3
+        },
+        "status": {
+          "const": "succeeded"
+        }
+      },
+      "required": [
+        "ordinal",
+        "status",
+        "observed_at"
+      ],
+      "type": "object"
+    }
+  ],
+  "type": "object",
+  "x-python-validator": "validate_evidence_bundle"
+}

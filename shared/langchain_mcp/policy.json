@@ -1,0 +1,15 @@
+{
+  "attempt_seconds": 10,
+  "read_seconds": 30,
+  "read_attempts": 2,
+  "read_interval_seconds": 0.5,
+  "query_interval_seconds": 15,
+  "warmup_seconds": 0.5,
+  "fallback_seconds": 5,
+  "response_bytes": 2097152,
+  "logical_bytes": 4194304,
+  "schema_bytes": 262144,
+  "json_depth": 32,
+  "tool_roster": 100,
+  "pages": 2
+}

@@ -1,0 +1,46 @@
+{
+  "activation": false,
+  "countable": false,
+  "effects": {
+    "account_data": 0,
+    "auth": 0,
+    "browser": 0,
+    "bytedcli": 0,
+    "catalog": 0,
+    "claude_binary": 0,
+    "credentials": 0,
+    "inference": 0,
+    "mcp": 0,
+    "network": 0,
+    "provider": 0,
+    "registration": 0
+  },
+  "live_effects": 0,
+  "not_independent_review": true,
+  "producer_verdict": "DISABLED_PROVIDER_FREE_PENDING_CLAUDE_V8_P0_V10_GRANTS_AND_FRESH_REVIEW",
+  "provider_free_tests": {
+    "command": "PYTHONPATH='/Users/bytedance/Desktop/Trading Agent' python3 -m unittest discover -s '/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v1' -p 'test_*.py' -v",
+    "evidence_class": "provider-free fixed fake executable and private seams only",
+    "failed": 0,
+    "forbidden_surface_audit": "PASS",
+    "identity_mode_status_audit": "PASS",
+    "passed": 26,
+    "status": "PASS"
+  },
+  "registration": false,
+  "status": "DISABLED_PROVIDER_FREE_PENDING_CLAUDE_V8_P0_V10_GRANTS_AND_FRESH_REVIEW",
+  "verified_properties": [
+    "zero-argument hard-disabled public API",
+    "fixed synthetic registry and exact review-to-grant binding",
+    "sequential synthetic auth-review-catalog path",
+    "canonical catalog grammar with assistant copies ignored",
+    "required zero cost and all-event usage accounting",
+    "negated/prefix/duplicate/missing accounting rejected UNKNOWN",
+    "verified private executable copy defeats source path swap",
+    "timeout/nonzero UNKNOWN fence and second execution denied",
+    "both transient cleanup attempts and verified-copy removal",
+    "short/zero write, nofollow path/mode, redaction, pin drift, half-open stale boundary",
+    "strict conditional Draft 2020-12 schemas"
+  ],
+  "version": 1
+}

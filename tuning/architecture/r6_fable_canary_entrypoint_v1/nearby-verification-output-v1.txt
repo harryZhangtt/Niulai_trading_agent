@@ -1,0 +1,82 @@
+NEARBY_PYTHON_3_9_6
+test_legacy_retryables_are_conservative_and_detached (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_permanent_failure_kinds_are_failed (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_post_submit_transport_ambiguity_must_be_unknown (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_provider_false_wins_and_true_does_not_override_unsafe (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_quota_exhausted_is_typed_terminal_and_not_http_rate_limit (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_receipt_cycles_are_stable_errors_and_shared_dags_are_detached (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_receipt_is_deeply_detached_immutable_and_bounded (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_receipt_rejects_secrets_and_arbitrary_provider_text (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_reconciliation_handles_missing_terminal_but_never_auto_replays_it (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_reconciliation_persisted_bindings_deny_forgery_and_replacement (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_replay_effect_phase_scope_and_reconciliation (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_retry_timestamp_is_aware_and_typed (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_retryable_requires_safe_pre_submission_phase (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_success_truth_table_requires_terminal_verified (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_typed_http_retry_candidates (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_versions_reject_scalar_confusion (shared.job_runtime.tests.test_provider_contract.ProviderContractTests) ... ok
+test_decision_truth_table (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_immutable_decision_and_no_global_time_dependency (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_jitter_vectors_and_restart_determinism (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_parse_retry_after_all_typed_forms (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_provider_false_permanent_and_http_rules (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_provider_wait_never_shortened_and_deadlines_enforced (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_quota_exhausted_is_terminal_while_429_retry_after_waits (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_retry_after_rejects_negative_nonfinite_malformed_naive_and_past (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_v2_and_legacy_policy_validation_and_fingerprint (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests) ... ok
+test_artifact_failures_are_fixed_sanitized_and_pre_provider (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_claude_default_is_closed_until_bridge_review (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_codex_route_is_profile_pinned_and_preserves_operation_id (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_default_codex_is_blocked_by_immutable_translation_gate (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_exception_after_adapter_entry_is_unknown (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_generation_contains_provider_hashes_and_stable_code_identity (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_process_control_exceptions_from_provider_propagate (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_publish_handoff_removes_capture_raw_fields_and_contains_orphan (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_v1_business_dispatch_remains_compatible (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+test_v2_service_starts_with_current_engine_constructor (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.065s
+
+OK
+NEARBY_PYTHON_3_12_16_PINNED
+test_legacy_retryables_are_conservative_and_detached (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_legacy_retryables_are_conservative_and_detached) ... ok
+test_permanent_failure_kinds_are_failed (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_permanent_failure_kinds_are_failed) ... ok
+test_post_submit_transport_ambiguity_must_be_unknown (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_post_submit_transport_ambiguity_must_be_unknown) ... ok
+test_provider_false_wins_and_true_does_not_override_unsafe (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_provider_false_wins_and_true_does_not_override_unsafe) ... ok
+test_quota_exhausted_is_typed_terminal_and_not_http_rate_limit (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_quota_exhausted_is_typed_terminal_and_not_http_rate_limit) ... ok
+test_receipt_cycles_are_stable_errors_and_shared_dags_are_detached (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_receipt_cycles_are_stable_errors_and_shared_dags_are_detached) ... ok
+test_receipt_is_deeply_detached_immutable_and_bounded (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_receipt_is_deeply_detached_immutable_and_bounded) ... ok
+test_receipt_rejects_secrets_and_arbitrary_provider_text (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_receipt_rejects_secrets_and_arbitrary_provider_text) ... ok
+test_reconciliation_handles_missing_terminal_but_never_auto_replays_it (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_reconciliation_handles_missing_terminal_but_never_auto_replays_it) ... ok
+test_reconciliation_persisted_bindings_deny_forgery_and_replacement (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_reconciliation_persisted_bindings_deny_forgery_and_replacement) ... ok
+test_replay_effect_phase_scope_and_reconciliation (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_replay_effect_phase_scope_and_reconciliation) ... ok
+test_retry_timestamp_is_aware_and_typed (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_retry_timestamp_is_aware_and_typed) ... ok
+test_retryable_requires_safe_pre_submission_phase (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_retryable_requires_safe_pre_submission_phase) ... ok
+test_success_truth_table_requires_terminal_verified (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_success_truth_table_requires_terminal_verified) ... ok
+test_typed_http_retry_candidates (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_typed_http_retry_candidates) ... ok
+test_versions_reject_scalar_confusion (shared.job_runtime.tests.test_provider_contract.ProviderContractTests.test_versions_reject_scalar_confusion) ... ok
+test_decision_truth_table (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_decision_truth_table) ... ok
+test_immutable_decision_and_no_global_time_dependency (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_immutable_decision_and_no_global_time_dependency) ... ok
+test_jitter_vectors_and_restart_determinism (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_jitter_vectors_and_restart_determinism) ... ok
+test_parse_retry_after_all_typed_forms (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_parse_retry_after_all_typed_forms) ... ok
+test_provider_false_permanent_and_http_rules (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_provider_false_permanent_and_http_rules) ... ok
+test_provider_wait_never_shortened_and_deadlines_enforced (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_provider_wait_never_shortened_and_deadlines_enforced) ... ok
+test_quota_exhausted_is_terminal_while_429_retry_after_waits (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_quota_exhausted_is_terminal_while_429_retry_after_waits) ... ok
+test_retry_after_rejects_negative_nonfinite_malformed_naive_and_past (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_retry_after_rejects_negative_nonfinite_malformed_naive_and_past) ... ok
+test_v2_and_legacy_policy_validation_and_fingerprint (shared.job_runtime.tests.test_retry_policy.RetryPolicyTests.test_v2_and_legacy_policy_validation_and_fingerprint) ... ok
+test_artifact_failures_are_fixed_sanitized_and_pre_provider (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_artifact_failures_are_fixed_sanitized_and_pre_provider) ... ok
+test_claude_default_is_closed_until_bridge_review (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_claude_default_is_closed_until_bridge_review) ... ok
+test_codex_route_is_profile_pinned_and_preserves_operation_id (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_codex_route_is_profile_pinned_and_preserves_operation_id) ... ok
+test_default_codex_is_blocked_by_immutable_translation_gate (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_default_codex_is_blocked_by_immutable_translation_gate) ... ok
+test_exception_after_adapter_entry_is_unknown (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_exception_after_adapter_entry_is_unknown) ... ok
+test_generation_contains_provider_hashes_and_stable_code_identity (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_generation_contains_provider_hashes_and_stable_code_identity) ... ok
+test_process_control_exceptions_from_provider_propagate (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_process_control_exceptions_from_provider_propagate) ... ok
+test_publish_handoff_removes_capture_raw_fields_and_contains_orphan (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_publish_handoff_removes_capture_raw_fields_and_contains_orphan) ... ok
+test_v1_business_dispatch_remains_compatible (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_v1_business_dispatch_remains_compatible) ... ok
+test_v2_service_starts_with_current_engine_constructor (shared.job_runtime.tests.test_service_provider_retry.ServiceProviderRetryTests.test_v2_service_starts_with_current_engine_constructor) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.046s
+
+OK

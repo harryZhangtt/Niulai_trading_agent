@@ -1,0 +1,82 @@
+{
+  "$id": "urn:trading-agent:live-review",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_author_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+      "type": "string"
+    },
+    "checks": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_lineage": {
+          "type": "boolean"
+        },
+        "literal_support": {
+          "type": "boolean"
+        },
+        "question_relevance": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "question_relevance",
+        "literal_support",
+        "canonical_lineage"
+      ],
+      "type": "object"
+    },
+    "disposition": {
+      "enum": [
+        "approved",
+        "rejected"
+      ]
+    },
+    "live_operator_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+      "type": "string"
+    },
+    "reason": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+      "type": "string"
+    },
+    "reviewer_session_receipt_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "trust_policy": {
+      "const": "operational_host_evidence"
+    }
+  },
+  "required": [
+    "reviewer_id",
+    "assessment_author_id",
+    "live_operator_id",
+    "disposition",
+    "checks",
+    "reason",
+    "reviewer_session_receipt_ref",
+    "trust_policy"
+  ],
+  "type": "object"
+}

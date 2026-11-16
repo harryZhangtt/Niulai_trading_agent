@@ -1,0 +1,71 @@
+=== PYTHON_3_9_6 ===
+3.9.6 (default, Jan  9 2026, 11:03:41) 
+[Clang 17.0.0 (clang-1700.6.4.2)]
+test_empty_authority_and_no_service_registration (test_artifacts.FableCanaryV2ArtifactTests) ... ok
+test_evidence_closure_and_producer_receipt_are_off (test_artifacts.FableCanaryV2ArtifactTests) ... ok
+test_exact_external_bindings (test_artifacts.FableCanaryV2ArtifactTests) ... ok
+test_producer_check_is_reproducible_without_sdk_import (test_artifacts.FableCanaryV2ArtifactTests) ... ok
+test_source_closure_exact_members (test_artifacts.FableCanaryV2ArtifactTests) ... ok
+test_abandoned_built_dispatcher_retains_no_descriptors (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_bridge_resolution_occurs_only_after_durable_claim (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_concurrent_dispatch_invokes_exactly_once (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_descriptors_are_cleaned_on_success_and_failure (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_dir_fsync_failure_claims_before_runner_and_blocks_replay (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_dispatch_time_expiry_rejects_without_claim (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_exact_mode_nlink_leaf_and_parent_symlink_reject (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_global_and_callback_replacement_after_admission_has_no_effect (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_leaf_replacement_during_read_is_rejected (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_module_and_denied_public_builder_do_not_import_installed_sdk (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_nominal_terminal_success_is_canonical_and_reopen_blocks (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_off_manifest_freezes_budget_environment_and_forbidden_surfaces (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_parent_replacement_and_reopened_builder_cannot_replay (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_preflight_receipt_drift_denies_before_claim_or_bridge (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_profile_and_config_drift_reject_before_claim (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_review_receipt_is_specific_external_and_noncyclic (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_reviewed_runner_is_single_use_even_outside_dispatcher (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_runner_exception_becomes_durable_unknown_without_replay (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_shipped_authority_empty_and_activation_pending (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_strict_json_rejects_noncanonical_duplicate_and_nonfinite (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_terminal_dir_fsync_failure_downgrades_to_durable_unknown (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_terminal_failed_is_canonical_and_claim_remains_immutable (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+test_ttl_and_future_skew_are_bounded (test_entrypoint.FableCanaryEntrypointV2Tests) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.410s
+
+OK
+=== PYTHON_3_12_16_PINNED ===
+3.12.16 (main, Oct 26 2026, 13:59:40) [Clang 23.1.3 ]
+test_empty_authority_and_no_service_registration (test_artifacts.FableCanaryV2ArtifactTests.test_empty_authority_and_no_service_registration) ... ok
+test_evidence_closure_and_producer_receipt_are_off (test_artifacts.FableCanaryV2ArtifactTests.test_evidence_closure_and_producer_receipt_are_off) ... ok
+test_exact_external_bindings (test_artifacts.FableCanaryV2ArtifactTests.test_exact_external_bindings) ... ok
+test_producer_check_is_reproducible_without_sdk_import (test_artifacts.FableCanaryV2ArtifactTests.test_producer_check_is_reproducible_without_sdk_import) ... ok
+test_source_closure_exact_members (test_artifacts.FableCanaryV2ArtifactTests.test_source_closure_exact_members) ... ok
+test_abandoned_built_dispatcher_retains_no_descriptors (test_entrypoint.FableCanaryEntrypointV2Tests.test_abandoned_built_dispatcher_retains_no_descriptors) ... ok
+test_bridge_resolution_occurs_only_after_durable_claim (test_entrypoint.FableCanaryEntrypointV2Tests.test_bridge_resolution_occurs_only_after_durable_claim) ... ok
+test_concurrent_dispatch_invokes_exactly_once (test_entrypoint.FableCanaryEntrypointV2Tests.test_concurrent_dispatch_invokes_exactly_once) ... ok
+test_descriptors_are_cleaned_on_success_and_failure (test_entrypoint.FableCanaryEntrypointV2Tests.test_descriptors_are_cleaned_on_success_and_failure) ... ok
+test_dir_fsync_failure_claims_before_runner_and_blocks_replay (test_entrypoint.FableCanaryEntrypointV2Tests.test_dir_fsync_failure_claims_before_runner_and_blocks_replay) ... ok
+test_dispatch_time_expiry_rejects_without_claim (test_entrypoint.FableCanaryEntrypointV2Tests.test_dispatch_time_expiry_rejects_without_claim) ... ok
+test_exact_mode_nlink_leaf_and_parent_symlink_reject (test_entrypoint.FableCanaryEntrypointV2Tests.test_exact_mode_nlink_leaf_and_parent_symlink_reject) ... ok
+test_global_and_callback_replacement_after_admission_has_no_effect (test_entrypoint.FableCanaryEntrypointV2Tests.test_global_and_callback_replacement_after_admission_has_no_effect) ... ok
+test_leaf_replacement_during_read_is_rejected (test_entrypoint.FableCanaryEntrypointV2Tests.test_leaf_replacement_during_read_is_rejected) ... ok
+test_module_and_denied_public_builder_do_not_import_installed_sdk (test_entrypoint.FableCanaryEntrypointV2Tests.test_module_and_denied_public_builder_do_not_import_installed_sdk) ... ok
+test_nominal_terminal_success_is_canonical_and_reopen_blocks (test_entrypoint.FableCanaryEntrypointV2Tests.test_nominal_terminal_success_is_canonical_and_reopen_blocks) ... ok
+test_off_manifest_freezes_budget_environment_and_forbidden_surfaces (test_entrypoint.FableCanaryEntrypointV2Tests.test_off_manifest_freezes_budget_environment_and_forbidden_surfaces) ... ok
+test_parent_replacement_and_reopened_builder_cannot_replay (test_entrypoint.FableCanaryEntrypointV2Tests.test_parent_replacement_and_reopened_builder_cannot_replay) ... ok
+test_preflight_receipt_drift_denies_before_claim_or_bridge (test_entrypoint.FableCanaryEntrypointV2Tests.test_preflight_receipt_drift_denies_before_claim_or_bridge) ... ok
+test_profile_and_config_drift_reject_before_claim (test_entrypoint.FableCanaryEntrypointV2Tests.test_profile_and_config_drift_reject_before_claim) ... ok
+test_review_receipt_is_specific_external_and_noncyclic (test_entrypoint.FableCanaryEntrypointV2Tests.test_review_receipt_is_specific_external_and_noncyclic) ... ok
+test_reviewed_runner_is_single_use_even_outside_dispatcher (test_entrypoint.FableCanaryEntrypointV2Tests.test_reviewed_runner_is_single_use_even_outside_dispatcher) ... ok
+test_runner_exception_becomes_durable_unknown_without_replay (test_entrypoint.FableCanaryEntrypointV2Tests.test_runner_exception_becomes_durable_unknown_without_replay) ... ok
+test_shipped_authority_empty_and_activation_pending (test_entrypoint.FableCanaryEntrypointV2Tests.test_shipped_authority_empty_and_activation_pending) ... ok
+test_strict_json_rejects_noncanonical_duplicate_and_nonfinite (test_entrypoint.FableCanaryEntrypointV2Tests.test_strict_json_rejects_noncanonical_duplicate_and_nonfinite) ... ok
+test_terminal_dir_fsync_failure_downgrades_to_durable_unknown (test_entrypoint.FableCanaryEntrypointV2Tests.test_terminal_dir_fsync_failure_downgrades_to_durable_unknown) ... ok
+test_terminal_failed_is_canonical_and_claim_remains_immutable (test_entrypoint.FableCanaryEntrypointV2Tests.test_terminal_failed_is_canonical_and_claim_remains_immutable) ... ok
+test_ttl_and_future_skew_are_bounded (test_entrypoint.FableCanaryEntrypointV2Tests.test_ttl_and_future_skew_are_bounded) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.295s
+
+OK

@@ -1,0 +1,30 @@
+{
+  "version": "r6-data-quality-exact-input-binding-protocol-v2",
+  "status": "FROZEN_BEFORE_PRODUCER_VERIFICATION",
+  "default": "DENY",
+  "sequence": [
+    "strictly decode UTF-8 and reject BOM, duplicate keys and non-finite numbers",
+    "validate closed manifest schema",
+    "require exact ASCII NFC/NFKC workspace-relative locator identity under the fixed allowed root",
+    "deny absolute, empty, dot, dotdot, double-slash, backslash, case and normalization variants",
+    "deny provider/model/addon/order/treatment/private/internal locator labels",
+    "open every path component relative to a held workspace descriptor with no-follow",
+    "require pinned current owner and exact directory/file modes",
+    "require regular final files and exact bytes, raw SHA-256 and canonical content SHA-256",
+    "derive the path-and-content common identity and require its exact 2417-byte canonical digest",
+    "require all four cells to contain the complete byte-identical common identity and digest",
+    "revalidate frozen prompt, cutoff, official-source, rubric and threshold semantics",
+    "require unresolved tool-roster, time-window and final-grant pins",
+    "run same-byte absolute, labeled relative, symlink, case/normalization and digest-resealing adversaries",
+    "publish provider-free noncountable producer evidence"
+  ],
+  "canonicalization": "UTF-8 JSON, sorted keys, compact separators, ensure_ascii=false, allow_nan=false",
+  "exact_common_binding": {"canonical_utf8_bytes": 2417, "canonical_sha256": "4a3e3ecc0aec340d3e7d760c70a4671878f77f1a23348d5a520425e417bf24ec"},
+  "pending_fences": {
+    "tool_roster": "exact read-only roster, versions, call ceilings and blocked-effect list remain unsealed",
+    "time_window": "exact common start/end and per-cell deadline semantics remain unsealed",
+    "final_grants": "exact four-cell authority, budgets, attempt counts, inference grants and CLEAN reviews remain absent"
+  },
+  "effects": {"provider": false, "network": false, "account": false, "private_state": false, "email": false, "business": false, "host": false, "scheduler": false},
+  "countable": false
+}

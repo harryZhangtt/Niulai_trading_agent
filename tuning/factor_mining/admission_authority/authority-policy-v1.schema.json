@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "factor-admission-authority-policy-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","kind","authority_id","workspace_id","epoch","status","ledger_relative_path","admission_policy_sha256","allowed_trust_classes","allowed_purposes","max_events","blockers","durable_checkpoint_store_id","trusted_signer_policy_sha256","recovery_policy_sha256","runner_policy_sha256","evaluator_policy_sha256","independent_checker_policy_sha256","publication_policy_sha256","real_protocols_allowed","protected_outcomes_allowed","performance_publication_allowed","ev_publication_allowed","kelly_publication_allowed"],
+  "$defs": {"sha":{"type":"string","pattern":"^[a-f0-9]{64}$"},"nil":{"type":"null"}},
+  "properties": {
+    "schema_version":{"const":1},"kind":{"const":"factor_admission_authority_policy"},
+    "authority_id":{"const":"factor-admission-main-v1"},"workspace_id":{"const":"trading-agent"},
+    "epoch":{"const":1},"status":{"const":"development-only-blocked"},
+    "ledger_relative_path":{"const":"factor/runtime/admission-authority"},
+    "admission_policy_sha256":{"const":"d010b96585994ba2bc712ba96d580cbc2cd669b03bbf41eaeee2b855c53c0b9f"},
+    "allowed_trust_classes":{"const":["synthetic"]},"allowed_purposes":{"const":["synthetic-contract-verification"]},
+    "max_events":{"const":256},
+    "blockers":{"const":["durable-external-checkpoint-store-unresolved","trusted-signer-keys-unresolved","disaster-recovery-policy-unresolved","trusted-runner-policy-unresolved","trusted-evaluator-policy-unresolved","independent-checker-policy-unresolved","publication-authorization-policy-unresolved"]},
+    "durable_checkpoint_store_id":{"$ref":"#/$defs/nil"},"trusted_signer_policy_sha256":{"$ref":"#/$defs/nil"},
+    "recovery_policy_sha256":{"$ref":"#/$defs/nil"},"runner_policy_sha256":{"$ref":"#/$defs/nil"},
+    "evaluator_policy_sha256":{"$ref":"#/$defs/nil"},"independent_checker_policy_sha256":{"$ref":"#/$defs/nil"},
+    "publication_policy_sha256":{"$ref":"#/$defs/nil"},"real_protocols_allowed":{"const":false},
+    "protected_outcomes_allowed":{"const":false},"performance_publication_allowed":{"const":false},
+    "ev_publication_allowed":{"const":false},"kelly_publication_allowed":{"const":false}
+  }
+}

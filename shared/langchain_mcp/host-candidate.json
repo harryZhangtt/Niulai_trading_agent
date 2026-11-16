@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "activation": "Separate disposable native-host rollout required; never copy into active host configuration during this experiment.",
+  "owner": "shared/langchain_mcp",
+  "endpoints": {
+    "agent_server": {"url": "http://127.0.0.1:2025/mcp", "tools": ["calculator", "holdings", "calculator_session"]},
+    "langsmith": {"url": "https://api.smith.langchain.com/mcp", "tools": ["query_runs"], "credential_reference": ".langchain-pilot/langsmith.env"}
+  }
+}

@@ -1,0 +1,1064 @@
+{
+  "status": "FROZEN",
+  "revision": "mcp-atomic-v1.1",
+  "frozen_date": "2026-11-16",
+  "provenance": "Independent requirement-derived design before viewing proposed shared/langchain_mcp or tuning/langchain_mcp_agent implementation. Existing source bytes hashed without reading implementation. Private source document mechanism excerpts reviewed; no private content/IDs copied.",
+  "level": "Balanced with deliberate breaks",
+  "access": "Shared independent development cases, not blind holdouts.",
+  "source_document": {
+    "revision": 4473,
+    "sha256": "654269626985fa210b39eb72e2238e7cc2a15a5cb2bc10d170babea2060bc4ba",
+    "storage": "owner-private original snapshot; no copied content"
+  },
+  "endpoint_allowlist": [
+    "http://127.0.0.1:2025/mcp",
+    "https://api.smith.langchain.com/mcp"
+  ],
+  "bounds": {
+    "max_schema_utf8_bytes": 262144,
+    "max_response_utf8_bytes": 2097152,
+    "max_logical_read_decoded_bytes": 4194304,
+    "max_json_depth": 32,
+    "max_tool_roster": 100,
+    "max_http_attempt_seconds": 10,
+    "max_logical_read_active_seconds": 30,
+    "max_replay_safe_read_http_attempts": 2,
+    "max_query_pages": 2,
+    "max_page_size": 100,
+    "max_comparison_logical_tool_calls": 4
+  },
+  "matched_round_roster": [
+    {
+      "case": "trace-A-full",
+      "trace_selector": "owned-trace-A",
+      "arm": "full"
+    },
+    {
+      "case": "trace-A-compact",
+      "trace_selector": "owned-trace-A",
+      "arm": "compact"
+    },
+    {
+      "case": "trace-B-full",
+      "trace_selector": "owned-trace-B",
+      "arm": "full"
+    },
+    {
+      "case": "trace-B-compact",
+      "trace_selector": "owned-trace-B",
+      "arm": "compact"
+    }
+  ],
+  "live_manifest_required": "Owner-private exact immutable trace/project/workspace/root/output/hierarchy/status identities and candidate source/config/schema/prompt/grader/case hashes must be sealed before live dispatch. Embedded baseline339/failure/history references must remain unchanged.",
+  "atomic_oracles": {
+    "synthetic-trace-A": {
+      "project": "SYNTHETIC-PROJECT",
+      "trace": "SYNTHETIC-TRACE-A",
+      "root": "SYNTHETIC-ROOT-A",
+      "root_output": {
+        "per_share": "10"
+      },
+      "nodes": [
+        {
+          "id": "SYNTHETIC-ROOT-A",
+          "parents": [],
+          "is_root": true,
+          "status": "success"
+        },
+        {
+          "id": "SYNTHETIC-MODEL-A",
+          "parents": [
+            "SYNTHETIC-ROOT-A"
+          ],
+          "is_root": false,
+          "status": "success"
+        },
+        {
+          "id": "SYNTHETIC-TOOL-A",
+          "parents": [
+            "SYNTHETIC-MODEL-A"
+          ],
+          "is_root": false,
+          "status": "success"
+        },
+        {
+          "id": "SYNTHETIC-GATE-A",
+          "parents": [
+            "SYNTHETIC-ROOT-A"
+          ],
+          "is_root": false,
+          "status": "success"
+        }
+      ]
+    },
+    "synthetic-trace-B": {
+      "project": "SYNTHETIC-PROJECT",
+      "trace": "SYNTHETIC-TRACE-B",
+      "root": "SYNTHETIC-ROOT-B",
+      "root_output": {
+        "netExposure": "700",
+        "grossExposure": "1100",
+        "wholePortfolioVerified": false
+      },
+      "nodes": [
+        {
+          "id": "SYNTHETIC-ROOT-B",
+          "parents": [],
+          "is_root": true,
+          "status": "success"
+        },
+        {
+          "id": "SYNTHETIC-ANALYTICS-B",
+          "parents": [
+            "SYNTHETIC-ROOT-B"
+          ],
+          "is_root": false,
+          "status": "success"
+        },
+        {
+          "id": "SYNTHETIC-GATE-B",
+          "parents": [
+            "SYNTHETIC-ROOT-B"
+          ],
+          "is_root": false,
+          "status": "success"
+        }
+      ]
+    }
+  },
+  "atomic_oracle_note": "Synthetic discriminating fixtures only. Actual live trace expectations must be independently sealed from owned readback; these fixtures cannot replace live E2E.",
+  "frozen_existing_artifact_source_hashes": [
+    {
+      "path": "investment/portfolio/__init__.py",
+      "sha256": "157e7cce1adc71640f3fda5f4889b72faeeb6c84be74aebf95ccda39822d5717"
+    },
+    {
+      "path": "investment/portfolio/snapshot.py",
+      "sha256": "bc103c7f6b1ec844a54a116a469b1716708f4c24dc6c12f0bbbc38f68fdf21ff"
+    },
+    {
+      "path": "shared/calculation/legacy/valuation/valuation_core.py",
+      "sha256": "e2341dd6097c23f04b91072f82b2884f3868e178cd336a126d36e71c075ebc2e"
+    },
+    {
+      "path": "tuning/langchain_pilot/ACCEPTANCE.md",
+      "sha256": "ad5d79710dc2cefbf182b390ae7c454c7b6e47417e907fdc0a165e0f02409afa"
+    },
+    {
+      "path": "tuning/langchain_pilot/ATOMIC_ACCEPTANCE.md",
+      "sha256": "e374cc970c7e4d24ad8ae11fe8689672a492acec4d5db9beece8e8fdf041e453"
+    },
+    {
+      "path": "tuning/langchain_pilot/__init__.py",
+      "sha256": "8a5e0060425603bcf3166a3dbc533faf13561e2ec545238da1753a1f6b69016b"
+    },
+    {
+      "path": "tuning/langchain_pilot/atomic.py",
+      "sha256": "e15cdd65e1b23e0fb12b0e05d680b008ee3e4852644ea96b630aa795d4b7e011"
+    },
+    {
+      "path": "tuning/langchain_pilot/atomic_cloud.py",
+      "sha256": "cd98497ae8f9e2faf38e8367e6a08bb292a13d8ef9759ffcb85d966fc37f7359"
+    },
+    {
+      "path": "tuning/langchain_pilot/credentials.py",
+      "sha256": "0802d1984a72b25737ca24293d1976083f62ba69b5a0f021798582f80ef0c49c"
+    },
+    {
+      "path": "tuning/langchain_pilot/graph.py",
+      "sha256": "a5cfa1185e3562eae622f094a7d2d596938576c8efded86688ab16e1bc3a4ddd"
+    },
+    {
+      "path": "tuning/langchain_pilot/holdings.py",
+      "sha256": "1e02fda64f527ec7691db7183e8bd884af92403190830c8ec83272608942b892"
+    },
+    {
+      "path": "tuning/langchain_pilot/holdings_contract_fixtures.py",
+      "sha256": "d34bed6a17e4f22c63eaaf736dfbf86984f16634b8732e289ab878dea1f06907"
+    },
+    {
+      "path": "tuning/langchain_pilot/langgraph.json",
+      "sha256": "9293b5014c77a2a2561ecd5e7b4f87a8a45a2684767702994d5a19d613400f8f"
+    },
+    {
+      "path": "tuning/langchain_pilot/observability.py",
+      "sha256": "658f3a3d46a436d9397a9042b06b63c29ceed44e76a9409093f6a4f50a90f23e"
+    },
+    {
+      "path": "tuning/langchain_pilot/rate_policy.py",
+      "sha256": "c495db86dd5ae1ee8e7737a0a59c24b16141326409ea707c786a3a4db38119fb"
+    },
+    {
+      "path": "tuning/langchain_pilot/requirements.lock.txt",
+      "sha256": "99a3b8ef3cbdbe318717658eb0bd9c1866d9446451110b4aa07590eebbcda8f5"
+    },
+    {
+      "path": "tuning/langchain_pilot/serve.py",
+      "sha256": "2060234b9112917f3878964855c0cccbf40575174844bf9e3927b052b40c80c7"
+    },
+    {
+      "path": "tuning/langchain_pilot/session_engine.py",
+      "sha256": "b9aa553810a08342deaac5f67799548bbe848e37142081ccd3e8f000df202781"
+    },
+    {
+      "path": "tuning/langchain_pilot/session_model.py",
+      "sha256": "fc04a8b54cce7aa9b31c097b56207ca80f32ae3a9e6b34ec646c81bb642da1d8"
+    },
+    {
+      "path": "tuning/langchain_pilot/smoke.py",
+      "sha256": "14175602a5a11121de67be58d62ee8f42c977e49c8ecb48516a7beeb7907de09"
+    },
+    {
+      "path": "tuning/langchain_pilot/strict_cli.py",
+      "sha256": "5390beb23790894a802cdb63018a3e54cfdc42a594f10f7c330a487115295915"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_atomic.py",
+      "sha256": "1ecae0173da836987b4ffa084ae952bd6c72be190ab64e151903a4c6fc78550c"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_atomic_independent.py",
+      "sha256": "bc14f545d7bd5d0f526acf8c6e50e7084f350646c1cd280790bbf5397e3d7ff2"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_graph.py",
+      "sha256": "2c940646f7b750779551385f8afbac99802bb1b72c58b23807967722753cbcdc"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_holdings.py",
+      "sha256": "7091bc65d357af6c99c455ec976b2f2a092e75de7fb116ba583ead5e16a82498"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_holdings_boundaries.py",
+      "sha256": "43c386a984b725dbfc584b59269905fffd194646e9790f1eef12b8aac30cf975"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_holdings_frozen_contract.py",
+      "sha256": "07b5304e5ea11701362f69f9f2da39e8ee709865bc5bb0f08b7e4b793a52b76b"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_observability.py",
+      "sha256": "b9f4b179d802a66d3db95c118277e41a50f640de8f8d9a4bbd13fefe7753ef50"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_openai_route.py",
+      "sha256": "20c5fcabbd9d975555ca754de7aed02957a0783a0a8cbf33888ccc85ccdefa9a"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_session_cli.py",
+      "sha256": "e8e01569c89ec25237eeec2b9a40e1534affc1b2f1cdbc42a7c30f365a4e1b08"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_session_engine.py",
+      "sha256": "2cb0563dc3df7c6bde1a4e70bcc7b35cd67a2533e0ed133c2de709811cd0cc6c"
+    },
+    {
+      "path": "tuning/langchain_pilot/test_smoke.py",
+      "sha256": "82a04da42a2e8b4d3055afb1ff80ea98fb998f374d73a0f8ac887b426e9177ab"
+    },
+    {
+      "path": "tuning/langchain_pilot/tests/atomic_contract_cases.json",
+      "sha256": "bffd7b0217b07b6c0c5c7a2384d5afcb1cd7ca455f0cca27951f929f7c5e1d78"
+    },
+    {
+      "path": "tuning/langchain_pilot/verify_holdings_tests.py",
+      "sha256": "9c8071d7338279284e3eff57a5d98218b2781cfc2d6e94c86a365cd42352c0a0"
+    },
+    {
+      "path": "tuning/langchain_pilot/verify_observability.py",
+      "sha256": "9bdc7a5e64847ee971ef1218f4ba628d5c4c2240102fabaf4b7393634df97e8d"
+    }
+  ],
+  "baseline339_status": "Existing owned immutable record reports PASS339/zero skipped; previous failed339 and histories preserved. Scheduled business/email acceptance remains UNVERIFIED. Not rerun by designer.",
+  "cases": [
+    {
+      "id": "MCP-01",
+      "criterion": "MCP-AC-001",
+      "title": "exact allowed endpoints",
+      "precondition": {
+        "endpoints": [
+          "http://127.0.0.1:2025/mcp",
+          "https://api.smith.langchain.com/mcp"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Dispatch only intended endpoint with its own credential reference",
+      "forbidden": "Foreign forwarding/global registration",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-02",
+      "criterion": "MCP-AC-001",
+      "title": "wrong endpoint variations",
+      "precondition": {
+        "variants": [
+          "http://127.0.0.1:2024/mcp",
+          "https://wrong.invalid/mcp",
+          "http://api.smith.langchain.com/mcp",
+          "https://user:pass@api.smith.langchain.com/mcp",
+          "endpoint override env"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Reject before HTTP/credential resolution",
+      "forbidden": "Private credential sent to any variant",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-03",
+      "criterion": "MCP-AC-001",
+      "title": "redirect and canary",
+      "precondition": {
+        "response": "302 to wrong.invalid",
+        "fake_key": "SYNTHETIC-SECRET-NO-EXPORT"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "No followed redirect; canary absent from errors/logs/exported payloads",
+      "forbidden": "Cross-origin credential or diagnostic leak",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-04",
+      "criterion": "MCP-AC-002",
+      "title": "compatible negotiated session",
+      "precondition": {
+        "initialize_result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "tools": {}
+          },
+          "serverInfo": {
+            "name": "synthetic-mcp",
+            "version": "1"
+          }
+        }
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Compatible version and matching JSON-RPC/session identities retained; initialized/list next",
+      "forbidden": "Skipped negotiation",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-05",
+      "criterion": "MCP-AC-002",
+      "title": "incompatible version or request identity",
+      "precondition": {
+        "variants": [
+          "unsupported negotiated version",
+          "result id differs from request",
+          "duplicate terminal result"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Reject incompatible/unmatched/duplicate advancement",
+      "forbidden": "Foreign result reused or unsupported version silently accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-06",
+      "criterion": "MCP-AC-002",
+      "title": "HTTP200 malformed/error content",
+      "precondition": {
+        "variants": [
+          "malformed JSON",
+          "unterminated SSE message",
+          "JSON-RPC error under HTTP200",
+          "tools/call result isError=true"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Typed bounded failure, never successful result",
+      "forbidden": "HTTP status alone accepted as success",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-07",
+      "criterion": "MCP-AC-003",
+      "title": "actual local tool names",
+      "precondition": {
+        "tools": [
+          "calculator",
+          "holdings",
+          "calculator_session"
+        ],
+        "studio_alias": "trading_pilot"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Use exact discovered allowlisted names; alias is not an MCP tool",
+      "forbidden": "Alias/display-name inference",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-08",
+      "criterion": "MCP-AC-003",
+      "title": "current remote query schema",
+      "precondition": {
+        "tool": "query_runs",
+        "required_scope": "frozen owned workspace/project/trace",
+        "schema": "actual tools/list hash"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Validate current enum/boolean/select/pagination arguments before dispatch",
+      "forbidden": "fetch_runs automatic fallback or stale tutorial schema",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-09",
+      "criterion": "MCP-AC-003",
+      "title": "unknown tool and argument drift",
+      "precondition": {
+        "variants": [
+          "unknown discovered tool",
+          "fetch_runs",
+          "missing workspace_id",
+          "extra property",
+          "invalid enum/argument type"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Reject unallowlisted/schema-invalid calls; source/schema drift visible",
+      "forbidden": "Extra ignored property or arbitrary tool bound to model",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-10",
+      "criterion": "MCP-AC-004",
+      "title": "size and depth boundaries",
+      "precondition": {
+        "variants": [
+          "schema 262145 UTF8 bytes",
+          "response 2097153 UTF8 bytes",
+          "read cumulative 4194305 bytes",
+          "JSON depth 33",
+          "tool roster 101"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Reject at bounded decoder/schema boundary before uncontrolled parsing/export",
+      "forbidden": "Only per-chunk size checked, deep/large payload allocated unboundedly",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-11",
+      "criterion": "MCP-AC-004",
+      "title": "slow infinite streamed response",
+      "precondition": {
+        "stream": "many small multibyte chunks with no terminal message",
+        "clock": "controlled attempt 10s/read 30s bound"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Cumulative UTF8/time budget stops read and closes body/session",
+      "forbidden": "Character-count bypass or unbounded stream",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-12",
+      "criterion": "MCP-AC-004",
+      "title": "cancellation at response boundary",
+      "precondition": {
+        "barriers": [
+          "before response",
+          "after response body before admission"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Close owned resources; no late unintended tool commit; useful cancellation receipt",
+      "forbidden": "Orphan session or hidden late success",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-13",
+      "criterion": "MCP-AC-005",
+      "title": "RetryAfter respected",
+      "precondition": {
+        "variants": [
+          {
+            "header": "3",
+            "remaining_seconds": 10
+          },
+          {
+            "header": "valid HTTP-date +3s",
+            "remaining_seconds": 10
+          }
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Next read attempt no earlier than service minimum; at most two attempts",
+      "forbidden": "Immediate retry or overlapping authority",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-14",
+      "criterion": "MCP-AC-005",
+      "title": "RetryAfter exceeds budget",
+      "precondition": {
+        "retry_after_seconds": 60,
+        "remaining_seconds": 10
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Return deferred/rate-limited; no second request/wait past deadline",
+      "forbidden": "Clamp minimum delay downward and retry early",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-15",
+      "criterion": "MCP-AC-005",
+      "title": "bad/permanent/repeated read errors",
+      "precondition": {
+        "variants": [
+          "malformed RetryAfter",
+          "repeated 429",
+          "401/403",
+          "schema/protocol error"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Explicit policy classification and bounded pacing; permanent errors stop",
+      "forbidden": "Busy retries or inner times outer amplification",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-16",
+      "criterion": "MCP-AC-006",
+      "title": "before versus after dispatch failure",
+      "precondition": {
+        "variants": [
+          "definite validation rejection before HTTP",
+          "ack lost after local tools/call possibly executed"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Before-dispatch is explicit non-execution; possible execution becomes unknown fence",
+      "forbidden": "Both failures classified replay-safe",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-17",
+      "criterion": "MCP-AC-006",
+      "title": "restart/reissue unknown operation",
+      "precondition": {
+        "operation": "owned local tools/call",
+        "receipt_state": "unknown",
+        "command": "repeat/restart"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Refuse replay until exact operation/state reconciliation; preserve original receipt",
+      "forbidden": "New run/effect created or unknown receipt cleared",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-18",
+      "criterion": "MCP-AC-006",
+      "title": "tool effect classification",
+      "precondition": {
+        "variants": [
+          "query_runs bound replay-safe read",
+          "calculator creates local graph state",
+          "unclassified future tool"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Only named replay-safe read uses bounded retry; write/unknown/unclassified held",
+      "forbidden": "All POST calls classified alike or read-only name assumed replay-safe",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-19",
+      "criterion": "MCP-AC-007",
+      "title": "exact scope construction and readback",
+      "precondition": {
+        "selector": "synthetic-trace-A",
+        "manifest": "owned exact workspace/project/trace/time fields"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Adapter creates scope; every returned record matches exact owned identity",
+      "forbidden": "Name-only scope or foreign returned record accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-20",
+      "criterion": "MCP-AC-007",
+      "title": "broad scan/injection refused",
+      "precondition": {
+        "variants": [
+          "missing trace/project/workspace",
+          "foreign trace selector",
+          "all-project billing filter",
+          "ai_search",
+          "arbitrary user filter",
+          "attachment/EXTRA field"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Reject before query dispatch/callback export",
+      "forbidden": "Private/billing/AI broad query executed",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-21",
+      "criterion": "MCP-AC-007",
+      "title": "cursor retains scope",
+      "precondition": {
+        "page1": "owned scope with opaque cursor",
+        "page2_variants": [
+          "same frozen scope",
+          "foreign cursor scope/filter/time"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "At most two pages and unchanged exact scope; invalid continuation rejected",
+      "forbidden": "Pagination loses allowlist/time binding",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-22",
+      "criterion": "MCP-AC-008",
+      "title": "fresh new-client local MCP E2E",
+      "precondition": {
+        "path": "new client initialize/list/call exact local calculator and holdings",
+        "fixtures": "nominal public synthetic"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Actual calculator per-share10; holdings net700/gross1100 independently read with candidate-bound receipts",
+      "forbidden": "Prior curl/handshake/fixture or Studio alias accepted as new E2E",
+      "required_levels": [
+        "real_local_mcp",
+        "independent_readback"
+      ]
+    },
+    {
+      "id": "MCP-23",
+      "criterion": "MCP-AC-008",
+      "title": "fresh real remote and cooperative tool",
+      "precondition": {
+        "path": "current host model selects inspect_trace then new shared client query_runs",
+        "trace_selector": "owned immutable trace"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Actual MCP query receipt/results match independent trace reference; final cites only bound facts",
+      "forbidden": "Direct SDK/mock hidden inside inspect_trace or scripted model success",
+      "required_levels": [
+        "real_remote_mcp",
+        "cooperative_host",
+        "independent_readback"
+      ]
+    },
+    {
+      "id": "MCP-24",
+      "criterion": "MCP-AC-009",
+      "title": "internal host handoff",
+      "precondition": {
+        "caller": "fixed task selector",
+        "model": "current SessionChatModel",
+        "host_response": "assistant-selected inspect_trace"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Persist exact binding/thread/request; framework executes tool; user need not paste resume JSON",
+      "forbidden": "Host-authored authoritative tool result or copied subscription/API token",
+      "required_levels": [
+        "atomic",
+        "cooperative_host"
+      ]
+    },
+    {
+      "id": "MCP-25",
+      "criterion": "MCP-AC-009",
+      "title": "stale forged raw resume rejected",
+      "precondition": {
+        "variants": [
+          "foreign/stale request",
+          "duplicate admitted response",
+          "host tool-role message",
+          "user raw resume JSON"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Reject advancement; original pending state/recovery readable",
+      "forbidden": "Replay or raw user payload admitted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-26",
+      "criterion": "MCP-AC-010",
+      "title": "four-call paired round",
+      "precondition": {
+        "roster": [
+          "trace-A full",
+          "trace-A compact",
+          "trace-B full",
+          "trace-B compact"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Four logical attempts max; identical per-arm scope and oracle; HTTP/page counts separately visible",
+      "forbidden": "Different budgets or hidden unbounded transport calls",
+      "required_levels": [
+        "atomic",
+        "real_remote_mcp"
+      ]
+    },
+    {
+      "id": "MCP-27",
+      "criterion": "MCP-AC-010",
+      "title": "fifth/failed loop attempt",
+      "precondition": {
+        "logical_attempts": "four including failures/rejections",
+        "next": "fifth inspect_trace/model loop"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Refuse before fifth HTTP dispatch; exhaustion explicit",
+      "forbidden": "Counter increments only after successful call",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-28",
+      "criterion": "MCP-AC-011",
+      "title": "independent exact root and output",
+      "precondition": {
+        "variants": [
+          "actual bound root/output",
+          "root id changed",
+          "per-share10 changed to11",
+          "net700 changed to701",
+          "preview truncated instead of full output"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Only exact observed root/full independent output passes",
+      "forbidden": "Correct-looking substring or trace-id-equals-root assumption",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-29",
+      "criterion": "MCP-AC-011",
+      "title": "hierarchy/node/error inverse controls",
+      "precondition": {
+        "variants": [
+          "wrong parent",
+          "missing node",
+          "duplicate node",
+          "foreign node",
+          "failed child laundered by successful root"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "All altered hierarchy/roster/status cases fail independent gate",
+      "forbidden": "Root final number masks missing/wrong/error child",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-30",
+      "criterion": "MCP-AC-011",
+      "title": "project/trace scope inverse",
+      "precondition": {
+        "node": "same outputs but foreign project/trace"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Scope grade fails independently of arithmetic",
+      "forbidden": "Arithmetic score averages away scope violation",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-31",
+      "criterion": "MCP-AC-012",
+      "title": "UTF8 bytes exactly counted",
+      "precondition": {
+        "serialized_response": "\"A持仓\"",
+        "expected_utf8_bytes": 9,
+        "expected_python_characters": 5
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Report9 bytes for this exact unescaped response; wrapper serialization measured separately as actually delivered",
+      "forbidden": "len(text)=5 used as byte count",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-32",
+      "criterion": "MCP-AC-012",
+      "title": "compact matched truth and adverse bytes",
+      "precondition": {
+        "variants": [
+          "same trace, sufficient compact fields",
+          "compact omits parent/output/error",
+          "compact has more wrapper bytes than full",
+          "source trace changed between arms"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Semantic loss/drift fails; adverse byte result retained; reduction claim only if each pair strictly smaller",
+      "forbidden": "Different-trace comparison or lossy projection called benefit",
+      "required_levels": [
+        "atomic",
+        "real_remote_mcp",
+        "independent_readback"
+      ]
+    },
+    {
+      "id": "MCP-33",
+      "criterion": "MCP-AC-013",
+      "title": "baseline and candidate fingerprints",
+      "precondition": {
+        "baseline": "original339 execution record and frozen source/config/acceptance hashes",
+        "candidate": "separately sealed new source/config/grader/cases"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Exact links/versions, executed/skipped/failed counts retained; drift requires new trial",
+      "forbidden": "Old evidence relabeled new-client acceptance",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-34",
+      "criterion": "MCP-AC-013",
+      "title": "failure/document preservation",
+      "precondition": {
+        "variants": [
+          "failed UI history retained",
+          "missing baseline evidence",
+          "document4473 private snapshot hash",
+          "old source or expected oracle edited"
+        ]
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Missing evidence unverified; failed history immutable; generalized takeaways only; changed frozen baseline fails preservation gate",
+      "forbidden": "Private doc copied to cases or339 count treated as proof",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MCP-35",
+      "criterion": "MCP-AC-014",
+      "title": "default deterministic self-tests and labels",
+      "precondition": {
+        "default": "public calculator/holdings deterministic tool graphs",
+        "cooperative": "explicit model trace-inspection flow"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Actual tested default URL/tools correct; deterministic versus cooperative labels and host requirement honest",
+      "forbidden": "Default self-test claims model inference or user must supply raw resume",
+      "required_levels": [
+        "real_local_mcp",
+        "independent_readback"
+      ]
+    },
+    {
+      "id": "MCP-36",
+      "criterion": "MCP-AC-014",
+      "title": "interrupted lifecycle/cleanup/rollback",
+      "precondition": {
+        "interrupt_points": [
+          "initialize",
+          "query",
+          "host pending handoff"
+        ],
+        "rollback": "owned reviewed source/config pairing"
+      },
+      "action": "Exercise the named contract with controlled local fixtures unless real MCP evidence is explicitly required.",
+      "observable": "Resources closed; pending/unknown state preserved; main2024/global config unchanged; diagnosis/recovery available; all verdicts/attempts reported",
+      "forbidden": "Orphan, deleted unknown receipt, blocked recovery, skip calledPASS or production/email claim",
+      "required_levels": [
+        "atomic",
+        "local_integration",
+        "independent_review"
+      ]
+    }
+  ],
+  "deliberate_breaks": [
+    {
+      "id": "MCP-MUT-001",
+      "criterion": "MCP-AC-001",
+      "break": "endpoint/redirect guard removed",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-002",
+      "criterion": "MCP-AC-002",
+      "break": "negotiated version/JSONRPC ID/error ignored",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-003",
+      "criterion": "MCP-AC-003",
+      "break": "deprecated/unknown alias or extra schema argument accepted",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-004",
+      "criterion": "MCP-AC-004",
+      "break": "cumulative byte/depth/deadline/cleanup checks disabled",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-005",
+      "criterion": "MCP-AC-005",
+      "break": "RetryAfter ignored/unconditional nested retry",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-006",
+      "criterion": "MCP-AC-006",
+      "break": "unknown fence cleared/local call automatically replayed",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-007",
+      "criterion": "MCP-AC-007",
+      "break": "exact scope omitted/foreign result allowed/cursor scope broadened",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-008",
+      "criterion": "MCP-AC-008",
+      "break": "real MCP replaced by fixture/direct SDK result",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-009",
+      "criterion": "MCP-AC-009",
+      "break": "raw/forged/stale host resume accepted",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-010",
+      "criterion": "MCP-AC-010",
+      "break": "tool counter increments only after success/fifth call dispatched",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-011",
+      "criterion": "MCP-AC-011",
+      "break": "root/output/hierarchy/scope gate weakened",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-012",
+      "criterion": "MCP-AC-012",
+      "break": "Python character count used or compact drops required truth",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-013",
+      "criterion": "MCP-AC-013",
+      "break": "baseline/failure source evidence overwritten and accepted",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    },
+    {
+      "id": "MCP-MUT-014",
+      "criterion": "MCP-AC-014",
+      "break": "cleanup/recovery skipped or deterministic result called inference",
+      "expected": "Mapped discriminating test turns red; surviving mutation is independently classified, never a success."
+    }
+  ],
+  "preserved_active_servers": [
+    "127.0.0.1:2024",
+    "127.0.0.1:2025"
+  ],
+  "baseline339_manifest": {
+    "owner_private_path": ".langchain-pilot/runtime/atomic-independent/1794816920347892000/local-suite.json",
+    "sha256": "b16888d309eb92802a408c77d3f608252cfb4640ab6baf5d83afc2d3b0cb41c9",
+    "observed_record": {
+      "status": "PASS",
+      "executed": 339,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "independent_test_count": 80,
+      "sources_stable_during_execution": true,
+      "scheduled_business_email_acceptance": "UNVERIFIED"
+    },
+    "designer_action": "Read immutable existing record only; did not rerun or alter."
+  },
+  "previous_failed339_manifest": {
+    "owner_private_path": ".langchain-pilot/runtime/atomic-independent/1794816796782233000/local-suite.json",
+    "sha256": "49caacb7d188af26dd6d48519fc5c2a2df787ecd9ba83f25097bbcfb230bc0a8",
+    "observed_record": {
+      "status": "FAIL",
+      "executed": 339,
+      "skipped": 0,
+      "failures": 3,
+      "errors": 0,
+      "independent_test_count": 80,
+      "sources_stable_during_execution": true,
+      "scheduled_business_email_acceptance": "UNVERIFIED"
+    },
+    "designer_action": "Read immutable existing record only; did not rerun or alter."
+  },
+  "owned_api_ui_history_hashes": [
+    {
+      "owner_private_path": ".langchain-pilot/runtime/atomic-independent/1794815922461503000/api-readback.json",
+      "sha256": "e7fd2b514b0b9a9340aff237a6bfa2dd6363d04e9a34d807f7284576b0b20640",
+      "preservation": "Keep original history/partial/failure details. No raw contents copied."
+    },
+    {
+      "owner_private_path": ".langchain-pilot/runtime/atomic-independent/1794817191612309000/api-readback.json",
+      "sha256": "8030edb96c2831c8b69ccb7e15167a410f3bd33cc9d25efddf2a71618bf406f7",
+      "preservation": "Keep original history/partial/failure details. No raw contents copied."
+    },
+    {
+      "owner_private_path": ".langchain-pilot/runtime/atomic-independent/1794816068671003000/model-api-readback.json",
+      "sha256": "7ec72f70d836676d87c437c2683ccd93497ca521e400bd7ce5db978a534b15ba",
+      "preservation": "Keep original history/partial/failure details. No raw contents copied."
+    },
+    {
+      "owner_private_path": ".langchain-pilot/runtime/atomic-independent/1794817555437165000/model-restart-api-readback.json",
+      "sha256": "6c9310d2ca057c288c8faf5d26c6595ebb4c962906eb829173cbcc25f5cf746c",
+      "preservation": "Keep original history/partial/failure details. No raw contents copied."
+    }
+  ]
+}

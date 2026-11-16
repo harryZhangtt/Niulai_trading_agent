@@ -10,9 +10,45 @@ import stat
 import threading
 import time
 
-from .runner import ROOT, STATE, fingerprint, run, atomic, sha, environment_snapshot, state_path, json_digest
+from .runner import ROOT, STATE, SUITES, fingerprint, run, atomic, sha, environment_snapshot, state_path, json_digest
 
 BROKER_RESULTS = {}
+PASS_SUITES = frozenset({'valuation', 'options', 'leveraged_operator', 'common_factor_attribution'})
+RETAINED_BASELINE_FINDINGS = {
+    'paths': frozenset({
+        'underflow_is_not_mathematical_ruin',
+        'quantile_positive_mass_above_boundary',
+        'tiny_tail_zero_weight_invariance',
+    }),
+    'contracts': frozenset({
+        'legacy_uncached_formula_not_numerically_accepted',
+        'legacy_wacc_range_check_runs',
+    }),
+}
+
+
+def suite_results_acceptable(report):
+    """Require candidate passes and the exact declared historical baseline findings."""
+    suites=report.get('suites',{}) if isinstance(report,dict) else {}
+    if set(suites)!=set(SUITES):return False
+    for name in PASS_SUITES:
+        suite=suites.get(name,{})
+        if (suite.get('completed') is not True
+                or not isinstance(suite.get('result'),dict)
+                or suite['result'].get('status')!='passed'):
+            return False
+    for name,expected in RETAINED_BASELINE_FINDINGS.items():
+        suite=suites.get(name,{})
+        result=suite.get('result') if isinstance(suite,dict) else None
+        findings=result.get('findings') if isinstance(result,dict) else None
+        if suite.get('completed') is not True or result.get('status')!='failed' or not isinstance(findings,list):
+            return False
+        ids=[row.get('id') for row in findings if isinstance(row,dict)]
+        if len(ids)!=len(findings) or len(ids)!=len(set(ids)) or set(ids)!=expected:
+            return False
+        if name=='contracts' and any(row.get('scope')!='baseline' for row in findings):
+            return False
+    return True
 
 
 def read_request(attempt, expected, timeout=120):
@@ -124,7 +160,7 @@ def verify(options,workspace,context,result):
         if datetime.fromisoformat(report['started_at'])<due:return {'verified':False}
         if (datetime.fromisoformat(report['completed_at'])-due).total_seconds()>declared['criteria']['completion_timeout_seconds']:return {'verified':False}
         if report['status']!='completed' or not report['candidate_unchanged'] or not report['security']['passed']:return {'verified':False}
-        if set(report['suites'])!={'valuation','options','paths','contracts'}:return {'verified':False}
+        if not suite_results_acceptable(report):return {'verified':False}
         for name,suite in report['suites'].items():
             if not suite['completed']:return {'verified':False}
             ref=ROOT/suite['receipt']['result_path']

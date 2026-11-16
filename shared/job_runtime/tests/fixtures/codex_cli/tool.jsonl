@@ -1,0 +1,3 @@
+{"type":"invocation.started","opaque_identity":"synthetic-opaque"}
+{"type":"activity.observed","activity":{"kind":"command"}}
+{"type":"invocation.completed","usage":{"input_tokens":11,"output_tokens":3}}

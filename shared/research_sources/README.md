@@ -154,3 +154,38 @@ actual acquisition, cache integrity, requirement eligibility and semantic suppor
 are reported separately. A source hit with inadequate coverage cannot become a
 completed critical input. No new global dependency, active MCP entry or daemon
 is installed by these modules.
+
+
+## Nasdaq-listed proxy and Tiger/Yahoo calibration candidate
+
+`nasdaq_listed.py` acquires and parses only the contract-pinned Nasdaq Trader
+Symbol Directory. Its output is a current Nasdaq-listed proxy and is never exact
+Nasdaq Composite membership. It preserves raw bytes, source and retrieval times,
+flags, parser identity and deterministic normalized rows; redirects, stale files,
+malformed rows, duplicate identities and overwrite attempts fail closed.
+
+`yahoo_market.py` is a fixed-host secondary adapter for Chart and
+fundamentals-timeseries responses. It does not install `yfinance`, cannot establish
+membership and cannot silently replace Tiger. `market_pilot.py` normalizes the
+private Tiger/Yahoo calibration evidence and emits only closed-schema aggregate
+receipts. Raw rows and sampled identities stay below
+`.niulai-state/reports/research-sources/market-pilot/`.
+
+The one-time live calibration remains separately gated by the frozen contract,
+strict regression pins, an admitted roster packet, fresh native Sites context and
+an unused fixed-root authorization ledger. The authorization is atomically consumed
+before credential/provider I/O and cannot be replayed after any terminal outcome.
+No live call, provider promotion, active MCP registration or scheduled execution is
+established by the offline tests.
+
+
+### Frozen market-pilot sample selection
+
+The admitted Nasdaq-listed roster is deterministically partitioned by the
+versioned `sha256_ranked_without_replacement` contract into eight calibration
+records and eight disjoint reserved-promotion records. The immutable selection
+document and validation receipt are hash-bound to the roster packet. Query order,
+cohort membership and roster-row bindings are fixed; adaptive selection, reorder
+and cohort reuse fail closed. The reserved promotion cohort is not authorized or
+queried. Public setup records expose only counts and artifact hashes, never sample
+symbols.

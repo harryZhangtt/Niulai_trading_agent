@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/factor-mining/rdagent-receipt-v1.schema.json",
+  "title": "RD-Agent one-loop factor receipt v1",
+  "description": "Structural documentation only; contracts.py enforces success, failure, cleanup, factor binding, and aggregate-size invariants.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "request_sha256", "status", "execution_mode", "engine", "stages", "artifacts", "failure_code", "resources", "process_group_cleanup_verified"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "kind": {"const": "rdagent_factor_receipt"},
+    "request_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "status": {"enum": ["succeeded", "failed", "timed_out"]},
+    "execution_mode": {"enum": ["synthetic-fixture", "upstream-isolated"]},
+    "engine": {
+      "type": "object", "additionalProperties": false,
+      "required": ["rdagent_revision", "rdagent_tree", "qlib_profile", "qlib_revision", "qlib_tree", "adapter_version"],
+      "properties": {
+        "rdagent_revision": {"const": "484776c211e4fbbeef03e0ec00d6bbee7362a4f4"},
+        "rdagent_tree": {"const": "d4444284fb4554f75f352ecb1f072cedbf4c6421"},
+        "qlib_profile": {"const": "qlib-rdagent-compatible"},
+        "qlib_revision": {"const": "2fb9380b342556ddb50a4b24e4fe8655d548b2b8"},
+        "qlib_tree": {"const": "0f541590a9efecb9bfb5342155be50461ad7d002"},
+        "adapter_version": {"const": "rdagent-adapter-v1"}
+      }
+    },
+    "stages": {
+      "type": "array", "minItems": 4, "maxItems": 4,
+      "prefixItems": [
+        {"$ref": "#/$defs/stageProposal"}, {"$ref": "#/$defs/stageCoding"},
+        {"$ref": "#/$defs/stageOutput"}, {"$ref": "#/$defs/stageFeedback"}
+      ],
+      "items": false
+    },
+    "artifacts": {"type": "array", "maxItems": 64, "items": {"$ref": "#/$defs/artifact"}},
+    "failure_code": {"type": ["string", "null"], "enum": [null, "RUNTIME_NONZERO", "RUNTIME_TIMEOUT", "RUNTIME_OUTPUT_INVALID", "RUNTIME_OUTPUT_OVERSIZE", "FACTOR_CODE_MISSING", "FACTOR_OUTPUT_MISSING", "ARTIFACT_INVALID", "PROCESS_CLEANUP_FAILED", "REQUEST_INVALID"]},
+    "resources": {
+      "type": "object", "additionalProperties": false,
+      "required": ["wall_seconds", "cpu_seconds", "peak_rss_bytes"],
+      "properties": {"wall_seconds": {"type": "number", "minimum": 0}, "cpu_seconds": {"type": "number", "minimum": 0}, "peak_rss_bytes": {"type": "integer", "minimum": 0}}
+    },
+    "process_group_cleanup_verified": {"type": "boolean"}
+  },
+  "$defs": {
+    "stageBase": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "status", "duration_seconds", "evidence_sha256"],
+      "properties": {"id": {"type": "string"}, "status": {"enum": ["succeeded", "failed", "timed_out", "skipped"]}, "duration_seconds": {"type": "number", "minimum": 0}, "evidence_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}}
+    },
+    "stageProposal": {"allOf": [{"$ref": "#/$defs/stageBase"}, {"properties": {"id": {"const": "proposal"}}}]},
+    "stageCoding": {"allOf": [{"$ref": "#/$defs/stageBase"}, {"properties": {"id": {"const": "coding"}}}]},
+    "stageOutput": {"allOf": [{"$ref": "#/$defs/stageBase"}, {"properties": {"id": {"const": "factor-output"}}}]},
+    "stageFeedback": {"allOf": [{"$ref": "#/$defs/stageBase"}, {"properties": {"id": {"const": "feedback"}}}]},
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "path", "sha256", "size_bytes", "factor_ids"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_.-]{0,95}$"},
+        "kind": {"enum": ["generated-code", "factor-data", "combined-factor", "evaluation"]},
+        "path": {"type": "string", "minLength": 1, "maxLength": 512},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "factor_ids": {"type": "array", "maxItems": 16, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_.-]{0,95}$"}}
+      }
+    }
+  }
+}

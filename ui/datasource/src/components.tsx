@@ -73,22 +73,32 @@ function LocalDocumentPreview({ preview }: { preview: NonNullable<Source['local_
     <p className="subtle">{available ? 'This is a sanitized preview of the registered local research JSON. It is not primary-source verification.' : 'The checkpoint JSON body is missing from this workspace. The actual registered catalog metadata is shown below; it is not the report body.'}</p>
     {preview.truncated ? <p className="preview-warning">Preview truncated. Content beyond the display limits is omitted.</p> : null}
     {preview.redacted_fields ? <p className="subtle">Private fields and paths are redacted ({preview.redacted_fields} recorded redactions).</p> : null}
-    <details open><summary>{available ? 'Research JSON preview' : 'Catalog JSON (document body missing)'}</summary><pre tabIndex={0} aria-label="Research document JSON preview">{preview.text}</pre></details>
+    <details><summary>{available ? 'Research JSON preview' : 'Catalog JSON (document body missing)'}</summary><pre tabIndex={0} aria-label="Research document JSON preview">{preview.text}</pre></details>
     <dl className="metadata"><Field name={available ? 'Document bytes' : 'Declared bytes (unverified)'}>{number(available ? preview.document_bytes : preview.declared_document_bytes)}</Field><Field name={available ? 'Document SHA-256' : 'Declared SHA-256 (unverified)'} mono>{display(available ? preview.document_sha256 : preview.declared_document_sha256)}</Field><Field name="Preview SHA-256" mono>{display(preview.preview_sha256)}</Field><Field name="Preview frozen">{time(preview.frozen_at)}</Field><Field name="Original availability">Unknown</Field></dl>
     {preview.reason_codes.length ? <p className="preview-reasons">{preview.reason_codes.join(', ')}</p> : null}
     <p className="subtle">This preview does not establish original availability, canonical Library byte identity, or historical eligibility.</p>
   </section>;
 }
 
-export function SourceInspector({ source, run, onSelectRun }: { source: Source; run?: Run; onSelectRun?: (id: string) => void }) {
+export function SourceInspector({ source, run, onSelectRun, onBack }: { source: Source; run?: Run; onSelectRun?: (id: string) => void; onBack?: () => void }) {
   const url = safeUrl(source.url);
   return <aside className="inspector" aria-label="Selected source details" id="source-inspector">
-    <a className="back-to-ledger" href="#ledger-heading">Back to source ledger</a>
-    <div className="inspector-top"><span className="small-label">Selected source</span><Badge value={source.labels.provenance_status} /></div>
-    <h2 className="inspector-title">{source.title || 'Untitled source'}</h2>
+    {onBack ? <button className="back-to-ledger button button-secondary" onClick={onBack}><Icon name="chevron" size={15} />Back to evidence records</button> : <a className="back-to-ledger" href="#ledger-heading">Back to evidence records</a>}
+    <div className="inspector-top"><span className="source-inspector-kind">{source.labels.document_type ? label(source.labels.document_type) : 'Document type unknown'}</span><Badge value={source.labels.provenance_status} /></div>
+    <h2 className="inspector-title" tabIndex={-1}>{source.title || 'Untitled source'}</h2>
     {url ? <a className="source-link" href={url} target="_blank" rel="noreferrer">Open original source <Icon name="external" size={15} /></a> : <p className="subtle">No public source link is available.</p>}
+    {!source.local_preview ? <p className="source-body-state">The captured source body is not projected to this dashboard. Metadata and hashes below are not a substitute for document text.</p> : null}
+    <section className="inspector-section"><h3>Source timeline</h3><dl className="metadata timeline">
+      <Field name="Published">{time(source.timestamps.published_at)}</Field>
+      <Field name="Available">{time(source.timestamps.available_at)}</Field>
+      <Field name="Fetched">{time(source.timestamps.fetched_at)}</Field>
+      <Field name="Recorded">{time(source.timestamps.recorded_at)}</Field>
+    </dl><p className="subtle">Zoned timestamps use UTC. Date-only values keep their original precision; missing times remain unknown.</p></section>
+    <section className="inspector-section source-relations"><h3>Linked research runs</h3>{source.run_ids.length ? <div className="linked-runs">{source.run_ids.map(id => <div className="relationship-row" key={id}><a className="text-button mono" href={`/datasource?subject=${encodeURIComponent(source.subject)}&view=runs&kind=research&run=${encodeURIComponent(id)}`}>Open run {id}<Icon name="chevron" size={14} /></a>{onSelectRun ? <button className="text-button" onClick={() => onSelectRun(id)}>Filter evidence to this run</button> : null}</div>)}</div> : <p className="subtle">No linked research run was recorded.</p>}{source.collection_ids?.length ? <><h3>Linked comparison runs</h3>{source.collection_ids.map(id => <a className="text-button mono" href={`/datasource?subject=${encodeURIComponent(source.subject)}&view=runs&kind=comparison&run=${encodeURIComponent(id)}`} key={id}>Open comparison run {id}<Icon name="chevron" size={14} /></a>)}</> : null}</section>
+    {source.batch_ids?.length ? <section className="inspector-section source-relations"><h3>Linked collection runs</h3>{source.batch_ids.map(id => <a className="text-button mono" href={`/datasource?subject=${encodeURIComponent(source.subject)}&view=runs&kind=collection&run=${encodeURIComponent(id)}`} key={id}>Open collection run {id}<Icon name="chevron" size={14} /></a>)}</section> : null}
+    {source.limitations.length ? <section className="inspector-section"><h3>Limitations</h3><ul className="plain-list">{source.limitations.map((item, index) => <li key={index}>{item}</li>)}</ul></section> : null}
     {source.local_preview ? <LocalDocumentPreview key={source.id} preview={source.local_preview} /> : null}
-    <section className="inspector-section"><h3>Classification</h3><dl className="metadata">
+    <details className="source-classification"><summary>Classification and labels</summary><section className="inspector-section"><h3>Classification</h3><dl className="metadata">
       <Field name="Publisher">{display(source.labels.publisher_kind)}</Field>
       <Field name="Document type">{display(source.labels.document_type)}</Field>
       <Field name="Perspectives">{display(source.labels.perspectives)}</Field>
@@ -99,28 +109,21 @@ export function SourceInspector({ source, run, onSelectRun }: { source: Source; 
       <Field name="Label storage">{display(source.labels.persistence)}</Field>
       <Field name="Content access">{display(source.content_access)}</Field>
       <Field name="Scope">{display(source.scope)}</Field>
-    </dl></section>
-    <section className="inspector-section"><h3>Source timeline</h3><dl className="metadata timeline">
-      <Field name="Published">{time(source.timestamps.published_at)}</Field>
-      <Field name="Available">{time(source.timestamps.available_at)}</Field>
-      <Field name="Fetched">{time(source.timestamps.fetched_at)}</Field>
-      <Field name="Recorded">{time(source.timestamps.recorded_at)}</Field>
-    </dl><p className="subtle">Zoned timestamps use UTC. Date-only values keep their original precision; missing times remain unknown.</p></section>
+    </dl></section></details>
+    <details className="technical-provenance"><summary>Technical provenance and linked run IDs</summary>
     <TemporalPanel source={source} run={run} />
-    <section className="inspector-section"><h3>Provenance</h3><dl className="metadata">
+    <section className="inspector-section"><h3>Immutable identities</h3><dl className="metadata">
       <Field name="Source ID" mono>{source.id}</Field>
       <Field name="Source SHA-256" mono>{display(source.source_sha256)}</Field>
       <Field name="Version SHA-256" mono>{display(source.version_sha256)}</Field>
     </dl></section>
-    <section className="inspector-section"><h3>Linked research pipelines</h3>{source.run_ids.length ? <div className="linked-runs">{source.run_ids.map(id => onSelectRun ? <button key={id} className="text-button mono" onClick={() => onSelectRun(id)}>{id}<Icon name="chevron" size={14} /></button> : <p className="linked-receipt mono" key={id}>{id}</p>)}</div> : <p className="subtle">No linked research pipeline was recorded.</p>}{source.collection_ids?.length ? <><h3>Native collection execution IDs</h3>{source.collection_ids.map(id => <p className="linked-receipt mono" key={id}>{id}</p>)}<p className="subtle">Inspect collection receipts and scoped metrics in Executions or A/B evaluation.</p></> : null}</section>
-    {source.batch_ids?.length ? <section className="inspector-section"><h3>Linked acquisition batches</h3>{source.batch_ids.map(id => <p className="linked-receipt mono" key={id}>{id}</p>)}</section> : null}
-    {source.limitations.length ? <section className="inspector-section"><h3>Limitations</h3><ul className="plain-list">{source.limitations.map((item, index) => <li key={index}>{item}</li>)}</ul></section> : null}
+    </details>
   </aside>;
 }
 
 export function AggregateTable({ metrics, definitions, caption }: { metrics: Record<string, AggregateMetric>; definitions?: Record<string, MetricDefinition>; caption: string }) {
   const entries = Object.entries(metrics);
-  return entries.length ? <div className="table-wrap"><table className="data-table metric-table"><caption className="sr-only">{caption}</caption><thead><tr><th>Metric</th><th>Mean</th><th>Sum</th><th>Known / total</th><th>Unknown</th></tr></thead><tbody>
+  return entries.length ? <div className="table-wrap" role="region" aria-label={caption} tabIndex={0}><table className="data-table metric-table"><caption className="sr-only">{caption}</caption><thead><tr><th>Metric</th><th>Mean</th><th>Sum</th><th>Measured / total</th><th>Unknown</th></tr></thead><tbody>
     {entries.map(([key, metric]) => <tr key={key}><th scope="row">{metricLabel(key, definitions)}<span className="cell-subtext">{metric.unit ?? definitions?.[key]?.unit ?? 'Unit not recorded'}</span></th><td className="numeric">{number(metric.mean)}</td><td className="numeric">{number(metric.sum)}</td><td className="numeric">{number(metric.known)} / {number(metric.denominator)}</td><td className="numeric">{number(metric.unknown)}</td></tr>)}
   </tbody></table></div> : <p className="unknown-note">No aggregate metrics were recorded for this cohort.</p>;
 }
@@ -135,11 +138,13 @@ function CatalogOutput({ output }: { output: RunOutput }) {
   </details>;
 }
 
-export function RunDetails({ run, definitions }: { run: Run; definitions?: Record<string, MetricDefinition> }) {
-  return <section className="run-details" aria-labelledby="run-heading"><div className="section-heading"><div><h3 id="run-heading">Execution provenance</h3><p className="subtle">{run.query || 'No query recorded'}</p></div><Badge value={run.status} /></div>
-    <dl className="metadata run-metadata"><Field name="Run ID" mono>{run.id}</Field><Field name="Execution ID" mono>{display(run.execution_id)}</Field><Field name="Pipeline">{display(run.pipeline_id)}</Field><Field name="Pipeline version">{display(run.pipeline_version)}</Field><Field name="Started">{time(run.started_at)}</Field><Field name="Finished">{time(run.finished_at)}</Field><Field name="Scope">{display(run.scope)}</Field><Field name="Config SHA-256" mono>{display(run.config_sha256)}</Field></dl>
+export function RunDetails({ run, definitions, subject }: { run: Run; definitions?: Record<string, MetricDefinition>; subject?: string }) {
+  return <section className="run-details" aria-labelledby="run-heading"><div className="section-heading"><div><h3 id="run-heading">Research analysis details</h3><p className="subtle">{run.query || 'No query recorded'}</p></div><Badge value={run.status} /></div>
+    <dl className="metadata run-metadata"><Field name="Execution ID" mono>{display(run.execution_id)}</Field><Field name="Scope">{display(run.scope)}</Field><Field name="Started">{time(run.started_at)}</Field><Field name="Finished">{time(run.finished_at)}</Field></dl>
+    {subject && run.source_ids.length ? <div className="run-evidence-links"><a href={`/datasource?subject=${encodeURIComponent(subject)}&view=evidence&run=${encodeURIComponent(run.id)}`}>Inspect {run.source_ids.length} evidence {run.source_ids.length === 1 ? 'record' : 'records'}<Icon name="chevron" size={14} /></a><details><summary>Linked evidence IDs</summary>{run.source_ids.map(id => <a className="linked-receipt mono" key={id} href={`/datasource?subject=${encodeURIComponent(subject)}&view=evidence&source=${encodeURIComponent(id)}&run=${encodeURIComponent(run.id)}`}>{id}</a>)}</details><p className="subtle">Raw run configuration is not exposed by this snapshot; only its hash is available.</p></div> : <p className="subtle">Raw run configuration is not exposed by this snapshot; only its hash is available.</p>}
     {Object.keys(run.metrics).length ? <dl className="run-metrics">{Object.entries(run.metrics).map(([key, value]) => <div key={key}><dt>{metricLabel(key, definitions)}</dt><dd>{number(value)}<span>{definitions?.[key]?.unit ?? ''}</span></dd></div>)}</dl> : <p className="subtle">No execution metrics were recorded.</p>}
     {run.output ? <CatalogOutput output={run.output} /> : null}
+    <details><summary>Execution identity and pipeline</summary><dl className="metadata"><Field name="Run ID" mono>{run.id}</Field><Field name="Pipeline">{display(run.pipeline_id)}</Field><Field name="Pipeline version">{display(run.pipeline_version)}</Field><Field name="Config SHA-256" mono>{display(run.config_sha256)}</Field></dl></details>
     <details><summary>Phases and script versions</summary><div className="provenance-columns"><div><h4>Phases</h4>{run.phases.length ? <ol className="phase-list">{run.phases.map(phase => <li key={phase.id}><span>{label(phase.id)}</span><Badge value={phase.status} /><small>{[phase.mode, phase.action].filter(Boolean).join(' / ') || 'Mode unknown'}</small></li>)}</ol> : <p className="subtle">No phase trace recorded.</p>}</div><div><h4>Scripts</h4>{run.script_versions.length ? <dl className="metadata">{run.script_versions.map(script => <Field name={script.id} key={script.id} mono>{display(script.sha256)}</Field>)}</dl> : <p className="subtle">No script hashes recorded.</p>}</div></div></details>
   </section>;
 }

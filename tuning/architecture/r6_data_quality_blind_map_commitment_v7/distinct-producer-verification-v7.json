@@ -1,0 +1,157 @@
+{
+  "activation": false,
+  "allowed_claim": "Distinct producer evidence that v7 repairs all four exact OPEN-v6 implementation findings. This is not independent acceptance, countability, trust, activation, P0-v10 reclosure, human authority, intended-runtime acceptance, or business authorization.",
+  "artifact_type": "distinct_provider_free_producer_verification",
+  "artifacts": {
+    "architecture": {
+      "bytes": 3776,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v7/architecture-v7.json",
+      "sha256": "f97fbd87c53063fdc10edac666b78c0cd75305f4373b25f1ce992970f8967110"
+    },
+    "decision": {
+      "bytes": 3128,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v7/decision-v7.json",
+      "sha256": "389de990d72f1f3073537c09e4a375583f2c9b8199c580f3b9ac39f13b1dc13f"
+    },
+    "protocol": {
+      "bytes": 3075,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v7/protocol-v7.json",
+      "sha256": "93b37458f07c26ef066e01c90036c7a79d2e1dbd48d8b7c6742b20860a8a1aba"
+    },
+    "source_closure": {
+      "bytes": 46090,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v7/source-closure-v7.json",
+      "sha256": "c6945774bc4a88240a777341cdc6127ebe833376d387a6655bbc69038ddf7e09"
+    }
+  },
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 15753,
+    "countable": false,
+    "finding_count": 4,
+    "mode": "0644",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v6-independent-review-open-fable-20261113-8e9a8076.json",
+    "sha256": "3a1d63397c2c5732ec1f4a5f9b92a620e5da93cb6ede31ec4826ceb8adeed084",
+    "trusted": false,
+    "verdict": "OPEN"
+  },
+  "closed_findings": [
+    {
+      "id": "OPEN-V6-01",
+      "result": "Exact held-root path plus receipt transaction/device/inode exclusion only; same-basename decoys and nested .git scan."
+    },
+    {
+      "id": "OPEN-V6-02",
+      "result": "Finite frozen write-confined authority scope streams every regular file regardless size, bounded-scans symlink text without following, and separates whole-workspace diagnostics from authority."
+    },
+    {
+      "id": "OPEN-V6-03",
+      "result": "Darwin renameatx_np or Linux renameat2 no-replace capability resolves before mutation; unsupported and Linux-unavailable simulations create zero artifacts."
+    },
+    {
+      "id": "OPEN-V6-04",
+      "result": "Component implementation is producer-clean if exact while status remains provider-free pending P0-v10/humans, untrusted, and noncountable."
+    }
+  ],
+  "component_verdict": "CLEAN_IF_EXACT",
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "external_authority_status": "PROVIDER_FREE_PENDING_P0_V10_AND_HUMANS_NOT_COUNTABLE",
+  "fresh_independent_review": "REQUIRED_NEXT_NOT_PERFORMED_BY_PRODUCER",
+  "p0_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "public_surface": {
+    "authentic_chain_pins": 0,
+    "authentic_human_pins": 0,
+    "authorize_opening_parameters": 0,
+    "current_decision": "DENY_BEFORE_PRIVATE_MAP_READ",
+    "label_write_scope_roles": 22,
+    "private_map_values_disclosed": false
+  },
+  "status": "PRODUCER_CLEAN_PENDING_FRESH_REVIEW_AND_P0_V10_HUMAN_AUTHORITY",
+  "subject": "r6_data_quality_blind_map_commitment_v7",
+  "test_evidence": {
+    "authoritative_label_scan": {
+      "decision": "CLEAN",
+      "errors": 0,
+      "exact_private_map_inode_exclusions": 1,
+      "files_scanned": 3,
+      "label_values_disclosed": false,
+      "matches": 0,
+      "scope": "FROZEN_LABEL_SINK_SCOPE",
+      "status": "PASS"
+    },
+    "capability_preflight": {
+      "darwin_real": true,
+      "linux_unavailable_simulation_zero_mutation": true,
+      "unsupported_simulation_zero_mutation": true
+    },
+    "evaluation_v3": {
+      "failed": 0,
+      "passed": 11,
+      "skipped_host_dependency": 1
+    },
+    "g3": {
+      "false_external_artifacts": 21,
+      "false_grade_records": 8,
+      "negative_probes": 5,
+      "true_external_artifacts": 25,
+      "true_grade_records": 12
+    },
+    "isolated_lifecycles": {
+      "failed": 0,
+      "passed": 25,
+      "skipped": 0
+    },
+    "opening": {
+      "decision": "DENY_BEFORE_PRIVATE_MAP_READ",
+      "private_map_read": false
+    },
+    "preserved_v1_v6_identities": {
+      "exact": 137,
+      "mismatches": 0
+    },
+    "schemas": {
+      "closed_and_versioned": 12,
+      "published": 12,
+      "runtime_positive_negative_parity": true
+    },
+    "v4_v5_schema_shim": {
+      "failed": 0,
+      "passed": 14,
+      "skipped": 0
+    },
+    "v7_focused": {
+      "failed": 0,
+      "passed": 13,
+      "skipped": 0
+    },
+    "workspace_hygiene_audit": {
+      "can_establish_clean": false,
+      "decision": "DIAGNOSTIC_ONLY",
+      "entries_scanned": 177894,
+      "errors": 0,
+      "label_values_disclosed": false,
+      "matches": 0,
+      "status": "NO_MATCHES_OBSERVED",
+      "symlink_targets_scanned": 422
+    }
+  },
+  "trusted": false,
+  "verdict": "PRODUCER_CLEAN_PENDING_INDEPENDENT_REVIEW_NOT_ACCEPTANCE",
+  "version": "r6-data-quality-blind-map-commitment-distinct-producer-verification-v7"
+}

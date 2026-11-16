@@ -74,6 +74,25 @@ Record significant choices and the reason for each one.
 |----------|-----------|
 |          |           |
 
+## Architecture Escalation (optional)
+
+Use only when the measurable progress-and-recovery trigger fires. Keep ordinary
+localized fixes out of this section.
+
+- **Declaration:** [path to `architecture-escalation-1` JSON]
+- **Candidate fingerprint/family:** [full SHA-256 plus sorted path/SHA-256/owner/boundary entries]
+- **Integration owner:** [one owner]
+- **Stable finding IDs / deduplicated counters:** [IDs plus critical, high, breadth, reopen, drift and green-suite counts]
+- **Evidence packet:** [reproducer, producer/consumer schemas, state map, chronology, and web sources with role, route, version/date, semantics and applicability]
+- **O0/O1/O2 comparison:** [trust, contract fit, migration/failure radius, maintenance/runtime cost, fixture realism, rollback]
+- **Falsifiable hypothesis / falsifier:** [claim and observation that rejects it]
+- **Vertical experiment:** [one nominal path, one material failure, zero external effects]
+- **Decision / allowed claim:** [selected option, rationale, rollback owner, unresolved evidence]
+- **Stop/revert rules:** [conditions]
+
+Validate a machine-readable declaration when one is maintained; the validator
+checks structure and trigger arithmetic, not truth or completion.
+
 ## Errors Encountered
 
 Record each distinct error, the attempt number, and the resolution. Change the approach before retrying a failed action.

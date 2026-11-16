@@ -4,8 +4,13 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
-from shared.research_sources.artifacts import INVESTMENT_STATE, save, read
+from shared.research_sources.artifacts import INVESTMENT_STATE, digest, save, read
 from investment.research import datasource as ds
+from investment.research.acquisition_trace import check_acquisition_trace
+from investment.research.acquisition_runner import HostedAcquisitionRunner, HostedProviderResponse
+from shared.research_sources.acquisition_contracts import (
+    AcquisitionIdentity, DispatchIdentity, ExactArguments, RunIdentity,
+)
 
 
 class AcquisitionProjectionTests(unittest.TestCase):
@@ -106,6 +111,85 @@ class AcquisitionProjectionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'ACQ_PROJECTION_METRIC_BINDING_INVALID'): self.project(wrong)
         wrong = {**self.report, 'original_run_refs': {'A': self.originals['B'], 'B': self.originals['A']}}
         with self.assertRaisesRegex(ValueError, 'ACQ_PROJECTION_COLLECTION_BINDING_INVALID'): self.project(wrong)
+
+    def driver_trace_envelope(self, *, verdict_status='pass', leak=False):
+        identities = {'experiment_id': 'experiment-1', 'execution_id': 'execution-1', 'trace_id': 'trace-1'}
+        operation_id = 'open-html'; question_id = 'adoption.v1:issuer'
+        arguments = {'open': [{'ref_id': 'https://example.com/report.html?token=SYNTHETIC_SECRET'}], 'response_length': 'long'}
+        raw = save(self.base, {'raw': 'private synthetic provider bytes'})
+        body = save(self.base, b'Synthetic canonical body says customer adoption expanded.', suffix='txt')
+        source = save(self.base, {'provider': 'synthetic', 'access_level': 'document',
+            'source_url': 'https://example.com/report.html?token=SYNTHETIC_SECRET', 'source_version': raw['sha256'],
+            'raw': raw, 'text': body, 'available_at': None, 'retrieved_at': '2026-11-04T12:00:00Z'})
+        assessment = save(self.base, {'kind': 'acquisition_quote_assessment', **identities,
+            'operation_id': operation_id, 'attempt_id': 'attempt-1', 'question_id': question_id,
+            'source_ref': source, 'source_version': raw['sha256'], 'raw_sha256': raw['sha256'],
+            'text_sha256': body['sha256'], 'quote': 'customer adoption expanded'})
+        unit = save(self.base, {'kind': 'acquisition_candidate_unit', **identities, 'unit_id': 'unit-1',
+            'question_id': question_id, 'assessment_ref': assessment, 'source_ref': source,
+            'quote': 'customer adoption expanded'})
+        review = save(self.base, {'kind': 'acquisition_reviewer_decision', 'version': 'acquisition-review-0.1.0', **identities,
+            'review_id': 'review-1', 'reviewer_id': 'reviewer-1', 'assessment_author_id': 'author-1', 'operator_id': 'operator-1',
+            'disposition': 'approve', 'checks': {'question_relevance': True, 'literal_support': True, 'canonical_lineage': True},
+            'reason': 'Approved without ' + ('secret=SYNTHETIC_SECRET /Users/private' if leak else 'quality inference.'),
+            'binding': {'assessment_ref': assessment, 'unit_ref': unit, 'source_ref': source, 'question_id': question_id,
+                'quote_sha256': digest('customer adoption expanded'), 'source_version': raw['sha256'],
+                'raw_sha256': raw['sha256'], 'text_sha256': body['sha256']}})
+        request = save(self.base, {'arguments': arguments})
+        receipt = save(self.base, {'kind': 'acquisition_operation_receipt', 'execution_id': identities['execution_id'],
+            'operation_id': operation_id, 'request_ref': request, 'source_sha256s': [source['sha256']],
+            'fetch_executed': True, 'cache_hit': False, 'route': 'fallback', 'status': 'returned'})
+        exposure_event = save(self.base, {'operation_id': operation_id, 'exposed_source_refs': [source]})
+        host = save(self.base, {'kind': 'acquisition_eval_run', 'execution_id': identities['execution_id'],
+            'backend': 'synthetic.counting_fake', 'search_receipt_refs': [], 'open_receipt_refs': [receipt],
+            'exposure_ref': save(self.base, {'event_refs': [exposure_event]}), 'usage': {'provider_items': 1}})
+        manifest = save(self.base, {'questions': [{'id': question_id, 'question': 'What adoption evidence is supported?'}]})
+        controller = save(self.base, {'manifest_ref': manifest, 'transition_refs': [], 'usage': {'provider_items': 1}})
+        driver = save(self.base, {'kind': 'acquisition_driver_run', **identities, 'controller_summary_ref': controller,
+            'host_run_ref': host, 'assessment_refs': [assessment], 'unit_refs': [unit],
+            'operation_states': {operation_id: [{'sequence': 0, 'state': 'reserved'}, {'sequence': 1, 'state': 'finalized'}]}})
+        proposal = save(self.base, {'kind': 'acquisition_proposal', 'operation_id': operation_id,
+            'question_ids': [question_id], 'arguments': arguments})
+        runner_index = len(list(self.base.glob('runner-*')))
+        dispatch_id = f'dispatch-{runner_index}'
+        runner = HostedAcquisitionRunner(self.base / f'runner-{runner_index}',
+            provider=lambda *_: HostedProviderResponse(
+                [b'synthetic'], observed_backend='synthetic.counting_fake'),
+            configured_backend='synthetic.counting_fake', run_deadline=100,
+            raw_byte_limit=1024, monotonic=lambda: 1)
+        runner.prepare(AcquisitionIdentity(RunIdentity(**identities),
+            DispatchIdentity(operation_id, 'attempt-1', dispatch_id)),
+            ExactArguments.from_mapping(arguments))
+        runner.claim(dispatch_id)
+        dispatch = runner.invoke(dispatch_id, call_deadline=50)['dispatch_ref']
+        verdict = check_acquisition_trace(driver_ref=driver, dispatch_refs=[dispatch], review_refs=[review],
+            proposal_refs=[proposal], expected_dispatches=1)
+        if verdict_status != 'pass': verdict = {**verdict, 'status': verdict_status}
+        return {'kind': 'acquisition_driver_projection', 'schema_version': 1, 'subject': 'TST', 'case_id': 'case-1',
+            'driver_ref': driver, 'dispatch_refs': [dispatch], 'review_refs': [review], 'proposal_refs': [proposal],
+            'expected_dispatches': 1, 'checker_verdict': verdict}
+
+    def test_checker_approved_driver_trace_projects_exact_sanitized_chain(self):
+        value, sources = self.project(self.driver_trace_envelope(leak=True))
+        trace = value['driver_trace']
+        self.assertEqual((trace['checker_verdict'], trace['accounting']['complete_chains']), ('pass', 1))
+        self.assertFalse(trace['live_acceptance_eligible'])
+        self.assertFalse(trace['cryptographic_remote_attestation'])
+        self.assertEqual(trace['operations'][0]['states'], ['reserved', 'finalized'])
+        self.assertEqual(trace['operations'][0]['arguments']['open'][0]['ref_id'], 'https://example.com/report.html')
+        self.assertEqual(trace['units'][0]['review_disposition'], 'approve')
+        self.assertIsNone(trace['units'][0]['times']['available_at'])
+        self.assertIsNone(trace['units'][0]['lineage']['canonical_disclosure_id'])
+        self.assertIsNone(sources[0]['timestamps']['available_at'])
+        public = json.dumps(value)
+        for token in ['SYNTHETIC_SECRET', '/Users/', 'private synthetic provider bytes', '"path"']:
+            self.assertNotIn(token, public)
+
+    def test_driver_trace_fails_closed_without_checker_pass_or_with_tampering(self):
+        rejected = self.driver_trace_envelope(verdict_status='fail')
+        with self.assertRaisesRegex(ValueError, 'ACQ_TRACE_CHECKER_REJECTED'): self.project(rejected)
+        tampered = self.driver_trace_envelope(); tampered['checker_verdict']['verdict_sha256'] = '0' * 64
+        with self.assertRaisesRegex(ValueError, 'ACQ_TRACE_CHECKER_HASH_INVALID'): self.project(tampered)
 
     def test_tampered_source_quote_and_unbounded_registry_are_rejected(self):
         unit = read(self.units['A']); altered = save(self.base, {**unit, 'quote': 'Invented quote'})

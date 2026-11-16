@@ -49,6 +49,61 @@ validated result atomically or leave the prior valid result intact. For external
 effects, use idempotency or reconcile an unknown outcome before replaying. A small
 patch or commit alone does not establish runtime atomicity.
 
+## Compare architecture before another coupled patch
+
+When the measurable architecture-escalation trigger in `progress-and-recovery`
+fires, stop local patch iteration and nominate one integration owner. Seal the
+candidate fingerprint, producer/consumer schemas and state authority map before
+fan-out. Compare O0 retain/revert, O1 narrow canonical-owner repair and O2 shared
+ownership consolidation. Add a new dependency, service, broker or workflow engine
+only if O1/O2 cannot meet a concrete requirement. Compare trust authority,
+contract fit, migration/failure radius, maintenance/runtime cost, fixture realism
+and rollback explicitly; do not collapse these dimensions into an invented score.
+
+Choose with one bounded provider-free vertical experiment, not by review vote. It
+must state a falsifiable hypothesis and the result that would falsify it, then
+cross the disputed public boundaries using a sanitized real-shaped input, one
+nominal case and one failure injection, while proving identity/hash binding,
+legal transition, unknown fencing or rollback, and zero external effects. Freeze
+outward effects until it passes. Record rejected options, citations and limits;
+stop research once the disputed semantics are resolved. Intended-runtime evidence
+is still required after the architecture experiment.
+
+## Protect the host and keep recovery available
+
+Before changing hooks, settings, daemons, MCP, shared runtime, schedulers, or an
+external-effect path, classify the impact surface:
+
+1. **inert/local**: source, fixture, or disabled configuration that the active
+   host cannot load and that cannot emit an external effect;
+2. **staged host-impacting**: disabled candidate material requiring a separate
+   activation; or
+3. **active host/session-impacting**: material loaded by a current or future
+   session, persistent/shared process, or external-effect path.
+
+State the owner, activation boundary, affected sessions/processes/effects, and
+failure radius before mutation. If classification is uncertain, use the more
+host-impacting class until isolation proves otherwise. Diff size is not impact.
+
+Keep an active-host candidate disabled while testing it through a disposable
+lifecycle. Cover startup, normal use, timeout, malformed output or receipt,
+source/configuration drift, cleanup, and recovery. For every injected failure,
+verify user prompts and messaging, task notifications, read-only diagnosis, and
+rollback/recovery remain available. Keep an owner-controlled backup, prove the
+rollback from the staged candidate, then use a narrow canary and require an
+explicit activation decision. Do not directly hot-add or broadly replace active
+hooks, settings, daemons, MCP, shared runtime, or every-session dependencies.
+
+Fail closed only around the exact unsafe mutation or effect: deny its activation,
+write, command, delivery, or replay until evidence is adequate. Do not turn a
+safety dependency into a conversation-wide stop. A mentor initializer timeout,
+malformed receipt, source drift, or missing/untrusted output can produce a warning,
+direct-file fallback, and a denial of the risky mutation, but must not block user
+messaging, task notifications, read-only inspection, rollback, or recovery. These
+availability properties are mandatory acceptance evidence for host-impacting
+work. If they cannot be demonstrated, leave the candidate disabled and report the
+specific unverified boundary.
+
 ## Contain failures and protect data
 
 At actual I/O boundaries, bound timeouts and retries, distinguish transient,

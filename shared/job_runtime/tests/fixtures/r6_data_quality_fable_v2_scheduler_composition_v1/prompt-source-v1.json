@@ -1,0 +1,44 @@
+{
+  "bindings": {
+    "evidence_schema_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5",
+    "packet_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b",
+    "rubric_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f",
+    "thresholds_v2_sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+  },
+  "claim_limits": [
+    "design-only payload",
+    "does not bind control/treatment fingerprints,operations or windows",
+    "does not authorize provider/network/email"
+  ],
+  "expected_output_contract": {
+    "format": "claim-source table",
+    "hard_rules": [
+      "official sources only",
+      "all numbers cited",
+      "cutoff enforced",
+      "missingness explicit",
+      "no recommendation"
+    ],
+    "required_columns": [
+      "field",
+      "value",
+      "unit",
+      "period_end",
+      "filing_date",
+      "source_url",
+      "literal_location",
+      "availability"
+    ]
+  },
+  "logical_task_id": "msft-official-financials-cutoff-20261109",
+  "payload_bytes": 526,
+  "payload_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+  "prompt_utf8": "Task: Using only the bound official-source policy and cutoff, retrieve Microsoft Corporation (MSFT, CIK 0000789019) latest annual revenue, operating income, and net cash from operations, plus filing/form type, filing date, and fiscal period end. Return a compact claim-source table. Every numeric claim must cite the exact official source URL and literal location. Mark unavailable fields explicitly. Include contrary or inconsistent official evidence. Do not estimate, recommend, value, size, trade, or use post-cutoff facts.",
+  "source_cutoff": {
+    "bytes": 1044,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+    "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+  },
+  "status": "DESIGN_ONLY_NO_LIVE_AUTHORITY",
+  "version": "schema9-isolated-canary-q1-ab-payload-1"
+}

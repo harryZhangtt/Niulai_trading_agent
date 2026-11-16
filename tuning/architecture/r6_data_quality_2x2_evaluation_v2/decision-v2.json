@@ -1,0 +1,32 @@
+{
+  "activation": false,
+  "allowed_claim": "provider-free v2 producer evidence only",
+  "closed_findings": [
+    "single owner-controlled root",
+    "path traversal/absolute/leak rejection",
+    "component nofollow and owner/mode checks",
+    "raw hash/bytes plus canonical content binding",
+    "exact packet-ref binding in every grade",
+    "unblinding reread and no caller evidence/gate/metric substitution",
+    "fully closed nested schemas",
+    "field-specific missing/wrong/UNKNOWN",
+    "cost-per-correct-claim UNKNOWN/NA edges"
+  ],
+  "decision": "PASS_IMPLEMENTATION_NOT_LIVE_NOT_COUNTABLE",
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "live": 0,
+    "network": 0,
+    "private_state": 0,
+    "provider": 0,
+    "scheduler": 0,
+    "subagent": 0
+  },
+  "independent_review": "PENDING_NOT_PRODUCER_CREATED",
+  "status": "ACCEPT_DISABLED_PROVIDER_FREE_V2_PENDING_INDEPENDENT_REVIEW",
+  "v1_disposition": "OPEN_FINDINGS_SUPERSEDED; immutable v1 artifacts retained",
+  "version": "r6-data-quality-2x2-evaluation-decision-v2"
+}

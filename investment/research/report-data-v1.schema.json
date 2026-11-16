@@ -1,0 +1,1181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "report-data-v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "status",
+    "cutoff",
+    "section_count",
+    "artifacts",
+    "sections",
+    "source_ledger_ref",
+    "evidence_ledger_ref",
+    "palette_receipt_ref",
+    "render_receipt_ref",
+    "prohibited_actions"
+  ],
+  "properties": {
+    "version": {
+      "const": "probability-report-data-1"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "final"
+      ]
+    },
+    "cutoff": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(Z|[+-][0-9]{2}:[0-9]{2})$"
+    },
+    "section_count": {
+      "const": 11
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "path",
+          "sha256",
+          "required_status",
+          "required_validity"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]{2,127}$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "required_status": {
+            "enum": [
+              "valid",
+              "recheck",
+              "stale",
+              "blocked"
+            ]
+          },
+          "required_validity": {
+            "enum": [
+              "valid",
+              "invalid",
+              "stale",
+              "blocked"
+            ]
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trust_gate",
+        "evidence_states",
+        "historical_support",
+        "calibration",
+        "probability_provenance",
+        "robust_worlds",
+        "leveraged_paths",
+        "position_roadmap",
+        "loss_budget",
+        "shadow_timeline",
+        "audit_appendix"
+      ],
+      "properties": {
+        "trust_gate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            }
+          }
+        },
+        "evidence_states": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap",
+            "claim_state_authority"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            },
+            "claim_state_authority": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "supported",
+                "unsupported",
+                "unverifiable",
+                "structural_only",
+                "consequential_authority"
+              ],
+              "properties": {
+                "supported": {
+                  "const": "report_candidate"
+                },
+                "unsupported": {
+                  "const": "opposing_evidence"
+                },
+                "unverifiable": {
+                  "const": "gap"
+                },
+                "structural_only": {
+                  "const": true
+                },
+                "consequential_authority": {
+                  "const": false
+                }
+              }
+            }
+          }
+        },
+        "historical_support": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap",
+            "plain_language_labels",
+            "index_identity_and_boundaries"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            },
+            "plain_language_labels": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "effective_sample_size"
+              ],
+              "properties": {
+                "effective_sample_size": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "index_identity_and_boundaries": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "official_name",
+                "official_symbol",
+                "aliases",
+                "dated_packet_exact_fields",
+                "unverifiable_fields",
+                "oneq_proxy_boundary",
+                "source_registry_refs"
+              ],
+              "properties": {
+                "official_name": {
+                  "const": "Nasdaq Composite"
+                },
+                "official_symbol": {
+                  "const": "COMP"
+                },
+                "aliases": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "symbol",
+                      "provider",
+                      "kind",
+                      "basis",
+                      "identity_relation",
+                      "source_ref"
+                    ],
+                    "properties": {
+                      "symbol": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "provider": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "kind": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "basis": {
+                        "const": "price_index"
+                      },
+                      "identity_relation": {
+                        "const": "alias_only_not_official_COMP_symbol"
+                      },
+                      "source_ref": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "maxItems": 2
+                },
+                "dated_packet_exact_fields": {
+                  "const": [
+                    "current_level",
+                    "history",
+                    "component_count"
+                  ]
+                },
+                "unverifiable_fields": {
+                  "const": [
+                    "membership",
+                    "weights",
+                    "valuation"
+                  ]
+                },
+                "oneq_proxy_boundary": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "symbol",
+                    "role",
+                    "exact_IXIC_identity",
+                    "exact_IXIC_membership",
+                    "exact_IXIC_weights",
+                    "exact_IXIC_valuation",
+                    "IXIC_NAV",
+                    "IXIC_reset_benchmark",
+                    "source_registry_refs"
+                  ],
+                  "properties": {
+                    "symbol": {
+                      "const": "ONEQ"
+                    },
+                    "role": {
+                      "const": "investable_Nasdaq_Composite_proxy_only"
+                    },
+                    "exact_IXIC_identity": {
+                      "const": false
+                    },
+                    "exact_IXIC_membership": {
+                      "const": false
+                    },
+                    "exact_IXIC_weights": {
+                      "const": false
+                    },
+                    "exact_IXIC_valuation": {
+                      "const": false
+                    },
+                    "IXIC_NAV": {
+                      "const": false
+                    },
+                    "IXIC_reset_benchmark": {
+                      "const": false
+                    },
+                    "source_registry_refs": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uniqueItems": true
+                    }
+                  }
+                },
+                "source_registry_refs": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          }
+        },
+        "calibration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap",
+            "reliability_evidence",
+            "plain_language_labels"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            },
+            "reliability_evidence": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "bins_ref",
+                "counts_ref",
+                "uncertainty_ref",
+                "sparse_suppression_ref"
+              ],
+              "properties": {
+                "bins_ref": {
+                  "type": "string"
+                },
+                "counts_ref": {
+                  "type": "string"
+                },
+                "uncertainty_ref": {
+                  "type": "string"
+                },
+                "sparse_suppression_ref": {
+                  "type": "string"
+                }
+              }
+            },
+            "plain_language_labels": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "proper_score_definition",
+                "baseline_comparison"
+              ],
+              "properties": {
+                "proper_score_definition": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "baseline_comparison": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "probability_provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap",
+            "candidate_parameters"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            },
+            "candidate_parameters": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "values",
+                  "label"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "values": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "label": {
+                    "const": "local_candidate_not_literature_fact"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "robust_worlds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            }
+          }
+        },
+        "leveraged_paths": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap",
+            "model_boundaries_ref",
+            "decomposition_equation",
+            "residual_definition",
+            "decompositions"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            },
+            "model_boundaries_ref": {
+              "const": "chart_data#/model_boundaries"
+            },
+            "decomposition_equation": {
+              "const": "total_log_return = intercept_log_return + factor_common_log_return + residual_log_return"
+            },
+            "residual_definition": {
+              "const": "Mechanical remainder after the aggregate intercept and supplied factor terms; never fundamentals, causal contribution, alpha, or probability."
+            },
+            "decompositions": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "target",
+                  "exact_reset_benchmark",
+                  "investable_proxy_identities",
+                  "return_basis",
+                  "reconciliation",
+                  "source_registry_refs"
+                ],
+                "properties": {
+                  "target": {
+                    "enum": [
+                      "SOXL",
+                      "TQQQ"
+                    ]
+                  },
+                  "exact_reset_benchmark": {
+                    "enum": [
+                      "NYSE Semiconductor Index",
+                      "Nasdaq-100"
+                    ]
+                  },
+                  "investable_proxy_identities": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "symbol",
+                        "role",
+                        "not_exact_for"
+                      ],
+                      "properties": {
+                        "symbol": {
+                          "enum": [
+                            "SOXX",
+                            "SMH",
+                            "QQQ"
+                          ]
+                        },
+                        "role": {
+                          "enum": [
+                            "investable_semiconductor_proxy",
+                            "investable_Nasdaq-100_proxy"
+                          ]
+                        },
+                        "not_exact_for": {
+                          "type": "array",
+                          "minItems": 2,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      }
+                    },
+                    "maxItems": 2,
+                    "uniqueItems": true
+                  },
+                  "return_basis": {
+                    "const": "adjusted_market_price_total_return"
+                  },
+                  "reconciliation": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "equation",
+                      "total_log_return",
+                      "intercept_log_return",
+                      "factor_common_log_return",
+                      "residual_log_return",
+                      "recomputed_total_log_return",
+                      "reconciliation_error",
+                      "absolute_tolerance",
+                      "reconciles"
+                    ],
+                    "properties": {
+                      "equation": {
+                        "const": "total_log_return = intercept_log_return + factor_common_log_return + residual_log_return"
+                      },
+                      "total_log_return": {
+                        "type": "number"
+                      },
+                      "intercept_log_return": {
+                        "type": "number"
+                      },
+                      "factor_common_log_return": {
+                        "type": "number"
+                      },
+                      "residual_log_return": {
+                        "type": "number"
+                      },
+                      "recomputed_total_log_return": {
+                        "type": "number"
+                      },
+                      "reconciliation_error": {
+                        "type": "number"
+                      },
+                      "absolute_tolerance": {
+                        "const": 1e-14
+                      },
+                      "reconciles": {
+                        "const": true
+                      }
+                    }
+                  },
+                  "source_registry_refs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  }
+                }
+              },
+              "maxItems": 2
+            }
+          }
+        },
+        "position_roadmap": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            }
+          }
+        },
+        "loss_budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            }
+          }
+        },
+        "shadow_timeline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap",
+            "operational_floor"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            },
+            "operational_floor": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "minimum_months",
+                "minimum_nonoverlapping_six_month_outcomes",
+                "label"
+              ],
+              "properties": {
+                "minimum_months": {
+                  "type": "integer"
+                },
+                "minimum_nonoverlapping_six_month_outcomes": {
+                  "type": "integer"
+                },
+                "label": {
+                  "const": "local_operational_candidate_not_statistical_validation"
+                }
+              }
+            }
+          }
+        },
+        "audit_appendix": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifact_refs",
+            "table_ref",
+            "chart_ref",
+            "what_this_says",
+            "what_could_be_wrong",
+            "what_changes_the_roadmap",
+            "visible_gap"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "recheck",
+                "stale",
+                "blocked"
+              ]
+            },
+            "artifact_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 3
+              }
+            },
+            "table_ref": {
+              "type": "string",
+              "minLength": 3
+            },
+            "chart_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "what_this_says": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_could_be_wrong": {
+              "type": "string",
+              "minLength": 1
+            },
+            "what_changes_the_roadmap": {
+              "type": "string",
+              "minLength": 1
+            },
+            "visible_gap": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "source_ledger_ref": {
+      "type": "string",
+      "minLength": 3
+    },
+    "evidence_ledger_ref": {
+      "type": "string",
+      "minLength": 3
+    },
+    "palette_receipt_ref": {
+      "type": "string",
+      "minLength": 3
+    },
+    "render_receipt_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prohibited_actions": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "$comment": "Validated with strict JSON type equality: booleans never equal integers in const, enum, or recursive semantic bindings."
+}

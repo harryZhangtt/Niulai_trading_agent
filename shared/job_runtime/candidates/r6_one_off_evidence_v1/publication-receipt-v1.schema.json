@@ -1,0 +1,11 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"urn:trading-agent:r6-one-off-evidence-v1:publication-receipt",
+  "type":"object","additionalProperties":false,
+  "required":["version","destination_name","evidence_sha256","publication_sha256","bytes","allowlist","raw_included","partial_included","atomic","no_overwrite","primitive"],
+  "properties":{
+    "version":{"const":1},"destination_name":{"type":"string","pattern":"^[A-Za-z0-9][A-Za-z0-9._-]{0,95}\\.json$"},"evidence_sha256":{"$ref":"#/$defs/digest"},"publication_sha256":{"$ref":"#/$defs/digest"},"bytes":{"type":"integer","minimum":2,"maximum":65536},
+    "allowlist":{"type":"array","items":{"type":"string"},"minItems":15,"uniqueItems":true},"raw_included":{"const":false},"partial_included":{"const":false},"atomic":{"const":true},"no_overwrite":{"const":true},"primitive":{"enum":["RENAME_EXCL","LINK_EXCL_FALLBACK"]}
+  },
+  "$defs":{"digest":{"type":"string","pattern":"^[a-f0-9]{64}$"}}
+}

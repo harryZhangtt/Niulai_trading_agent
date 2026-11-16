@@ -1,0 +1,62 @@
+{
+  "$id": "claude-visible-cli-placeholder-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "activation_requirement": {
+          "const": "Supply and test exact version-pinned grammar for every required operation before enabling"
+        },
+        "cli_executable": {
+          "const": null
+        },
+        "cli_version": {
+          "const": null
+        },
+        "conformance_status": {
+          "const": "missing"
+        },
+        "enabled": {
+          "const": false
+        },
+        "grammar": {
+          "const": null
+        },
+        "invocation_prohibited": {
+          "const": true
+        },
+        "required_operations": {
+          "const": [
+            "background",
+            "list",
+            "log",
+            "attach",
+            "stop"
+          ]
+        },
+        "schema_version": {
+          "const": "claude-visible-cli-placeholder-v1"
+        },
+        "semantic_contract_id": {
+          "const": "claude-visible-cli-semantics-v1"
+        }
+      },
+      "required": [
+        "schema_version",
+        "semantic_contract_id",
+        "enabled",
+        "invocation_prohibited",
+        "cli_executable",
+        "cli_version",
+        "grammar",
+        "required_operations",
+        "conformance_status",
+        "activation_requirement"
+      ],
+      "type": "object"
+    }
+  ],
+  "type": "object",
+  "x-python-validator": "validate_cli_placeholder"
+}

@@ -6,7 +6,10 @@ import argparse,copy,hashlib,json,sys
 from research_store import instant
 from pathlib import Path
 SKILL=Path(__file__).resolve().parents[3]
+WORKSPACE=Path(__file__).resolve().parents[6]
+sys.path.insert(0,str(WORKSPACE))
 sys.path.insert(0,str(SKILL/'references/niulai-workflow/scripts'))
+from shared.research_sources.artifacts import atomic_write_private, private_path, save
 import research_completion as completion
 from valuation_evidence import validate as validate_valuation_evidence
 from entry_policy_evidence import validate as validate_entry_policy_evidence
@@ -24,6 +27,25 @@ def ref(path):
 
 def load(path):return json.loads(Path(path).read_text())
 
+def json_bytes(value):return (json.dumps(value,ensure_ascii=False,indent=2)+'\n').encode()
+
+def write_json(path,value,**kwargs):return atomic_write_private(path,json_bytes(value),**kwargs)
+
+def save_json(directory,value):return save(directory,json_bytes(value))
+
+def publish_completion(outdir,final):
+    outdir=private_path(outdir,create=True);completion_ref=save_json(outdir,final)
+    envelope={'schema_version':1,'kind':'research_completion_pointer','ticker':final['ticker'],'completion':completion_ref}
+    write_json(outdir/(final['ticker']+'_completion_item.json'),envelope)
+    return envelope
+
+def publish_completion_run(outdir,manifest,audit):
+    outdir=private_path(outdir,create=True)
+    envelope={'schema_version':1,'kind':'research_completion_run_pointer',
+              'manifest':save_json(outdir,manifest),'audit':save_json(outdir,audit)}
+    write_json(outdir/'completion_run.json',envelope)
+    return envelope
+
 def receipt_identity(value):
     if isinstance(value,dict):
         if value.get('library_file_id') and value.get('current_version_number') is not None and (value.get('status')=='succeeded' or value.get('success') is True):
@@ -38,8 +60,8 @@ def receipt_identity(value):
     return None
 
 
-def assemble(request,outdir):
-    outdir=Path(outdir).resolve();outdir.mkdir(parents=True,exist_ok=True)
+def assemble(request,outdir,publish=True):
+    outdir=private_path(outdir,create=True)
     original=Path(request['record']).resolve();rec=load(original);item=load(request['item'])
     review_path=Path(request['review']).resolve();review=load(review_path);binding_path=Path(request['bindings']).resolve();bindings=load(binding_path)
     ticker=rec['subject']['ticker'];run_id=request['run_id'];input_hash=request['input_hash']
@@ -131,22 +153,22 @@ def assemble(request,outdir):
         if requires_current(rec, observed_publication_times):
             rec['schema_version']=SCHEMA_VERSION
         validate_rationale(rec, observed_publication_times=observed_publication_times)
-    record_path=outdir/(ticker+'_candidate_record.json');record_path.write_text(json.dumps(rec,ensure_ascii=False,indent=2)+'\n')
     Draft202012Validator(load(completion.SCHEMA),format_checker=FormatChecker()).validate(rec)
-    final={'ticker':ticker,'status':'complete' if publications else 'partial','action':item['action'],'input_hash':input_hash,'record':ref(record_path),'persistence_readbacks':readbacks,'blockers':[]}
+    record_ref=save_json(outdir,rec)
+    final={'ticker':ticker,'status':'complete' if publications else 'partial','action':item['action'],'input_hash':input_hash,
+           'record':record_ref,'persistence_readbacks':readbacks,'blockers':[]}
     if publications:completion.inspect_record(final,run_id)
-    final_path=outdir/(ticker+'_finalized_record.json');record_path.replace(final_path);final['record']=ref(final_path)
-    path=outdir/(ticker+'_completion_item.json');path.write_text(json.dumps(final,ensure_ascii=False,indent=2)+'\n')
+    if publish:publish_completion(outdir,final)
     return final
 
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--request',required=True);p.add_argument('--output-directory',required=True);p.add_argument('--manifest');a=p.parse_args()
-    req=load(a.request);items=[assemble(x,a.output_directory) for x in req['items']]
+    req=load(a.request);items=[assemble(x,a.output_directory,publish=not bool(a.manifest)) for x in req['items']]
     if a.manifest:
         manifest=load(a.manifest);existing={i['ticker']:i for i in manifest['items']};existing.update({i['ticker']:i for i in items});manifest['items']=[existing[t] for t in manifest['expected_tickers'] if t in existing]
-        out=Path(a.output_directory);(out/'completion_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
-        audit=completion.audit(manifest);(out/'completion_audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
+        out=private_path(a.output_directory,create=True);audit=completion.audit(manifest)
+        publish_completion_run(out,manifest,audit)
         print(json.dumps({'assembled':[i['ticker'] for i in items],'run_status':audit['status'],'complete':audit['complete'],'expected':audit['expected']}))
     else:print(json.dumps({'assembled':[i['ticker'] for i in items]}))
 if __name__=='__main__':main()

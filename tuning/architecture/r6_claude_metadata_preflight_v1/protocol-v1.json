@@ -1,0 +1,102 @@
+{
+  "activation": false,
+  "authority_fixture": {
+    "caller_selectable": false,
+    "live_authority": false,
+    "purpose": "provider-free tests only",
+    "registry_sha256": "c42c69eacdd3fa0a75afeccd00ae36e4514386299de13b1d5ed149e447be1818",
+    "review_to_grant_binding": true
+  },
+  "binary_execution": "verified owner-private executable copy; original source path is never executed; copy removed with parent fsync",
+  "bindings": {
+    "catalog_parser": {
+      "bytes": 16030,
+      "sha256": "c20e58cad66f866a5ce1865d8937ee0ff4a87aa4cc62bbf5a3a0c5a1bc01a502"
+    },
+    "catalog_parser_review": {
+      "bytes": 7002,
+      "sha256": "bcbcdbfd37546e5b9ae9db591362c2f5810a8d622e43e9c872ad31056c55a35a"
+    },
+    "decision": {
+      "bytes": 14863,
+      "sha256": "301ad6789c4e3c979afcb0a61fa6b23c7ccc6f2a49d9a89f33ea3f5717d7fd24"
+    },
+    "display_model": "Opus 5.5",
+    "model": "claude-opus-5-5",
+    "protocol": {
+      "bytes": 6073,
+      "sha256": "3f121d4e334c79081856aa448f32c3269b810fa94e937e18003992aac7fc06fc"
+    }
+  },
+  "catalog_acceptance": "closed system+assistant+terminal JSONL grammar; exact current-model line and /model availability grammar; required zero cost, terminal and earlier-event zero usage, empty model usage, no tools/secrets; any omission/negation/prefix/duplicate is UNKNOWN",
+  "countable": false,
+  "forbidden": [
+    "Anthropic API SDK",
+    "Claude Agent SDK",
+    "browser",
+    "MCP server",
+    "bytedcli",
+    "caller path",
+    "caller root",
+    "caller clock",
+    "caller model",
+    "caller command"
+  ],
+  "freshness": "checked_at <= trusted_internal_utc_now < fresh_until; equality at fresh_until is stale",
+  "limits": {
+    "auth_reads_max": 1,
+    "catalog_requests_max": 1,
+    "concurrency": 1,
+    "inference": 0,
+    "ordering": "sequential",
+    "replays": 0,
+    "retries": 0,
+    "second_request": false,
+    "status_after_unknown": 0
+  },
+  "live_effects": 0,
+  "operations": [
+    {
+      "account_status_reads_max": 1,
+      "catalog_requests_max": 0,
+      "grant": "separate exact fixed grant and review",
+      "inference": 0,
+      "name": "auth_status",
+      "raw": "owner-private",
+      "receipt_statuses": [
+        "READY",
+        "NOT_READY",
+        "UNKNOWN"
+      ],
+      "required_fields": [
+        "checked_at",
+        "fresh_until"
+      ],
+      "sanitized": true,
+      "sequence": 1,
+      "surface": [
+        "auth",
+        "status",
+        "--json"
+      ]
+    },
+    {
+      "account_status_reads_max": 0,
+      "assistant_stream": "ignored",
+      "authority": "sole final result event",
+      "catalog_requests_max": 1,
+      "exact_display_occurrences": 1,
+      "grant": "separate exact fixed grant and review",
+      "inference": 0,
+      "name": "model_catalog",
+      "precondition": "committed fresh auth READY receipt plus exact independent CLEAN review",
+      "sequence": 2,
+      "surface": "fixed /model metadata argv"
+    }
+  ],
+  "publication_order": "write-all -> file fsync/fullfsync -> parent fsync -> nofollow reopen/hash -> parent fsync -> commit marker last",
+  "registration": false,
+  "status": "DISABLED_PROVIDER_FREE_PENDING_CLAUDE_V8_P0_V10_GRANTS_AND_FRESH_REVIEW",
+  "unknown_fence": "durable UNKNOWN; no retry, replay, status request, inference, or second request",
+  "version": 1
+}

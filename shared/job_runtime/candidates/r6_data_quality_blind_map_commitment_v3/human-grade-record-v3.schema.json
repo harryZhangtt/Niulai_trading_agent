@@ -1,0 +1,193 @@
+{
+  "$id": "r6-data-quality-blind-map-human-grade-record-v3",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blind_alias": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "cell_id": {
+      "enum": [
+        "R6DQ-7F2C91A4",
+        "R6DQ-1B8E43D7",
+        "R6DQ-C4A7095E",
+        "R6DQ-92D6F0B3"
+      ],
+      "type": "string"
+    },
+    "grade_artifact_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "enum": [
+            "chronology/grade-artifact-R6DQ-7F2C91A4-g1-v3.json",
+            "chronology/grade-artifact-R6DQ-7F2C91A4-g2-v3.json",
+            "chronology/grade-artifact-R6DQ-7F2C91A4-g3-v3.json",
+            "chronology/grade-artifact-R6DQ-1B8E43D7-g1-v3.json",
+            "chronology/grade-artifact-R6DQ-1B8E43D7-g2-v3.json",
+            "chronology/grade-artifact-R6DQ-1B8E43D7-g3-v3.json",
+            "chronology/grade-artifact-R6DQ-C4A7095E-g1-v3.json",
+            "chronology/grade-artifact-R6DQ-C4A7095E-g2-v3.json",
+            "chronology/grade-artifact-R6DQ-C4A7095E-g3-v3.json",
+            "chronology/grade-artifact-R6DQ-92D6F0B3-g1-v3.json",
+            "chronology/grade-artifact-R6DQ-92D6F0B3-g2-v3.json",
+            "chronology/grade-artifact-R6DQ-92D6F0B3-g3-v3.json"
+          ],
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "grade_record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "grader_role": {
+      "enum": [
+        "G1",
+        "G2",
+        "G3"
+      ]
+    },
+    "human_grant_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "enum": [
+            "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g1-role-grant-subject-v1.json",
+            "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g2-role-grant-subject-v1.json",
+            "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g3-role-grant-subject-v1.json"
+          ],
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "human_grant_review_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "enum": [
+            "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g1-role-grant-subject-v1-independent-review.json",
+            "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g2-role-grant-subject-v1-independent-review.json",
+            "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g3-role-grant-subject-v1-independent-review.json"
+          ],
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "immutable": {
+      "const": true
+    },
+    "packet_record_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "enum": [
+            "chronology/evaluation-packet-R6DQ-7F2C91A4-v3.json",
+            "chronology/evaluation-packet-R6DQ-1B8E43D7-v3.json",
+            "chronology/evaluation-packet-R6DQ-C4A7095E-v3.json",
+            "chronology/evaluation-packet-R6DQ-92D6F0B3-v3.json"
+          ],
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "produced_sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-human-grade-record-v3"
+    },
+    "version": {
+      "const": 3
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "grade_record_id",
+    "cell_id",
+    "blind_alias",
+    "grader_role",
+    "packet_record_ref",
+    "human_grant_ref",
+    "human_grant_review_ref",
+    "grade_artifact_ref",
+    "produced_sequence",
+    "immutable"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "claude-visible-session-manifest-v1",
+  "candidate": "claude_visible_session_v1",
+  "status": "inert",
+  "activation": "separate reviewed integration required",
+  "provider_calls": false,
+  "process_calls": false,
+  "network_calls": false,
+  "cases": [
+    "R9",
+    "R10"
+  ],
+  "frozen_contracts": {
+    "model_id": "claude-opus-5-5",
+    "effort": "low",
+    "retries": 0,
+    "visible_persistence": true,
+    "resume": false,
+    "r9_budget": {
+      "max_wall_seconds": 60,
+      "max_output_tokens": 512,
+      "max_tool_calls": 1
+    },
+    "r10_budget": {
+      "max_wall_seconds": 120,
+      "max_output_tokens": 2048,
+      "max_tool_calls": 4
+    },
+    "r9_tool_calls": 1,
+    "r10_tool_calls": 4,
+    "r10_children": 1
+  },
+  "evidence_guards": [
+    "exact-request-events",
+    "exact-tool-events",
+    "exact-observed-budgets",
+    "exact-fixture-sha256-and-semantics",
+    "type-sensitive-values",
+    "canonical-monotonic-rfc3339",
+    "terminal-and-cleanup-receipts",
+    "exact-frozen-poll-terminal-cleanup",
+    "recursive-private-immutable-authority",
+    "bidirectional-schema-validator-parity"
+  ],
+  "schemas": [
+    "case-v1.schema.json",
+    "cli-placeholder-v1.schema.json",
+    "evidence-v1.schema.json",
+    "poll-v1.schema.json",
+    "terminal-v1.schema.json",
+    "cleanup-v1.schema.json"
+  ]
+}

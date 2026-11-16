@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"factor-exposure-readiness-v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","kind","status","authoritative","blockers","canonical_ledger_receipt_sha256","latest_inventory_cutoff","t_seen"],
+  "properties":{
+    "schema_version":{"const":1},
+    "kind":{"const":"factor_exposure_readiness"},
+    "status":{"const":"draft_blocked"},
+    "authoritative":{"const":false},
+    "blockers":{"const":["trusted-exposure-ledger-backend-unresolved","outcome-exposure-inventory-incomplete","calendar-attestation-unresolved","fresh-validation-coverage-unverified","fresh-protected-coverage-unverified"]},
+    "canonical_ledger_receipt_sha256":{"type":"null"},
+    "latest_inventory_cutoff":{"type":"null"},
+    "t_seen":{"type":"null"}
+  }
+}

@@ -1,0 +1,1 @@
+export { GateTable } from './GateTable';

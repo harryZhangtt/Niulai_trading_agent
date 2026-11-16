@@ -1,0 +1,92 @@
+{
+  "activation": false,
+  "effects": {
+    "account": false,
+    "business": false,
+    "credential": false,
+    "email": false,
+    "live": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false,
+    "subagent": false
+  },
+  "excluded_by_construction": [
+    "producer-verification-v1.json",
+    "future independent-review artifact",
+    "live/provider/network/account/private-state artifacts"
+  ],
+  "frozen_basis": {
+    "design": {
+      "bytes": 26277,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design.json",
+      "sha256": "fcf096d0c641f373eab7163fa894e5d4f9605ab3ab36ff867e4b586bdcaf278e"
+    },
+    "design_review": {
+      "bytes": 18741,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design-independent-review.json",
+      "sha256": "0018e413e40371bb2703aecf3963433f1a883a93b1070e815dccc0dc61866d3f"
+    }
+  },
+  "independent_review_created_by_producer": false,
+  "old_files_modified": false,
+  "pending": [
+    "independent CLEAN review",
+    "separate exact live authority and provider readiness before any future call"
+  ],
+  "sources": {
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v1.json": {
+      "bytes": 21151,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v1.json",
+      "sha256": "18c865850f03d959d361b5d7f481c78e0e6d406fe4bfb5915c1008f5ff97f361"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v1/__init__.py": {
+      "bytes": 571,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v1/__init__.py",
+      "sha256": "bfcb585edba1a93fc657732880ca0c1119f28ece8d1580ef3138761bde5eb761"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v1/evaluation-storage-v1.schema.json": {
+      "bytes": 556,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v1/evaluation-storage-v1.schema.json",
+      "sha256": "e4213f333e9fe2694b20c13116cf7589ee3a0023e74b5b4d27ad1d2485da3733"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v1/grade-record-v1.schema.json": {
+      "bytes": 1292,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v1/grade-record-v1.schema.json",
+      "sha256": "b194a3b5e4bdf2b5faaeeb14bc75680d7d75b53e6723e69598383c1173289bbf"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v1/harness.py": {
+      "bytes": 24847,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v1/harness.py",
+      "sha256": "506a52e482e23abe95d9d6570cb747258b14b4512448a3c16b5725fb1127bc25"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v1/__init__.py": {
+      "bytes": 0,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v1/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v1/test_evaluation.py": {
+      "bytes": 10259,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v1/test_evaluation.py",
+      "sha256": "d4b2e2befd1ffec611d8c42354c015847489a4dcf11a7999421a576483bc1e2d"
+    },
+    "shared/job_runtime/tests/fixtures/r6_data_quality_2x2_evaluation_v1/cases.json": {
+      "bytes": 834,
+      "path": "shared/job_runtime/tests/fixtures/r6_data_quality_2x2_evaluation_v1/cases.json",
+      "sha256": "8e3d59f3329916cf7255d0db975aca6f4c499d64db4c23c64c96e59a7c0b1619"
+    },
+    "tuning/architecture/r6_data_quality_2x2_evaluation_v1/decision-v1.json": {
+      "bytes": 1215,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v1/decision-v1.json",
+      "sha256": "36c62dfb7af76694f1c821a929d3b44193629c59f1ca1e67e2166cb0add7248e"
+    },
+    "tuning/architecture/r6_data_quality_2x2_evaluation_v1/protocol-v1.json": {
+      "bytes": 1535,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v1/protocol-v1.json",
+      "sha256": "1be394320163e9b7a2e84b1d4127af0258c6b4096a3b98d432826f4e8c53ecc6"
+    }
+  },
+  "status": "FROZEN_ADDITIVE_PROVIDER_FREE_SOURCE_CLOSURE",
+  "version": "r6-data-quality-2x2-evaluation-source-closure-v1"
+}

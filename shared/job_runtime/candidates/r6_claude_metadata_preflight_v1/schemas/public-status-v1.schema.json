@@ -1,0 +1,82 @@
+{
+  "$id": "https://local.invalid/public-status-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation": {
+      "const": false
+    },
+    "countable": {
+      "const": false
+    },
+    "effects": {
+      "additionalProperties": false,
+      "properties": {
+        "account_status_reads": {
+          "const": 0
+        },
+        "browser": {
+          "const": 0
+        },
+        "bytedcli": {
+          "const": 0
+        },
+        "catalog_requests": {
+          "const": 0
+        },
+        "inference": {
+          "const": 0
+        },
+        "mcp": {
+          "const": 0
+        },
+        "network": {
+          "const": 0
+        },
+        "provider_processes": {
+          "const": 0
+        }
+      },
+      "required": [
+        "account_status_reads",
+        "catalog_requests",
+        "inference",
+        "provider_processes",
+        "network",
+        "browser",
+        "mcp",
+        "bytedcli"
+      ],
+      "type": "object"
+    },
+    "model": {
+      "const": "claude-opus-5-5"
+    },
+    "operation": {
+      "enum": [
+        "auth_status",
+        "model_catalog"
+      ]
+    },
+    "registered": {
+      "const": false
+    },
+    "status": {
+      "const": "DISABLED_PROVIDER_FREE_PENDING_CLAUDE_V8_P0_V10_GRANTS_AND_FRESH_REVIEW"
+    },
+    "version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "version",
+    "operation",
+    "status",
+    "model",
+    "activation",
+    "registered",
+    "countable",
+    "effects"
+  ],
+  "type": "object"
+}

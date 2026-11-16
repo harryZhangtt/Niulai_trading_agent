@@ -1,0 +1,44 @@
+{
+  "bindings": {
+    "integration_verification_v7_sha256": "efa2c4e69fcf10994342875b7e200de665676a8ff808e3401d81563d78f1cb27",
+    "payload_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+    "profile_sha256": "3f9d2fb9bef5f9adbcb54fa7f122af72adc0e8e8c290d756a0c18fcd5096ecd1",
+    "source_cutoff_sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072",
+    "treatment_binding_wrapper_sha256": "6284984d4d48796df2ba96918d983e6a998a60d3b9bff807f3639da6c97b4332",
+    "treatment_fingerprint_sha256": "e77821daf101150d6340b87a70cb8c3a68438d4eebc63074282031639c477de6"
+  },
+  "candidate_id": "codex-rust-0.167-isolated-canary-q1-v2",
+  "capabilities": {
+    "binary_asset_verified": true,
+    "capability_open": false,
+    "gateway_observer_reconciliation_verified": false,
+    "retry_zero_live_verified": false,
+    "sanitized_live_capture_verified": false,
+    "source_authority_verified": true,
+    "source_grammar_verified": true,
+    "source_to_binary_reproducible_build_verified": false
+  },
+  "effects": {
+    "email": false,
+    "host": false,
+    "network": false,
+    "provider": false
+  },
+  "enabled": false,
+  "execution": {
+    "max_attempts": 1,
+    "max_workers": 1
+  },
+  "live": {
+    "model_invocation": false,
+    "network_access": false,
+    "process_invocation": false,
+    "provider_invocation": false,
+    "service_invocation": false
+  },
+  "retries": {
+    "request": 0,
+    "stream": 0
+  },
+  "schema_version": "harness-v2"
+}

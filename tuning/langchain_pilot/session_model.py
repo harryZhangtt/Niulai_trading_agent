@@ -124,6 +124,8 @@ def response_message(envelope, request, binding):
                 and isinstance(call['name'], str) and call['name'] in names
                 and isinstance(call['args'], dict),
                 'SESSION_TOOL_CALL_INVALID')
+        if call['name'] == 'calculate_valuation':
+            require(call['args'] == {}, 'SESSION_TOOL_ARGUMENTS_NOT_ALLOWED')
         calls.append({**call, 'id': 'session-' + request['request_id'][:24] + '-' + str(index)})
     require(len(calls) <= 8 and (calls or message.get('content')), 'SESSION_EMPTY_RESPONSE')
     return AIMessage(content=message.get('content', ''), tool_calls=calls,
@@ -136,6 +138,7 @@ def response_message(envelope, request, binding):
 class SessionChatModel(BaseChatModel):
     tools: list[dict[str, Any]] = Field(default_factory=list)
     state_directory: str = str(STATE)
+    public_fixture_responses: bool = False
 
     @property
     def _llm_type(self):
@@ -165,6 +168,18 @@ class SessionChatModel(BaseChatModel):
                 # subsequent admissions; it cannot revoke an accepted message.
                 message = response_message(answer, request,
                                            load_binding(Path(self.state_directory)))
+                if self.public_fixture_responses:
+                    if message.tool_calls:
+                        require(message.content == '', 'ATOMIC_ASSISTANT_SCHEMA')
+                    else:
+                        try: content = json.loads(message.content)
+                        except (ValueError, TypeError):
+                            raise SessionModelError('ATOMIC_ASSISTANT_SCHEMA') from None
+                        require(isinstance(content, dict) and set(content) == {'per_share', 'synthetic'}
+                                and content['synthetic'] is True and isinstance(content['per_share'], str)
+                                and re.fullmatch(r'-?\d{1,64}(?:\.\d{1,64})?(?:[eE][-+]?\d{1,3})?',
+                                                 content['per_share']) is not None,
+                                'ATOMIC_ASSISTANT_SCHEMA')
                 return ChatResult(generations=[ChatGeneration(message=message)])
             except SessionModelError as invalid:
                 error = str(invalid)

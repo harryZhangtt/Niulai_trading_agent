@@ -1,0 +1,1 @@
+"""GCP activation freeze tests."""

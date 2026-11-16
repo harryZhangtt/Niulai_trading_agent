@@ -1,0 +1,4 @@
+{"thread_id":"thread-private","type":"thread.started"}
+{"type":"turn.started"}
+{"item":{"id":"item-private","text":"private","type":"agent_message"},"type":"item.started"}
+{"type":"turn.completed"}

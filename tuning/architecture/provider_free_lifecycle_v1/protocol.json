@@ -1,0 +1,1 @@
+{"capability_open":false,"enabled":false,"effects":{"business":false,"email":false,"host":false,"network":false,"process":false,"provider":false},"max_attempts":1,"max_workers":1,"modes":["nominal","post_admission_ambiguity"],"predecessor_source_sha256":"d199fd079b7f94ca17d9fd1d6bb9e5b2339178403948d8173dabebd948b33d78","schema_version":"provider-free-lifecycle-v1"}

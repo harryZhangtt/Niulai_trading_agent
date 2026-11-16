@@ -1,0 +1,59 @@
+{
+  "activation": false,
+  "allowed_claim": "Provider-free additive v2 candidate closes the producer-identified held-copy cleanup paths in local tests. It is disabled, unregistered, non-countable, pending exact grants, CLEAN P0-v10, and fresh independent review; it proves no live readiness, entitlement, provider availability, inference success, A/B evidence, activation, or runtime acceptance.",
+  "countable": false,
+  "current_evidence": {
+    "claude_v9_review": {
+      "bytes": 10250,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v9-independent-review-clean-fable-20261113-8e9a8076-evidence-reseal.json",
+      "sha256": "fb7fbe185b6b403aa67cd8bfeb64bdc9baf636c7788b39cd6fba6258f48e515f",
+      "verdict": "CLEAN_CLAUDE_LIVE_BOUNDARY_V9_EVIDENCE_RESEAL_PENDING_P0_V10"
+    },
+    "p0_v10_review": {
+      "bytes": 16898,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v10-plan-independent-review-open-fable-20261113-8e9a8076.json",
+      "sha256": "11df0a91c11bfc89f256f928c0a858ddf3e2c0753217c27770c0e9bf95c1d30d",
+      "status": "OPEN_P0_V10_DESIGN_ONLY_INCOMPLETE_CONSUMER_CLOSURE_AND_VERIFIER_GAPS",
+      "verdict": "OPEN"
+    },
+    "v1_review": {
+      "bytes": 13066,
+      "closed": 5,
+      "findings_total": 6,
+      "open": 1,
+      "open_finding": "R6-CLAUDE-METADATA-PREFLIGHT-V1-005",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-claude-metadata-preflight-v1-independent-review-open-fable-20261115-a0efa3e1.json",
+      "sha256": "548ae003bf8a29f21b60753942b3414895c058daf68b9a656839d7b0fad319b5",
+      "terminal": "OPEN_HELD_BINARY_CLEANUP_REQUIRED",
+      "verdict": "OPEN"
+    }
+  },
+  "decision": "ADD_V2_NARROW_CLEANUP_SUCCESSOR_KEEP_V1_OPEN_HISTORY",
+  "live_effects": 0,
+  "registration": false,
+  "rejected_options": {
+    "activate_now": "grants, CLEAN P0-v10, and fresh review absent",
+    "edit_v1": "forbidden; destroys reviewed OPEN history",
+    "pathname_precheck_then_unlink": "does not close TOCTOU or drift safety",
+    "unlink_foreign_replacement": "violates custody and can remove non-owned inode"
+  },
+  "review_resolution_target": {
+    "claim": "producer repair pending fresh independent review",
+    "finding": "R6-CLAUDE-METADATA-PREFLIGHT-V1-005",
+    "v1_status": "OPEN_HISTORY_UNCHANGED"
+  },
+  "selected_option": "O1_ADDITIVE_EXACT_INODE_TRANSACTION",
+  "status": "DISABLED_PROVIDER_FREE_PENDING_GRANTS_CLEAN_P0_V10_AND_FRESH_REVIEW",
+  "v1_open_review": {
+    "bytes": 13066,
+    "closed": 5,
+    "findings_total": 6,
+    "open": 1,
+    "open_finding": "R6-CLAUDE-METADATA-PREFLIGHT-V1-005",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-claude-metadata-preflight-v1-independent-review-open-fable-20261115-a0efa3e1.json",
+    "sha256": "548ae003bf8a29f21b60753942b3414895c058daf68b9a656839d7b0fad319b5",
+    "terminal": "OPEN_HELD_BINARY_CLEANUP_REQUIRED",
+    "verdict": "OPEN"
+  },
+  "version": 2
+}

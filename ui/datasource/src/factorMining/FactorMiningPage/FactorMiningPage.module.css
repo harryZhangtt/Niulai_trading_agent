@@ -1,0 +1,52 @@
+.navigation { min-width: 0; flex-wrap: wrap; }
+.navigation a { min-width: 0; overflow-wrap: anywhere; }
+.page { max-width: 1560px; margin: 0 auto; padding: 28px 28px 32px; }
+.statusLine { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; color: var(--muted); font-size: .82rem; margin-bottom: 24px; }
+.autoRefresh { margin-inline-start: auto; }
+.layout { display: grid; grid-template-columns: minmax(260px, 310px) minmax(0, 1fr); align-items: start; gap: 24px; margin-block: 20px 28px; }
+.listPanel, .detailPanel { min-width: 0; }
+.mobileBack { display: none; }
+.boundary { color: var(--muted); font-size: .84rem; line-height: 1.7; margin: 16px 0; max-width: 100ch; }
+.emptyRegistry { display: grid; grid-template-columns: minmax(240px, .85fr) minmax(0, 1.45fr); align-items: start; gap: 24px 32px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); padding: 32px; }
+.missing { border: 1px solid var(--border); border-radius: 16px; background: var(--surface); padding: 28px; }
+.emptyIntro { min-width: 0; max-width: 68ch; padding-top: 2px; }
+.emptyIntro h2 { margin: 0 0 14px; color: var(--ink); font-size: 1.4rem; line-height: 1.4; font-weight: 600; letter-spacing: -.025em; }
+.emptyIntro p { color: var(--muted); font-size: .91rem; line-height: 1.75; margin: 0 0 24px; }
+.emptyIntro a { white-space: normal; text-align: start; }
+.workflow { min-width: 0; }
+.workflow h3 { margin: 0 0 9px; color: var(--ink); font-size: 1rem; font-weight: 550; }
+.workflow > p { margin: 0 0 20px; color: var(--muted); font-size: .84rem; line-height: 1.6; }
+.workflow ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.workflow li { display: grid; align-content: start; justify-items: start; gap: 14px; padding: 18px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-subtle); min-width: 0; }
+.workflow li:last-child { grid-column: 1 / -1; }
+.workflow strong { color: var(--ink); font-size: .87rem; font-weight: 550; }
+.workflow li p { margin: 7px 0 0; color: var(--muted); font-size: .81rem; line-height: 1.6; }
+.workflow li > :last-child { max-width: 100%; }
+.emptyBoundary { grid-column: 1 / -1; margin: 0; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: .82rem; line-height: 1.7; }
+.loading { padding: 42px 0; color: var(--muted); }
+@media (max-width: 1180px) { .layout { grid-template-columns: minmax(230px, 270px) minmax(0, 1fr); gap: 20px; } .emptyRegistry { grid-template-columns: 1fr; } .emptyIntro { max-width: 88ch; } }
+@media (max-width: 760px) {
+  .header { height: auto; min-height: 67px; padding: 12px 18px; gap: 8px; }
+  .navigation { width: 100%; justify-content: flex-end; }
+  .page { padding: 20px 16px 28px; }
+  .pageHeading { align-items: start; gap: 18px; flex-direction: column; }
+  .statusLine { gap: 8px 14px; margin-bottom: 20px; }
+  .autoRefresh { margin-inline-start: 0; }
+  .layout { grid-template-columns: 1fr; gap: 16px; }
+  .detailPanel { display: none; }
+  .detailOpen .listPanel { display: none; }
+  .detailOpen .detailPanel { display: block; }
+  .mobileBack { display: block; padding: 16px 16px 0; background: var(--surface); border: 1px solid var(--border); border-bottom: 0; border-radius: 16px 16px 0 0; }
+  .mobileBack svg { transform: rotate(180deg); }
+  .emptyRegistry, .missing { padding: 24px 20px; }
+  .emptyIntro h2 { font-size: 1.2rem; }
+  .workflow ol { grid-template-columns: 1fr; }
+  .workflow li { padding: 17px; }
+  .workflow li:last-child { grid-column: auto; }
+}
+@media (forced-colors: active) { .emptyRegistry, .missing, .workflow li, .emptyBoundary { border-color: CanvasText; } }
+@media (max-width: 760px) {
+  .pageHeading p, .statusLine, .boundary, .emptyIntro p, .workflow > p, .workflow strong, .workflow li p, .emptyBoundary { font-size: 14px; }
+  .page :global(.button), .page :global(.notice), .page :global(.notice p) { font-size: 14px; line-height: 1.65; }
+  .workflow li :global(.badge) { font-size: 14px; }
+}

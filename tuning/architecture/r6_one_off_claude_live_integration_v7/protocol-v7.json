@@ -1,0 +1,108 @@
+{
+  "activation": false,
+  "architecture": {
+    "bytes": 2422,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/architecture-v7.json",
+    "sha256": "b92f806f542015f458ee7cfd950c5ae719295abc70be538b67b21d697e637b77"
+  },
+  "artifact_type": "protocol",
+  "authority": {
+    "fixed_root": true,
+    "full_writes": true,
+    "hash_chained": true,
+    "ledger_mode": "0600",
+    "no_pathname_reopen": true,
+    "parent_creation_fsync": true,
+    "protocol": "LOCKED_APPEND_ONLY_HASH_CHAIN_V1",
+    "truncated_tail_denies": true
+  },
+  "countable": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fault_matrix": [
+    "caller root positional and keyword rejection",
+    "caller effect and scenario rejection",
+    "provider effect subclass rejection",
+    "component symlink and wrong-mode rejection",
+    "held-dirfd rename/symlink race",
+    "ledger symlink and 0600 checks",
+    "short and zero writes",
+    "truncated ledger tail repeated denial",
+    "illegal PASS-to-UNKNOWN and POISONED-to-PASS transitions",
+    "terminal mismatch rejection",
+    "poison post-commit ambiguity plus repeated-read denial",
+    "compound projection revoke failures",
+    "recovery before freshness",
+    "nested schema extras and status contradictions",
+    "recursive import and dynamic executable closure"
+  ],
+  "lineage": {
+    "bytes": 1002,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/lineage-v7.json",
+    "sha256": "6a3c358006dd185e91ef3889c5bc17a1ec2cbb49fa52a89c09a1eb2b77d65990"
+  },
+  "public_boundary": {
+    "callable_injection": false,
+    "callables": ["run"],
+    "signature": "run() -> dict",
+    "source_pinned_provider": true
+  },
+  "registration": false,
+  "review_binding": {
+    "bytes": 17482,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v6-independent-review-open-fable-20261111-8e9a8076.json",
+    "sha256": "0ee60c531e050133f3f86e1b980e7199c52018596682b245c02cb932a28a68d8",
+    "verdict": "OPEN"
+  },
+  "runtime_acceptance": {
+    "email": "PENDING",
+    "execution": "PENDING",
+    "reason": "provider-free source evidence cannot replace a future scheduled intended-runtime run"
+  },
+  "schemas": [
+    "post-run-seal-v7.schema.json",
+    "pending-publication-v7.schema.json",
+    "unknown-fence-v7.schema.json",
+    "p0-output-v7.schema.json"
+  ],
+  "source_closure": {
+    "artifact_count": 33,
+    "bytes": 8319,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/source-closure-v7.json",
+    "sha256": "8e04fa3601b1b6fcf9e1419572501465c006bb824d07cd82861d9a0aaf134750"
+  },
+  "state_graph": {
+    "allowed": [
+      "ABSENT->UNKNOWN",
+      "UNKNOWN->PASS",
+      "UNKNOWN->POISONED",
+      "PASS->POISONED",
+      "PASS->PASS exact idempotent",
+      "POISONED->POISONED exact idempotent"
+    ],
+    "forbidden": [
+      "PASS->UNKNOWN",
+      "POISONED->UNKNOWN",
+      "POISONED->PASS",
+      "same-state terminal replacement"
+    ]
+  },
+  "status": "OPEN_PROTOCOL_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "tests": {
+    "preserved_v5": {"errors": 0, "failures": 0, "methods": 16, "result": "PASS"},
+    "preserved_v6": {"errors": 0, "failures": 0, "methods": 17, "result": "PASS"},
+    "shared_evidence": {"errors": 0, "failures": 0, "methods": 15, "result": "PASS"},
+    "v7": {"errors": 0, "failures": 0, "methods": 12, "result": "PASS"}
+  },
+  "version": 7
+}

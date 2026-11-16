@@ -1,0 +1,22 @@
+.note { color: var(--muted); font-size: .82rem; line-height: 1.7; margin: 0 0 18px; }
+.inspect { display: grid; gap: 8px; max-width: 350px; font-size: .8rem; font-weight: 500; color: var(--muted); margin-bottom: 22px; }
+.inspect select { min-width: 0; width: 100%; min-height: 44px; background: var(--surface-subtle); color: var(--ink); border: 1px solid var(--control-border); border-radius: 9px; }
+.wrap { inline-size: 100%; min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; contain: inline-size; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-subtle); scrollbar-color: var(--border) var(--surface-subtle); }
+.wrap table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: .82rem; }
+.wrap th, .wrap td { padding: 15px 16px; border-bottom: 1px solid var(--border); text-align: start; overflow-wrap: anywhere; vertical-align: top; }
+.wrap thead th { color: var(--muted); font-size: .77rem; font-weight: 500; background: var(--surface-subtle); }
+.wrap tbody th, .wrap tbody td { background: var(--surface); color: var(--ink); }
+.wrap tr:last-child th, .wrap tr:last-child td { border-bottom: 0; }
+.wrap button { background: transparent; border: 0; border-radius: 6px; min-height: 44px; padding: 0; color: var(--text-accent); font-weight: 550; font-size: .83rem; cursor: pointer; }
+.wrap button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.wrap button:focus-visible, .wrap:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.wrap button[aria-pressed='true'] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.wrap summary { font-size: .79rem; color: var(--text-accent); cursor: pointer; }
+.wrap code { display: block; max-width: 230px; font-size: .74rem; color: var(--muted); margin-top: 9px; }
+.number { font-variant-numeric: tabular-nums; text-align: end !important; }
+@media (max-width: 760px) { .inspect select { font-size: 1rem; } }
+@media (forced-colors: active) { .wrap, .wrap th, .wrap td { border-color: CanvasText; } }
+@media (max-width: 760px) {
+  .note, .inspect, .wrap table, .wrap thead th, .wrap button, .wrap summary, .wrap code { font-size: 14px; }
+  .inspect select { font-size: 16px; }
+}

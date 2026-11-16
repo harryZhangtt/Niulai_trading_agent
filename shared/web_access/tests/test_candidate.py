@@ -44,6 +44,62 @@ class CandidateTests(unittest.TestCase):
         self.assertEqual(session.plan(operation='discover')['route'], 'native_search')
         self.assertEqual(session.plan(operation='read', url='https://arxiv.org/html/1')['route'], 'native_open')
 
+    def test_discovery_exact_query_singleflight_and_cache(self):
+        session = Session(self.config, native_search_budget=3)
+        query = 'issuer AI capex filing'
+        first = session.plan(operation='discover', query=query)
+        self.assertEqual(first['route'], 'native_search')
+        self.assertEqual(session.plan(operation='discover', query=query)['route'], 'wait')
+        session.record_discovery(query, 'success', result_sha256='a' * 64)
+        cached = session.plan(operation='discover', query='  issuer   AI capex filing  ')
+        self.assertEqual(cached['route'], 'cached_discovery')
+        self.assertEqual(cached['result_sha256'], 'a' * 64)
+        self.assertEqual(session.native_searches, 1)
+
+    def test_discovery_quota_exhaustion_routes_browser_without_retry(self):
+        session = Session(self.config, native_search_budget=3)
+        query = 'fresh semiconductor evidence'
+        session.plan(operation='discover', query=query)
+        session.record_discovery(query, 'quota_exhausted')
+        decision = session.plan(operation='discover', query=query)
+        self.assertEqual(decision['route'], 'work_browser_discovery')
+        self.assertEqual(decision['reason'], 'native_quota_exhausted')
+        self.assertEqual(session.plan(operation='discover', query='another query')['route'],
+                         'work_browser_discovery')
+        self.assertEqual(session.native_searches, 1)
+
+    def test_discovery_transient_retry_is_bounded_then_falls_back(self):
+        session = Session(self.config, native_search_budget=6, transient_retry_limit=2)
+        query = 'current rates path'
+        for attempt in (1, 2, 3):
+            decision = session.plan(operation='discover', query=query)
+            self.assertEqual(decision['route'], 'native_search')
+            self.assertEqual(decision['attempt_ordinal'], attempt)
+            session.record_discovery(query, 'transient_error')
+        exhausted = session.plan(operation='discover', query=query)
+        self.assertEqual(exhausted['route'], 'work_browser_discovery')
+        self.assertEqual(exhausted['reason'], 'transient_retry_exhausted')
+
+    def test_discovery_concurrency_reserves_one_native_search(self):
+        session = Session(self.config, native_search_budget=4)
+        query = 'same shared query'
+        with ThreadPoolExecutor(max_workers=16) as pool:
+            routes = list(pool.map(lambda _: session.plan(operation='discover', query=query)['route'], range(64)))
+        self.assertEqual(routes.count('native_search'), 1)
+        self.assertEqual(routes.count('wait'), 63)
+        self.assertEqual(session.native_searches, 1)
+
+    def test_discovery_budget_unknown_and_secret_fail_closed(self):
+        session = Session(self.config, native_search_budget=1)
+        first = 'one allowed query'
+        session.plan(operation='discover', query=first)
+        session.record_discovery(first, 'unknown_outcome')
+        self.assertEqual(session.plan(operation='discover', query=first)['route'], 'blocked')
+        self.assertEqual(session.plan(operation='discover', query='budget overflow')['route'],
+                         'work_browser_discovery')
+        with self.assertRaisesRegex(SourceError, 'WEB_QUERY_INVALID'):
+            session.plan(operation='discover', query='authorization: bearer SYNTHETIC_SECRET')
+
     def test_native_circuit_breaker_and_chrome_comparison_route(self):
         session = Session(self.config)
         session.record_native('transport_error')

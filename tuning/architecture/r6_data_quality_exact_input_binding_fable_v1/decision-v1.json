@@ -1,0 +1,40 @@
+{
+  "version": "r6-data-quality-exact-input-binding-decision-v1",
+  "status": "ACCEPT_PROVIDER_FREE_CURRENT_INPUT_BINDING_NONCOUNTABLE",
+  "decision": "PASS_EXACT_INPUT_BINDING_ONLY",
+  "activation": false,
+  "countable": false,
+  "findings": {
+    "exact_authority_files": "PASS",
+    "four_cell_common_prompt_and_cutoff": "PASS",
+    "official_source_only_policy": "PASS",
+    "identity_treatment_order_leakage": "PASS_NONE_FOUND",
+    "private_internal_or_bytedcli_dependency": "PASS_NONE_REQUIRED",
+    "rubric_and_threshold_data_quality_scope": "PASS",
+    "financial_return_or_specific_provider_preference": "PASS_NONE_FOUND"
+  },
+  "unresolved": [
+    "tool_roster pin",
+    "common time-window pin",
+    "final four-cell grants and clean reviews"
+  ],
+  "effects": {
+    "provider": false,
+    "network": false,
+    "account": false,
+    "private_state": false,
+    "email": false,
+    "business": false,
+    "host": false,
+    "scheduler": false
+  },
+  "allowed_claim": "The re-read frozen inputs are exactly bound and semantically suitable for a dependency-independent, provider-free, noncountable four-cell research-data-quality comparison.",
+  "forbidden_claims": [
+    "live or countable authority",
+    "tool roster or time window sealed",
+    "final inference grants present",
+    "provider or addon superiority",
+    "financial-return improvement",
+    "production readiness or runtime acceptance"
+  ]
+}

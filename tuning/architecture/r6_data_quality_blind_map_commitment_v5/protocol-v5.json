@@ -1,0 +1,69 @@
+{
+  "acceptance_matrix": [
+    {
+      "expect": "manifest is first chronology read; validator called with fixed workspace root and g3_triggered=false; exact G1/G2 authority required; no private-map read until chain passes",
+      "id": "G3-FALSE"
+    },
+    {
+      "expect": "manifest is first chronology read; validator called with fixed workspace root and g3_triggered=true; exact G3 subject grant/review pins and validator acceptance mandatory before private-map read",
+      "id": "G3-TRUE"
+    },
+    {
+      "expect": "G3-required chain with only G1/G2 pins denies before private-map read",
+      "id": "G3-MISSING"
+    },
+    {
+      "expect": "forged/pending/rejected G3 validator result denies before private-map read",
+      "id": "G3-FORGED"
+    },
+    {
+      "expect": "Draft 2020-12 schema and runtime both reject duplicate labels",
+      "id": "MAP-DUPLICATE"
+    },
+    {
+      "expect": "Draft 2020-12 schema and runtime both reject reversed/noncanonical cell_order",
+      "id": "MAP-ORDER"
+    },
+    {
+      "expect": "both G3 states preserve exact slots and fully resealed barrier interleaving rejects",
+      "id": "CHRONOLOGY"
+    },
+    {
+      "expect": "every row independently rehashes exact lstat/fstat mode bytes and SHA-256; v2 OPEN review binds actual 0600; synthetic 0644 drift rejects",
+      "id": "CLOSURE-MODE"
+    },
+    {
+      "expect": "scan returns aggregate counts only, checks four labels, zero matches, and no label values",
+      "id": "LEAK"
+    },
+    {
+      "expect": "empty current pins deny before private-map read",
+      "id": "CURRENT-PINS"
+    },
+    {
+      "expect": "zero-argument opener; no public/production builders; no external-effect imports",
+      "id": "SURFACE"
+    }
+  ],
+  "activation": false,
+  "countable": false,
+  "execution_order": [
+    "metaschema check all eleven schemas",
+    "run v5 provider-free tests",
+    "run v1-v4 and evaluation-v3 regressions",
+    "create receipt-last v5 runtime transaction",
+    "run value-suppressing scan",
+    "generate source closure from actual descriptor readback",
+    "run closure drift test and full suite",
+    "produce distinct pending-review verification"
+  ],
+  "failure_policy": "Any missing/mismatched pin, validator rejection, nonboolean manifest decision, chain/schema/closure mismatch, or private-map precondition failure denies or fails; no fallback opening.",
+  "fresh_independent_review": "PENDING",
+  "preconditions": [
+    "Exact OPEN-v4 review is 11626 bytes with SHA-256 df79e13a5bbfcfce8f3a1fb0f12dee01f7783598dfe9e89d8a12ef200e7113ba.",
+    "v1-v4 source runtime evidence and reviews remain preserved; v4 closure remains OPEN history.",
+    "No provider scheduler bytedcli network account credential email business host or live effects."
+  ],
+  "subject": "r6_data_quality_blind_map_commitment_v5",
+  "version": "r6-data-quality-blind-map-commitment-protocol-v5"
+}

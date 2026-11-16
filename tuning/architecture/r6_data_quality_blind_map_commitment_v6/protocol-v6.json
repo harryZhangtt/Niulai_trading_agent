@@ -1,0 +1,123 @@
+{
+  "acceptance_matrix": [
+    {
+      "expect": "Public chain and exact current receipt/commitment transaction binding are compared through a public-only read before the expected-binding map read.",
+      "id": "OPEN-V5-01"
+    },
+    {
+      "expect": "A fixed owner-private O_EXCL/O_NOFOLLOW reservation spans create or recovery; a loser denies before namespace inspection.",
+      "id": "OPEN-V5-02"
+    },
+    {
+      "expect": "Failure cleanup receives only the failing transaction owned-name to transaction-ID to inode/device map; no namespace-wide deletion exists.",
+      "id": "OPEN-V5-03"
+    },
+    {
+      "expect": "Cleanup performs atomic no-replace rename to transaction quarantine before identity verification and never unlinks or renames after stat.",
+      "id": "OPEN-V5-04"
+    },
+    {
+      "expect": "Manifest oneOf branches bind g3_required false to 8 grades/final 24 and true to 12 grades/final 28.",
+      "id": "OPEN-V5-05"
+    },
+    {
+      "expect": "G3 false exact pin, record, artifact, authority, and grade sets exclude every G3 path; G3 true requires all exact G3 paths.",
+      "id": "OPEN-V5-06"
+    },
+    {
+      "expect": "Sanitized commitment instances and schema use r6-data-quality-blind-map-commitment-v6.",
+      "id": "OPEN-V5-07"
+    },
+    {
+      "expect": "Leak scan returns ERROR/DENY for every oversized, unreadable, symlinked, special, or racy entry instead of PASS.",
+      "id": "OPEN-V5-08"
+    },
+    {
+      "expect": "Leak traversal is descriptor-relative O_NOFOLLOW with before/open/after/name identity continuity and never follows private-map symlinks.",
+      "id": "OPEN-V5-09"
+    },
+    {
+      "expect": "Every fixed source, chain, map, commitment, receipt, lock, stage, and scan read checks an exact maximum before allocation.",
+      "id": "OPEN-V5-10"
+    },
+    {
+      "expect": "Maintained G3 probes cover pending, noncountable, missing, digest-mismatched, and authority-reference-mismatched cases before map read.",
+      "id": "OPEN-V5-11"
+    },
+    {
+      "expect": "The v4 cross-record/nested probes, map uniqueness/order probes, conditional manifest probes, chronology barriers, and reviewed cases are restored.",
+      "id": "OPEN-V5-12"
+    },
+    {
+      "expect": "Dead seal, verify_seal, and _name_identity helpers are removed; active identity/hash paths are directly tested.",
+      "id": "OPEN-V5-13"
+    },
+    {
+      "expect": "zero exact pins deny before private-map read",
+      "id": "CURRENT-PINS"
+    },
+    {
+      "expect": "multiprocess create and recovery losers deny without inspecting another live transaction",
+      "id": "LOCK-RACE"
+    },
+    {
+      "expect": "cleanup substitution leaves quarantine fenced and never deletes replacement",
+      "id": "INODE-REPLACEMENT"
+    },
+    {
+      "expect": "each case returns ERROR/DENY, follows no symlink, discloses no label",
+      "id": "LEAK-11MB-UNREADABLE-SYMLINK"
+    },
+    {
+      "expect": "all v6 evidence says P0_V10_RECLOSURE_REQUIRED",
+      "id": "P0-V10"
+    }
+  ],
+  "activation": false,
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 23467,
+    "countable": false,
+    "finding_count": 13,
+    "mode": "0644",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-open-v1-fable-20261113.json",
+    "sha256": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8",
+    "trusted": false,
+    "verdict": "OPEN"
+  },
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "execution_order": [
+    "validate twelve Draft-2020 closed schemas and runtime parity",
+    "run 12-case v6 security suite",
+    "run 52 preserved v1-v5/evaluation regressions",
+    "run 25 repeated isolated lifecycles",
+    "create receipt-last self-bound real v6 transaction",
+    "run aggregate value-suppressing fail-closed workspace scan",
+    "descriptor-read v6 source/runtime and compose closure",
+    "run evidence integrity plus full final rerun",
+    "request fresh independent review separately"
+  ],
+  "failure_policy": "Any skipped, unreadable, oversized, symlinked, racy, malformed, mismatched, pending, wrong-transaction, unknown-ownership, cleanup-identity, schema, source-pin, or chronology condition denies/fences; no fallback opening, removal, or PASS.",
+  "fresh_independent_review": "REQUIRED_NOT_YET_PERFORMED",
+  "p0_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "preconditions": [
+    "Preserve every v1-v5 byte and mode; historical private-map bindings are copied from exact v5 closure rather than reread.",
+    "No provider, network, bytedcli, scheduler, account, credential, email, business, host, or live effects.",
+    "Empty current trust pins must deny before private map read."
+  ],
+  "subject": "r6_data_quality_blind_map_commitment_v6",
+  "trusted": false,
+  "version": "r6-data-quality-blind-map-commitment-protocol-v6"
+}

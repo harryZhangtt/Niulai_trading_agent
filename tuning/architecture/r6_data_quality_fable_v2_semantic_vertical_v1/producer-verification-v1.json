@@ -1,0 +1,1 @@
+{"provider_free":true,"source_closure_sha256":"ea0420d384f18690ee93d977480346fd67849706a9c6e15a99beab7759475de2","status":"PENDING_INDEPENDENT_REVIEW","tests":{"python3.12":{"passed":3},"python3.9":{"passed":3}},"version":"r6_data_quality_fable_v2_semantic_vertical_v1"}

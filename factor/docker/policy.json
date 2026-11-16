@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "profile": "factor-runner-cpu-development-v1",
+  "status": "development-only-blocked",
+  "base": {
+    "reference": "python:3.10-slim-bookworm@sha256:5be5aaecb962a41567bc8041f1e9e3432cb085b037fe057f9a562630b2e4b370",
+    "manifest_digest": "sha256:5be5aaecb962a41567bc8041f1e9e3432cb085b037fe057f9a562630b2e4b370",
+    "platforms": ["linux/amd64", "linux/arm64"],
+    "python": "3.10",
+    "python_support": "eol-development-only",
+    "production_exception_approved": false,
+    "migration_target": "3.11"
+  },
+  "engine": {
+    "rdagent_revision": "484776c211e4fbbeef03e0ec00d6bbee7362a4f4",
+    "rdagent_tree": "d4444284fb4554f75f352ecb1f072cedbf4c6421",
+    "qlib_revision": "2fb9380b342556ddb50a4b24e4fe8655d548b2b8",
+    "qlib_tree": "0f541590a9efecb9bfb5342155be50461ad7d002",
+    "standalone_qlib_allowed": false
+  },
+  "identity": {"uid": 65532, "gid": 65532},
+  "concurrency": {"active_runs": 2, "controller_stages": 1, "executors": 2},
+  "controller": {
+    "network": "factor-provider-internal",
+    "cpus": "1.0",
+    "memory": "2g",
+    "pids": 128,
+    "tmpfs_mb": 256,
+    "credential_transport": "provider-proxy-reference-only"
+  },
+  "executor": {
+    "network": "none",
+    "cpus": "2.0",
+    "memory": "4g",
+    "pids": 256,
+    "tmpfs_mb": 512,
+    "seccomp": "factor/docker/seccomp-executor.json"
+  },
+  "required_controls": [
+    "read-only-rootfs",
+    "cap-drop-all",
+    "no-new-privileges",
+    "nonroot",
+    "no-docker-socket",
+    "digest-only-images",
+    "bounded-output",
+    "immutable-receipts",
+    "executor-no-network"
+  ],
+  "blockers": [
+    "docker-daemon-unavailable",
+    "buildx-unavailable",
+    "controller-wheel-lock-unresolved",
+    "executor-wheel-lock-unresolved",
+    "image-digests-unresolved",
+    "provider-proxy-unavailable",
+    "frozen-dataset-unavailable",
+    "admission-protocol-unfrozen",
+    "python310-production-exception-unapproved"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "classification": {
+    "authority": "not_submitted",
+    "category": "http",
+    "http_status": 429,
+    "provider_should_retry": true,
+    "retry_after": "2",
+    "retry_after_source": "retry-after-seconds"
+  },
+  "fixture_kind": "synthetic_failure",
+  "process_phase": "connecting"
+}

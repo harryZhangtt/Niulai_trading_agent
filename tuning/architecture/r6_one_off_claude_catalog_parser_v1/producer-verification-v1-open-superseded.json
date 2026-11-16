@@ -1,0 +1,145 @@
+{
+  "activation": false,
+  "artifacts": [
+    {
+      "bytes": 431,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_catalog_parser_v1/__init__.py",
+      "sha256": "0e545f4455286ed219387ae8eede670db983966f4cd61b65f373f5bf30fc7066"
+    },
+    {
+      "bytes": 16030,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_catalog_parser_v1/parser.py",
+      "sha256": "c20e58cad66f866a5ce1865d8937ee0ff4a87aa4cc62bbf5a3a0c5a1bc01a502"
+    },
+    {
+      "bytes": 3162,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_catalog_parser_v1/interpretation-receipt-v1.schema.json",
+      "sha256": "4fa32dea6c9be2537098ba65045fc34652bb6d0f383746afe73c6fdfbb0bb6ab"
+    },
+    {
+      "bytes": 64,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1/__init__.py",
+      "sha256": "aa81c95192cb510481fac911d394081f91d3ab14132723ac936449ad63b3c0e1"
+    },
+    {
+      "bytes": 5009,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1/test_parser.py",
+      "sha256": "69fc9c7fbdb3ac77dbbfab0059c9552cb310483bb68d11cd2d6997de6544342f"
+    },
+    {
+      "bytes": 1516,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1/test_inertness.py",
+      "sha256": "deb3ef9c4c40fc219feca25c3c1eecbb9071ec21d3176e7714b7324e9d6f9524"
+    },
+    {
+      "bytes": 2857,
+      "path": "shared/job_runtime/tests/fixtures/r6_one_off_claude_catalog_parser_v1/nominal.jsonl",
+      "sha256": "2d2d30f9cb98a83eafbe91129cdef93b7cdeb174e948d2e5d5dbedae15d9712f"
+    },
+    {
+      "bytes": 1166,
+      "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/experiment.py",
+      "sha256": "5c8fc4fd6030e65cce0c157bd67847e5bf2b9b61ad4e9fd6a98940fdda1d16d3"
+    },
+    {
+      "bytes": 2176,
+      "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/protocol-v1.json",
+      "sha256": "ababd97a3d679efec74e6004e6f06f843252e8f6d1c769f34b8ef9eb1940729e"
+    },
+    {
+      "bytes": 2891,
+      "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/source-closure-v1.json",
+      "sha256": "c2c12e2dee057b550f52be85dda2c6383330720c5d4ffc7fb223731388a2d251"
+    },
+    {
+      "bytes": 1545,
+      "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/decision-v1.json",
+      "sha256": "cda6097daab76912871f24b5601bae5a705f76714e2e216dd90852833b33a942"
+    },
+    {
+      "bytes": 1659,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-membership-interpretation-receipt.json",
+      "sha256": "9f492a296ab261e7b7c7a2373a287f6a473577318300e35bba220e7bd3e3688c"
+    }
+  ],
+  "bound_input": {
+    "execution_receipt": {
+      "bytes": 2603,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-preflight-r6-execution-receipt.json",
+      "sha256": "b0b7312fe4bb6e451835f3c97288b560f53836f92cb69a1784f00ed324d44dc1"
+    },
+    "owner_private_stdout": {
+      "bytes": 5288,
+      "content_exposed": false,
+      "mode": "0600",
+      "path": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/live-provider-evidence/r6-one-off/claude-catalog-r6-32489c6235ba413a99eaf4fe8d89c7a1/stdout",
+      "sha256": "162c2ffbc043b84b6396168fde4fea592f6e77b0e9a3e3eba976db5ef36966dc"
+    }
+  },
+  "checks": {
+    "assistant_streaming_non_authoritative": true,
+    "closed_schema_extra_keys_rejected": true,
+    "credential_value_scan_pass": true,
+    "draft_2020_12_pass": true,
+    "duplicate_keys_rejected": true,
+    "exact_opus_5_5_once_in_terminal_only": true,
+    "exactly_one_terminal_result": true,
+    "local_slash_model_semantics": true,
+    "no_permission_or_safety_errors": true,
+    "original_execution_stop_preserved": true,
+    "provider_network_account_actions_zero": true,
+    "python_3_12_pass": true,
+    "python_3_9_pass": true,
+    "raw_content_not_published": true,
+    "result_is_error_false": true,
+    "retry_zero": true,
+    "secret_fields_rejected": true,
+    "wrong_or_assistant_only_model_rejected": true,
+    "zero_inference_and_model_usage": true,
+    "zero_total_cost": true
+  },
+  "claim_limits": [
+    "frozen catalog membership only",
+    "not execution PASS",
+    "not inference success",
+    "not countable A/B",
+    "raw remains owner-private"
+  ],
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "inference": 0,
+    "network": 0,
+    "provider": 0,
+    "replay": 0,
+    "retry": 0
+  },
+  "status": "PASS_FROZEN_CATALOG_MEMBERSHIP_EVIDENCE",
+  "tests": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1 -p 'test_*.py' -v",
+      "result": "OK",
+      "runtime": "Python 3.9.6",
+      "skip_reason": "jsonschema not installed in this runtime; Draft test executed in pinned project-local validator runtime",
+      "skipped": 1,
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 ./.job-runtime/python/cpython-3.12.16-macos-aarch64-none/bin/python3.12 -m unittest discover -s shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1 -p 'test_*.py' -v",
+      "result": "OK",
+      "runtime": "Python 3.12.16",
+      "skip_reason": "jsonschema not installed in this runtime; Draft test executed in pinned project-local validator runtime",
+      "skipped": 1,
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 ./.research-sources/.venv/bin/python -m unittest discover -s shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1 -p 'test_*.py' -v",
+      "result": "OK",
+      "runtime": "Python 3.12 project-local jsonschema 4.25.1",
+      "skipped": 0,
+      "tests": 13
+    }
+  ],
+  "verdict": "PASS_PROVIDER_FREE_FROZEN_CATALOG_PARSER",
+  "version": "r6-one-off-claude-catalog-parser-producer-verification-1"
+}

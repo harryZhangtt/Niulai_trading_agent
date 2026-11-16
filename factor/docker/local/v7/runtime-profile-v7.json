@@ -1,0 +1,37 @@
+{
+  "schema_version": 7,
+  "kind": "factor_local_colima_strict_activation_boundary",
+  "profile_id": "factor-local-docker-colima-v7",
+  "status": "selected-disabled",
+  "runnable": false,
+  "apply_allowed": false,
+  "workspace_policy": "immediate-path-identity-check-then-exact-path-cwd",
+  "timeout_policy": "always-unknown-term-grace-always-killpg-bounded-reap",
+  "probe_policy": "fixed-returncode-zero-bounded-strict-json-existing-socket-contained",
+  "authorization": {
+    "capability": "factor-local-v7-start",
+    "explicit_apply_required": true,
+    "parent_approval_required": true
+  },
+  "predecessors": {
+    "v6_tree_sha256": "89c934d199e1f58b2bfb5555ff69de3492bd9d3cddb65a97fd894918dccb60c0",
+    "v6_profile_physical_sha256": "69f798bbb7d2e14d4dae30fbc14daa223cadfd9ddac718d731cbcdc8341608bf",
+    "v6_profile_canonical_sha256": "051ad335925083a3325f02e8edbe023d35552dc88058c89253350123a18ab7c7",
+    "v5_tree_sha256": "990d35326ac4624b8d736f2475e96da0de01fac5b100f03973aea7ef94f2bd74",
+    "v4_profile_canonical_sha256": "5be9d1827441ba81c8d30beac9ee1090a2866320141940b526997bcf7e8a6407",
+    "v2_receipt_canonical_sha256": "c292459b46de9da23c7a90da3a439f71d83353aa14e2f4e43e91c2fd48e03327",
+    "v2_profile_canonical_sha256": "40c391e025b06da28555939d5face923469a5bd8db611d9f555529588db9a81d"
+  },
+  "threat_model": {
+    "held_fds_and_cooperative_lock": true,
+    "malicious_same_user_after_check_prevented": false,
+    "malicious_same_user_after_check_out_of_scope": true
+  },
+  "blockers": [
+    "explicit-v7-capability-not-issued",
+    "parent-v7-approval-not-recorded",
+    "real-v7-lifecycle-unrun",
+    "images-and-release-unresolved",
+    "runtime-acceptance-unrun"
+  ]
+}

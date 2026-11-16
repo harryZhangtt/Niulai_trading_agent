@@ -1,0 +1,253 @@
+{
+  "$id": "claude-campaign-evidence-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "pattern": "^[A-Z][A-Z0-9_]{0,63}$",
+      "type": "string"
+    },
+    "evidence_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "gateway_disposition": {
+      "enum": [
+        "pass_through",
+        "rejected_before_forward",
+        "cut"
+      ]
+    },
+    "http_status": {
+      "oneOf": [
+        {
+          "maximum": 599,
+          "minimum": 100,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "identity": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "oneOf": [
+            {
+              "properties": {
+                "campaign_id": {
+                  "const": "R6"
+                },
+                "job_id": {
+                  "const": "claude-campaign-v1.r6.slot-1"
+                },
+                "slot_id": {
+                  "const": "slot-1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "campaign_id": {
+                  "const": "R6"
+                },
+                "job_id": {
+                  "const": "claude-campaign-v1.r6.slot-2"
+                },
+                "slot_id": {
+                  "const": "slot-2"
+                }
+              }
+            },
+            {
+              "properties": {
+                "campaign_id": {
+                  "const": "R7"
+                },
+                "job_id": {
+                  "const": "claude-campaign-v1.r7.slot-1"
+                },
+                "slot_id": {
+                  "const": "slot-1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "campaign_id": {
+                  "const": "R7"
+                },
+                "job_id": {
+                  "const": "claude-campaign-v1.r7.slot-2"
+                },
+                "slot_id": {
+                  "const": "slot-2"
+                }
+              }
+            },
+            {
+              "properties": {
+                "campaign_id": {
+                  "const": "R8"
+                },
+                "job_id": {
+                  "const": "claude-campaign-v1.r8.slot-1"
+                },
+                "slot_id": {
+                  "const": "slot-1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "campaign_id": {
+                  "const": "R8"
+                },
+                "job_id": {
+                  "const": "claude-campaign-v1.r8.slot-2"
+                },
+                "slot_id": {
+                  "const": "slot-2"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "attempt_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$",
+          "type": "string"
+        },
+        "campaign_id": {
+          "enum": [
+            "R6",
+            "R7",
+            "R8"
+          ]
+        },
+        "config_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "gateway_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$",
+          "type": "string"
+        },
+        "job_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$",
+          "type": "string"
+        },
+        "operation_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$",
+          "type": "string"
+        },
+        "process_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$",
+          "type": "string"
+        },
+        "prompt_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$",
+          "type": "string"
+        },
+        "prompt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "request_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$",
+          "type": "string"
+        },
+        "run_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}$",
+          "type": "string"
+        },
+        "slot_id": {
+          "enum": [
+            "slot-1",
+            "slot-2"
+          ]
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "version": {
+          "const": 1
+        }
+      },
+      "required": [
+        "version",
+        "run_id",
+        "campaign_id",
+        "job_id",
+        "slot_id",
+        "attempt_id",
+        "operation_id",
+        "request_id",
+        "prompt_id",
+        "gateway_id",
+        "process_id",
+        "prompt_sha256",
+        "source_sha256",
+        "config_sha256"
+      ],
+      "type": "object"
+    },
+    "retry_after_seconds": {
+      "oneOf": [
+        {
+          "maximum": 2592000,
+          "minimum": 1,
+          "type": "integer",
+          "x-canonical-json-type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "submission": {
+      "enum": [
+        "not_submitted",
+        "possibly_submitted",
+        "definitely_submitted"
+      ]
+    },
+    "terminal_disposition": {
+      "enum": [
+        "success",
+        "failure",
+        "absent",
+        "contradictory"
+      ]
+    },
+    "typed_transient": {
+      "type": "boolean"
+    },
+    "upstream_forward_count": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "version",
+    "identity",
+    "gateway_disposition",
+    "terminal_disposition",
+    "upstream_forward_count",
+    "submission",
+    "http_status",
+    "retry_after_seconds",
+    "typed_transient",
+    "code",
+    "evidence_sha256"
+  ],
+  "type": "object"
+}

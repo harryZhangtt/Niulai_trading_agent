@@ -1,5 +1,34 @@
 # MCP stability incident and rollout record
 
+## Isolated LangChain MCP: 2026-11-16
+
+The existing atomic Agent Server2025 exposes MCP without changing the active
+Codex configuration. Project-local clients negotiated the actual local/hosted
+protocols, pinned tool schemas, executed local calculator/holdings and read
+exact owned synthetic traces via hosted LangSmith Remote MCP. The final
+cooperative trace-inspection agent completed four queries; independent review
+passed69 evidence assertions. New local tests passed67 cases including14
+independent in-memory mutation controls. The old339 baseline/history is retained.
+
+The final local calculator MCP call stopped at its10-second attempt deadline
+while native execution completed after14.857335 seconds. Its acknowledgement
+remains unknown and fenced; exact native result10 was reread without replay.
+RPC-to-thread linkage is not protocol-attested. The never-attempted holdings
+call was subsequently acknowledged with the expected synthetic result. Do not
+call the final two-tool acknowledgement gate PASS or reuse an older candidate's
+successful receipt. This preserves a real failure alongside usable scoped proof.
+
+All three graph IDs/xray subgraphs and retained ordinary Studio thread states
+were reread. A completed MCP thread returned404; MCP's synchronous independent
+call lifecycle is distinct from Studio's retained thread/run history. Browser
+connection stability and asynchronous lifecycle MCP control remain unverified.
+Both existing2024/2025 processes are preserved. No global/native registration,
+host hook, browser permission, broker, scheduler or business email was changed.
+`shared/langchain_mcp/host-candidate.json` stays disabled. Local source/evidence
+does not satisfy disposable native-host rollout or future scheduled acceptance.
+See [setup/recovery](deployment/langchain-mcp.md) and
+[verification](../tuning/langchain_mcp_agent/VERIFICATION.md).
+
 ## Isolated research sources: 2026-10-30
 
 The optional `arxiv-mcp-server==0.8.2` candidate was installed in a separate

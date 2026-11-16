@@ -1,0 +1,6 @@
+{"sample_id":"dev-aaa","unit":"log-return","value":"0.01"}
+{"sample_id":"dev-bbb","unit":"log-return","value":"0.02"}
+{"sample_id":"prot-aaa","unit":"log-return","value":"0.01"}
+{"sample_id":"prot-bbb","unit":"log-return","value":"0.02"}
+{"sample_id":"val-aaa","unit":"log-return","value":"0.01"}
+{"sample_id":"val-bbb","unit":"log-return","value":"0.02"}

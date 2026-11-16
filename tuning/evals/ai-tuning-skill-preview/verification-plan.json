@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "scope": "ai-tuning explicit skill and development-only live smoke",
+  "candidate_version": "1.0.2",
+  "candidate_fingerprint": "978efbf0cf440595c1e2aad992e5a32a5ef9b26517f29b8029ff806c0e3d710f",
+  "freeze_policy": "Do not modify frozen candidate or v2 evaluation source; version any new live adapter separately.",
+  "selected_guidance": ["KC-EVIDENCE-001", "KC-ADMISSION-001"],
+  "models": ["claude-fable-5-1", "claude-opus-5-5"],
+  "scope_budget_usd": 3.0,
+  "candidate_total_cap_usd": 25.0,
+  "budget_policy": "Reserve and reconcile all calls against candidate total; no automatic retry or budget extension.",
+  "workload": "First development record in frozen development-cases.json, selected before model results; strip gold and rubric from solver packets.",
+  "comparison": "O0 solver versus O1 route then solver, same case and model/settings; one repetition per arm/model.",
+  "planned_calls": 6,
+  "pass_criteria": [
+    "Native Skill tool loads ai-tuning successfully",
+    "Candidate and evaluation frozen validators pass unchanged",
+    "Both models return attributable complete usage and exact model identity",
+    "O0 and O1 outputs pass identical frozen schema and identity-leak checks",
+    "All six calls have terminal receipts, no unresolved dispatch outcome and total cost within scope and candidate caps",
+    "No protected data or production effects occur"
+  ],
+  "stop_conditions": ["identity leak", "unknown outcome", "model mismatch", "budget exhaustion", "unavailable authorized provider"],
+  "allowed_claim": "Explicit invocation and development smoke transport work in tested scope only; no measured quality lift or production acceptance.",
+  "promotion_policy": "Protected custody, full dual-model quality gates, blinded judging and native runtime acceptance remain separate."
+}

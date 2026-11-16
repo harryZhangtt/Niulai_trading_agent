@@ -1,0 +1,60 @@
+{
+  "disposition": {
+    "OPEN-P0-V9-G3-SCHEMA-002": "UNCHANGED_P0_V10_REQUIRED",
+    "OPEN-RUNNER-V8-CONCURRENCY-001": "TARGETED_BY_ADDITIVE_V2_PRODUCER_TESTS_PENDING_FRESH_INDEPENDENT_REVIEW",
+    "other_runner_findings": "PENDING_ADJUDICATION_NOT_DISPROVED"
+  },
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "generated_at_utc": "2026-11-12T01:19:07Z",
+  "history_rewrite": false,
+  "predecessor": "r6_data_quality_2x2_runner_v1",
+  "runner_v8_independent_review": {
+    "bytes": 6255,
+    "confirmed_findings": [
+      "OPEN-RUNNER-V8-CONCURRENCY-001",
+      "OPEN-P0-V9-G3-SCHEMA-002"
+    ],
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v8-independent-review-fable-20261112-8e9a8076-open.json",
+    "sha256": "145265647df2a9231d7b64f3b7c70c7266403b38cb15ad98e38deef3a6d588f5",
+    "verdict": "OPEN"
+  },
+  "runner_v8_records": {
+    "decision": {
+      "bytes": 4998,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/decision-v8-rebased-p0-v9.json",
+      "sha256": "7439e95aaecd3d7524fc317ee82377cdfa04191ba87cb7ca5686f1a6e616a29c"
+    },
+    "history_index": {
+      "bytes": 2908,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/history/history-index-v8.json",
+      "sha256": "5ea4d4ffa90a2ff2546843cb2c0887a98031b2d9d551c48256daacf1a78b0ce9"
+    },
+    "producer": {
+      "bytes": 13311,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/distinct-producer-verification-v8-rebased-p0-v9.json",
+      "sha256": "65cb484d1a6e4504e4ad2709729f4439dd33b83dfd5e49d765121034a6622f1a"
+    },
+    "protocol": {
+      "bytes": 10517,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/protocol-v8-rebased-p0-v9.json",
+      "sha256": "4cbac80f89a7b8d558d54a069e46ec63d4954d3fd62697cbf43f334760cd56e6"
+    },
+    "source_closure": {
+      "bytes": 13158,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/source-closure-v8-rebased-p0-v9.json",
+      "sha256": "ebc32d102628ecfcc6ffa3809263843ced71abddf384e5f109d3588ab76d97f9"
+    }
+  },
+  "status": "OPEN_HISTORY_PRESERVED_NOT_REWRITTEN_OR_PROMOTED",
+  "version": "r6-data-quality-2x2-runner-v2-history-index-v2"
+}

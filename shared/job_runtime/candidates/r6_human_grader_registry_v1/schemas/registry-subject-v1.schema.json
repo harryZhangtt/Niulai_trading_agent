@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "r6-human-grader-registry-subject-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "artifact_kind", "status", "activation", "registry_id", "role_assignment", "evaluation", "roles", "attestations"],
+  "properties": {
+    "version": {"const": "r6-human-grader-registry-subject-v1"},
+    "artifact_kind": {"const": "HUMAN_GRADER_REGISTRY"},
+    "status": {"enum": ["PENDING_HUMAN_SIGNATURE", "HUMAN_SIGNED_ATTESTATION"]},
+    "activation": {"const": false},
+    "registry_id": {"const": "R6DQ-HUMAN-GRADER-REGISTRY-V1"},
+    "role_assignment": {"$ref": "#/$defs/ref"},
+    "evaluation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contract", "producer_verification", "clean_review"],
+      "properties": {
+        "contract": {"$ref": "#/$defs/ref"},
+        "producer_verification": {"$ref": "#/$defs/ref"},
+        "clean_review": {"$ref": "#/$defs/ref"}
+      }
+    },
+    "roles": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["role", "human_reviewer_id"],
+        "properties": {
+          "role": {"enum": ["G1", "G2", "G3"]},
+          "human_reviewer_id": {"pattern": "^HGR-[0-9A-F]{4}$", "type": "string"}
+        }
+      }
+    },
+    "attestations": {
+      "type": "object", "additionalProperties": false,
+      "required": ["human_controlled", "not_ai_or_fixture_generated", "no_names_emails_or_credentials"],
+      "properties": {
+        "human_controlled": {"const": true},
+        "not_ai_or_fixture_generated": {"const": true},
+        "no_names_emails_or_credentials": {"const": true}
+      }
+    },
+    "attested_at": {"type": "string", "minLength": 1},
+    "human_signature_attestation": {"type": "string", "minLength": 16, "maxLength": 512, "pattern": "^[A-Za-z0-9._:-]+$"}
+  },
+  "allOf": [{
+    "if": {"properties": {"status": {"const": "HUMAN_SIGNED_ATTESTATION"}}},
+    "then": {"required": ["attested_at", "human_signature_attestation"]},
+    "else": {"not": {"anyOf": [{"required": ["attested_at"]}, {"required": ["human_signature_attestation"]}]}}
+  }],
+  "$defs": {
+    "ref": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "bytes", "mode"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "mode": {"enum": ["0600", "0644"]}
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "activation": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "live": 0,
+    "network": 0,
+    "private_state": 0,
+    "provider": 0,
+    "scheduler": 0,
+    "subagent": 0
+  },
+  "excluded": [
+    "producer-verification-v2.json",
+    "future independent review",
+    "live artifacts"
+  ],
+  "independent_review_created_by_producer": false,
+  "old_files_modified": false,
+  "predecessors": {
+    "v1_contract": {
+      "bytes": 21151,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v1.json",
+      "sha256": "18c865850f03d959d361b5d7f481c78e0e6d406fe4bfb5915c1008f5ff97f361"
+    },
+    "v1_producer": {
+      "bytes": 2970,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v1/producer-verification-v1.json",
+      "sha256": "49f899eda70da60e6e6268ab92381b8245683aa96a9a261660340c7f92f86b79"
+    }
+  },
+  "sources": {
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v2.json": {
+      "bytes": 8442,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v2.json",
+      "sha256": "20ff8382756fa18e1fcbda05d6d254e6dc7f7973925b15b1705682cd788c75cf"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/__init__.py": {
+      "bytes": 93,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/__init__.py",
+      "sha256": "7e125d1881e1f9209e2f53afd131f0d32e496e294edb63ea68290609c4ff7676"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/artifact-ref-v2.schema.json": {
+      "bytes": 650,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/artifact-ref-v2.schema.json",
+      "sha256": "7e80fbffea55f12ffa06c46fd201f5794925a99f298104f6d0417efd17eba0c7"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/blind-packet-v2.schema.json": {
+      "bytes": 1422,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/blind-packet-v2.schema.json",
+      "sha256": "82287401b0b725951217b8ca881a7b4579aaab1ad4385e05b1d48458f79632f1"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/citation-inventory-v2.schema.json": {
+      "bytes": 536,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/citation-inventory-v2.schema.json",
+      "sha256": "630af14566f02e106fb9fb0c3db06b72166b1166a6a9282b438960a3590a768a"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/deterministic-gate-report-v2.schema.json": {
+      "bytes": 1309,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/deterministic-gate-report-v2.schema.json",
+      "sha256": "251bc6cff16dd714d37a2bc86aea60e775d0787d27581a8a1dd56b354ba81e2c"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/evaluation-storage-v2.schema.json": {
+      "bytes": 570,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/evaluation-storage-v2.schema.json",
+      "sha256": "a17fe0c25e4dc536ea569c37c9796a2090741414e1ce0ebf016dcd1c37ec1613"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/evidence-record-v2.schema.json": {
+      "bytes": 3266,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/evidence-record-v2.schema.json",
+      "sha256": "92398645f14507662f1f38a3f371e13fed73d072b37a351657151896d8399b27"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/grade-record-v2.schema.json": {
+      "bytes": 4501,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/grade-record-v2.schema.json",
+      "sha256": "aaefdc6b7fb60bca058447e60f55f91ff1d5e812e26d5b73daf0293635b5b56d"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/harness.py": {
+      "bytes": 22201,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/harness.py",
+      "sha256": "2b24f22dd132f8198bac1abfc5f25fae80ad2fc3d689381ed3c8c89213d6b86e"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/raw-custody-receipt-v2.schema.json": {
+      "bytes": 379,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/raw-custody-receipt-v2.schema.json",
+      "sha256": "e2e69db8fc9b525111a1e7947caa6b6d01debd23279330490b7d18a36988f06e"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/sanitized-output-v2.schema.json": {
+      "bytes": 290,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/sanitized-output-v2.schema.json",
+      "sha256": "63f95d46efc33b40a7f2ed79bd277a1cb09b8a2cc3eb1c1caeee6e0f95a4e742"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/source-inventory-v2.schema.json": {
+      "bytes": 507,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v2/source-inventory-v2.schema.json",
+      "sha256": "43f21fa7edf6fb68b1ce5624b9cdbafde69ed1cfbd53690f3a74184730b33f2f"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v2/__init__.py": {
+      "bytes": 0,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v2/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v2/test_evaluation_v2.py": {
+      "bytes": 11411,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v2/test_evaluation_v2.py",
+      "sha256": "de269c21c5a7be42513f6f77ba969f61e7aa8875cd60423e9c58071fd9a460cf"
+    },
+    "shared/job_runtime/tests/fixtures/r6_data_quality_2x2_evaluation_v2/cases.json": {
+      "bytes": 625,
+      "path": "shared/job_runtime/tests/fixtures/r6_data_quality_2x2_evaluation_v2/cases.json",
+      "sha256": "fb93a44e3d3beda4ec5083b06d2fc6e2b912faacb02ad47b78a25eeeeb45f1f9"
+    },
+    "tuning/architecture/r6_data_quality_2x2_evaluation_v2/decision-v2.json": {
+      "bytes": 1083,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v2/decision-v2.json",
+      "sha256": "b3dc5d326727c23b84b06b103087dce47cdc1dea57c42ebd115528a30079e65c"
+    },
+    "tuning/architecture/r6_data_quality_2x2_evaluation_v2/protocol-v2.json": {
+      "bytes": 1085,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v2/protocol-v2.json",
+      "sha256": "8441211faafec2eda5b0c7aa40f58a480c3d1a5365b05845349ffec60ff45a02"
+    }
+  },
+  "status": "FROZEN_ADDITIVE_PROVIDER_FREE_SOURCE_CLOSURE_V2",
+  "version": "r6-data-quality-2x2-evaluation-source-closure-v2"
+}

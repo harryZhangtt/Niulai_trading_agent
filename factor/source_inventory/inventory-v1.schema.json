@@ -1,0 +1,5367 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "factor-source-inventory-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "inventory_id",
+    "version",
+    "trust_class",
+    "status",
+    "structural_ready",
+    "real_ready",
+    "entries",
+    "blockers",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "factor_source_inventory"
+    },
+    "inventory_id": {
+      "$ref": "#/$defs/id"
+    },
+    "version": {
+      "const": 1
+    },
+    "trust_class": {
+      "enum": [
+        "candidate_real",
+        "synthetic_fixture"
+      ]
+    },
+    "status": {
+      "enum": [
+        "selected_disabled_unverified",
+        "synthetic_fixture"
+      ]
+    },
+    "structural_ready": {
+      "type": "boolean"
+    },
+    "real_ready": {
+      "const": false
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "$ref": "#/$defs/entry"
+      },
+      "uniqueItems": true,
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "real_yield"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "credit_spread"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "cash_rate"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "spy_market"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "oneq_market"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "blockers": {
+      "type": "array",
+      "maxItems": 22,
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "uniqueItems": true
+    },
+    "limitations": {
+      "oneOf": [
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "selected-routes-disabled"
+            },
+            {
+              "const": "provider-unverified"
+            },
+            {
+              "const": "license-unverified"
+            },
+            {
+              "const": "availability-unverified"
+            },
+            {
+              "const": "no-values"
+            },
+            {
+              "const": "no-outcomes"
+            },
+            {
+              "const": "not-run-authorized"
+            }
+          ],
+          "items": false,
+          "minItems": 7,
+          "maxItems": 7
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "fixture-only"
+            },
+            {
+              "const": "no-real-provider"
+            },
+            {
+              "const": "no-values"
+            },
+            {
+              "const": "no-outcomes"
+            },
+            {
+              "const": "not-run-authorized"
+            }
+          ],
+          "items": false,
+          "minItems": 5,
+          "maxItems": 5
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "trust_class": {
+            "const": "candidate_real"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "limitations": {
+            "const": [
+              "selected-routes-disabled",
+              "provider-unverified",
+              "license-unverified",
+              "availability-unverified",
+              "no-values",
+              "no-outcomes",
+              "not-run-authorized"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trust_class": {
+            "const": "synthetic_fixture"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "limitations": {
+            "const": [
+              "fixture-only",
+              "no-real-provider",
+              "no-values",
+              "no-outcomes",
+              "not-run-authorized"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trust_class": {
+            "const": "candidate_real"
+          }
+        },
+        "required": [
+          "trust_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "selected_disabled_unverified"
+          },
+          "structural_ready": {
+            "const": false
+          },
+          "real_ready": {
+            "const": false
+          },
+          "blockers": {
+            "const": [
+              "source-authority-unverified",
+              "source-version-unverified",
+              "vintage-history-unverified",
+              "available-at-basis-unverified",
+              "acquisition-receipts-unavailable",
+              "license-unresolved",
+              "redistribution-unresolved",
+              "retention-unresolved",
+              "calendar-authority-unresolved",
+              "security-master-unresolved",
+              "corporate-actions-unresolved",
+              "executable-price-policy-unresolved",
+              "total-return-policy-unresolved",
+              "cost-policy-unresolved",
+              "missingness-coverage-unverified",
+              "provider-accounts-unprovisioned",
+              "provider-api-access-unprovisioned",
+              "provider-entitlements-unverified",
+              "provider-orders-unverified",
+              "provider-license-receipts-unavailable",
+              "provider-retention-receipts-unavailable",
+              "pit-route-receipts-unavailable"
+            ]
+          },
+          "entries": {
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/entry"
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "real_yield"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": {
+                          "$ref": "#/$defs/selected_real_yield_route"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "credit_spread"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": {
+                          "$ref": "#/$defs/selected_credit_spread_route"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "cash_rate"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": {
+                          "$ref": "#/$defs/selected_cash_rate_route"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "spy_market"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "$ref": "#/$defs/selected_spy_market_route"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "oneq_market"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "$ref": "#/$defs/selected_oneq_market_route"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trust_class": {
+            "const": "synthetic_fixture"
+          }
+        },
+        "required": [
+          "trust_class"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "synthetic_fixture"
+          },
+          "structural_ready": {
+            "const": true
+          },
+          "real_ready": {
+            "const": false
+          },
+          "blockers": {
+            "const": []
+          },
+          "entries": {
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/entry"
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "real_yield"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 1,
+                        "maxItems": 1,
+                        "items": {
+                          "$ref": "#/$defs/synthetic_real_yield_route"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "credit_spread"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 1,
+                        "maxItems": 1,
+                        "items": {
+                          "$ref": "#/$defs/synthetic_credit_spread_route"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "cash_rate"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 1,
+                        "maxItems": 1,
+                        "items": {
+                          "$ref": "#/$defs/synthetic_cash_rate_route"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "spy_market"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 1,
+                        "maxItems": 1,
+                        "items": {
+                          "$ref": "#/$defs/synthetic_spy_market_route"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "role": {
+                        "const": "oneq_market"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "provider_routes": {
+                        "minItems": 1,
+                        "maxItems": 1,
+                        "items": {
+                          "$ref": "#/$defs/synthetic_oneq_market_route"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_.-]{0,95}$"
+    },
+    "sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "nullableId": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nullableSha": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/sha"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "route": {
+      "oneOf": [
+        {
+          "title": "real_yield-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "fred"
+            },
+            "product_id": {
+              "const": "fred-alfred"
+            },
+            "series_id": {
+              "const": "dfii5"
+            },
+            "endpoint_id": {
+              "const": "fred-series-observations"
+            },
+            "schema_id": {
+              "const": "fred-vintage-observations-v1"
+            },
+            "pit_method": {
+              "const": "alfred-vintage-realtime-intervals"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "terms-confirmation-required",
+                "attribution-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "alfred-vintage-conformance-unverified"
+              ]
+            },
+            "role": {
+              "const": "real_yield"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "real_yield-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "federal-reserve-board"
+            },
+            "product_id": {
+              "const": "h15-ddp"
+            },
+            "series_id": {
+              "const": "dfii5"
+            },
+            "endpoint_id": {
+              "const": "h15-ddp-values"
+            },
+            "schema_id": {
+              "const": "h15-ddp-v1"
+            },
+            "pit_method": {
+              "const": "contemporaneous-capture-required"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "fallback-only",
+                "contemporaneous-capture-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "contemporaneous-capture-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "real_yield"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "credit_spread-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "fred"
+            },
+            "product_id": {
+              "const": "alfred-ice-bofa"
+            },
+            "series_id": {
+              "const": "bamlc0a0cm"
+            },
+            "endpoint_id": {
+              "const": "fred-series-observations"
+            },
+            "schema_id": {
+              "const": "fred-vintage-observations-v1"
+            },
+            "pit_method": {
+              "const": "alfred-vintage-realtime-intervals"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "internal-research-only",
+                "no-redistribution",
+                "ice-license-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "ice-rights-confirmation-unavailable"
+              ]
+            },
+            "role": {
+              "const": "credit_spread"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "credit_spread-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "ice"
+            },
+            "product_id": {
+              "const": "consolidated-history"
+            },
+            "series_id": {
+              "const": "bamlc0a0cm"
+            },
+            "endpoint_id": {
+              "const": "ice-consolidated-history"
+            },
+            "schema_id": {
+              "const": "ice-index-history-v1"
+            },
+            "pit_method": {
+              "const": "licensed-vintage-history"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "licensed-entitlement-required",
+                "internal-research-only",
+                "no-redistribution"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "ice-direct-entitlement-unavailable"
+              ]
+            },
+            "role": {
+              "const": "credit_spread"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "cash_rate-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "fred"
+            },
+            "product_id": {
+              "const": "fred-alfred"
+            },
+            "series_id": {
+              "const": "dff"
+            },
+            "endpoint_id": {
+              "const": "fred-series-observations"
+            },
+            "schema_id": {
+              "const": "fred-vintage-observations-v1"
+            },
+            "pit_method": {
+              "const": "alfred-vintage-realtime-intervals"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "terms-confirmation-required",
+                "attribution-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "alfred-vintage-conformance-unverified"
+              ]
+            },
+            "role": {
+              "const": "cash_rate"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "cash_rate-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "new-york-fed"
+            },
+            "product_id": {
+              "const": "markets-data-api"
+            },
+            "series_id": {
+              "const": "effr"
+            },
+            "endpoint_id": {
+              "const": "nyfed-markets-reference-rates"
+            },
+            "schema_id": {
+              "const": "nyfed-effr-v1"
+            },
+            "pit_method": {
+              "const": "contemporaneous-archive-required"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "fallback-only",
+                "contemporaneous-archive-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "contemporaneous-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "cash_rate"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "spy_market-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "databento"
+            },
+            "product_id": {
+              "const": "equs-mini"
+            },
+            "series_id": {
+              "const": "spy"
+            },
+            "endpoint_id": {
+              "const": "databento-timeseries-and-reference"
+            },
+            "schema_id": {
+              "const": "ohlcv-1d-unadjusted-plus-pit-actions-v1"
+            },
+            "pit_method": {
+              "const": "versioned-pit-corporate-actions"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "contract-confirmation-required",
+                "unadjusted-bars-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "databento-contract-confirmation-unavailable",
+                "corporate-action-pit-conformance-unverified"
+              ]
+            },
+            "role": {
+              "const": "spy_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "event_identity_policy": {
+              "const": "event-unique-id-required"
+            },
+            "correction_policy": {
+              "const": "ts-record-correction-chain"
+            },
+            "cancellation_policy": {
+              "const": "ts-record-cancel-excludes-event"
+            },
+            "version_selection_policy": {
+              "const": "max-ts-record-per-event-as-of-cutoff"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "spy_market-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "massive"
+            },
+            "product_id": {
+              "const": "stocks"
+            },
+            "series_id": {
+              "const": "spy"
+            },
+            "endpoint_id": {
+              "const": "massive-aggregates-dividends-splits"
+            },
+            "schema_id": {
+              "const": "massive-unadjusted-actions-v1"
+            },
+            "pit_method": {
+              "const": "archive-or-correction-feed-required"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "commercial-terms-required",
+                "cache-deletion-required",
+                "unadjusted-bars-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "massive-commercial-terms-unverified",
+                "massive-cache-deletion-unverified",
+                "correction-feed-or-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "spy_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "event_identity_policy": {
+              "const": "provider-event-or-archive-hash-required"
+            },
+            "correction_policy": {
+              "const": "correction-feed-or-archive-required"
+            },
+            "cancellation_policy": {
+              "const": "cancellation-history-required"
+            },
+            "version_selection_policy": {
+              "const": "archive-as-of-cutoff-required"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "spy_market-selected-3",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "cross-check"
+            },
+            "provider_id": {
+              "const": "tiger"
+            },
+            "product_id": {
+              "const": "openapi-quote-corp-action"
+            },
+            "series_id": {
+              "const": "spy"
+            },
+            "endpoint_id": {
+              "const": "tiger-stock-quote-and-corp-action"
+            },
+            "schema_id": {
+              "const": "tiger-operational-cross-check-v1"
+            },
+            "pit_method": {
+              "const": "not-pit-admissible"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "cross-check-only"
+            },
+            "rights_codes": {
+              "const": [
+                "cross-check-only",
+                "not-pit-admissible",
+                "no-research-admission"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "tiger-retention-redistribution-unverified",
+                "not-pit-admissible",
+                "tiger-action-revision-history-unavailable",
+                "tiger-contemporaneous-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "spy_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "not-pit-admissible"
+            },
+            "mapping_version_policy": {
+              "const": "not-pit-admissible"
+            },
+            "event_identity_policy": {
+              "const": "not-pit-admissible"
+            },
+            "correction_policy": {
+              "const": "not-pit-admissible"
+            },
+            "cancellation_policy": {
+              "const": "not-pit-admissible"
+            },
+            "version_selection_policy": {
+              "const": "not-pit-admissible"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-pit-admissible"
+            },
+            "total_return_formula_version": {
+              "const": "not-pit-admissible"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "oneq_market-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "databento"
+            },
+            "product_id": {
+              "const": "equs-mini"
+            },
+            "series_id": {
+              "const": "oneq"
+            },
+            "endpoint_id": {
+              "const": "databento-timeseries-and-reference"
+            },
+            "schema_id": {
+              "const": "ohlcv-1d-unadjusted-plus-pit-actions-v1"
+            },
+            "pit_method": {
+              "const": "versioned-pit-corporate-actions"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "contract-confirmation-required",
+                "unadjusted-bars-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "databento-contract-confirmation-unavailable",
+                "corporate-action-pit-conformance-unverified"
+              ]
+            },
+            "role": {
+              "const": "oneq_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "event_identity_policy": {
+              "const": "event-unique-id-required"
+            },
+            "correction_policy": {
+              "const": "ts-record-correction-chain"
+            },
+            "cancellation_policy": {
+              "const": "ts-record-cancel-excludes-event"
+            },
+            "version_selection_policy": {
+              "const": "max-ts-record-per-event-as-of-cutoff"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "oneq_market-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "massive"
+            },
+            "product_id": {
+              "const": "stocks"
+            },
+            "series_id": {
+              "const": "oneq"
+            },
+            "endpoint_id": {
+              "const": "massive-aggregates-dividends-splits"
+            },
+            "schema_id": {
+              "const": "massive-unadjusted-actions-v1"
+            },
+            "pit_method": {
+              "const": "archive-or-correction-feed-required"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "commercial-terms-required",
+                "cache-deletion-required",
+                "unadjusted-bars-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "massive-commercial-terms-unverified",
+                "massive-cache-deletion-unverified",
+                "correction-feed-or-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "oneq_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "event_identity_policy": {
+              "const": "provider-event-or-archive-hash-required"
+            },
+            "correction_policy": {
+              "const": "correction-feed-or-archive-required"
+            },
+            "cancellation_policy": {
+              "const": "cancellation-history-required"
+            },
+            "version_selection_policy": {
+              "const": "archive-as-of-cutoff-required"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "oneq_market-selected-3",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "cross-check"
+            },
+            "provider_id": {
+              "const": "tiger"
+            },
+            "product_id": {
+              "const": "openapi-quote-corp-action"
+            },
+            "series_id": {
+              "const": "oneq"
+            },
+            "endpoint_id": {
+              "const": "tiger-stock-quote-and-corp-action"
+            },
+            "schema_id": {
+              "const": "tiger-operational-cross-check-v1"
+            },
+            "pit_method": {
+              "const": "not-pit-admissible"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "cross-check-only"
+            },
+            "rights_codes": {
+              "const": [
+                "cross-check-only",
+                "not-pit-admissible",
+                "no-research-admission"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "tiger-retention-redistribution-unverified",
+                "not-pit-admissible",
+                "tiger-action-revision-history-unavailable",
+                "tiger-contemporaneous-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "oneq_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "not-pit-admissible"
+            },
+            "mapping_version_policy": {
+              "const": "not-pit-admissible"
+            },
+            "event_identity_policy": {
+              "const": "not-pit-admissible"
+            },
+            "correction_policy": {
+              "const": "not-pit-admissible"
+            },
+            "cancellation_policy": {
+              "const": "not-pit-admissible"
+            },
+            "version_selection_policy": {
+              "const": "not-pit-admissible"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-pit-admissible"
+            },
+            "total_return_formula_version": {
+              "const": "not-pit-admissible"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "real_yield-synthetic",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "admissibility": {
+              "const": "fixture-only"
+            },
+            "blockers": {
+              "const": []
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "endpoint_id": {
+              "const": "synthetic-endpoint"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "pit_method": {
+              "const": "synthetic-known-at"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "product_id": {
+              "const": "synthetic-fixture"
+            },
+            "provider_id": {
+              "const": "synthetic-provider"
+            },
+            "rights_codes": {
+              "const": [
+                "synthetic-only"
+              ]
+            },
+            "role": {
+              "const": "real_yield"
+            },
+            "schema_id": {
+              "const": "synthetic-schema-v1"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "series_id": {
+              "const": "synthetic-real_yield"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "api_access_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "order_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "entitlement_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "license_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "retention_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "pit_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            }
+          }
+        },
+        {
+          "title": "credit_spread-synthetic",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "admissibility": {
+              "const": "fixture-only"
+            },
+            "blockers": {
+              "const": []
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "endpoint_id": {
+              "const": "synthetic-endpoint"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "pit_method": {
+              "const": "synthetic-known-at"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "product_id": {
+              "const": "synthetic-fixture"
+            },
+            "provider_id": {
+              "const": "synthetic-provider"
+            },
+            "rights_codes": {
+              "const": [
+                "synthetic-only"
+              ]
+            },
+            "role": {
+              "const": "credit_spread"
+            },
+            "schema_id": {
+              "const": "synthetic-schema-v1"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "series_id": {
+              "const": "synthetic-credit_spread"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "api_access_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "order_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "entitlement_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "license_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "retention_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "pit_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            }
+          }
+        },
+        {
+          "title": "cash_rate-synthetic",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "admissibility": {
+              "const": "fixture-only"
+            },
+            "blockers": {
+              "const": []
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "endpoint_id": {
+              "const": "synthetic-endpoint"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "pit_method": {
+              "const": "synthetic-known-at"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "product_id": {
+              "const": "synthetic-fixture"
+            },
+            "provider_id": {
+              "const": "synthetic-provider"
+            },
+            "rights_codes": {
+              "const": [
+                "synthetic-only"
+              ]
+            },
+            "role": {
+              "const": "cash_rate"
+            },
+            "schema_id": {
+              "const": "synthetic-schema-v1"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "series_id": {
+              "const": "synthetic-cash_rate"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "api_access_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "order_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "entitlement_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "license_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "retention_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "pit_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            }
+          }
+        },
+        {
+          "title": "spy_market-synthetic",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "admissibility": {
+              "const": "fixture-only"
+            },
+            "blockers": {
+              "const": []
+            },
+            "cancellation_policy": {
+              "const": "ts-record-cancel-excludes-event"
+            },
+            "correction_policy": {
+              "const": "ts-record-correction-chain"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "endpoint_id": {
+              "const": "synthetic-endpoint"
+            },
+            "event_identity_policy": {
+              "const": "event-unique-id-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "pit_method": {
+              "const": "synthetic-known-at"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "product_id": {
+              "const": "synthetic-fixture"
+            },
+            "provider_id": {
+              "const": "synthetic-provider"
+            },
+            "rights_codes": {
+              "const": [
+                "synthetic-only"
+              ]
+            },
+            "role": {
+              "const": "spy_market"
+            },
+            "schema_id": {
+              "const": "synthetic-schema-v1"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "series_id": {
+              "const": "synthetic-spy_market"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "version_selection_policy": {
+              "const": "max-ts-record-per-event-as-of-cutoff"
+            },
+            "account_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "api_access_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "order_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "entitlement_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "license_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "retention_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "pit_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            }
+          }
+        },
+        {
+          "title": "oneq_market-synthetic",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "admissibility": {
+              "const": "fixture-only"
+            },
+            "blockers": {
+              "const": []
+            },
+            "cancellation_policy": {
+              "const": "ts-record-cancel-excludes-event"
+            },
+            "correction_policy": {
+              "const": "ts-record-correction-chain"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "endpoint_id": {
+              "const": "synthetic-endpoint"
+            },
+            "event_identity_policy": {
+              "const": "event-unique-id-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "pit_method": {
+              "const": "synthetic-known-at"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "product_id": {
+              "const": "synthetic-fixture"
+            },
+            "provider_id": {
+              "const": "synthetic-provider"
+            },
+            "rights_codes": {
+              "const": [
+                "synthetic-only"
+              ]
+            },
+            "role": {
+              "const": "oneq_market"
+            },
+            "schema_id": {
+              "const": "synthetic-schema-v1"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "series_id": {
+              "const": "synthetic-oneq_market"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "version_selection_policy": {
+              "const": "max-ts-record-per-event-as-of-cutoff"
+            },
+            "account_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "api_access_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "order_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "entitlement_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "license_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "retention_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            },
+            "pit_receipt_sha256": {
+              "$ref": "#/$defs/sha"
+            }
+          }
+        }
+      ]
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inventory_alias",
+        "role",
+        "provider_routes",
+        "source_kind",
+        "entity_scope",
+        "unit",
+        "frequency",
+        "revision_policy",
+        "source_authority_id",
+        "source_version",
+        "vintage_history_complete",
+        "vintage_history_receipt_sha256",
+        "available_at_basis",
+        "available_at_receipt_sha256",
+        "acquisition_receipt_sha256",
+        "license_id",
+        "redistribution",
+        "retention_policy_id",
+        "calendar_id",
+        "calendar_attestation_sha256",
+        "security_master_id",
+        "security_master_attestation_sha256",
+        "corporate_action_policy_id",
+        "executable_price_policy_id",
+        "total_return_policy_id",
+        "cost_policy_id",
+        "missingness_policy_id",
+        "missingness_coverage_receipt_sha256"
+      ],
+      "properties": {
+        "inventory_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "role": {
+          "enum": [
+            "real_yield",
+            "credit_spread",
+            "cash_rate",
+            "spy_market",
+            "oneq_market"
+          ]
+        },
+        "provider_routes": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/route"
+          },
+          "uniqueItems": true
+        },
+        "source_kind": {
+          "enum": [
+            "macro",
+            "cash",
+            "market"
+          ]
+        },
+        "entity_scope": {
+          "enum": [
+            "global",
+            "instrument"
+          ]
+        },
+        "unit": {
+          "$ref": "#/$defs/id"
+        },
+        "frequency": {
+          "enum": [
+            "daily",
+            "session"
+          ]
+        },
+        "revision_policy": {
+          "enum": [
+            "immutable",
+            "revisable"
+          ]
+        },
+        "source_authority_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "source_version": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "vintage_history_complete": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "vintage_history_receipt_sha256": {
+          "$ref": "#/$defs/nullableSha"
+        },
+        "available_at_basis": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "available_at_receipt_sha256": {
+          "$ref": "#/$defs/nullableSha"
+        },
+        "acquisition_receipt_sha256": {
+          "$ref": "#/$defs/nullableSha"
+        },
+        "license_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "redistribution": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "retention_policy_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "calendar_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "calendar_attestation_sha256": {
+          "$ref": "#/$defs/nullableSha"
+        },
+        "security_master_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "security_master_attestation_sha256": {
+          "$ref": "#/$defs/nullableSha"
+        },
+        "corporate_action_policy_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "executable_price_policy_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "total_return_policy_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "cost_policy_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "missingness_policy_id": {
+          "$ref": "#/$defs/nullableId"
+        },
+        "missingness_coverage_receipt_sha256": {
+          "$ref": "#/$defs/nullableSha"
+        }
+      }
+    },
+    "selected_real_yield_route": {
+      "oneOf": [
+        {
+          "title": "real_yield-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "fred"
+            },
+            "product_id": {
+              "const": "fred-alfred"
+            },
+            "series_id": {
+              "const": "dfii5"
+            },
+            "endpoint_id": {
+              "const": "fred-series-observations"
+            },
+            "schema_id": {
+              "const": "fred-vintage-observations-v1"
+            },
+            "pit_method": {
+              "const": "alfred-vintage-realtime-intervals"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "terms-confirmation-required",
+                "attribution-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "alfred-vintage-conformance-unverified"
+              ]
+            },
+            "role": {
+              "const": "real_yield"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "real_yield-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "federal-reserve-board"
+            },
+            "product_id": {
+              "const": "h15-ddp"
+            },
+            "series_id": {
+              "const": "dfii5"
+            },
+            "endpoint_id": {
+              "const": "h15-ddp-values"
+            },
+            "schema_id": {
+              "const": "h15-ddp-v1"
+            },
+            "pit_method": {
+              "const": "contemporaneous-capture-required"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "fallback-only",
+                "contemporaneous-capture-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "contemporaneous-capture-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "real_yield"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        }
+      ]
+    },
+    "selected_credit_spread_route": {
+      "oneOf": [
+        {
+          "title": "credit_spread-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "fred"
+            },
+            "product_id": {
+              "const": "alfred-ice-bofa"
+            },
+            "series_id": {
+              "const": "bamlc0a0cm"
+            },
+            "endpoint_id": {
+              "const": "fred-series-observations"
+            },
+            "schema_id": {
+              "const": "fred-vintage-observations-v1"
+            },
+            "pit_method": {
+              "const": "alfred-vintage-realtime-intervals"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "internal-research-only",
+                "no-redistribution",
+                "ice-license-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "ice-rights-confirmation-unavailable"
+              ]
+            },
+            "role": {
+              "const": "credit_spread"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "credit_spread-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "ice"
+            },
+            "product_id": {
+              "const": "consolidated-history"
+            },
+            "series_id": {
+              "const": "bamlc0a0cm"
+            },
+            "endpoint_id": {
+              "const": "ice-consolidated-history"
+            },
+            "schema_id": {
+              "const": "ice-index-history-v1"
+            },
+            "pit_method": {
+              "const": "licensed-vintage-history"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "licensed-entitlement-required",
+                "internal-research-only",
+                "no-redistribution"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "ice-direct-entitlement-unavailable"
+              ]
+            },
+            "role": {
+              "const": "credit_spread"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        }
+      ]
+    },
+    "selected_cash_rate_route": {
+      "oneOf": [
+        {
+          "title": "cash_rate-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "fred"
+            },
+            "product_id": {
+              "const": "fred-alfred"
+            },
+            "series_id": {
+              "const": "dff"
+            },
+            "endpoint_id": {
+              "const": "fred-series-observations"
+            },
+            "schema_id": {
+              "const": "fred-vintage-observations-v1"
+            },
+            "pit_method": {
+              "const": "alfred-vintage-realtime-intervals"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "terms-confirmation-required",
+                "attribution-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "alfred-vintage-conformance-unverified"
+              ]
+            },
+            "role": {
+              "const": "cash_rate"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "cash_rate-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "new-york-fed"
+            },
+            "product_id": {
+              "const": "markets-data-api"
+            },
+            "series_id": {
+              "const": "effr"
+            },
+            "endpoint_id": {
+              "const": "nyfed-markets-reference-rates"
+            },
+            "schema_id": {
+              "const": "nyfed-effr-v1"
+            },
+            "pit_method": {
+              "const": "contemporaneous-archive-required"
+            },
+            "price_adjustment": {
+              "const": "not-applicable"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "fallback-only",
+                "contemporaneous-archive-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "contemporaneous-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "cash_rate"
+            },
+            "security_identity_policy": {
+              "const": "not-applicable"
+            },
+            "effective_interval_policy": {
+              "const": "not-applicable"
+            },
+            "mapping_version_policy": {
+              "const": "not-applicable"
+            },
+            "event_identity_policy": {
+              "const": "not-applicable"
+            },
+            "correction_policy": {
+              "const": "not-applicable"
+            },
+            "cancellation_policy": {
+              "const": "not-applicable"
+            },
+            "version_selection_policy": {
+              "const": "not-applicable"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-applicable"
+            },
+            "total_return_formula_version": {
+              "const": "not-applicable"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        }
+      ]
+    },
+    "selected_spy_market_route": {
+      "oneOf": [
+        {
+          "title": "spy_market-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "databento"
+            },
+            "product_id": {
+              "const": "equs-mini"
+            },
+            "series_id": {
+              "const": "spy"
+            },
+            "endpoint_id": {
+              "const": "databento-timeseries-and-reference"
+            },
+            "schema_id": {
+              "const": "ohlcv-1d-unadjusted-plus-pit-actions-v1"
+            },
+            "pit_method": {
+              "const": "versioned-pit-corporate-actions"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "contract-confirmation-required",
+                "unadjusted-bars-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "databento-contract-confirmation-unavailable",
+                "corporate-action-pit-conformance-unverified"
+              ]
+            },
+            "role": {
+              "const": "spy_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "event_identity_policy": {
+              "const": "event-unique-id-required"
+            },
+            "correction_policy": {
+              "const": "ts-record-correction-chain"
+            },
+            "cancellation_policy": {
+              "const": "ts-record-cancel-excludes-event"
+            },
+            "version_selection_policy": {
+              "const": "max-ts-record-per-event-as-of-cutoff"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "spy_market-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "massive"
+            },
+            "product_id": {
+              "const": "stocks"
+            },
+            "series_id": {
+              "const": "spy"
+            },
+            "endpoint_id": {
+              "const": "massive-aggregates-dividends-splits"
+            },
+            "schema_id": {
+              "const": "massive-unadjusted-actions-v1"
+            },
+            "pit_method": {
+              "const": "archive-or-correction-feed-required"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "commercial-terms-required",
+                "cache-deletion-required",
+                "unadjusted-bars-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "massive-commercial-terms-unverified",
+                "massive-cache-deletion-unverified",
+                "correction-feed-or-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "spy_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "event_identity_policy": {
+              "const": "provider-event-or-archive-hash-required"
+            },
+            "correction_policy": {
+              "const": "correction-feed-or-archive-required"
+            },
+            "cancellation_policy": {
+              "const": "cancellation-history-required"
+            },
+            "version_selection_policy": {
+              "const": "archive-as-of-cutoff-required"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "spy_market-selected-3",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "cross-check"
+            },
+            "provider_id": {
+              "const": "tiger"
+            },
+            "product_id": {
+              "const": "openapi-quote-corp-action"
+            },
+            "series_id": {
+              "const": "spy"
+            },
+            "endpoint_id": {
+              "const": "tiger-stock-quote-and-corp-action"
+            },
+            "schema_id": {
+              "const": "tiger-operational-cross-check-v1"
+            },
+            "pit_method": {
+              "const": "not-pit-admissible"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "cross-check-only"
+            },
+            "rights_codes": {
+              "const": [
+                "cross-check-only",
+                "not-pit-admissible",
+                "no-research-admission"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "tiger-retention-redistribution-unverified",
+                "not-pit-admissible",
+                "tiger-action-revision-history-unavailable",
+                "tiger-contemporaneous-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "spy_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "not-pit-admissible"
+            },
+            "mapping_version_policy": {
+              "const": "not-pit-admissible"
+            },
+            "event_identity_policy": {
+              "const": "not-pit-admissible"
+            },
+            "correction_policy": {
+              "const": "not-pit-admissible"
+            },
+            "cancellation_policy": {
+              "const": "not-pit-admissible"
+            },
+            "version_selection_policy": {
+              "const": "not-pit-admissible"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-pit-admissible"
+            },
+            "total_return_formula_version": {
+              "const": "not-pit-admissible"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        }
+      ]
+    },
+    "selected_oneq_market_route": {
+      "oneOf": [
+        {
+          "title": "oneq_market-selected-1",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "primary"
+            },
+            "provider_id": {
+              "const": "databento"
+            },
+            "product_id": {
+              "const": "equs-mini"
+            },
+            "series_id": {
+              "const": "oneq"
+            },
+            "endpoint_id": {
+              "const": "databento-timeseries-and-reference"
+            },
+            "schema_id": {
+              "const": "ohlcv-1d-unadjusted-plus-pit-actions-v1"
+            },
+            "pit_method": {
+              "const": "versioned-pit-corporate-actions"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "selected-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "contract-confirmation-required",
+                "unadjusted-bars-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "databento-contract-confirmation-unavailable",
+                "corporate-action-pit-conformance-unverified"
+              ]
+            },
+            "role": {
+              "const": "oneq_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "event_identity_policy": {
+              "const": "event-unique-id-required"
+            },
+            "correction_policy": {
+              "const": "ts-record-correction-chain"
+            },
+            "cancellation_policy": {
+              "const": "ts-record-cancel-excludes-event"
+            },
+            "version_selection_policy": {
+              "const": "max-ts-record-per-event-as-of-cutoff"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "oneq_market-selected-2",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "fallback"
+            },
+            "provider_id": {
+              "const": "massive"
+            },
+            "product_id": {
+              "const": "stocks"
+            },
+            "series_id": {
+              "const": "oneq"
+            },
+            "endpoint_id": {
+              "const": "massive-aggregates-dividends-splits"
+            },
+            "schema_id": {
+              "const": "massive-unadjusted-actions-v1"
+            },
+            "pit_method": {
+              "const": "archive-or-correction-feed-required"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "fallback-disabled"
+            },
+            "rights_codes": {
+              "const": [
+                "commercial-terms-required",
+                "cache-deletion-required",
+                "unadjusted-bars-required"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "massive-commercial-terms-unverified",
+                "massive-cache-deletion-unverified",
+                "correction-feed-or-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "oneq_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "effective-start-end-required"
+            },
+            "mapping_version_policy": {
+              "const": "mapping-version-required"
+            },
+            "event_identity_policy": {
+              "const": "provider-event-or-archive-hash-required"
+            },
+            "correction_policy": {
+              "const": "correction-feed-or-archive-required"
+            },
+            "cancellation_policy": {
+              "const": "cancellation-history-required"
+            },
+            "version_selection_policy": {
+              "const": "archive-as-of-cutoff-required"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "effective-date-next-close-reinvestment-v1"
+            },
+            "total_return_formula_version": {
+              "const": "pit-total-return-log-v1"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        },
+        {
+          "title": "oneq_market-selected-3",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "account_receipt_sha256",
+            "admissibility",
+            "api_access_receipt_sha256",
+            "blockers",
+            "cancellation_policy",
+            "correction_policy",
+            "dividend_reinvestment_policy",
+            "effective_interval_policy",
+            "endpoint_id",
+            "entitlement_receipt_sha256",
+            "event_identity_policy",
+            "license_receipt_sha256",
+            "mapping_version_policy",
+            "order_receipt_sha256",
+            "pit_method",
+            "pit_receipt_sha256",
+            "price_adjustment",
+            "priority",
+            "product_id",
+            "provider_id",
+            "retention_receipt_sha256",
+            "rights_codes",
+            "role",
+            "route_alias",
+            "schema_id",
+            "security_identity_policy",
+            "series_id",
+            "total_return_formula_version",
+            "version_selection_policy"
+          ],
+          "properties": {
+            "route_alias": {
+              "$ref": "#/$defs/id"
+            },
+            "priority": {
+              "const": "cross-check"
+            },
+            "provider_id": {
+              "const": "tiger"
+            },
+            "product_id": {
+              "const": "openapi-quote-corp-action"
+            },
+            "series_id": {
+              "const": "oneq"
+            },
+            "endpoint_id": {
+              "const": "tiger-stock-quote-and-corp-action"
+            },
+            "schema_id": {
+              "const": "tiger-operational-cross-check-v1"
+            },
+            "pit_method": {
+              "const": "not-pit-admissible"
+            },
+            "price_adjustment": {
+              "const": "unadjusted-only"
+            },
+            "admissibility": {
+              "const": "cross-check-only"
+            },
+            "rights_codes": {
+              "const": [
+                "cross-check-only",
+                "not-pit-admissible",
+                "no-research-admission"
+              ]
+            },
+            "blockers": {
+              "const": [
+                "account-unprovisioned",
+                "api-access-receipt-unavailable",
+                "entitlement-unverified",
+                "order-receipt-unavailable",
+                "license-receipt-unavailable",
+                "retention-receipt-unavailable",
+                "pit-receipt-unavailable",
+                "tiger-retention-redistribution-unverified",
+                "not-pit-admissible",
+                "tiger-action-revision-history-unavailable",
+                "tiger-contemporaneous-archive-unavailable"
+              ]
+            },
+            "role": {
+              "const": "oneq_market"
+            },
+            "security_identity_policy": {
+              "const": "provider-native-listing-id-required"
+            },
+            "effective_interval_policy": {
+              "const": "not-pit-admissible"
+            },
+            "mapping_version_policy": {
+              "const": "not-pit-admissible"
+            },
+            "event_identity_policy": {
+              "const": "not-pit-admissible"
+            },
+            "correction_policy": {
+              "const": "not-pit-admissible"
+            },
+            "cancellation_policy": {
+              "const": "not-pit-admissible"
+            },
+            "version_selection_policy": {
+              "const": "not-pit-admissible"
+            },
+            "dividend_reinvestment_policy": {
+              "const": "not-pit-admissible"
+            },
+            "total_return_formula_version": {
+              "const": "not-pit-admissible"
+            },
+            "account_receipt_sha256": {
+              "const": null
+            },
+            "api_access_receipt_sha256": {
+              "const": null
+            },
+            "order_receipt_sha256": {
+              "const": null
+            },
+            "entitlement_receipt_sha256": {
+              "const": null
+            },
+            "license_receipt_sha256": {
+              "const": null
+            },
+            "retention_receipt_sha256": {
+              "const": null
+            },
+            "pit_receipt_sha256": {
+              "const": null
+            }
+          }
+        }
+      ]
+    },
+    "synthetic_real_yield_route": {
+      "title": "real_yield-synthetic",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "account_receipt_sha256",
+        "admissibility",
+        "api_access_receipt_sha256",
+        "blockers",
+        "cancellation_policy",
+        "correction_policy",
+        "dividend_reinvestment_policy",
+        "effective_interval_policy",
+        "endpoint_id",
+        "entitlement_receipt_sha256",
+        "event_identity_policy",
+        "license_receipt_sha256",
+        "mapping_version_policy",
+        "order_receipt_sha256",
+        "pit_method",
+        "pit_receipt_sha256",
+        "price_adjustment",
+        "priority",
+        "product_id",
+        "provider_id",
+        "retention_receipt_sha256",
+        "rights_codes",
+        "role",
+        "route_alias",
+        "schema_id",
+        "security_identity_policy",
+        "series_id",
+        "total_return_formula_version",
+        "version_selection_policy"
+      ],
+      "properties": {
+        "route_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "admissibility": {
+          "const": "fixture-only"
+        },
+        "blockers": {
+          "const": []
+        },
+        "cancellation_policy": {
+          "const": "not-applicable"
+        },
+        "correction_policy": {
+          "const": "not-applicable"
+        },
+        "dividend_reinvestment_policy": {
+          "const": "not-applicable"
+        },
+        "effective_interval_policy": {
+          "const": "not-applicable"
+        },
+        "endpoint_id": {
+          "const": "synthetic-endpoint"
+        },
+        "event_identity_policy": {
+          "const": "not-applicable"
+        },
+        "mapping_version_policy": {
+          "const": "not-applicable"
+        },
+        "pit_method": {
+          "const": "synthetic-known-at"
+        },
+        "price_adjustment": {
+          "const": "not-applicable"
+        },
+        "priority": {
+          "const": "primary"
+        },
+        "product_id": {
+          "const": "synthetic-fixture"
+        },
+        "provider_id": {
+          "const": "synthetic-provider"
+        },
+        "rights_codes": {
+          "const": [
+            "synthetic-only"
+          ]
+        },
+        "role": {
+          "const": "real_yield"
+        },
+        "schema_id": {
+          "const": "synthetic-schema-v1"
+        },
+        "security_identity_policy": {
+          "const": "not-applicable"
+        },
+        "series_id": {
+          "const": "synthetic-real_yield"
+        },
+        "total_return_formula_version": {
+          "const": "not-applicable"
+        },
+        "version_selection_policy": {
+          "const": "not-applicable"
+        },
+        "account_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "api_access_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "order_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "entitlement_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "license_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "retention_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "pit_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        }
+      }
+    },
+    "synthetic_credit_spread_route": {
+      "title": "credit_spread-synthetic",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "account_receipt_sha256",
+        "admissibility",
+        "api_access_receipt_sha256",
+        "blockers",
+        "cancellation_policy",
+        "correction_policy",
+        "dividend_reinvestment_policy",
+        "effective_interval_policy",
+        "endpoint_id",
+        "entitlement_receipt_sha256",
+        "event_identity_policy",
+        "license_receipt_sha256",
+        "mapping_version_policy",
+        "order_receipt_sha256",
+        "pit_method",
+        "pit_receipt_sha256",
+        "price_adjustment",
+        "priority",
+        "product_id",
+        "provider_id",
+        "retention_receipt_sha256",
+        "rights_codes",
+        "role",
+        "route_alias",
+        "schema_id",
+        "security_identity_policy",
+        "series_id",
+        "total_return_formula_version",
+        "version_selection_policy"
+      ],
+      "properties": {
+        "route_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "admissibility": {
+          "const": "fixture-only"
+        },
+        "blockers": {
+          "const": []
+        },
+        "cancellation_policy": {
+          "const": "not-applicable"
+        },
+        "correction_policy": {
+          "const": "not-applicable"
+        },
+        "dividend_reinvestment_policy": {
+          "const": "not-applicable"
+        },
+        "effective_interval_policy": {
+          "const": "not-applicable"
+        },
+        "endpoint_id": {
+          "const": "synthetic-endpoint"
+        },
+        "event_identity_policy": {
+          "const": "not-applicable"
+        },
+        "mapping_version_policy": {
+          "const": "not-applicable"
+        },
+        "pit_method": {
+          "const": "synthetic-known-at"
+        },
+        "price_adjustment": {
+          "const": "not-applicable"
+        },
+        "priority": {
+          "const": "primary"
+        },
+        "product_id": {
+          "const": "synthetic-fixture"
+        },
+        "provider_id": {
+          "const": "synthetic-provider"
+        },
+        "rights_codes": {
+          "const": [
+            "synthetic-only"
+          ]
+        },
+        "role": {
+          "const": "credit_spread"
+        },
+        "schema_id": {
+          "const": "synthetic-schema-v1"
+        },
+        "security_identity_policy": {
+          "const": "not-applicable"
+        },
+        "series_id": {
+          "const": "synthetic-credit_spread"
+        },
+        "total_return_formula_version": {
+          "const": "not-applicable"
+        },
+        "version_selection_policy": {
+          "const": "not-applicable"
+        },
+        "account_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "api_access_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "order_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "entitlement_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "license_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "retention_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "pit_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        }
+      }
+    },
+    "synthetic_cash_rate_route": {
+      "title": "cash_rate-synthetic",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "account_receipt_sha256",
+        "admissibility",
+        "api_access_receipt_sha256",
+        "blockers",
+        "cancellation_policy",
+        "correction_policy",
+        "dividend_reinvestment_policy",
+        "effective_interval_policy",
+        "endpoint_id",
+        "entitlement_receipt_sha256",
+        "event_identity_policy",
+        "license_receipt_sha256",
+        "mapping_version_policy",
+        "order_receipt_sha256",
+        "pit_method",
+        "pit_receipt_sha256",
+        "price_adjustment",
+        "priority",
+        "product_id",
+        "provider_id",
+        "retention_receipt_sha256",
+        "rights_codes",
+        "role",
+        "route_alias",
+        "schema_id",
+        "security_identity_policy",
+        "series_id",
+        "total_return_formula_version",
+        "version_selection_policy"
+      ],
+      "properties": {
+        "route_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "admissibility": {
+          "const": "fixture-only"
+        },
+        "blockers": {
+          "const": []
+        },
+        "cancellation_policy": {
+          "const": "not-applicable"
+        },
+        "correction_policy": {
+          "const": "not-applicable"
+        },
+        "dividend_reinvestment_policy": {
+          "const": "not-applicable"
+        },
+        "effective_interval_policy": {
+          "const": "not-applicable"
+        },
+        "endpoint_id": {
+          "const": "synthetic-endpoint"
+        },
+        "event_identity_policy": {
+          "const": "not-applicable"
+        },
+        "mapping_version_policy": {
+          "const": "not-applicable"
+        },
+        "pit_method": {
+          "const": "synthetic-known-at"
+        },
+        "price_adjustment": {
+          "const": "not-applicable"
+        },
+        "priority": {
+          "const": "primary"
+        },
+        "product_id": {
+          "const": "synthetic-fixture"
+        },
+        "provider_id": {
+          "const": "synthetic-provider"
+        },
+        "rights_codes": {
+          "const": [
+            "synthetic-only"
+          ]
+        },
+        "role": {
+          "const": "cash_rate"
+        },
+        "schema_id": {
+          "const": "synthetic-schema-v1"
+        },
+        "security_identity_policy": {
+          "const": "not-applicable"
+        },
+        "series_id": {
+          "const": "synthetic-cash_rate"
+        },
+        "total_return_formula_version": {
+          "const": "not-applicable"
+        },
+        "version_selection_policy": {
+          "const": "not-applicable"
+        },
+        "account_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "api_access_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "order_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "entitlement_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "license_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "retention_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "pit_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        }
+      }
+    },
+    "synthetic_spy_market_route": {
+      "title": "spy_market-synthetic",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "account_receipt_sha256",
+        "admissibility",
+        "api_access_receipt_sha256",
+        "blockers",
+        "cancellation_policy",
+        "correction_policy",
+        "dividend_reinvestment_policy",
+        "effective_interval_policy",
+        "endpoint_id",
+        "entitlement_receipt_sha256",
+        "event_identity_policy",
+        "license_receipt_sha256",
+        "mapping_version_policy",
+        "order_receipt_sha256",
+        "pit_method",
+        "pit_receipt_sha256",
+        "price_adjustment",
+        "priority",
+        "product_id",
+        "provider_id",
+        "retention_receipt_sha256",
+        "rights_codes",
+        "role",
+        "route_alias",
+        "schema_id",
+        "security_identity_policy",
+        "series_id",
+        "total_return_formula_version",
+        "version_selection_policy"
+      ],
+      "properties": {
+        "route_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "admissibility": {
+          "const": "fixture-only"
+        },
+        "blockers": {
+          "const": []
+        },
+        "cancellation_policy": {
+          "const": "ts-record-cancel-excludes-event"
+        },
+        "correction_policy": {
+          "const": "ts-record-correction-chain"
+        },
+        "dividend_reinvestment_policy": {
+          "const": "effective-date-next-close-reinvestment-v1"
+        },
+        "effective_interval_policy": {
+          "const": "effective-start-end-required"
+        },
+        "endpoint_id": {
+          "const": "synthetic-endpoint"
+        },
+        "event_identity_policy": {
+          "const": "event-unique-id-required"
+        },
+        "mapping_version_policy": {
+          "const": "mapping-version-required"
+        },
+        "pit_method": {
+          "const": "synthetic-known-at"
+        },
+        "price_adjustment": {
+          "const": "unadjusted-only"
+        },
+        "priority": {
+          "const": "primary"
+        },
+        "product_id": {
+          "const": "synthetic-fixture"
+        },
+        "provider_id": {
+          "const": "synthetic-provider"
+        },
+        "rights_codes": {
+          "const": [
+            "synthetic-only"
+          ]
+        },
+        "role": {
+          "const": "spy_market"
+        },
+        "schema_id": {
+          "const": "synthetic-schema-v1"
+        },
+        "security_identity_policy": {
+          "const": "provider-native-listing-id-required"
+        },
+        "series_id": {
+          "const": "synthetic-spy_market"
+        },
+        "total_return_formula_version": {
+          "const": "pit-total-return-log-v1"
+        },
+        "version_selection_policy": {
+          "const": "max-ts-record-per-event-as-of-cutoff"
+        },
+        "account_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "api_access_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "order_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "entitlement_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "license_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "retention_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "pit_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        }
+      }
+    },
+    "synthetic_oneq_market_route": {
+      "title": "oneq_market-synthetic",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "account_receipt_sha256",
+        "admissibility",
+        "api_access_receipt_sha256",
+        "blockers",
+        "cancellation_policy",
+        "correction_policy",
+        "dividend_reinvestment_policy",
+        "effective_interval_policy",
+        "endpoint_id",
+        "entitlement_receipt_sha256",
+        "event_identity_policy",
+        "license_receipt_sha256",
+        "mapping_version_policy",
+        "order_receipt_sha256",
+        "pit_method",
+        "pit_receipt_sha256",
+        "price_adjustment",
+        "priority",
+        "product_id",
+        "provider_id",
+        "retention_receipt_sha256",
+        "rights_codes",
+        "role",
+        "route_alias",
+        "schema_id",
+        "security_identity_policy",
+        "series_id",
+        "total_return_formula_version",
+        "version_selection_policy"
+      ],
+      "properties": {
+        "route_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "admissibility": {
+          "const": "fixture-only"
+        },
+        "blockers": {
+          "const": []
+        },
+        "cancellation_policy": {
+          "const": "ts-record-cancel-excludes-event"
+        },
+        "correction_policy": {
+          "const": "ts-record-correction-chain"
+        },
+        "dividend_reinvestment_policy": {
+          "const": "effective-date-next-close-reinvestment-v1"
+        },
+        "effective_interval_policy": {
+          "const": "effective-start-end-required"
+        },
+        "endpoint_id": {
+          "const": "synthetic-endpoint"
+        },
+        "event_identity_policy": {
+          "const": "event-unique-id-required"
+        },
+        "mapping_version_policy": {
+          "const": "mapping-version-required"
+        },
+        "pit_method": {
+          "const": "synthetic-known-at"
+        },
+        "price_adjustment": {
+          "const": "unadjusted-only"
+        },
+        "priority": {
+          "const": "primary"
+        },
+        "product_id": {
+          "const": "synthetic-fixture"
+        },
+        "provider_id": {
+          "const": "synthetic-provider"
+        },
+        "rights_codes": {
+          "const": [
+            "synthetic-only"
+          ]
+        },
+        "role": {
+          "const": "oneq_market"
+        },
+        "schema_id": {
+          "const": "synthetic-schema-v1"
+        },
+        "security_identity_policy": {
+          "const": "provider-native-listing-id-required"
+        },
+        "series_id": {
+          "const": "synthetic-oneq_market"
+        },
+        "total_return_formula_version": {
+          "const": "pit-total-return-log-v1"
+        },
+        "version_selection_policy": {
+          "const": "max-ts-record-per-event-as-of-cutoff"
+        },
+        "account_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "api_access_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "order_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "entitlement_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "license_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "retention_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "pit_receipt_sha256": {
+          "$ref": "#/$defs/sha"
+        }
+      }
+    }
+  }
+}

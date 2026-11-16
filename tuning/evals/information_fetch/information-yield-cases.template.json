@@ -1,0 +1,275 @@
+{
+  "schema_version": "information-yield-case-roster-template-1",
+  "status": "template_unresolved",
+  "purpose": "scoped_untouched_confirmation",
+  "evidence_level": "scoped_untouched_confirmation",
+  "blocked_until": [
+    "codex_live_structural_acceptance",
+    "claude_live_structural_acceptance",
+    "setup_sync_ok",
+    "evaluator_and_reviewer_calibration_sealed"
+  ],
+  "credential_values_present": false,
+  "metric_contract": {
+    "path": "docs/plans/information-yield-dashboard.md",
+    "sha256": "72f93cfac1c8e47084fd3c86b6d5cdb4ba7e4e8b11df90f20895fa1166b1ce9f",
+    "version": "information-yield-v1",
+    "require_current_file_hash_match": true,
+    "on_hash_mismatch": "reject_evaluation_version"
+  },
+  "selection_policy": {
+    "case_count": 6,
+    "distinct_issuer_count": 6,
+    "excluded_case_classes": [
+      "NOW",
+      "familiar_example",
+      "calibration_case",
+      "candidate_design_case",
+      "previously_unblinded_case"
+    ],
+    "balance_targets": {
+      "minimum_sector_families": 3,
+      "maximum_issuers_per_sector_family": 2,
+      "minimum_source_surface_classes": 2,
+      "require_table_and_narrative_complexity": true,
+      "represent_revision_exposure_when_eligible": true
+    },
+    "selection_basis": "outcome_blind_metadata_only",
+    "replacement_after_arm_start": false,
+    "deviation_requires_pre_unblinding_record": true
+  },
+  "arm_policy": {
+    "B0": {
+      "competent_search_open_find": true,
+      "common_ledger_safety_accounting_review": true,
+      "catalog_and_admission": false,
+      "typed_representation_recovery": false
+    },
+    "F": {
+      "competent_search_open_find": true,
+      "common_ledger_safety_accounting_review": true,
+      "catalog_and_admission": true,
+      "typed_representation_recovery": true
+    },
+    "matched_fields": [
+      "host_backend",
+      "model",
+      "effort",
+      "prompt_shell",
+      "budgets",
+      "deadlines",
+      "safety_ledger",
+      "review_contract"
+    ],
+    "cold_isolated_caches": true,
+    "counterbalanced_order": {
+      "F_first_slots": 3,
+      "B0_first_slots": 3
+    }
+  },
+  "review_policy": {
+    "pooled_arm_hidden": true,
+    "candidate_order_randomized": true,
+    "reviewer_distinct_from_live_operator": true,
+    "assessment_author_distinct_from_reviewer": true,
+    "adjudication_reason_codes_frozen": true,
+    "complete_review_required": true
+  },
+  "decision_policy": {
+    "co_primary": [
+      "EIY_R",
+      "EIY_D"
+    ],
+    "scalar_score_prohibited": true,
+    "minimum_EIY_R": 1.0,
+    "minimum_EIY_D": 1.0,
+    "minimum_strictly_positive_cases_each_outcome": 4,
+    "case_count_denominator": 6,
+    "minimum_case_delta_each_outcome": -1.0,
+    "leave_one_issuer_out_mean_each_outcome_strictly_positive": true,
+    "zero_hard_integrity_failures": true,
+    "complete_chain_ratio": 1.0,
+    "zero_critical_unsupported_units": true,
+    "minimum_supported_precision_difference": -0.05,
+    "unknown_planned_pair_verdict": "inconclusive",
+    "financial_alpha_metrics_in_scope": false
+  },
+  "freeze_refs": {
+    "evaluation_id": null,
+    "candidate_config_ref": null,
+    "baseline_config_ref": null,
+    "common_budget_ref": null,
+    "case_roster_ref": null,
+    "baseline_inventory_refs": null,
+    "reference_set_refs": null,
+    "required_field_refs": null,
+    "rubric_ref": null,
+    "grader_calibration_ref": null,
+    "custody_manifest_ref": null,
+    "allocation_ref": null,
+    "seal_time": null
+  },
+  "cases": [
+    {
+      "slot": 1,
+      "selection_status": "unresolved",
+      "case_id": null,
+      "issuer_id": null,
+      "sector_family": null,
+      "window_start": null,
+      "window_end": null,
+      "cutoff": null,
+      "source_surface_class": null,
+      "complexity_class": null,
+      "revision_exposure_class": null,
+      "outcome_blind_inclusion_reason": null,
+      "baseline_inventory_ref": null,
+      "reference_set_ref": null,
+      "required_fields_ref": null,
+      "freshness_targets_ref": null,
+      "exclusion_reason": null,
+      "reference_set_sha256": null,
+      "reference_set_sealed_at": null,
+      "union_additions_log_ref": null
+    },
+    {
+      "slot": 2,
+      "selection_status": "unresolved",
+      "case_id": null,
+      "issuer_id": null,
+      "sector_family": null,
+      "window_start": null,
+      "window_end": null,
+      "cutoff": null,
+      "source_surface_class": null,
+      "complexity_class": null,
+      "revision_exposure_class": null,
+      "outcome_blind_inclusion_reason": null,
+      "baseline_inventory_ref": null,
+      "reference_set_ref": null,
+      "required_fields_ref": null,
+      "freshness_targets_ref": null,
+      "exclusion_reason": null,
+      "reference_set_sha256": null,
+      "reference_set_sealed_at": null,
+      "union_additions_log_ref": null
+    },
+    {
+      "slot": 3,
+      "selection_status": "unresolved",
+      "case_id": null,
+      "issuer_id": null,
+      "sector_family": null,
+      "window_start": null,
+      "window_end": null,
+      "cutoff": null,
+      "source_surface_class": null,
+      "complexity_class": null,
+      "revision_exposure_class": null,
+      "outcome_blind_inclusion_reason": null,
+      "baseline_inventory_ref": null,
+      "reference_set_ref": null,
+      "required_fields_ref": null,
+      "freshness_targets_ref": null,
+      "exclusion_reason": null,
+      "reference_set_sha256": null,
+      "reference_set_sealed_at": null,
+      "union_additions_log_ref": null
+    },
+    {
+      "slot": 4,
+      "selection_status": "unresolved",
+      "case_id": null,
+      "issuer_id": null,
+      "sector_family": null,
+      "window_start": null,
+      "window_end": null,
+      "cutoff": null,
+      "source_surface_class": null,
+      "complexity_class": null,
+      "revision_exposure_class": null,
+      "outcome_blind_inclusion_reason": null,
+      "baseline_inventory_ref": null,
+      "reference_set_ref": null,
+      "required_fields_ref": null,
+      "freshness_targets_ref": null,
+      "exclusion_reason": null,
+      "reference_set_sha256": null,
+      "reference_set_sealed_at": null,
+      "union_additions_log_ref": null
+    },
+    {
+      "slot": 5,
+      "selection_status": "unresolved",
+      "case_id": null,
+      "issuer_id": null,
+      "sector_family": null,
+      "window_start": null,
+      "window_end": null,
+      "cutoff": null,
+      "source_surface_class": null,
+      "complexity_class": null,
+      "revision_exposure_class": null,
+      "outcome_blind_inclusion_reason": null,
+      "baseline_inventory_ref": null,
+      "reference_set_ref": null,
+      "required_fields_ref": null,
+      "freshness_targets_ref": null,
+      "exclusion_reason": null,
+      "reference_set_sha256": null,
+      "reference_set_sealed_at": null,
+      "union_additions_log_ref": null
+    },
+    {
+      "slot": 6,
+      "selection_status": "unresolved",
+      "case_id": null,
+      "issuer_id": null,
+      "sector_family": null,
+      "window_start": null,
+      "window_end": null,
+      "cutoff": null,
+      "source_surface_class": null,
+      "complexity_class": null,
+      "revision_exposure_class": null,
+      "outcome_blind_inclusion_reason": null,
+      "baseline_inventory_ref": null,
+      "reference_set_ref": null,
+      "required_fields_ref": null,
+      "freshness_targets_ref": null,
+      "exclusion_reason": null,
+      "reference_set_sha256": null,
+      "reference_set_sealed_at": null,
+      "union_additions_log_ref": null
+    }
+  ],
+  "execution_state": {
+    "sealed": false,
+    "unblinded": false,
+    "spent": false,
+    "actual_provider_calls_started": false,
+    "actual_outcomes_present": false
+  },
+  "additional_fields_allowed": false,
+  "measurement_policy": {
+    "reference_coverage": {
+      "required_per_arm_per_case": true,
+      "numerator": "count(U[a,c] intersect G[c])",
+      "denominator": "count(G[c])",
+      "reference_set_frozen_before_target_outputs": true,
+      "reference_set_custody_fields": [
+        "reference_set_ref",
+        "reference_set_sha256",
+        "reference_set_sealed_at"
+      ],
+      "union_additions_log_field": "union_additions_log_ref",
+      "union_additions_expand_denominator": false
+    },
+    "depth_denominators": {
+      "required_per_arm_per_case": true,
+      "applicable_required_fields": "|F_c|",
+      "possible_positive_state_steps": "2|F_c|",
+      "co_primary_depth_remains_unnormalized_steps": true
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "$id": "r6-data-quality-blind-map-v6",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "device": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "inode": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "device",
+        "inode"
+      ],
+      "type": "object"
+    },
+    "cell_order": {
+      "items": false,
+      "maxItems": 4,
+      "minItems": 4,
+      "prefixItems": [
+        {
+          "const": "R6DQ-7F2C91A4"
+        },
+        {
+          "const": "R6DQ-1B8E43D7"
+        },
+        {
+          "const": "R6DQ-C4A7095E"
+        },
+        {
+          "const": "R6DQ-92D6F0B3"
+        }
+      ],
+      "type": "array"
+    },
+    "design_identity": {
+      "const": "fcf096d0c641f373eab7163fa894e5d4f9605ab3ab36ff867e4b586bdcaf278e"
+    },
+    "design_review_identity": {
+      "const": "0018e413e40371bb2703aecf3963433f1a883a93b1070e815dccc0dc61866d3f"
+    },
+    "evaluation_identity": {
+      "const": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d"
+    },
+    "evaluation_producer_identity": {
+      "const": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea"
+    },
+    "evaluation_review_identity": {
+      "const": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429"
+    },
+    "labels": {
+      "items": {
+        "pattern": "^[0-9a-f]{32}$",
+        "type": "string"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "open_review_identity": {
+      "const": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-v6"
+    },
+    "transaction_id": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "version": {
+      "const": 6
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "transaction_id",
+    "artifact_identity",
+    "design_identity",
+    "design_review_identity",
+    "evaluation_identity",
+    "evaluation_producer_identity",
+    "evaluation_review_identity",
+    "open_review_identity",
+    "cell_order",
+    "labels"
+  ],
+  "type": "object"
+}

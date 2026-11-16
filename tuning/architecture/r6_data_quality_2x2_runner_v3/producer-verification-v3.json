@@ -1,0 +1,144 @@
+{
+  "activation": false,
+  "allowed_claim": "producer-side provider-free tests show the frozen v3 subject addresses the two confirmed v2 runner mechanisms while preserving one boundary and crash fences; fresh independent review, P0 v10 recclosure, and orchestrator rebind remain pending",
+  "countable": false,
+  "coverage": {
+    "canonical_identity": [
+      "no exported mutable PREDECESSOR/P0 mappings",
+      "exact seven-file dependency rehash before claim",
+      "immutable source identity in key",
+      "caller refs/destination/P0 roots bound but not keyed",
+      "alternate imported module file and mutable FROZEN_INPUTS rejected before claim",
+      "module global hash/canonical/reservation/binding replacements do not alter closed authority",
+      "multiprocess module reload attack"
+    ],
+    "concurrency": {
+      "admissions": 1,
+      "claims": 1,
+      "first_boundary_count": 1,
+      "fixed_four_cell_effect_sets": 1,
+      "same-root_competitors": 2
+    },
+    "crash_reconciliation": [
+      "PREPARED exact-dead zero-effects recovery",
+      "destination residue fail-close",
+      "post-admission durable unknown",
+      "pre-first-boundary durable unknown",
+      "inside-first-boundary no replay",
+      "receipt stage fsync reconciliation",
+      "receipt post-link reconciliation"
+    ],
+    "liveness": [
+      "LIVE no takeover",
+      "DEAD_EXACT_PROOF only recovery",
+      "INDETERMINATE no takeover",
+      "boot mismatch",
+      "PID start-token reuse",
+      "ESRCH exact absence",
+      "proc permission/read/incomplete failures",
+      "ps timeout/error",
+      "PID permission and ambiguous existence",
+      "coherent forged dead proof for live owner rejected"
+    ],
+    "preserved_contracts": [
+      "fixed CELL_ORDER",
+      "one attempt per cell",
+      "zero retry/replay/status query",
+      "all destination preflight",
+      "P0-v9 evidence transformation",
+      "receipt durability",
+      "authenticated human/G3 finalization"
+    ]
+  },
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "generated_at_utc": "2026-11-13T14:21:25Z",
+  "independent_review": {
+    "clean_claim": false,
+    "status": "PENDING_FRESH_EXACT_SUBJECT_REVIEW"
+  },
+  "observed_first_boundary_count_max": 1,
+  "open_gates": [
+    "fresh exact-subject independent runner-v3 review",
+    "P0_V10_REQUIRED for checks_enabled schema semantics",
+    "runner-v3 consumer P0_V10_RECLOSURE_REQUIRED",
+    "orchestrator rebind PENDING",
+    "future-triggered intended-runtime acceptance before activation"
+  ],
+  "producer_role": "implementation and provider-free test producer; not independent reviewer",
+  "provider_free": true,
+  "records": {
+    "architecture": {
+      "bytes": 7860,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/architecture-v3.json",
+      "sha256": "f4e0c888ce7edce70b52552e9932d6c1495a7444a716006416862c3f47421243"
+    },
+    "decision": {
+      "bytes": 2582,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/decision-v3.json",
+      "sha256": "86b177b5c89a5fdecb5523b1f83b7c4bcc34a9ea97b0616d2f101e0e8ca167c5"
+    },
+    "protocol": {
+      "bytes": 4127,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/protocol-v3.json",
+      "sha256": "0afd21383e32ac0bb9462b5572d68215ef2dc4f87bff9569c2d81f267aae96d0"
+    },
+    "source_closure": {
+      "bytes": 5020,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/source-closure-v3.json",
+      "sha256": "855f05be46c73d43e69d15eea52b54a155a0eefe607a5f824f8b30b787781bfc"
+    }
+  },
+  "registered": false,
+  "review_basis": {
+    "bytes": 13206,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v2-independent-review-fable-20261113-8e9a8076-open.json",
+    "sha256": "c2669dec8fd1e32f616a6d97ce1e75f6de9a736d106814db1c99f8328215cff1",
+    "verdict": "OPEN"
+  },
+  "status": "PASS_EXACT_V3_PRODUCER_TESTS_PENDING_FRESH_INDEPENDENT_REVIEW_P0_V10_RECLOSURE_AND_ORCHESTRATOR_REBIND",
+  "subject": {
+    "bytes": 5020,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/source-closure-v3.json",
+    "sha256": "855f05be46c73d43e69d15eea52b54a155a0eefe607a5f824f8b30b787781bfc"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python3.12 -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_2x2_runner_v3.test_runner_v3",
+      "executed": 22,
+      "failed": 0,
+      "passed": 22,
+      "provider_free": true,
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python3.12 -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_2x2_runner_v2.test_runner_v2",
+      "executed": 14,
+      "failed": 0,
+      "interpretation": "regression only; v2 remains OPEN history",
+      "passed": 14,
+      "provider_free": true,
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python3.12 -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_2x2_runner_v1.test_runner",
+      "executed": 19,
+      "failed": 0,
+      "interpretation": "regression only; v1 remains OPEN history",
+      "passed": 19,
+      "provider_free": true,
+      "skipped": 0
+    }
+  ],
+  "verdict": "P0_V10_RECLOSURE_REQUIRED",
+  "version": "r6-data-quality-2x2-runner-producer-verification-v3"
+}

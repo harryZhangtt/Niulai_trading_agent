@@ -1,0 +1,3 @@
+{"calendar_id":"xnys-synthetic","entity_scope":"instrument","frequency":"session","missing_policy":"reject","revision_policy":"immutable","role":"price","series_id":"price-close","source_id":"synthetic-market","unit":"usd"}
+{"calendar_id":"xnys-synthetic","entity_scope":"global","frequency":"session","missing_policy":"explicit_null","revision_policy":"revisable","role":"feature_input","series_id":"macro-level","source_id":"synthetic-macro","unit":"index"}
+{"calendar_id":"xnys-synthetic","entity_scope":"global","frequency":"session","missing_policy":"reject","revision_policy":"immutable","role":"cash","series_id":"cash-rate","source_id":"synthetic-cash","unit":"decimal"}

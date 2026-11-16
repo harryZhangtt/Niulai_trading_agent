@@ -1,0 +1,41 @@
+{
+  "activation": false,
+  "activation_boundary": "new reviewed successor with all six future exact byte/hash pins populated and independently CLEAN; this revision cannot activate",
+  "benefit": "A future separately granted run can produce two sequential sanitized metadata receipts while containing unknown outcomes and preserving zero inference.",
+  "components": {
+    "authority": "fixed seven-file synthetic provider-free fixture registry with exact bytes/hashes and review-to-grant binding; no caller authority; future live authority remains absent",
+    "binary_execution": "source descriptor read/hash, unique owner-private 0700 verified copy, fsync/reopen/hash, execute copy with original argv, post-run identity/hash verification, unlink and parent fsync",
+    "catalog_parser": "source-pinned canonical closed parser c20e58cad66f866a5ce1865d8937ee0ff4a87aa4cc62bbf5a3a0c5a1bc01a502 with CLEAN producer review bcbcdbfd37546e5b9ae9db591362c2f5810a8d622e43e9c872ad31056c55a35a",
+    "custody": "descriptor-relative owner-private 0700 roots and 0600 no-replace files; full-write/fsync/reopen/hash; both transient cleanups attempted; commit marker last",
+    "private_operations": [
+      "auth_status",
+      "model_catalog"
+    ],
+    "public_boundary": [
+      "auth_readiness()",
+      "catalog_readiness()"
+    ]
+  },
+  "countable": false,
+  "impact": {
+    "affected_processes": 0,
+    "affected_sessions": 0,
+    "classification": "STAGED_HOST_IMPACTING_DISABLED",
+    "external_effects": 0,
+    "failure_radius": "provider-free synthetic candidate tests only"
+  },
+  "live_effects": 0,
+  "owner": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v1",
+  "problem": "Historical membership and local binary identity do not prove current Claude account readiness or current exact Opus 5.5 catalog membership for the R6 four-cell A/B.",
+  "registration": false,
+  "separation": {
+    "anthropic_api_sdk": false,
+    "browser": false,
+    "bytedcli": false,
+    "claude_agent_sdk": false,
+    "inference": false,
+    "mcp": false
+  },
+  "status": "DISABLED_PROVIDER_FREE_PENDING_CLAUDE_V8_P0_V10_GRANTS_AND_FRESH_REVIEW",
+  "version": 1
+}

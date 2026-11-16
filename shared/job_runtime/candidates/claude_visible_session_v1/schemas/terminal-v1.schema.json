@@ -1,0 +1,78 @@
+{
+  "$id": "claude-visible-session-terminal-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "children": {
+          "const": []
+        },
+        "completed_at": {
+          "const": "2099-01-01T00:00:02Z"
+        },
+        "output": {
+          "const": {
+            "bytes": 3,
+            "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+          }
+        },
+        "status": {
+          "const": "succeeded"
+        }
+      },
+      "required": [
+        "status",
+        "completed_at",
+        "output",
+        "children"
+      ],
+      "type": "object",
+      "x-case-id": "R9"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "children": {
+          "const": [
+            {
+              "agent_definition": "r10/agent-definition.json",
+              "agent_definition_sha256": "a593f09aba8317d9505f66393c07ec1f9e71d932132b034921be0c2b72432cad",
+              "id": "child-1",
+              "output_path": "r10/mining-output.json",
+              "status": "succeeded"
+            }
+          ]
+        },
+        "completed_at": {
+          "const": "2099-01-01T00:00:03Z"
+        },
+        "output": {
+          "const": {
+            "agent_definition_sha256": "a593f09aba8317d9505f66393c07ec1f9e71d932132b034921be0c2b72432cad",
+            "input_sha256": "c084f6a3d0f3ad095ab9508535f923af137545d8f4d55af5aeea9a8ba725fbae",
+            "output_sha256": "62f2f92246cf4392b11628d7dfb1a106cbcb8a1921f9ce4a3f08699e5615cae6",
+            "skill_ids": [
+              "S1",
+              "S2",
+              "S3"
+            ]
+          }
+        },
+        "status": {
+          "const": "succeeded"
+        }
+      },
+      "required": [
+        "status",
+        "completed_at",
+        "output",
+        "children"
+      ],
+      "type": "object",
+      "x-case-id": "R10"
+    }
+  ],
+  "type": "object",
+  "x-python-validator": "validate_evidence_bundle"
+}

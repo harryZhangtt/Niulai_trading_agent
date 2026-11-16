@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"total-return-receipt-v1","type":"object","additionalProperties":false,
+  "required":["schema_version","kind","request_sha256","corporate_action_receipt_sha256","unadjusted_close_commitment_sha256","action_values_commitment_sha256","output_commitment_sha256","output_rows","formula_version","values_included","performance_claim"],
+  "properties":{"schema_version":{"const":1},"kind":{"const":"synthetic_total_return_receipt"},"request_sha256":{"$ref":"#/$defs/sha"},"corporate_action_receipt_sha256":{"$ref":"#/$defs/sha"},"unadjusted_close_commitment_sha256":{"$ref":"#/$defs/sha"},"action_values_commitment_sha256":{"$ref":"#/$defs/sha"},"output_commitment_sha256":{"$ref":"#/$defs/sha"},"output_rows":{"type":"integer","minimum":1},"formula_version":{"const":"pit-total-return-log-v1"},"values_included":{"const":false},"performance_claim":{"const":"withheld"}},
+  "$defs":{"sha":{"type":"string","pattern":"^[a-f0-9]{64}$"}}
+}

@@ -1,0 +1,86 @@
+{
+  "version": "r6-data-quality-exact-input-binding-distinct-producer-evidence-v3",
+  "status": "PRODUCER_PASS_OWNER_BOUND_TRANSITIVE_PROVIDER_FREE_NONCOUNTABLE",
+  "verdict": "PASS_CLOSES_OPEN_V2_OWNER_AND_SOURCE_CLOSURE_PENDING_INDEPENDENT_REVIEW",
+  "producer": {
+    "role": "R6_EXACT_INPUT_BINDING_V3_PRODUCER",
+    "distinct_from": "V1_V2_REVIEW_AND_EVALUATION_PRODUCERS",
+    "v1_v2_or_review_edit": false,
+    "evaluation_v3_or_blind_map_edit": false,
+    "independent_review_claimed": false
+  },
+  "review_basis": {
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v2-independent-review-open-20261111-46ee3e157a72.json",
+    "bytes": 14940,
+    "sha256": "ecc9291ea0ecd30cb54bbf641ea2562a983d56fe666d20662bc2426119a946a2",
+    "findings": ["OPEN-V2-OWNER-BINDING-1", "OPEN-V2-SOURCE-CLOSURE-2"],
+    "history_disposition": "V1_V2_PRODUCERS_AND_REVIEWS_OPEN_PRESERVED_UNCHANGED"
+  },
+  "bindings": {
+    "current_input_manifest": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/current-input-manifest-v3.json", "bytes": 44891, "sha256": "ed63dec9a5f386a095ffee43f84cb2c6130143579251918b4d6d4c0ffc187f1a"},
+    "manifest_schema": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/input-manifest-v3.schema.json", "bytes": 18567, "sha256": "66a2d49fb336682763f0732cd5ae9d44f087b1bba322590c0b2e0acc2d72cd4b"},
+    "architecture": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/architecture-v3.json", "bytes": 2751, "sha256": "978e248df2e2f554b5be09031fb5b0970af34a627d04c42c2ac142d7d3a18e8c"},
+    "protocol": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/protocol-v3.json", "bytes": 1869, "sha256": "2820ea16b9dee770c40a632478a940fb88ee81890eaa73edce5b68236efc063e"},
+    "decision": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/decision-v3.json", "bytes": 2704, "sha256": "ba6b42826efbc167016a1fbe73fd0c8b98ec18331aeb9772e14febeffb98dc00"},
+    "source_closure": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/source-closure-v3.json", "bytes": 8418, "sha256": "6dd98af4980e1b5318824003ba9037f5f116748228dcb6c43762ae661e11736d", "members_verified": 31},
+    "verifier": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/verify.py", "bytes": 20369, "sha256": "1d8afb2f92a7bb06646f491945980433e756f8402435db271f48512b15645f33"}
+  },
+  "owner_binding": {
+    "owner_uid": 501,
+    "trusted_process_uid": 501,
+    "portability_policy": "EXACT_OBSERVED_UID_NONPORTABLE_REHASH_REQUIRED",
+    "workspace_root_lstat_open_fstat": true,
+    "root_component_fstat": true,
+    "artifact_final_fstat": true,
+    "owner_uid_in_every_authority_ref": true,
+    "owner_uid_in_common_identity_and_all_cells": true,
+    "different_uid_resealed_identity_authorized": false
+  },
+  "canonical_input": {
+    "authority_artifacts": 7,
+    "prompt_utf8_bytes": 526,
+    "prompt_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+    "common_binding_canonical_utf8_bytes": 6172,
+    "common_binding_canonical_sha256": "649dd0b9b0df4dfd8dccda01751a97ea6b943396acaef4aa5f1747c2ae33a5c4",
+    "full_owner_path_content_dependency_identity_identical_across_four_cells": true
+  },
+  "new_semantic_authorities": {
+    "entry_packet": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json", "mode": "0644", "owner_uid": 501, "bytes": 4756, "sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b", "content_sha256": "3d4ba96fbb98f680262bc7ee16f11ef27c479c79dc411fe53f6e41508222d5f7"},
+    "user_decision": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json", "mode": "0644", "owner_uid": 501, "bytes": 633, "sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30", "content_sha256": "290b82365cf42b1e39cbd17f574f52a80124a5dc711692453745efcd348feca7"}
+  },
+  "semantic_closure": {
+    "recursive_reference_claims": 19,
+    "semantic_dependency_edges": 11,
+    "local_content_claims": 1,
+    "all_reference_claims_covered_exactly": true,
+    "missing_dependency_denied": true,
+    "substituted_dependency_denied": true,
+    "uncovered_hash_or_reference_denied": true,
+    "missing_or_substituted_dependency_changes_identity": true
+  },
+  "semantic_results": {
+    "prompt_cutoff_rubric_threshold_evidence_semantics_preserved": "PASS",
+    "entry_packet_and_user_decision_bound": "PASS",
+    "official_source_only_and_exact_cutoff": "PASS",
+    "locator_leakage": "PASS_NONE_FOUND",
+    "private_internal_or_bytedcli_dependency": "PASS_NONE_REQUIRED",
+    "financial_return_metric_or_specific_provider_preference": "PASS_NONE_FOUND"
+  },
+  "tests": {
+    "strict_utf8_duplicate_key_nonfinite_and_closed_schema": "PASS",
+    "v3_owner_transitive_positive_checks": "PASS",
+    "v3_adversarial": {"passed": 21, "total": 21, "result": "PASS_DENIED_ALL"},
+    "v2_regression": {"passed": 15, "total": 15, "result": "PASS"},
+    "v1_regression": {"passed": 10, "total": 10, "result": "PASS"},
+    "protected_evaluation_and_blind_map": {"run": 32, "passed": 30, "skipped_optional_jsonschema": 2, "failed": 0, "result": "PASS"},
+    "source_closure": {"members": 31, "result": "PASS"},
+    "protected_surface_inventory": {"files": 39, "sha256": "10fa66ba3a6a5d2f48a09efa2aed24380f40e837a67a304631eddd8a44494eb7", "result": "PASS_UNCHANGED"},
+    "system_python": "3.9.6",
+    "external_python_packages": false
+  },
+  "owner_private": {"package_mode": "0700", "all_package_files_mode": "0600", "owner_uid": 501},
+  "unresolved_pins": ["exact common read-only tool roster, versions, call ceilings and blocked-effect list", "exact common window start/end and per-cell deadline semantics", "exact four-cell authority, budget/subcaps, attempt counts, final inference grants and CLEAN reviews"],
+  "effects": {"provider": false, "network": false, "account": false, "private_state": false, "email": false, "business": false, "host": false, "scheduler": false, "bytedcli": false},
+  "countable": false,
+  "allowed_claim": "The v3 producer implementation closes the v2 owner-binding and source-closure findings with exact owner/path/content/transitive identity and remains provider-free and noncountable pending distinct independent review."
+}

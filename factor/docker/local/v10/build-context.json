@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "kind": "factor_local_health_build_context",
+  "status": "selected-disabled",
+  "files": {
+    ".dockerignore": "5e8a397034ee654065caa511d961ed86915c0f0aa460603b5a091a837dc907f5",
+    "health.Dockerfile": "a4d78cc909dae00e633c60cbf4d06aa85f0d46087c921fcb5cf922ba68644668",
+    "health_worker.py": "f4fab143440c1afbb85372d5bbdd204180fae664f0a58692857e17c625f00b95"
+  },
+  "base": {
+    "reference": "python:3.11-slim-bookworm@sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39",
+    "index_digest": "sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39",
+    "linux_arm64_manifest_digest": "sha256:464bee9ac10a34b0c86031f12d94d7ccc4643725773b23eff4076305fafab420",
+    "source_revision": "83054588043b3a7ac1ce8324c9242164b632beb9",
+    "python": "3.11.18"
+  }
+}

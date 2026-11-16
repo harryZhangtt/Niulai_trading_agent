@@ -1,0 +1,247 @@
+{
+  "$id": "urn:trading-agent:host-materialization-output-1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "generation": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reused": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "reused"
+      ],
+      "type": "object"
+    },
+    "hosts": {
+      "additionalProperties": false,
+      "properties": {
+        "claude": {
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reused": {
+                  "type": "boolean"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "reused"
+              ],
+              "type": "object"
+            },
+            "credential_readiness": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reused": {
+                  "type": "boolean"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "reused"
+              ],
+              "type": "object"
+            },
+            "profile": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reused": {
+                  "type": "boolean"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "reused"
+              ],
+              "type": "object"
+            },
+            "ready_for_live": {
+              "const": true
+            }
+          },
+          "required": [
+            "profile",
+            "credential_readiness",
+            "binding",
+            "ready_for_live"
+          ],
+          "type": "object"
+        },
+        "codex": {
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reused": {
+                  "type": "boolean"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "reused"
+              ],
+              "type": "object"
+            },
+            "credential_readiness": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reused": {
+                  "type": "boolean"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "reused"
+              ],
+              "type": "object"
+            },
+            "profile": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reused": {
+                  "type": "boolean"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "reused"
+              ],
+              "type": "object"
+            },
+            "ready_for_live": {
+              "const": true
+            }
+          },
+          "required": [
+            "profile",
+            "credential_readiness",
+            "binding",
+            "ready_for_live"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "codex",
+        "claude"
+      ],
+      "type": "object"
+    },
+    "manifest": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reused": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "reused"
+      ],
+      "type": "object"
+    },
+    "mcp": {
+      "const": "not_used"
+    },
+    "output_directory": {
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+      "type": "string"
+    },
+    "version": {
+      "const": "host-profile-materializer-1"
+    }
+  },
+  "required": [
+    "version",
+    "output_directory",
+    "mcp",
+    "hosts",
+    "generation",
+    "manifest",
+    "bundle_sha256"
+  ],
+  "type": "object"
+}

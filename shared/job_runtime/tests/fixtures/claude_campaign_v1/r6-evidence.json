@@ -1,0 +1,28 @@
+{
+  "code": "TERMINAL_SUCCESS",
+  "evidence_sha256": "aac24fcf6c3bed4a9feeb1e55b8637b1d6f3a4ef8a0d2b43ce8588b5bba70dd8",
+  "gateway_disposition": "pass_through",
+  "http_status": 200,
+  "identity": {
+    "attempt_id": "r6-attempt-1",
+    "campaign_id": "R6",
+    "config_sha256": "18745d255af022aac7e49d0e49ac3c553862af81cee4dd25c07471e634cd1dc7",
+    "gateway_id": "gateway-fixture-1",
+    "job_id": "claude-campaign-v1.r6.slot-1",
+    "operation_id": "r6-operation-1",
+    "process_id": "r6-process-1",
+    "prompt_id": "r6-prompt-1",
+    "prompt_sha256": "e7900e38d6e69903eb116d3c7f9011a4686623fae28663ce1b8a1ceac764a69a",
+    "request_id": "r6-request-1",
+    "run_id": "r6-run-1",
+    "slot_id": "slot-1",
+    "source_sha256": "8a74ff327a952b61b545d77710c6fa2d3c3a2977ccc7befebdff172ccaa4b80b",
+    "version": 1
+  },
+  "retry_after_seconds": null,
+  "submission": "definitely_submitted",
+  "terminal_disposition": "success",
+  "typed_transient": false,
+  "upstream_forward_count": 1,
+  "version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "activation": false,
+  "allowed_claim": "Disabled provider-free validation kit and pending nonauthorizing templates only; no human has attested and no grader is live.",
+  "default": "DENY",
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "live": 0,
+    "network": 0,
+    "private_state": 0,
+    "provider": 0,
+    "scheduler": 0,
+    "subagent": 0
+  },
+  "excluded": [
+    "source-closure-v1.json",
+    "producer-verification-v1.json",
+    "future human-signed subjects",
+    "future independent CLEAN reviews"
+  ],
+  "human_attestations_claimed": false,
+  "review_placeholders_created": false,
+  "schema_contract": {
+    "count": 4,
+    "draft": "2020-12",
+    "recursively_closed": true
+  },
+  "sources": [
+    {
+      "bytes": 2407,
+      "mode": "0600",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-role-assignment-v1.json",
+      "sha256": "62db631b77d728c98ae5349a43862c079e2fdafa6b3eb6701b9c908df2de6935"
+    },
+    {
+      "bytes": 9944,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json",
+      "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d"
+    },
+    {
+      "bytes": 2588,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json",
+      "sha256": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea"
+    },
+    {
+      "bytes": 10585,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json",
+      "sha256": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429"
+    },
+    {
+      "bytes": 206,
+      "mode": "0644",
+      "path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/__init__.py",
+      "sha256": "8d780cea3e5f16c6ea8376b4818db2083df8a5bb6be46580e663f6225b2dc3a6"
+    },
+    {
+      "bytes": 53,
+      "mode": "0644",
+      "path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/__main__.py",
+      "sha256": "dc2724e0dab9c78c95f48f1f4f8e0ca25657e85a8579b5b449032acb0e1a7eac"
+    },
+    {
+      "bytes": 14782,
+      "mode": "0644",
+      "path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/registry.py",
+      "sha256": "63d2eaff7f331cb7227337e19e0eb0aa7cd9ed5a7021e7f8064f28ec1c78f431"
+    },
+    {
+      "bytes": 2615,
+      "mode": "0644",
+      "path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/schemas/registry-subject-v1.schema.json",
+      "sha256": "72c4b58d4efb13624e5422ff03b0c572d045a4002099187cb34878de3284dda2"
+    },
+    {
+      "bytes": 2736,
+      "mode": "0644",
+      "path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/schemas/role-grant-subject-v1.schema.json",
+      "sha256": "7167a10e225891c46d53aa9ec76f1aa4d8cfbd28773e1526727378d0f8d1f830"
+    },
+    {
+      "bytes": 1297,
+      "mode": "0644",
+      "path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/schemas/independent-review-v1.schema.json",
+      "sha256": "4c11a66a181b8d756616b6fc56f7a4f90d9976853aa6df04065858efaeb8f5df"
+    },
+    {
+      "bytes": 1401,
+      "mode": "0644",
+      "path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/schemas/validation-report-v1.schema.json",
+      "sha256": "58e0bfd7733e53d835b6c1d16b43686cda2734775a013ac59243a84bfcbda774"
+    },
+    {
+      "bytes": 0,
+      "mode": "0644",
+      "path": "shared/job_runtime/tests/candidates/r6_human_grader_registry_v1/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 11391,
+      "mode": "0644",
+      "path": "shared/job_runtime/tests/candidates/r6_human_grader_registry_v1/test_registry.py",
+      "sha256": "cf79df890246b8d048e316c272efe87360f61409197a960f8d2240afb7274b5b"
+    },
+    {
+      "bytes": 184,
+      "mode": "0644",
+      "path": "shared/job_runtime/tests/fixtures/r6_human_grader_registry_v1/fixture-human-noncountable.json",
+      "sha256": "4141db1389dd7faf10ef69e085f7233186bf51cde4740416246ef7302398b84e"
+    },
+    {
+      "bytes": 3670,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_human_grader_registry_v1/architecture-v1.json",
+      "sha256": "3570fd7fb89ecf0357ff5482b1129ad75724d7d2347a6213b5390a6654db2329"
+    },
+    {
+      "bytes": 1641,
+      "mode": "0600",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-registry-subject-v1.json",
+      "sha256": "22d71c65b43e29100bb482611c68e1e98f12073de738d7372488ae439199f221"
+    },
+    {
+      "bytes": 855,
+      "mode": "0600",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g1-role-grant-subject-v1.json",
+      "sha256": "3072c43fd1b89763994ab2017be0d97332160312abc7fd865a820f5e3bbdf87b"
+    },
+    {
+      "bytes": 855,
+      "mode": "0600",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g2-role-grant-subject-v1.json",
+      "sha256": "41a2001a5d7f7e81b23b0ea88936aa50767d2148d092d6fb2dd74b55edcc1d65"
+    },
+    {
+      "bytes": 855,
+      "mode": "0600",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g3-role-grant-subject-v1.json",
+      "sha256": "859d5f37634e5d60d499b7d2519f0c9e93184dabce649a1916da085d39ce2904"
+    }
+  ],
+  "status": "FROZEN_ADDITIVE_PROVIDER_FREE_SOURCE_CLOSURE",
+  "version": "r6-human-grader-registry-source-closure-v1"
+}

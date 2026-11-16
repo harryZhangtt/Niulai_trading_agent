@@ -1,0 +1,138 @@
+{
+  "activation": false,
+  "architecture": {
+    "bytes": 2515,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v9/architecture-v9.json",
+    "sha256": "40e867b02fdfb2d8b1147aa0e6b83fbc21efbb30c1e2c02dd3265017cfd29391"
+  },
+  "artifact_type": "protocol",
+  "countable": false,
+  "descriptor_correction": {
+    "exact_member": {
+      "bytes": 10536,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v7-independent-review-open-fable-20261112-8e9a8076.json",
+      "sha256": "3ebc954c253ae104f97ef5fe52e0fb96ac6d70a0eb273677e022145962dc258a"
+    },
+    "field": "dynamic_inputs",
+    "from_v8_incorrect": "v6 OPEN review",
+    "semantic_or_source_delta": false,
+    "to_v9_exact": "v7 OPEN review"
+  },
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "evidence_contract": {
+    "all_path_bytes_sha256_descriptors_recomputed": true,
+    "baseline_v8_closure_members_preserved_exactly": 33,
+    "complete_v9_closure_members": 36,
+    "only_additive_members": [
+      {
+        "bytes": 10896,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v8-independent-review-open-fable-20261113-8e9a8076.json",
+        "sha256": "65e425cab9b0fd7ed9381e0f8019360fad0e5c0f2da432c3b5c4e4c27c16df0d",
+        "verdict": "OPEN"
+      },
+      {
+        "bytes": 7712,
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v9/verify_v9.py",
+        "sha256": "ddffa58a2754331af0df42833c3693f50de22b491b0e365cb8010797b8ea9d29"
+      },
+      {
+        "bytes": 5357,
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v9/test_verify_v9.py",
+        "sha256": "53033aafffc4425e62487c2ba7d2eaff1ca339a8f9f56c1f4e25b5cce546fe99"
+      }
+    ],
+    "source_schema_test_delta": []
+  },
+  "lineage": {
+    "bytes": 2841,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v9/lineage-v9.json",
+    "sha256": "e160f104acbe83e087319a01c3a4498338d3b2ab5c5c2deeab7e9e206a78b332"
+  },
+  "p0_contract": {
+    "accepted_branches": [
+      "PASS/PASS/NOT_APPLICABLE/non-null cell/claude_host/non-null digest",
+      "STOP/ABSENT/NOT_APPLICABLE/null cell/null provider/null digest",
+      "UNKNOWN/ABSENT/NON_DURABLE/null cell/null provider/null digest",
+      "UNKNOWN/UNKNOWN/DURABLE/non-null cell/claude_host/non-null digest",
+      "UNKNOWN/POISONED/DURABLE/non-null cell/claude_host/non-null digest"
+    ],
+    "all_other_cross_branch_combinations": "REJECT",
+    "draft": "2020-12",
+    "runtime_projection_without_authority_parity": true
+  },
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "predecessor_review_binding": {
+    "bytes": 10896,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v8-independent-review-open-fable-20261113-8e9a8076.json",
+    "sha256": "65e425cab9b0fd7ed9381e0f8019360fad0e5c0f2da432c3b5c4e4c27c16df0d",
+    "verdict": "OPEN"
+  },
+  "registration": false,
+  "runtime_acceptance": {
+    "email": "PENDING",
+    "execution": "PENDING",
+    "reason": "evidence-only provider-free checks cannot replace future intended-runtime acceptance"
+  },
+  "source_closure": {
+    "aggregate_sha256": "95d4d0a321d143574c03eccc84e56f89c5cd363eb14a783eb8f594a56a244b1c",
+    "artifact_count": 36,
+    "bytes": 10443,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v9/source-closure-v9.json",
+    "sha256": "83dd031482f383302bf03b9e7e9d77b00d6ec6b02801c8a722515d41743f0e68"
+  },
+  "status": "OPEN_PROTOCOL_V9_EVIDENCE_ONLY_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "tests": {
+    "preserved_v5": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 16,
+      "result": "PASS"
+    },
+    "preserved_v6": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 17,
+      "result": "PASS"
+    },
+    "preserved_v7": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 12,
+      "result": "PASS"
+    },
+    "shared_evidence": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 15,
+      "result": "PASS_WITH_ISOLATED_WORKSPACE_ROOT_LOADER"
+    },
+    "v8": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 12,
+      "mutation_cases": 288,
+      "result": "PASS"
+    },
+    "v9_independent_parity_closure": {
+      "accepted_branches": 5,
+      "cases": 288,
+      "errors": 0,
+      "failures": 0,
+      "methods": 5,
+      "mismatches": 0,
+      "result": "PASS"
+    }
+  },
+  "version": 9
+}

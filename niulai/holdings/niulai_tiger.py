@@ -590,3 +590,26 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def quote_sdk_classes():
+    """Return the existing rotating OAuth session plus an isolated QuoteClient factory."""
+    Session, _unused_trade_factory = sdk_classes(include_quotes=True)
+    import urllib3
+    from tigeropen.auth.oauth2 import OAuth2Authentication
+    from tigeropen.quote.quote_client import QuoteClient
+    from tigeropen.tiger_open_config import TigerOpenClientConfig
+
+    class OAuthQuoteConfig(TigerOpenClientConfig):
+        def _load_env_vars(self): pass
+        def _load_props(self): pass
+        def load_token(self): return None
+
+    def client(session):
+        config = OAuthQuoteConfig(enable_dynamic_domain=False)
+        config.authentication = OAuth2Authentication(session)
+        config.timeout = urllib3.Timeout(connect=20, read=30, total=50)
+        config.retry_max_tries = 0
+        return QuoteClient(config)
+
+    return Session, client

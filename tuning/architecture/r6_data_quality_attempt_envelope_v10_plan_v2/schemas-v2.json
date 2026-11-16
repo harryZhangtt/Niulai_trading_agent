@@ -1,0 +1,679 @@
+{
+  "$defs": {
+    "checks_enabled_dq_checks_conditional": {
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "dq_checks": {
+                "items": false,
+                "maxItems": 6,
+                "minItems": 6,
+                "prefixItems": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "source_catalog_freshness"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "evidence_metadata_completeness"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "lineage_metadata_completeness"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "official_evidence_conflict"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "duplicate_fact_citation"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "dq_publication_quality"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "checks_enabled": {
+                "const": true
+              }
+            },
+            "required": [
+              "checks_enabled"
+            ]
+          },
+          "then": {
+            "properties": {
+              "dq_checks": {
+                "items": false,
+                "maxItems": 6,
+                "minItems": 6,
+                "prefixItems": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "source_catalog_freshness"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "evidence_metadata_completeness"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "lineage_metadata_completeness"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "official_evidence_conflict"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "duplicate_fact_citation"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "dq_publication_quality"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "checks_enabled": {
+          "type": "boolean"
+        },
+        "dq_checks": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "checks_enabled",
+        "dq_checks"
+      ],
+      "type": "object"
+    },
+    "disabled_six_checks": {
+      "items": false,
+      "maxItems": 6,
+      "minItems": 6,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "source_catalog_freshness"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "evidence_metadata_completeness"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "lineage_metadata_completeness"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "official_evidence_conflict"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "duplicate_fact_citation"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "dq_publication_quality"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    },
+    "enabled_six_checks": {
+      "items": false,
+      "maxItems": 6,
+      "minItems": 6,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "source_catalog_freshness"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "evidence_metadata_completeness"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "lineage_metadata_completeness"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "official_evidence_conflict"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "duplicate_fact_citation"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "dq_publication_quality"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "exact_provider_bindings": {
+    "ARM-A": {
+      "adapter_type": "ClaudeAttemptAdapterV9",
+      "blind_provider_label": "ARM-A",
+      "provider_schema": "claude-evidence-v1",
+      "publication_driver": "claude_publish_public",
+      "publication_driver_identity_sha256": "1ae0b76d43fcc2371042d78cefadcb89f972c14c7aac80f251b7a61ff9d5dd25",
+      "research_material_profile_sha256": "95fd61d9271ed5659d75fa036393724c11a9fe7e22f46ca226294c2fb9311468"
+    },
+    "ARM-B": {
+      "adapter_type": "CodexAttemptAdapterV9",
+      "blind_provider_label": "ARM-B",
+      "provider_schema": "stage-b-execution-v3",
+      "publication_driver": "AtomicPublisher.publish",
+      "publication_driver_identity_sha256": "15c4baba5461bf501f08b713be9dddfeb881e31832e09bd66bc04e3b9099d3a6",
+      "research_material_profile_sha256": "99d77ac9cc71d9f2fed80c65b956d2c15af32e327e8a6abb9b47f52051c9a9c3"
+    }
+  },
+  "not_implementation": true,
+  "required_schema_projections": [
+    {
+      "applies": "checks_enabled_dq_checks_conditional",
+      "json_pointer": "$",
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/dq-attempt-envelope-v1.schema.json"
+    },
+    {
+      "applies": "checks_enabled_dq_checks_conditional",
+      "json_pointer": "$/properties/envelope",
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/attempt-bundle-v1.schema.json"
+    }
+  ],
+  "status": "DESIGN_ONLY_V2_PENDING_STABLE_SUCCESSOR_BYTES_AND_FRESH_INDEPENDENT_REVIEW",
+  "status_enums": {
+    "architecture": [
+      "DESIGN_ONLY_V2_PENDING_STABLE_SUCCESSOR_BYTES_AND_FRESH_INDEPENDENT_REVIEW"
+    ],
+    "decision": [
+      "DESIGN_ONLY_V2_PENDING_STABLE_SUCCESSOR_BYTES_AND_FRESH_INDEPENDENT_REVIEW"
+    ]
+  },
+  "version": "r6-p0-v10-design-plan-v2-schemas"
+}

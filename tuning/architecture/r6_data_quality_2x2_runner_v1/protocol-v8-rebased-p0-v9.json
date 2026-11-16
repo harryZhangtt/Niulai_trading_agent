@@ -1,0 +1,216 @@
+{
+  "activation": false,
+  "allowed_claim": "The exact current runner core passes the complete schema-enabled provider-free suite and is source-custody-bound to CLEAN_P0_V9; it remains disabled and noncountable pending external live pins.",
+  "clean_provider_free_dependencies": {
+    "blind_map_v5": {
+      "producer": {
+        "bytes": 5155,
+        "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v5/producer-verification-v5.json",
+        "sha256": "1f95641a80496f51e8af0c9475c83a7759da38aa4a676a2879061b23c21ab446",
+        "status": "PASS_PROVIDER_FREE_PENDING_FRESH_INDEPENDENT_REVIEW"
+      },
+      "review": {
+        "bytes": 7188,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-clean-v1-fable-20261111.json",
+        "sha256": "b2647ca1dd095c69b20a54941c580026fd8e94fa21972d25210d7b9e73c6bb0e",
+        "verdict": "CLEAN_BLIND_MAP_V5"
+      }
+    },
+    "evaluation_v3": {
+      "producer": {
+        "bytes": 2588,
+        "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json",
+        "sha256": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea",
+        "status": "PRODUCER_PASS_PROVIDER_FREE_V3_PENDING_INDEPENDENT_REVIEW"
+      },
+      "review": {
+        "bytes": 10585,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json",
+        "sha256": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429",
+        "verdict": "CLEAN_PROVIDER_FREE_2X2_EVALUATION_V3"
+      }
+    },
+    "exact_input_v3": {
+      "claim_limit": "tool roster, common time window, and final grants remain pending",
+      "producer": {
+        "bytes": 6444,
+        "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/distinct-producer-evidence-v3.json",
+        "sha256": "70e0093a9c609fe198425851111b6c7a9f8a64abdebc46d66f2788486ac96349",
+        "status": "PRODUCER_PASS_OWNER_BOUND_TRANSITIVE_PROVIDER_FREE_NONCOUNTABLE"
+      },
+      "review": {
+        "bytes": 12726,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v3-independent-review-20261111-8e9a8076.json",
+        "sha256": "ef6f127291528442ddee27f25a9be71f1388a4ed9674978a870252ccb51bdae6",
+        "verdict": "CLEAN_EXACT_INPUT_BINDING_V3"
+      }
+    },
+    "no_bytedcli_v4_addendum": {
+      "authorization": {
+        "bytes": 2920,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v4-no-bytedcli-addendum.json",
+        "sha256": "4c00d39ff71ec20be18f91f8882a58f0ac54ae83a571940de060b44849a41dec",
+        "status": "AUTHORIZED_EXECUTION_SCOPE_PENDING_SAFETY_VALIDITY_AND_ATTRIBUTION_GATES"
+      },
+      "constraint": "bytedcli forbidden in CLI, skill, MCP-wrapper, and internal fallback forms",
+      "review": {
+        "bytes": 8947,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v4-no-bytedcli-addendum-independent-review-fable-20261111.json",
+        "sha256": "fbdc1eb36dcb04af06c42edf2a809925508306e80fea4192d5c113a949df8ac1",
+        "verdict": "CLEAN_NO_BYTEDCLI_ADDENDUM"
+      }
+    },
+    "p0_v9": {
+      "producer": {
+        "bytes": 37099,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-producer-verification-v9.json",
+        "sha256": "3bff74674ab8fe720dd99d8043d8faa080809d0a223bab00ae470e46ebf8e453",
+        "status": "PASS_PROVIDER_FREE_V9_PENDING_INDEPENDENT_REREVIEW_HUMAN_ATTESTATION_AND_RUNTIME_GATES"
+      },
+      "review": {
+        "bytes": 15534,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v9-independent-review-fable-20261111-clean.json",
+        "sha256": "0505e961774d325fdc6b89105215fd88cb0a71f8b942a78976d7ea1e8f49fbb2",
+        "verdict": "CLEAN_P0_V9"
+      }
+    },
+    "user_scope_v3": {
+      "authority_limit": "scope authorization only; does not waive safety, validity, attribution, final-grant, or runtime gates",
+      "authorization": {
+        "bytes": 3382,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v3.json",
+        "sha256": "4b836f2bc729b23c42670b9a6a147f9a85c667ac6bc5fc64ba85f2d4f59bac76",
+        "status": "AUTHORIZED_SCOPE_PENDING_EXACT_FINAL_GRANTS_AND_REVIEWS"
+      },
+      "review": {
+        "bytes": 5562,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v3-independent-review.json",
+        "sha256": "1a7c5598e83615fbae8952eb84b573671b37de33f033271bf2f2dbc089b039ef",
+        "verdict": "CLEAN_SCOPE_AUTHORIZATION"
+      }
+    }
+  },
+  "contract": {
+    "errors": "fail closed before or at the exact boundary; STOP/UNKNOWN stay in denominator and are not replayed or finalized",
+    "input": "exact committed P0-v9 attempt bundles plus exact authority, blind-map, evaluation, grant, and receipt records",
+    "output": "disabled four-cell execution receipt and authenticated fixture-only finalization state"
+  },
+  "countable": false,
+  "denominator": "STOP and UNKNOWN remain included, non-replayable, and non-finalizable",
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "embedded_runtime_p0_contract": {
+    "contract": {
+      "bytes": 5231,
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/p0-contract-v9.json",
+      "sha256": "51f36fb46eb7a74994abf0a23152ce5d1f3fd7f4e8687aa900d1328e3b9aae1e"
+    },
+    "interpretation": "embedded runtime contract remains fail-closed; CLEAN_P0_V9 is an outer exact-source custody/review binding and does not retroactively mutate these pinned runner bytes",
+    "review": {
+      "bytes": 11667,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v8-independent-review-fable-20261111-provider-relabel-open.json",
+      "sha256": "0a150a6221ba082ae38eae6951bff43fc904996a99623e425d36059e431ec2e6",
+      "verdict": "OPEN"
+    }
+  },
+  "execution": {
+    "attempts_per_cell": 1,
+    "concurrency": 1,
+    "order": "fixed CELL_ORDER across exactly four cells",
+    "replays": 0,
+    "retries": 0,
+    "status_queries": 0
+  },
+  "external_pending_pins": {
+    "claude_v7_fresh_independent_review": {
+      "current_subject": {
+        "bytes": 8319,
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/source-closure-v7.json",
+        "sha256": "8e04fa3601b1b6fcf9e1419572501465c006bb824d07cd82861d9a0aaf134750",
+        "status": "OPEN_PROVIDER_FREE_V7_PENDING_FRESH_INDEPENDENT_REVIEW"
+      },
+      "required": "complete exact-subject evidence set and fresh CLEAN review",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "codex_v5_p0_v9_rebased_clean_review": {
+      "current_open_review": {
+        "bytes": 11876,
+        "finding": "OPEN-P0-V9-REBASE-001",
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-codex-live-integration-v5-p0-v9-rebase-independent-review-fable-20261111-8e9a8076-open.json",
+        "sha256": "48b02aae9a5a34314fbfd0446a4798a6357461c811a326955341b04a85ae92dc",
+        "verdict": "OPEN"
+      },
+      "required": "new exact-subject CLEAN rebased review; prior CLEAN remains superseded",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "common_time_window_final_pin": {
+      "current_artifact": null,
+      "required": "exact authoritative common time-window artifact and applicable review",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "final_live_grants_and_reviews": {
+      "arm_a_final_grant": null,
+      "arm_a_final_review": null,
+      "arm_b_final_grant": null,
+      "arm_b_final_review": null,
+      "required": "exact authentic final live grants and CLEAN reviews for both arms",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "tool_policy_v6_fresh_independent_review": {
+      "current_subject": {
+        "bytes": 5692,
+        "path": "tuning/architecture/r6_frozen_tool_web_allowance_v6/decision-v6.json",
+        "sha256": "f8bc2e726424b2f39d6ace62e0c6fc970c555a50675a06cee47c03d6a021a409",
+        "status": "DISABLED_PENDING_FRESH_INDEPENDENT_REVIEW"
+      },
+      "required": "fresh exact-subject independent CLEAN review",
+      "state": "PENDING_EXTERNAL_PIN"
+    }
+  },
+  "forbidden_claims": [
+    "live authority",
+    "countable cells",
+    "provider execution",
+    "external effect",
+    "tool-policy-v6 CLEAN review",
+    "Claude-v7 CLEAN review",
+    "Codex-v5 rebased CLEAN review",
+    "final live grants",
+    "runtime acceptance"
+  ],
+  "grading": "exact committed provider-identity evidence is transformed without synthetic grades or metrics; blind human grading and authenticated finalization remain mandatory",
+  "history": {
+    "bytes": 2908,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/history/history-index-v8.json",
+    "sha256": "5ea4d4ffa90a2ff2546843cb2c0887a98031b2d9d551c48256daacf1a78b0ce9"
+  },
+  "owner": "tuning/architecture/r6_data_quality_2x2_runner_v1",
+  "p0_v9_source_custody": {
+    "producer": {
+      "bytes": 37099,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-producer-verification-v9.json",
+      "sha256": "3bff74674ab8fe720dd99d8043d8faa080809d0a223bab00ae470e46ebf8e453",
+      "status": "PASS_PROVIDER_FREE_V9_PENDING_INDEPENDENT_REREVIEW_HUMAN_ATTESTATION_AND_RUNTIME_GATES"
+    },
+    "review": {
+      "bytes": 15534,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v9-independent-review-fable-20261111-clean.json",
+      "sha256": "0505e961774d325fdc6b89105215fd88cb0a71f8b942a78976d7ea1e8f49fbb2",
+      "verdict": "CLEAN_P0_V9"
+    }
+  },
+  "provider_free": true,
+  "publication": "all destination collisions reject before the boundary; receipts use atomic no-replace stage/link/fsync/reopen recovery without boundary replay",
+  "registered": false,
+  "status": "PASS_PROVIDER_FREE_RUNNER_CORE_PENDING_EXTERNAL_LIVE_PINS",
+  "version": "r6-data-quality-2x2-runner-protocol-v8-rebased-p0-v9"
+}

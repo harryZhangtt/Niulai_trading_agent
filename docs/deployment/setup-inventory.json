@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "inventory_kind": "sanitized_source_and_setup_contract",
-  "scope": "Workspace setup contract for shared scheduling/model infrastructure, shared Tiger gateway, Niulai, shared market-data adapters, web access, mentor validation, tuning and UI guidance/verification",
+  "scope": "Workspace setup contract for shared scheduling/model infrastructure, shared Tiger gateway, Niulai, shared market-data adapters, web access, mentor validation, tuning and UI guidance/verification, and provider-free storage governance",
   "private_state_contents_inspected": false,
   "absolute_user_paths_included": false,
   "components": [
@@ -197,6 +197,15 @@
         },
         "production_dependency_change": false,
         "runtime_acceptance": "unverified; untrusted actual UI hook, no future-scheduled changed-capability evidence"
+      },
+      "private_artifact_publisher": {
+        "source": "ui/tools/private_artifacts.py",
+        "tests": "ui/tests/test_private_artifacts.py",
+        "focused_command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v ui.tests.test_private_artifacts",
+        "namespace": "ui/artifacts/future-private-v1/ (ignored confidential create-only namespace)",
+        "status": "Implemented/provider-free; historical ui/artifacts root remains 0755 so default publication fails closed; no public publisher or runtime acceptance",
+        "contract": "Bounded stdin or stable owner-owned one-link 0600 staging; exact 0700 directories/0600 leaf; no replacement; post-link failure is outcome_unknown_reconcile_required; CLI omits hash/size",
+        "focused_test_result": "17/17 passed in this documentation session"
       }
     },
     {
@@ -293,7 +302,8 @@
         "owner_email_sync": "pending; not sent from this task",
         "handoff_record": ".job-runtime/acceptance/options-alpaca-massive-20261030/record.json",
         "accuracy_claim": "None; indicative quotes, per-field timestamps and missing Greeks remain explicit"
-      }
+      },
+      "tiger_market_snapshot_candidate": "manual unregistered roster-bound calibration tool; offline-tested, live provider and scheduled acceptance unverified"
     },
     {
       "id": "mentor-validation",
@@ -399,7 +409,8 @@
         "shared/job_runtime/"
       ],
       "dependency_manifests": [
-        "shared/job_runtime/bootstrap-requirements.txt"
+        "shared/job_runtime/bootstrap-requirements.txt",
+        "shared/job_runtime/test-requirements.txt"
       ],
       "explicit_host_prerequisites": {
         "host": "macOS logged-in user session for the provided launchd adapter",
@@ -414,6 +425,9 @@
       "bootstrap_dependency_pins": {
         "uv": "0.13.6"
       },
+      "test_dependency_pins": {
+        "jsonschema": "4.25.1"
+      },
       "runtime_dependencies": [
         "Python standard library for the shared engine, supervisor, host and model adapter"
       ],
@@ -427,6 +441,7 @@
         ".job-runtime/tmp/",
         ".job-runtime/tests/",
         ".job-runtime/.venv/",
+        ".job-runtime/test-venv/",
         ".job-runtime/bootstrap/",
         ".job-runtime/python/",
         ".job-runtime/bin/"
@@ -460,6 +475,15 @@
         "automatic_model_fallback": false,
         "access_claim": "Account-specific availability requires an actual invocation; requested model is separate from observed model metadata"
       },
+      "strict_process_tree_containment_candidate": {
+        "status": "frozen-disabled source contract only; not configured or activated",
+        "source": "shared/job_runtime/containment.py, shared/job_runtime/macos_vm.py and shared/job_runtime/vm_assets/",
+        "toolchain": "Apple Swift 6.2.4 identity and exact source/flag digests pinned by vm_assets/macos/toolchain-lock.json",
+        "verification": "60/60 provider-free Python protocol tests, Python compile, Swift typecheck, shell syntax, no-build toolchain-lock reproduction and independent clean review",
+        "runtime_limits": "Helper remains unbuilt, unsigned, unentitled and unlaunched; VM boot, VZ /dev/fd attachments, virtio, cgroup, launchd teardown, model dispatch and scheduled acceptance are unverified"
+      },
+      "schema1_protocol_v3_prompt_custody": "One owner-checked no-follow stable read before prepare; immutable prompt_sha256/prompt_length context; later dispatch reuses the decoded capture without reopening",
+      "business_shell_policy": "phase=business permits shell=false with automatic_review; shell feature remains disabled and no writable roots are granted; shell=true private-root behavior is retained",
       "retry_policy": {
         "max_attempts": 3,
         "backoff_seconds": 30,
@@ -469,14 +493,25 @@
       },
       "activation_status": "Source implements current-session and explicitly authorized persistent login installation; inspect target launchd status, heartbeats, sleep assertion and actual model receipts before claiming a device deployment",
       "sleep_boundary": "caffeinate prevents idle sleep while the service runs; shutdown, logout, forced/lid sleep, network loss and invalid auth remain execution limits",
-      "current_business_allocation": "Recurring Niulai readiness at 13:00/19:00 New York plus verified one-time full price/holdings/Gmail test; production mail sender not cut over",
+      "current_business_allocation": "Private active Niulai daily-business13:00/19:00 America/New_York with real XNYS gate plus300s recovery, explicitly authorized parallel sender; checked-in allocation disabled. Inspect current actual host and delivery records; no sole-sender cutover claim.",
       "portability_gaps": [
         "Generated private JSON/plists contain device paths and must be regenerated",
         "Create or explicitly provision one supported local Codex auth cache per device; never automatically reseed or synchronize active rotating caches",
         "The provided host adapter targets macOS; other operating systems need their own verified host adapter",
         "Uninstall old service registrations before moving the checkout because per-user service labels are static"
       ],
-      "runbook": "docs/deployment/job-runtime.md"
+      "runbook": "docs/deployment/job-runtime.md",
+      "schema9_prompt_handoff_candidate": "Local 447-test pass; capture->CAS descriptor->verified dispatch; active schema8 unchanged; migration/activation/future acceptance pending",
+      "schema9_isolated_migration": "Disposable backup-copy migration/rollback/fence pass; active schema8 byte-identical; activation and future scheduled acceptance pending",
+      "schema9_current_local_suite": "Prompt custody 25 focused +400 concurrency stress rounds; migration21 focused; full job-runtime471 passed; activation/campaign/future acceptance pending",
+      "evaluation_evidence_future_write_fence": {
+        "source": "shared/job_runtime/model.py",
+        "tests": "shared/job_runtime/tests/test_model.py",
+        "focused_command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v shared.job_runtime.tests.test_model",
+        "status": "Implemented/provider-free and 33 focused tests passed in the documentation session; runtime acceptance unverified",
+        "contract": "Normalized targets beneath .job-runtime/evaluations fail before launch with MODEL_STRICT_PROCESS_TREE_CONTAINMENT_UNAVAILABLE, including .. aliases",
+        "residual_limit": "Child umask, parent fchmod and held-directory-FD output validation do not contain setsid descendants; generic non-evaluation paths are not promoted"
+      }
     },
     {
       "id": "niulai-controlled-runtime",
@@ -603,6 +638,7 @@
       "id": "tiger-query-gateway",
       "source_paths": [
         "shared/tiger/",
+        "tuning/trading_agent/reconciliation/",
         "shared/market_data_mcp/adapters/tiger.mjs",
         "shared/market_data_mcp/tiger-query.mjs",
         "niulai-runtime/niulai_runtime/tiger.py",
@@ -631,10 +667,22 @@
       ],
       "public_config_template": "shared/tiger/config/tiger.example.json",
       "credential_owner": "Existing remote owner-private encrypted store and its exclusive lease; no independent refresh cache or broader consent",
+      "owner_readback_diagnostic": {
+        "implementation": "shared/tiger/reconciliation.py",
+        "acceptance": "shared/tiger/reconciliation-acceptance.md",
+        "independent_verification": "tuning/trading_agent/reconciliation/",
+        "activation": "Manual only; exact pinned recovered Worker and fresh native Site/version/successful deployment required; no MCP or background registration",
+        "source_custody": "Stage identical verified Worker code as a new 0600 owner-private regular file under .niulai-state; Git 0644 source files reject before HTTP; retain local preflight failures",
+        "bounds": "At most 2 HTTP requests, 1 attempt each, 15s each, 40s post-input deadline, 64KiB response limit, no redirects",
+        "effects": "GET health and original commit-only no-profile acknowledgement probe; no acquire/release, credential/profile access, fence retirement or broker query",
+        "recovery_limit": "The recovered owner stores last_commit only; recognition does not attest original lease/profile/release history. Inconclusive readback preserves fence and local profile.",
+        "unattended_service_access": "Unverified; fresh native Sites access remains host-provided"
+      },
       "read_only_query_tools": [
         "positions",
         "assets",
-        "snapshot"
+        "snapshot",
+        "market_snapshot"
       ],
       "query_route": "shared.tiger hidden-input launcher -> private pipe -> isolated Node QueryPortal/in-memory MCP adapter -> private pipe -> shared.tiger.worker -> official read-only SDK",
       "host_mcp_registration": false,
@@ -672,12 +720,86 @@
       "query_tools": [
         "positions",
         "assets",
-        "snapshot"
+        "snapshot",
+        "market_snapshot"
       ],
       "retry_policy": {
         "portal_worker_attempts": 1,
         "extra_broker_retries": 0,
         "idempotent_store_attempts": 3
+      },
+      "market_snapshot_candidate": {
+        "active_registration": false,
+        "authorization": "one-time calibration authorization consumed with terminal unresolved; nonreusable; promotion requires separate later explicit authorization",
+        "batch_cap": 8,
+        "live_provider_status": "attempted exactly once on 2026-11-10; fresh Sites and frozen query validation passed; Tiger checkpoint outcome unresolved; Yahoo not started; no pilot result",
+        "private_files": [
+          "market_raw.json",
+          "market_manifest.json",
+          "market_query.json"
+        ],
+        "public_receipt": "closed-schema counts, hashes, fixed reasons and checkpoint/release state; no symbols or values",
+        "scheduler_enabled": false,
+        "secondary_cross_check": "Yahoo direct fixed endpoints remain secondary only; no yfinance; authorized attempt did not start after Tiger became unresolved; never membership authority",
+        "authorization_gate": {
+          "fixed_private_root": ".niulai-state/reports/research-sources/market-pilot/authorizations/",
+          "id_shape": "mpa_<32 lowercase hex>",
+          "claim_timing": "atomic unused-to-consumed before StoreClient, credential lease or provider I/O",
+          "terminal_behavior": "success, failure, unresolved and interrupted claimed state remain consumed; replay rejected; interruption requires reconciliation",
+          "public_projection": "opaque authorization id/hash/status only; no private path",
+          "issuance_process": "owner-controlled orchestrator only after explicit user approval record and independent calibration-contract/cohort hash verification; query workers and MCP tools cannot self-issue"
+        },
+        "sample_selection": {
+          "algorithm": "sha256_ranked_without_replacement",
+          "adaptive": false,
+          "calibration_count": 8,
+          "promotion_count": 8,
+          "cohorts_disjoint": true,
+          "document": "mentor/runtime/probabilistic-manifold-leverage-20261107/evidence/market-pilot-sample-selection-20261110-v1/sample-selection-v1.json",
+          "validation_receipt": "mentor/runtime/probabilistic-manifold-leverage-20261107/evidence/market-pilot-sample-selection-20261110-v1/validation-receipt-v2.json",
+          "validation_receipt_sha256": "c6fdd17e7cb17efc91dfc5aff15ef81995a71141bb6152b9d345631f000c5bf2",
+          "selection_contract_sha256": "42b3112080e3233d6922ef1b87fab38818cfb34b64757e7e0f7cb060f58f7997",
+          "promotion_authorized": false,
+          "public_symbols_disclosed": false,
+          "document_file_sha256": "63bc92e543be7d3a4f625cdeafb71efc5ec0f29c6ac3cb65690c07f956a6a653",
+          "canonical_object_sha256": "f3f6e9d5c4eb5f21719225be8208bdd80c108ed6268c230aacb3d1bb1cc811d1",
+          "calibration_cohort_sha256": "442fbff98f2e02651842891d7c5d31bcec0a2be5311c32d5129400af2a1d3634",
+          "calibration_ordered_query_sha256": "ec29e8afe8975cab2d3f2a82798c4d38b28c68988be5ce6b1b219104c9478214",
+          "promotion_cohort_sha256": "bdd1594ade846603d2796a09e00ac0f5ed657f83a79c9cd278a635dd659717af",
+          "promotion_ordered_query_sha256": "b1084fb0254fa2850b1791ff96335c1e9cc958ad654e85868f1651a331f9a3ec",
+          "calibration_contract_sha256": "5182084408de4a301b6ab8767e30b4fd285eb7b0ea3046dc02793265d0bc55b9",
+          "promotion_contract_sha256": "f906e6f5660300d2e206462d094d1e12bced50f2dc94037ad3e1fe9d2eeecde5"
+        },
+        "reconciliation": {
+          "status": "BLOCKED_PERMANENT_UNDER_AVAILABLE_AUTHORITY",
+          "authorization_status": "consumed",
+          "authorization_terminal_status": "unresolved",
+          "fence_preserved": true,
+          "retained_profile_preserved": true,
+          "automatic_retry": false,
+          "business_replay": false,
+          "owner_audit_available": false,
+          "closure_sha256": "e42550b11af79912142c14b3973d8fa8f6475e559deda35f3c3dac0f615f4775",
+          "future_owner_readback_contract_sha256": "5f0bc0391f4c5db9a7f7a6a049ad5575e523f9e8bed23aaed6d1d7359ed04d4e",
+          "future_contract_enabled": false
+        },
+        "proxy_companion_report": {
+          "artifact_root": "mentor/runtime/probabilistic-manifold-leverage-20261107/evidence/proxy-companion-report-unresolved-20261111-v2/",
+          "strict_status": "FAIL",
+          "pilot_status": "UNRESOLVED_PILOT_OUTCOME",
+          "full_proxy_status": "BLOCKED_NOT_FULL_PROXY_SCOPE",
+          "html_sha256": "4d8f984874830214f597cb6ad338b199cf543f8c04bd035d486e6b9886bc26dd",
+          "browser_review_sha256": "1747f4197cf22f84caa9b5080bb1280e7143c80436448143afd07196f544dc8f",
+          "browser_lineage_sha256": "5c12bd727d124cd5e66b976aea73ad10cdac4bc83076ff99f40bdea0fc84252f",
+          "browser_checks": 10,
+          "console_errors": 0,
+          "action_allowed": false,
+          "promotion_allowed": false,
+          "final_acceptance": false,
+          "final_review_bundle": "mentor/runtime/probabilistic-manifold-leverage-20261107/validation/proxy-companion-unresolved-final-review-bundle.v1.json",
+          "final_review_bundle_sha256": "b15a474d797e18ae3be65aff38ccf3b1cde767c648659b7e53aee889f781efe7",
+          "final_review_status": "PASS_REPORT_ACCEPTANCE_WITH_BUSINESS_BLOCKS"
+        }
       }
     },
     {
@@ -700,6 +822,7 @@
       "id": "investment-source-coverage",
       "source_paths": [
         "investment/AGENTS.md",
+        "investment/skills/investment-review/",
         "investment/research/",
         "shared/research_sources/",
         "shared/market_data_mcp/adapters/research-stdio.mjs"
@@ -739,13 +862,42 @@
         "Reviewer meaning/truth not mechanically certified"
       ],
       "runbook": "investment/research/README.md",
+      "codex_review_entrypoint": {
+        "name": "investment-review",
+        "canonical_source": "investment/skills/investment-review/SKILL.md",
+        "project_discovery_link": ".agents/skills/investment-review",
+        "dependency_policy": "Existing repository-local investment adapter, bundled AI Berkshire policies and research-source environment; no new packages, hooks or executor",
+        "state_policy": "New private run artifacts and checkpoints under .niulai-state/reports/investment-research/; preserve historical state",
+        "claude_dollar_alias_registered": false,
+        "native_discovery": "Passed on 2026-11-15 in a fresh isolated Codex app-server from repository root, investment and investment/research; enabled canonical project skill verified",
+        "installation_preflight": "Skill Creator validator passed; eight local references resolved; independent read-only instruction review found no material defect",
+        "disposable_failure_and_rollback": "Malformed YAML rejected by strict preflight; native discovery is permissive but ordinary session creation remains available; owned-link removal/restoration and app-server cleanup passed",
+        "research_execution": "Unverified; no investment review performed by installation",
+        "scheduled_runtime_acceptance": "Unverified for this wrapper; prior source-path receipts are not reused"
+      },
       "scheduled_acceptance": {
         "status": "passed_for_scoped_source_path",
         "email_sync": "verified",
         "date": "2026-10-30",
         "prior_failures_retained": true
       },
-      "runtime_node_selection": "Private toolchain metadata resolves/hashes the actual Node executable; no interactive shell shim or global PATH change"
+      "runtime_node_selection": "Private toolchain metadata resolves/hashes the actual Node executable; no interactive shell shim or global PATH change",
+      "future_private_artifact_sink": {
+        "sources": [
+          "shared/research_sources/artifacts.py",
+          "shared/research_sources/store.py",
+          "investment/research/pipeline.py"
+        ],
+        "tests": [
+          "shared/research_sources/tests/test_artifacts.py",
+          "investment/research/tests/test_sources.py"
+        ],
+        "focused_command": "PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python -B -m unittest -v shared.research_sources.tests.test_artifacts investment.research.tests.test_sources",
+        "status": "Implemented/provider-free filesystem contract; historical store remains unverified/manual_review and scheduled runtime acceptance is not claimed for this hardening",
+        "contract": "Descriptor-bound exact 0700 directories and 0600 temp/CAS/pointer files; reject permissive existing CAS; PublicationOutcomeUnknown after namespace effect; buffered producer; immutable content plus authoritative pointer; final source-coverage revalidation",
+        "sqlite_limit": "New primary SQLite file only; existing primary databases and journal/WAL/SHM sidecars are not covered",
+        "focused_test_result": "34/34 passed in the project-local research environment in this documentation session"
+      }
     },
     {
       "id": "temporary-development-campaign",
@@ -795,7 +947,20 @@
       "optional_paths": "QuantLib1.44, mpmath1.3, NumPy2.3.5, arch8, calendar4.11.2, pandas2.2.3, Hypothesis6.170.14, openpyxl3.1.5 installed only in dedicated validation environment",
       "runbook": "docs/deployment/calculation.md",
       "public_sources": "Issuer/SEC historical filing facts, delayed Cboe sample, FRED primary-page historical closes; source/sample hashes private; no account data",
-      "security_boundary": "Codex writes only client inbox; host outputs/inputs/venv outside model grant; anchored no-follow regular single-link bounded request; host-memory result digest; original OS worker network/private-read/outside-write denies;10boundary regressions and70shared runtime tests pass"
+      "security_boundary": "Codex writes only client inbox; host outputs/inputs/venv outside model grant; anchored no-follow regular single-link bounded request; host-memory result digest; original OS worker network/private-read/outside-write denies;10boundary regressions and70shared runtime tests pass",
+      "leveraged_operator_candidate": "Local2026-11-07: deterministic operator plus 22 focused and 31 legacy tests; five-suite offline runner candidate; future scheduled native-host acceptance pending",
+      "maintained_validation_suites": [
+        "valuation",
+        "options",
+        "paths",
+        "contracts",
+        "leveraged_operator",
+        "common_factor_attribution"
+      ],
+      "leveraged_operator_local_runner": "Five-suite local execution completed: leveraged_operator passed; historical paths3/contracts2 baseline findings retained; future scheduled native-host acceptance pending",
+      "five_suite_acceptance_policy": "Requires valuation/options/leveraged_operator pass plus exact retained paths3/contracts2 historical finding IDs; missing/extra/nonbaseline rows block",
+      "common_factor_candidate": "Registered maintained runner/worker/acceptance suite; truthful current receipt passes 21 tests in pinned Python/NumPy/SciPy; descriptive only; current six-suite local pass; future scheduled acceptance pending",
+      "common_factor_harness_status": "Previous standalone/not-registered and indirect-SciPy limitations superseded; cross-platform BLAS bitwise equivalence not claimed"
     },
     {
       "id": "investment-research-runtime-pilot",
@@ -918,6 +1083,18 @@
       },
       "entrypoint": "pnpm run dev",
       "url": "http://localhost:7270/datasource",
+      "visual_system": {
+        "contract": "ui/datasource/DESIGN.md",
+        "qa_record": "ui/datasource/design-qa.md",
+        "reference": "Figma AQASayAEkX57Fygp2CvafT node317:173 raster image2; CC BY4.0 community attribution recorded",
+        "shared_chrome": "ui/datasource/src/WorkspaceChrome.tsx and workspace-theme.css",
+        "font_assets": "Self-hosted Poppins Regular/Medium/SemiBold with OFL and source hashes under ui/datasource/src/assets/fonts/",
+        "routes": [
+          "/datasource",
+          "/factor-mining",
+          "/scheduler"
+        ]
+      },
       "state_paths": [
         "ui/runtime/",
         ".niulai-state/reports/investment-research/information-labels/",
@@ -926,6 +1103,7 @@
       ],
       "activation": "read-only execution-first app; configurable registered acquisition batches with persistent cache and retained snapshots; isolated NOW query, no global production registration",
       "failure_policy": "bounded projection, last-good response, same-server duplicate reuse, never kill foreign port owner, optional observer cannot change execution",
+      "ui_verification": "2026-11-05 unified Figma-style and follow-up contrast pass: full browser65/65, shared Node server/read-only15/15, TypeScript and104-module production build; desktop1296/1440, mobile390/320 and200% text rendered checks; representative global-link, Overview, Research and RunEvidence normal text is >=4.5:1 on panel and selected-tint surfaces; no open P0/P1/P2 design findings. This is read-only UI acceptance, not business runtime/email acceptance.",
       "temporal_scope": "before-exposure pinned-version guard in maintained query; unknown and reconstructed historical versions withheld; no model-weight isolation claim",
       "runbook": "docs/deployment/datasource.md",
       "native_comparison_projection": {
@@ -1136,9 +1314,547 @@
       ]
     },
     {
+      "id": "local-scheduler-dashboard",
+      "source_paths": [
+        "shared/job_runtime/dashboard.py",
+        "niulai-runtime/niulai_runtime/scheduler_view.py",
+        "mentor/scheduler/scheduler_view.py",
+        "mentor/tests/test_scheduler_view.py",
+        "ui/datasource/src/scheduler/",
+        "ui/datasource/tests/scheduler.spec.mjs",
+        "ui/datasource/tests/scheduler-server.test.mjs",
+        "ui/datasource/licenses/radix-tabs.md",
+        "mentor/scheduler/resilience_preflight.py",
+        "ui/datasource/server.mjs",
+        "ui/datasource/src/scheduler-resilience-mvp/",
+        "ui/datasource/src/scheduler/components/MentorJobDetail.tsx",
+        "ui/datasource/src/scheduler/types.ts",
+        "ui/datasource/src/services/apis/scheduler/adaptScheduler.ts",
+        "ui/datasource/src/types/schedulerApi.ts"
+      ],
+      "entrypoint": "http://localhost:7270/scheduler",
+      "runbook": "docs/deployment/scheduler-ui.md",
+      "start": "pnpm run dev (existing foreground loopback datasource frontend)",
+      "configuration": "Existing private shared runtime config, allocation/prompt files, Niulai policy and fixed mentor work-order/acceptance bindings; no duplicate UI registry",
+      "dependencies": "Existing frontend React19.2/TypeScript5.9.3/Vite7.1.12 graph and existing .niulai-state/.venv Python3.12.16/exchange-calendars4.11.2; no new install",
+      "state_paths": [
+        ".job-runtime/heartbeat.json",
+        ".job-runtime/watchdog.json",
+        ".job-runtime/engine/schedule.sqlite",
+        ".niulai-state/databases/outbox.sqlite",
+        ".job-runtime/acceptance/mentor-scheduler-runtime-20261105-v1/",
+        "ui/runtime/scheduler-20261103/",
+        "ui/runtime/scheduler-tests/",
+        "ui/runtime/scheduler-refactor/",
+        "ui/runtime/scheduler-mobile-audit-20261105/"
+      ],
+      "boundary": "Read-only actual jobs/content/history/private policy-bound messages plus fixed bounded mentor status. Exact mentor.resilience keys are generated_at/status/projection_state/scheduler/provider_safety/mentor/health; malformed, impossible delay/unknown-fence, identity and extra-key shapes fail closed. Prompts, paths, digests, raw receipts, provider/profile identity and recipient data are suppressed. No dispatch, scheduling change, provider call, reconciliation/replay authority, auth copy, broker query or send.",
+      "observed_runtime": "2026-11-05 guarded current live frontend readback remains read-only and currently retained/stale. Final focused visual audit issued28 GET requests with0 page errors or horizontal overflow across1440/390/320 and live/mentor/loading/error/stale/partial states. These UI reads do not establish business acceptance.",
+      "verification": "Frozen 2026-11-09 provider-free evidence: scheduler broad Python294 passed; focused core Python68; focused Node8; scheduler browser32; exact server cross-contract Node7; combined datasource typecheck and125-module build passed. Historical failed future attempt remains failed/reconciled definitely_not_dispatched; no business/email/runtime acceptance.",
+      "activation_status": "Existing foreground localhost dashboard only. Resilience source/API/UI integration is present, but its allocation remains enabled:false and adds no materializer, service, listener, provider, email, database or business effect.",
+      "rendering_source_reuse": {
+        "component": "Radix Themes base-tab-list CSS",
+        "commit": "1faff10ac26ae17f09944d418c6949b93fc6b566",
+        "license": "MIT WorkOS 2023",
+        "adaptation": "Existing plain CSS/native controls; stable-width labels,active underline and explicit focus; no package import",
+        "notice": "ui/datasource/licenses/radix-tabs.md"
+      },
+      "resilience_contract": {
+        "top_level": [
+          "generated_at",
+          "status",
+          "projection_state",
+          "scheduler",
+          "provider_safety",
+          "mentor",
+          "health"
+        ],
+        "scheduler": [
+          "status",
+          "attempts"
+        ],
+        "provider_safety": [
+          "latest_attempt",
+          "delayed_until",
+          "delay_source",
+          "unknown_fence",
+          "replay_authorization"
+        ],
+        "mentor": [
+          "cycles",
+          "no_progress",
+          "repeated",
+          "evidence_reset"
+        ],
+        "health": [
+          "heartbeat_age_seconds",
+          "watchdog_healthy"
+        ]
+      }
+    },
+    {
+      "id": "factor-mining-research-and-observability",
+      "source_paths": [
+        "factor/",
+        "tuning/factor_mining/",
+        "shared/factor_mining/",
+        "investment/factor_mining/rdagent_adapter/",
+        "ui/datasource/src/factorMining/",
+        "ui/datasource/src/types/factorMiningApi.ts",
+        "ui/datasource/src/services/apis/factorMining/",
+        "ui/datasource/tests/factor-mining-server.test.mjs",
+        "ui/datasource/tests/factor-mining.spec.mjs",
+        "ui/datasource/factor-mining.playwright.config.mjs"
+      ],
+      "entrypoints": {
+        "source_verification": "python3 -B factor/upstream/verify.py",
+        "experiment_guard": "python3 -I tuning/factor_mining/cli.py",
+        "synthetic_dataset_verification": "python3 -B -m unittest discover -s factor/dataset/tests -v",
+        "admission_policy_verification": "python3 -B -m unittest discover -s tuning/factor_mining/admission_policy/tests -v",
+        "synthetic_authority_verification": "python3 -B -m unittest discover -s tuning/factor_mining/admission_authority/tests -v",
+        "runner_v2_verification": "python3 -B -m unittest discover -s investment/factor_mining/rdagent_adapter/v2/tests -v",
+        "evaluator_verification": "python3 -B -m unittest discover -s tuning/factor_mining/evaluator/tests -v",
+        "trusted_authority_contract_verification": "python3 -B -m unittest discover -s tuning/factor_mining/trusted_authority/tests -v",
+        "gcp_authority_verification": "python3 -B -m unittest discover -s tuning/factor_mining/trusted_authority/gcp/tests -v",
+        "gcp_cloud_run_verification": "python3 -B -m unittest discover -s factor/docker/gcp/tests -v",
+        "source_inventory_verification": "python3 -B -m unittest discover -s factor/source_inventory/tests -v",
+        "gcp_freeze_verification": "python3 -B -m factor.deployment.gcp_freeze",
+        "gcp_activation_verification": "python3 -B -m unittest discover -s factor/deployment/gcp_activation/tests -v",
+        "gcp_activation_freeze_verification": "python3 -B -m factor.deployment.gcp_activation_freeze",
+        "exposure_freshness_verification": "python3 -B -m unittest discover -s tuning/factor_mining/exposure/tests -v",
+        "projection": "python3 -B -m shared.factor_mining.projection",
+        "api": "http://localhost:7270/api/factor-mining",
+        "ui": "http://localhost:7270/factor-mining"
+      },
+      "runbook": "docs/deployment/factor-mining.md",
+      "upstream_sources": {
+        "rd_agent": "v1.0.0 / 484776c211e4fbbeef03e0ec00d6bbee7362a4f4 / source-only",
+        "qlib_rdagent": "2fb9380b342556ddb50a4b24e4fe8655d548b2b8 / source-only",
+        "qlib_standalone_candidate": "v0.9.8 / 54355232463878d2eebb91fe0ee5fa7fa1f5976c / not approved as RD-Agent replacement"
+      },
+      "dependencies": "Existing standard-library Python and React19.2/TypeScript5.9.3/Vite7.1.12 graph only; no RD-Agent/Qlib, Terraform, Google SDK or cloud runtime dependency installed",
+      "state_paths": [
+        "factor/runtime/upstream/",
+        "factor/runtime/registry/",
+        "factor/runtime/admission-authority/",
+        "tuning/runtime/factor-mining/",
+        "tuning/factor_mining/runtime/",
+        "investment/factor_mining/runtime/",
+        "shared/factor_mining/runtime/",
+        "ui/runtime/factor-mining-tests/",
+        "ui/runtime/factor-mobile-audit-20261105/"
+      ],
+      "runtime_feasibility": "The selected lightweight path is GCP Cloud Run Jobs separated across control, execution and custody projects with Cloud Storage, Cloud KMS and Workflows. Architecture/provider contracts are frozen-disabled as gcp-cloud-run-factor-mining-20261105-v1 by manifest SHA 593b5d6078ff6bdcb8d4777ae7123ae754a373b55b4e47433a5e9acd7ba7188d. The separately reviewed activation scaffold is frozen-disabled as gcp-factor-activation-20261105-v1 by manifest SHA 1c31c6ca4680a9272bed68cdf74376b4819654beb1260b2d7addbcc14f30c29a and models 101 Terraform-JSON resources with literal count:0, apply_allowed:false, five purpose-separated signer identities, exact DAG/IAM bindings and final receipt-gated Bucket Lock. AWS/generic Docker remain disabled comparison evidence. No account, credential, API, image or resource exists.",
+      "overfitting_control": "Frozen blocked policy plus stable synthetic observation/evaluation/split identities and a development-only fixed authority/atomic nonce/runner/evaluator chain supplement the historical guard. Frozen GCP contracts preserve create-only checkpoints, current purpose keys, independent evaluator/checker/two-approval publication, deterministic PIT revision selection and outcome-free exposure/fresh-split readiness. Real admission remains blocked until account-side durable checkpoints/signers/recovery, trusted execution/evaluation/independent check, protected custody, complete real attestations/fresh coverage and authorization-bound publication exist.",
+      "boundary": "Read-only source verification, synthetic PIT identity/materialization, fixture-only authority/runner/evaluator lineage, frozen-disabled GCP authority/Cloud Run/provider contracts, apply-disabled activation documents, immutable manifests and projection/UI. No Google account/backend/key, generated/upstream execution, authenticated real market data, protected outcome access, scientific verdict, factor alpha, EV/Kelly, promotion/publication control, Bucket Lock or seeded product data.",
+      "verification": "3 source-pin tests;6 blocked-Docker comparison tests;32 synthetic PIT dataset tests;31 historical guard tests;8 frozen admission-policy tests;15 development-authority tests;13 runner-v2 tests;8 evaluator/integration tests;10 provider-neutral authority-port tests;8 GCP authority tests;8 GCP Cloud Run/output tests;29 source-inventory/PIT/total-return tests;4 GCP freeze tests with GCP_FREEZE_OK over60 pinned files;11 GCP activation tests over101 inert resources;20 exposure/freshness tests;21 immutable-manifest tests;7 projection tests. Final UI: Factor browser17/17 inside combined64/64, shared Node15/15 and104-module build; focused1440/390/320 plus200% text, keyboard, loading/error/stale/empty checks. Independent reviews found no surviving defect within the frozen-disabled architecture, apply-disabled activation or tested UI scope.",
+      "activation_status": "Current localhost7270 remains ready/read-only with an empty factor registry. GCP architecture is frozen-disabled; activation is selected-disabled/apply_allowed:false; all real identities and receipts are null and every modeled resource count is0. Account-owned Google billing/login/project/location inputs and disposable account-side conformance are the next external gate. No real factor experiment, protected evaluation, performance publication, Bucket Lock or quality-improvement claim.",
+      "probability_guard_experiment": "Provider-free O2 bounded experiment and independent review pass; O0 blocked default; no durable production authority or L3/L4/factor claim"
+    },
+    {
+      "id": "claude-cli-repository-skills",
+      "optional": true,
+      "project_runtime_dependency": false,
+      "source_paths": [
+        "CLAUDE.md",
+        ".claude/skills/",
+        "shared/claude_skills/",
+        "mentor/skills/",
+        "ui/skills/",
+        "investment/research/skills/",
+        "niulai/skills/",
+        ".claude/settings.json",
+        "mentor/session_init.py",
+        "mentor/mentor_guard.py",
+        "mentor/enforcement-lock.json"
+      ],
+      "runbook": "docs/deployment/claude-skills.md",
+      "user_authorization": "2026-11-04: repository and personal Claude skill links; separately explicit authorization for one UserPromptSubmit dollar-alias hook preserving unrelated settings",
+      "external_installation": "~/.claude/skills/; links to maintained checkout, not standalone copies",
+      "explicit_invocation": {
+        "slash": "Native /skill-name; actual CLI Skill loading verified",
+        "dollar": "Leading $skill-name; command hook injects exact maintained entrypoint body without model inference",
+        "model_dependence": "Parser and context loading do not inspect or select the Claude/GPT model; instruction following and task quality remain model-dependent",
+        "supported_dollar_names": "The maintained 32-entrypoint set only"
+      },
+      "entrypoint_counts": {
+        "ui_experts": 22,
+        "mentor_specialists": 6,
+        "research": 2,
+        "claude_routers": 2,
+        "total": 32
+      },
+      "hook": {
+        "external_config": "~/.claude/settings.json",
+        "event": "UserPromptSubmit",
+        "handler": "shared/claude_skills/prompt_alias.py",
+        "type": "command",
+        "timeout_seconds": 3,
+        "status_messages": [
+          "CLAUDE_SKILL_ALIAS_OK",
+          "CLAUDE_SKILL_ALIAS_FAILED"
+        ],
+        "direct_registered_command_protocol": "passed from outside checkout",
+        "actual_next_host_event": "not yet observed; review /hooks and verify marker on real dollar prompt"
+      },
+      "state_paths": [
+        "ui/runtime/claude-skills-tests/",
+        "mentor/runtime/guard-rollback-*/",
+        "mentor/runtime/guard-recovery-tests/",
+        "mentor/runtime/enforcement/"
+      ],
+      "verification": "17 unit/protocol tests passed, including all32 dollar aliases with Claude/GPT metadata and model-independent output; project/user link checks verified32 each; actual running CLI discovered32 and loaded both routers from personal paths",
+      "codex_bundle_change": "none; original Harry portable package remains integrity-verified",
+      "claude_durable_ui_activation": "not implemented or claimed; no Codex thread-ID emulation",
+      "portability": "Keep checkout in place; regenerate links and personal hook absolute path after move or on another device; target owns dependencies and state",
+      "activation_status": "Skill discovery and aliases retain prior evidence; project mentor receipt gates reverted on2026-11-05; nonblocking loader restored; actual post-rollback user submission and new loader event remain unverified",
+      "mentor_startup": {
+        "project_config": ".claude/settings.json",
+        "active_handler": "mentor/session_init.py",
+        "mode": "nonblocking SessionStart loader only",
+        "guard_activation": "reverted at explicit user request on 2026-11-05; retained candidate disabled",
+        "cached_guard_behavior": "unregistered cached CLI command returns empty JSON without receipt creation or blocking",
+        "receipt_requirement": "none for prompt submission or tool use",
+        "rollout": "separate disabled candidate; bounded disposable native-host tests; owned backup and tested rollback; explicit activation authorization",
+        "live_submission_verification": "pending actual user prompt after rollback"
+      }
+    },
+    {
+      "id": "optional-personal-claude-ferry-client",
+      "optional": true,
+      "project_runtime_dependency": false,
+      "runbook": "docs/deployment/claude-ferry.md",
+      "user_authorized_external_config": "~/.claude/settings.json; exact Ferry fragment requested by user on2026-11-04",
+      "inspected_versions": {
+        "claude_code": "2.1.318",
+        "ferry": "0.1.98"
+      },
+      "configuration_source": "Installed ferry config claude, merged into existing user preferences without changing unrelated keys",
+      "gateway_discovery": "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1",
+      "requested_default_model": "claude-gpt-5-6-sol-max[1m]",
+      "requested_additional_settings": {
+        "CLAUDE_CODE_AUTO_MODE_SERVER": "0",
+        "enableArtifact": false
+      },
+      "state_paths": [
+        ".job-runtime/claude-ferry-config-20261104/"
+      ],
+      "verification": "JSON and exact requested field readback; unrelated preferences preserved; current local gateway HTTP200 with41 advertised models including Ferry Opus5.5. Existing interactive menu restart/inference not verified.",
+      "activation_status": "User-scope configuration patched; restart Claude Code for new sessions. No automatic installation, shell profile, managed policy, Codex config or scheduler changes."
+    },
+    {
+      "id": "mentor-scheduler-work-orders",
+      "source_paths": [
+        "mentor/scheduler/",
+        "mentor/tests/test_scheduler_contract.py",
+        "mentor/tests/test_scheduler_supervision.py",
+        "mentor/tests/test_scheduler_cli.py",
+        "mentor/tests/test_scheduler_integration.py",
+        "mentor/tests/test_scheduler_view.py",
+        "mentor/scheduler/resilience_candidate.py",
+        "mentor/scheduler/resilience_preflight.py",
+        "mentor/tests/test_scheduler_resilience_candidate.py",
+        "mentor/tests/test_scheduler_resilience_preflight.py",
+        "mentor/tests/test_scheduler_service_composition.py",
+        "ui/datasource/src/scheduler-resilience-mvp/"
+      ],
+      "dependencies": [
+        "Python standard library and existing shared job-runtime only; no new package or service"
+      ],
+      "state_paths": [
+        "mentor/runtime/",
+        ".job-runtime/engine/",
+        ".job-runtime/mentor-reconciliations/",
+        ".job-runtime/acceptance/mentor-scheduler-runtime-20261105-v1/",
+        "mentor/runtime/scheduler-resilience-mvp-20261109/",
+        ".job-runtime/acceptance/scheduler-resilience-mvp-20261109-v1/ (future private path; not materialized by this setup sync)"
+      ],
+      "entrypoints": {
+        "cli": "python3 -B -m mentor.scheduler.cli --state <canonical-projection.json>",
+        "read_only_ui": "http://localhost:7270/scheduler",
+        "resilience_builder": "mentor.scheduler.resilience_candidate.build_resilience_candidate (pure in-memory; no I/O)",
+        "resilience_preflight": "mentor.scheduler.resilience_preflight pure assessment functions (caller-supplied sanitized facts only)"
+      },
+      "runbook": "docs/deployment/mentor-scheduler.md",
+      "projection_boundary": "Fixed mentor.scheduler.job_adapter:prepare provider only; exact bounded mentor status rendered in nine groups or exact unavailable inner sentinel within a valid outer partial response. Suppresses prompt, generic history and outputs; exposes no private paths, digests, receipts, recipient/mailbox data, provider IDs or arbitrary narrative. Read-only; output lookup rejected.",
+      "activation_status": "Existing 2026-11-05 future once acceptance remains failed and reconciled definitely_not_dispatched with no replay. Separate scheduler-resilience-mvp-20261109-v1 is disabled_inert with allocation enabled:false; no materializer, config write, registration, provider, service reload, email, business effect or runtime acceptance.",
+      "verification": "Candidate bundle/readback, source rehash, validate_job, work-order bindings and spec_sha256 readback passed with external_effects=0. Its 15 manifest sources and8 listed records rehashed exact. Final handoff scheduler authority/parity family:23 paths aggregate 954add57d08731e59f94dd4142c4f730701b075b8b218101684e2e5a6a8a2dc9; broad/focused Python294/68, Node8, browser32 and server cross-contract7 passed. Runtime does not enforce spec_sha256.",
+      "resilience_candidate": {
+        "candidate_id": "scheduler-resilience-mvp-20261109-v1",
+        "enabled": false,
+        "sequence_slots": [
+          "2026-11-14T02:00:00Z",
+          "2026-11-14T03:00:00Z"
+        ],
+        "spec_sha256": "0eb1f86541d7b8570ff8518cad58a76d02ef1f72ac5a7c878d1614a9344b5790",
+        "runtime_blocker": "Current adapter does not verify spec_sha256; exact profile/auth/home load and host freshness not accepted",
+        "retry_unknown_fence": "Retry only proven pre-dispatch transient failures; unknown/possibly-dispatched requires reconciliation and no replay",
+        "records": "mentor/runtime/scheduler-resilience-mvp-20261109/",
+        "private_state": ".job-runtime/acceptance/scheduler-resilience-mvp-20261109-v1/ if separately materialized later; no portable state",
+        "claim": "Pure disabled provider-free structural candidate only"
+      }
+    },
+    {
+      "id": "information-yield-v5-disabled-candidate",
+      "source_paths": [
+        "shared/research_sources/information_yield_v5_contracts.py",
+        "shared/research_sources/schemas/information-yield-*.schema.json",
+        "investment/research/acquisition_eiy_checker_v5.py",
+        "investment/research/information_yield_projection_v5.py",
+        "investment/research/tests/test_*_v5.py",
+        "tuning/evals/information_fetch/information_yield/",
+        "ui/datasource/server.mjs",
+        "ui/datasource/src/InformationYield/",
+        "ui/datasource/src/services/apis/informationYieldV5/",
+        "ui/datasource/src/types/informationYieldApiV5.ts",
+        "ui/datasource/tests/information-yield-v5-server.test.mjs",
+        "ui/datasource/tests/information-yield-v5.spec.mjs"
+      ],
+      "source_classes": {
+        "lane_a_contract_checker": [
+          "shared/research_sources/information_yield_v5_contracts.py",
+          "investment/research/acquisition_eiy_checker_v5.py"
+        ],
+        "lane_a_schemas": [
+          "shared/research_sources/schemas/information-yield-check-request-v5.schema.json",
+          "shared/research_sources/schemas/information-yield-checked-fact-v5.schema.json",
+          "shared/research_sources/schemas/information-yield-evaluation-context-v5.schema.json",
+          "shared/research_sources/schemas/information-yield-evaluation-custody-v5.schema.json",
+          "shared/research_sources/schemas/information-yield-metric-policy-v5.schema.json",
+          "shared/research_sources/schemas/information-yield-now-diagnostic-result-5.schema.json",
+          "shared/research_sources/schemas/information-yield-policy-gates-v5.schema.json",
+          "shared/research_sources/schemas/information-yield-result-5.schema.json",
+          "shared/research_sources/schemas/information-yield-result-custody-v1.schema.json",
+          "shared/research_sources/schemas/information-yield-result-index-entry-v1.schema.json"
+        ],
+        "lane_a_policy_evaluator_publisher_cli": [
+          "tuning/evals/information_fetch/information_yield/_v5_support.py",
+          "tuning/evals/information_fetch/information_yield/policy_v5.py",
+          "tuning/evals/information_fetch/information_yield/evaluator_v5.py",
+          "tuning/evals/information_fetch/information_yield/publisher_v1.py",
+          "tuning/evals/information_fetch/information_yield/cli_v5.py",
+          "tuning/evals/information_fetch/information_yield/metric-policy-v5.json",
+          "tuning/evals/information_fetch/information_yield/architecture-v5.json",
+          "tuning/evals/information_fetch/information_yield/rejected-v4.json"
+        ],
+        "lane_a_tests": [
+          "investment/research/tests/test_acquisition_eiy_checker_v5.py",
+          "tuning/evals/information_fetch/information_yield/test_policy_v5.py",
+          "tuning/evals/information_fetch/information_yield/test_evaluator_v5.py",
+          "tuning/evals/information_fetch/information_yield/test_publisher_v1.py"
+        ],
+        "lane_b_projection_server_wire_client_ui_tests": [
+          "investment/research/information_yield_projection_v5.py",
+          "investment/research/tests/test_information_yield_projection_v5.py",
+          "ui/datasource/server.mjs",
+          "ui/datasource/src/types/informationYieldApiV5.ts",
+          "ui/datasource/src/services/apis/informationYieldV5/",
+          "ui/datasource/src/InformationYield/",
+          "ui/datasource/tests/information-yield-v5-server.test.mjs",
+          "ui/datasource/tests/information-yield-v5.spec.mjs"
+        ]
+      },
+      "dependency_manifests": [
+        "shared/research_sources/requirements.txt",
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "dependencies": {
+        "python": "Existing workspace-owned Python3.12.16 .research-sources/.venv with jsonschema==4.25.1; no provider SDK or new package",
+        "frontend": "Existing React19.2/TypeScript5.9.3/Vite7.1.12 graph; no new package",
+        "external_service": "None for provider-free structural verification"
+      },
+      "interpreter": ".research-sources/.venv/bin/python",
+      "entrypoints": {
+        "cli": "python -B -m tuning.evals.information_fetch.information_yield.cli_v5 --evaluation-ref <ref> --publication-root <workspace>/tuning/runtime/information-yield-v5 --mode evaluation|now_diagnostic",
+        "endpoint": "/api/information-yield/v5?evaluation=<id>[&case=<id>[&arm=B0|F]][&refresh=1]"
+      },
+      "fixed_publication_root": "tuning/runtime/information-yield-v5",
+      "state_paths": [
+        "tuning/runtime/information-yield-v5/ (fixed future private root; currently absent)",
+        "mentor/runtime/live-provider-e2e-20261104/information-yield-v5-architecture-escalation.json",
+        "mentor/runtime/live-provider-e2e-20261104/information-yield-v5-final-handoff.json"
+      ],
+      "temporary_paths": [
+        "tuning/runtime/test-tmp/",
+        "ui/runtime/tmp/"
+      ],
+      "permissions": {
+        "publication_root_and_directories": "0700 exact, owner-controlled, non-symlink",
+        "immutable_publication_files": "0600 exact",
+        "references": "canonical repository-relative custody references only; no absolute path, alias or symlink"
+      },
+      "retention": {
+        "policy": "Retain referenced immutable context/result/custody objects and indexes; no reference-unaware garbage collection",
+        "future_gc_owner": "information-yield-v5-integration-owner",
+        "cleanup_status": "No cleanup command authorized or supplied"
+      },
+      "recovery": "Fence unknown publication; reconcile immutable object/index state before retry. Identity, authority, privacy and bounds conflicts fail closed with no stale reuse.",
+      "rollback": "Disable INFORMATION_YIELD_V5_ENABLED and any separately approved locator, preserve immutable v5 artifacts, return to O0, and never auto-upgrade or fall back to rejected v3/v4.",
+      "activation_status": "Frozen provider-free disabled candidate: O0 active/default; v3/v4 rejected; v5 flag off; no locator approval; readiness not_ready; no runtime root, provider, network, email, scheduler, business or live effect.",
+      "portable_private_state": false,
+      "records": {
+        "architecture": "mentor/runtime/live-provider-e2e-20261104/information-yield-v5-architecture-escalation.json sha256 4727e1fca4b2d7c4147b365d3aa2874ccfa1ff0d41fab07b987566c71a52f1bc",
+        "final_handoff": "mentor/runtime/live-provider-e2e-20261104/information-yield-v5-final-handoff.json; authoritative current digest is the generated docs/deployment/setup-lock.json sources entry (not embedded here, avoiding a handoff↔documentation fixed-point cycle)",
+        "readiness_template": "tuning/evals/information_fetch/live_e2e/readiness-template.json sha256 c36ac94ca3df4849b945b788b77a028018a17b5c3dc35a8b948a26021360b081 status not_ready",
+        "runtime_acceptance_contract": "docs/deployment/runtime-acceptance.md sha256 6e1acdd976cc9bec5d3180d575fff3cbce28f3150cff95345b3e45b57dcff048 unchanged"
+      },
+      "evidence": {
+        "source_closure": "80 deduplicated paths, aggregate bbb4a4d7e397eebea93e2bc7280d0270b69dbbfb283bd62177496c37096cd1e7",
+        "lane_a": "24 paths, aggregate 58ea34386579e10b084e320baac891ca5129e8afbee61cb875e95edb90b9b3b5; focused 38 passed; publisher focused 22 passed; cross-Lane parent 47 passed; actual final vertical 9 passed",
+        "lane_b": "16 paths, aggregate ae849b96467e73198ed200950e1bb6dd32e9eb56da40306ff9807d25bf2b1bc2; datasource server 30 passed; typecheck/build passed; combined focused browser 12 and full browser 88 passed",
+        "scheduler_authority_parity": "23 paths, aggregate 954add57d08731e59f94dd4142c4f730701b075b8b218101684e2e5a6a8a2dc9",
+        "claim": "Provider-free structural evidence only; no provider quality, acquisition/population superiority, alpha, runtime/scheduler acceptance, email or activation"
+      },
+      "blockers": [
+        "B/schema9 retains two confirmed P1 blockers",
+        "Prompt-custody activation repairs remain deferred",
+        "No future scheduled/provider/email exact readback",
+        "Host/service activation evidence stale or absent",
+        "Flag off and no locator approval"
+      ],
+      "runbooks": [
+        "docs/deployment/shared-and-tuning.md",
+        "docs/deployment/datasource.md",
+        "docs/deployment/acquisition-live-e2e.md"
+      ],
+      "status": "provider_free_frozen_disabled_no_authorization"
+    },
+    {
+      "id": "provider-free-storage-governance",
+      "source_paths": [
+        "shared/storage_governance/contracts.py",
+        "shared/storage_governance/audit.py",
+        "shared/storage_governance/registry.json",
+        "shared/storage_governance/tests/",
+        "shared/job_runtime/model.py",
+        "shared/job_runtime/tests/test_model.py",
+        "shared/research_sources/artifacts.py",
+        "shared/research_sources/store.py",
+        "shared/research_sources/tests/test_artifacts.py",
+        "investment/research/pipeline.py",
+        "investment/research/tests/test_sources.py",
+        "ui/tools/private_artifacts.py",
+        "ui/tests/test_private_artifacts.py",
+        ".gitignore"
+      ],
+      "dependencies": "Python standard library only; no provider SDK, database server, object store, queue or workflow engine",
+      "entrypoints": {
+        "registry_validation": "PYTHONDONTWRITEBYTECODE=1 python3 -B -c \"from pathlib import Path; from shared.storage_governance import load_registry; root=Path.cwd(); load_registry(root / 'shared/storage_governance/registry.json', root)\"",
+        "focused_tests": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s shared/storage_governance/tests -p 'test_*.py' -v",
+        "private_audit": "python3 -B -m shared.storage_governance.audit --registry shared/storage_governance/registry.json --workspace <workspace> --output-name audit.json",
+        "future_writer_focused_tests": [
+          "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v shared.job_runtime.tests.test_model",
+          "PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python -B -m unittest -v shared.research_sources.tests.test_artifacts investment.research.tests.test_sources",
+          "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v ui.tests.test_private_artifacts"
+        ]
+      },
+      "state_paths": [
+        ".job-runtime/storage-governance/ (private reports; not materialized by this documentation task)"
+      ],
+      "registry": {
+        "schema": "storage_governance_registry v1",
+        "declared_stores": 16,
+        "current_workspace_stores": 10,
+        "planned_workspace_stores": 1,
+        "unverified_workspace_stores": 4,
+        "external_unverified_stores": 1,
+        "registered_credential_roots": 3,
+        "credential_values_in_registry": false,
+        "absolute_user_paths_in_registry": false,
+        "factual_exceptions": "evaluation-evidence, investment-research-evidence, ui-artifacts and ui/runtime are unverified workspace stores with manual_review retention; factor-registry is planned evidence+reference; legacy .market-data-mcp/credentials.json is separately registered"
+      },
+      "audit_boundary": "Metadata-only retained-snapshot, descriptor-relative, no-follow depth-first traversal bounded by file count/depth/aggregate bytes; errno-specific sanitized errors; no file-content, SQLite payload, provider or external-store reads",
+      "planner_boundary": "Advisory retain/archive/rebuildable-cache-review/manual-review with performed:false; manual_review retention or any non-current status routes to manual-review before other rules",
+      "report_boundary": "CLI reuses retained WorkspaceSnapshot; workspace must be owner-controlled and not group/world writable (0755 accepted); .job-runtime and storage-governance exact owner-owned 0700; fd-relative exclusive one-link temporary/final report 0600",
+      "zero_delete_guarantee": "Auditor and planner use no mutating filesystem calls on registered stores; report writer only fd-relatively replaces its selected report and cleans its own failed temporary file",
+      "status": {
+        "active_current": "Registry validator, provider-free hardened metadata auditor, advisory planner and tests are implemented in source; 10 workspace stores are declared current",
+        "inert": "No daemon, scheduler registration or automatic invocation; audit CLI does nothing until explicitly run",
+        "planned": "factor/runtime/registry is declared planned evidence+reference and non-authoritative; PostgreSQL, object storage, queue, durable workflow and any retention executor remain unconfigured options",
+        "unverified": "evaluation-evidence, investment-research-evidence, ui-artifacts and ui/runtime are unverified workspace stores with manual_review retention; external agent-memory is unverified; owner migration and post-migration audit acceptance have not occurred"
+      },
+      "scaling_triggers": {
+        "sqlite": "Retain for measured single-host operation with serialized/local writes",
+        "postgresql": "Consider only for measured multi-writer or multi-host needs",
+        "object_storage": "Consider only for measured immutable large-artifact requirements",
+        "queue": "Consider only for measured fan-out or backpressure",
+        "durable_workflow": "Consider only after demonstrated long-lived checkpoint, compensation or recovery burden"
+      },
+      "official_references": [
+        "https://www.sqlite.org/whentouse.html",
+        "https://www.postgresql.org/docs/current/high-availability.html",
+        "https://docs.temporal.io/workflows"
+      ],
+      "runbook": "docs/deployment/storage-governance.md",
+      "runtime_acceptance": "Not applicable to this documentation-only change; no business or external effect was executed",
+      "registry_hardening": "Descriptor-bound no-follow workspace/path traversal; bounded opened-fd read; retained WorkspaceSnapshot rejects path/identity changes; planned/unverified authority and direct/transitive cross-owner authority are rejected",
+      "secret_material_boundary": "Finite common-pattern defense in depth includes gho_, AIza and xapp- shapes plus other listed forms; not exhaustive secret detection or DLP; metadata/references only remains mandatory",
+      "sqlite_sidecars": "For sqlite stores, metadata-only exact sibling -journal/-wal/-shm counts, bytes, permissions, symlinks and sanitized errors are bounded and included; contents are never opened",
+      "external_trigger_semantics": "Metric-specific tri-state: exists/missing when exists is bool; scan_truncated for inspected snapshots; positive symlink/permission findings on incomplete inspection; negative symlink/permission and file_count/aggregate_bytes only for complete inspection; external and workspace-unverified stores are uninspected/not evaluable",
+      "snapshot_boundary": "open_registry_snapshot retains one WorkspaceSnapshot workspace fd/identity across registry read, every store scan, and CLI report publication; path binding and identity are reverified; compatibility wrappers close owned snapshots",
+      "permission_findings": "Compares every scanned entry owner to retained workspace owner and regular-file mode to declared generated_file_mode; emits general and type-specific owner/mode findings",
+      "cleanup_boundary": "Attempts closure of all held report and owned-snapshot descriptors; preserves a primary work error by suppressing cleanup failures, otherwise surfaces the first cleanup error",
+      "evidence_permission_quarantine": {
+        "selected_disposition": "unverified/manual_review; no bulk chmod, move, delete or automatic remediation",
+        "historical_report": {
+          "path": ".job-runtime/storage-governance/audit-20261112.json",
+          "mode": "0600",
+          "sha256": "ba8b760b8bc1233d06ca10c8fc8c7d90e0bbd56c0a8b5a8a7299331cbce50907",
+          "planner_performed": false,
+          "evidence_status": "pre-quarantine evidence; not post-migration or quarantine acceptance"
+        },
+        "sanitized_observations": {
+          "evaluation-evidence": "50 files/21 dirs/9336393 bytes; 30 files 0644 and 20 files 0600; dirs/root 0700",
+          "investment-research-evidence": "461 files/60 dirs/4288202 bytes; 5 files 0644 and 456 files 0600; dirs/root 0700",
+          "ui-artifacts": "129 files/1 dir/15207193 bytes; files 0644; dirs/root 0755",
+          "common": "observed uid 501; zero scan errors, symlinks or truncation"
+        },
+        "owner_contract": "Each tuning, investment-research and ui owner privately inventories exact affected entries, classifies evidence versus explicitly public-safe artifacts, enforces future private writers at 0600/0700, creates a private backup and manifest, seals a bounded disabled/dry-run-first migration candidate, proves exact readback and rollback, reconciles unknown outcomes, and approves results before status changes",
+        "acceptance": "Complete private inventory/classification, future-writer tests, private backup/manifest, bounded canary, content-identity and permission readback, tested rollback, owner review, and separately authorized post-migration audit; historical report does not satisfy acceptance",
+        "documentation_task_effects": "No new audit/report, retention action, permission change, move, delete, runtime-state read, or automatic remediation was performed",
+        "plan": "docs/plans/storage-governance-evidence-permissions.md",
+        "future_writer_hardening": {
+          "evaluation-evidence": "Normalized future evaluation targets fail pre-launch pending strict containment; generic paths retain detached-descendant risk",
+          "investment-research-evidence": "Descriptor-bound 0700/0600 future sink with private temp/CAS/pointer, unknown-outcome fence, buffered producer and final coverage revalidation; new SQLite primary only",
+          "ui-artifacts": "Ignored confidential create-only future-private-v1 publisher; real 0755 root fails closed; stdin/stable-0600 staging only; unknown post-link outcome requires reconciliation; no public publisher",
+          "claim": "Implemented/provider-free focused contracts only; all three stores remain unverified/manual_review; history and owner migration plan unchanged; no future scheduled/email runtime acceptance",
+          "focused_test_counts": {
+            "job_runtime_model": 33,
+            "research_artifact_and_source_contracts": 34,
+            "ui_private_artifact_publisher": 17
+          }
+        }
+      },
+      "setup_lock_status": "Inventory changed; docs/deployment/setup-lock.json was not edited by this task and requires the separately instructed refresh/audit workflow before setup sync can pass"
+    },
+    {
+      "id": "optional-codex-openai-ferry-route-split",
+      "source_paths": [
+        "docs/deployment/codex-ferry.md"
+      ],
+      "runbook": "docs/deployment/codex-ferry.md",
+      "scope": "Explicitly user-authorized personal Codex routing; not automatic repository setup",
+      "default_provider": "openai",
+      "default_model": "gpt-6.1-sol",
+      "reasoning_effort": "xhigh",
+      "opt_in_profile": "ferry",
+      "ferry_default_model": "ferry-gpt-6-1-sol",
+      "external_user_configuration": [
+        "$CODEX_HOME/config.toml",
+        "$CODEX_HOME/ferry.config.toml"
+      ],
+      "credentials": "Existing native login and existing gateway ownership; no copied credentials",
+      "new_proxy_or_daemon": false,
+      "claude_settings_changed": false,
+      "verification": "Disposable native config parsing, profile prompt construction, private rollback rehearsal; Ferry route inference and fresh native child smoke passed separately",
+      "runtime_acceptance": "Future scheduled business acceptance unverified"
+    },
+    {
       "id": "isolated-langchain-pilot",
       "source_paths": [
-        "tuning/langchain_pilot/"
+        "tuning/langchain_pilot/",
+        "investment/portfolio/"
       ],
       "dependency_manifests": [
         "tuning/langchain_pilot/requirements.in",
@@ -1146,6 +1862,7 @@
       ],
       "runbook": "docs/deployment/langchain-pilot.md",
       "python": "3.12.16",
+      "atomic_agent_server_version": "0.18.0 from the hash lock; strict_cli.py verifies this exact runtime",
       "direct_dependency_pins": {
         "langchain": "1.5.0",
         "langgraph": "1.2.22",
@@ -1156,9 +1873,12 @@
       },
       "state_paths": [
         ".langchain-pilot/runtime/",
+        ".langchain-pilot/runtime/atomic-server/",
+        ".langchain-pilot/runtime/atomic/",
         ".langchain-pilot/.venv/",
         ".langchain-pilot/.env (owner-private OpenAI key only; never committed)",
-        ".langchain-pilot/langsmith.env (owner-private LangSmith key only; never committed)"
+        ".langchain-pilot/langsmith.env (owner-private LangSmith key only; never committed)",
+        ".langchain-pilot/runtime/cloud-rate/"
       ],
       "cache_paths": [
         ".langchain-pilot/cache/",
@@ -1168,17 +1888,115 @@
       "development_endpoint": "http://127.0.0.1:2024",
       "dashboard_port": "7270 belongs to the existing datasource app; separate from Agent Server",
       "studio_connection": "Native Chrome Studio graph/node visibility verified on 2026-11-15; Agent Server still has cloud tracing disabled. The separate opt-in atomic CLI uses its own private LangSmith key.",
-      "integration_scope": "Development graph directly imports the existing pure valuation calculator; full Trading Agent orchestration remains unimplemented",
+      "integration_scope": "Original development graph directly imports the existing pure valuation calculator; separate fixed-selector atomic lab exposes deterministic/cooperative calculator and pure investment/portfolio analytics. Full Trading Agent orchestration remains unimplemented.",
       "model_connection": "Default cooperative session-model-v1: explicit private binding/revision, messages and tool schemas out, assistant messages in; no API key/Ferry/token copy or automatic native wakeup. Optional official OpenAI Responses route requires its own local Platform key and remains live-unverified.",
-      "focused_test_result": "51 provider-free controls in the current candidate; verify latest recorded test output. Atomic cloud evidence is separate from model-session and full-agent acceptance.",
+      "focused_test_result": "Final owned atomic baseline:339 executed,80 independent,zero skipped/failures/errors; original failed candidates and frozen cases retained. New MCP tests reported separately.",
       "verification": "Cooperative public-API calculator E2Es returned 10 and 15 with one tool call and independent checks. Commit 989149d graceful restart preserved eight prior threads and binding revision 2; its fresh per-share-15 canary passed independent readback. Actual second-native-host handoff, unattended dispatch and optional API live inference remain unverified.",
       "runtime_acceptance": "Unverified; no business or scheduled acceptance",
       "session_state": "Private .langchain-pilot/runtime/session-engine binding history and per-request attempt receipts; graph checkpoints own workflow state. Failed/processed/dispatching/unknown attempts fenced; only confirmed same-request graph rejection permits a new attempt.",
       "migration_plan": "docs/plans/langchain-agent-migration.md (atomic capabilities first; research and holdings/portfolio siblings; business composition TBD)",
-      "observability_profile": "Explicit CLI-only public synthetic atomic calculator canary; EXTERNAL Agent registration, private pinned prompt, timestamped frozen dataset, LangChain spans and deterministic local SDK evaluator. Main Agent Server tracing remains off; no model calls or holdings acquisition.",
+      "observability_profile": "Historical CLI-only public synthetic calculator canary remains separate. New atomic lab uses per-kind source-pinned profiles/prompts/datasets/evaluation receipts, admitted synthetic child callbacks and exact native span/feedback readback. Main/global tracing stays off; no holdings acquisition or unattended model dispatcher.",
       "credential_handling": "Owner-private no-symlink 0600 LangSmith file; key never in source, argv or logs; explicit US API endpoint; cloud fixtures contain no private account data.",
-      "observability_limitations": "Overall migration prerequisite remains scoped/unverified until all applicable capabilities pass. Native session-model tracing, holdings live retrieval, managed online/LLM evaluators and deployed runtime are not established.",
-      "atomic_observability_evidence": "Exact cloud run/example/output and persisted feedback readback: 3/3 public synthetic calculator cases, private pinned prompt, real LangChain child/tool spans and controlled failure, matching monitoring counts. No native session-model or holdings live acceptance."
+      "observability_limitations": "Synthetic capability/model-tool tracing verified locally and in LangSmith; actual holdings retrieval, unattended provider/host dispatch, managed LLM evaluators, browser connection stability and scheduled business/email acceptance remain unverified.",
+      "atomic_observability_evidence": "Unchanged candidate7459ededd5d206d3: nine original owned exact native trace readbacks passed; calculator7/7 and holdings26/26 evaluations verified after preserved unknown/read-only reconciliation. Neither evaluation replayed.",
+      "atomic_lab": {
+        "status": "Running isolated2025; actual API ownership/discovery/schema/run/state and xray subgraphs verified; browser connection stability unverified.",
+        "config": "tuning/langchain_pilot/atomic-langgraph.json",
+        "acceptance": "tuning/langchain_pilot/ATOMIC_ACCEPTANCE.md",
+        "frozen_cases": "tuning/langchain_pilot/tests/atomic_contract_cases.json",
+        "verification_report": "tuning/langchain_pilot/VERIFICATION.md",
+        "graphs": {
+          "calculator": "deterministic existing Decimal calculator through an actual LangChain tool; no model",
+          "trading_pilot": "real cooperative SessionChatModel calculator with persisted logical three-request cap and public numeric assistant-response guard",
+          "holdings": "pure synthetic investment/portfolio adapter and unchanged niulai/holdings/analytics.build; no acquisition/model"
+        },
+        "intended_self_test_endpoint": "http://127.0.0.1:2025",
+        "staging_endpoint": "2026 stopped; retained historical staging evidence only",
+        "main_server_policy": "Preserve original port-2024 process/config/state; no automatic port fallback",
+        "launch": "serve --atomic --port 2025 --allow-blocking; --cloud-tracing only after per-kind bootstrap/profile verification",
+        "launcher_policy": "strict_cli.py pins Agent Server 0.18.0; explicit loopback port with occupied-port failure; local CLI analytics disabled; one worker, no reload/browser",
+        "studio_view_raw": "{\"request\":{\"case_id\":\"nominal\"}}",
+        "studio_request_field": "{\"case_id\":\"nominal\"}",
+        "calculator_examples": "nominal=10; historical debt=15; independent public-calc-debt=7; invalid-shares=invalid_input",
+        "holdings_roster": "26 fixed selectors including all six independent public HOLD aliases; monetary strings exact, projected rates twelve decimal places ROUND_HALF_EVEN",
+        "cloud_state_layout": ".langchain-pilot/runtime/atomic/<source-fingerprint-prefix16>/<kind>/; profiles, prompt/dataset identities and immutable trace/evaluation claims stay private",
+        "cloud_cli": "atomic_cloud bootstrap/reconcile-bootstrap/evaluate/check-evaluation/check-trace --kind calculator|calculator_session|holdings; check-trace --attempt <owned-UUID>.json",
+        "cooperative_evaluation": "Host-serviced only; unattended evaluate --kind calculator_session is rejected",
+        "cooperative_host_endpoint": "Start with the closed Studio/public API selector; pending/respond use an explicit session_engine --url lab endpoint rather than the CLI's original-2024 default",
+        "trace_delivery": "Native callback copies share exact span-ID/delivery-error ledger; unknown export fences same-thread invoke/resume until read-only exact check-trace reconciliation",
+        "privacy_and_effects": "Only admitted fixed public synthetic children may export opt-in traces; no raw account/path input, real holdings, provider API dispatch, orders, email, scheduler or global tracing activation",
+        "runtime_acceptance": "Unverified; local synthetic tests do not replace future scheduled business session and exact acceptance-email readback",
+        "studio_persistent_examples": "Three known owned terminal ordinary API/Studio threads reread; private IDs/state URLs in runtime/mcp-agent/studio-persistent-examples.json. Finished MCP thread404 is a different lifecycle."
+      },
+      "cloud_rate_policy": {
+        "config": "tuning/langchain_pilot/cloud-read-policy.json",
+        "implementation": "tuning/langchain_pilot/rate_policy.py",
+        "read_interval_seconds": 0.5,
+        "query_interval_seconds": 15,
+        "write_interval_seconds": 0.05,
+        "max_read_attempts": 3,
+        "read_budget_seconds": 180,
+        "warmup": "Delayed readonly /info before owned operation",
+        "retry": "Numeric/HTTP-date Retry-After, else bounded backoff; readonly allowlist; writes once",
+        "records": ".langchain-pilot/runtime/cloud-rate/attempts/; sanitized endpoint/status/attempt/delay/policy",
+        "status": "Implemented;14 independent policy tests and actual delayed/info warmup passed. Earlier query429 and all unknown writes retained."
+      }
+    },
+    {
+      "id": "explicit-ai-tuning-preview",
+      "source_paths": [
+        "mentor/entrypoints/ai-tuning/SKILL.md",
+        "mentor/tests/test_ai_tuning_entrypoint.py"
+      ],
+      "discovery_path": ".claude/skills/ai-tuning",
+      "runbook": "docs/deployment/claude-skills.md",
+      "status": "explicit advisory preview; source/link tests passed; native slash invocation unverified; no automatic activation",
+      "dependencies": "existing Mentor procedures and LLM engineering reference corpus; no new packages",
+      "invocation": "/ai-tuning <engineering tuning problem>",
+      "external_effects": "none unless separately requested and authorized"
+    },
+    {
+      "id": "isolated-langchain-mcp",
+      "source_paths": [
+        "shared/langchain_mcp/",
+        "tuning/langchain_mcp_agent/"
+      ],
+      "dependency_manifests": [
+        "tuning/langchain_pilot/requirements.lock.txt"
+      ],
+      "runbook": "docs/deployment/langchain-mcp.md",
+      "environment": ".langchain-pilot/.venv/",
+      "direct_dependency_pins": {
+        "requests": "2.34.2",
+        "jsonschema": "4.26.0",
+        "python-dotenv": "1.2.4",
+        "urllib3": "2.8.0",
+        "langchain": "1.5.0",
+        "langgraph": "1.2.22"
+      },
+      "state_paths": [
+        ".langchain-pilot/runtime/mcp-client/",
+        ".langchain-pilot/runtime/mcp-agent/",
+        ".langchain-pilot/runtime/mcp-review/",
+        ".langchain-pilot/runtime/mcp-independent/"
+      ],
+      "cache_paths": [
+        ".langchain-pilot/cache/",
+        ".langchain-pilot/tmp/"
+      ],
+      "endpoints": [
+        "http://127.0.0.1:2025/mcp",
+        "https://api.smith.langchain.com/mcp"
+      ],
+      "credential_handling": "Existing owner-private no-symlink0600 LangSmith file; reference only; exact endpoint X-Api-Key dispatch; no model prompts/logs/config values.",
+      "host_registration": "Disabled candidate shared/langchain_mcp/host-candidate.json; no active/native/global config mutation.",
+      "policy": "attempt10s/logical30s; <=2 read attempts total across <=2 query pages; read/warmup0.5s/query15s; decoded response2MiB/logical4MiB/schema256KiB/depth32; local graph effects execute once and retain unknown fences.",
+      "agent": "Current create_agent + cooperative SessionChatModel; internal host assistant replies; four exact registered sample/view calls; five model requests maximum; private file checkpoints; runtime manifest/source/schema and payload bindings.",
+      "acceptance": "tuning/langchain_mcp_agent/ACCEPTANCE.md mcp-atomic-v1.1;14 criteria/36 cases/14 mutation controls; independent development cases, not blind holdouts.",
+      "verification": "67 new tests:16 implementer+51 independent,zero skipped/failures/errors;14 mutation controls included. Final remote/current-host4query episode and69 independent evidence assertions PASS. Final local holdings ack PASS; local calculator10s timeout remainsUNKNOWN/fenced despite exact native10 completion after14.857335s. Final two-local-tool acknowledgement gate NOTPASS; historical2tool PASS kept separate.",
+      "rollback": "Cease invoking candidate; preserve unknown/failed receipts; no server/host/browser/scheduler or business activation to revert.",
+      "runtime_acceptance": "Future scheduled Codex business session and exact acceptance email remain unverified.",
+      "operational_limit": "Agent Server MCP waits synchronously for complete output; ordinary retained Studio/API threads differ from completed ephemeral MCP threads. Async lifecycle MCP controller not implemented; no timeout enlargement or unknown replay."
     }
   ],
   "setup_sensitive_source_paths_for_consistency_gate": [
@@ -1186,6 +2004,67 @@
     ".codex/hooks.json",
     ".gitignore",
     "AGENTS.md",
+    "CLAUDE.md",
+    "shared/claude_skills/*.py",
+    "shared/claude_skills/*/SKILL.md",
+    "shared/claude_skills/tests/*.py",
+    "factor/*.md",
+    "factor/upstream/*.json",
+    "factor/upstream/*.py",
+    "factor/tests/*.py",
+    "factor/dataset/**/*.json",
+    "factor/dataset/**/*.jsonl",
+    "factor/dataset/**/*.md",
+    "factor/dataset/**/*.py",
+    "factor/source_inventory/**/*.json",
+    "factor/source_inventory/**/*.md",
+    "factor/source_inventory/**/*.py",
+    "factor/docker/*.json",
+    "factor/docker/*.md",
+    "factor/docker/*.py",
+    "factor/docker/*.Dockerfile",
+    "factor/docker/requirements/*.json",
+    "factor/docker/tests/*.py",
+    "factor/docker/workers/*.py",
+    "factor/docker/gcp/**/*.json",
+    "factor/docker/gcp/**/*.md",
+    "factor/docker/gcp/**/*.py",
+    "factor/deployment/**/*.json",
+    "factor/deployment/**/*.md",
+    "factor/deployment/**/*.py",
+    "tuning/factor_mining/*.json",
+    "tuning/factor_mining/*.md",
+    "tuning/factor_mining/*.py",
+    "tuning/factor_mining/tests/*.py",
+    "tuning/factor_mining/admission_policy/**/*.json",
+    "tuning/factor_mining/admission_policy/**/*.md",
+    "tuning/factor_mining/admission_policy/**/*.py",
+    "tuning/factor_mining/admission_authority/**/*.json",
+    "tuning/factor_mining/admission_authority/**/*.md",
+    "tuning/factor_mining/admission_authority/**/*.py",
+    "tuning/factor_mining/evaluator/**/*.json",
+    "tuning/factor_mining/evaluator/**/*.md",
+    "tuning/factor_mining/evaluator/**/*.py",
+    "tuning/factor_mining/trusted_authority/**/*.json",
+    "tuning/factor_mining/trusted_authority/**/*.md",
+    "tuning/factor_mining/trusted_authority/**/*.py",
+    "tuning/factor_mining/exposure/**/*.json",
+    "tuning/factor_mining/exposure/**/*.md",
+    "tuning/factor_mining/exposure/**/*.py",
+    "shared/factor_mining/*.py",
+    "shared/factor_mining/tests/*.py",
+    "investment/factor_mining/rdagent_adapter/*.json",
+    "investment/factor_mining/rdagent_adapter/*.py",
+    "investment/factor_mining/rdagent_adapter/tests/*.py",
+    "investment/factor_mining/rdagent_adapter/tests/fixtures/*.py",
+    "investment/factor_mining/rdagent_adapter/v2/**/*.json",
+    "investment/factor_mining/rdagent_adapter/v2/**/*.md",
+    "investment/factor_mining/rdagent_adapter/v2/**/*.py",
+    "ui/datasource/src/factorMining/**/*",
+    "ui/datasource/src/services/apis/factorMining/*",
+    "ui/datasource/src/types/factorMiningApi.ts",
+    "ui/datasource/tests/factor-mining*.mjs",
+    "ui/datasource/factor-mining.playwright.config.mjs",
     "docs/deployment/runtime-acceptance.template.json",
     "docs/mcp-stability.md",
     "docs/options-data-sources.md",
@@ -1201,10 +2080,13 @@
     "investment/research/information-taxonomy.json",
     "investment/research/profiles/*.json",
     "investment/research/skills/*/*.md",
+    "investment/skills/*/SKILL.md",
     "investment/research/tests/*.py",
     "mentor/AGENTS.md",
     "mentor/ROUTING.md",
     "mentor/session_init.py",
+    "mentor/scheduler/*.py",
+    "mentor/tests/test_scheduler_*.py",
     "mentor/skills/development-discipline/*.md",
     "mentor/tests/requirements.txt",
     "mentor/tests/test_development_evaluation.py",
@@ -1232,9 +2114,15 @@
     "shared/calculation/validation/*.py",
     "shared/calculation/validation/*requirements*.txt",
     "shared/calculation/validation/requirements-lock.txt",
+    "shared/exact_source.py",
     "shared/job_runtime/*.py",
     "shared/job_runtime/*requirements.txt",
     "shared/job_runtime/tests/*.py",
+    "shared/job_runtime/vm_assets/**/*.json",
+    "shared/job_runtime/vm_assets/**/*.md",
+    "shared/job_runtime/vm_assets/**/*.py",
+    "shared/job_runtime/vm_assets/**/*.sh",
+    "shared/job_runtime/vm_assets/**/*.swift",
     "shared/market_data_mcp/*.json",
     "shared/market_data_mcp/*.mjs",
     "shared/market_data_mcp/*.py",
@@ -1279,6 +2167,9 @@
     "tuning/evals/evidence_runtime/*.py",
     "tuning/evals/evidence_runtime/tests/*.py",
     "tuning/evals/information_fetch/*.json",
+    "tuning/evals/information_fetch/live_e2e/*.json",
+    "tuning/evals/information_fetch/live_e2e/*.py",
+    "tuning/evals/information_fetch/live_e2e/private-fixtures/*.json",
     "tuning/evals/mentor-gates-complex/prepare.py",
     "tuning/evals/mentor-routing/build_packets.py",
     "tuning/evals/ui-implementation-quality/*.py",
@@ -1307,7 +2198,24 @@
     ".npmrc",
     "ui/datasource/*.mjs",
     "ui/datasource/*.json",
+    "ui/datasource/DESIGN.md",
+    "ui/datasource/licenses/radix-tabs.md",
     "ui/datasource/src/*",
+    "ui/datasource/src/types/schedulerApi.ts",
+    "ui/datasource/src/assets/fonts/OFL.txt",
+    "ui/datasource/src/assets/fonts/Poppins-Medium.ttf",
+    "ui/datasource/src/assets/fonts/Poppins-Regular.ttf",
+    "ui/datasource/src/assets/fonts/Poppins-SemiBold.ttf",
+    "ui/datasource/src/assets/fonts/source.json",
+    "ui/datasource/src/AcquisitionTrace/**/*.css",
+    "ui/datasource/src/AcquisitionTrace/**/*.ts",
+    "ui/datasource/src/AcquisitionTrace/**/*.tsx",
+    "ui/datasource/src/OverviewView/**/*.css",
+    "ui/datasource/src/OverviewView/**/*.ts",
+    "ui/datasource/src/OverviewView/**/*.tsx",
+    "ui/datasource/src/RunEvidence/**/*.css",
+    "ui/datasource/src/RunEvidence/**/*.ts",
+    "ui/datasource/src/RunEvidence/**/*.tsx",
     "tuning/evals/datasource_acceptance.py",
     "shared/research_sources/temporal.py",
     "shared/research_sources/examples/*.json",
@@ -1336,13 +2244,57 @@
     "ui/portable/runtime_verification/*.py",
     "ui/portable/runtime_verification/*.json",
     "ui/portable/runtime_verification/*.md",
+    "ui/datasource/src/scheduler/*",
+    "ui/datasource/tests/*.mjs",
+    ".claude/settings.json",
+    "mentor/mentor_guard.py",
+    "mentor/enforcement-lock.json",
+    "mentor/tests/test_claude_hook_config.py",
+    "mentor/tests/test_mentor_guard.py",
+    "docs/plans/information-yield-*.md",
+    "docs/plans/scheduler-*.md",
+    "docs/plans/live-provider-acquisition-e2e.md",
+    "docs/plans/acquisition-ab-diagnosis.md",
+    "investment/research/*_v5.py",
+    "investment/research/tests/test_*_v5.py",
+    "shared/research_sources/information_yield_v5_contracts.py",
+    "shared/research_sources/schemas/information-yield-*.schema.json",
+    "tuning/evals/information_fetch/information_yield/*.py",
+    "tuning/evals/information_fetch/information_yield/*.json",
+    "tuning/evals/information_fetch/live_e2e/readiness-template.json",
+    "ui/datasource/src/InformationYield/**/*",
+    "ui/datasource/src/services/apis/informationYield/**/*",
+    "ui/datasource/src/services/apis/informationYieldV5/**/*",
+    "ui/datasource/src/types/informationYieldApi*.ts",
+    "ui/datasource/tests/information-yield*.mjs",
+    "ui/datasource/src/scheduler-resilience-mvp/**/*",
+    "ui/datasource/src/scheduler/components/MentorJobDetail.tsx",
+    "ui/datasource/src/scheduler/types.ts",
+    "ui/datasource/src/services/apis/scheduler/**/*",
+    "ui/datasource/tests/scheduler*.mjs",
+    "mentor/runtime/live-provider-e2e-20261104/information-yield-v5-architecture-escalation.json",
+    "mentor/runtime/live-provider-e2e-20261104/information-yield-v5-final-handoff.json",
+    "mentor/runtime/scheduler-resilience-mvp-20261109/*",
+    "shared/storage_governance/*.py",
+    "shared/storage_governance/*.json",
+    "shared/storage_governance/tests/*.py",
     "tuning/langchain_pilot/*.py",
     "tuning/langchain_pilot/requirements.in",
     "tuning/langchain_pilot/requirements.lock.txt",
     "tuning/langchain_pilot/langgraph.json",
     "tuning/langchain_pilot/ACCEPTANCE.md",
+    "tuning/langchain_pilot/atomic-langgraph.json",
+    "tuning/langchain_pilot/ATOMIC_ACCEPTANCE.md",
+    "tuning/langchain_pilot/tests/atomic_contract_cases.json",
+    "investment/portfolio/*.py",
     "tuning/langchain_pilot/openai.env.example",
-    "tuning/langchain_pilot/langsmith.env.example"
+    "tuning/langchain_pilot/langsmith.env.example",
+    "tuning/langchain_pilot/cloud-read-policy.json",
+    "shared/langchain_mcp/*.py",
+    "shared/langchain_mcp/*.json",
+    "tuning/langchain_mcp_agent/*.py",
+    "tuning/langchain_mcp_agent/ACCEPTANCE.md",
+    "tuning/langchain_mcp_agent/cases.json"
   ],
   "change_policy": "Update this sanitized inventory, affected runbook, docs/local-setup.md and setup consistency record for future local setup changes. Never include secret values or private runtime payloads.",
   "entrypoint": "docs/local-setup.md"

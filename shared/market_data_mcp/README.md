@@ -12,7 +12,10 @@ acceptance remains unverified. Tradier is omitted at the user's request.
 Tiger account reads reuse this portal through a dedicated isolated entry point:
 [`../tiger/README.md`](../tiger/README.md). `positions`, `assets` and `snapshot`
 use the existing leased OAuth store; Tiger credentials never enter normal
-provider configuration. Launch `python -m shared.tiger` at the workspace root
+provider configuration. An additive `market_snapshot` tool is present only for a
+manual, roster-bound calibration candidate. It is unregistered, one-attempt,
+read-only and returns a sanitized receipt; no live provider acceptance is claimed.
+Launch `python -m shared.tiger` at the workspace root
 with the local SDK environment. This is separate from `manage.py serve` and needs
 fresh native service context through hidden stdin for each invocation.
 

@@ -1,0 +1,29 @@
+{
+  "evidence_status": "synthetic_not_live_evidence",
+  "expected": {
+    "body_replay": "requires_replayable_body",
+    "classification": "retryable_rate_limit",
+    "retry_after_seconds": 7,
+    "retry_delay_source": "retry_after_seconds",
+    "retry_eligible": true,
+    "submission_state": "submitted_no_success"
+  },
+  "fixture_id": "typed-429-retry-after",
+  "input": {
+    "observation": {
+      "failure_kind": "typed_http_error",
+      "headers": {
+        "retry-after": "7"
+      },
+      "http_status": 429
+    },
+    "request_body_state": "fully_sent",
+    "transport_phase": "response_headers"
+  },
+  "sanitization": {
+    "contains_credentials": false,
+    "contains_provider_payloads": false,
+    "contains_raw_errors": false
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "claim_limits": [
+    "historical as-of 2026-11-05 only",
+    "shared generic constants not independently validated for SOXL",
+    "no probability/forecast/confidence/alpha/recommendation/position/action"
+  ],
+  "documentation_truth_fix": {
+    "README_sha256": "016dc5daef7ab7a57b71d213a2db0036f4fa227f95f171ce6f07c51af84c4280",
+    "statement": "support computation imports core; CLI imports support plus atomic writer from core; neither imports or calculates future outcomes",
+    "verified_text_present": true
+  },
+  "recorded_at_utc": "2026-11-09T17:31:38.437858+00:00",
+  "reviews": {
+    "code_numerical_security": "PASS_DESCRIPTIVE_ONLY",
+    "scientific_protocol": "PASS_DESCRIPTIVE_ONLY"
+  },
+  "snapshot": {
+    "episodes": 3,
+    "ess": 2.3968295904887715,
+    "origin_id": "origin_2026-11-05",
+    "query_k_distance": 4.237067470129354,
+    "reasons": [
+      "insufficient_dependence_adjusted_ess",
+      "probability_feature_compatible_false"
+    ],
+    "status": "inconclusive",
+    "training_q95": 2.06649359159038,
+    "training_q99": 4.534218329013807
+  },
+  "status": "PASS_DESCRIPTIVE_INCONCLUSIVE",
+  "subjects": [
+    {
+      "bytes": 40648,
+      "id": "core",
+      "path": "tuning/probabilistic_manifold/core.py",
+      "sha256": "6a6648b353269e4f111005f3d63557e8f4f00688da9a31bb93f94beb1506c9ee"
+    },
+    {
+      "bytes": 9193,
+      "id": "README",
+      "path": "tuning/probabilistic_manifold/README.md",
+      "sha256": "016dc5daef7ab7a57b71d213a2db0036f4fa227f95f171ce6f07c51af84c4280"
+    },
+    {
+      "bytes": 14570,
+      "id": "rolling_v2_test",
+      "path": "tuning/probabilistic_manifold/tests/test_rolling_origin_v2.py",
+      "sha256": "fa04fee5eb449b123fb050a1770560e2d169836ff98dbe75d937a6f34e4d0a78"
+    },
+    {
+      "bytes": 6004,
+      "id": "config",
+      "path": "tuning/probabilistic_manifold/soxl_config.v1.json",
+      "sha256": "caa089a1841eeee68c028736ee289f0d28c76b86d9d02172fcdffc105cd0766c"
+    },
+    {
+      "bytes": 19067,
+      "id": "support_code",
+      "path": "tuning/probabilistic_manifold/soxl_support.py",
+      "sha256": "586c98f07a298cab837d1ea6ba4f9586210dc0e4e6e159dd40c1476bb84859ab"
+    },
+    {
+      "bytes": 2111,
+      "id": "cli",
+      "path": "tuning/probabilistic_manifold/soxl_cli.py",
+      "sha256": "d05c6fce352f89afb13e4ffdde59462c6fceea523d8d11758654fdd9adefcffd"
+    },
+    {
+      "bytes": 13860,
+      "id": "tests",
+      "path": "tuning/probabilistic_manifold/tests/test_soxl_support.py",
+      "sha256": "152d2bee6c7a5cfe58f124ffffcecfe8166180ab67a91e07e6705af239e2a47e"
+    },
+    {
+      "bytes": 5063,
+      "id": "preregistration",
+      "path": "tuning/probabilistic_manifold/artifacts/soxl/preregistration.v1.json",
+      "sha256": "7dfef64d5d7e9ab9ed6a1a59f4d8033a723cb9167561b546941e2df1bc8f7d89"
+    },
+    {
+      "bytes": 3694,
+      "id": "source_manifest",
+      "path": "tuning/probabilistic_manifold/artifacts/soxl/source-manifest.v1.json",
+      "sha256": "fefefb7ef41d32838ede0bb73edf1ac9ee6e9c62323a12643fcd8fa408c351f2"
+    },
+    {
+      "bytes": 6356,
+      "id": "support_packet",
+      "path": "tuning/probabilistic_manifold/artifacts/soxl/support-packet.v1.json",
+      "sha256": "4be0e8d571632fcbfe87c0c6ecfa5366232334ab2b096d53c63578ab7f6a6c60"
+    },
+    {
+      "bytes": 4041,
+      "id": "review_v1",
+      "path": "tuning/probabilistic_manifold/artifacts/soxl/final-review-bundle.v1.json",
+      "sha256": "981fd6c995ff8a79fc0d566168e7812a2932f8583da08109ef06e422b8ff0561"
+    },
+    {
+      "bytes": 3738,
+      "id": "review_v2_superseded",
+      "path": "tuning/probabilistic_manifold/artifacts/soxl/final-review-bundle.v2.json",
+      "sha256": "0eb738a6a088a9426f95b8c02d948e65f43a9801437a4ceaaad4dc5d431e9618"
+    }
+  ],
+  "superseded_history": [
+    {
+      "sha256": "981fd6c995ff8a79fc0d566168e7812a2932f8583da08109ef06e422b8ff0561",
+      "status": "valid_pre_documentation_review"
+    },
+    {
+      "reason": "multiline README replacement did not apply; README remained at old hash",
+      "sha256": "0eb738a6a088a9426f95b8c02d948e65f43a9801437a4ceaaad4dc5d431e9618",
+      "status": "invalid_documentation_fix_claim"
+    }
+  ],
+  "supersedes_sha256": "0eb738a6a088a9426f95b8c02d948e65f43a9801437a4ceaaad4dc5d431e9618",
+  "tests": {
+    "documentation_fix_rerun": "PASS",
+    "full_manifold": "117/117",
+    "soxl_focused": "22/22"
+  },
+  "version": "soxl-descriptive-support-final-review-v3"
+}

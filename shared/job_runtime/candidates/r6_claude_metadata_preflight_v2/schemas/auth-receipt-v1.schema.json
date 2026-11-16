@@ -1,0 +1,215 @@
+{
+  "$id": "https://local.invalid/auth_status-receipt-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "UNKNOWN"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "unknown_fence": {
+            "properties": {
+              "durable": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "READY",
+              "NOT_READY"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "unknown_fence": {
+            "properties": {
+              "durable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "argv_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "authority_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "binary_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "checked_at": {
+      "type": "string"
+    },
+    "fresh_until": {
+      "type": "string"
+    },
+    "model": {
+      "const": "claude-opus-5-5"
+    },
+    "operation": {
+      "const": "auth_status"
+    },
+    "raw": {
+      "additionalProperties": false,
+      "properties": {
+        "owner_private": {
+          "const": true
+        },
+        "raw_public": {
+          "const": false
+        },
+        "stderr_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "stderr_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "stdout_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "stdout_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner_private",
+        "raw_public",
+        "stdout_bytes",
+        "stdout_sha256",
+        "stderr_bytes",
+        "stderr_sha256"
+      ],
+      "type": "object"
+    },
+    "request_accounting": {
+      "additionalProperties": false,
+      "properties": {
+        "attempts": {
+          "const": 1
+        },
+        "auth_status_reads": {
+          "const": 1
+        },
+        "catalog_requests": {
+          "const": 0
+        },
+        "concurrency": {
+          "const": 1
+        },
+        "inference": {
+          "const": 0
+        },
+        "replays": {
+          "const": 0
+        },
+        "retries": {
+          "const": 0
+        },
+        "second_request": {
+          "const": 0
+        },
+        "status_after_unknown": {
+          "const": 0
+        }
+      },
+      "required": [
+        "auth_status_reads",
+        "catalog_requests",
+        "inference",
+        "attempts",
+        "retries",
+        "replays",
+        "status_after_unknown",
+        "second_request",
+        "concurrency"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "READY",
+        "NOT_READY",
+        "UNKNOWN"
+      ]
+    },
+    "unknown_fence": {
+      "additionalProperties": false,
+      "properties": {
+        "durable": {
+          "type": "boolean"
+        },
+        "replay": {
+          "const": false
+        },
+        "retry": {
+          "const": false
+        },
+        "second_request": {
+          "const": false
+        },
+        "status_after_unknown": {
+          "const": 0
+        }
+      },
+      "required": [
+        "durable",
+        "retry",
+        "replay",
+        "status_after_unknown",
+        "second_request"
+      ],
+      "type": "object"
+    },
+    "version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "version",
+    "operation",
+    "status",
+    "model",
+    "checked_at",
+    "fresh_until",
+    "binary_sha256",
+    "argv_sha256",
+    "authority_sha256",
+    "raw",
+    "request_accounting",
+    "unknown_fence"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,53 @@
+{
+  "action_allowed": false,
+  "claim_limits": [
+    "no generalization",
+    "no alpha",
+    "no current probability",
+    "no expected return",
+    "no sizing or trading action"
+  ],
+  "conclusion": "development-only observed difference is inconclusive; adoption unsupported",
+  "primary": {
+    "baseline_brier": 0.26464727585934245,
+    "candidate_brier": 0.26256056248244225,
+    "ci95": [
+      -0.011463277340286826,
+      0.00606359474647925
+    ],
+    "decision": "inconclusive",
+    "delta_brier": -0.002086713376900201,
+    "evaluated_n": 6,
+    "retained_n": 5
+  },
+  "promotion_allowed": false,
+  "protected_outcomes_accessed": false,
+  "status": "PASS_INCONCLUSIVE",
+  "subjects": [
+    {
+      "bytes": 959,
+      "id": "result",
+      "path": "tuning/probabilistic_manifold/artifacts/development-result.v7.json",
+      "sha256": "9016ba1bc8c8e320d7071688c0e323f0bddcb79d5c3485b77b0d545e88fda26d"
+    },
+    {
+      "bytes": 5585,
+      "id": "ledger",
+      "path": "tuning/probabilistic_manifold/artifacts/rolling-attempt-ledger.v7.json",
+      "sha256": "0c9eba1edd99923c2b1bf4e3f73c8101332c721d54ea17532c20aa6bb8cd354e"
+    },
+    {
+      "bytes": 1396,
+      "id": "custody_review",
+      "path": "tuning/probabilistic_manifold/artifacts/development-custody-final-review.v1.json",
+      "sha256": "52bdfd263942e6b9763d6b559234c7d5941de9c7d8b68499110ed74a0d953ed4"
+    },
+    {
+      "bytes": 1984,
+      "id": "statistical_review",
+      "path": "tuning/probabilistic_manifold/artifacts/development-statistical-final-review.v1.json",
+      "sha256": "3326a12740a39388507b73d9d02d9eb9cd51ce362fd9758a1429228cf49f4b26"
+    }
+  ],
+  "version": "tqqq-development-final-review-bundle-v1"
+}

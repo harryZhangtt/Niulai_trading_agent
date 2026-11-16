@@ -1,0 +1,79 @@
+{
+  "activation": false,
+  "admission": {
+    "concurrency": 1,
+    "offsets_seconds": [
+      450,
+      900,
+      1350,
+      1800
+    ],
+    "order": [
+      "R6DQ-7F2C91A4",
+      "R6DQ-1B8E43D7",
+      "R6DQ-C4A7095E",
+      "R6DQ-92D6F0B3"
+    ],
+    "pid_reuse": "same PID with different process token becomes UNKNOWN",
+    "previous_terminal": "exact window/cell/ordinal/job/slot/attempt/operation identity and immutable seal",
+    "restart": "abandoned active process becomes UNKNOWN",
+    "unknown": "forbids every later cell"
+  },
+  "effects": {
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "network": 0,
+    "provider": 0
+  },
+  "forbidden_public_inputs": [
+    "clock",
+    "now",
+    "wall UTC",
+    "monotonic value",
+    "window ID",
+    "block ID",
+    "job ID",
+    "slot ID",
+    "attempt ID",
+    "operation ID",
+    "root",
+    "identity"
+  ],
+  "issuance": [
+    "Verify final activation flag and all eight exact authority/review pins.",
+    "Verify immutable template sources and rehash both pinned provider binaries without execution.",
+    "Capture internal system UTC between two monotonic reads; deny rollback or excessive pair span.",
+    "Generate fresh opaque block/window/job/slot/attempt/operation IDs internally.",
+    "Build one immutable receipt with shared start/deadline and four fixed admission deadlines.",
+    "At exact fixed owner-private root, full-write and fsync a 0600 stage, fsync parent, reopen and hash.",
+    "No-replace publish receipt, fsync parent, reopen and hash; then no-replace publish and fsync commit marker last.",
+    "Never extend, reissue, or replay any complete or incomplete namespace."
+  ],
+  "public_api": {
+    "admit_next_cell()": "zero-argument fixed receipt/terminal/active-state validation",
+    "issue_live_window()": "zero-argument hard-disabled before clock, ID generation, binary rehash, or I/O",
+    "prepare_window_template()": "zero-argument exact source-pin verification; no write",
+    "recover_live_window()": "zero-argument exact fixed-root committed receipt recovery; never mint/repair",
+    "validate_live_window()": "zero-argument internal trusted-clock validation"
+  },
+  "recovery": {
+    "commit_authority": "valid 0600 marker plus exact receipt bytes/hash",
+    "committed": "return exact receipt; never generate identifiers",
+    "marker_without_receipt": "DENY",
+    "receipt_without_marker": "INCOMPLETE_WINDOW_NO_REISSUE"
+  },
+  "status": "DISABLED_TEMPLATE_PENDING_FINAL_PINS_AND_FRESH_REVIEW",
+  "time_semantics": {
+    "block_duration_seconds": 1800,
+    "deadline_edges": "inclusive at exact deadline; deny at first later nanosecond",
+    "drift": "abs(observed UTC - (start UTC + monotonic elapsed)) <= 1 second",
+    "jump": "DENY",
+    "monotonic_bounds": "start_monotonic_ns <= observed monotonic <= deadline_monotonic_ns",
+    "rollback_or_reboot": "DENY",
+    "wall_bounds": "start_utc_ns <= observed UTC <= deadline_utc_ns"
+  },
+  "version": "r6-common-execution-window-protocol-v1"
+}

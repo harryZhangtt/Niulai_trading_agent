@@ -9,7 +9,6 @@ from datetime import datetime, timedelta, timezone
 import argparse
 import fcntl
 import hashlib
-import ipaddress
 import json
 import os
 from pathlib import Path
@@ -17,13 +16,14 @@ import re
 import sys
 import uuid
 from urllib.parse import urlsplit
-
+from .acquisition_contracts import FailureCode, classify_failure, fallback_allowed
+from .acquisition_validation import QUESTION_ID, public_https_url, validate_dispatch
 from .artifacts import ROOT, SOURCE_STATE, SourceError, digest, encoded, private_path, read, require, save
 from .cache import FetchKey, validate_source
 from .store import Store, instant
 from shared.job_runtime.service import atomic
 
-VERSION = 'host-web-1.1.0'
+VERSION = 'host-web-1.2.0'
 CODE_FILES = ('shared/research_sources/host_web.py', 'shared/research_sources/artifacts.py',
               'shared/research_sources/cache.py', 'shared/research_sources/store.py', 'shared/job_runtime/service.py')
 MAX_RAW = 65536
@@ -31,9 +31,8 @@ MAX_SEARCH_TEXT = 48000
 MAX_OPERATIONS = 32
 DEFAULT_CACHE = SOURCE_STATE / 'cache/host-web'
 HASH = re.compile('[a-f0-9]{64}')
-NAME = re.compile('[A-Za-z0-9][A-Za-z0-9_-]{0,63}')
-FAILURES = {'NATIVE_TRANSPORT_FAILED', 'SOURCE_HTTP_401', 'SOURCE_HTTP_403', 'SOURCE_HTTP_404',
-            'SOURCE_HTTP_429', 'SOURCE_HTTP_503', 'HOST_WEB_BODY_UNPARSEABLE', 'HOST_WEB_RESULT_UNKNOWN', 'HOST_WEB_FUTURE_EXPOSURE', 'HOST_WEB_DEADLINE', 'HOST_WEB_SOURCE_CHANGED'}
+BACKENDS = frozenset({'native_tools.web__run', 'claude_code.web'})
+FAILURES = {code.value for code in FailureCode}
 
 
 def stamp(): return datetime.now(timezone.utc).isoformat()
@@ -65,13 +64,17 @@ def _code_provenance(config, *, verify=False):
             'dependency_sha256': digest(observed['files']), 'pin_status': status}
 
 
+def _provider_names(backend):
+    require(backend in BACKENDS, 'HOST_WEB_CONTROLS_INVALID')
+    if backend == 'claude_code.web':
+        return {'key': 'claude_code_web_fetch', 'search': 'claude_code_web_search',
+                'open': 'claude_code_web_fetch'}
+    return {'key': 'native_open_primary_capture', 'search': 'native_web_search',
+            'open': 'native_open_primary_capture'}
+
+
 def _url(value):
-    require(isinstance(value, str) and len(value) <= 4096, 'HOST_WEB_URL_INVALID')
-    parsed = urlsplit(value); host = parsed.hostname or ''
-    require(parsed.scheme == 'https' and bool(host) and not parsed.username and not parsed.password and not parsed.fragment
-            and parsed.port in (None, 443) and host != 'localhost' and not host.endswith(('.local', '.internal')), 'HOST_WEB_URL_INVALID')
-    try: require(ipaddress.ip_address(host).is_global, 'HOST_WEB_URL_INVALID')
-    except ValueError: pass
+    public_https_url(value, 'HOST_WEB_URL_INVALID')
     FetchKey('native_open_primary_capture', 'read', {'url': value})
     return value
 
@@ -115,7 +118,7 @@ def _config(config):
     require(config['schema_version'] == 1 and str(uuid.UUID(config['execution_id'])) == config['execution_id'], 'HOST_WEB_EXECUTION_INVALID')
     require(config['arm'] in {'A', 'B'} and config['cohort'] in {'cold', 'warm_cache', 'fault'} and
         isinstance(config['question'], str) and 0 < len(config['question']) <= 1800 and
-        HASH.fullmatch(config['model_sha256']) and config['backend'] == 'native_tools.web__run', 'HOST_WEB_CONTROLS_INVALID')
+        HASH.fullmatch(config['model_sha256']) and config['backend'] in BACKENDS, 'HOST_WEB_CONTROLS_INVALID')
     require(type(config['cache_enabled']) is bool and type(config['cache_max_age_seconds']) in (int, float)
         and 0 <= config['cache_max_age_seconds'] <= 604800 and type(config['max_fallbacks']) is int
         and 0 <= config['max_fallbacks'] <= 8, 'HOST_WEB_POLICY_INVALID')
@@ -124,15 +127,41 @@ def _config(config):
         and type(budget['wall_seconds']) in (int, float) and 1 <= budget['wall_seconds'] <= 3600, 'HOST_WEB_BUDGET_INVALID')
     if config.get('requirement_ids') is not None:
         require(isinstance(config['requirement_ids'], list) and 0 < len(config['requirement_ids']) <= 8 and
-            all(isinstance(value, str) and NAME.fullmatch(value) for value in config['requirement_ids']), 'HOST_WEB_REQUIREMENT_IDS')
+            all(isinstance(value, str) and QUESTION_ID.fullmatch(value) for value in config['requirement_ids']), 'HOST_WEB_REQUIREMENT_IDS')
     read(config['baseline_ref']); instant(config['cutoff'])
     if config.get('catalog_ref'): read(config['catalog_ref'])
     return json.loads(encoded(config))
 
 
+_SECRET_TEXT = re.compile(
+    r'(?i)(?:\bbearer\s+[a-z0-9._~+/=-]{8,}|\bsk-[a-z0-9_-]{8,}|'
+    r'\b(?:api[_-]?key|access[_-]?token|password|client[_-]?secret)\b\s*[:=]\s*\S+)')
+_PRIVATE_PATH = re.compile(
+    r'(?:' + re.escape(str(ROOT)) + r'|/(?:Users|home)/[^\s"\']+/(?:\.research-sources|\.job-runtime|niulai-private))[^\s"\']*')
+
+
+def _sanitize_provider_value(value):
+    """Reject credential-shaped text and redact workspace-private paths recursively."""
+    if isinstance(value, str):
+        require(_SECRET_TEXT.search(value) is None, 'HOST_WEB_SECRET_DETECTED')
+        return _PRIVATE_PATH.sub('[PRIVATE_PATH_REDACTED]', value)
+    if isinstance(value, list):
+        return [_sanitize_provider_value(item) for item in value]
+    if isinstance(value, dict):
+        require(not any(re.search(r'(?i)(?:password|secret|token|api[_-]?key)', str(key))
+                        for key in value), 'HOST_WEB_SECRET_DETECTED')
+        return {key: _sanitize_provider_value(item) for key, item in value.items()}
+    return value
+
+
 def _text(raw):
     if isinstance(raw, str): return raw
-    if isinstance(raw, dict): return '\n'.join(_text(value) for key, value in raw.items() if key in {'content', 'text', 'result', 'data', 'message'})
+    if isinstance(raw, dict):
+        # Claude Code WebSearch returns structured result collections while WebFetch
+        # returns rendered/extracted content. Preserve only bounded public text fields.
+        keys = {'content', 'text', 'result', 'results', 'data', 'message', 'document',
+                'url', 'title', 'snippet'}
+        return '\n'.join(_text(value) for key, value in raw.items() if key in keys)
     if isinstance(raw, list): return '\n'.join(_text(value) for value in raw[:64])
     return ''
 
@@ -142,16 +171,37 @@ def _body(text):
     return '\n'.join(lines) if lines else None
 
 
-def _documents(raw, items, supplied):
+def _native_open_failure(diagnostic=None):
+    """Use a structured provider diagnostic; arbitrary body text never sets status."""
+    if diagnostic is None:
+        return 'HOST_WEB_BODY_UNPARSEABLE'
+    require(isinstance(diagnostic, dict) and set(diagnostic) == {'code'}, 'HOST_WEB_DIAGNOSTIC_INVALID')
+    code = diagnostic['code']
+    try:
+        classification = classify_failure(code)
+    except (TypeError, ValueError) as error:
+        raise SourceError('HOST_WEB_DIAGNOSTIC_INVALID') from error
+    require(classification.code in {
+        FailureCode.HOST_WEB_BODY_TOO_LARGE,
+        FailureCode.HOST_WEB_SOURCE_INACCESSIBLE,
+        FailureCode.HOST_WEB_BODY_UNPARSEABLE,
+    }, 'HOST_WEB_DIAGNOSTIC_INVALID')
+    return classification.code.value
+
+
+def _documents(raw, items, supplied, *, rendered_extract=False):
     text = _text(raw); normalized = _body(text) or text
     require(len(text) >= 80, 'HOST_WEB_BODY_UNPARSEABLE')
     if supplied is None:
-        require(len(items) == 1 and _body(text) is not None, 'HOST_WEB_BODY_UNPARSEABLE')
-        supplied = [{'url': items[0]['ref_id'], 'text': _body(text)}]
+        require(len(items) == 1 and (rendered_extract or _body(text) is not None),
+                'HOST_WEB_BODY_UNPARSEABLE')
+        supplied = [{'url': items[0]['ref_id'],
+                     'text': text if rendered_extract else _body(text)}]
     require(isinstance(supplied, list) and len(supplied) == len(items), 'HOST_WEB_BODY_UNPARSEABLE')
     for item, document in zip(items, supplied):
         require(isinstance(document, dict) and set(document) <= {'url', 'text', 'title', 'published_at', 'modified_at'}
-            and document.get('url') == item['ref_id'] and document['url'] in text
+            and document.get('url') == item['ref_id']
+            and (rendered_extract or document['url'] in text)
             and isinstance(document.get('text'), str) and 80 <= len(document['text']) <= 48000
             and (document['text'] in text or document['text'] in normalized), 'HOST_WEB_BODY_UNPARSEABLE')
     return supplied
@@ -169,7 +219,8 @@ class HostWeb:
                 else:
                     began = self.now(); config_ref = save(self.directory, config)
                     self._write({'config_ref': config_ref, 'started_at': began, 'operations': {}, 'source_refs': [],
-                        'usage': {'search_items': 0, 'open_items': 0, 'provider_items': 0, 'cache_items': 0},
+                        'usage': {'search_items': 0, 'open_items': 0, 'provider_items': 0, 'cache_items': 0,
+                                  'logical_operations': 0, 'reserved_provider_items': 0, 'actual_dispatches': 0},
                         'search_receipt_refs': [], 'open_receipt_refs': [], 'cache_attempt_refs': [], 'exposure_refs': [],
                         'transport_circuit': False, 'unknown_fence': False, 'fallbacks': 0, 'final_ref': None, 'cache_directory': str(self.cache_directory)})
         self.state = read(self._head()); self.config = read(self.state['config_ref'])
@@ -196,14 +247,16 @@ class HostWeb:
         state = read(self._head()); require(not state['final_ref'], 'HOST_WEB_RUN_FINISHED')
         return state
 
-    def _time(self, state):
+    def _time(self, state, *, before_dispatch=False):
         at = instant(self.now())
         require(at <= instant(self.config['cutoff']) and (at - instant(state['started_at'])).total_seconds()
-                <= self.config['budget']['wall_seconds'], 'HOST_WEB_DEADLINE')
+                <= self.config['budget']['wall_seconds'],
+                'HOST_WEB_DEADLINE_BEFORE_DISPATCH' if before_dispatch else 'HOST_WEB_DEADLINE')
         return at.isoformat()
 
     def _key(self, url, view):
-        return FetchKey('native_open_primary_capture', 'read', {'url': url},
+        provider = _provider_names(self.config['backend'])['key']
+        return FetchKey(provider, 'read', {'url': url},
             access_scope='public:host-web:' + digest([VERSION, self.config['backend'], view]))
 
     def _bounds(self, source):
@@ -243,14 +296,17 @@ class HostWeb:
         known = {ref['sha256']: ref for ref in [*state['source_refs'], *source_refs]}; state['source_refs'] = list(known.values())
         return packet
 
-    def prepare(self, operation_id, arguments, *, fallback_of=None, requirement_ids=()):
-        require(isinstance(operation_id, str) and NAME.fullmatch(operation_id), 'HOST_WEB_OPERATION_ID')
+    def prepare(self, operation_id, arguments, *, fallback_of=None, requirement_ids=(), alternate_descriptor=None):
+        validate_dispatch(
+            operation_id, arguments, id_code='HOST_WEB_OPERATION_ID',
+            arguments_code='HOST_WEB_ARGUMENTS_INVALID', url_code='HOST_WEB_URL_INVALID',
+        )
         operation, key, items = _args(arguments)
-        require(isinstance(requirement_ids, (list, tuple)) and len(requirement_ids) <= 8 and all(isinstance(value, str) and NAME.fullmatch(value) for value in requirement_ids), 'HOST_WEB_REQUIREMENT_IDS')
+        require(isinstance(requirement_ids, (list, tuple)) and len(requirement_ids) <= 8 and all(isinstance(value, str) and QUESTION_ID.fullmatch(value) for value in requirement_ids), 'HOST_WEB_REQUIREMENT_IDS')
         if self.config.get('requirement_ids'): require(set(requirement_ids) <= set(self.config['requirement_ids']) and bool(requirement_ids), 'HOST_WEB_REQUIREMENT_IDS')
         requirement_ids = list(requirement_ids)
         with self._lock():
-            state = self._state(); self._time(state); code = _code_provenance(self.config, verify=True)
+            state = self._state(); self._time(state, before_dispatch=True); code = _code_provenance(self.config, verify=True)
             native_verb = 'search' if key == 'search_query' else key
             if operation_id in state['operations']:
                 prior = read(state['operations'][operation_id]); require(prior['arguments'] == arguments and prior['requirement_ids'] == requirement_ids, 'HOST_WEB_OPERATION_CONFLICT')
@@ -259,8 +315,17 @@ class HostWeb:
             require(not any(read(ref)['status'] == 'pending' for ref in state['operations'].values()), 'HOST_WEB_PENDING_OUTCOME')
             if fallback_of:
                 require(fallback_of in state['operations'] and state['fallbacks'] < self.config['max_fallbacks'], 'HOST_WEB_FALLBACK_INVALID')
-                previous = read(state['operations'][fallback_of]); require(previous['status'] == 'failed' and previous['arguments'] != arguments, 'HOST_WEB_FALLBACK_INVALID')
+                previous = read(state['operations'][fallback_of])
+                require(previous['status'] == 'failed' and previous['arguments'] != arguments
+                        and fallback_allowed(previous.get('code'), unparseable_predeclared=True),
+                        'HOST_WEB_FALLBACK_FORBIDDEN')
+                require(isinstance(alternate_descriptor, dict)
+                        and alternate_descriptor.get('exact_arguments') == arguments
+                        and previous['code'] in alternate_descriptor.get('permitted_trigger_codes', []),
+                        'HOST_WEB_FALLBACK_INVALID')
                 state['fallbacks'] += 1
+            else:
+                require(alternate_descriptor is None, 'HOST_WEB_FALLBACK_INVALID')
             for ref in state['operations'].values():
                 prior = read(ref)
                 if prior['arguments'] == arguments and prior['status'] in {'failed', 'unknown'}:
@@ -268,6 +333,7 @@ class HostWeb:
             count = len(items); budget = self.config['budget']
             require(state['usage'][operation + '_items'] + count <= budget[operation + '_items'], 'HOST_WEB_ITEM_BUDGET')
             state['usage'][operation + '_items'] += count
+            state['usage']['logical_operations'] += 1
             cached = []
             cache_start = len(state['cache_attempt_refs'])
             if native_verb == 'open' and self.config['cache_enabled'] and all('lineno' not in item for item in items):
@@ -285,6 +351,7 @@ class HostWeb:
                 state['open_receipt_refs'].append(save(self.directory, {'kind': 'acquisition_operation_receipt',
                     'execution_id': self.config['execution_id'], 'operation_id': operation_id, 'requirement_ids': requirement_ids,
                     'operation': 'open', 'native_verb': native_verb, 'code_provenance': code, 'backend': self.config['backend'], 'status': 'cache_hit', 'fetch_executed': False, 'provider_items': 0,
+                    'logical_operations': 1, 'reserved_provider_items': 0, 'actual_dispatches': 0,
                     'request_ref': save(self.directory, {'items': items, 'arguments': arguments}), 'response_ref': save(self.directory, packet),
                     'source_sha256s': [ref['sha256'] for ref in cached], 'started_at': result['started_at'], 'finished_at': result['started_at']}))
                 self._write(state)
@@ -303,15 +370,17 @@ class HostWeb:
                 return {'status': 'not_retry', 'code': 'NATIVE_TRANSPORT_CIRCUIT_OPEN' if state['transport_circuit'] else 'HOST_WEB_UNKNOWN_OUTCOME', 'dispatch': False}
             require(state['usage']['provider_items'] + count <= budget['provider_items'], 'HOST_WEB_ITEM_BUDGET')
             state['usage']['provider_items'] += count
+            state['usage']['reserved_provider_items'] += count
             intent = {'kind': 'host_web_intent', 'execution_id': self.config['execution_id'], 'operation_id': operation_id,
                 'arguments': arguments, 'operation': operation, 'native_verb': native_verb, 'code_provenance': code, 'requirement_ids': requirement_ids, 'started_at': self.now(), 'status': 'pending', 'fallback_of': fallback_of,
+                'alternate_descriptor': alternate_descriptor,
                 'request_ref': save(self.directory, {'items': items, 'arguments': arguments})}
             ref = save(self.directory, intent); state['operations'][operation_id] = ref; self._write(state)
             return {'status': 'dispatch', 'dispatch': True, 'intent_ref': ref, 'arguments': arguments,
                     'remaining_provider_items': budget['provider_items'] - state['usage']['provider_items']}
 
     def capture(self, operation_id, capture, *, observer=None):
-        require(isinstance(capture, dict) and set(capture) <= {'actual_arguments', 'raw_result', 'status', 'code', 'documents'}, 'HOST_WEB_CAPTURE_INVALID')
+        require(isinstance(capture, dict) and set(capture) <= {'actual_arguments', 'raw_result', 'status', 'code', 'documents', 'diagnostic'}, 'HOST_WEB_CAPTURE_INVALID')
         with self._lock():
             state = self._state(); at = self.now(); late = False
             try: self._time(state)
@@ -320,9 +389,18 @@ class HostWeb:
             intent = read(state['operations'][operation_id]); require(intent['status'] == 'pending', 'HOST_WEB_CAPTURE_REPLAY')
             require(capture.get('actual_arguments') == intent['arguments'] and 'raw_result' in capture, 'HOST_WEB_TOOL_ARGUMENT_MISMATCH')
             require(len(encoded(capture['raw_result'])) <= MAX_RAW, 'HOST_WEB_RESULT_TOO_LARGE')
-            raw = capture['raw_result']; raw_ref = save(self.directory, raw)
             status = capture.get('status'); require(status in {'returned', 'failed', 'unknown'}, 'HOST_WEB_CAPTURE_STATUS')
             failure = capture.get('code'); sources = []; packet = {}; operation = intent['operation']
+            supplied_documents = capture.get('documents')
+            try:
+                raw = _sanitize_provider_value(capture['raw_result'])
+                supplied_documents = _sanitize_provider_value(supplied_documents)
+            except SourceError as error:
+                require(str(error) == 'HOST_WEB_SECRET_DETECTED', 'HOST_WEB_CAPTURE_INVALID')
+                raw = {'screening_status': 'rejected', 'code': 'HOST_WEB_SECRET_DETECTED'}
+                supplied_documents = None
+                status = 'failed'; failure = FailureCode.ACQ_PERMANENT_FAILURE.value
+            raw_ref = save(self.directory, raw)
             native_verb = intent.get('native_verb', operation); code = _code_provenance(self.config)
             if code['pin_status'] == 'changed': status = 'failed'; failure = 'HOST_WEB_SOURCE_CHANGED'
             if late: status = 'failed'; failure = 'HOST_WEB_DEADLINE'
@@ -353,38 +431,69 @@ class HostWeb:
                         packet = {'urls': candidates[:64], 'search_text': issued,
                             'search_text_truncated': len(issued) < len(text), 'search_text_total_chars': len(text),
                             'scope': 'current_search_metadata_only',
-                            'native_reference_warning': 'Native turn IDs are session-only; open portable full URLs, never cached/session references.'}
-                        sources = [save(self.directory, {'schema_version': 1, 'provider': 'native_web_search',
-                            'source_url': 'native-search://' + digest(intent['arguments']), 'upstream_id': digest(intent['arguments']),
+                            'native_reference_warning': ('Native turn IDs are session-only; open portable full URLs, never cached/session references.'
+                                if self.config['backend'] == 'native_tools.web__run' else
+                                'Claude Code search output is current metadata only; open the exact portable URL before evidence credit.')}
+                        search_provider = _provider_names(self.config['backend'])['search']
+                        sources = [save(self.directory, {'schema_version': 1, 'provider': search_provider,
+                            'source_url': ('claude-search://' if self.config['backend'] == 'claude_code.web' else 'native-search://') + digest(intent['arguments']),
+                            'upstream_id': digest(intent['arguments']),
                             'source_version': raw_ref['sha256'], 'access_level': 'metadata', 'raw': raw_ref,
                             'text': save(self.directory, issued.encode(), suffix='txt'), 'retrieved_at': at, 'available_at': at,
-                            'availability_basis': 'first_observed_native_search_metadata', 'candidates': candidates[:64],
+                            'availability_basis': 'first_observed_current_search_metadata', 'candidates': candidates[:64],
                             'metadata': {'current_only': True, 'semantic_admission': False, 'historical_backdating': False,
-                                'native_ids_session_only': True, 'text_truncated': len(issued) < len(text), 'text_total_chars': len(text)}})]
+                                'backend': self.config['backend'],
+                                'native_ids_session_only': self.config['backend'] == 'native_tools.web__run',
+                                'text_truncated': len(issued) < len(text), 'text_total_chars': len(text)}})]
                     else:
-                        documents = _documents(raw, intent['arguments']['open'], capture.get('documents'))
+                        rendered_extract = self.config['backend'] == 'claude_code.web'
+                        documents = _documents(raw, intent['arguments']['open'], supplied_documents,
+                                               rendered_extract=rendered_extract)
                         for item, doc in zip(intent['arguments']['open'], documents):
-                            receipt = {'schema_version': 1, 'provider': 'native_open_primary_capture', 'source_url': doc['url'],
-                                'upstream_id': doc['url'], 'source_version': raw_ref['sha256'], 'access_level': 'document',
+                            alternate = intent.get('alternate_descriptor') or {}
+                            receipt = {'schema_version': 1,
+                                'provider': _provider_names(self.config['backend'])['open'],
+                                'source_url': doc['url'], 'upstream_id': doc['url'],
+                                'source_version': raw_ref['sha256'], 'access_level': 'document',
                                 'raw': raw_ref, 'text': save(self.directory, doc['text'].encode(), suffix='txt'),
                                 'retrieved_at': at, 'available_at': at, 'published_at': doc.get('published_at'), 'modified_at': doc.get('modified_at'),
-                                'availability_basis': 'first_observed_native_capture', 'title': doc.get('title'),
-                                'metadata': {'request_view': {'lineno': item.get('lineno'), 'response_length': intent['arguments'].get('response_length', 'long')}},
-                                'capture_method': 'native_open_passage_not_original_publisher_bytes', 'limitations': ['No original historical byte attestation or semantic admission.']}
+                                'availability_basis': ('first_observed_claude_rendered_extract' if rendered_extract else 'first_observed_native_capture'),
+                                'title': doc.get('title'),
+                                'canonical_disclosure_id': alternate.get('canonical_disclosure_id'),
+                                'representation_kind': alternate.get('representation_kind') or ('pdf' if urlsplit(doc['url']).path.lower().endswith('.pdf') else 'html'),
+                                'representation_relationship': alternate.get('relationship_to_primary'),
+                                'representation_scope': ('rendered_extracted_representation' if rendered_extract else 'native_open_passage'),
+                                'metadata': {'backend': self.config['backend'], 'request_view': {'lineno': item.get('lineno'), 'response_length': intent['arguments'].get('response_length', 'long')}},
+                                'capture_method': ('claude_code_webfetch_rendered_extract' if rendered_extract else 'native_open_passage_not_original_publisher_bytes'),
+                                'limitations': ([
+                                    'Claude Code WebFetch output is a rendered/model-extracted representation, not publisher-original bytes.',
+                                    'Literal support is limited to text in the exact captured rendered extract.',
+                                    'No historical byte attestation or semantic admission.'
+                                ] if rendered_extract else ['No original historical byte attestation or semantic admission.'])}
                             sources.append(save(self.directory, receipt))
                         packet = {'documents': [{'source_ref': ref, 'url': read(ref)['source_url'], 'text': read(read(ref)['text'], json_value=False).decode()} for ref in sources]}
                     packet = self._expose(state, sources, packet, operation_id, intent['requirement_ids'])
                 except (SourceError, ValueError, TypeError, KeyError) as error:
-                    failure = str(error) if isinstance(error, SourceError) and str(error) in {'HOST_WEB_FUTURE_EXPOSURE', 'HOST_WEB_DEADLINE', 'HOST_WEB_SOURCE_CHANGED'} else 'HOST_WEB_BODY_UNPARSEABLE'
+                    if isinstance(error, SourceError) and str(error) in {
+                            'HOST_WEB_FUTURE_EXPOSURE', 'HOST_WEB_DEADLINE', 'HOST_WEB_SOURCE_CHANGED'}:
+                        failure = str(error)
+                    elif operation == 'open':
+                        failure = _native_open_failure(capture.get('diagnostic'))
+                    else:
+                        failure = 'HOST_WEB_BODY_UNPARSEABLE'
                     status = 'failed'; sources = []; packet = {}
             if status == 'unknown': state['unknown_fence'] = True
             if status != 'returned':
                 require(failure in FAILURES, 'HOST_WEB_FAILURE_CODE_INVALID')
                 if failure == 'NATIVE_TRANSPORT_FAILED': state['transport_circuit'] = True
+            actual_count = len(intent['arguments']['find' if native_verb == 'find' else 'search_query' if operation == 'search' else 'open'])
+            state['usage']['actual_dispatches'] += actual_count
             receipt = {'kind': 'acquisition_operation_receipt', 'execution_id': self.config['execution_id'], 'operation': operation,
                 'backend': self.config['backend'], 'operation_id': operation_id, 'requirement_ids': intent['requirement_ids'],
-                'native_verb': native_verb, 'code_provenance': _code_provenance(self.config),
-                'fetch_executed': True, 'provider_items': len(intent['arguments']['find' if native_verb == 'find' else 'search_query' if operation == 'search' else 'open']),
+                'native_verb': native_verb, 'route': 'fallback' if intent.get('fallback_of') else 'primary',
+                'code_provenance': _code_provenance(self.config),
+                'fetch_executed': True, 'provider_items': actual_count,
+                'logical_operations': 1, 'reserved_provider_items': actual_count, 'actual_dispatches': actual_count,
                 'request_ref': intent['request_ref'], 'response_ref': raw_ref,
                 'started_at': intent['started_at'], 'finished_at': at, 'source_sha256s': [ref['sha256'] for ref in sources],
                 'status': 'success' if status == 'returned' else status, 'code': failure, 'intent_ref': state['operations'][operation_id]}
@@ -425,7 +534,7 @@ class HostWeb:
                 'cache_attempt_refs': state['cache_attempt_refs'], 'exposure_ref': save(self.directory, guard),
                 'exposure_mode': 'per_operation_host_screened', 'unit_refs': list(unit_refs), 'source_refs': state['source_refs'],
                 'status': 'unknown' if any(read(ref)['status'] == 'unknown' for ref in state['operations'].values()) else 'partial' if any(read(ref)['status'] == 'failed' for ref in state['operations'].values()) else 'completed',
-                'usage': {**state['usage'], 'tokens': None, 'cost': None}, 'scope': 'hosted_native_acquisition_not_semantic_admission'}
+                'usage': {**state['usage'], 'tokens': None, 'cost': None}, 'scope': 'hosted_acquisition_not_semantic_admission'}
             ref = save(self.directory, run); state['final_ref'] = ref; self._write(state)
             return {'run_ref': ref, 'run': run}
 
@@ -441,7 +550,7 @@ def main():
             data = sys.stdin.buffer.read(131073); require(len(data) <= 131072, 'HOST_WEB_INPUT_TOO_LARGE')
             payload = json.loads(data or b'{}')
         portal = HostWeb(args.directory, config=payload['config'] if args.command == 'init' else None, cache_directory=payload.get('cache_directory'))
-        if args.command == 'prepare': result = portal.prepare(payload['operation_id'], payload['arguments'], fallback_of=payload.get('fallback_of'), requirement_ids=payload.get('requirement_ids', []))
+        if args.command == 'prepare': result = portal.prepare(payload['operation_id'], payload['arguments'], fallback_of=payload.get('fallback_of'), requirement_ids=payload.get('requirement_ids', []), alternate_descriptor=payload.get('alternate_descriptor'))
         elif args.command == 'capture':
             capture = payload['capture']
             if args.result_file:

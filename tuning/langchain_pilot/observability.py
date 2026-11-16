@@ -53,7 +53,8 @@ def credential(path=KEY_FILE):
 
 
 def client():
-    return Client(api_key=credential(), api_url=API, timeout_ms=(5000, 15000),
+    from .rate_policy import RateAwareClient
+    return RateAwareClient(api_key=credential(), api_url=API, timeout_ms=(5000, 15000),
                   retry_config=Retry(total=0), auto_batch_tracing=False,
                   omit_traced_runtime_info=True, disable_prompt_cache=True)
 
@@ -85,13 +86,19 @@ def source_fingerprints():
 
 
 def checked_calculation(case):
-    result = calculate(case)
+    try: result = calculate(case)
+    except Exception:
+        raise RuntimeError('OBS_CALCULATOR_TOOL_FAILED') from None
     # Independent exact arithmetic. The calculator implementation is not an oracle.
     discount = 1 + Fraction(case['rate'])
     enterprise = sum(Fraction(x) / discount ** i for i, x in enumerate(case['fcff'], 1))
     enterprise += Fraction(case['terminal_ev']) / discount ** len(case['fcff'])
     expected = (enterprise - Fraction(case['net_debt'])) / Fraction(case['shares'])
-    require(abs(float(Fraction(result['per_share']) - expected)) <= 1e-10,
+    require(result.get('case_id') == case['case_id']
+            and Fraction(result['enterprise_pv']) == enterprise
+            and Fraction(result['equity_pv']) == enterprise - Fraction(case['net_debt'])
+            and Fraction(result['nonoperating_pv']) == 0
+            and Fraction(result['per_share']) == expected,
             'OBS_INDEPENDENT_ARITHMETIC_FAILED')
     return {'status': 'passed', 'per_share': result['per_share']}
 

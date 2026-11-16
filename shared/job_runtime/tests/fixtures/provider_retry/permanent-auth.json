@@ -1,0 +1,26 @@
+{
+  "evidence_status": "synthetic_not_live_evidence",
+  "expected": {
+    "body_replay": "not_applicable",
+    "classification": "permanent_authentication",
+    "retry_delay_source": "none",
+    "retry_eligible": false,
+    "submission_state": "rejected"
+  },
+  "fixture_id": "permanent-auth",
+  "input": {
+    "observation": {
+      "failure_kind": "typed_http_error",
+      "headers": {},
+      "http_status": 401
+    },
+    "request_body_state": "fully_sent",
+    "transport_phase": "response_headers"
+  },
+  "sanitization": {
+    "contains_credentials": false,
+    "contains_provider_payloads": false,
+    "contains_raw_errors": false
+  },
+  "schema_version": 1
+}

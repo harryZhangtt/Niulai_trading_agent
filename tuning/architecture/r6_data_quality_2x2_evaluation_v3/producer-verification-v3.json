@@ -1,0 +1,83 @@
+{
+  "activation": false,
+  "adversarial_coverage": [
+    "empty grade/human IDs",
+    "dimension/gate/comment order drift",
+    "role/id collision",
+    "empty/dot/dotdot/double-slash/absolute/backslash paths",
+    "all treatment leak labels with token boundaries",
+    "exact six refs and omission/duplicate/order/digest",
+    "nofollow/mode/hash/bytes/canonical content",
+    "evidence/gate substitution",
+    "registry relabel and grant signature",
+    "pre-call map timing/opening/ref drift",
+    "field selective unknown and cost edges",
+    "valid four-cell non-countable fixture"
+  ],
+  "allowed_claim": "disabled provider-free v3 producer verification only",
+  "bindings": {
+    "contract": {
+      "bytes": 9944,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json",
+      "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d"
+    },
+    "decision": {
+      "bytes": 1009,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/decision-v3.json",
+      "sha256": "2ee4b247c536301c6003e9e5e03a9652fd5b4c22ae3ba042b291a810b22aa6fe"
+    },
+    "protocol": {
+      "bytes": 986,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/protocol-v3.json",
+      "sha256": "b04b2ad40d749653439ad24813e1083408590d96b55399ffc88388c237bbd8a5"
+    },
+    "source_closure": {
+      "bytes": 8553,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/source-closure-v3.json",
+      "sha256": "f4369cc2b9793f4f92607d9e8dfd3eea79457cb5d954880b5fea74fd483cb84b"
+    }
+  },
+  "countable_now": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "live": 0,
+    "network": 0,
+    "private_state": 0,
+    "provider": 0,
+    "scheduler": 0,
+    "subagent": 0
+  },
+  "independent_review": "PENDING_NOT_CREATED_BY_PRODUCER",
+  "predecessors": "V1_V2_OPEN_SUPERSEDED_NOT_MODIFIED",
+  "status": "PRODUCER_PASS_PROVIDER_FREE_V3_PENDING_INDEPENDENT_REVIEW",
+  "tests": {
+    "research_draft_2020_12": {
+      "result": "PASS",
+      "schemas": 14,
+      "valid": 14
+    },
+    "research_python_3_12": {
+      "passed": 12,
+      "result": "PASS",
+      "skipped": 0,
+      "tests": 12
+    },
+    "system_python_3_9": {
+      "passed": 12,
+      "result": "PASS",
+      "skipped": 1,
+      "tests": 12
+    },
+    "workspace_python_3_12": {
+      "passed": 12,
+      "result": "PASS",
+      "skipped": 1,
+      "tests": 12
+    }
+  },
+  "verdict": "PASS",
+  "version": "r6-data-quality-2x2-evaluation-producer-verification-v3"
+}

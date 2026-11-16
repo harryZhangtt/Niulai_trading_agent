@@ -1,0 +1,37 @@
+{
+  "$id": "https://local.invalid/producer-status-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation": {
+      "const": false
+    },
+    "live_effects": {
+      "const": 0
+    },
+    "provider_free_tests": {
+      "enum": [
+        "PENDING",
+        "PASS"
+      ]
+    },
+    "registration": {
+      "const": false
+    },
+    "status": {
+      "const": "DISABLED_PROVIDER_FREE_PENDING_CLAUDE_V8_P0_V10_GRANTS_AND_FRESH_REVIEW"
+    },
+    "version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "version",
+    "status",
+    "activation",
+    "registration",
+    "live_effects",
+    "provider_free_tests"
+  ],
+  "type": "object"
+}

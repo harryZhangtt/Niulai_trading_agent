@@ -1,0 +1,202 @@
+{
+  "activation": false,
+  "closed_source_authority": {
+    "exact_pins": {
+      "grading_harness": {
+        "bytes": 31895,
+        "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/harness.py",
+        "sha256": "a42f1d0303857f443b5352ed7cfd244551767d347168e3ada6b7f8042cdaa7e4"
+      },
+      "p0_v9_clean_review": {
+        "bytes": 15534,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v9-independent-review-fable-20261111-clean.json",
+        "sha256": "0505e961774d325fdc6b89105215fd88cb0a71f8b942a78976d7ea1e8f49fbb2",
+        "verdict": "CLEAN_P0_V9"
+      },
+      "p0_v9_contract": {
+        "bytes": 5231,
+        "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/p0-contract-v9.json",
+        "schema_status": "P0_V10_REQUIRED",
+        "sha256": "51f36fb46eb7a74994abf0a23152ce5d1f3fd7f4e8687aa900d1328e3b9aae1e"
+      },
+      "predecessor_contracts": {
+        "bytes": 14745,
+        "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/contracts.py",
+        "sha256": "9f0bc41282461e64ca795cb64365e84341c029e11760efbfc68dc29d72846be7"
+      },
+      "predecessor_runner": {
+        "bytes": 39451,
+        "history_status": "OPEN",
+        "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/runner.py",
+        "sha256": "bc45fceff79a1106ef66c09376075f3bb72a235ac4a23ca69b7344f914ff0bff"
+      },
+      "runner_v2_open_review": {
+        "bytes": 13206,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v2-independent-review-fable-20261113-8e9a8076-open.json",
+        "sha256": "c2669dec8fd1e32f616a6d97ce1e75f6de9a736d106814db1c99f8328215cff1",
+        "verdict": "OPEN"
+      },
+      "runner_v8_open_review": {
+        "bytes": 6255,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v8-independent-review-fable-20261112-8e9a8076-open.json",
+        "sha256": "145265647df2a9231d7b64f3b7c70c7266403b38cb15ad98e38deef3a6d588f5",
+        "verdict": "OPEN"
+      }
+    },
+    "imported_module_file_identity_checked": true,
+    "module_global_replacements_not_key_authority": true,
+    "mutable_frozen_input_mapping_rehashed": "6238b65ef5734d74a06e1747f2125e75a82cdf43f6ca1ba248be4693d007d885",
+    "public_mutable_pin_exports": false,
+    "rehash_before_claim": true,
+    "storage": "closure-captured immutable tuples and callable references in runner-v3 private scope"
+  },
+  "delegated_unchanged_contracts": [
+    "fixed CELL_ORDER",
+    "one attempt per cell",
+    "zero retry/replay/status query",
+    "all destination preflight",
+    "P0-v9 evidence transformation",
+    "receipt durability",
+    "authenticated human/G3 finalization"
+  ],
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "generated_at_utc": "2026-11-13T14:21:25Z",
+  "history": {
+    "exact_v2_review_members_rehashed": 15,
+    "history_rewrite": false,
+    "mismatches": 0,
+    "p0_v9": "UNCHANGED",
+    "runner_v1": "OPEN_UNCHANGED",
+    "runner_v2": "OPEN_UNCHANGED"
+  },
+  "impact_surface": "INERT_LOCAL_SOURCE_TESTS_AND_EVIDENCE_ONLY",
+  "liveness_authority": {
+    "exact_dead_reasons": [
+      "boot identity mismatch",
+      "kernel process start-token mismatch",
+      "PID absence confirmed by ESRCH"
+    ],
+    "fail_closed": [
+      "boot read failure",
+      "proc permission/transient/read error",
+      "ps timeout/error",
+      "incomplete start token",
+      "permission-denied PID probe",
+      "existing PID with unavailable token"
+    ],
+    "outcomes": [
+      "LIVE",
+      "DEAD_EXACT_PROOF",
+      "INDETERMINATE"
+    ],
+    "production_observer_injection": false,
+    "recovery_evidence": "immutable claim-bound observation record; recovery chain re-observes predecessor and rejects live or indeterminate forged proof",
+    "takeover_rule": "only DEAD_EXACT_PROOF plus PREPARED plus immutable zero-effects proof permits one predecessor-linked recovery claim"
+  },
+  "open_gates": [
+    "fresh exact-subject independent runner-v3 review",
+    "P0_V10_REQUIRED for checks_enabled schema semantics",
+    "runner-v3 consumer P0_V10_RECLOSURE_REQUIRED",
+    "orchestrator rebind PENDING",
+    "future-triggered intended-runtime acceptance before activation"
+  ],
+  "problem": {
+    "confirmed_runner_findings": [
+      "OPEN-RUNNER-V2-MUTABLE-KEY-AUTHORITY-001",
+      "OPEN-RUNNER-V2-LIVENESS-UNKNOWN-002"
+    ],
+    "delegated_p0_finding": {
+      "id": "OPEN-P0-V9-G3-SCHEMA-002",
+      "status": "P0_V10_REQUIRED"
+    },
+    "review": {
+      "bytes": 13206,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v2-independent-review-fable-20261113-8e9a8076-open.json",
+      "sha256": "c2669dec8fd1e32f616a6d97ce1e75f6de9a736d106814db1c99f8328215cff1",
+      "verdict": "OPEN"
+    }
+  },
+  "provider_free": true,
+  "registered": false,
+  "rejected_options": [
+    {
+      "id": "O0_RETAIN_V2",
+      "reason": "two confirmed CRITICAL findings remain"
+    },
+    {
+      "id": "O1_EDIT_V1_OR_V2",
+      "reason": "would rewrite pinned OPEN source/history"
+    },
+    {
+      "id": "O2_REPAIR_P0_IN_RUNNER",
+      "reason": "checks_enabled schema recclosure is separately owned P0 v10 scope"
+    }
+  ],
+  "reservation_authority": {
+    "caller_identity_rule": "caller-shaped refs, destinations, and P0 adapter roots cannot select a second key; alternate values collide and fail exact claim binding",
+    "claim_only_bound_fields": [
+      "authority_registry_ref_sha256",
+      "map_commitment_ref_sha256",
+      "p0_owner_root_ids",
+      "destination_identity_sha256",
+      "all exact source pin digests"
+    ],
+    "directory": "fixed descriptor-relative .r6-data-quality-runner-v3-reservations under validated owner root",
+    "filesystem": "descriptor-relative O_NOFOLLOW, exact uid, directory 0700, file 0600/nlink=1, O_EXCL no-replace, full write, file fsync, parent fsync, exact reopen/hash",
+    "key_fields": [
+      "block_id",
+      "grant_content_sha256",
+      "input_identity_sha256",
+      "map_content_sha256",
+      "runner_owner_root_id",
+      "source_identity_sha256",
+      "fixture"
+    ]
+  },
+  "selected_option": {
+    "benefit": "same logical execution cannot fork through mutable pin/ref/destination/adapter identities, and uncertain liveness cannot authorize PREPARED recovery",
+    "cost": "one sibling reservation namespace, exact source rehash per execution, and tri-state process observation",
+    "id": "O1_ADDITIVE_RUNNER_V3_CLOSED_IDENTITY_EXACT_DEATH",
+    "owner": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v3",
+    "reason": "preserves immutable OPEN history while repairing only the reviewed runner boundary"
+  },
+  "state_machine": [
+    {
+      "from": "ABSENT",
+      "rule": "one fixed-key initial claim via O_EXCL",
+      "to": "PREPARED"
+    },
+    {
+      "from": "PREPARED",
+      "rule": "DEAD_EXACT_PROOF and zero-effects proof only; immutable predecessor-linked claim",
+      "to": "PREPARED_RECOVERY"
+    },
+    {
+      "from": "PREPARED",
+      "rule": "durable admission before destination mutation or first provider/P0 boundary",
+      "to": "ADMITTED"
+    },
+    {
+      "from": "ADMITTED",
+      "rule": "exact authenticated receipt or deterministic receipt reconciliation",
+      "to": "COMPLETED"
+    },
+    {
+      "from": "ADMITTED",
+      "rule": "missing exact receipt or any post-admission exception/crash",
+      "to": "UNKNOWN_NO_REPLAY"
+    }
+  ],
+  "status": "ADDITIVE_PROVIDER_FREE_CANDIDATE_P0_V10_RECLOSURE_REQUIRED",
+  "version": "r6-data-quality-2x2-runner-architecture-v3"
+}

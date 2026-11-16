@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "r6-human-grader-role-grant-subject-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "artifact_kind", "status", "activation", "registry_id", "role", "human_reviewer_id", "role_assignment", "blind", "countable", "valid_from_ms", "valid_through_ms", "independence", "conflict_disclosure", "blind_commitment_acknowledged", "no_blind_map_access"],
+  "properties": {
+    "version": {"const": "r6-human-grader-role-grant-subject-v1"},
+    "artifact_kind": {"const": "HUMAN_GRADER_ROLE_GRANT"},
+    "status": {"enum": ["PENDING_HUMAN_SIGNATURE", "HUMAN_SIGNED_ATTESTATION"]},
+    "activation": {"const": false},
+    "registry_id": {"const": "R6DQ-HUMAN-GRADER-REGISTRY-V1"},
+    "role": {"enum": ["G1", "G2", "G3"]},
+    "human_reviewer_id": {"type": "string", "pattern": "^HGR-[0-9A-F]{4}$"},
+    "role_assignment": {"$ref": "#/$defs/ref"},
+    "registry_subject_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "blind": {"const": true},
+    "countable": {"type": "boolean"},
+    "valid_from_ms": {"type": "integer", "minimum": 1},
+    "valid_through_ms": {"type": "integer", "minimum": 2},
+    "independence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["human_is_independent", "independent_from_other_graders", "no_joint_grading"],
+      "properties": {
+        "human_is_independent": {"const": true},
+        "independent_from_other_graders": {"const": true},
+        "no_joint_grading": {"const": true}
+      }
+    },
+    "conflict_disclosure": {"const": "NO_KNOWN_CONFLICT"},
+    "blind_commitment_acknowledged": {"const": true},
+    "no_blind_map_access": {"const": true},
+    "attested_at": {"type": "string", "minLength": 1},
+    "human_signature_attestation": {"type": "string", "minLength": 16, "maxLength": 512, "pattern": "^[A-Za-z0-9._:-]+$"}
+  },
+  "allOf": [{
+    "if": {"properties": {"status": {"const": "HUMAN_SIGNED_ATTESTATION"}}},
+    "then": {"required": ["registry_subject_sha256", "attested_at", "human_signature_attestation"], "properties": {"countable": {"const": true}}},
+    "else": {"properties": {"countable": {"const": false}}, "not": {"anyOf": [{"required": ["registry_subject_sha256"]}, {"required": ["attested_at"]}, {"required": ["human_signature_attestation"]}]}}
+  }],
+  "$defs": {
+    "ref": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "bytes", "mode"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "mode": {"const": "0600"}
+      }
+    }
+  }
+}

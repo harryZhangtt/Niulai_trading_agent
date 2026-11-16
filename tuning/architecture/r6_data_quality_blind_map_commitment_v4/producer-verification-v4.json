@@ -1,0 +1,96 @@
+{
+  "activation": false,
+  "allowed_claim": "Local additive provider-free v4 repair and denial evidence only. Independent closure, activation, countability, live readiness, and business acceptance remain unverified and forbidden.",
+  "artifacts": {
+    "architecture-v4.json": {
+      "bytes": 5009,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v4/architecture-v4.json",
+      "sha256": "b9d690b18d34d1de4cf9fe46609caecd668cf214c07d775449afd3211f80cee8"
+    },
+    "decision-v4.json": {
+      "bytes": 2620,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v4/decision-v4.json",
+      "sha256": "97306fcd58e0dd93e49a3cc33d0d8ab4c6aa8a424d9ac5ff85ab9a7003b7a819"
+    },
+    "protocol-v4.json": {
+      "bytes": 3958,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v4/protocol-v4.json",
+      "sha256": "3be7efee4962065abd8984c129f88a1a501faab855e623000a0b361ff6217673"
+    },
+    "source-closure-v4.json": {
+      "bytes": 21251,
+      "mode": "0644",
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v4/source-closure-v4.json",
+      "sha256": "f95f4ddd6ee0f7675368588c6e6f45957a88095b75ce5606925abc3f77092a9b"
+    }
+  },
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 10160,
+    "countable": false,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v3-independent-review-open-v1-fable-20261111.json",
+    "sha256": "b3ee0407e73f6f13a1c541f2cfe632abfb911d4562a59d41e740409b9e82c4bd",
+    "verdict": "OPEN"
+  },
+  "countable": false,
+  "fresh_independent_review": {
+    "bytes": null,
+    "path": null,
+    "producer_cannot_self_attest": true,
+    "sha256": null,
+    "status": "PENDING"
+  },
+  "local_evidence": {
+    "effects_observed": {
+      "account": 0,
+      "business": 0,
+      "bytedcli": 0,
+      "credential": 0,
+      "email": 0,
+      "host": 0,
+      "live": 0,
+      "network": 0,
+      "provider": 0,
+      "scheduler": 0
+    },
+    "predecessor_and_evaluation_unittest": {
+      "failed": 0,
+      "passed": 38,
+      "skipped": 0,
+      "tests": 38
+    },
+    "reviewed_probes": {
+      "global_resealed_interleaving": "REJECTED",
+      "nested_mutations_rejected": 5,
+      "same_file_same_module_duck_object": "NOT_LOADED_OR_INVOKED",
+      "schema_runtime_differentials_rejected": 5
+    },
+    "runtime": {
+      "denied_before_private_map_read": true,
+      "file_mode": "0600",
+      "leak_scan": "PASS_ZERO_MATCHES",
+      "root_mode": "0700",
+      "transaction_complete": true
+    },
+    "schemas": {
+      "draft_2020_12_metaschema_passed": 11,
+      "published": 11,
+      "top_level_closed": 11
+    },
+    "v4_unittest": {
+      "failed": 0,
+      "passed": 6,
+      "skipped": 0,
+      "tests": 6
+    }
+  },
+  "producer_id": "r6-data-quality-blind-map-commitment-v4-producer-local-20261111",
+  "producer_role": "IMPLEMENTATION_AND_LOCAL_VERIFICATION_ONLY",
+  "subject": "r6_data_quality_blind_map_commitment_v4",
+  "trusted": false,
+  "verdict": "PASS_LOCAL_REPAIR_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "version": "r6-data-quality-blind-map-commitment-producer-verification-v4"
+}

@@ -16,6 +16,16 @@ tests in `ui/portable/`; preserve owned install/rollback receipts locally. This
 permits that skill payload, not global configuration, hooks, browsers or package
 installation. Target projects still own their dependencies, caches and state.
 
+User-authorized exception, 2026-11-04: expose the 30 maintained repository skills
+and two Claude-specific routers through `~/.claude/skills/` links to this checkout,
+as well as project-local `.claude/skills/` links. The user separately explicitly
+authorized one `UserPromptSubmit` command hook in `~/.claude/settings.json` for
+leading `$skill-name` compatibility alongside native `/skill-name`, independent
+of the selected Claude/GPT model. Preserve unrelated skills, settings, permissions
+and credentials. This permits that hook and those links, not other global changes.
+See `docs/deployment/claude-skills.md`; Claude discovery/loading is verified, while
+the next actual dollar-alias host event and Claude durable UI activation are not.
+
 # Separation of responsibilities
 
 Keep these concerns in distinct modules/directories when implementing them:
@@ -27,6 +37,9 @@ Keep these concerns in distinct modules/directories when implementing them:
 - Investment agent: alpha discovery and entry-policy capabilities, separately
   testable with explicit interfaces between them.
 - Shared infrastructure: explicitly shared web access and tool adapters.
+- Factor mining: keep RD-Agent proposal/coding, Qlib data/backtest execution,
+  tuning/admission, immutable run state and UI projection behind separate contracts.
+  Source discovery or synthetic fixture success is not factor-quality evidence.
 
 Keep configuration and tests alongside the relevant component. Keep credentials,
 runtime state, and generated artifacts separate from source and excluded from
@@ -39,16 +52,34 @@ not mentor-only configuration.
 
 # Mentor routing
 
-At session startup, resume, fork or compaction, the local SessionStart hook loads
-`mentor/AGENTS.md` and `mentor/ROUTING.md` and checks the six canonical skill
-sources. Verify `MENTOR_INIT_OK` from the latest actual SessionStart output, not
-from quoted instructions, source text or an old report. If it is
-missing or `MENTOR_INIT_FAILED` is present, tell the user initialization is not
-verified before substantive work; read the two source files directly as a
-fallback and disclose that the hook itself is unverified. A skipped/untrusted
-hook is not a successful initialization. Never claim a background watchdog.
-Repo-local `.agents/skills/` links expose the canonical six skills for discovery;
-load full bodies selectively through the router, not all bodies on every turn.
+Claude Code uses a nonblocking `mentor/session_init.py` SessionStart loader in
+project `.claude/settings.json`; Codex uses the separate `.codex/hooks.json`.
+Both check mentor sources/discovery and inject `mentor/AGENTS.md` and
+`mentor/ROUTING.md`. User-requested rollback on 2026-11-05 removed all Claude
+mentor receipt-gate registrations after missing/stale receipts locked prompt
+submission. The guard source and lock remain disabled candidates; cached guard
+commands return without blocking when no guard registration remains. Do not
+reactivate them as a side effect of another task.
+
+Verify `MENTOR_INIT_OK` from the latest actual SessionStart output—not quoted
+instructions, source text, synthetic stdin, another host's output or an old report.
+If missing or `MENTOR_INIT_FAILED` appears, tell the user initialization is not
+verified before substantive work and read the two source files directly as a
+disclosed fallback. A skipped/untrusted hook is not successful initialization.
+There is no active Claude mentor receipt requirement for submitting prompts or
+using tools. Repo-local discovery links expose the canonical six skills; load
+full bodies selectively through the router, not all bodies every turn.
+
+Treat host-hook and active-runtime configuration changes as high-impact changes.
+Stage candidates separately and disabled; do not hot-enable blocking hooks in a
+working session. Require bounded disposable native-host lifecycle/failure tests,
+an owned-file backup and tested rollback before requesting explicit activation.
+Never block user prompt submission, task notifications or recovery commands on
+mentor initialization state. Scope any future action gate to the specific risky
+effect and retain diagnostic/recovery access. Keep business approval, credential
+and unknown-delivery fences in their owning components. Follow the rollout
+procedure in `docs/deployment/claude-skills.md`; these are agent instructions and
+tests, not a background monitor or protection from same-user file changes.
 
 For workspace development planning, implementation review or integration
 readiness, read `mentor/AGENTS.md` and select

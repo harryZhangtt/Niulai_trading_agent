@@ -1,0 +1,1 @@
+{"excluded":["malicious_python_reflection","same_uid_hostile_code","process_memory_mutation","ptrace_or_debugger","kernel_compromise"],"ordinary_paths_closed":["module_global_replacement_after_admission","callback_replacement_after_admission","pathname_symlink_and_replacement","concurrent_or_reopened_dispatch"],"schema_version":1,"scope":"cooperative_same_user_test_only"}

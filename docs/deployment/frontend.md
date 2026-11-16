@@ -8,7 +8,110 @@ procedures/adapters. Pins/licenses/adaptations are in
 `ui/upstream/`. The React/TypeScript verification fixture is synthetic; it is
 not a production investment UI or application deployment.
 
+## Confidential UI evidence quarantine
+
+`ui/artifacts/` is an ignored, confidential quarantine. It is not a public asset
+root, browser download directory, encryption boundary or backup policy. Existing
+content is historical: the future-only publisher in
+`ui/tools/private_artifacts.py` never scans, recursively chmods, migrates or
+deletes that history. A returned workspace-relative path is metadata, not a claim
+that a browser can or should load the file.
+
+The publisher accepts bytes or UTF-8 text through its Python API and supports
+bounded stdin or an optional staging-file import through its CLI. Its only valid
+destinations are new, unique paths strictly below the publisher-owned namespace
+`ui/artifacts/future-private-v1/`. Direct historical paths are rejected before
+filesystem mutation. It opens every workspace and destination component by
+descriptor with no symlink following, requires the workspace to be
+current-user-owned and not group/world writable, and requires `ui/artifacts/`
+plus created subdirectories to be current-user-owned mode `0700`. Existing
+directories with any other mode fail closed; the publisher does not repair them.
+The historical real `ui/artifacts/` root is currently `0755`, so the publisher
+fails closed there by default; setup must not silently chmod it or bypass owner
+classification. `.gitignore` fences the root, including the future-private
+namespace, and has no negation that would publish these artifacts.
+
+Publication is create-only. A no-clobber link creates the selected leaf; an
+existing leaf is a stable conflict and is never replaced, deleted or chmodded.
+There is no replacement or compare-and-swap path. After the create effect,
+directory-fsync, readback or final-binding failure is reported as
+`outcome_unknown_reconcile_required`. The selected destination is preserved for
+reconciliation and must be inspected before choosing a different unique/versioned
+path; blindly retrying the same destination produces a conflict.
+
+Staging imports require a regular, current-user-owned, one-link file at exact mode
+`0600`. The publisher reads bounded content from the held descriptor and rejects
+any dev/inode/size/mtime/ctime/mode/uid/link-count change during the read. CLI
+payload comes only from stdin or validated staging, never process argv. CLI output
+contains only sanitized status, code when applicable, and the workspace-relative
+destination; it never emits payload content, size, hash or a browser path.
+
+```sh
+# A future confidential create from bounded stdin. Choose a unique run/file name.
+python3 -B ui/tools/private_artifacts.py \
+  ui/artifacts/future-private-v1/<unique-run>/<evidence-file> \
+  --stdin < /path/to/private-input
+
+# Optional import from an exact-0600 staging file; the source remains in place.
+python3 -B ui/tools/private_artifacts.py \
+  ui/artifacts/future-private-v1/<unique-run>/<evidence-file> \
+  --from-staging ui/runtime/<staged-private-file>
+```
+
+Public publication is a separate capability and is not implemented. It would
+require a different allowlisted publication root, an explicit manifest and owner
+approval; do not repurpose `ui/artifacts/` or this publisher for that effect.
+
+## Research-operations application visual system
+
+The loopback React application under `ui/datasource/` has its own product design
+contract in `ui/datasource/DESIGN.md`. Research evidence, Factor mining and
+Scheduler share `WorkspaceChrome.tsx`, `workspace-theme.css` and self-hosted
+Poppins Regular/Medium/SemiBold assets under `src/assets/fonts/`. The selected
+Figma reference is a raster layer; measured colors, attribution and inference
+limits are recorded, and no generated crypto content enters the product.
+
+`ui/datasource/design-qa.md` records same-input desktop comparisons, mobile/text
+expansion iterations and the final application checks. Run application browser
+tests through `python3 -B ui/tools/run.py playwright --project ui/datasource ...`;
+keep captures and browser state under `ui/runtime/`. The datasource dev server
+keeps Vite `publicDir:false`, so font assets must remain source imports that the
+build fingerprints. Do not add a public directory or global font install.
+The datasource contrast regression statically binds global links and component
+normal-size accent selectors to `--text-accent` and measures representative Overview, Research and RunEvidence
+renders on panel and selected-tint surfaces at `>=4.5:1`; the bounded application
+suite passes 65/65 with no open P0/P1/P2 contrast findings.
+
+## Information-yield Overview feature
+
+The EIY v4 panel is feature-local under `src/InformationYield/` and consumes the
+existing workspace tokens and semantic components. Its wire DTO starts as unknown
+and crosses one strict adapter into total render-safe ViewModels. The hook uses an
+abortable bounded request, monotonic identity and same-query retained data. A
+feature-level error boundary prevents malformed evaluation evidence from removing
+the existing Overview, Runs or Evidence surfaces.
+
+The rendered contract presents hard failures before positive deltas, two separate
+richness/depth cards, a separate lineage safeguard, zero-centered paired marks with
+an always-visible semantic table, policy diagnostics and exact case/arm links. At
+320 pixels cards and plots stack while tables scroll in a labelled focusable region;
+keyboard focus, 200% text, reduced motion and long identifiers are covered by the
+focused browser suite. Color is not the sole direction cue. No chart dependency or
+global theme change was added.
+
 ## Startup, discovery and visible status
+
+### Claude Code CLI discovery
+
+The separately user-requested Claude installation exposes all 30 maintained
+repository skills plus Harry/mentor routers at project and personal
+`.claude/skills/` locations. Native slash loading is verified in the actual CLI;
+a separately authorized prompt hook supplies model-independent leading dollar
+aliases. Its direct protocol tests pass, but the next actual host dollar event
+has not yet been observed. Claude Harry routes the canonical experts without
+Codex thread helpers or a durable enabled receipt. The Codex package below is
+unchanged. See the [Claude skills runbook](claude-skills.md) for installation,
+verification, scope and rollback.
 
 ### User-scoped Harry UI wrapper
 

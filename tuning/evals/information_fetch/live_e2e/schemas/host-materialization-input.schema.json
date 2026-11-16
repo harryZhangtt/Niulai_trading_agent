@@ -1,0 +1,562 @@
+{
+  "$id": "urn:trading-agent:host-materialization-input-1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "hosts": {
+      "items": false,
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "credential": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "fingerprint_sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    },
+                    "owner_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "profile_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "source": {
+                      "enum": [
+                        "codex_profile",
+                        "claude_profile"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "owner_ref",
+                    "source",
+                    "profile_ref",
+                    "fingerprint_sha256"
+                  ],
+                  "type": "object"
+                },
+                "execution": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "artifact_root": {
+                      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                      "type": "string"
+                    },
+                    "budget": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "call_timeout_seconds": {
+                          "maximum": 600,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "concurrency": {
+                          "const": 1
+                        },
+                        "open_items": {
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "provider_items": {
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "run_timeout_seconds": {
+                          "maximum": 600,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "search_items": {
+                          "minimum": 1,
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "search_items",
+                        "open_items",
+                        "provider_items",
+                        "concurrency",
+                        "call_timeout_seconds",
+                        "run_timeout_seconds"
+                      ],
+                      "type": "object"
+                    },
+                    "cache_root": {
+                      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                      "type": "string"
+                    },
+                    "dispatch_namespace": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "execution_id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "trace_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "execution_id",
+                    "trace_id",
+                    "dispatch_namespace",
+                    "artifact_root",
+                    "cache_root",
+                    "budget"
+                  ],
+                  "type": "object"
+                },
+                "host": {
+                  "enum": [
+                    "codex",
+                    "claude"
+                  ]
+                },
+                "host_session_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                  "type": "string"
+                },
+                "interpreter_ref": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                },
+                "observation": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "adapter_id": {
+                      "enum": [
+                        "codex_native_web",
+                        "claude_code_web"
+                      ]
+                    },
+                    "capability_observed": {
+                      "enum": [
+                        "native_tools.web__run",
+                        "claude_code.web"
+                      ]
+                    },
+                    "checked_at": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "credential_values_present": {
+                      "const": false
+                    },
+                    "cryptographic_remote_attestation": {
+                      "const": false
+                    },
+                    "host_session_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "limitations": {
+                      "items": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "live_acceptance_eligible": {
+                      "type": "boolean"
+                    },
+                    "owner_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "profile_fingerprint_sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    },
+                    "profile_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "source": {
+                      "const": "host_returned_operational"
+                    },
+                    "status": {
+                      "const": "ready"
+                    },
+                    "trust_policy": {
+                      "const": "operational_host_evidence"
+                    },
+                    "version": {
+                      "const": "host-operational-receipts-1"
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "adapter_id",
+                    "owner_ref",
+                    "profile_ref",
+                    "profile_fingerprint_sha256",
+                    "host_session_id",
+                    "capability_observed",
+                    "checked_at",
+                    "status",
+                    "source",
+                    "trust_policy",
+                    "limitations",
+                    "credential_values_present",
+                    "cryptographic_remote_attestation",
+                    "live_acceptance_eligible"
+                  ],
+                  "type": "object"
+                },
+                "runtime_identity": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                  "type": "string"
+                },
+                "runtime_profile_ref": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "host",
+                "host_session_id",
+                "runtime_identity",
+                "interpreter_ref",
+                "runtime_profile_ref",
+                "credential",
+                "execution",
+                "observation"
+              ],
+              "type": "object"
+            },
+            {
+              "properties": {
+                "host": {
+                  "const": "codex"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "credential": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "fingerprint_sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    },
+                    "owner_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "profile_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "source": {
+                      "enum": [
+                        "codex_profile",
+                        "claude_profile"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "owner_ref",
+                    "source",
+                    "profile_ref",
+                    "fingerprint_sha256"
+                  ],
+                  "type": "object"
+                },
+                "execution": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "artifact_root": {
+                      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                      "type": "string"
+                    },
+                    "budget": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "call_timeout_seconds": {
+                          "maximum": 600,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "concurrency": {
+                          "const": 1
+                        },
+                        "open_items": {
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "provider_items": {
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "run_timeout_seconds": {
+                          "maximum": 600,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "search_items": {
+                          "minimum": 1,
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "search_items",
+                        "open_items",
+                        "provider_items",
+                        "concurrency",
+                        "call_timeout_seconds",
+                        "run_timeout_seconds"
+                      ],
+                      "type": "object"
+                    },
+                    "cache_root": {
+                      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                      "type": "string"
+                    },
+                    "dispatch_namespace": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "execution_id": {
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "trace_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "execution_id",
+                    "trace_id",
+                    "dispatch_namespace",
+                    "artifact_root",
+                    "cache_root",
+                    "budget"
+                  ],
+                  "type": "object"
+                },
+                "host": {
+                  "enum": [
+                    "codex",
+                    "claude"
+                  ]
+                },
+                "host_session_id": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                  "type": "string"
+                },
+                "interpreter_ref": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                },
+                "observation": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "adapter_id": {
+                      "enum": [
+                        "codex_native_web",
+                        "claude_code_web"
+                      ]
+                    },
+                    "capability_observed": {
+                      "enum": [
+                        "native_tools.web__run",
+                        "claude_code.web"
+                      ]
+                    },
+                    "checked_at": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "credential_values_present": {
+                      "const": false
+                    },
+                    "cryptographic_remote_attestation": {
+                      "const": false
+                    },
+                    "host_session_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "limitations": {
+                      "items": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "live_acceptance_eligible": {
+                      "type": "boolean"
+                    },
+                    "owner_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "profile_fingerprint_sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    },
+                    "profile_ref": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    "source": {
+                      "const": "host_returned_operational"
+                    },
+                    "status": {
+                      "const": "ready"
+                    },
+                    "trust_policy": {
+                      "const": "operational_host_evidence"
+                    },
+                    "version": {
+                      "const": "host-operational-receipts-1"
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "adapter_id",
+                    "owner_ref",
+                    "profile_ref",
+                    "profile_fingerprint_sha256",
+                    "host_session_id",
+                    "capability_observed",
+                    "checked_at",
+                    "status",
+                    "source",
+                    "trust_policy",
+                    "limitations",
+                    "credential_values_present",
+                    "cryptographic_remote_attestation",
+                    "live_acceptance_eligible"
+                  ],
+                  "type": "object"
+                },
+                "runtime_identity": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+                  "type": "string"
+                },
+                "runtime_profile_ref": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "host",
+                "host_session_id",
+                "runtime_identity",
+                "interpreter_ref",
+                "runtime_profile_ref",
+                "credential",
+                "execution",
+                "observation"
+              ],
+              "type": "object"
+            },
+            {
+              "properties": {
+                "host": {
+                  "const": "claude"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "type": "array"
+    },
+    "mcp": {
+      "const": "not_used"
+    },
+    "output_directory": {
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "host-profile-materialization-input-1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "output_directory",
+    "mcp",
+    "hosts"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,157 @@
+{
+  "activation": false,
+  "allowed_claim": "Provider-free v8 producer source, precise P0 runtime/schema parity, closure, and tests pass; fresh independent review, P0 v10 reclosure, and major-runtime acceptance remain pending.",
+  "architecture": {
+    "bytes": 3344,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/architecture-v8.json",
+    "sha256": "9e08e851a1eb66763bab7d057e16d7a0e3fcedf87ddada76582c83bef3cf9fc1"
+  },
+  "artifact_type": "distinct_producer_verification",
+  "closure_verification": {
+    "aggregate_sha256": "3ee1bf1079c5170a588efea2d573be0c25f2fcab311c81a287a75ad53a01a16c",
+    "artifact_count": 33,
+    "dynamic_binary_audit": true,
+    "mismatch_count": 0,
+    "missing_manifest_members": 0,
+    "recursive_import_audit": true,
+    "result": "PASS"
+  },
+  "countable": false,
+  "decision": {
+    "bytes": 2806,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/decision-v8.json",
+    "sha256": "90e3156c81c899c299ac582b10c2171e15bf64943b051b975e4a070489afc83e"
+  },
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fresh_independent_review": false,
+  "lineage": {
+    "bytes": 1230,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/lineage-v8.json",
+    "sha256": "3da506ea182c88639eb68983c152f330918bda5bceb4e3d5bd5af2219948914c"
+  },
+  "open_v7_finding": {
+    "id": "OPEN-CLAUDE-V7-001",
+    "independent_resolution": "PENDING_FRESH_REVIEW",
+    "producer_resolution": "CLOSED_PRECISE_RUNTIME_SCHEMA_PARITY"
+  },
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "protocol": {
+    "bytes": 4930,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/protocol-v8.json",
+    "sha256": "ea5c6df13ad3f09f50bddf92b2f83748de7ddd756f27b721710062eb35f3febc"
+  },
+  "registration": false,
+  "review_binding": {
+    "bytes": 10536,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v7-independent-review-open-fable-20261112-8e9a8076.json",
+    "sha256": "3ebc954c253ae104f97ef5fe52e0fb96ac6d70a0eb273677e022145962dc258a",
+    "verdict": "OPEN"
+  },
+  "runtime_acceptance": {
+    "email": "PENDING",
+    "execution": "PENDING"
+  },
+  "source_closure": {
+    "bytes": 8519,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/source-closure-v8.json",
+    "sha256": "a8946dc8a69a3787be82fa631ad129d4d473cdca40569f6175eb7bac081db3a9"
+  },
+  "status": "OPEN_PROVIDER_FREE_V8_PRODUCER_VERIFIED_FRESH_REVIEW_AND_P0_V10_RECLOSURE_PENDING",
+  "tests": [
+    {
+      "entrypoint": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v8/test_integration.py",
+      "errors": 0,
+      "failures": 0,
+      "methods": 7,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v8/test_schemas_closure.py",
+      "errors": 0,
+      "failures": 0,
+      "methods": 4,
+      "mutation_cases": 288,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v8/test_z_public_boundary.py",
+      "errors": 0,
+      "failures": 0,
+      "methods": 1,
+      "result": "PASS"
+    },
+    {
+      "aggregate_sha256": "3ee1bf1079c5170a588efea2d573be0c25f2fcab311c81a287a75ad53a01a16c",
+      "artifacts": 33,
+      "entrypoint": "tuning/architecture/r6_one_off_claude_live_integration_v8/verify_v8.py",
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "preserved v7 candidate regressions",
+      "errors": 0,
+      "failures": 0,
+      "methods": 12,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "preserved v6 candidate regressions",
+      "errors": 0,
+      "failures": 0,
+      "methods": 17,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "preserved v5 candidate regressions",
+      "errors": 0,
+      "failures": 0,
+      "methods": 16,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "shared one-off evidence regressions with workspace-root loader",
+      "errors": 0,
+      "failures": 0,
+      "methods": 15,
+      "result": "PASS"
+    }
+  ],
+  "verdict": "PROVIDER_FREE_V8_PRODUCER_VERIFIED_FRESH_REVIEW_PENDING",
+  "verified_properties": [
+    "fixed owner-private root opened component-wise descriptor-relative no-follow with exact UID and modes",
+    "locked 0600 append-only canonical hash-chain ledger with full writes and full sync",
+    "truncated tail and unclaimable generation deny terminal claims",
+    "public package exposes only zero-argument run",
+    "provider effect is fixed, internal, non-subclassable, and source pinned",
+    "illegal terminal regressions and terminal mismatches rejected",
+    "poison post-commit ambiguity never returns cached PASS and future reads deny",
+    "recovery precedes freshness and compound projection failures remain contained",
+    "runtime projection-without-authority UNKNOWN/ABSENT/NON_DURABLE emits exactly null identities and validates under Draft 2020-12",
+    "durable bound UNKNOWN emits exact non-null cell/provider/readback identities",
+    "288-case mutation matrix admits only five exact P0 branches and rejects crossed branches",
+    "recursive closure includes every local import, dynamic executable, pinned authority, v7 OPEN review, and verifier",
+    "v1-v7 history remains byte preserved OPEN or contradicted history",
+    "no bytedcli, provider, live, scheduler, email, account, or business effect"
+  ],
+  "verifier": {
+    "distinct_from_public_entrypoint": true,
+    "identity": "deterministic/isolated-v8-producer-verifier",
+    "independence_limit": "producer-owned deterministic verifier; not a fresh independent reviewer",
+    "source": {
+      "bytes": 2421,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/verify_v8.py",
+      "sha256": "ee51a6ce4153306e0fbdfa7c67a91e377b18f1794a015cc0547341dce5d489ec"
+    }
+  },
+  "version": 8
+}

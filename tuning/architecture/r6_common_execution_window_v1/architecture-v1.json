@@ -1,0 +1,86 @@
+{
+  "activation": false,
+  "activation_boundary": {
+    "enabled": false,
+    "entrypoint": "issue_live_window()",
+    "must_all_exist": [
+      "final reviewed block grant",
+      "authentic G1 authority",
+      "authentic G2 authority",
+      "P0-v10 pin",
+      "runner-v2 pin",
+      "provider authority",
+      "human authority",
+      "fresh independent review"
+    ],
+    "public_parameters": [],
+    "separate_reviewed_change_required": true
+  },
+  "claim_limit": "Disabled provider-free template and software evidence only; no live window, countable cell, provider readiness, authority, superiority, promotion, or runtime acceptance.",
+  "contract": {
+    "admission_offsets_seconds": [
+      450,
+      900,
+      1350,
+      1800
+    ],
+    "clock": "internal UTC plus monotonic pair only",
+    "concurrency": 1,
+    "duration_seconds": 1800,
+    "order": [
+      "R6DQ-7F2C91A4",
+      "R6DQ-1B8E43D7",
+      "R6DQ-C4A7095E",
+      "R6DQ-92D6F0B3"
+    ],
+    "publication": "full-write/file-fsync/parent-fsync/reopen/hash/no-replace; commit marker last",
+    "recovery": "recover exact committed receipt; incomplete state forbids mint/reissue",
+    "unknown": "UNKNOWN or abandoned active process forbids later cells"
+  },
+  "cost": {
+    "evaluation": "provider-free unit and fault injection only",
+    "implementation": "bounded stdlib-only candidate plus strict schemas/tests",
+    "maintenance": "one isolated versioned owner",
+    "runtime": "none while disabled; one local durable transaction only after separate activation"
+  },
+  "expected_benefit": "One owner-private issuer/verifier can bind shared wall/monotonic time, per-cell deadlines, exact sequence, concurrency one, durable single issuance, and UNKNOWN fencing without coupling provider or runner code.",
+  "impact": {
+    "active_runtime_import": false,
+    "business_effect": false,
+    "bytedcli_effect": false,
+    "classification": "INERT_LOCAL_DISABLED",
+    "credential_effect": false,
+    "email_effect": false,
+    "failure_radius": "new r6_common_execution_window_v1 paths only",
+    "host_effect": false,
+    "network_effect": false,
+    "provider_effect": false
+  },
+  "options": [
+    {
+      "decision": "REJECT",
+      "id": "O0",
+      "reason": "Retaining per-caller timing cannot enforce one shared deadline, trusted clock pairing, or no-reissue recovery."
+    },
+    {
+      "decision": "SELECT",
+      "id": "O1",
+      "reason": "A new disabled candidate/test/tuning boundary satisfies the common contract without editing live owners."
+    },
+    {
+      "decision": "REJECT",
+      "id": "O2",
+      "reason": "Consolidating into runner/P0/orchestrator/providers expands failure radius and is explicitly out of scope."
+    }
+  ],
+  "owner": {
+    "component": "shared.job_runtime candidate",
+    "source_root": "shared/job_runtime/candidates/r6_common_execution_window_v1",
+    "state_authority": "canonical-window-receipt-v1.commit.json published last",
+    "state_root": "runtime/r6_common_execution_window_v1"
+  },
+  "problem": "The frozen R6 four-cell A/B has exact inputs and identities but no common single-issuance 1800-second execution-window authority; allocating an ad hoc caller-controlled window would permit clock, identity, order, replay, and crash-reissue drift.",
+  "selected_option": "O1_NEW_ISOLATED_COMMON_WINDOW_CANDIDATE",
+  "status": "DISABLED_TEMPLATE_PENDING_FINAL_PINS_AND_FRESH_REVIEW",
+  "version": "r6-common-execution-window-architecture-v1"
+}

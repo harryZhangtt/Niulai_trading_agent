@@ -1,5 +1,45 @@
 # Scoped evidence-resolution runtime
 
+## Future private artifact sink and historical quarantine
+
+The `investment-research-evidence` store remains historically quarantined as
+`unverified` with `manual_review` retention. No historical file was chmodded,
+moved, replaced, deleted or accepted. The future artifact sink in
+`shared/research_sources/artifacts.py` walks approved roots through held,
+no-follow directory descriptors; creates new directories, temporary files and
+content-addressed artifacts at exact `0700`/`0600`; and binds publication and
+readback to descriptor identity. An existing permissive content-addressed file
+is rejected rather than reused or repaired. A failure after replace/link but
+before durable directory confirmation raises `PublicationOutcomeUnknown` with
+reconciliation evidence and `replay_safe: false`; callers must not blindly
+retry.
+
+Producer output is buffered into a private bounded file, and only zero-exit,
+valid JSON that passes the supplied validator is atomically published. Immutable
+content is separate from the single authoritative completion pointer: failed
+producer, validation or pointer publication preserves the prior pointer. The
+maintained `investment.research.pipeline` remains the completion route and
+revalidates the final source-coverage contract/receipt before composing the
+preserved Niulai finalization and completion gates.
+
+`shared.research_sources.store.Store` hardens a newly created primary SQLite
+file to `0600` and its newly created directories to `0700`. That test is
+explicitly **new-primary only**: it does not establish historical mode repair,
+existing-primary safety, or SQLite `-journal`/`-wal`/`-shm` sidecar governance.
+
+Focused checks use the project-local research environment because the preserved
+Niulai validators require its pinned dependencies:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python -B -m unittest -v \
+  shared.research_sources.tests.test_artifacts \
+  investment.research.tests.test_sources
+```
+
+The descriptor-bound sink is implemented/provider-free at its filesystem
+boundary; it does not clear quarantine or constitute future-triggered scheduled
+runtime/email acceptance.
+
 ## Candidate runtime information catalog and labels
 
 `information_catalog.py` separates a question manifest from the existing evidence

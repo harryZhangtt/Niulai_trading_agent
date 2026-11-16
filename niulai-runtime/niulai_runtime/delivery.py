@@ -15,6 +15,7 @@ from pathlib import Path
 import re
 import sqlite3
 from datetime import datetime, timezone
+from email.utils import getaddresses
 from typing import Callable
 
 
@@ -22,14 +23,21 @@ class DeliveryError(ValueError):
     """Sanitized, stable failure code; never include payloads in exceptions."""
 
 
+IMPLEMENTATION_SHA256 = _EXECUTED_SOURCE_SHA256
+
 def _require(condition: bool, code: str) -> None:
     if not condition:
         raise DeliveryError(code)
 
 
 def _email(value: object) -> str:
-    _require(isinstance(value, str) and bool(re.fullmatch(r"[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", value)), "INVALID_RECIPIENT")
-    return value.lower()
+    """Return one normalized mailbox, accepting an RFC display name."""
+    _require(isinstance(value, str), "INVALID_RECIPIENT")
+    parsed = getaddresses([value])
+    _require(len(parsed) == 1 and bool(re.fullmatch(
+        r"[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", parsed[0][1])),
+        "INVALID_RECIPIENT")
+    return parsed[0][1].lower()
 
 
 def _hash(value: bytes) -> str:
@@ -66,7 +74,8 @@ def validate_payload(message: dict, recipient: str, profile_email: str) -> dict:
     inferred from a minimum body length or a successful MIME parse.
     """
     recipient = _email(recipient)
-    _require(_email(profile_email) == recipient, "PROFILE_RECIPIENT_MISMATCH")
+    profile = _email(profile_email)
+    _require(profile == recipient, "PROFILE_RECIPIENT_MISMATCH")
     _require(isinstance(message, dict), "MESSAGE_REQUIRED")
     _require(set(message) <= {"to", "subject", "payload", "from_address"}, "UNEXPECTED_MESSAGE_FIELD")
     _require(_email(message.get("to")) == recipient, "RECIPIENT_MISMATCH")
@@ -114,9 +123,44 @@ def validate_payload(message: dict, recipient: str, profile_email: str) -> dict:
     _require(tree["mime_type"] == "multipart/mixed", "MIXED_MESSAGE_REQUIRED")
     _require(len(pdfs) == 2 and len({p["filename"] for p in pdfs}) == 2, "TWO_DISTINCT_PDFS_REQUIRED")
     _require(len(htmls) == 1, "ONE_FULL_HTML_BODY_REQUIRED")
+    sender = _email(message.get("from_address", profile))
+    _require(sender == profile, "FROM_MISMATCH")
+    attachments = [{"filename": part["filename"], "sha256": part["sha256"]} for part in pdfs]
+    attachments_sha256 = _hash(_json(attachments).encode())
+    canonical = {"sender": sender, "recipient": recipient, "subject": subject,
+                 "html_sha256": htmls[0]["sha256"], "attachments": attachments}
     content_digest = _hash(_json(tree).encode())
-    digest = _hash(_json({"recipient": recipient, "subject": subject, "tree": tree}).encode())
-    return {"digest": digest, "content_digest": content_digest, "html": htmls[0], "pdfs": pdfs}
+    digest = _hash(_json(canonical).encode())
+    return {"digest": digest, "content_digest": content_digest, "html": htmls[0], "pdfs": pdfs,
+            "sender": sender, "recipient": recipient, "subject": subject,
+            "attachments": attachments, "attachments_sha256": attachments_sha256}
+
+
+def gmail_claim(message: dict, *, profile_email: str, execution: dict,
+                host: str, run: str, candidate: str) -> dict:
+    """Build the detached pre-send claim from one maintained canonical payload."""
+    required = {"job_id", "slot_id", "attempt_id"}
+    _require(isinstance(execution, dict) and required <= set(execution), "GMAIL_EXECUTION_IDENTITY_REQUIRED")
+    identity = {"host": host, "run": run, "candidate": candidate,
+                **{key: execution[key] for key in sorted(required)}}
+    for key, value in identity.items():
+        _require(isinstance(value, str) and bool(re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:-]{0,255}", value)),
+                 "GMAIL_CLAIM_ID_INVALID")
+    _require(isinstance(message, dict), "MESSAGE_REQUIRED")
+    recipient = _email(message.get("to"))
+    fingerprint = validate_payload(message, recipient, profile_email)
+    sender = fingerprint["sender"]
+    claim = {"schema_version": 1, **identity, "mode": "raw",
+             "delivery_payload_sha256": fingerprint["digest"],
+             "recipient_sha256": _hash(recipient.encode()),
+             "subject_sha256": _hash(fingerprint["subject"].encode()),
+             "sender_identity_sha256": _hash(sender.encode()),
+             "profile_identity_sha256": _hash(_email(profile_email).encode()),
+             "html_sha256": fingerprint["html"]["sha256"],
+             "attachments_sha256": fingerprint["attachments_sha256"]}
+    claim["payload_sha256"] = _hash(_json(claim).encode())
+    # JSON round-trip severs aliases to caller-owned payload/execution objects.
+    return json.loads(_json(claim))
 
 
 def assert_content_parity(source: dict, candidate: dict, recipient: str, profile_email: str, *, same_subject: bool = True) -> dict:
@@ -188,13 +232,14 @@ class Outbox:
                 db.execute("INSERT INTO outbox VALUES (?,?,?,'prepared',NULL,NULL,?,?,NULL)", (key, fingerprint["digest"], _json(message), now, now))
         return self.get(key)
 
-    def claim(self, key: str, attempt_id: str) -> dict:
+    def claim(self, key: str, attempt_id: str, *, expected_digest=None) -> dict:
         _require(isinstance(attempt_id, str) and bool(re.fullmatch(r"[A-Za-z0-9_-]{8,128}", attempt_id)), "ATTEMPT_ID_INVALID")
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
             row = db.execute("SELECT * FROM outbox WHERE key=?", (key,)).fetchone()
             _require(row is not None, "OUTBOX_ITEM_MISSING")
             _require(row["status"] == "prepared", "OUTBOX_NOT_SENDABLE")
+            _require(expected_digest is None or row["digest"] == expected_digest, "CLAIM_DIGEST_MISMATCH")
             db.execute("UPDATE outbox SET status='sending',attempt_id=?,updated_at=? WHERE key=?", (attempt_id, _now(), key))
             payload = json.loads(row["payload"])
         return payload

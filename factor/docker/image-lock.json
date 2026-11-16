@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "status": "unresolved",
+  "policy_sha256": "78f32efc95991bbd386ae1400e2f60503a29ebd30a2d958a7d73027c650e8220",
+  "seccomp_sha256": "0795d0feea9a4485bc0abb49c4275987664f9e527ed48fdc3240fd601f77dbc5",
+  "source_lock_sha256": "7239907f1374d6e42c033da883cedbbb0c556efaf68e13f93f4ad988ca1beafb",
+  "base_manifest_digest": "sha256:5be5aaecb962a41567bc8041f1e9e3432cb085b037fe057f9a562630b2e4b370",
+  "controller": {"manifest_digest": null, "linux_amd64_digest": null, "linux_arm64_digest": null, "lock_sha256": null, "sbom_sha256": null, "provenance_sha256": null},
+  "executor": {"manifest_digest": null, "linux_amd64_digest": null, "linux_arm64_digest": null, "lock_sha256": null, "sbom_sha256": null, "provenance_sha256": null},
+  "blockers": ["dependency-locks-unresolved", "images-unbuilt", "daemon-unavailable", "native-platform-tests-unrun"]
+}

@@ -1,0 +1,8 @@
+{
+  "control_sha256": {
+    "SHA256SUMS": "4e9bf9f58599ccb0e47b952918b3db988f3204c51ad5f679cbcc95a1f701e1ad",
+    "manifest.json": "a55165b5bec7d7705a63e5559ce262fd1207527dc9532877c483a164a0d3db86",
+    "requirements.lock.txt": "62c57a89d9da2849bc2f31b087060e454ca404a640525136ef94bdb34a8e82b5"
+  },
+  "schema_version": 1
+}

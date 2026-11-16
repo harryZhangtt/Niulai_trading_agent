@@ -1,0 +1,29 @@
+{
+  "$id": "r6-data-quality-blind-map-artifact-ref-v6",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bytes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "mode": {
+      "const": "0600"
+    },
+    "path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "path",
+    "bytes",
+    "sha256",
+    "mode"
+  ],
+  "type": "object"
+}

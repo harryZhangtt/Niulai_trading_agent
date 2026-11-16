@@ -1,0 +1,2 @@
+{"type":"invocation.started","opaque_identity":"synthetic-opaque"}
+{"type":"invocation.failed","failure":{"classification":"sanitized_fixture_failure"}}

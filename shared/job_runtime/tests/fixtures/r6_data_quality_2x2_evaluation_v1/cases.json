@@ -1,0 +1,16 @@
+{
+  "scope": "PROVIDER_FREE_NON_COUNTABLE_FIXTURE",
+  "fixture_humans": [
+    {"human_reviewer_id": "fixture-human-g1", "reviewer_kind": "FIXTURE_HUMAN", "countable": false},
+    {"human_reviewer_id": "fixture-human-g2", "reviewer_kind": "FIXTURE_HUMAN", "countable": false},
+    {"human_reviewer_id": "fixture-human-g3", "reviewer_kind": "FIXTURE_HUMAN", "countable": false}
+  ],
+  "required_cases": [
+    "missing_g1_or_g2", "nonindependence", "prepacket_grade",
+    "dimension_gap_gt_one_without_g3", "hard_gate_disagreement_without_g3",
+    "invalid_g3_hard_gate_override", "missing_artifact_refs",
+    "denominator_unknown_not_applicable_false_new_fact", "metric_tamper",
+    "unblind_early", "valid_four_cell_fixture"
+  ],
+  "effects": {"live": 0, "provider": 0, "network": 0, "account": 0, "private_state": 0, "subagent": 0}
+}

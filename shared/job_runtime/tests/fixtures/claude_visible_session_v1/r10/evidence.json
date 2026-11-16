@@ -1,0 +1,29 @@
+{
+  "schema_version": "claude-visible-session-evidence-v1",
+  "case_id": "R10",
+  "session_name": "claude-visible-r10-v1",
+  "future_slot_binding": {"slot_id": "slot-2099-01-01T00:00:00Z-r10", "scheduled_for": "2099-01-01T00:00:00Z", "request_id": "request-r10-v1"},
+  "request_events": [
+    {"logical_request_id": "r10-parent", "attempt": 1, "actor": "parent", "kind": "gateway_request"},
+    {"logical_request_id": "r10-child-1", "attempt": 1, "actor": "child-1", "kind": "gateway_request"}
+  ],
+  "tool_events": [
+    {"ordinal": 1, "actor": "parent", "tool": "Agent", "target": "child-1", "status": "succeeded"},
+    {"ordinal": 2, "actor": "child-1", "tool": "Glob", "target": "r10/*.json", "status": "succeeded"},
+    {"ordinal": 3, "actor": "child-1", "tool": "Grep", "target": "S1|S2|S3", "status": "succeeded"},
+    {"ordinal": 4, "actor": "child-1", "tool": "Read", "target": "r10/skills-input.json", "status": "succeeded"}
+  ],
+  "budget_observed": {"wall_seconds": 3, "output_tokens": 512, "tool_calls": 4},
+  "polls": [
+    {"ordinal": 1, "status": "queued", "observed_at": "2099-01-01T00:00:01Z"},
+    {"ordinal": 2, "status": "running", "observed_at": "2099-01-01T00:00:02Z"},
+    {"ordinal": 3, "status": "succeeded", "observed_at": "2099-01-01T00:00:03Z"}
+  ],
+  "terminal": {
+    "status": "succeeded",
+    "completed_at": "2099-01-01T00:00:03Z",
+    "output": {"skill_ids": ["S1", "S2", "S3"], "input_sha256": "c084f6a3d0f3ad095ab9508535f923af137545d8f4d55af5aeea9a8ba725fbae", "agent_definition_sha256": "a593f09aba8317d9505f66393c07ec1f9e71d932132b034921be0c2b72432cad", "output_sha256": "62f2f92246cf4392b11628d7dfb1a106cbcb8a1921f9ce4a3f08699e5615cae6"},
+    "children": [{"id": "child-1", "agent_definition": "r10/agent-definition.json", "agent_definition_sha256": "a593f09aba8317d9505f66393c07ec1f9e71d932132b034921be0c2b72432cad", "status": "succeeded", "output_path": "r10/mining-output.json"}]
+  },
+  "cleanup": {"status": "complete", "completed_at": "2099-01-01T00:00:04Z", "active_children": 0, "session_retained_visible": true, "stopped_resources": ["child-1"]}
+}

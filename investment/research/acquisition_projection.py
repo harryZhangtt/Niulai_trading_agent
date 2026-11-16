@@ -3,13 +3,214 @@
 Only immutable allowlisted fields cross the UI boundary. This reads captured
 closed results; it neither reruns a grader nor claims historical availability.
 """
+import ipaddress
+from urllib.parse import urlsplit, urlunsplit
+
 from shared.research_sources.artifacts import digest, require
+from investment.research.acquisition_trace import check_acquisition_trace
 
 UNIT_PREVIEW_LIMIT = 8
+TRACE_OPERATION_LIMIT = 8
+TRACE_TEXT_LIMIT = 16
 
 
-def project(reader, report_ref, subject, *, text, identifier, timestamp, sha, source_dto, numeric_metrics, aggregate):
+def _public_source_url(value):
+    if not isinstance(value, str) or len(value) > 2000:
+        return None
+    try:
+        parsed = urlsplit(value)
+        host = parsed.hostname
+        if parsed.scheme not in {'https', 'http'} or not host or parsed.username or parsed.password \
+                or host in {'localhost', '127.0.0.1', '::1'} or host.endswith(('.local', '.internal')):
+            return None
+        try:
+            if not ipaddress.ip_address(host).is_global:
+                return None
+        except ValueError:
+            pass
+        return urlunsplit((parsed.scheme, host, parsed.path, '', ''))
+    except ValueError:
+        return None
+
+
+def _safe_arguments(arguments, *, text, identifier, source_url):
+    require(isinstance(arguments, dict), 'ACQ_TRACE_ARGUMENTS_INVALID')
+    permitted = {'search_query', 'open', 'find', 'response_length'}
+    require(set(arguments) <= permitted, 'ACQ_TRACE_ARGUMENTS_INVALID')
+    result = {}
+    for key in ('search_query', 'open', 'find'):
+        if key not in arguments:
+            continue
+        rows = arguments[key]
+        require(isinstance(rows, list) and 0 < len(rows) <= 4, 'ACQ_TRACE_ARGUMENTS_INVALID')
+        clean = []
+        for row in rows:
+            require(isinstance(row, dict) and len(row) <= 4, 'ACQ_TRACE_ARGUMENTS_INVALID')
+            item = {}
+            for field in ('q', 'query', 'pattern'):
+                if field in row:
+                    item[field] = text(row[field], 1200)
+            if 'ref_id' in row:
+                item['ref_id'] = source_url(row['ref_id'])
+            require(item and all(value is not None for value in item.values()), 'ACQ_TRACE_ARGUMENTS_UNSAFE')
+            clean.append(item)
+        result[key] = clean
+    if 'response_length' in arguments:
+        result['response_length'] = identifier(arguments['response_length'], None)
+        require(result['response_length'] is not None, 'ACQ_TRACE_ARGUMENTS_INVALID')
+    require(any(key in result for key in ('search_query', 'open', 'find')), 'ACQ_TRACE_ARGUMENTS_INVALID')
+    return result
+
+
+def project_driver_trace(reader, envelope_ref, subject, *, text, identifier, timestamp, sha, source_dto, source_url):
+    envelope = reader.ref(envelope_ref)
+    require(envelope.get('kind') == 'acquisition_driver_projection' and envelope.get('schema_version') == 1
+            and envelope.get('subject') == subject, 'ACQ_TRACE_ENVELOPE_INVALID')
+    driver_ref = envelope.get('driver_ref'); driver = reader.ref(driver_ref)
+    require(driver.get('kind') == 'acquisition_driver_run', 'ACQ_TRACE_DRIVER_INVALID')
+    identities = {key: identifier(driver.get(key), None) for key in ('experiment_id', 'execution_id', 'trace_id')}
+    require(all(identities.values()), 'ACQ_TRACE_IDENTITY_INVALID')
+    verdict = envelope.get('checker_verdict')
+    require(isinstance(verdict, dict) and verdict.get('kind') == 'acquisition_trace_verdict'
+            and verdict.get('status') == 'pass' and verdict.get('complete_chains') == verdict.get('credited_units') == 1
+            and all(verdict.get(key) == value for key, value in identities.items()), 'ACQ_TRACE_CHECKER_REJECTED')
+    gates = verdict.get('gates')
+    require(isinstance(gates, list) and 0 < len(gates) <= 32
+            and all(isinstance(row, dict) and row.get('passed') is True
+                    and identifier(row.get('gate'), None) is not None
+                    and isinstance(row.get('reasons'), list) and 0 < len(row['reasons']) <= 4 for row in gates),
+            'ACQ_TRACE_CHECKER_REJECTED')
+    expected_verdict_hash = digest([
+        identities, 'pass', 1, 1, gates, verdict.get('trust_policy'),
+        verdict.get('host_session_id'), verdict.get('host_adapter'),
+        verdict.get('live_acceptance_eligible')])
+    require(verdict.get('verdict_sha256') == expected_verdict_hash, 'ACQ_TRACE_CHECKER_HASH_INVALID')
+    expected_dispatches = envelope.get('expected_dispatches')
+    require(type(expected_dispatches) is int and 0 <= expected_dispatches <= TRACE_OPERATION_LIMIT,
+            'ACQ_TRACE_EXPECTED_DISPATCHES_INVALID')
+    recomputed = check_acquisition_trace(driver_ref=driver_ref, dispatch_refs=envelope.get('dispatch_refs', []),
+        host_invocation_refs=envelope.get('host_invocation_refs', []),
+        review_refs=envelope.get('review_refs', []), proposal_refs=envelope.get('proposal_refs', []),
+        expected_dispatches=expected_dispatches, reconciliation_ref=envelope.get('reconciliation_ref'),
+        host_profile_ref=envelope.get('host_profile_ref'),
+        credential_readiness_ref=envelope.get('credential_readiness_ref'),
+        trust_policy=envelope.get('trust_policy'), host_session_id=envelope.get('host_session_id'),
+        host_adapter=envelope.get('host_adapter'))
+    require(recomputed == verdict, 'ACQ_TRACE_CHECKER_MISMATCH')
+
+    controller = reader.ref(driver['controller_summary_ref']); manifest = reader.ref(controller['manifest_ref'])
+    host = reader.ref(driver['host_run_ref'])
+    questions = manifest.get('questions')
+    require(isinstance(questions, list) and 0 < len(questions) <= 8, 'ACQ_TRACE_QUESTIONS_INVALID')
+    question_by_id = {row.get('id'): row for row in questions if isinstance(row, dict)}
+    require(len(question_by_id) == len(questions), 'ACQ_TRACE_QUESTIONS_INVALID')
+    proposals = [reader.ref(ref) for ref in envelope.get('proposal_refs', [])]
+    dispatches = [reader.ref(ref) for ref in envelope.get('dispatch_refs', [])]
+    reviews = [reader.ref(ref) for ref in envelope.get('review_refs', [])]
+    receipt_refs = host.get('search_receipt_refs', []) + host.get('open_receipt_refs', [])
+    require(all(isinstance(rows, list) and len(rows) <= TRACE_OPERATION_LIMIT for rows in
+                (envelope.get('proposal_refs', []), envelope.get('dispatch_refs', []), envelope.get('review_refs', []), receipt_refs)),
+            'ACQ_TRACE_OPERATION_LIMIT')
+    receipts = [reader.ref(ref) for ref in receipt_refs]
+    operation_ids = set(driver.get('operation_states', {}))
+    require(operation_ids and len(operation_ids) <= TRACE_OPERATION_LIMIT, 'ACQ_TRACE_OPERATION_LIMIT')
+    by_proposal = {row.get('operation_id'): row for row in proposals}
+    by_dispatch = {row.get('operation_id'): row for row in dispatches}
+    by_receipt = {row.get('operation_id'): row for row in receipts}
+    require(set(by_proposal) == operation_ids and set(by_receipt) == operation_ids
+            and set(by_dispatch) <= operation_ids, 'ACQ_TRACE_OPERATION_BINDING_INVALID')
+
+    operations = []
+    for operation_id in sorted(operation_ids):
+        proposal = by_proposal[operation_id]; receipt = by_receipt[operation_id]; dispatch = by_dispatch.get(operation_id)
+        request = reader.ref(receipt['request_ref']); arguments = request.get('arguments')
+        require(proposal.get('arguments') == arguments, 'ACQ_TRACE_ARGUMENTS_MISMATCH')
+        history = driver['operation_states'][operation_id]
+        require(isinstance(history, list) and 0 < len(history) <= 32 and history[-1].get('state') == 'finalized',
+                'ACQ_TRACE_STATE_INVALID')
+        question_ids = proposal.get('question_ids')
+        require(isinstance(question_ids, list) and 0 < len(question_ids) <= 8
+                and set(question_ids) <= set(question_by_id), 'ACQ_TRACE_QUESTIONS_INVALID')
+        operations.append({'operation_id': identifier(operation_id),
+            'question_ids': [identifier(value) for value in question_ids],
+            'proposal_sha256': digest(proposal), 'arguments_sha256': digest(arguments),
+            'arguments': _safe_arguments(arguments, text=text, identifier=identifier, source_url=source_url),
+            'attempt_id': identifier(dispatch.get('attempt_id'), None) if dispatch else None,
+            'dispatch_id': identifier(dispatch.get('dispatch_id'), None) if dispatch else None,
+            'states': [identifier(row.get('state')) for row in history],
+            'provider_route': identifier(receipt.get('route') or host.get('backend'), None),
+            'cache_hit': receipt.get('cache_hit') if type(receipt.get('cache_hit')) is bool else None,
+            'fetch_executed': receipt.get('fetch_executed') if type(receipt.get('fetch_executed')) is bool else None,
+            'status': identifier((dispatch or receipt).get('status')),
+            'failure_code': identifier(receipt.get('code'), None),
+            'started_at': timestamp((dispatch or {}).get('started_at') or receipt.get('started_at')),
+            'finished_at': timestamp((dispatch or {}).get('finished_at') or receipt.get('finished_at')),
+            'receipt_sha256': next(ref['sha256'] for ref in receipt_refs if reader.ref(ref).get('operation_id') == operation_id)})
+
+    units = []
+    source_rows = {}
+    for review_ref, review in zip(envelope.get('review_refs', []), reviews):
+        require(review.get('kind') == 'acquisition_reviewer_decision'
+                and all(review.get(key) == value for key, value in identities.items()), 'ACQ_TRACE_REVIEW_INVALID')
+        binding = review.get('binding'); require(isinstance(binding, dict), 'ACQ_TRACE_REVIEW_INVALID')
+        assessment = reader.ref(binding['assessment_ref']); unit = reader.ref(binding['unit_ref']); source_ref = binding['source_ref']
+        source = reader.ref(source_ref); body = reader.ref(source['text'], json_value=False).decode('utf-8')
+        quote = assessment.get('quote')
+        require(unit.get('assessment_ref') == binding['assessment_ref'] and isinstance(quote, str)
+                and 0 < len(quote) <= 8000 and quote in body, 'ACQ_TRACE_QUOTE_INVALID')
+        public_source = source_dto(source, source_ref, subject); source_rows[public_source['id']] = public_source
+        units.append({'unit_id': identifier(unit.get('unit_id')), 'question_id': identifier(unit.get('question_id')),
+            'operation_id': identifier(assessment.get('operation_id')), 'assessment_sha256': binding['assessment_ref']['sha256'],
+            'unit_sha256': binding['unit_ref']['sha256'], 'source_id': public_source['id'],
+            'source_sha256': source_ref['sha256'], 'raw_sha256': sha(binding.get('raw_sha256')),
+            'text_sha256': sha(binding.get('text_sha256')), 'source_version': sha(binding.get('source_version')),
+            'quote': text(quote, 1200), 'quote_truncated': len(quote) > 1200,
+            'review_id': identifier(review.get('review_id')), 'review_sha256': review_ref['sha256'],
+            'reviewer_id': identifier(review.get('reviewer_id')), 'review_disposition': identifier(review.get('disposition')),
+            'review_checks': {key: value for key, value in review.get('checks', {}).items()
+                              if key in {'question_relevance', 'literal_support', 'canonical_lineage'} and type(value) is bool},
+            'review_reason': text(review.get('reason'), 800),
+            'lineage': {'canonical_disclosure_id': identifier(source.get('canonical_disclosure_id'), None),
+                'representation_kind': identifier(source.get('representation_kind'), None),
+                'representation_relationship': identifier(source.get('representation_relationship'), None)},
+            'times': {'published_at': timestamp(source.get('published_at')),
+                'modified_at': timestamp(source.get('modified_at')), 'available_at': timestamp(source.get('available_at')),
+                'first_observed_at': timestamp(source.get('first_observed_at')),
+                'retrieved_at': timestamp(source.get('retrieved_at')), 'screened_at': timestamp(assessment.get('screened_at')),
+                'exposed_at': timestamp(assessment.get('exposed_at'))}})
+    require(len(units) == 1 and units[0]['review_disposition'] == 'approve', 'ACQ_TRACE_REVIEW_INVALID')
+    accounting = {'logical_operations': len(operation_ids),
+        'reserved_provider_items': controller.get('usage', {}).get('provider_items') if type(controller.get('usage', {}).get('provider_items')) is int else None,
+        'actual_dispatches': sum(row.get('provider_items', 1) for row in dispatches if row.get('invocation_started') is True),
+        'cache_hits': sum(row.get('cache_hit') is True for row in receipts),
+        'fallbacks': sum(row.get('route') == 'fallback' for row in receipts),
+        'complete_chains': 1, 'credited_units': 1}
+    limitations = ['Checker-approved structural trace; this does not establish provider quality, acquisition improvement, investment quality or alpha.',
+        'Unavailable values are shown as unavailable and are never inferred by the UI.']
+    trace = {'id': identities['trace_id'], **identities, 'driver_sha256': driver_ref['sha256'],
+        'checker_verdict': 'pass', 'checker_verdict_sha256': verdict['verdict_sha256'],
+        'trust_policy': identifier(verdict.get('trust_policy'), None),
+        'host_adapter': identifier(verdict.get('host_adapter'), None),
+        'live_acceptance_eligible': verdict.get('live_acceptance_eligible') is True,
+        'cryptographic_remote_attestation': False,
+        'operational_evidence_limit': 'does_not_resist_malicious_same_user_file_forgery',
+        'checker_gates': [{'id': identifier(row['gate']), 'status': 'pass',
+                           'reasons': [text(reason, 500) for reason in row['reasons'][:4]]} for row in gates],
+        'case_id': identifier(envelope.get('case_id'), None),
+        'questions': [{'id': identifier(row.get('id')), 'question': text(row.get('question'), 1200)} for row in questions],
+        'operations': operations, 'accounting': accounting, 'units': units, 'missing_links': [],
+        'limitations': limitations, 'scope': 'checker_approved_structural_trace_not_quality_evidence'}
+    comparison = {'id': 'trace_' + identities['trace_id'], 'title': subject + ' acquisition driver trace',
+        'scope': trace['scope'], 'status': 'qualified', 'arms': [], 'rows': [], 'superiority_established': False,
+        'limitations': limitations, 'driver_trace': trace}
+    return comparison, list(source_rows.values())
+
+
+def project(reader, report_ref, subject, *, text, identifier, timestamp, sha, source_dto, numeric_metrics, aggregate, source_url=_public_source_url):
     report = reader.ref(report_ref)
+    if report.get('kind') == 'acquisition_driver_projection':
+        return project_driver_trace(reader, report_ref, subject, text=text, identifier=identifier, timestamp=timestamp,
+            sha=sha, source_dto=source_dto, source_url=source_url)
     require(report.get('kind') == 'controlled_acquisition_comparison' and report.get('schema_version') == 1,
             'ACQ_PROJECTION_KIND_INVALID')
     common = reader.ref(report['common_ref']); contract = reader.ref(report['contract_ref'])

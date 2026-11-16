@@ -1,0 +1,113 @@
+{
+  "version": "r6-data-quality-exact-input-binding-distinct-producer-evidence-v1",
+  "status": "PRODUCER_PASS_PROVIDER_FREE_NONCOUNTABLE",
+  "verdict": "PASS_EXACT_CURRENT_INPUT_BINDING",
+  "producer": {
+    "role": "R6_EXACT_INPUT_BINDING_PRODUCER",
+    "distinct_from": "R6_DATA_QUALITY_2X2_EVALUATION_V3_PRODUCER",
+    "evaluation_v3_or_blind_map_edit": false,
+    "independent_review_claimed": false
+  },
+  "bindings": {
+    "current_input_manifest": {
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/current-input-manifest-v1.json",
+      "bytes": 5378,
+      "sha256": "fc2be898724fe281864b9800ef861da060f2a40d8b64c975ebb398ef82fea8ab"
+    },
+    "manifest_schema": {
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/input-manifest-v1.schema.json",
+      "bytes": 7108,
+      "sha256": "05c8b40857e4e65931f2d2d1fe17b0f874ce73172488b59094d0b46b1351c5d9"
+    },
+    "architecture": {
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/architecture-v1.json",
+      "bytes": 2605,
+      "sha256": "cbbaf3fa248477a46bec3fe288132aece695a16bffac20dd0adabf97a31caf9c"
+    },
+    "protocol": {
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/protocol-v1.json",
+      "bytes": 1975,
+      "sha256": "9b10dea31197a90c9f0f2317f246e4508574fa16731bb41af7fd3461d5d410fb"
+    },
+    "decision": {
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/decision-v1.json",
+      "bytes": 1420,
+      "sha256": "ae78ce1a6b0a2cc06c642f0f7f5d5c3040dad90bfb4b7b79b269ef1d8cee1e32"
+    },
+    "source_closure": {
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/source-closure-v1.json",
+      "bytes": 3775,
+      "sha256": "cc0be066df044782b7fefe8c69e5471e591a4c392f306a9922382796a9c76795",
+      "members_verified": 11
+    },
+    "verifier": {
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/verify.py",
+      "bytes": 14540,
+      "sha256": "1a1e13f81829823b6591dd84b7bc70541e0b692d845ed30f57cb9db5f71da674"
+    }
+  },
+  "authority_artifacts": {
+    "payload": {"bytes": 2065, "sha256": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a"},
+    "source_cutoff": {"bytes": 1044, "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"},
+    "rubric": {"bytes": 2259, "sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"},
+    "thresholds": {"bytes": 3597, "sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"},
+    "evaluation_schema": {"bytes": 1876, "sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"}
+  },
+  "canonical_input": {
+    "prompt_utf8_bytes": 526,
+    "prompt_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+    "common_binding_canonical_utf8_bytes": 661,
+    "common_binding_canonical_sha256": "256084e6362d87549392d3b069ce77edb1b8197d58b4d4b9045bbd5eaaa63426",
+    "identical_across_four_cells": true
+  },
+  "semantic_results": {
+    "current_four_cell_research_quality_case_suitable": "PASS",
+    "official_source_only_and_exact_cutoff": "PASS",
+    "identity_treatment_addon_order_leakage": "PASS_NONE_FOUND",
+    "private_internal_or_bytedcli_dependency": "PASS_NONE_REQUIRED",
+    "rubric_and_thresholds_measure_data_quality": "PASS",
+    "financial_return_metric": "PASS_NONE_FOUND",
+    "specific_provider_preference": "PASS_NONE_FOUND"
+  },
+  "tests": {
+    "strict_utf8_duplicate_key_nonfinite_and_schema": "PASS",
+    "positive_exact_artifact_and_semantic_checks": "PASS",
+    "adversarial_substitution_and_leakage": {"passed": 10, "total": 10, "result": "PASS_DENIED_ALL"},
+    "protected_evaluation_v3_regression": {"run": 12, "passed": 11, "skipped_optional_jsonschema": 1, "failed": 0, "result": "PASS"},
+    "source_closure_rehash": {"members": 11, "result": "PASS"},
+    "protected_and_stale_fingerprints": "PASS_UNCHANGED",
+    "system_python": "3.9.6",
+    "external_python_packages": false
+  },
+  "owner_private": {
+    "package_mode": "0700",
+    "manifest_mode": "0600",
+    "producer_evidence_mode_required": "0600",
+    "owner_uid_matches_process": true
+  },
+  "unresolved_pins": [
+    "exact common read-only tool roster, versions, call ceilings and blocked-effect list",
+    "exact common window start/end and per-cell deadline semantics",
+    "exact four-cell authority, budget/subcaps, attempt counts, final inference grants and CLEAN reviews"
+  ],
+  "stale_snapshot": {
+    "path": "runtime/data-quality-r6-window-20261111-v1/snapshot-and-first-evidence.json",
+    "used_as_authority": false,
+    "modified": false,
+    "bytes": 10077,
+    "sha256": "9534e9efd973fe4f767302de2148a7fb0b899b69e60cef627f876a5d977c4ca1"
+  },
+  "effects": {
+    "provider": false,
+    "network": false,
+    "account": false,
+    "private_state": false,
+    "email": false,
+    "business": false,
+    "host": false,
+    "scheduler": false,
+    "bytedcli": false
+  },
+  "countable": false,
+  "allowed_claim": "Current exact input bytes and semantics are bound for a dependency-independent, provider-free, noncountable R6 four-cell data-quality comparison only."
+}

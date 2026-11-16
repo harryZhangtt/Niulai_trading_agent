@@ -1,0 +1,842 @@
+{
+  "status": "FROZEN",
+  "revision": "trading-agent-v1",
+  "date": "2026-11-16",
+  "canonical_graph": "trading_agent",
+  "public_input": {
+    "action": "analyze_holdings"
+  },
+  "visible_scope": "One canonical Trading Agent; Tiger snapshot/admission/analysis is the first internal verified vertical path, not a separate visible Tiger trial. Remaining capabilities require inventory and later integration evidence.",
+  "designer_provenance": "Existing gateway/public contracts reviewed; new integration source, credentials and private account artifacts not inspected. No live calls. Synthetic cases newly authored.",
+  "level": "Balanced with independent offline controls and one real authorized readonly E2E",
+  "live_effect_scope": {
+    "native_sites_context": "Fresh get_site for exact configured project, tool-memory/private pipes only",
+    "gateway": "shared/tiger snapshot",
+    "portal_worker_attempts": 1,
+    "concurrency": 1,
+    "requested_types": "Fixed manifest unique nonempty STK/OPT/FUT/FUND subset; existing default STK/OPT/FUT, four-type scope must be explicit",
+    "credential_owner": "Existing configured leased remote private store and local lock; no new owner/cache",
+    "account": "Exactly one observed STANDARD account; never caller selected",
+    "output": "Real account values private local only; no LangSmith cloud",
+    "native_host_mcp_activation": false,
+    "orders_email_scheduler": false
+  },
+  "existing_gateway_bounds": {
+    "idempotent_store_acquire_checkpoint_attempts": 3,
+    "store_attempt_timeout_seconds": 15,
+    "store_backoff_seconds": [
+      1,
+      2
+    ],
+    "broker_oauth_outer_retries": 0,
+    "worker_deadline_seconds": 100,
+    "supervisor_deadline_seconds": 105,
+    "portal_request_deadline_seconds": 110,
+    "portal_total_deadline_seconds": 115,
+    "launcher_deadline_seconds": 125,
+    "termination_escalation_seconds": 1.5
+  },
+  "private_candidate": {
+    "bind": "127.0.0.1:2027",
+    "persistence": "New owner-private workspace-local root, never old2024/2025 persistence",
+    "preserved_servers": [
+      "127.0.0.1:2024",
+      "127.0.0.1:2025"
+    ]
+  },
+  "forbidden_data": "No real credential/native service context/account values/private source artifacts in this file, public input, test fixtures or cloud. Secret-bearing values never in graph/input/checkpoint/resume/env/args/log.",
+  "immutable_references": [
+    {
+      "path": "shared/tiger/README.md",
+      "sha256": "f42061514cdf9fd4f30d2d669d69fed6b4eedd9c46125135cfcb6a551a4346c4"
+    },
+    {
+      "path": "docs/architecture/holdings-boundary-review.md",
+      "sha256": "51da9c5f6fdda3724986b307bb0e377d34c1748e35d6c3c6522407ae66bec093"
+    },
+    {
+      "path": "tuning/langchain_pilot/ACCEPTANCE.md",
+      "sha256": "ad5d79710dc2cefbf182b390ae7c454c7b6e47417e907fdc0a165e0f02409afa"
+    },
+    {
+      "path": "tuning/langchain_pilot/ATOMIC_ACCEPTANCE.md",
+      "sha256": "e374cc970c7e4d24ad8ae11fe8689672a492acec4d5db9beece8e8fdf041e453"
+    },
+    {
+      "path": "tuning/langchain_pilot/tests/atomic_contract_cases.json",
+      "sha256": "bffd7b0217b07b6c0c5c7a2384d5afcb1cd7ca455f0cca27951f929f7c5e1d78"
+    },
+    {
+      "path": "tuning/langchain_mcp_agent/ACCEPTANCE.md",
+      "sha256": "a9e6917c5551c13ea8b453213020a1a0d0bb89b5d9dc1469daf5e275c38bff8f"
+    },
+    {
+      "path": "tuning/langchain_mcp_agent/cases.json",
+      "sha256": "0aef57e646539fb220b66d2b37b042bdd79a4e4e7d9b210549b56d0828940fe4"
+    }
+  ],
+  "baseline339_reference": {
+    "owner_private_path": ".langchain-pilot/runtime/atomic-independent/1794816920347892000/local-suite.json",
+    "sha256": "b16888d309eb92802a408c77d3f608252cfb4640ab6baf5d83afc2d3b0cb41c9",
+    "role": "Existing frozen baseline reference; no read of account artifacts or rerun performed by designer."
+  },
+  "live_manifest_required": "Before first native/effect dispatch seal private source/config/pins/schema/type/account-currency policy/budget/request/thread/attempt and old baseline fingerprints. Independent actual source arithmetic is computed privately after receipt admission, without copying data to public fixtures.",
+  "remaining_capability_inventory_required": [
+    "Tiger snapshot/portfolio analysis",
+    "existing calculation/valuation",
+    "investment research/evidence finalization",
+    "web/source acquisition",
+    "runtime/model/native host handoff"
+  ],
+  "scheduled_business_email_acceptance": "UNVERIFIED",
+  "cases": [
+    {
+      "id": "TGA-01",
+      "criterion": "TGA-AC-001",
+      "scenario": "canonical root and closed nominal action",
+      "precondition": {
+        "graph": "trading_agent",
+        "input": {
+          "action": "analyze_holdings"
+        }
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "One visible root; internal capability path; valid action admitted",
+      "forbidden": "Separately visible Tiger trial agent",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-02",
+      "criterion": "TGA-AC-001",
+      "scenario": "unknown or sensitive public input",
+      "precondition": {
+        "variants": [
+          "unknown action",
+          "extra account_id",
+          "endpoint",
+          "security_types override",
+          "raw Sites context/token",
+          "raw financial data",
+          "raw resume/tool command",
+          "private path"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Reject before native/context/credential/provider dispatch",
+      "forbidden": "Ignored extras or late validation after I/O",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-03",
+      "criterion": "TGA-AC-001",
+      "scenario": "capability registration/readable scenario",
+      "precondition": {
+        "discovery": "new local root/schema"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Root trading_agent and honest internal first path; user-facing readable input/action/result/failure",
+      "forbidden": "Old2024/2025 trials presented as new product",
+      "required_levels": [
+        "offline_atomic",
+        "local_api"
+      ]
+    },
+    {
+      "id": "TGA-04",
+      "criterion": "TGA-AC-002",
+      "scenario": "claim before native or gateway effect",
+      "precondition": {
+        "barrier": "after claim persisted before first external call"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Durable exact thread/request/attempt/action/config claim exists before I/O",
+      "forbidden": "Effect before identity is durable",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-05",
+      "criterion": "TGA-AC-002",
+      "scenario": "repeat/race same request",
+      "precondition": {
+        "variants": [
+          "same completed request repeated",
+          "two admissions controlled barrier"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "At most one effect admission; completed result reused; no repeated snapshot",
+      "forbidden": "Duplicate acquisition or replacement thread hides state loss",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-06",
+      "criterion": "TGA-AC-002",
+      "scenario": "interrupted submitted operation",
+      "precondition": {
+        "state": "request submitted/unknown at timeout or restart"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Original identity/unknown receipt retained; no blind redispatch",
+      "forbidden": "New request/attempt used to disguise retry",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-07",
+      "criterion": "TGA-AC-003",
+      "scenario": "fresh native context and pipe-only handoff",
+      "precondition": {
+        "native_context": "synthetic fresh context for SYNTHETIC-PROJECT/SYNTHETIC-OWNER@example.invalid",
+        "channel": "private host pipe"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Exact policy validation before lease; no context in graph/input/state/checkpoint/resume/env/args/log/export",
+      "forbidden": "Saved token input or graph-state credential custody",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-08",
+      "criterion": "TGA-AC-003",
+      "scenario": "policy mismatch/stale context",
+      "precondition": {
+        "variants": [
+          "stale copied context",
+          "wrong project",
+          "origin mismatch",
+          "wrong owner",
+          "broad audience",
+          "missing native context"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Reject before lease; safe internal auth-needed result",
+      "forbidden": "Arbitrary service context or owner/audience inferred from caller",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-09",
+      "criterion": "TGA-AC-003",
+      "scenario": "definitive access denial",
+      "precondition": {
+        "native_status": "401/403 before lease acquire"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Visible waiting/access-needed; no invented acquired-lease fence; fresh native service access required",
+      "forbidden": "Blind OAuth/browser retry or user asked to paste token/resume JSON",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-10",
+      "criterion": "TGA-AC-004",
+      "scenario": "same lease restore/token-save/final checkpoint",
+      "precondition": {
+        "lease": "SYNTHETIC-LEASE-A",
+        "simulated_token_saves": 2
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Restore and both saves/final committed checkpoint bind same lease; final release requested truth preserved",
+      "forbidden": "Second credential owner/cache or cross-lease save",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-11",
+      "criterion": "TGA-AC-004",
+      "scenario": "retry and contention boundaries",
+      "precondition": {
+        "variants": [
+          "store acquire/checkpoint transient",
+          "local lock busy",
+          "remote lease unavailable"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Only same IDs/bytes store retry max3/time15s/backoff1/2s; one portal/worker; loser has no broker call",
+      "forbidden": "Outer broker/OAuth retry or hidden concurrency",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-12",
+      "criterion": "TGA-AC-004",
+      "scenario": "release and rotation claims",
+      "precondition": {
+        "final_checkpoint": "committed release request",
+        "separate_release_receipt": null,
+        "actual_rotation_observed": false
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Release requested only; actual release/rotation remain unverified",
+      "forbidden": "Committed release request labeled verified release or synthetic rotation called live proof",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-13",
+      "criterion": "TGA-AC-005",
+      "scenario": "unresolved before later lease",
+      "precondition": {
+        "state": "existing synthetic unresolved fence/working profile"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Later graph/gateway stops before another lease; preserve fence/profile",
+      "forbidden": "Fence/profile deleted or another credential route used",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-14",
+      "criterion": "TGA-AC-005",
+      "scenario": "unknown lifecycle variants",
+      "precondition": {
+        "variants": [
+          "ambiguous acquire",
+          "broker read lost acknowledgement",
+          "token persistence unknown",
+          "checkpoint unknown",
+          "interrupted dispatched worker"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Graph submitted/unknown and gateway fence retained; exact owner reconciliation only",
+      "forbidden": "Unknown operation re-run or consent expiry guessed",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-15",
+      "criterion": "TGA-AC-005",
+      "scenario": "failed snapshot has no cached success",
+      "precondition": {
+        "snapshot": "failed/unknown",
+        "cached_prior_snapshot": "exists synthetic"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Failure/unknown remains; prior snapshot cannot substitute fresh result",
+      "forbidden": "Empty success/cached fallback or token rollback",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-16",
+      "criterion": "TGA-AC-006",
+      "scenario": "exact owned artifact receipt",
+      "precondition": {
+        "request": "SYNTHETIC-REQUEST-A",
+        "config_hash": "frozen synthetic hash",
+        "artifacts": "exact private gateway result"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Query/status/request/config/hash/checkpoint bindings exact before admission",
+      "forbidden": "Label/hash alone treated as provenance",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-17",
+      "criterion": "TGA-AC-006",
+      "scenario": "custody and permissions negative",
+      "precondition": {
+        "variants": [
+          "symlink artifact",
+          "path outside owned root",
+          "wrong owner",
+          "directory not0700",
+          "file not0600",
+          "non-regular file"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Reject before payload admission; no arbitrary private file read",
+      "forbidden": "Path escape or insecure private custody accepted",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-18",
+      "criterion": "TGA-AC-006",
+      "scenario": "stale/wrong/incomplete query artifact",
+      "precondition": {
+        "variants": [
+          "another request receipt",
+          "source hash drift",
+          "missing assets file",
+          "partial read output",
+          "wrong checkpoint"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "No complete successful envelope/admission; retain failure evidence",
+      "forbidden": "Mismatched mutable data or partial payload accepted",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-19",
+      "criterion": "TGA-AC-007",
+      "scenario": "complete requested scope empty/nonempty",
+      "precondition": {
+        "requested_types": [
+          "STK",
+          "OPT",
+          "FUT"
+        ],
+        "completed_types": [
+          "STK",
+          "OPT",
+          "FUT"
+        ],
+        "account_type": "STANDARD",
+        "account": "SYNTHETIC-A",
+        "currency": "USD",
+        "wholePortfolioVerified": false
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Complete requested scope only; empty may be successful within scope; wholePortfolioVerified false retained",
+      "forbidden": "FUND/whole-account coverage inferred or cash counted as security type",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-20",
+      "criterion": "TGA-AC-007",
+      "scenario": "partial/missing/count mismatch",
+      "precondition": {
+        "variants": [
+          "OPT failed",
+          "assets failed/missing",
+          "type count contradictory",
+          "failed empty",
+          "unknown empty"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Partial/failure/unknown explicit; no complete analysis from missing required data",
+      "forbidden": "Missing-to-zero or requested-type omission ignored",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-21",
+      "criterion": "TGA-AC-007",
+      "scenario": "account and currency inverse controls",
+      "precondition": {
+        "variants": [
+          "two STANDARD accounts",
+          "nonSTANDARD only",
+          "holding/assets account mismatch",
+          "unknown account",
+          "USD/HKD mismatch",
+          "currency absent"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Reject ambiguous/mismatched/unknown required scope; no FX or first-account choice",
+      "forbidden": "Merged accounts, assumed USD or unproved wholePortfolioVerified",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-22",
+      "criterion": "TGA-AC-008",
+      "scenario": "exact long-short math",
+      "precondition": {
+        "market_values": [
+          "600",
+          "-200",
+          "300"
+        ],
+        "NAV": "1000",
+        "cash": "300"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": {
+        "netExposure": "700",
+        "grossExposure": "1100",
+        "netOverNAV": "0.7",
+        "grossOverNAV": "1.1",
+        "cashOverNAV": "0.3"
+      },
+      "forbidden": "Abs net, clamped leverage or wrong denominator",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-23",
+      "criterion": "TGA-AC-008",
+      "scenario": "decimal/missing/negative ratio controls",
+      "precondition": {
+        "variants": [
+          {
+            "market_values": [
+              "0.1",
+              "0.2"
+            ],
+            "NAV": "1"
+          },
+          {
+            "cash": "-50",
+            "NAV": "1000"
+          },
+          "missing/null/bool/NaN amount",
+          "zero/missing NAV"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Exact0.3 money; negative cash preserved; invalid/missing amounts/denominator remain invalid/unavailable",
+      "forbidden": "Binary float drift/missing-to-zero/Infinity ratio",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-24",
+      "criterion": "TGA-AC-008",
+      "scenario": "quote/query/daily performance distinctions",
+      "precondition": {
+        "variants": [
+          "fresh query stale quote",
+          "quote time absent",
+          "unknown zone/asof",
+          "current unrealizedPnl but no daily history"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Original source/query/quote times separate; quote freshness/dailyPnl unavailable when unsupported",
+      "forbidden": "Query time rejuvenates quote or unrealized becomes daily PnL",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-25",
+      "criterion": "TGA-AC-009",
+      "scenario": "existing analysis adapter/subgraph equivalence",
+      "precondition": {
+        "fixture": "same admitted synthetic gateway single-account envelope"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Explicit accountResults mapping; maintained analytics reused; independent source arithmetic/result/provenance agree",
+      "forbidden": "Copied diverging analytics or acquisition inside analysis",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-26",
+      "criterion": "TGA-AC-009",
+      "scenario": "analysis error/source immutability",
+      "precondition": {
+        "dependency": "synthetic analysis exception",
+        "source": "deep-frozen/hash-before"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Visible failure; source after-hash unchanged; no external effect",
+      "forbidden": "Error swallowed into success or source edited",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-27",
+      "criterion": "TGA-AC-010",
+      "scenario": "pre-callback cloud and secret leakage controls",
+      "precondition": {
+        "env": "inherited LANGSMITH key/tracing=true",
+        "canary": "SYNTHETIC-SECRET-ACCOUNT-PATH-NO-EXPORT"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Export forced off before callbacks; zero LangSmith calls and no secret in state/checkpoint/resume/log/public projection",
+      "forbidden": "Generic callback/export leaks before body validation",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-28",
+      "criterion": "TGA-AC-010",
+      "scenario": "nested error/cancel/public output privacy",
+      "precondition": {
+        "variants": [
+          "nested exception containing synthetic token/account/path",
+          "pending context handoff",
+          "cancel",
+          "private result display"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Credentials absent everywhere outside existing gateway custody/private pipe; account output local private only; sanitized public status",
+      "forbidden": "Credentials in env/args/saved JSON or account payload in cloud/docs/public screenshot",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-29",
+      "criterion": "TGA-AC-011",
+      "scenario": "actual canonical local Studio path",
+      "precondition": {
+        "instance": "127.0.0.1:2027",
+        "graph": "trading_agent",
+        "persistence": "new private isolated root"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Actual connected UI/schema/root/status/final private output inspectable; exact tested URL",
+      "forbidden": "Printed URL/health/source import called Studio success",
+      "required_levels": [
+        "actual_local_studio",
+        "private_independent_readback"
+      ]
+    },
+    {
+      "id": "TGA-30",
+      "criterion": "TGA-AC-011",
+      "scenario": "user flow and port isolation",
+      "precondition": {
+        "variants": [
+          "internal auth-needed step",
+          "occupied2027",
+          "old2024/2025 remain active"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "No raw token/resume burden; clear root/status; occupied port fails with no fallback; old servers unchanged",
+      "forbidden": "Standalone Tiger agent, opaque PASS report or silent port substitution",
+      "required_levels": [
+        "offline_atomic",
+        "local_api"
+      ]
+    },
+    {
+      "id": "TGA-31",
+      "criterion": "TGA-AC-012",
+      "scenario": "one real authorized fresh snapshot/analysis",
+      "precondition": {
+        "target": "exact owner-configured Tiger project/account scope",
+        "native_context": "actual fresh get_site via host private pipe",
+        "gateway_attempts": 1,
+        "concurrency": 1
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Actual lease/checkpoint and all requested positions/assets; custody/admission/existing analytics/root output independently bound to one request; account values private",
+      "forbidden": "Historical/mock/handshake as fresh proof, extra broker/OAuth retry or broader account scan",
+      "required_levels": [
+        "one_real_readonly_e2e",
+        "private_independent_readback"
+      ]
+    },
+    {
+      "id": "TGA-32",
+      "criterion": "TGA-AC-012",
+      "scenario": "real partial/denied/unknown evidence classification",
+      "precondition": {
+        "actual_outcome": "partial/access denied/timeout/unknown if observed naturally"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Keep actual non-PASS and fences; corresponding live/Studio scope blocked/unverified; no forced replay. Adversarial controls run offline only.",
+      "forbidden": "Live chaos injection, additional reads to hide failure or scheduled business/email acceptance claim",
+      "required_levels": [
+        "one_real_readonly_e2e_review"
+      ]
+    },
+    {
+      "id": "TGA-33",
+      "criterion": "TGA-AC-013",
+      "scenario": "offline interrupted gateway/server lifecycle",
+      "precondition": {
+        "injection_points": [
+          "before dispatch",
+          "during synthetic worker",
+          "after possible synthetic checkpoint",
+          "new server startup/shutdown"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Existing bounded process group deadlines/cleanup; journal/fences retained; prompts/diagnosis/recovery available",
+      "forbidden": "Orphan, indefinite polling, wiped fence or old server killed",
+      "required_levels": [
+        "offline_atomic",
+        "local_lifecycle"
+      ]
+    },
+    {
+      "id": "TGA-34",
+      "criterion": "TGA-AC-013",
+      "scenario": "rollback/source and owners preserved",
+      "precondition": {
+        "candidate": "owned new2027 source/config/persistence",
+        "prior": "active2024/2025, original credential owner, baseline339/MCP snapshots"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Rollback retains credential/fence/private evidence; source pairing restored; old listeners/frozen hashes unchanged; safe graceful live stop only after completion",
+      "forbidden": "State deletion/global native MCP activation/production sender or order mutation",
+      "required_levels": [
+        "local_lifecycle",
+        "independent_review"
+      ]
+    },
+    {
+      "id": "TGA-35",
+      "criterion": "TGA-AC-014",
+      "scenario": "honest canonical capability inventory",
+      "precondition": {
+        "inventory": [
+          "Tiger/portfolio",
+          "calculation",
+          "investment research",
+          "web/source",
+          "runtime/model/host"
+        ]
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "Each owner/input/output/errors/effects and implemented/candidate/unverified/blocked status evidenced; first path distinct from remaining migration",
+      "forbidden": "More visible trial agents or all capabilities inferred migrated from holdings success",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    },
+    {
+      "id": "TGA-36",
+      "criterion": "TGA-AC-014",
+      "scenario": "complete independent reporting",
+      "precondition": {
+        "records": "all criteria/tests/attempts/mutations/executed/skipped/failed plus old baseline refs"
+      },
+      "action": "Exercise canonical analyze_holdings path or its named internal boundary; live operations only where explicitly required.",
+      "observable": "PASS/FAIL/BLOCKED/NOT RUN exact; missing live/Studio evidence unverified; scheduled business/email remains UNVERIFIED; no trading/email/scheduler effects",
+      "forbidden": "Zero/skipped asPASS, deleted failures, alpha/generalization or full-migration claim",
+      "required_levels": [
+        "offline_atomic"
+      ]
+    }
+  ],
+  "deliberate_breaks": [
+    {
+      "id": "TGA-MUT-001",
+      "criterion": "TGA-AC-001",
+      "break": "strict public schema/canonical graph gate bypass",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-002",
+      "criterion": "TGA-AC-002",
+      "break": "effect claim after I/O or dedup removed",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-003",
+      "criterion": "TGA-AC-003",
+      "break": "context validated after persistence or leaked into graph/resume",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-004",
+      "criterion": "TGA-AC-004",
+      "break": "cross-lease save/new credential owner or broker retry enabled",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-005",
+      "criterion": "TGA-AC-005",
+      "break": "unresolved fence cleared/reacquire/cached fallback",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-006",
+      "criterion": "TGA-AC-006",
+      "break": "custody/hash/path/owner check skipped",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-007",
+      "criterion": "TGA-AC-007",
+      "break": "missing requested type/account/currency ignored",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-008",
+      "criterion": "TGA-AC-008",
+      "break": "missing-to-zero/float/clamp/query-time/dailyPnL invention",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-009",
+      "criterion": "TGA-AC-009",
+      "break": "analysis exception suppressed/source mutated/copied bypass",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-010",
+      "criterion": "TGA-AC-010",
+      "break": "inherited exporter allowed or nested secret leaked",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-011",
+      "criterion": "TGA-AC-011",
+      "break": "wrong root/port/raw user handoff/opaque PASS user flow",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-012",
+      "criterion": "TGA-AC-012",
+      "break": "old fixture/mock labeled fresh live E2E",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-013",
+      "criterion": "TGA-AC-013",
+      "break": "cleanup/fence/original-server preservation disabled",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    },
+    {
+      "id": "TGA-MUT-014",
+      "criterion": "TGA-AC-014",
+      "break": "remaining inventory or failed/unknown evidence omitted and full migration claimed",
+      "scope": "Offline/disposable synthetic controls only, never real broker chaos",
+      "expected": "Mapped test turns red; any survivor is independently classified and repaired, never called success."
+    }
+  ],
+  "scope_correction_before_freeze": "Integration owner conveyed user correction from planned visible Tiger trial to one canonical Trading Agent; no standalone Tiger artifact was created."
+}

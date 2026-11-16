@@ -1,0 +1,155 @@
+{
+  "activation": false,
+  "claim_limit": "Source closure proves only the disabled template/candidate identity at this snapshot; it is not a fresh independent review or activation grant.",
+  "closure_checks": {
+    "active_runtime_reference": "NONE",
+    "exact_order": "PASS",
+    "live_receipt": "NOT_CREATED",
+    "member_bytes_sha256": "PASS",
+    "no_overlap_paths": "PASS",
+    "template_source_bytes_sha256": "PASS"
+  },
+  "frozen_source_pins": [
+    {
+      "bytes": 2920,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v4-no-bytedcli-addendum.json",
+      "sha256": "4c00d39ff71ec20be18f91f8882a58f0ac54ae83a571940de060b44849a41dec"
+    },
+    {
+      "bytes": 8947,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v4-no-bytedcli-addendum-independent-review-fable-20261111.json",
+      "sha256": "fbdc1eb36dcb04af06c42edf2a809925508306e80fea4192d5c113a949df8ac1"
+    },
+    {
+      "bytes": 26277,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design.json",
+      "sha256": "fcf096d0c641f373eab7163fa894e5d4f9605ab3ab36ff867e4b586bdcaf278e"
+    },
+    {
+      "bytes": 18741,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design-independent-review.json",
+      "sha256": "0018e413e40371bb2703aecf3963433f1a883a93b1070e815dccc0dc61866d3f"
+    },
+    {
+      "bytes": 44891,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/current-input-manifest-v3.json",
+      "sha256": "ed63dec9a5f386a095ffee43f84cb2c6130143579251918b4d6d4c0ffc187f1a"
+    },
+    {
+      "bytes": 18567,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/input-manifest-v3.schema.json",
+      "sha256": "66a2d49fb336682763f0732cd5ae9d44f087b1bba322590c0b2e0acc2d72cd4b"
+    },
+    {
+      "bytes": 12726,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v3-independent-review-20261111-8e9a8076.json",
+      "sha256": "ef6f127291528442ddee27f25a9be71f1388a4ed9674978a870252ccb51bdae6"
+    },
+    {
+      "bytes": 7188,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-clean-v1-fable-20261111.json",
+      "sha256": "b2647ca1dd095c69b20a54941c580026fd8e94fa21972d25210d7b9e73c6bb0e"
+    },
+    {
+      "bytes": 1788,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-provider-binary-identity-current-20261111.json",
+      "sha256": "d1307d8dc05cfb543ac2abc3e044f6de390d1bd7bd017538cbfa2a527a43d848"
+    },
+    {
+      "bytes": 5166,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-provider-binary-identity-current-20261111-independent-review-fable-20261111T085348Z.json",
+      "sha256": "3af2710961a409f3c50077bf919b2c851422b185955572355254141d8cd5b40b"
+    },
+    {
+      "bytes": 9944,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json",
+      "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d"
+    }
+  ],
+  "members": [
+    {
+      "bytes": 412,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/__init__.py",
+      "sha256": "d4cac7517e2e8507031777bbb31b8821b8d2b10528d85701d0c3aecc7f88b671"
+    },
+    {
+      "bytes": 32141,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/window.py",
+      "sha256": "b36bf0bdffc6a0606cf197ce26d284e23f61b265612a5f89068f4d587fe8a47e"
+    },
+    {
+      "bytes": 4155,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/window-template-v1.json",
+      "sha256": "4c77fae93c9a8fa286f5fc1422bc284a48a30bc5b71a47162b16a0541e69ce2b"
+    },
+    {
+      "bytes": 3926,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/window-template-v1.schema.json",
+      "sha256": "40643843949de281b8867c57c5deff3ec4d9326a66ce00877991e9af8887270f"
+    },
+    {
+      "bytes": 5210,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/window-receipt-v1.schema.json",
+      "sha256": "f106dbdc4a2b94a666491a8e86ea2683eedf4e4cf26b871d7e8671e4296b94a5"
+    },
+    {
+      "bytes": 1186,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/terminal-receipt-v1.schema.json",
+      "sha256": "d04270678bce15aea70624a76d056711722b2857f45b5a605244f974b744563f"
+    },
+    {
+      "bytes": 982,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/admission-decision-v1.schema.json",
+      "sha256": "c89ccb95054b75ea6bb3b54ef98c06e6c18b2806e6618050e5ba15021e5d6f10"
+    },
+    {
+      "bytes": 527,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/commit-marker-v1.schema.json",
+      "sha256": "b703fbc0f42835e62c23b5a06f8b73d3933ea49a8c204d95fe56662c65489d23"
+    },
+    {
+      "bytes": 15418,
+      "path": "shared/job_runtime/tests/candidates/r6_common_execution_window_v1/test_window.py",
+      "sha256": "163c4393183a35b085e9b8badd8abed8dab49f2d64db295a94e984f08ed00a8f"
+    },
+    {
+      "bytes": 3474,
+      "path": "tuning/architecture/r6_common_execution_window_v1/architecture-v1.json",
+      "sha256": "fc30228cd334573ee648cbbec2915fdf782bda33807f8cb3ca31f5ff137cdb22"
+    },
+    {
+      "bytes": 3039,
+      "path": "tuning/architecture/r6_common_execution_window_v1/protocol-v1.json",
+      "sha256": "ca391527d1ca2d0555c9c5be207aa2fe6c08437021ed7b485785cf0d39f1da08"
+    },
+    {
+      "bytes": 1469,
+      "path": "tuning/architecture/r6_common_execution_window_v1/decision-v1.json",
+      "sha256": "9dce1952c159c4249bbc71c74433bf00c18efa2e9159af81d89aa6ef63671c11"
+    }
+  ],
+  "pending_pins": [
+    "final_reviewed_block_grant",
+    "authentic_g1_authority",
+    "authentic_g2_authority",
+    "p0_v10",
+    "runner_v2",
+    "provider_authority",
+    "human_authority",
+    "fresh_independent_review"
+  ],
+  "provider_binary_identities": {
+    "claude_cli": {
+      "bytes": 323686048,
+      "path": "/Users/bytedance/.local/share/claude/versions/2.1.321",
+      "sha256": "abc9feeeca8091d51b623291e044cf0528c2f6b74e0c1d6ef671d52c73f7cd3c"
+    },
+    "codex_cli": {
+      "bytes": 270815376,
+      "path": "/Users/bytedance/.codex/packages/standalone/releases/0.167.0-aarch64-apple-darwin/bin/codex",
+      "sha256": "030316ecfbb41f4e7946e584b0063ef333b7a36cd312ba349f2f6869e39b62cc"
+    }
+  },
+  "status": "DISABLED_TEMPLATE_PENDING_FINAL_PINS_AND_FRESH_REVIEW",
+  "version": "r6-common-execution-window-source-closure-v1"
+}

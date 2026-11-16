@@ -1,12 +1,15 @@
 import copy
 from datetime import datetime, timezone
 import json
+import os
 from pathlib import Path
+import stat
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
 
-from shared.research_sources.artifacts import ROOT, SOURCE_STATE, READ_ROOTS, SourceError, digest, read, save
+from shared.research_sources.artifacts import ROOT, SOURCE_STATE, READ_ROOTS, SourceError, atomic_write_private, digest, read, save
 from shared.research_sources.fetch import document_receipt, passages
 from investment.research.requirements import freeze
 from investment.research.routing import routes
@@ -50,6 +53,23 @@ class SourceCoverageTests(unittest.TestCase):
 
     def check(self, packet=None, contract=None):
         return validate(contract or self.contract, save(self.directory, packet or self.packet))
+
+    def test_buffered_contract_pointer_preserves_old_on_producer_or_validation_failure(self):
+        pointer = self.directory / 'contract-pointer.json'
+        atomic_write_private(pointer, json.dumps(self.contract).encode())
+        old = pointer.read_bytes()
+        with self.assertRaisesRegex(SourceError, 'ARTIFACT_PRODUCER_FAILED'):
+            pipeline.publish_contract_pointer(pointer,
+                [sys.executable, '-c', 'import sys;print("{\"partial\":");sys.exit(9)'])
+        self.assertEqual(pointer.read_bytes(), old)
+        with self.assertRaises(SourceError):
+            pipeline.publish_contract_pointer(pointer, [sys.executable, '-c', 'print("{}")'])
+        self.assertEqual(pointer.read_bytes(), old)
+        result = pipeline.publish_contract_pointer(pointer,
+            [sys.executable, '-c', 'import json,sys;print(json.dumps(json.loads(sys.argv[1])))',
+             json.dumps(self.contract)])
+        self.assertEqual(result, self.contract)
+        self.assertEqual(json.loads(pointer.read_text()), self.contract)
 
     def test_valid_evidence_and_reviewed_no_change(self):
         self.assertEqual(self.check()['status'], 'validated_source_coverage')
@@ -180,11 +200,61 @@ class SourceCoverageTests(unittest.TestCase):
 
 
 class LegacyCompositionTests(unittest.TestCase):
+    def legacy_fixture(self):
+        fixture_module = pipeline.legacy('test_finalize_research')
+        # The preserved migration fixture uses the process default temp root.
+        # Bound only its setup to the approved private synthetic state root;
+        # production path allowlists and the legacy fixture remain unchanged.
+        with patch.object(tempfile, 'tempdir', str(STATE)):
+            f = fixture_module.FinalizeTests(); f.setUp()
+        self.addCleanup(f.tearDown)
+        self.assertTrue(any(f.root.is_relative_to(root) for root in READ_ROOTS))
+        return fixture_module, f
+
+    def test_future_legacy_siblings_are_private_atomic_and_reject_symlink_output(self):
+        _, f = self.legacy_fixture()
+        finalizer = pipeline.legacy('finalize_research')
+        previous = os.umask(0o022)
+        try:
+            item = finalizer.assemble(f.request, f.out)
+        finally:
+            os.umask(previous)
+
+        record = Path(item['record']['path'])
+        completion_item = f.out / 'AAA_completion_item.json'
+        pointer = json.loads(completion_item.read_text())
+        self.assertEqual(read(pointer['completion']), item)
+        self.assertEqual(stat.S_IMODE(f.out.stat().st_mode), 0o700)
+        self.assertEqual(stat.S_IMODE(record.stat().st_mode), 0o600)
+        self.assertEqual(stat.S_IMODE(completion_item.stat().st_mode), 0o600)
+        self.assertFalse((f.out / 'AAA_candidate_record.json').exists())
+        self.assertFalse((f.out / 'AAA_finalized_record.json').exists())
+
+        before = completion_item.read_bytes()
+        changed = {**f.request, 'publications': []}
+        with patch.object(finalizer, 'atomic_write_private', side_effect=OSError('synthetic replace failure')):
+            with self.assertRaisesRegex(OSError, 'synthetic replace failure'):
+                finalizer.assemble(changed, f.out)
+        self.assertEqual(completion_item.read_bytes(), before)
+        self.assertEqual(list(f.out.glob('.*.pending-*')), [])
+
+        run_pointer = f.out / 'completion_run.json'
+        finalizer.publish_completion_run(f.out, {'run_id': 'old'}, {'status': 'old'})
+        old_run = run_pointer.read_bytes()
+        with patch.object(finalizer, 'atomic_write_private', side_effect=OSError('synthetic pointer failure')):
+            with self.assertRaisesRegex(OSError, 'synthetic pointer failure'):
+                finalizer.publish_completion_run(f.out, {'run_id': 'new'}, {'status': 'new'})
+        self.assertEqual(run_pointer.read_bytes(), old_run)
+
+        target = f.root / 'symlink-output-target'; target.mkdir(mode=0o700)
+        linked = f.root / 'symlink-output'; linked.symlink_to(target, target_is_directory=True)
+        with self.assertRaisesRegex(SourceError, 'ARTIFACT_SYMLINK_REJECTED'):
+            finalizer.assemble(f.request, linked)
+        self.assertEqual(list(target.iterdir()), [])
+
     def test_real_legacy_finalization_and_completion_with_added_source_contract(self):
         # Reuse the existing synthetic complete-record fixture, not a stubbed legacy gate.
-        module = pipeline.legacy('test_finalize_research')
-        f = module.FinalizeTests(); f.setUp(); self.addCleanup(f.tearDown)
-        self.assertTrue(any(f.root.is_relative_to(p) for p in READ_ROOTS))
+        _, f = self.legacy_fixture()
         record = f.fixture.rec
         contract, packet = fixture(f.root, subject='AAA', stamp=record['subject']['cutoff'],
                                    author=record['audit']['author_id'])
@@ -201,7 +271,17 @@ class LegacyCompositionTests(unittest.TestCase):
                                                    pointer='/synthetic_fixture')
         packet['review']['evidence_sha256'] = digest(packet['evidence'])
         Path(f.request['record']).write_text(json.dumps(record))
-        item = pipeline.finalize(f.request, f.out, contract=contract, packet=save(f.root, packet))
+        packet_ref = save(f.root, packet)
+        with patch.object(pipeline, 'validate', wraps=validate) as final_validation:
+            item = pipeline.finalize(f.request, f.out, contract=contract, packet=packet_ref)
+        self.assertEqual(final_validation.call_count, 2)
+        transformed = final_validation.call_args_list[-1].kwargs['record']
+        self.assertEqual(transformed['stages']['review']['status'], 'complete')
+        saved_final = read(item['record'])
+        self.assertEqual(saved_final['source_coverage_evidence']['receipt'],
+                         validate(contract, packet_ref, record=saved_final))
+        pointer = json.loads((f.out / 'AAA_completion_item.json').read_text())
+        self.assertEqual(read(pointer['completion']), item)
         result = pipeline.complete(item, 'run1', contract=contract)
         self.assertEqual(result['source_coverage']['status'], 'validated_source_coverage')
         # A valid old completed record alone no longer passes the maintained entry point.

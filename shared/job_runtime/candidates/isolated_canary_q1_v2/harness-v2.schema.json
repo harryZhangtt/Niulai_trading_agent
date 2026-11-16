@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "harness-v2.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "candidate_id", "enabled", "bindings", "execution", "retries", "capabilities", "live", "effects"],
+  "properties": {
+    "schema_version": {"const": "harness-v2"},
+    "candidate_id": {"const": "codex-rust-0.167-isolated-canary-q1-v2"},
+    "enabled": {"const": false},
+    "bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["treatment_binding_wrapper_sha256", "integration_verification_v7_sha256", "treatment_fingerprint_sha256", "profile_sha256", "payload_sha256", "source_cutoff_sha256"],
+      "properties": {
+        "treatment_binding_wrapper_sha256": {"const": "6284984d4d48796df2ba96918d983e6a998a60d3b9bff807f3639da6c97b4332"},
+        "integration_verification_v7_sha256": {"const": "efa2c4e69fcf10994342875b7e200de665676a8ff808e3401d81563d78f1cb27"},
+        "treatment_fingerprint_sha256": {"const": "e77821daf101150d6340b87a70cb8c3a68438d4eebc63074282031639c477de6"},
+        "profile_sha256": {"const": "3f9d2fb9bef5f9adbcb54fa7f122af72adc0e8e8c290d756a0c18fcd5096ecd1"},
+        "payload_sha256": {"const": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b"},
+        "source_cutoff_sha256": {"const": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"}
+      }
+    },
+    "execution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["max_workers", "max_attempts"],
+      "properties": {"max_workers": {"const": 1}, "max_attempts": {"const": 1}}
+    },
+    "retries": {
+      "type": "object", "additionalProperties": false,
+      "required": ["request", "stream"],
+      "properties": {"request": {"const": 0}, "stream": {"const": 0}}
+    },
+    "capabilities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_authority_verified", "source_grammar_verified", "binary_asset_verified", "source_to_binary_reproducible_build_verified", "retry_zero_live_verified", "sanitized_live_capture_verified", "gateway_observer_reconciliation_verified", "capability_open"],
+      "properties": {
+        "source_authority_verified": {"const": true},
+        "source_grammar_verified": {"const": true},
+        "binary_asset_verified": {"const": true},
+        "source_to_binary_reproducible_build_verified": {"const": false},
+        "retry_zero_live_verified": {"const": false},
+        "sanitized_live_capture_verified": {"const": false},
+        "gateway_observer_reconciliation_verified": {"const": false},
+        "capability_open": {"const": false}
+      }
+    },
+    "live": {
+      "type": "object", "additionalProperties": false,
+      "required": ["provider_invocation", "service_invocation", "model_invocation", "process_invocation", "network_access"],
+      "properties": {
+        "provider_invocation": {"const": false},
+        "service_invocation": {"const": false},
+        "model_invocation": {"const": false},
+        "process_invocation": {"const": false},
+        "network_access": {"const": false}
+      }
+    },
+    "effects": {
+      "type": "object", "additionalProperties": false,
+      "required": ["email", "host", "network", "provider"],
+      "properties": {
+        "email": {"const": false}, "host": {"const": false}, "network": {"const": false}, "provider": {"const": false}
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"cases":["nominal","stop","unknown","auth","grant-self-mint","path-swap","second-409","timeout","malformed","truncated","secret","cleanup","publication","engine-mismatch"],"effects":{"provider":false,"non_loopback":false,"account":false,"private_live":false,"business":false}}

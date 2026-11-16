@@ -22,6 +22,7 @@ The upstream DCF validator's license is retained alongside it.
 | DCF / enterprise value | `legacy/valuation/valuation_core.py` | PV, gross-debt WACC, terminal FCFF, enterprise-to-equity/per-share bridge |
 | Expected value / case comparison | `legacy/workflow/entry_policy_ev.py`, `options_decision_bounds.py` | Supplied paths/weights/bounds; probabilities not calibrated by the calculator |
 | Compounding / path summaries | `legacy/valuation/leveraged_funds.py` | Reset leverage, drawdown, weighted quantiles/tails, moving-block resampling |
+| Deterministic leveraged-fund operator candidate | `operators/leveraged_funds.py` | Versioned exact/proxy/NAV/market bases; reset math reused from the pinned legacy backend; no probability, sizing or trade authority |
 | European options | `legacy/workflow/options_scenario_checks.py` | BSM, Greeks, IV inversion and conditional scenarios; European assumptions |
 | Volatility surface | `legacy/workflow/options_surface_checks.py` | Total-variance interpolation on common support; sampled checks do not certify arbitrage freedom |
 | American options | `legacy/workflow/options_american_checks.py` | Optional QuantLib 1.44 adapter; flat-vol FD diagnostics and grid convergence |
@@ -66,10 +67,21 @@ PYTHONPATH="$PWD/shared/calculation/legacy/holdings" \
   python3 -B -m unittest test_analytics
 ```
 
+The corrected leveraged-fund operator has a separate maintained focused gate:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 TMPDIR="$PWD/.job-runtime/calculation/tmp" \
+  python3 -B -m unittest shared.calculation.validation.test_leveraged_operator \
+  shared.calculation.validation.tests.test_leveraged_suite
+```
+
+It is also included as the `leveraged_operator` suite in the offline runner. This
+changes the candidate from four to five suites; the prior four-suite scheduled
+receipt remains historical evidence and does not accept the five-suite candidate.
+
 The module search path is explicitly local to each command because the inherited
 scripts use sibling absolute imports. Do not add it to shell profiles or global
-Codex settings. A normalized public operator API is deferred. For example, the
-independent valuation module is already importable without optional packages:
+Codex settings. A normalized leveraged-fund operator API now exists as an inactive candidate; other broad CRUD/operator APIs remain deferred. For example, the independent valuation module is already importable without optional packages:
 
 ```python
 from shared.calculation.legacy.valuation.valuation_core import equity_value
@@ -98,3 +110,43 @@ the subsequent validation phase adds them separately. API/CRUD, persistence and
 production migration remain deferred. Before runtime integration apply the
 [scheduled Codex acceptance contract](../../docs/deployment/runtime-acceptance.md)
 and email the actual result; copying and shell tests are not scheduled acceptance.
+
+The five-suite runner uses `completed` for transport/execution completion. Its
+`paths` three findings and `contracts` two findings are the same retained legacy
+baseline defects documented in the 2026-10-31 evidence; they are not new candidate
+regressions and are not relabeled passes. Acceptance additionally requires the new
+`leveraged_operator` suite itself to report `passed`.
+
+The acceptance predicate freezes the exact retained baseline finding IDs: paths keeps only `underflow_is_not_mathematical_ruin`, `quantile_positive_mass_above_boundary`, and `tiny_tail_zero_weight_invariance`; contracts keeps only `legacy_uncached_formula_not_numerically_accepted` and `legacy_wacc_range_check_runs`. Missing, duplicate, extra, or nonbaseline rows block acceptance.
+
+The independently reviewed `operators/common_factor_attribution.py` is an inactive deterministic descriptive operator. It uses the pinned Python3.12.16/NumPy2.3.5/SciPy1.18.1 validation environment, requires explicit aligned log-total-return panels and exact/proxy identities, and exposes no acquisition, probability, causal or trade authority. The maintained runner candidate now contains six suites; historical four-suite and local five-suite receipts do not accept it.
+
+## Trusted-code runner boundary (O1 hardening)
+
+The six-suite offline runner executes reviewed, source-fingerprinted project code;
+it is not a hostile-code sandbox or a general Python execution service. The worker
+Python audit hook denies native `subprocess`, direct `exec`, fork-family and spawn
+events by default. It permits only the pinned validation interpreter and the exact nested
+Python command shapes required by the valuation, contracts and leveraged-operator
+suites. `/bin/cat`, arbitrary native commands, `os.fork` and direct spawn are
+negative probes; `os.forkpty` is also explicitly denied.
+Allowlisted child interpreters inherit the macOS Seatbelt profile but not the
+parent Python audit hook. Native extensions, interpreter defects and Seatbelt/OS
+bugs remain outside this trusted-code boundary.
+
+On supported hosts each worker lowers inherited hard and soft limits for a requested
+address-space ceiling (8 GiB), individual file size (16 MiB), descriptors (256),
+real-UID process count (1024), CPU time (150 seconds) and core files (zero). Darwin
+25.4 exposes `RLIMIT_AS` but rejects lowering it, so the report marks that ceiling
+available-but-unsupported rather than enforced. The parent still owns
+wall timeout and process-group kill/reap. Each suite receives a private ephemeral
+HOME/temp/cache tree; output plus scratch is checked after execution against a
+64 MiB/2,048-file aggregate bound. Scratch is always removed and failed or
+over-budget output is removed. This is post-execution aggregate accounting, not a
+filesystem quota; `RLIMIT_FSIZE` is the during-execution per-file bound.
+
+The runner report freezes the source/environment fingerprint, interpreter digest,
+audit-policy digest, applied resource-limit readback and per-suite storage usage.
+These local checks preserve six-suite semantics. They do not activate a scheduled
+allocation, send email, accept the candidate for production, or supersede the
+future-triggered runtime acceptance contract.

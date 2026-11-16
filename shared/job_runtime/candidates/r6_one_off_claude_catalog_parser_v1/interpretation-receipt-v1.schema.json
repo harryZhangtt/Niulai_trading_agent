@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/r6-one-off-claude-catalog-parser-v1/interpretation-receipt-v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "status", "parser", "execution_receipt", "owner_private_stdout_ref", "original_execution_status", "observed", "effects", "claim_limits", "interpretation"],
+  "properties": {
+    "version": {"const": "r6-o1-claude-catalog-membership-interpretation-receipt-1"},
+    "status": {"const": "PASS_FROZEN_CATALOG_MEMBERSHIP_EVIDENCE"},
+    "parser": {"const": "r6_one_off_claude_catalog_parser_v1"},
+    "execution_receipt": {"$ref": "#/$defs/relativeRef"},
+    "owner_private_stdout_ref": {"$ref": "#/$defs/privateRef"},
+    "original_execution_status": {"const": "STOP_CATALOG_PREFLIGHT"},
+    "observed": {
+      "type": "object", "additionalProperties": false,
+      "required": ["json_lines", "event_type_counts", "terminal_result_index", "exact_display_token", "terminal_occurrences", "assistant_occurrences_ignored", "membership_authority"],
+      "properties": {
+        "json_lines": {"type": "integer", "minimum": 3},
+        "event_type_counts": {
+          "type": "object", "additionalProperties": false,
+          "required": ["system", "assistant", "result"],
+          "properties": {"system": {"const": 1}, "assistant": {"type": "integer", "minimum": 1}, "result": {"const": 1}}
+        },
+        "terminal_result_index": {"type": "integer", "minimum": 2},
+        "exact_display_token": {"const": "Opus 5.5"},
+        "terminal_occurrences": {"const": 1},
+        "assistant_occurrences_ignored": {"type": "integer", "minimum": 0},
+        "membership_authority": {"const": "terminal_result_only"}
+      }
+    },
+    "effects": {
+      "type": "object", "additionalProperties": false,
+      "required": ["provider_requests", "network", "account", "inference", "retry", "replay", "business"],
+      "properties": {
+        "provider_requests": {"const": 0}, "network": {"const": 0}, "account": {"const": 0},
+        "inference": {"const": 0}, "retry": {"const": 0}, "replay": {"const": 0}, "business": {"const": 0}
+      }
+    },
+    "claim_limits": {"type": "array", "minItems": 5, "uniqueItems": true, "items": {"type": "string"}},
+    "interpretation": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "relativeRef": {
+      "type": "object", "additionalProperties": false, "required": ["path", "bytes", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "bytes": {"const": 2603}, "sha256": {"const": "b0b7312fe4bb6e451835f3c97288b560f53836f92cb69a1784f00ed324d44dc1"}}
+    },
+    "privateRef": {
+      "type": "object", "additionalProperties": false, "required": ["path", "bytes", "sha256", "mode"],
+      "properties": {
+        "path": {"const": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/live-provider-evidence/r6-one-off/claude-catalog-r6-32489c6235ba413a99eaf4fe8d89c7a1/stdout"},
+        "bytes": {"const": 5288}, "sha256": {"const": "162c2ffbc043b84b6396168fde4fea592f6e77b0e9a3e3eba976db5ef36966dc"}, "mode": {"const": "0600"}
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "activation": false,
+  "allowed_claim": "Frozen /model catalog membership evidence through a portable provider-free parser.",
+  "decision": "ACCEPT_PORTABLE_STANDALONE_SUCCESSOR",
+  "forbidden_claims": [
+    "execution PASS",
+    "inference success",
+    "countable A/B",
+    "provider superiority",
+    "runtime acceptance"
+  ],
+  "interpretation_receipt": {
+    "bytes": 1659,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-membership-interpretation-receipt.json",
+    "sha256": "9f492a296ab261e7b7c7a2373a287f6a473577318300e35bba220e7bd3e3688c"
+  },
+  "new_effects": {
+    "account": 0,
+    "business": 0,
+    "inference": 0,
+    "network": 0,
+    "provider": 0,
+    "replay": 0,
+    "retry": 0
+  },
+  "original_execution_status": "STOP_CATALOG_PREFLIGHT",
+  "predecessor_producer": {
+    "bytes": 5856,
+    "disposition": "OPEN_SUPERSEDED_STANDALONE_ENTRYPOINT_DEFECT",
+    "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/producer-verification-v1-open-superseded.json",
+    "sha256": "b116e28e9648c4dbeb27ac26e0038779e37fb8199f3b251edb294219cd7b267e"
+  },
+  "protocol": {
+    "bytes": 2441,
+    "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/protocol-v2.json",
+    "sha256": "54b3b154a7cf67865f4fbf91d15b9042e25341a84cc390aa8fa8571cfd725bed"
+  },
+  "repair": "experiment.py now derives the repository root from its own path and inserts only that local root before importing shared; direct execution no longer depends on cwd or a global package.",
+  "source_closure": {
+    "bytes": 3514,
+    "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/source-closure-v2.json",
+    "sha256": "ca60c1abaa381874808e1da400c37c9645fb3821180b5a58f4a86773d58a8846"
+  },
+  "standalone_verification": {
+    "cwd": "/",
+    "output_sha256": "9f492a296ab261e7b7c7a2373a287f6a473577318300e35bba220e7bd3e3688c",
+    "result": "PASS",
+    "runtime": "system Python 3.9.6"
+  },
+  "status": "PASS_FROZEN_CATALOG_MEMBERSHIP_EVIDENCE",
+  "version": "r6-one-off-claude-catalog-parser-decision-2"
+}

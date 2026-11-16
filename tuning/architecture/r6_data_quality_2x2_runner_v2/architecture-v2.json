@@ -1,0 +1,123 @@
+{
+  "activation": false,
+  "delegated_unchanged_contracts": [
+    "fixed CELL_ORDER",
+    "one attempt per cell",
+    "zero retry/replay/status query",
+    "all destination preflight",
+    "P0-v9 evidence transformation",
+    "receipt durability",
+    "authenticated human/G3 finalization"
+  ],
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "generated_at_utc": "2026-11-12T01:19:07Z",
+  "history": {
+    "bytes": 2376,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/history-index-v2.json",
+    "sha256": "afd3b722f15b232f3d8f332c7ab92f97c23f1925fd12762008cb5c5cfad6e39b"
+  },
+  "impact_surface": "INERT_LOCAL_SOURCE_TESTS_AND_EVIDENCE_ONLY",
+  "open_gates": [
+    "P0_V10_REQUIRED for OPEN-P0-V9-G3-SCHEMA-002",
+    "fresh independent runner-v2 review",
+    "remaining runner findings adjudication",
+    "orchestrator rebind",
+    "future-triggered intended-runtime acceptance before any activation"
+  ],
+  "problem": {
+    "consequence": "receipt no-replace alone does not prevent duplicate provider/P0 boundary effects",
+    "finding": "OPEN-RUNNER-V8-CONCURRENCY-001",
+    "observed": "runner-v8 independent review reproduced two concurrent same-root/same-bundle starts reaching the first boundary twice before receipt publication",
+    "separate_unresolved_finding": "OPEN-P0-V9-G3-SCHEMA-002"
+  },
+  "provider_free": true,
+  "registered": false,
+  "rejected_options": [
+    {
+      "id": "O0_RETAIN_V1",
+      "reason": "reproduced duplicate first boundary remains"
+    },
+    {
+      "id": "O1_PATCH_V1_IN_PLACE",
+      "reason": "forbidden pinned-source mutation and OPEN-history rewrite risk"
+    },
+    {
+      "id": "O2_EDIT_P0_V9",
+      "reason": "outside concurrency repair scope; requires separately reviewed P0 v10 recclosure"
+    }
+  ],
+  "reservation_authority": {
+    "bound_but_not_keyed": [
+      "destination_identity_sha256"
+    ],
+    "deadline": "internally derived monotonic deadline with fixed duration; caller supplies neither clock nor deadline",
+    "filesystem": "descriptor-relative O_NOFOLLOW, exact uid, directories 0700, files 0600/nlink=1, O_EXCL no-replace, full write, file fsync, parent fsync, reopen and exact hash",
+    "key_fields": [
+      "block_id",
+      "grant_identity_sha256",
+      "input_identity_sha256",
+      "map_identity_sha256",
+      "runner_owner_root_id",
+      "p0_owner_root_ids",
+      "predecessor_runner_sha256",
+      "p0_v9_contract_sha256",
+      "fixture"
+    ],
+    "owner_identity": [
+      "uid",
+      "gid",
+      "pid",
+      "boot_id",
+      "kernel process start token",
+      "random nonce",
+      "derived process identity"
+    ],
+    "reason_destination_not_keyed": "caller-selected destination changes must collide with the same fixed execution reservation, then fail the exact claim binding",
+    "root": "fixed descriptor-relative directory under the validated runner owner root; no caller reservation-root parameter"
+  },
+  "selected_option": {
+    "cost": "one owner-private immutable reservation event chain and a thin delegation to pinned v1",
+    "id": "O1_ADDITIVE_EXECUTION_WIDE_RESERVATION_WRAPPER",
+    "owner": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v2",
+    "reason": "closes the reproduced admission race without mutating the P0-v9-pinned runner-v1 or current P0 package"
+  },
+  "state_machine": [
+    {
+      "from": "ABSENT",
+      "rule": "one fixed initial claim O_EXCL; concurrent losers cannot become owner",
+      "to": "PREPARED"
+    },
+    {
+      "from": "PREPARED",
+      "rule": "only inactive exact process identity plus admission absence and zero known destinations; new immutable predecessor-linked claim; no lease stealing",
+      "to": "PREPARED_RECOVERY"
+    },
+    {
+      "from": "PREPARED",
+      "rule": "durable admission event before destination creation or any provider/P0 boundary",
+      "to": "ADMITTED"
+    },
+    {
+      "from": "ADMITTED",
+      "rule": "only an authenticated exact predecessor execution receipt, including deterministic stage/post-link reconciliation",
+      "to": "COMPLETED"
+    },
+    {
+      "from": "ADMITTED",
+      "rule": "missing exact completed receipt or post-admission exception/crash; durable no-replay fence",
+      "to": "UNKNOWN_NO_REPLAY"
+    }
+  ],
+  "status": "ADDITIVE_PROVIDER_FREE_CANDIDATE_P0_V10_RECLOSURE_REQUIRED",
+  "version": "r6-data-quality-2x2-runner-architecture-v2"
+}

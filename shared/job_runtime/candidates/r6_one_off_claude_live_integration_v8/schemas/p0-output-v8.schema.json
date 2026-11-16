@@ -1,0 +1,219 @@
+{
+  "$id": "https://local.invalid/p0-output-v8.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "properties": {
+        "cell_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "durability": {
+          "const": "NOT_APPLICABLE"
+        },
+        "engine_provider": {
+          "const": "claude_host"
+        },
+        "engine_readback_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "state_authority": {
+          "const": "PASS"
+        },
+        "status": {
+          "const": "PASS"
+        }
+      },
+      "required": [
+        "status",
+        "state_authority",
+        "durability",
+        "cell_id",
+        "engine_provider",
+        "engine_readback_digest"
+      ]
+    },
+    {
+      "properties": {
+        "cell_id": {
+          "const": null
+        },
+        "durability": {
+          "const": "NOT_APPLICABLE"
+        },
+        "engine_provider": {
+          "const": null
+        },
+        "engine_readback_digest": {
+          "const": null
+        },
+        "state_authority": {
+          "const": "ABSENT"
+        },
+        "status": {
+          "const": "STOP"
+        }
+      },
+      "required": [
+        "status",
+        "state_authority",
+        "durability",
+        "cell_id",
+        "engine_provider",
+        "engine_readback_digest"
+      ]
+    },
+    {
+      "properties": {
+        "cell_id": {
+          "const": null
+        },
+        "durability": {
+          "const": "NON_DURABLE"
+        },
+        "engine_provider": {
+          "const": null
+        },
+        "engine_readback_digest": {
+          "const": null
+        },
+        "state_authority": {
+          "const": "ABSENT"
+        },
+        "status": {
+          "const": "UNKNOWN"
+        }
+      },
+      "required": [
+        "status",
+        "state_authority",
+        "durability",
+        "cell_id",
+        "engine_provider",
+        "engine_readback_digest"
+      ]
+    },
+    {
+      "properties": {
+        "cell_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "durability": {
+          "const": "DURABLE"
+        },
+        "engine_provider": {
+          "const": "claude_host"
+        },
+        "engine_readback_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "state_authority": {
+          "enum": [
+            "UNKNOWN",
+            "POISONED"
+          ]
+        },
+        "status": {
+          "const": "UNKNOWN"
+        }
+      },
+      "required": [
+        "status",
+        "state_authority",
+        "durability",
+        "cell_id",
+        "engine_provider",
+        "engine_readback_digest"
+      ]
+    }
+  ],
+  "properties": {
+    "cell_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "durability": {
+      "enum": [
+        "NOT_APPLICABLE",
+        "DURABLE",
+        "NON_DURABLE"
+      ]
+    },
+    "engine_provider": {
+      "enum": [
+        "claude_host",
+        null
+      ]
+    },
+    "engine_readback_digest": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "path_included": {
+      "const": false
+    },
+    "post_run_seal_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "raw_included": {
+      "const": false
+    },
+    "replay_allowed": {
+      "const": false
+    },
+    "schema": {
+      "const": "r6-one-off-claude-live-integration-v8"
+    },
+    "secret_included": {
+      "const": false
+    },
+    "state_authority": {
+      "enum": [
+        "ABSENT",
+        "UNKNOWN",
+        "PASS",
+        "POISONED"
+      ]
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "STOP",
+        "UNKNOWN"
+      ]
+    },
+    "version": {
+      "const": 8
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "cell_id",
+    "status",
+    "state_authority",
+    "durability",
+    "engine_provider",
+    "engine_readback_digest",
+    "post_run_seal_sha256",
+    "raw_included",
+    "path_included",
+    "secret_included",
+    "replay_allowed"
+  ],
+  "type": "object"
+}

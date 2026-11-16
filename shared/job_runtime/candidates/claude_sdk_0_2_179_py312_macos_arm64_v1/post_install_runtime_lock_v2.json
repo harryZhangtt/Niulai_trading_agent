@@ -1,0 +1,747 @@
+{
+  "contract": "claude-agent-sdk-canonical-post-install-runtime-lock-v2",
+  "direct_requirement": "claude-agent-sdk==0.2.179",
+  "effects": {
+    "bundled_cli_executed": false,
+    "network_used": false,
+    "provider_calls": false,
+    "provider_spend_usd": 0,
+    "sdk_imported_during_install_or_adjudication": false,
+    "verified_from_local_artifact": true
+  },
+  "expected_distribution_tree_sha256": "96ca6774cfa68c0306336fc40268ed4afc18f09e4102210098c9aed699fde423",
+  "expected_record_importlib_text_utf8_sha256": "4476d8b36aee0f444ca3ebc09ba8d1d466de35d0ac08c8cd359ba3aaf3317b87",
+  "expected_record_raw_bytes_sha256": "17b64b092f6a3af6273ce3de9a34e2a7b20183ac61b1e4aa47f2705298571ad8",
+  "installability": {
+    "installable": true,
+    "mismatch_policy": "BLOCK_OFFLINE",
+    "only_for_exact_sealed_environment": true,
+    "required_match_fields": [
+      "direct_requirement",
+      "official_wheel.sha256",
+      "sealed_environment.target",
+      "sealed_environment.interpreter.version",
+      "sealed_environment.interpreter.sha256",
+      "sealed_environment.seal.sha256",
+      "sealed_environment.seal.manifest.sha256",
+      "sealed_environment.seal.requirements_lock.sha256",
+      "sealed_environment.seal.sha256sums.sha256",
+      "sealed_environment.package_count",
+      "sealed_environment.dependency_edge_count",
+      "sealed_environment.packages",
+      "sealed_environment.dependency_edges",
+      "installed_sdk_custody.record_raw_bytes_sha256",
+      "installed_sdk_custody.record_importlib_text_utf8_sha256",
+      "installed_sdk_custody.distribution_tree_sha256",
+      "receipts.initial.file_sha256",
+      "receipts.adjudication.file_sha256",
+      "receipts.adjudication.embedded_receipt_sha256"
+    ]
+  },
+  "installable": true,
+  "installed_sdk_custody": {
+    "dist_info": "lib/python3.12/site-packages/claude_agent_sdk-0.2.179.dist-info",
+    "distribution": "claude-agent-sdk",
+    "distribution_tree_sha256": "96ca6774cfa68c0306336fc40268ed4afc18f09e4102210098c9aed699fde423",
+    "record_digest_semantics": {
+      "authoritative": "raw_bytes_descriptor_safe_no_follow",
+      "compatibility": "importlib.metadata.Distribution.read_text(\"RECORD\") UTF-8 with universal-newline normalization"
+    },
+    "record_importlib_text_utf8_sha256": "4476d8b36aee0f444ca3ebc09ba8d1d466de35d0ac08c8cd359ba3aaf3317b87",
+    "record_raw_bytes_sha256": "17b64b092f6a3af6273ce3de9a34e2a7b20183ac61b1e4aa47f2705298571ad8",
+    "record_rows": 61,
+    "tree_digest_semantics": "shared.job_runtime.claude_sdk_preflight._tree_hash exact sorted distribution.files path-and-file-sha256 rows encoded as compact JSON",
+    "version": "0.2.179"
+  },
+  "network_used": false,
+  "official_wheel": {
+    "filename": "claude_agent_sdk-0.2.179-py3-none-macosx_11_0_arm64.whl",
+    "provenance_attestation": "UNAVAILABLE_NOT_PASSED",
+    "sha256": "28b40c646eb696316ca9d0531bb5f1179d1df4cd76fa630440170c91fbb788f0",
+    "size": 139333276,
+    "source": "official-pypi-artifact-metadata"
+  },
+  "official_wheel_sha256": "28b40c646eb696316ca9d0531bb5f1179d1df4cd76fa630440170c91fbb788f0",
+  "production_activated": false,
+  "provider_calls": false,
+  "python_requires": ">=3.10",
+  "receipts": {
+    "adjudication": {
+      "embedded_digest_semantics": "opaque-adjudication-supplied-value; canonicalization algorithm not independently documented; not treated as the artifact file SHA-256",
+      "embedded_receipt_sha256": "d23aac3809b800a340def44b2915b7a9deaff7bf993741ebbc532fc084971e3b",
+      "file_sha256": "59a9361f39317c0c7632a95f7798203148d7f692789b1ac4278637c7b92c266b",
+      "path": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1-adjudication.json",
+      "verdict": "CLEAN_WITH_EXPLICIT_LIMITATIONS"
+    },
+    "initial": {
+      "file_sha256": "ceae604ec8aba33b94619f0cfaba20ba3d80f11f95e76dbfefdd25019481d45f",
+      "path": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1-receipt.json",
+      "status": "BLOCKED_EVIDENCE"
+    }
+  },
+  "schema_version": 2,
+  "sealed_environment": {
+    "dependency_edge_count": 52,
+    "dependency_edges": [
+      {
+        "from": "anyio",
+        "requirement": "idna>=2.8",
+        "to": "idna"
+      },
+      {
+        "from": "anyio",
+        "requirement": "typing_extensions>=4.16.0; python_version < \"3.15\"",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "cffi",
+        "requirement": "pycparser; implementation_name != \"PyPy\"",
+        "to": "pycparser"
+      },
+      {
+        "from": "claude-agent-sdk",
+        "requirement": "anyio>=4.0.0",
+        "to": "anyio"
+      },
+      {
+        "from": "claude-agent-sdk",
+        "requirement": "jsonschema>=4.20.0",
+        "to": "jsonschema"
+      },
+      {
+        "from": "claude-agent-sdk",
+        "requirement": "mcp<3.0.0,>=1.23.0",
+        "to": "mcp"
+      },
+      {
+        "from": "claude-agent-sdk",
+        "requirement": "sniffio>=1.0.0",
+        "to": "sniffio"
+      },
+      {
+        "from": "cryptography",
+        "requirement": "cffi>=2.0.0 ; platform_python_implementation != 'PyPy'",
+        "to": "cffi"
+      },
+      {
+        "from": "httpcore2",
+        "requirement": "h11>=0.16",
+        "to": "h11"
+      },
+      {
+        "from": "httpcore2",
+        "requirement": "truststore>=0.10",
+        "to": "truststore"
+      },
+      {
+        "from": "httpx2",
+        "requirement": "anyio>=4.10; sys_platform != 'emscripten'",
+        "to": "anyio"
+      },
+      {
+        "from": "httpx2",
+        "requirement": "httpcore2==2.16.0; sys_platform != 'emscripten'",
+        "to": "httpcore2"
+      },
+      {
+        "from": "httpx2",
+        "requirement": "idna>=3.18",
+        "to": "idna"
+      },
+      {
+        "from": "httpx2",
+        "requirement": "truststore>=0.10; sys_platform != 'emscripten'",
+        "to": "truststore"
+      },
+      {
+        "from": "httpx2",
+        "requirement": "typing-extensions>=4.5.0; python_version < '3.13'",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "jsonschema",
+        "requirement": "attrs>=22.2.0",
+        "to": "attrs"
+      },
+      {
+        "from": "jsonschema",
+        "requirement": "jsonschema-specifications>=2023.03.6",
+        "to": "jsonschema-specifications"
+      },
+      {
+        "from": "jsonschema",
+        "requirement": "referencing>=0.28.4",
+        "to": "referencing"
+      },
+      {
+        "from": "jsonschema",
+        "requirement": "rpds-py>=0.25.0",
+        "to": "rpds-py"
+      },
+      {
+        "from": "jsonschema-specifications",
+        "requirement": "referencing>=0.31.0",
+        "to": "referencing"
+      },
+      {
+        "from": "mcp",
+        "requirement": "anyio>=4.9; python_version < '3.14'",
+        "to": "anyio"
+      },
+      {
+        "from": "mcp",
+        "requirement": "httpx2>=2.10.0",
+        "to": "httpx2"
+      },
+      {
+        "from": "mcp",
+        "requirement": "jsonschema>=4.20.0",
+        "to": "jsonschema"
+      },
+      {
+        "from": "mcp",
+        "requirement": "mcp-types==2.3.0",
+        "to": "mcp-types"
+      },
+      {
+        "from": "mcp",
+        "requirement": "opentelemetry-api>=1.28.0",
+        "to": "opentelemetry-api"
+      },
+      {
+        "from": "mcp",
+        "requirement": "pydantic>=2.12.0",
+        "to": "pydantic"
+      },
+      {
+        "from": "mcp",
+        "requirement": "pyjwt[crypto]>=2.10.1",
+        "to": "pyjwt"
+      },
+      {
+        "from": "mcp",
+        "requirement": "python-multipart>=0.0.9",
+        "to": "python-multipart"
+      },
+      {
+        "from": "mcp",
+        "requirement": "sse-starlette>=3.0.0",
+        "to": "sse-starlette"
+      },
+      {
+        "from": "mcp",
+        "requirement": "starlette>=0.27; python_version < '3.14'",
+        "to": "starlette"
+      },
+      {
+        "from": "mcp",
+        "requirement": "typing-extensions>=4.13.0",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "mcp",
+        "requirement": "typing-inspection>=0.4.1",
+        "to": "typing-inspection"
+      },
+      {
+        "from": "mcp",
+        "requirement": "uvicorn>=0.31.1; sys_platform != 'emscripten'",
+        "to": "uvicorn"
+      },
+      {
+        "from": "mcp-types",
+        "requirement": "pydantic>=2.12.0",
+        "to": "pydantic"
+      },
+      {
+        "from": "mcp-types",
+        "requirement": "typing-extensions>=4.13.0",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "opentelemetry-api",
+        "requirement": "typing-extensions>=4.5.0",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "pydantic",
+        "requirement": "annotated-types>=0.6.0",
+        "to": "annotated-types"
+      },
+      {
+        "from": "pydantic",
+        "requirement": "pydantic-core==2.50.4",
+        "to": "pydantic-core"
+      },
+      {
+        "from": "pydantic",
+        "requirement": "typing-extensions>=4.16.0",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "pydantic",
+        "requirement": "typing-inspection>=0.4.4",
+        "to": "typing-inspection"
+      },
+      {
+        "from": "pydantic-core",
+        "requirement": "typing-extensions>=4.16.0",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "pyjwt",
+        "requirement": "cryptography>=3.4.0; extra == \"crypto\"",
+        "to": "cryptography"
+      },
+      {
+        "from": "referencing",
+        "requirement": "attrs>=22.2.0",
+        "to": "attrs"
+      },
+      {
+        "from": "referencing",
+        "requirement": "rpds-py>=0.7.0",
+        "to": "rpds-py"
+      },
+      {
+        "from": "referencing",
+        "requirement": "typing-extensions>=4.4.0; python_version < '3.13'",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "sse-starlette",
+        "requirement": "anyio>=4.7.0",
+        "to": "anyio"
+      },
+      {
+        "from": "sse-starlette",
+        "requirement": "starlette>=0.49.1",
+        "to": "starlette"
+      },
+      {
+        "from": "starlette",
+        "requirement": "anyio<5,>=4.0.0",
+        "to": "anyio"
+      },
+      {
+        "from": "starlette",
+        "requirement": "typing-extensions>=4.10.0; python_version < '3.13'",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "typing-inspection",
+        "requirement": "typing-extensions>=4.15.0",
+        "to": "typing-extensions"
+      },
+      {
+        "from": "uvicorn",
+        "requirement": "click>=7.0",
+        "to": "click"
+      },
+      {
+        "from": "uvicorn",
+        "requirement": "h11>=0.8",
+        "to": "h11"
+      }
+    ],
+    "installed_target": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1",
+    "interpreter": {
+      "format": "thin-arm64-mach-o-64-bit",
+      "path": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/python/cpython-3.12.16-macos-aarch64-none/bin/python3.12",
+      "sha256": "7a427de7a538c033f821bae69d18dba1fcf01e1947f8fdfece0d9654f680a787",
+      "version": "3.12.16"
+    },
+    "package_count": 30,
+    "packages": [
+      {
+        "name": "annotated-types",
+        "version": "0.8.0",
+        "wheel_filename": "annotated_types-0.8.0-py3-none-any.whl",
+        "wheel_sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0",
+        "wheel_filename": "anyio-4.16.0-py3-none-any.whl",
+        "wheel_sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0",
+        "wheel_filename": "attrs-26.1.0-py3-none-any.whl",
+        "wheel_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1",
+        "wheel_filename": "cffi-2.1.1-cp312-cp312-macosx_11_0_arm64.whl",
+        "wheel_sha256": "f81b3b8f3d4e343550fa4baa0e479bba9f2d29ce9c2e9b51d1ce1718d7442fcf"
+      },
+      {
+        "name": "claude-agent-sdk",
+        "version": "0.2.179",
+        "wheel_filename": "claude_agent_sdk-0.2.179-py3-none-macosx_11_0_arm64.whl",
+        "wheel_sha256": "28b40c646eb696316ca9d0531bb5f1179d1df4cd76fa630440170c91fbb788f0"
+      },
+      {
+        "name": "click",
+        "version": "8.5.1",
+        "wheel_filename": "click-8.5.1-py3-none-any.whl",
+        "wheel_sha256": "8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2",
+        "wheel_filename": "cryptography-50.0.2-cp311-abi3-macosx_11_0_arm64.whl",
+        "wheel_sha256": "fa8f5efb344d6908a1ce62f4a24e2e5780f825d6f53f5f50ec5ffacac72936cb"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0",
+        "wheel_filename": "h11-0.16.0-py3-none-any.whl",
+        "wheel_sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+      },
+      {
+        "name": "httpcore2",
+        "version": "2.16.0",
+        "wheel_filename": "httpcore2-2.16.0-py3-none-any.whl",
+        "wheel_sha256": "5c4358319f2602d984ad93182c9fee5160f22e9da7babdda870a5e7c4e2dc34f"
+      },
+      {
+        "name": "httpx2",
+        "version": "2.16.0",
+        "wheel_filename": "httpx2-2.16.0-py3-none-any.whl",
+        "wheel_sha256": "fd2c5d7909e8d86fe92d53020c310ca0e4e431b838c207c5754b9bbf0308d49a"
+      },
+      {
+        "name": "idna",
+        "version": "3.20",
+        "wheel_filename": "idna-3.20-py3-none-any.whl",
+        "wheel_sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0",
+        "wheel_filename": "jsonschema-4.26.0-py3-none-any.whl",
+        "wheel_sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "wheel_filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+        "wheel_sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+      },
+      {
+        "name": "mcp",
+        "version": "2.3.0",
+        "wheel_filename": "mcp-2.3.0-py3-none-any.whl",
+        "wheel_sha256": "dd0c44c089d16453e8ae31a3877a0054d7a2314caaa81f5e0541b9b1734b2377"
+      },
+      {
+        "name": "mcp-types",
+        "version": "2.3.0",
+        "wheel_filename": "mcp_types-2.3.0-py3-none-any.whl",
+        "wheel_sha256": "968efdbdaedfab06adae40d378a34395f1090c5921d4be3c9cde283aaf76d91d"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2",
+        "wheel_filename": "opentelemetry_api-1.45.2-py3-none-any.whl",
+        "wheel_sha256": "2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12",
+        "wheel_filename": "pycparser-3.12-py3-none-any.whl",
+        "wheel_sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.3",
+        "wheel_filename": "pydantic-2.14.3-py3-none-any.whl",
+        "wheel_sha256": "3f7b347782ab7e4cf4c798496ae3a82787d9f21ec12676a9c564355eeef8daa8"
+      },
+      {
+        "name": "pydantic-core",
+        "version": "2.50.4",
+        "wheel_filename": "pydantic_core-2.50.4-cp312-cp312-macosx_11_0_arm64.whl",
+        "wheel_sha256": "1e20cbde2b6deb33a51d08cd168454dd9044ec7d4474056f4d98d63f51578783"
+      },
+      {
+        "name": "pyjwt",
+        "version": "2.15.1",
+        "wheel_filename": "pyjwt-2.15.1-py3-none-any.whl",
+        "wheel_sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33",
+        "wheel_filename": "python_multipart-0.0.33-py3-none-any.whl",
+        "wheel_sha256": "8f16c07b36add9da6b2ee87d3efcaf0a45a6de9c3d0a5dd94e9ccf7675a7bc45"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0",
+        "wheel_filename": "referencing-0.37.0-py3-none-any.whl",
+        "wheel_sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1",
+        "wheel_filename": "rpds_py-2026.9.1-cp312-cp312-macosx_11_0_arm64.whl",
+        "wheel_sha256": "e21c1429e205828ea886a2293a4a2c8e01f4c25d9893ca330e97a6cf73f52e7b"
+      },
+      {
+        "name": "sniffio",
+        "version": "1.3.1",
+        "wheel_filename": "sniffio-1.3.1-py3-none-any.whl",
+        "wheel_sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.7.0",
+        "wheel_filename": "sse_starlette-3.7.0-py3-none-any.whl",
+        "wheel_sha256": "f1d3136caa12d129284fca3d2ded79bc9af943320b6472712955fea52a6d3eea"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0",
+        "wheel_filename": "starlette-1.10.0-py3-none-any.whl",
+        "wheel_sha256": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4"
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.5",
+        "wheel_filename": "truststore-0.10.5-py3-none-any.whl",
+        "wheel_sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0",
+        "wheel_filename": "typing_extensions-4.16.0-py3-none-any.whl",
+        "wheel_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.5",
+        "wheel_filename": "typing_inspection-0.4.5-py3-none-any.whl",
+        "wheel_sha256": "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0",
+        "wheel_filename": "uvicorn-0.54.0-py3-none-any.whl",
+        "wheel_sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf"
+      }
+    ],
+    "seal": {
+      "manifest": {
+        "path": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/seal-v4/manifest.json",
+        "sha256": "a55165b5bec7d7705a63e5559ce262fd1207527dc9532877c483a164a0d3db86"
+      },
+      "path": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/seal-v4/seal.json",
+      "requirements_lock": {
+        "path": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/seal-v4/requirements.lock.txt",
+        "sha256": "62c57a89d9da2849bc2f31b087060e454ca404a640525136ef94bdb34a8e82b5"
+      },
+      "sha256": "e4f702c756ad77e4e519d58c8a194f5062cdaff4543a008997313dbcf3b4bf23",
+      "sha256sums": {
+        "path": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/seal-v4/SHA256SUMS",
+        "sha256": "4e9bf9f58599ccb0e47b952918b3db988f3204c51ad5f679cbcc95a1f701e1ad"
+      }
+    },
+    "target": {
+      "architecture": "arm64",
+      "implementation": "CPython",
+      "platform": "macOS",
+      "python_version": "3.12.16"
+    }
+  },
+  "status": "READY_OFFLINE_CANDIDATE",
+  "target_runtime_python": "3.12",
+  "timestamp_evidence": {
+    "authoritative_process_start_and_end_timestamps_available": false,
+    "limitation": "authoritative_process_start_and_end_timestamps_unavailable",
+    "non_authoritative_filesystem_interval_utc": [
+      "2026-11-11T11:39:24Z",
+      "2026-11-11T11:39:26Z"
+    ]
+  },
+  "transitive_requirements": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "wheel_filename": "annotated_types-0.8.0-py3-none-any.whl",
+      "wheel_sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "wheel_filename": "anyio-4.16.0-py3-none-any.whl",
+      "wheel_sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "wheel_filename": "attrs-26.1.0-py3-none-any.whl",
+      "wheel_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "wheel_filename": "cffi-2.1.1-cp312-cp312-macosx_11_0_arm64.whl",
+      "wheel_sha256": "f81b3b8f3d4e343550fa4baa0e479bba9f2d29ce9c2e9b51d1ce1718d7442fcf"
+    },
+    {
+      "name": "click",
+      "version": "8.5.1",
+      "wheel_filename": "click-8.5.1-py3-none-any.whl",
+      "wheel_sha256": "8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37"
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.2",
+      "wheel_filename": "cryptography-50.0.2-cp311-abi3-macosx_11_0_arm64.whl",
+      "wheel_sha256": "fa8f5efb344d6908a1ce62f4a24e2e5780f825d6f53f5f50ec5ffacac72936cb"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "wheel_filename": "h11-0.16.0-py3-none-any.whl",
+      "wheel_sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "wheel_filename": "httpcore2-2.16.0-py3-none-any.whl",
+      "wheel_sha256": "5c4358319f2602d984ad93182c9fee5160f22e9da7babdda870a5e7c4e2dc34f"
+    },
+    {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "wheel_filename": "httpx2-2.16.0-py3-none-any.whl",
+      "wheel_sha256": "fd2c5d7909e8d86fe92d53020c310ca0e4e431b838c207c5754b9bbf0308d49a"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "wheel_filename": "idna-3.20-py3-none-any.whl",
+      "wheel_sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "wheel_filename": "jsonschema-4.26.0-py3-none-any.whl",
+      "wheel_sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "wheel_filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "wheel_sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+    },
+    {
+      "name": "mcp",
+      "version": "2.3.0",
+      "wheel_filename": "mcp-2.3.0-py3-none-any.whl",
+      "wheel_sha256": "dd0c44c089d16453e8ae31a3877a0054d7a2314caaa81f5e0541b9b1734b2377"
+    },
+    {
+      "name": "mcp-types",
+      "version": "2.3.0",
+      "wheel_filename": "mcp_types-2.3.0-py3-none-any.whl",
+      "wheel_sha256": "968efdbdaedfab06adae40d378a34395f1090c5921d4be3c9cde283aaf76d91d"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.2",
+      "wheel_filename": "opentelemetry_api-1.45.2-py3-none-any.whl",
+      "wheel_sha256": "2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.12",
+      "wheel_filename": "pycparser-3.12-py3-none-any.whl",
+      "wheel_sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "wheel_filename": "pydantic-2.14.3-py3-none-any.whl",
+      "wheel_sha256": "3f7b347782ab7e4cf4c798496ae3a82787d9f21ec12676a9c564355eeef8daa8"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "wheel_filename": "pydantic_core-2.50.4-cp312-cp312-macosx_11_0_arm64.whl",
+      "wheel_sha256": "1e20cbde2b6deb33a51d08cd168454dd9044ec7d4474056f4d98d63f51578783"
+    },
+    {
+      "name": "pyjwt",
+      "version": "2.15.1",
+      "wheel_filename": "pyjwt-2.15.1-py3-none-any.whl",
+      "wheel_sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.33",
+      "wheel_filename": "python_multipart-0.0.33-py3-none-any.whl",
+      "wheel_sha256": "8f16c07b36add9da6b2ee87d3efcaf0a45a6de9c3d0a5dd94e9ccf7675a7bc45"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "wheel_filename": "referencing-0.37.0-py3-none-any.whl",
+      "wheel_sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "wheel_filename": "rpds_py-2026.9.1-cp312-cp312-macosx_11_0_arm64.whl",
+      "wheel_sha256": "e21c1429e205828ea886a2293a4a2c8e01f4c25d9893ca330e97a6cf73f52e7b"
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "wheel_filename": "sniffio-1.3.1-py3-none-any.whl",
+      "wheel_sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"
+    },
+    {
+      "name": "sse-starlette",
+      "version": "3.7.0",
+      "wheel_filename": "sse_starlette-3.7.0-py3-none-any.whl",
+      "wheel_sha256": "f1d3136caa12d129284fca3d2ded79bc9af943320b6472712955fea52a6d3eea"
+    },
+    {
+      "name": "starlette",
+      "version": "1.10.0",
+      "wheel_filename": "starlette-1.10.0-py3-none-any.whl",
+      "wheel_sha256": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.5",
+      "wheel_filename": "truststore-0.10.5-py3-none-any.whl",
+      "wheel_sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "wheel_filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "wheel_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "wheel_filename": "typing_inspection-0.4.5-py3-none-any.whl",
+      "wheel_sha256": "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "wheel_filename": "uvicorn-0.54.0-py3-none-any.whl",
+      "wheel_sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf"
+    }
+  ],
+  "verified_from_local_artifact": true
+}

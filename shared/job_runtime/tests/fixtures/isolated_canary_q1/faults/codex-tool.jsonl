@@ -1,0 +1,4 @@
+{"thread_id":"thread-private","type":"thread.started"}
+{"type":"turn.started"}
+{"item":{"id":"item-private","status":"completed","tool":"spawn_agent","type":"collab_tool_call"},"type":"item.completed"}
+{"type":"turn.completed"}

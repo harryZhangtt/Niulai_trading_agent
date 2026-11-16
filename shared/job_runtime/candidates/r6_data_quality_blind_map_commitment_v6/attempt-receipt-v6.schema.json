@@ -1,0 +1,547 @@
+{
+  "$id": "r6-data-quality-blind-map-attempt-receipt-v6",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "cell_id": {
+            "const": "R6DQ-7F2C91A4"
+          }
+        },
+        "required": [
+          "cell_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "admitted_sequence": {
+            "const": 3
+          },
+          "provider_request_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/provider-request-R6DQ-7F2C91A4-v6.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "provider_result_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/provider-result-R6DQ-7F2C91A4-v6.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "result_sequence": {
+            "const": 4
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "cell_id": {
+            "const": "R6DQ-1B8E43D7"
+          }
+        },
+        "required": [
+          "cell_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "admitted_sequence": {
+            "const": 5
+          },
+          "provider_request_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/provider-request-R6DQ-1B8E43D7-v6.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "provider_result_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/provider-result-R6DQ-1B8E43D7-v6.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "result_sequence": {
+            "const": 6
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "cell_id": {
+            "const": "R6DQ-C4A7095E"
+          }
+        },
+        "required": [
+          "cell_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "admitted_sequence": {
+            "const": 7
+          },
+          "provider_request_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/provider-request-R6DQ-C4A7095E-v6.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "provider_result_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/provider-result-R6DQ-C4A7095E-v6.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "result_sequence": {
+            "const": 8
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "cell_id": {
+            "const": "R6DQ-92D6F0B3"
+          }
+        },
+        "required": [
+          "cell_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "admitted_sequence": {
+            "const": 9
+          },
+          "provider_request_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/provider-request-R6DQ-92D6F0B3-v6.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "provider_result_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/provider-result-R6DQ-92D6F0B3-v6.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "result_sequence": {
+            "const": 10
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "admitted_sequence": {
+      "type": "integer"
+    },
+    "attempt_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "attempt_number": {
+      "const": 1
+    },
+    "blind_alias": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "block_grant_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "chronology/final-block-grant-v6.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "block_grant_review_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "chronology/final-block-grant-review-v6.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "cell_id": {
+      "enum": [
+        "R6DQ-7F2C91A4",
+        "R6DQ-1B8E43D7",
+        "R6DQ-C4A7095E",
+        "R6DQ-92D6F0B3"
+      ]
+    },
+    "commitment_binding": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "canonical_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "commitment_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "sanitized-commitment-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        "receipt_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "transaction-receipt-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        "transaction_id": {
+          "pattern": "^[0-9a-f]{32}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "transaction_id",
+        "receipt_ref",
+        "commitment_ref",
+        "canonical_digest",
+        "canonical_bytes"
+      ],
+      "type": "object"
+    },
+    "immutable": {
+      "const": true
+    },
+    "provider_request_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "enum": [
+            "chronology/provider-request-R6DQ-7F2C91A4-v6.json",
+            "chronology/provider-request-R6DQ-1B8E43D7-v6.json",
+            "chronology/provider-request-R6DQ-C4A7095E-v6.json",
+            "chronology/provider-request-R6DQ-92D6F0B3-v6.json"
+          ]
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "provider_result_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "enum": [
+            "chronology/provider-result-R6DQ-7F2C91A4-v6.json",
+            "chronology/provider-result-R6DQ-1B8E43D7-v6.json",
+            "chronology/provider-result-R6DQ-C4A7095E-v6.json",
+            "chronology/provider-result-R6DQ-92D6F0B3-v6.json"
+          ]
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "result_sequence": {
+      "type": "integer"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-attempt-receipt-v6"
+    },
+    "version": {
+      "const": 6
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "attempt_id",
+    "cell_id",
+    "blind_alias",
+    "block_grant_ref",
+    "block_grant_review_ref",
+    "commitment_binding",
+    "provider_request_ref",
+    "provider_result_ref",
+    "admitted_sequence",
+    "result_sequence",
+    "attempt_number",
+    "immutable"
+  ],
+  "type": "object"
+}

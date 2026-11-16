@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact|fork",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3",
+            "args": [
+              "-B",
+              "${CLAUDE_PROJECT_DIR}/mentor/session_init.py"
+            ],
+            "timeout": 10,
+            "onFailure": "continue",
+            "statusMessage": "Loading mentor policy and router"
+          }
+        ]
+      }
+    ]
+  }
+}

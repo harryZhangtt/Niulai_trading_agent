@@ -1,0 +1,1968 @@
+{
+  "artifacts": [
+    {
+      "archive": {
+        "expanded_size": 36347,
+        "member_count": 7
+      },
+      "filename": "annotated_types-0.8.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "expression": "MIT",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "annotated-types",
+      "record": {
+        "archive_tree_sha256": "293dcd241f0ce11d7584b33bb2bf8ea99e28bbbd11da6dbc3095974722fc0206",
+        "member": "annotated_types-0.8.0.dist-info/RECORD",
+        "sha256": "114b36a7ba292e2b78ecd901d104c3fade4699ccfb684a5d9179749cbaeaeaaa",
+        "validated_members": 7
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.10",
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "size": 13427,
+      "source": {
+        "artifact_sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+        "artifact_url": "https://files.pythonhosted.org/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl",
+        "filename": "annotated_types-0.8.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/annotated-types/0.8.0/json",
+        "project_json_bytes": 17411,
+        "project_json_sha256": "a6e8e5b10c8fd2f596bba53e015cd37f6279fb5cec26ce0c5e9968625be4fefa",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:16 GMT",
+          "etag": "\"zzRLUbwFpfq2FvVy2HizZA\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-07-23T20:16:12.938651Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "0.8.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 553035,
+        "member_count": 53
+      },
+      "filename": "anyio-4.16.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "anyio",
+      "record": {
+        "archive_tree_sha256": "75d1f25f4585c4029868e91baa1da0ef9d609a0ad2a0cbb800b49695d691d759",
+        "member": "anyio-4.16.0.dist-info/RECORD",
+        "sha256": "5bd5cbeff904a67af967975d9a3b0881721015f1fcaa0519323b14a5605f0c81",
+        "validated_members": 53
+      },
+      "requires_dist": [
+        "exceptiongroup>=1.0.2; python_version < \"3.11\"",
+        "idna>=2.8",
+        "typing_extensions>=4.16.0; python_version < \"3.15\"",
+        "trio>=0.32.0; extra == \"trio\""
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026",
+      "size": 134521,
+      "source": {
+        "artifact_sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026",
+        "artifact_url": "https://files.pythonhosted.org/packages/a9/16/7757fb84c819accc7d7e9af5291b261e4abb8627ee040f99e7d35ef2457a/anyio-4.16.0-py3-none-any.whl",
+        "filename": "anyio-4.16.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/anyio/4.16.0/json",
+        "project_json_bytes": 6904,
+        "project_json_sha256": "0ea1314e4706d64fe828b76006f7c790b193979f9fb18c6ce416939a89fca1ff",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:17 GMT",
+          "etag": "\"+5agCfWNAzkt+q7o00UP0Q\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-11-01T11:20:05.590351Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "4.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 233691,
+        "member_count": 35
+      },
+      "filename": "attrs-26.1.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "attrs",
+      "record": {
+        "archive_tree_sha256": "f58dd5e2291cf1ae49d0780410c044538ee14e59ce208dd09d2782334e880f2e",
+        "member": "attrs-26.1.0.dist-info/RECORD",
+        "sha256": "ece8bf0367609a064951bcf56a1697d8c61b674d0ce7a7d57e0a93777d86b4af",
+        "validated_members": 35
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.9",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "size": 67548,
+      "source": {
+        "artifact_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+        "artifact_url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+        "filename": "attrs-26.1.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/attrs/26.1.0/json",
+        "project_json_bytes": 11038,
+        "project_json_sha256": "a882bf941fb4a0bb748d0194df544121cc130f5fb15a710ab6b804c17d2899b7",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:19 GMT",
+          "etag": "\"QY1UhWuJOzkkBYXyERuKdw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-03-19T14:22:23.645947Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "26.1.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 615840,
+        "member_count": 34
+      },
+      "filename": "cffi-2.1.1-cp312-cp312-macosx_11_0_arm64.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT-0",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "cffi",
+      "record": {
+        "archive_tree_sha256": "55556cf9706a3667cfbb92ef3e298e09226d2922d2cb599a6965248c7ab08185",
+        "member": "cffi-2.1.1.dist-info/RECORD",
+        "sha256": "bd3e69c84e8a60c2b5390c1aef67a7ae124a98e782ca1c51ca7d1a665fe8464f",
+        "validated_members": 31
+      },
+      "requires_dist": [
+        "pycparser; implementation_name != \"PyPy\""
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "f81b3b8f3d4e343550fa4baa0e479bba9f2d29ce9c2e9b51d1ce1718d7442fcf",
+      "size": 184719,
+      "source": {
+        "artifact_sha256": "f81b3b8f3d4e343550fa4baa0e479bba9f2d29ce9c2e9b51d1ce1718d7442fcf",
+        "artifact_url": "https://files.pythonhosted.org/packages/54/7d/16e5a096677b5e313ca80cd5e5170efa3ea44624a82bb111925522da64b1/cffi-2.1.1-cp312-cp312-macosx_11_0_arm64.whl",
+        "filename": "cffi-2.1.1-cp312-cp312-macosx_11_0_arm64.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/cffi/2.1.1/json",
+        "project_json_bytes": 89333,
+        "project_json_sha256": "2255e530e3f80593a354e3d84a29966924d0e10309d1e3a6d50f845ab7d8df66",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:20 GMT",
+          "etag": "\"OAysEPf1d/baFIiFc2G/Xw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-08-03T21:19:46.129110Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2.1.1",
+      "wheel_tags": [
+        "cp312-cp312-macosx_11_0_arm64"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 322548036,
+        "member_count": 33
+      },
+      "filename": "claude_agent_sdk-0.2.179-py3-none-macosx_11_0_arm64.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "expression": null,
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": "MIT"
+      },
+      "name": "claude-agent-sdk",
+      "record": {
+        "archive_tree_sha256": "f0bfe277a3925c74d7cbc2b1680f90a520b5d294c53b4aeeb17cfe1805456d23",
+        "member": "claude_agent_sdk-0.2.179.dist-info/RECORD",
+        "sha256": "f26a4580cc2cce16f15b6c83f44bfa23f334637482f932a3ea922fa6e1a91f5b",
+        "validated_members": 33
+      },
+      "requires_dist": [
+        "anyio>=4.0.0",
+        "jsonschema>=4.20.0",
+        "mcp<3.0.0,>=1.23.0",
+        "sniffio>=1.0.0",
+        "typing-extensions>=4.0.0; python_version < '3.11'",
+        "anyio[trio]>=4.0.0; extra == 'dev'",
+        "mypy>=1.0.0; extra == 'dev'",
+        "pytest-cov>=4.0.0; extra == 'dev'",
+        "pytest>=7.0.0; extra == 'dev'",
+        "ruff>=0.1.0; extra == 'dev'",
+        "asyncpg>=0.27.0; extra == 'examples'",
+        "boto3>=1.28.0; extra == 'examples'",
+        "fakeredis>=2.20.0; extra == 'examples'",
+        "moto[s3]>=5.0.0; extra == 'examples'",
+        "redis>=4.2.0; extra == 'examples'",
+        "opentelemetry-api>=1.20.0; extra == 'otel'"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "28b40c646eb696316ca9d0531bb5f1179d1df4cd76fa630440170c91fbb788f0",
+      "size": 139333276,
+      "source": {
+        "artifact_sha256": "28b40c646eb696316ca9d0531bb5f1179d1df4cd76fa630440170c91fbb788f0",
+        "artifact_url": "https://files.pythonhosted.org/packages/4a/e4/da356f282abbdfc348864a424ef39d892d4681516150785d8402008940a2/claude_agent_sdk-0.2.179-py3-none-macosx_11_0_arm64.whl",
+        "filename": "claude_agent_sdk-0.2.179-py3-none-macosx_11_0_arm64.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/claude-agent-sdk/0.2.179/json",
+        "project_json_bytes": 20957,
+        "project_json_sha256": "3574fcf2f7a98b68222512d7055da3c2a12559c3c0977b410356a3b13d6d06af",
+        "provenance_attestation": {
+          "available": false,
+          "endpoint": "https://pypi.org/integrity/claude-agent-sdk/0.2.179/claude_agent_sdk-0.2.179-py3-none-macosx_11_0_arm64.whl/provenance",
+          "http_status": 404,
+          "passed": false,
+          "status": "unavailable"
+        },
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:23 GMT",
+          "etag": "\"PSH6YIl+p4MpdULlAqcthA\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-11-06T17:56:09.546918Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "0.2.179",
+      "wheel_tags": [
+        "py3-none-macosx_11_0_arm64"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 449840,
+        "member_count": 22
+      },
+      "filename": "click-8.5.1-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "BSD-3-Clause",
+        "files": [
+          "LICENSE.txt"
+        ],
+        "legacy": null
+      },
+      "name": "click",
+      "record": {
+        "archive_tree_sha256": "5eda24fd76043aab1be0dfed67290013e952ec6cfb1c6792b69993ed257ee2bb",
+        "member": "click-8.5.1.dist-info/RECORD",
+        "sha256": "4d19ce478cef1a887cf99c9beba35969d821490553d80984efe7c276e2c4490a",
+        "validated_members": 22
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.10",
+      "sha256": "8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37",
+      "size": 126163,
+      "source": {
+        "artifact_sha256": "8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37",
+        "artifact_url": "https://files.pythonhosted.org/packages/31/7d/164b7ffc8624fe9efb4221bf9af485d5c1e41b9ae118045d2b6dc5457d8b/click-8.5.1-py3-none-any.whl",
+        "filename": "click-8.5.1-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/click/8.5.1/json",
+        "project_json_bytes": 4722,
+        "project_json_sha256": "d6ec5ff9b41fc09d046eb431973dae2eec594dba3a853d03f369c4e3b2fde9b6",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:25 GMT",
+          "etag": "\"qrGwLXNyX6eWKjhVj3xaiw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-11-06T17:36:59.287013Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "8.5.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 11011100,
+        "member_count": 120
+      },
+      "filename": "cryptography-50.0.2-cp311-abi3-macosx_11_0_arm64.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "Apache-2.0 OR BSD-3-Clause",
+        "files": [
+          "LICENSE",
+          "LICENSE.APACHE",
+          "LICENSE.BSD"
+        ],
+        "legacy": null
+      },
+      "name": "cryptography",
+      "record": {
+        "archive_tree_sha256": "c9073e84267a694505aa17588daf969a06f92018f6597cc7878f6dea6e4adf85",
+        "member": "cryptography-50.0.2.dist-info/RECORD",
+        "sha256": "c2469ed5239fdaf220382f0065c23744b361a2f14f637dbf5581958b0a83a7e1",
+        "validated_members": 120
+      },
+      "requires_dist": [
+        "cffi>=2.0.0 ; platform_python_implementation != 'PyPy'",
+        "typing-extensions>=4.13.2 ; python_full_version < '3.11'",
+        "bcrypt>=3.1.5 ; extra == 'ssh'"
+      ],
+      "requires_python": ">=3.9, !=3.9.0, !=3.9.1",
+      "sha256": "fa8f5efb344d6908a1ce62f4a24e2e5780f825d6f53f5f50ec5ffacac72936cb",
+      "size": 3914904,
+      "source": {
+        "artifact_sha256": "fa8f5efb344d6908a1ce62f4a24e2e5780f825d6f53f5f50ec5ffacac72936cb",
+        "artifact_url": "https://files.pythonhosted.org/packages/e5/56/d194340cc4a57535e82e1bee9e89667ac4b7c13b5d3f59686deae3094dd5/cryptography-50.0.2-cp311-abi3-macosx_11_0_arm64.whl",
+        "filename": "cryptography-50.0.2-cp311-abi3-macosx_11_0_arm64.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/cryptography/50.0.2/json",
+        "project_json_bytes": 57201,
+        "project_json_sha256": "7423990cc0948676ef47a71ea62a476ece4c76245e6bebd1c3a71f03c4ffc0f4",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:25 GMT",
+          "etag": "\"KMeZB6rX8RKAOYtgYLmSbQ\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-09-30T14:43:44.339921Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "50.0.2",
+      "wheel_tags": [
+        "cp311-abi3-macosx_11_0_arm64"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 103935,
+        "member_count": 17
+      },
+      "filename": "h11-0.16.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "expression": null,
+        "files": [
+          "LICENSE.txt"
+        ],
+        "legacy": "MIT"
+      },
+      "name": "h11",
+      "record": {
+        "archive_tree_sha256": "823162623cd4cf32d78c28194f109078d1f5dc571a1958e84a2fbfedc8fe4d54",
+        "member": "h11-0.16.0.dist-info/RECORD",
+        "sha256": "1f1d4d9080c9f2a995417616ead6ea614da41b477958ed0ba0e45a82c6212721",
+        "validated_members": 17
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.8",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "size": 37515,
+      "source": {
+        "artifact_sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+        "artifact_url": "https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl",
+        "filename": "h11-0.16.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/h11/0.16.0/json",
+        "project_json_bytes": 10603,
+        "project_json_sha256": "97f4efb9cc00826f0408076983adc1a1e48e8f2cabf403aaf250f724e081440d",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:27 GMT",
+          "etag": "\"sxf6OblifYWD3AVMv2KEmw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2025-04-24T03:35:24.344199Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "0.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 307028,
+        "member_count": 36
+      },
+      "filename": "httpcore2-2.16.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: BSD License"
+        ],
+        "expression": "BSD-3-Clause",
+        "files": [
+          "LICENSE.md"
+        ],
+        "legacy": null
+      },
+      "name": "httpcore2",
+      "record": {
+        "archive_tree_sha256": "41eec8b5924e9b9dfb28d305215dad91d58ecbd61eb34d6d9ca0115a5be68c3f",
+        "member": "httpcore2-2.16.0.dist-info/RECORD",
+        "sha256": "405cfbace0155832e08a10bccc38bfde0b2f011c751d352d5d4240acd19134b1",
+        "validated_members": 36
+      },
+      "requires_dist": [
+        "h11>=0.16",
+        "truststore>=0.10",
+        "anyio<5.0,>=4.5.0; extra == 'asyncio'",
+        "h2<5,>=3; extra == 'http2'",
+        "socksio==1.*; extra == 'socks'",
+        "trio<1.0,>=0.34.0; extra == 'trio'"
+      ],
+      "requires_python": ">=3.11",
+      "sha256": "5c4358319f2602d984ad93182c9fee5160f22e9da7babdda870a5e7c4e2dc34f",
+      "size": 85070,
+      "source": {
+        "artifact_sha256": "5c4358319f2602d984ad93182c9fee5160f22e9da7babdda870a5e7c4e2dc34f",
+        "artifact_url": "https://files.pythonhosted.org/packages/af/c2/ce417c397afa5181f0e3c6ff01a4d01639414e1adef08730d97571297151/httpcore2-2.16.0-py3-none-any.whl",
+        "filename": "httpcore2-2.16.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/httpcore2/2.16.0/json",
+        "project_json_bytes": 30224,
+        "project_json_sha256": "194dc38b07c5836c3793de7ce6a56f998798304de165a4857c52f6525a6dd9ab",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:28 GMT",
+          "etag": "\"I0lDCa0iSYFfQgXX+wJ8hw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-21T07:09:42.802531Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 412425,
+        "member_count": 37
+      },
+      "filename": "httpx2-2.16.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: BSD License"
+        ],
+        "expression": "BSD-3-Clause",
+        "files": [
+          "LICENSE.md"
+        ],
+        "legacy": null
+      },
+      "name": "httpx2",
+      "record": {
+        "archive_tree_sha256": "be0b4cbf74ae55b41fb6114423220fab16f1d9fe654dde8ea9f40a3e292a982e",
+        "member": "httpx2-2.16.0.dist-info/RECORD",
+        "sha256": "15002b282fba0c822608640a675e1ea659233fe747cae7d6dae1bc07fc77eac6",
+        "validated_members": 37
+      },
+      "requires_dist": [
+        "anyio>=4.10; sys_platform != 'emscripten'",
+        "httpcore2==2.16.0; sys_platform != 'emscripten'",
+        "httpx2-jsfetch; sys_platform == 'emscripten' and python_version >= '3.12'",
+        "idna>=3.18",
+        "truststore>=0.10; sys_platform != 'emscripten'",
+        "typing-extensions>=4.5.0; python_version < '3.13'",
+        "brotli>=1.2.0; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+        "brotlicffi>=1.2.0.2; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+        "click>=8.4.2; extra == 'cli'",
+        "pygments==2.*; extra == 'cli'",
+        "rich<16,>=10; extra == 'cli'",
+        "h2<5,>=3; extra == 'http2'",
+        "socksio==1.*; extra == 'socks'",
+        "wsproto>=1.2; extra == 'ws'",
+        "backports-zstd>=1.0.0; (python_version <= '3.13') and extra == 'zstd'"
+      ],
+      "requires_python": ">=3.11",
+      "sha256": "fd2c5d7909e8d86fe92d53020c310ca0e4e431b838c207c5754b9bbf0308d49a",
+      "size": 97880,
+      "source": {
+        "artifact_sha256": "fd2c5d7909e8d86fe92d53020c310ca0e4e431b838c207c5754b9bbf0308d49a",
+        "artifact_url": "https://files.pythonhosted.org/packages/7b/3d/2e4bc4fd1ef9770871669adb348d612a6e4786b303a23f9935b81c48dd60/httpx2-2.16.0-py3-none-any.whl",
+        "filename": "httpx2-2.16.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/httpx2/2.16.0/json",
+        "project_json_bytes": 11983,
+        "project_json_sha256": "95a397422b57e91a6e9ee2dc062b31229cbed63a2e863f2c1a58ec5ec2555cf0",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:30 GMT",
+          "etag": "\"E1UPQY2lGQlsQiujguqmvQ\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-21T07:09:44.010669Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 342091,
+        "member_count": 16
+      },
+      "filename": "idna-3.20-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "BSD-3-Clause",
+        "files": [
+          "LICENSE.md"
+        ],
+        "legacy": null
+      },
+      "name": "idna",
+      "record": {
+        "archive_tree_sha256": "59b65fbee84aab0aeca46e347253571320b97819f6736cd28a9a245af7beb6cd",
+        "member": "idna-3.20.dist-info/RECORD",
+        "sha256": "8e2670b3fc1bbf1e2cf99050b062fda50203881e43420bbc6772dad2cde2d548",
+        "validated_members": 16
+      },
+      "requires_dist": [
+        "ruff >= 0.16.0 ; extra == \"all\"",
+        "mypy >= 1.11.2 ; extra == \"all\"",
+        "ty >= 0.0.37 ; extra == \"all\"",
+        "pytest >= 8.3.2 ; extra == \"all\"",
+        "hypothesis >= 6.141.1 ; extra == \"all\"",
+        "coverage >= 7.10.0 ; extra == \"all\""
+      ],
+      "requires_python": ">=3.9",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "size": 69583,
+      "source": {
+        "artifact_sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+        "artifact_url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+        "filename": "idna-3.20-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/idna/3.20/json",
+        "project_json_bytes": 9180,
+        "project_json_sha256": "e7cbd26e23ce60f6cb3a151d2adf3b1b087bb8f10ac2d9d6db70fdccbf3bb041",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:31 GMT",
+          "etag": "\"lMsuesElFKyVx04CfEtwxQ\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-09-17T14:11:03.168153Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "3.20",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 476081,
+        "member_count": 43
+      },
+      "filename": "jsonschema-4.26.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "COPYING"
+        ],
+        "legacy": null
+      },
+      "name": "jsonschema",
+      "record": {
+        "archive_tree_sha256": "f730f9df316e01a017378ff368697b17d58c921145533787d07d2522769ab084",
+        "member": "jsonschema-4.26.0.dist-info/RECORD",
+        "sha256": "382a461bc5151888cac603114697e4522c3cd6ee2622e4c23929e372556ae180",
+        "validated_members": 43
+      },
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "jsonschema-specifications>=2023.03.6",
+        "referencing>=0.28.4",
+        "rpds-py>=0.25.0",
+        "fqdn; extra == 'format'",
+        "idna; extra == 'format'",
+        "isoduration; extra == 'format'",
+        "jsonpointer>1.13; extra == 'format'",
+        "rfc3339-validator; extra == 'format'",
+        "rfc3987; extra == 'format'",
+        "uri-template; extra == 'format'",
+        "webcolors>=1.11; extra == 'format'",
+        "fqdn; extra == 'format-nongpl'",
+        "idna; extra == 'format-nongpl'",
+        "isoduration; extra == 'format-nongpl'",
+        "jsonpointer>1.13; extra == 'format-nongpl'",
+        "rfc3339-validator; extra == 'format-nongpl'",
+        "rfc3986-validator>0.1.0; extra == 'format-nongpl'",
+        "rfc3987-syntax>=1.1.0; extra == 'format-nongpl'",
+        "uri-template; extra == 'format-nongpl'",
+        "webcolors>=24.6.0; extra == 'format-nongpl'"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "size": 90630,
+      "source": {
+        "artifact_sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+        "artifact_url": "https://files.pythonhosted.org/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl",
+        "filename": "jsonschema-4.26.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/jsonschema/4.26.0/json",
+        "project_json_bytes": 9468,
+        "project_json_sha256": "d0c9ccdfa30c3cdc57b048c2be21123dfb0c2f4d6bef2e8324dcb4eac985cfcf",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:31 GMT",
+          "etag": "\"I+WFAGN5zShR5zNEt+v+eg\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-01-07T13:41:05.306692Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "4.26.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 47261,
+        "member_count": 28
+      },
+      "filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "COPYING"
+        ],
+        "legacy": null
+      },
+      "name": "jsonschema-specifications",
+      "record": {
+        "archive_tree_sha256": "c17c3906545e5ba998cfbb7617fc3646e4f232a0c8c64af065de8b36294f0621",
+        "member": "jsonschema_specifications-2025.9.1.dist-info/RECORD",
+        "sha256": "497d6b8e47548e7fb8e66a8fcefcb717ed1458602e09662719066ce7dfc017dd",
+        "validated_members": 28
+      },
+      "requires_dist": [
+        "referencing>=0.31.0"
+      ],
+      "requires_python": ">=3.9",
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "size": 18437,
+      "source": {
+        "artifact_sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+        "artifact_url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+        "filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/jsonschema-specifications/2025.9.1/json",
+        "project_json_bytes": 5037,
+        "project_json_sha256": "91810d8f79384375ad0c0cf631e06903e2790b030d3fad2f1ad657b20ddd839e",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:33 GMT",
+          "etag": "\"VDTeCxD73RkC8KD0AZhj/A\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2025-09-08T01:34:57.871954Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2025.9.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 1210630,
+        "member_count": 130
+      },
+      "filename": "mcp-2.3.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "expression": null,
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": "MIT"
+      },
+      "name": "mcp",
+      "record": {
+        "archive_tree_sha256": "0929a4c16c593e40776e14fa5757d9144eeef292eff12676dfa9f6b3d3fb8bbf",
+        "member": "mcp-2.3.0.dist-info/RECORD",
+        "sha256": "a4dab56b0dd0e141d5464695bec61a21135dadcc1413f74c5d0470c219e7dafd",
+        "validated_members": 130
+      },
+      "requires_dist": [
+        "anyio>=4.10; python_version >= '3.14'",
+        "anyio>=4.9; python_version < '3.14'",
+        "httpx2>=2.10.0",
+        "jsonschema>=4.20.0",
+        "mcp-types==2.3.0",
+        "opentelemetry-api>=1.28.0",
+        "pydantic>=2.12.0",
+        "pyjwt[crypto]>=2.10.1",
+        "python-multipart>=0.0.9",
+        "pywin32>=311; sys_platform == 'win32'",
+        "sse-starlette>=3.0.0",
+        "starlette>=0.27; python_version < '3.14'",
+        "starlette>=0.48.0; python_version >= '3.14'",
+        "typing-extensions>=4.13.0",
+        "typing-inspection>=0.4.1",
+        "uvicorn>=0.31.1; sys_platform != 'emscripten'",
+        "python-dotenv>=1.0.0; extra == 'cli'",
+        "typer>=0.16.0; extra == 'cli'",
+        "rich>=13.9.4; extra == 'rich'"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "dd0c44c089d16453e8ae31a3877a0054d7a2314caaa81f5e0541b9b1734b2377",
+      "size": 368664,
+      "source": {
+        "artifact_sha256": "dd0c44c089d16453e8ae31a3877a0054d7a2314caaa81f5e0541b9b1734b2377",
+        "artifact_url": "https://files.pythonhosted.org/packages/20/d7/4a2878f128df729db3ca04e71bfce26405cc2e0c9ebe19c592feeb4c61b9/mcp-2.3.0-py3-none-any.whl",
+        "filename": "mcp-2.3.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/mcp/2.3.0/json",
+        "project_json_bytes": 8676,
+        "project_json_sha256": "d9348a2813cdf05df82f7852afb9f13d8a8035d62c3a5e07fb9657bc5382aad7",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:35 GMT",
+          "etag": "\"7XL4ZlcGk++H6gx3T/lgnw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-02T22:06:52.119073Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2.3.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 356212,
+        "member_count": 13
+      },
+      "filename": "mcp_types-2.3.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "expression": null,
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": "MIT"
+      },
+      "name": "mcp-types",
+      "record": {
+        "archive_tree_sha256": "f05d9ba36ac7db4f00f0ac6d8bf7804997729f3e0637a28575cccb0e336bb764",
+        "member": "mcp_types-2.3.0.dist-info/RECORD",
+        "sha256": "bb2c8e929672452177f0a9bc359819a879c9371ed79cba96effeab6557c38380",
+        "validated_members": 13
+      },
+      "requires_dist": [
+        "pydantic>=2.12.0",
+        "typing-extensions>=4.13.0"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "968efdbdaedfab06adae40d378a34395f1090c5921d4be3c9cde283aaf76d91d",
+      "size": 69108,
+      "source": {
+        "artifact_sha256": "968efdbdaedfab06adae40d378a34395f1090c5921d4be3c9cde283aaf76d91d",
+        "artifact_url": "https://files.pythonhosted.org/packages/ce/48/32583066b155bb5d4507e7887dc88ee23118cc4de8e2a12870c49719e2a8/mcp_types-2.3.0-py3-none-any.whl",
+        "filename": "mcp_types-2.3.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/mcp-types/2.3.0/json",
+        "project_json_bytes": 4042,
+        "project_json_sha256": "9df9fb5f5ca5d2ca3c74b2d9fc1b1e9d753e84ab22be14f177a1cbed5e94c419",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:36 GMT",
+          "etag": "\"5Wx0t53KVOyFPGOnZpksFQ\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-02T22:06:54.099202Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2.3.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 196771,
+        "member_count": 47
+      },
+      "filename": "opentelemetry_api-1.45.2-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "Apache-2.0",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "opentelemetry-api",
+      "record": {
+        "archive_tree_sha256": "42e9b56ee7e16177f751d7f566827b29910d1296fd76b17fa1d006ea3b529367",
+        "member": "opentelemetry_api-1.45.2.dist-info/RECORD",
+        "sha256": "4a028c0bf15491f1c93f57acd4eb27580568ee078e9371a14d362bdd304f7089",
+        "validated_members": 47
+      },
+      "requires_dist": [
+        "typing-extensions>=4.5.0"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34",
+      "size": 60335,
+      "source": {
+        "artifact_sha256": "2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34",
+        "artifact_url": "https://files.pythonhosted.org/packages/a9/2d/610db864d7513158cebb8f36cc88e67e73bd6c7aa1905ef18d89e1281c81/opentelemetry_api-1.45.2-py3-none-any.whl",
+        "filename": "opentelemetry_api-1.45.2-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/opentelemetry-api/1.45.2/json",
+        "project_json_bytes": 3580,
+        "project_json_sha256": "0b58654ba1b29b21bbbb90f03286d24425e752c219e556b80dae93f839b7e33f",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:37 GMT",
+          "etag": "\"A601cp6i9pzBEwCPZEjNhQ\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-29T17:29:06.955093Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "1.45.2",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 262110,
+        "member_count": 13
+      },
+      "filename": "pycparser-3.12-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "BSD-3-Clause",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "pycparser",
+      "record": {
+        "archive_tree_sha256": "725df952d3be8f3f8bde47fe82d727f026d64d660fb5e5516f78ac81f0afc69f",
+        "member": "pycparser-3.12.dist-info/RECORD",
+        "sha256": "b2a227ea2913449fb429db4f6a20a8e83175759641c97913759b2b3f4417727f",
+        "validated_members": 13
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.11",
+      "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e",
+      "size": 62600,
+      "source": {
+        "artifact_sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e",
+        "artifact_url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
+        "filename": "pycparser-3.12-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/pycparser/3.12/json",
+        "project_json_bytes": 12094,
+        "project_json_sha256": "e919b291615d54a2328a0da6128cd9d95601ad04d27cec48eeb75e0d57c3b6ad",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:39 GMT",
+          "etag": "\"b6ENcFZnUhfPSeKwVafHKw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-22T13:40:02.021539Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "3.12",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 1987038,
+        "member_count": 112
+      },
+      "filename": "pydantic-2.14.3-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "pydantic",
+      "record": {
+        "archive_tree_sha256": "b3f59e1c62668287c563a11dfa1236eae507f1fbec1a389150e2952e71a3dd53",
+        "member": "pydantic-2.14.3.dist-info/RECORD",
+        "sha256": "53e00d879aa8c18a840cc65dbb7ed8bc87f4d71e1dced65f4a1e20c1d447fff4",
+        "validated_members": 112
+      },
+      "requires_dist": [
+        "annotated-types>=0.6.0",
+        "pydantic-core==2.50.4",
+        "typing-extensions>=4.16.0",
+        "typing-inspection>=0.4.4",
+        "email-validator>=2.0.0; extra == 'email'",
+        "tzdata; (platform_system == 'Windows') and extra == 'timezone'"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "3f7b347782ab7e4cf4c798496ae3a82787d9f21ec12676a9c564355eeef8daa8",
+      "size": 494071,
+      "source": {
+        "artifact_sha256": "3f7b347782ab7e4cf4c798496ae3a82787d9f21ec12676a9c564355eeef8daa8",
+        "artifact_url": "https://files.pythonhosted.org/packages/72/b8/b864503789ef5c58597d2a7b4adbee62c26440ab1e682581fc6838df8947/pydantic-2.14.3-py3-none-any.whl",
+        "filename": "pydantic-2.14.3-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/pydantic/2.14.3/json",
+        "project_json_bytes": 145047,
+        "project_json_sha256": "a3cbc2d0a8c5975247e41f400eee985a9c38851db799f2496f8bb1afae32f9aa",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:39 GMT",
+          "etag": "\"MB9IiilvZDcGyTP6ToIjrg\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-11-05T09:17:02.426672Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2.14.3",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 4863438,
+        "member_count": 11
+      },
+      "filename": "pydantic_core-2.50.4-cp312-cp312-macosx_11_0_arm64.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "pydantic-core",
+      "record": {
+        "archive_tree_sha256": "c78aaabca4c9a5d3b3991e98c70191ce1b9698da36a30edb86c5d2e7bfd08404",
+        "member": "pydantic_core-2.50.4.dist-info/RECORD",
+        "sha256": "ba3fa2e3745a9dea66095e45f281d64aed4cb0bfcab15ad52d39e0c92604a106",
+        "validated_members": 11
+      },
+      "requires_dist": [
+        "typing-extensions>=4.16.0"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "1e20cbde2b6deb33a51d08cd168454dd9044ec7d4474056f4d98d63f51578783",
+      "size": 2108048,
+      "source": {
+        "artifact_sha256": "1e20cbde2b6deb33a51d08cd168454dd9044ec7d4474056f4d98d63f51578783",
+        "artifact_url": "https://files.pythonhosted.org/packages/c1/39/6618e541658d5a687a8d4962fc304350073a8f322bc4c62e8ed4c2d514d6/pydantic_core-2.50.4-cp312-cp312-macosx_11_0_arm64.whl",
+        "filename": "pydantic_core-2.50.4-cp312-cp312-macosx_11_0_arm64.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/pydantic-core/2.50.4/json",
+        "project_json_bytes": 130899,
+        "project_json_sha256": "b8520a34093ec06776fe4470c39c2e37913dc6579146ad095882ef2395a648ef",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:41 GMT",
+          "etag": "\"xcIu0VhyhLLqhbERAgYo0w\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-11-05T09:12:08.850422Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2.50.4",
+      "wheel_tags": [
+        "cp312-cp312-macosx_11_0_arm64"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 122170,
+        "member_count": 19
+      },
+      "filename": "pyjwt-2.15.1-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "LICENSE",
+          "AUTHORS.rst"
+        ],
+        "legacy": null
+      },
+      "name": "pyjwt",
+      "record": {
+        "archive_tree_sha256": "978a99c53b13ba33e3e2ef87ac2dcf9e659acf0e7e75e4e27e9b11f18227b476",
+        "member": "pyjwt-2.15.1.dist-info/RECORD",
+        "sha256": "b40a03882675414725e9a67d130050f894e6f41dbb82c2b2a0552b5cf9ad0b22",
+        "validated_members": 19
+      },
+      "requires_dist": [
+        "typing_extensions>=4.0; python_version < \"3.11\"",
+        "cryptography>=3.4.0; extra == \"crypto\""
+      ],
+      "requires_python": ">=3.9",
+      "sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193",
+      "size": 33860,
+      "source": {
+        "artifact_sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193",
+        "artifact_url": "https://files.pythonhosted.org/packages/50/ca/44de4e75f8aadc457f0634be3b542815078ded46dca30efb960edeecad6e/pyjwt-2.15.1-py3-none-any.whl",
+        "filename": "pyjwt-2.15.1-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/pyjwt/2.15.1/json",
+        "project_json_bytes": 5552,
+        "project_json_sha256": "f13089db8caff0efbdec85ab5c3fa281a3cc76d5b708c74fab427c98e1f29a0d",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:42 GMT",
+          "etag": "\"n627OZD/GIv2ucetwLBKkg\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-09-28T18:40:41.429003Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2.15.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 111145,
+        "member_count": 13
+      },
+      "filename": "python_multipart-0.0.33-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: Apache Software License"
+        ],
+        "expression": "Apache-2.0",
+        "files": [
+          "LICENSE.txt"
+        ],
+        "legacy": null
+      },
+      "name": "python-multipart",
+      "record": {
+        "archive_tree_sha256": "b67f80f9c9690229d494fbfc32a49879c2dcdb1d43e7922e6a0b2991b0597536",
+        "member": "python_multipart-0.0.33.dist-info/RECORD",
+        "sha256": "fb20c0d76daed4b8e814d9876f184e6ae1a6f5acc665406d3cd281e63f265ace",
+        "validated_members": 13
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.11",
+      "sha256": "8f16c07b36add9da6b2ee87d3efcaf0a45a6de9c3d0a5dd94e9ccf7675a7bc45",
+      "size": 32253,
+      "source": {
+        "artifact_sha256": "8f16c07b36add9da6b2ee87d3efcaf0a45a6de9c3d0a5dd94e9ccf7675a7bc45",
+        "artifact_url": "https://files.pythonhosted.org/packages/dd/1b/6b1b4164ec734cac911460ab599bfbe46afedd42c5c9627fe4235942c314/python_multipart-0.0.33-py3-none-any.whl",
+        "filename": "python_multipart-0.0.33-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/python-multipart/0.0.33/json",
+        "project_json_bytes": 8625,
+        "project_json_sha256": "1d0024955a163f77aeff77c11923ced34400b861f7cbfcb21b053625248924aa",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:44 GMT",
+          "etag": "\"JdFi1XCyV2XVNLSHokiedA\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-31T14:23:46.330089Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "0.0.33",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 115368,
+        "member_count": 19
+      },
+      "filename": "referencing-0.37.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "COPYING"
+        ],
+        "legacy": null
+      },
+      "name": "referencing",
+      "record": {
+        "archive_tree_sha256": "3c32eeb5852c975cf6f43b0e18c4d5ba25fde9e89c13bc7e7bf79539cf2d472a",
+        "member": "referencing-0.37.0.dist-info/RECORD",
+        "sha256": "4cff26d74dfce1cd571ccbee5f58e2dabf748bbe7de1fcc8e4ff487b3a1711f1",
+        "validated_members": 19
+      },
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "rpds-py>=0.7.0",
+        "typing-extensions>=4.4.0; python_version < '3.13'"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "size": 26766,
+      "source": {
+        "artifact_sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+        "artifact_url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+        "filename": "referencing-0.37.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/referencing/0.37.0/json",
+        "project_json_bytes": 4842,
+        "project_json_sha256": "a67968d8e03aa45e650fc2ff0d07796676db1a7841ce8e810bf2dba5af689464",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:46 GMT",
+          "etag": "\"2EtKbLGxyB1vJhdVt1ZalA\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2025-10-13T15:30:47.625937Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "0.37.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 989738,
+        "member_count": 9
+      },
+      "filename": "rpds_py-2026.9.1-cp312-cp312-macosx_11_0_arm64.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "rpds-py",
+      "record": {
+        "archive_tree_sha256": "293d9a5faf0ea5cc4638abd1588b3a437fd83935ca0d0c984eabf7dbc3015601",
+        "member": "rpds_py-2026.9.1.dist-info/RECORD",
+        "sha256": "e45add9b099ac1ac8785ccc93592bfca0b676908d79ca827c63a772b1970681c",
+        "validated_members": 9
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.11",
+      "sha256": "e21c1429e205828ea886a2293a4a2c8e01f4c25d9893ca330e97a6cf73f52e7b",
+      "size": 341380,
+      "source": {
+        "artifact_sha256": "e21c1429e205828ea886a2293a4a2c8e01f4c25d9893ca330e97a6cf73f52e7b",
+        "artifact_url": "https://files.pythonhosted.org/packages/90/81/ac6a0d064982251856ce009c9e1dd51a34110b3c055aa7d1aad18b4899a3/rpds_py-2026.9.1-cp312-cp312-macosx_11_0_arm64.whl",
+        "filename": "rpds_py-2026.9.1-cp312-cp312-macosx_11_0_arm64.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/rpds-py/2026.9.1/json",
+        "project_json_bytes": 116828,
+        "project_json_sha256": "93808b9ff27aabe26d9a4f03b28422d1d05c3fb8716d88f3826e7ddf4b0b258b",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:48 GMT",
+          "etag": "\"xW3PbOgNxFSK2jMu4aU7kw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-04T16:29:17.706734Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "2026.9.1",
+      "wheel_tags": [
+        "cp312-cp312-macosx_11_0_arm64"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 22921,
+        "member_count": 13
+      },
+      "filename": "sniffio-1.3.1-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [
+          "License :: OSI Approved :: MIT License",
+          "License :: OSI Approved :: Apache Software License"
+        ],
+        "expression": null,
+        "files": [
+          "LICENSE",
+          "LICENSE.APACHE2",
+          "LICENSE.MIT"
+        ],
+        "legacy": "MIT OR Apache-2.0"
+      },
+      "name": "sniffio",
+      "record": {
+        "archive_tree_sha256": "c4bd7fcf806cc3ca578520348da10c4c90153bec3e19cd784bbde269cd2d224a",
+        "member": "sniffio-1.3.1.dist-info/RECORD",
+        "sha256": "064c8055feff5a74960318c8fe7476aac7f738d2993eb450cf0f481cbaa9dfaa",
+        "validated_members": 13
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.7",
+      "sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2",
+      "size": 10235,
+      "source": {
+        "artifact_sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2",
+        "artifact_url": "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl",
+        "filename": "sniffio-1.3.1-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/sniffio/1.3.1/json",
+        "project_json_bytes": 5953,
+        "project_json_sha256": "1217ad6ed84734e8f77ecfd151d91786d5a633b0482af1cde28185de0159bd37",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:50 GMT",
+          "etag": "\"yNMhB1sGnFwUwn+rRgmpFQ\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2024-02-25T23:20:01.196159Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "1.3.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 48354,
+        "member_count": 11
+      },
+      "filename": "sse_starlette-3.7.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "BSD-3-Clause",
+        "files": [
+          "LICENSE",
+          "AUTHORS"
+        ],
+        "legacy": null
+      },
+      "name": "sse-starlette",
+      "record": {
+        "archive_tree_sha256": "55a8fbd4c430e6e1ec2cc46a76b3fdc15cb1ae0c71c526584e72cffeda549d44",
+        "member": "sse_starlette-3.7.0.dist-info/RECORD",
+        "sha256": "993e160356dbc6e506219ceafe01fa95f7192af027edaadcbee1cb30f2cbe5cf",
+        "validated_members": 11
+      },
+      "requires_dist": [
+        "starlette>=0.49.1",
+        "anyio>=4.7.0",
+        "uvicorn>=0.34.0; extra == \"examples\"",
+        "fastapi>=0.115.12; extra == \"examples\"",
+        "pydantic>=2; extra == \"examples\"",
+        "sqlalchemy[asyncio]>=2.0.41; extra == \"examples-db\"",
+        "aiosqlite>=0.21.0; extra == \"examples-db\"",
+        "uvicorn>=0.34.0; extra == \"uvicorn\"",
+        "granian>=2.3.1; extra == \"granian\"",
+        "daphne>=4.2.0; extra == \"daphne\""
+      ],
+      "requires_python": ">=3.11",
+      "sha256": "f1d3136caa12d129284fca3d2ded79bc9af943320b6472712955fea52a6d3eea",
+      "size": 18432,
+      "source": {
+        "artifact_sha256": "f1d3136caa12d129284fca3d2ded79bc9af943320b6472712955fea52a6d3eea",
+        "artifact_url": "https://files.pythonhosted.org/packages/6a/11/25cabac0a24fa76f58637d8671b549c90d818d69d26beecf0c59a3b186e0/sse_starlette-3.7.0-py3-none-any.whl",
+        "filename": "sse_starlette-3.7.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/sse-starlette/3.7.0/json",
+        "project_json_bytes": 18208,
+        "project_json_sha256": "696e0f3d5a1a702a7af8d32cdd596b714dca8f9dee2ccc4be75eeb6b2a01ca23",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:50 GMT",
+          "etag": "\"S1Vv0A5tmpkS7wJJrSfypw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-11-07T11:15:47.860288Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "3.7.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 275681,
+        "member_count": 41
+      },
+      "filename": "starlette-1.10.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "BSD-3-Clause",
+        "files": [
+          "LICENSE.md"
+        ],
+        "legacy": null
+      },
+      "name": "starlette",
+      "record": {
+        "archive_tree_sha256": "437588fdc514c64bafc2022cc00c3d70a5e336078164cd7eaf8f037f1eb63ec4",
+        "member": "starlette-1.10.0.dist-info/RECORD",
+        "sha256": "4206a9d28ad206dda2ba2a1b143d8caf5acc554548404650691b7a5ffaf48056",
+        "validated_members": 41
+      },
+      "requires_dist": [
+        "anyio<5,>=4.0.0",
+        "typing-extensions>=4.10.0; python_version < '3.13'",
+        "httpx2>=2.0.0; extra == 'full'",
+        "httpx<0.29.0,>=0.27.0; extra == 'full'",
+        "itsdangerous; extra == 'full'",
+        "jinja2; extra == 'full'",
+        "opentelemetry-api; extra == 'full'",
+        "python-multipart>=0.0.18; extra == 'full'",
+        "pyyaml; extra == 'full'"
+      ],
+      "requires_python": ">=3.11",
+      "sha256": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4",
+      "size": 80571,
+      "source": {
+        "artifact_sha256": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4",
+        "artifact_url": "https://files.pythonhosted.org/packages/88/2e/947cfe02def9371c07cd5bf5b6b61c829e9aecb9904db02a66cfafbc1eec/starlette-1.10.0-py3-none-any.whl",
+        "filename": "starlette-1.10.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/starlette/1.10.0/json",
+        "project_json_bytes": 8655,
+        "project_json_sha256": "97b97206e2e6e29b5283cd401a9c8d0a75738705f3fbc7f5db1fc487dfafdc9a",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:52 GMT",
+          "etag": "\"Bz5WghmLO3SSULcdkPNMJw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-24T15:04:10.371825Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "1.10.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 63033,
+        "member_count": 11
+      },
+      "filename": "truststore-0.10.5-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "truststore",
+      "record": {
+        "archive_tree_sha256": "184bac448d0fee80019febc755cb5cafa770f593ff2ddb81164b9dbc5666fd40",
+        "member": "truststore-0.10.5.dist-info/RECORD",
+        "sha256": "9e6b3c8c2bfd1c18f20dd36f75a9ecf9a854a53ec5a796786311e1e666e8435e",
+        "validated_members": 11
+      },
+      "requires_dist": [],
+      "requires_python": ">= 3.10",
+      "sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c",
+      "size": 19017,
+      "source": {
+        "artifact_sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c",
+        "artifact_url": "https://files.pythonhosted.org/packages/51/e9/3a7820be2bb0fe53b6bc9c3be26d3d1158004e4c3ab953aa6840b955b1e9/truststore-0.10.5-py3-none-any.whl",
+        "filename": "truststore-0.10.5-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/truststore/0.10.5/json",
+        "project_json_bytes": 6734,
+        "project_json_sha256": "3aa1222ab6468e1e01b751aeda8db44afca8117297c93cb497c8d27e8f37e17b",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:53 GMT",
+          "etag": "\"57koe9DoV6nfDeu/1m67lQ\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-10-12T22:27:30.377491Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "0.10.5",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 182767,
+        "member_count": 5
+      },
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "PSF-2.0",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "typing-extensions",
+      "record": {
+        "archive_tree_sha256": "5eb0bfc881b5f48f706bb5f8f95f64d6769691fcfee02c88cb0983e923e1f8fe",
+        "member": "typing_extensions-4.16.0.dist-info/RECORD",
+        "sha256": "44dcf97810bea7b84bcd83890b6674bbcc2f4c5ef899a4887f15d524bdf6bb97",
+        "validated_members": 5
+      },
+      "requires_dist": [],
+      "requires_python": ">=3.9",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "size": 45571,
+      "source": {
+        "artifact_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+        "artifact_url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+        "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/typing-extensions/4.16.0/json",
+        "project_json_bytes": 5631,
+        "project_json_sha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:54 GMT",
+          "etag": "\"1+LJRQCylO/9iWatnmVMBw\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-07-02T08:40:04.659120Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "4.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 55266,
+        "member_count": 9
+      },
+      "filename": "typing_inspection-0.4.5-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "MIT",
+        "files": [
+          "LICENSE"
+        ],
+        "legacy": null
+      },
+      "name": "typing-inspection",
+      "record": {
+        "archive_tree_sha256": "a75bbb92e840030dc4aa683a1cce05b7cbec30225605002b7bd6841e098910b9",
+        "member": "typing_inspection-0.4.5.dist-info/RECORD",
+        "sha256": "5ac4a3904616961d714913e364784583dc346bfa102fe75de67056fda8e3f0eb",
+        "validated_members": 9
+      },
+      "requires_dist": [
+        "typing-extensions>=4.15.0"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39",
+      "size": 14874,
+      "source": {
+        "artifact_sha256": "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39",
+        "artifact_url": "https://files.pythonhosted.org/packages/de/0c/ea2544850a7c135e15033a5c7a8e7211136184b7ae63e2239d557c2b3019/typing_inspection-0.4.5-py3-none-any.whl",
+        "filename": "typing_inspection-0.4.5-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/typing-inspection/0.4.5/json",
+        "project_json_bytes": 4629,
+        "project_json_sha256": "5143a2b62f3dcf4202e44c2b48d661a1251059f65fc4a996040278adc4a8c5eb",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:56 GMT",
+          "etag": "\"CM+YtS8c9aZUg4fs7Ay27A\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-11-04T14:13:22.616254Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "0.4.5",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "archive": {
+        "expanded_size": 294179,
+        "member_count": 51
+      },
+      "filename": "uvicorn-0.54.0-py3-none-any.whl",
+      "licenses": {
+        "classifiers": [],
+        "expression": "BSD-3-Clause",
+        "files": [
+          "LICENSE.md"
+        ],
+        "legacy": null
+      },
+      "name": "uvicorn",
+      "record": {
+        "archive_tree_sha256": "1fd3f5aa7d5a1e91ba946f01bb7c7edd8922d9030c85874339a04f70b16de6be",
+        "member": "uvicorn-0.54.0.dist-info/RECORD",
+        "sha256": "fedb7b740362675b35e915edfa6b0bde7c2ec9622ce31e46f201df8d3de64a44",
+        "validated_members": 51
+      },
+      "requires_dist": [
+        "click>=7.0",
+        "h11>=0.8",
+        "typing-extensions>=4.0; python_version < '3.11'",
+        "httptools>=0.8.0; extra == 'standard'",
+        "python-dotenv>=0.13; extra == 'standard'",
+        "pyyaml>=5.1; extra == 'standard'",
+        "uvloop>=0.15.1; (sys_platform != 'win32' and (sys_platform != 'cygwin' and platform_python_implementation != 'PyPy')) and extra == 'standard'",
+        "watchfiles>=0.20; extra == 'standard'",
+        "websockets>=13.0; extra == 'standard'"
+      ],
+      "requires_python": ">=3.10",
+      "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+      "size": 87427,
+      "source": {
+        "artifact_sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+        "artifact_url": "https://files.pythonhosted.org/packages/38/0c/b54a4fdd7f90a3af8b02ebc9ce6712c2c208b7926a2f7bad95c33ebbe943/uvicorn-0.54.0-py3-none-any.whl",
+        "filename": "uvicorn-0.54.0-py3-none-any.whl",
+        "index": "https://pypi.org/simple",
+        "packagetype": "bdist_wheel",
+        "project_json": "https://pypi.org/pypi/uvicorn/0.54.0/json",
+        "project_json_bytes": 8685,
+        "project_json_sha256": "a308e83961793f6114221aefe9e046ef587da0fc986c4dc50ace1ee43fbe9bcb",
+        "response_headers": {
+          "date": "Wed, 11 Nov 2026 08:25:57 GMT",
+          "etag": "\"82gPZCfuXvQKgaCunLOAlA\"",
+          "last_modified": null
+        },
+        "snapshot_fetched_at_utc": "2026-11-11T08:25:15.215179+00:00",
+        "upload_time_iso_8601": "2026-09-25T06:52:35.829563Z",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "version": "0.54.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    }
+  ],
+  "dependency_edges": [
+    {
+      "from": "anyio",
+      "requirement": "idna>=2.8",
+      "to": "idna"
+    },
+    {
+      "from": "anyio",
+      "requirement": "typing_extensions>=4.16.0; python_version < \"3.15\"",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "cffi",
+      "requirement": "pycparser; implementation_name != \"PyPy\"",
+      "to": "pycparser"
+    },
+    {
+      "from": "claude-agent-sdk",
+      "requirement": "anyio>=4.0.0",
+      "to": "anyio"
+    },
+    {
+      "from": "claude-agent-sdk",
+      "requirement": "jsonschema>=4.20.0",
+      "to": "jsonschema"
+    },
+    {
+      "from": "claude-agent-sdk",
+      "requirement": "mcp<3.0.0,>=1.23.0",
+      "to": "mcp"
+    },
+    {
+      "from": "claude-agent-sdk",
+      "requirement": "sniffio>=1.0.0",
+      "to": "sniffio"
+    },
+    {
+      "from": "cryptography",
+      "requirement": "cffi>=2.0.0 ; platform_python_implementation != 'PyPy'",
+      "to": "cffi"
+    },
+    {
+      "from": "httpcore2",
+      "requirement": "h11>=0.16",
+      "to": "h11"
+    },
+    {
+      "from": "httpcore2",
+      "requirement": "truststore>=0.10",
+      "to": "truststore"
+    },
+    {
+      "from": "httpx2",
+      "requirement": "anyio>=4.10; sys_platform != 'emscripten'",
+      "to": "anyio"
+    },
+    {
+      "from": "httpx2",
+      "requirement": "httpcore2==2.16.0; sys_platform != 'emscripten'",
+      "to": "httpcore2"
+    },
+    {
+      "from": "httpx2",
+      "requirement": "idna>=3.18",
+      "to": "idna"
+    },
+    {
+      "from": "httpx2",
+      "requirement": "truststore>=0.10; sys_platform != 'emscripten'",
+      "to": "truststore"
+    },
+    {
+      "from": "httpx2",
+      "requirement": "typing-extensions>=4.5.0; python_version < '3.13'",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "jsonschema",
+      "requirement": "attrs>=22.2.0",
+      "to": "attrs"
+    },
+    {
+      "from": "jsonschema",
+      "requirement": "jsonschema-specifications>=2023.03.6",
+      "to": "jsonschema-specifications"
+    },
+    {
+      "from": "jsonschema",
+      "requirement": "referencing>=0.28.4",
+      "to": "referencing"
+    },
+    {
+      "from": "jsonschema",
+      "requirement": "rpds-py>=0.25.0",
+      "to": "rpds-py"
+    },
+    {
+      "from": "jsonschema-specifications",
+      "requirement": "referencing>=0.31.0",
+      "to": "referencing"
+    },
+    {
+      "from": "mcp",
+      "requirement": "anyio>=4.9; python_version < '3.14'",
+      "to": "anyio"
+    },
+    {
+      "from": "mcp",
+      "requirement": "httpx2>=2.10.0",
+      "to": "httpx2"
+    },
+    {
+      "from": "mcp",
+      "requirement": "jsonschema>=4.20.0",
+      "to": "jsonschema"
+    },
+    {
+      "from": "mcp",
+      "requirement": "mcp-types==2.3.0",
+      "to": "mcp-types"
+    },
+    {
+      "from": "mcp",
+      "requirement": "opentelemetry-api>=1.28.0",
+      "to": "opentelemetry-api"
+    },
+    {
+      "from": "mcp",
+      "requirement": "pydantic>=2.12.0",
+      "to": "pydantic"
+    },
+    {
+      "from": "mcp",
+      "requirement": "pyjwt[crypto]>=2.10.1",
+      "to": "pyjwt"
+    },
+    {
+      "from": "mcp",
+      "requirement": "python-multipart>=0.0.9",
+      "to": "python-multipart"
+    },
+    {
+      "from": "mcp",
+      "requirement": "sse-starlette>=3.0.0",
+      "to": "sse-starlette"
+    },
+    {
+      "from": "mcp",
+      "requirement": "starlette>=0.27; python_version < '3.14'",
+      "to": "starlette"
+    },
+    {
+      "from": "mcp",
+      "requirement": "typing-extensions>=4.13.0",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "mcp",
+      "requirement": "typing-inspection>=0.4.1",
+      "to": "typing-inspection"
+    },
+    {
+      "from": "mcp",
+      "requirement": "uvicorn>=0.31.1; sys_platform != 'emscripten'",
+      "to": "uvicorn"
+    },
+    {
+      "from": "mcp-types",
+      "requirement": "pydantic>=2.12.0",
+      "to": "pydantic"
+    },
+    {
+      "from": "mcp-types",
+      "requirement": "typing-extensions>=4.13.0",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "opentelemetry-api",
+      "requirement": "typing-extensions>=4.5.0",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "pydantic",
+      "requirement": "annotated-types>=0.6.0",
+      "to": "annotated-types"
+    },
+    {
+      "from": "pydantic",
+      "requirement": "pydantic-core==2.50.4",
+      "to": "pydantic-core"
+    },
+    {
+      "from": "pydantic",
+      "requirement": "typing-extensions>=4.16.0",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "pydantic",
+      "requirement": "typing-inspection>=0.4.4",
+      "to": "typing-inspection"
+    },
+    {
+      "from": "pydantic-core",
+      "requirement": "typing-extensions>=4.16.0",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "pyjwt",
+      "requirement": "cryptography>=3.4.0; extra == \"crypto\"",
+      "to": "cryptography"
+    },
+    {
+      "from": "referencing",
+      "requirement": "attrs>=22.2.0",
+      "to": "attrs"
+    },
+    {
+      "from": "referencing",
+      "requirement": "rpds-py>=0.7.0",
+      "to": "rpds-py"
+    },
+    {
+      "from": "referencing",
+      "requirement": "typing-extensions>=4.4.0; python_version < '3.13'",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "sse-starlette",
+      "requirement": "anyio>=4.7.0",
+      "to": "anyio"
+    },
+    {
+      "from": "sse-starlette",
+      "requirement": "starlette>=0.49.1",
+      "to": "starlette"
+    },
+    {
+      "from": "starlette",
+      "requirement": "anyio<5,>=4.0.0",
+      "to": "anyio"
+    },
+    {
+      "from": "starlette",
+      "requirement": "typing-extensions>=4.10.0; python_version < '3.13'",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "typing-inspection",
+      "requirement": "typing-extensions>=4.15.0",
+      "to": "typing-extensions"
+    },
+    {
+      "from": "uvicorn",
+      "requirement": "click>=7.0",
+      "to": "click"
+    },
+    {
+      "from": "uvicorn",
+      "requirement": "h11>=0.8",
+      "to": "h11"
+    }
+  ],
+  "direct_requirement": "claude-agent-sdk==0.2.179",
+  "limits": {
+    "max_archive_bytes": 167772160,
+    "max_expansion_ratio": 20,
+    "max_member_expanded_bytes": 335544320,
+    "max_members_per_wheel": 512,
+    "max_members_total": 4096,
+    "max_total_expanded_bytes": 402653184,
+    "max_wheels": 30
+  },
+  "record_tree_digest_plan": {
+    "activation": "A separate reviewed change may update the production lock; this candidate does not.",
+    "offline_install": "Use offline_install.py only after separate authorization; it hardcodes no-index/find-links/require-hashes/only-binary.",
+    "post_install_record": "Hash installed .dist-info/RECORD and review installer-added entries.",
+    "post_install_tree": "Compute shared.job_runtime.claude_sdk_preflight tree semantics in the isolated CPython 3.12 environment."
+  },
+  "resolution": {
+    "complete_transitive_closure_verified_from_wheel_metadata": true,
+    "index": "https://pypi.org/simple",
+    "package_count": 30,
+    "parser": "candidate wheel_gate.py stdlib-only bounded parser",
+    "resolver": "uv 0.13.7",
+    "sdists_allowed": false,
+    "strategy": "highest compatible, wheels only, no extras"
+  },
+  "schema_version": 2,
+  "security": {
+    "archive_extracted": false,
+    "descriptor_relative_no_follow": true,
+    "frozen_gate_read_only": true,
+    "imported_or_executed_downloaded_code": false,
+    "installed": false,
+    "package_metadata_network_used_during_seal": true,
+    "provider_calls": false,
+    "provider_spend_usd": 0,
+    "record_hashes_and_sizes_verified": true
+  },
+  "status": "READY_FOR_OFFLINE_INSTALL",
+  "target": {
+    "architecture": "arm64",
+    "platform": "macOS",
+    "python_implementation": "CPython",
+    "python_version": "3.12"
+  }
+}

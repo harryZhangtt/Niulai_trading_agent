@@ -1,0 +1,248 @@
+{
+  "$id": "claude-visible-session-evidence-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "budget_observed": {
+          "const": {
+            "output_tokens": 128,
+            "tool_calls": 1,
+            "wall_seconds": 2
+          }
+        },
+        "case_id": {
+          "const": "R9"
+        },
+        "cleanup": {
+          "const": {
+            "active_children": 0,
+            "completed_at": "2099-01-01T00:00:03Z",
+            "session_retained_visible": true,
+            "status": "complete",
+            "stopped_resources": []
+          }
+        },
+        "future_slot_binding": {
+          "const": {
+            "request_id": "request-r9-v1",
+            "scheduled_for": "2099-01-01T00:00:00Z",
+            "slot_id": "slot-2099-01-01T00:00:00Z-r9"
+          }
+        },
+        "polls": {
+          "const": [
+            {
+              "observed_at": "2099-01-01T00:00:01Z",
+              "ordinal": 1,
+              "status": "running"
+            },
+            {
+              "observed_at": "2099-01-01T00:00:02Z",
+              "ordinal": 2,
+              "status": "succeeded"
+            }
+          ]
+        },
+        "request_events": {
+          "const": [
+            {
+              "actor": "parent",
+              "attempt": 1,
+              "kind": "gateway_request",
+              "logical_request_id": "r9-parent"
+            }
+          ]
+        },
+        "schema_version": {
+          "const": "claude-visible-session-evidence-v1"
+        },
+        "session_name": {
+          "const": "claude-visible-r9-v1"
+        },
+        "terminal": {
+          "const": {
+            "children": [],
+            "completed_at": "2099-01-01T00:00:02Z",
+            "output": {
+              "bytes": 3,
+              "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+            },
+            "status": "succeeded"
+          }
+        },
+        "tool_events": {
+          "const": [
+            {
+              "actor": "parent",
+              "ordinal": 1,
+              "status": "succeeded",
+              "target": "r9/abc.bin",
+              "tool": "Read"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "case_id",
+        "session_name",
+        "future_slot_binding",
+        "request_events",
+        "tool_events",
+        "budget_observed",
+        "polls",
+        "terminal",
+        "cleanup"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "budget_observed": {
+          "const": {
+            "output_tokens": 512,
+            "tool_calls": 4,
+            "wall_seconds": 3
+          }
+        },
+        "case_id": {
+          "const": "R10"
+        },
+        "cleanup": {
+          "const": {
+            "active_children": 0,
+            "completed_at": "2099-01-01T00:00:04Z",
+            "session_retained_visible": true,
+            "status": "complete",
+            "stopped_resources": [
+              "child-1"
+            ]
+          }
+        },
+        "future_slot_binding": {
+          "const": {
+            "request_id": "request-r10-v1",
+            "scheduled_for": "2099-01-01T00:00:00Z",
+            "slot_id": "slot-2099-01-01T00:00:00Z-r10"
+          }
+        },
+        "polls": {
+          "const": [
+            {
+              "observed_at": "2099-01-01T00:00:01Z",
+              "ordinal": 1,
+              "status": "queued"
+            },
+            {
+              "observed_at": "2099-01-01T00:00:02Z",
+              "ordinal": 2,
+              "status": "running"
+            },
+            {
+              "observed_at": "2099-01-01T00:00:03Z",
+              "ordinal": 3,
+              "status": "succeeded"
+            }
+          ]
+        },
+        "request_events": {
+          "const": [
+            {
+              "actor": "parent",
+              "attempt": 1,
+              "kind": "gateway_request",
+              "logical_request_id": "r10-parent"
+            },
+            {
+              "actor": "child-1",
+              "attempt": 1,
+              "kind": "gateway_request",
+              "logical_request_id": "r10-child-1"
+            }
+          ]
+        },
+        "schema_version": {
+          "const": "claude-visible-session-evidence-v1"
+        },
+        "session_name": {
+          "const": "claude-visible-r10-v1"
+        },
+        "terminal": {
+          "const": {
+            "children": [
+              {
+                "agent_definition": "r10/agent-definition.json",
+                "agent_definition_sha256": "a593f09aba8317d9505f66393c07ec1f9e71d932132b034921be0c2b72432cad",
+                "id": "child-1",
+                "output_path": "r10/mining-output.json",
+                "status": "succeeded"
+              }
+            ],
+            "completed_at": "2099-01-01T00:00:03Z",
+            "output": {
+              "agent_definition_sha256": "a593f09aba8317d9505f66393c07ec1f9e71d932132b034921be0c2b72432cad",
+              "input_sha256": "c084f6a3d0f3ad095ab9508535f923af137545d8f4d55af5aeea9a8ba725fbae",
+              "output_sha256": "62f2f92246cf4392b11628d7dfb1a106cbcb8a1921f9ce4a3f08699e5615cae6",
+              "skill_ids": [
+                "S1",
+                "S2",
+                "S3"
+              ]
+            },
+            "status": "succeeded"
+          }
+        },
+        "tool_events": {
+          "const": [
+            {
+              "actor": "parent",
+              "ordinal": 1,
+              "status": "succeeded",
+              "target": "child-1",
+              "tool": "Agent"
+            },
+            {
+              "actor": "child-1",
+              "ordinal": 2,
+              "status": "succeeded",
+              "target": "r10/*.json",
+              "tool": "Glob"
+            },
+            {
+              "actor": "child-1",
+              "ordinal": 3,
+              "status": "succeeded",
+              "target": "S1|S2|S3",
+              "tool": "Grep"
+            },
+            {
+              "actor": "child-1",
+              "ordinal": 4,
+              "status": "succeeded",
+              "target": "r10/skills-input.json",
+              "tool": "Read"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "case_id",
+        "session_name",
+        "future_slot_binding",
+        "request_events",
+        "tool_events",
+        "budget_observed",
+        "polls",
+        "terminal",
+        "cleanup"
+      ],
+      "type": "object"
+    }
+  ],
+  "type": "object",
+  "x-python-validator": "validate_evidence_bundle"
+}

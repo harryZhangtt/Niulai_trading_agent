@@ -1,0 +1,971 @@
+{
+  "authority": {
+    "allowed_root": "mentor/runtime/scheduler-midresponse-recovery-20261107",
+    "history_disposition": "V1_V2_PRODUCERS_AND_REVIEWS_OPEN_PRESERVED_UNCHANGED",
+    "owner_portability_policy": "EXACT_OBSERVED_UID_NONPORTABLE_REHASH_REQUIRED",
+    "owner_uid": 501,
+    "source_kind": "EXACT_OWNER_PATH_CONTENT_AND_TRANSITIVE_SEMANTIC_AUTHORITY",
+    "stale_snapshot_excluded": "runtime/data-quality-r6-window-20261111-v1/snapshot-and-first-evidence.json",
+    "trusted_process_uid": 501
+  },
+  "cell_bindings": {
+    "R6DQ-1B8E43D7": {
+      "canonical_sha256": "649dd0b9b0df4dfd8dccda01751a97ea6b943396acaef4aa5f1747c2ae33a5c4",
+      "canonical_utf8_bytes": 6172,
+      "identity": {
+        "allowed_root": "mentor/runtime/scheduler-midresponse-recovery-20261107",
+        "artifacts": {
+          "entry_packet": {
+            "bytes": 4756,
+            "content_sha256": "3d4ba96fbb98f680262bc7ee16f11ef27c479c79dc411fe53f6e41508222d5f7",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          "evaluation_schema": {
+            "bytes": 1876,
+            "content_sha256": "cafbfe18e695e4dfa2ff9bf2cfab0d0b29ff89c8e58a34bf3c42f8c9a6676f9c",
+            "mode": "0600",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          "payload": {
+            "bytes": 2065,
+            "content_sha256": "b1941934d2aa879c52e42bbce5b2d0c49001732342aa5f6b25f1dc6c66b2cd5c",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+            "prompt_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+            "prompt_utf8_bytes": 526,
+            "sha256": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a"
+          },
+          "rubric": {
+            "bytes": 2259,
+            "content_sha256": "35c155ab610cdc8bb6dc9ea639fce16ca51256b5703b99d0849279831685f790",
+            "mode": "0600",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+            "sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          "source_cutoff": {
+            "bytes": 1044,
+            "content_sha256": "2c4f69d233e90b7047dbf23d70167a5e4d59366a4d83ea1a1aa959ec06633f9c",
+            "cutoff_at": "2026-11-09T00:00:00Z",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+            "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+          },
+          "thresholds": {
+            "bytes": 3597,
+            "content_sha256": "98ca21509f9a920f42fa79bda31696023422575d49040070c696519183e1d8e9",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+            "sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+          },
+          "user_decision": {
+            "bytes": 633,
+            "content_sha256": "290b82365cf42b1e39cbd17f574f52a80124a5dc711692453745efcd348feca7",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+            "sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+          }
+        },
+        "local_content_claims": [
+          {
+            "bytes_pointer": "/payload_bytes",
+            "expected_bytes": 526,
+            "expected_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+            "json_pointer": "/payload_sha256",
+            "kind": "PROMPT_UTF8_SHA256",
+            "source": "payload",
+            "value_pointer": "/prompt_utf8"
+          }
+        ],
+        "owner_uid": 501,
+        "root_components": {
+          "mentor": {
+            "mode": "0755",
+            "owner_uid": 501
+          },
+          "mentor/runtime": {
+            "mode": "0755",
+            "owner_uid": 501
+          },
+          "mentor/runtime/scheduler-midresponse-recovery-20261107": {
+            "mode": "0700",
+            "owner_uid": 501
+          }
+        },
+        "semantic_dependencies": [
+          {
+            "json_pointer": "/packet",
+            "kind": "PATH_BYTES_HASH",
+            "source": "evaluation_schema",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/evidence_schema_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "evaluation_schema",
+            "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          {
+            "json_pointer": "/bindings/packet_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/rubric_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "rubric",
+            "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          {
+            "json_pointer": "/bindings/thresholds_v2_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "thresholds",
+            "target_sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+          },
+          {
+            "json_pointer": "/source_cutoff",
+            "kind": "PATH_BYTES_HASH",
+            "source": "payload",
+            "target": "source_cutoff",
+            "target_sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+          },
+          {
+            "json_pointer": "/packet",
+            "kind": "PATH_BYTES_HASH",
+            "source": "rubric",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "evaluation_schema",
+            "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-rubric.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "rubric",
+            "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          {
+            "json_pointer": "/bindings/user_decision",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "user_decision",
+            "target_sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+          }
+        ],
+        "trusted_process_uid": 501
+      }
+    },
+    "R6DQ-7F2C91A4": {
+      "canonical_sha256": "649dd0b9b0df4dfd8dccda01751a97ea6b943396acaef4aa5f1747c2ae33a5c4",
+      "canonical_utf8_bytes": 6172,
+      "identity": {
+        "allowed_root": "mentor/runtime/scheduler-midresponse-recovery-20261107",
+        "artifacts": {
+          "entry_packet": {
+            "bytes": 4756,
+            "content_sha256": "3d4ba96fbb98f680262bc7ee16f11ef27c479c79dc411fe53f6e41508222d5f7",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          "evaluation_schema": {
+            "bytes": 1876,
+            "content_sha256": "cafbfe18e695e4dfa2ff9bf2cfab0d0b29ff89c8e58a34bf3c42f8c9a6676f9c",
+            "mode": "0600",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          "payload": {
+            "bytes": 2065,
+            "content_sha256": "b1941934d2aa879c52e42bbce5b2d0c49001732342aa5f6b25f1dc6c66b2cd5c",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+            "prompt_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+            "prompt_utf8_bytes": 526,
+            "sha256": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a"
+          },
+          "rubric": {
+            "bytes": 2259,
+            "content_sha256": "35c155ab610cdc8bb6dc9ea639fce16ca51256b5703b99d0849279831685f790",
+            "mode": "0600",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+            "sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          "source_cutoff": {
+            "bytes": 1044,
+            "content_sha256": "2c4f69d233e90b7047dbf23d70167a5e4d59366a4d83ea1a1aa959ec06633f9c",
+            "cutoff_at": "2026-11-09T00:00:00Z",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+            "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+          },
+          "thresholds": {
+            "bytes": 3597,
+            "content_sha256": "98ca21509f9a920f42fa79bda31696023422575d49040070c696519183e1d8e9",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+            "sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+          },
+          "user_decision": {
+            "bytes": 633,
+            "content_sha256": "290b82365cf42b1e39cbd17f574f52a80124a5dc711692453745efcd348feca7",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+            "sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+          }
+        },
+        "local_content_claims": [
+          {
+            "bytes_pointer": "/payload_bytes",
+            "expected_bytes": 526,
+            "expected_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+            "json_pointer": "/payload_sha256",
+            "kind": "PROMPT_UTF8_SHA256",
+            "source": "payload",
+            "value_pointer": "/prompt_utf8"
+          }
+        ],
+        "owner_uid": 501,
+        "root_components": {
+          "mentor": {
+            "mode": "0755",
+            "owner_uid": 501
+          },
+          "mentor/runtime": {
+            "mode": "0755",
+            "owner_uid": 501
+          },
+          "mentor/runtime/scheduler-midresponse-recovery-20261107": {
+            "mode": "0700",
+            "owner_uid": 501
+          }
+        },
+        "semantic_dependencies": [
+          {
+            "json_pointer": "/packet",
+            "kind": "PATH_BYTES_HASH",
+            "source": "evaluation_schema",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/evidence_schema_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "evaluation_schema",
+            "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          {
+            "json_pointer": "/bindings/packet_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/rubric_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "rubric",
+            "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          {
+            "json_pointer": "/bindings/thresholds_v2_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "thresholds",
+            "target_sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+          },
+          {
+            "json_pointer": "/source_cutoff",
+            "kind": "PATH_BYTES_HASH",
+            "source": "payload",
+            "target": "source_cutoff",
+            "target_sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+          },
+          {
+            "json_pointer": "/packet",
+            "kind": "PATH_BYTES_HASH",
+            "source": "rubric",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "evaluation_schema",
+            "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-rubric.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "rubric",
+            "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          {
+            "json_pointer": "/bindings/user_decision",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "user_decision",
+            "target_sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+          }
+        ],
+        "trusted_process_uid": 501
+      }
+    },
+    "R6DQ-92D6F0B3": {
+      "canonical_sha256": "649dd0b9b0df4dfd8dccda01751a97ea6b943396acaef4aa5f1747c2ae33a5c4",
+      "canonical_utf8_bytes": 6172,
+      "identity": {
+        "allowed_root": "mentor/runtime/scheduler-midresponse-recovery-20261107",
+        "artifacts": {
+          "entry_packet": {
+            "bytes": 4756,
+            "content_sha256": "3d4ba96fbb98f680262bc7ee16f11ef27c479c79dc411fe53f6e41508222d5f7",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          "evaluation_schema": {
+            "bytes": 1876,
+            "content_sha256": "cafbfe18e695e4dfa2ff9bf2cfab0d0b29ff89c8e58a34bf3c42f8c9a6676f9c",
+            "mode": "0600",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          "payload": {
+            "bytes": 2065,
+            "content_sha256": "b1941934d2aa879c52e42bbce5b2d0c49001732342aa5f6b25f1dc6c66b2cd5c",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+            "prompt_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+            "prompt_utf8_bytes": 526,
+            "sha256": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a"
+          },
+          "rubric": {
+            "bytes": 2259,
+            "content_sha256": "35c155ab610cdc8bb6dc9ea639fce16ca51256b5703b99d0849279831685f790",
+            "mode": "0600",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+            "sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          "source_cutoff": {
+            "bytes": 1044,
+            "content_sha256": "2c4f69d233e90b7047dbf23d70167a5e4d59366a4d83ea1a1aa959ec06633f9c",
+            "cutoff_at": "2026-11-09T00:00:00Z",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+            "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+          },
+          "thresholds": {
+            "bytes": 3597,
+            "content_sha256": "98ca21509f9a920f42fa79bda31696023422575d49040070c696519183e1d8e9",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+            "sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+          },
+          "user_decision": {
+            "bytes": 633,
+            "content_sha256": "290b82365cf42b1e39cbd17f574f52a80124a5dc711692453745efcd348feca7",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+            "sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+          }
+        },
+        "local_content_claims": [
+          {
+            "bytes_pointer": "/payload_bytes",
+            "expected_bytes": 526,
+            "expected_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+            "json_pointer": "/payload_sha256",
+            "kind": "PROMPT_UTF8_SHA256",
+            "source": "payload",
+            "value_pointer": "/prompt_utf8"
+          }
+        ],
+        "owner_uid": 501,
+        "root_components": {
+          "mentor": {
+            "mode": "0755",
+            "owner_uid": 501
+          },
+          "mentor/runtime": {
+            "mode": "0755",
+            "owner_uid": 501
+          },
+          "mentor/runtime/scheduler-midresponse-recovery-20261107": {
+            "mode": "0700",
+            "owner_uid": 501
+          }
+        },
+        "semantic_dependencies": [
+          {
+            "json_pointer": "/packet",
+            "kind": "PATH_BYTES_HASH",
+            "source": "evaluation_schema",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/evidence_schema_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "evaluation_schema",
+            "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          {
+            "json_pointer": "/bindings/packet_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/rubric_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "rubric",
+            "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          {
+            "json_pointer": "/bindings/thresholds_v2_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "thresholds",
+            "target_sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+          },
+          {
+            "json_pointer": "/source_cutoff",
+            "kind": "PATH_BYTES_HASH",
+            "source": "payload",
+            "target": "source_cutoff",
+            "target_sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+          },
+          {
+            "json_pointer": "/packet",
+            "kind": "PATH_BYTES_HASH",
+            "source": "rubric",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "evaluation_schema",
+            "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-rubric.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "rubric",
+            "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          {
+            "json_pointer": "/bindings/user_decision",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "user_decision",
+            "target_sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+          }
+        ],
+        "trusted_process_uid": 501
+      }
+    },
+    "R6DQ-C4A7095E": {
+      "canonical_sha256": "649dd0b9b0df4dfd8dccda01751a97ea6b943396acaef4aa5f1747c2ae33a5c4",
+      "canonical_utf8_bytes": 6172,
+      "identity": {
+        "allowed_root": "mentor/runtime/scheduler-midresponse-recovery-20261107",
+        "artifacts": {
+          "entry_packet": {
+            "bytes": 4756,
+            "content_sha256": "3d4ba96fbb98f680262bc7ee16f11ef27c479c79dc411fe53f6e41508222d5f7",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          "evaluation_schema": {
+            "bytes": 1876,
+            "content_sha256": "cafbfe18e695e4dfa2ff9bf2cfab0d0b29ff89c8e58a34bf3c42f8c9a6676f9c",
+            "mode": "0600",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          "payload": {
+            "bytes": 2065,
+            "content_sha256": "b1941934d2aa879c52e42bbce5b2d0c49001732342aa5f6b25f1dc6c66b2cd5c",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+            "prompt_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+            "prompt_utf8_bytes": 526,
+            "sha256": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a"
+          },
+          "rubric": {
+            "bytes": 2259,
+            "content_sha256": "35c155ab610cdc8bb6dc9ea639fce16ca51256b5703b99d0849279831685f790",
+            "mode": "0600",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+            "sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          "source_cutoff": {
+            "bytes": 1044,
+            "content_sha256": "2c4f69d233e90b7047dbf23d70167a5e4d59366a4d83ea1a1aa959ec06633f9c",
+            "cutoff_at": "2026-11-09T00:00:00Z",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+            "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+          },
+          "thresholds": {
+            "bytes": 3597,
+            "content_sha256": "98ca21509f9a920f42fa79bda31696023422575d49040070c696519183e1d8e9",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+            "sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+          },
+          "user_decision": {
+            "bytes": 633,
+            "content_sha256": "290b82365cf42b1e39cbd17f574f52a80124a5dc711692453745efcd348feca7",
+            "mode": "0644",
+            "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+            "owner_uid": 501,
+            "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+            "sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+          }
+        },
+        "local_content_claims": [
+          {
+            "bytes_pointer": "/payload_bytes",
+            "expected_bytes": 526,
+            "expected_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+            "json_pointer": "/payload_sha256",
+            "kind": "PROMPT_UTF8_SHA256",
+            "source": "payload",
+            "value_pointer": "/prompt_utf8"
+          }
+        ],
+        "owner_uid": 501,
+        "root_components": {
+          "mentor": {
+            "mode": "0755",
+            "owner_uid": 501
+          },
+          "mentor/runtime": {
+            "mode": "0755",
+            "owner_uid": 501
+          },
+          "mentor/runtime/scheduler-midresponse-recovery-20261107": {
+            "mode": "0700",
+            "owner_uid": 501
+          }
+        },
+        "semantic_dependencies": [
+          {
+            "json_pointer": "/packet",
+            "kind": "PATH_BYTES_HASH",
+            "source": "evaluation_schema",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/evidence_schema_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "evaluation_schema",
+            "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          {
+            "json_pointer": "/bindings/packet_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/rubric_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "rubric",
+            "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          {
+            "json_pointer": "/bindings/thresholds_v2_sha256",
+            "kind": "HASH_ONLY",
+            "source": "payload",
+            "target": "thresholds",
+            "target_sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+          },
+          {
+            "json_pointer": "/source_cutoff",
+            "kind": "PATH_BYTES_HASH",
+            "source": "payload",
+            "target": "source_cutoff",
+            "target_sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+          },
+          {
+            "json_pointer": "/packet",
+            "kind": "PATH_BYTES_HASH",
+            "source": "rubric",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-entry-packet.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "entry_packet",
+            "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-evidence-schema.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "evaluation_schema",
+            "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+          },
+          {
+            "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-rubric.json",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "rubric",
+            "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+          },
+          {
+            "json_pointer": "/bindings/user_decision",
+            "kind": "PATH_BYTES_HASH",
+            "source": "thresholds",
+            "target": "user_decision",
+            "target_sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+          }
+        ],
+        "trusted_process_uid": 501
+      }
+    }
+  },
+  "common_binding": {
+    "canonical_sha256": "649dd0b9b0df4dfd8dccda01751a97ea6b943396acaef4aa5f1747c2ae33a5c4",
+    "canonical_utf8_bytes": 6172,
+    "identity": {
+      "allowed_root": "mentor/runtime/scheduler-midresponse-recovery-20261107",
+      "artifacts": {
+        "entry_packet": {
+          "bytes": 4756,
+          "content_sha256": "3d4ba96fbb98f680262bc7ee16f11ef27c479c79dc411fe53f6e41508222d5f7",
+          "mode": "0644",
+          "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+          "owner_uid": 501,
+          "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+          "sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+        },
+        "evaluation_schema": {
+          "bytes": 1876,
+          "content_sha256": "cafbfe18e695e4dfa2ff9bf2cfab0d0b29ff89c8e58a34bf3c42f8c9a6676f9c",
+          "mode": "0600",
+          "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+          "owner_uid": 501,
+          "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+          "sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+        },
+        "payload": {
+          "bytes": 2065,
+          "content_sha256": "b1941934d2aa879c52e42bbce5b2d0c49001732342aa5f6b25f1dc6c66b2cd5c",
+          "mode": "0644",
+          "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+          "owner_uid": 501,
+          "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+          "prompt_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+          "prompt_utf8_bytes": 526,
+          "sha256": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a"
+        },
+        "rubric": {
+          "bytes": 2259,
+          "content_sha256": "35c155ab610cdc8bb6dc9ea639fce16ca51256b5703b99d0849279831685f790",
+          "mode": "0600",
+          "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+          "owner_uid": 501,
+          "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+          "sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+        },
+        "source_cutoff": {
+          "bytes": 1044,
+          "content_sha256": "2c4f69d233e90b7047dbf23d70167a5e4d59366a4d83ea1a1aa959ec06633f9c",
+          "cutoff_at": "2026-11-09T00:00:00Z",
+          "mode": "0644",
+          "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+          "owner_uid": 501,
+          "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+          "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+        },
+        "thresholds": {
+          "bytes": 3597,
+          "content_sha256": "98ca21509f9a920f42fa79bda31696023422575d49040070c696519183e1d8e9",
+          "mode": "0644",
+          "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+          "owner_uid": 501,
+          "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+          "sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+        },
+        "user_decision": {
+          "bytes": 633,
+          "content_sha256": "290b82365cf42b1e39cbd17f574f52a80124a5dc711692453745efcd348feca7",
+          "mode": "0644",
+          "normalized_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+          "owner_uid": 501,
+          "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+          "sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+        }
+      },
+      "local_content_claims": [
+        {
+          "bytes_pointer": "/payload_bytes",
+          "expected_bytes": 526,
+          "expected_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+          "json_pointer": "/payload_sha256",
+          "kind": "PROMPT_UTF8_SHA256",
+          "source": "payload",
+          "value_pointer": "/prompt_utf8"
+        }
+      ],
+      "owner_uid": 501,
+      "root_components": {
+        "mentor": {
+          "mode": "0755",
+          "owner_uid": 501
+        },
+        "mentor/runtime": {
+          "mode": "0755",
+          "owner_uid": 501
+        },
+        "mentor/runtime/scheduler-midresponse-recovery-20261107": {
+          "mode": "0700",
+          "owner_uid": 501
+        }
+      },
+      "semantic_dependencies": [
+        {
+          "json_pointer": "/packet",
+          "kind": "PATH_BYTES_HASH",
+          "source": "evaluation_schema",
+          "target": "entry_packet",
+          "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+        },
+        {
+          "json_pointer": "/bindings/evidence_schema_sha256",
+          "kind": "HASH_ONLY",
+          "source": "payload",
+          "target": "evaluation_schema",
+          "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+        },
+        {
+          "json_pointer": "/bindings/packet_sha256",
+          "kind": "HASH_ONLY",
+          "source": "payload",
+          "target": "entry_packet",
+          "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+        },
+        {
+          "json_pointer": "/bindings/rubric_sha256",
+          "kind": "HASH_ONLY",
+          "source": "payload",
+          "target": "rubric",
+          "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+        },
+        {
+          "json_pointer": "/bindings/thresholds_v2_sha256",
+          "kind": "HASH_ONLY",
+          "source": "payload",
+          "target": "thresholds",
+          "target_sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+        },
+        {
+          "json_pointer": "/source_cutoff",
+          "kind": "PATH_BYTES_HASH",
+          "source": "payload",
+          "target": "source_cutoff",
+          "target_sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+        },
+        {
+          "json_pointer": "/packet",
+          "kind": "PATH_BYTES_HASH",
+          "source": "rubric",
+          "target": "entry_packet",
+          "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+        },
+        {
+          "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-entry-packet.json",
+          "kind": "PATH_BYTES_HASH",
+          "source": "thresholds",
+          "target": "entry_packet",
+          "target_sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+        },
+        {
+          "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-evidence-schema.json",
+          "kind": "PATH_BYTES_HASH",
+          "source": "thresholds",
+          "target": "evaluation_schema",
+          "target_sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+        },
+        {
+          "json_pointer": "/bindings/schema9-isolated-canary-q1-ab-rubric.json",
+          "kind": "PATH_BYTES_HASH",
+          "source": "thresholds",
+          "target": "rubric",
+          "target_sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+        },
+        {
+          "json_pointer": "/bindings/user_decision",
+          "kind": "PATH_BYTES_HASH",
+          "source": "thresholds",
+          "target": "user_decision",
+          "target_sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+        }
+      ],
+      "trusted_process_uid": 501
+    }
+  },
+  "countable": false,
+  "current_as_of": "2026-11-11",
+  "dependencies": {
+    "account": false,
+    "bytedcli": false,
+    "external_python_packages": false,
+    "network": false,
+    "private_state": false
+  },
+  "effects": {
+    "account": false,
+    "business": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "semantic_audit": {
+    "all_reference_claims_covered": true,
+    "cutoff_exact": true,
+    "entry_packet_bound": true,
+    "local_content_claims": 1,
+    "no_financial_return_metric": true,
+    "no_locator_leakage": true,
+    "no_specific_provider_preference": true,
+    "official_sources_only": true,
+    "prompt_semantics_preserved": true,
+    "recursive_reference_claims": 19,
+    "rubric_threshold_semantics_preserved": true,
+    "semantic_dependency_edges": 11,
+    "user_decision_bound": true
+  },
+  "status": "CURRENT_OWNER_AND_SEMANTICALLY_CLOSED_PROVIDER_FREE_NONCOUNTABLE",
+  "unresolved_pins": [
+    {
+      "pin": "tool_roster",
+      "required_before": "ANY_LIVE_OR_COUNTABLE_CELL",
+      "status": "PENDING_NOT_AUTHORIZED_OR_SEALED"
+    },
+    {
+      "pin": "time_window",
+      "required_before": "ANY_LIVE_OR_COUNTABLE_CELL",
+      "status": "PENDING_NOT_AUTHORIZED_OR_SEALED"
+    },
+    {
+      "pin": "final_grants",
+      "required_before": "ANY_LIVE_OR_COUNTABLE_CELL",
+      "status": "PENDING_NOT_AUTHORIZED_OR_SEALED"
+    }
+  ],
+  "version": "r6-data-quality-exact-input-manifest-v3"
+}

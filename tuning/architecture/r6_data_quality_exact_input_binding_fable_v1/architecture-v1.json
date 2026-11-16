@@ -1,0 +1,50 @@
+{
+  "version": "r6-data-quality-exact-input-binding-architecture-v1",
+  "status": "FROZEN_PROVIDER_FREE_NONCOUNTABLE",
+  "problem": "The five exact R6 research-quality inputs were pinned by expected bytes and hashes, but the runtime snapshot is stale and the payload itself is intentionally pair-unbound; a current dependency-independent four-cell common-input authority was missing.",
+  "owner": "R6_EXACT_INPUT_BINDING_PACKAGE",
+  "contract": {
+    "input": "five current mentor-authority JSON files re-read from workspace bytes",
+    "output": "one owner-private closed manifest binding every opaque cell to the same prompt, cutoff, rubric, thresholds and evidence schema",
+    "errors": "deny on UTF-8, duplicate-key, schema, byte, hash, prompt, cutoff, cross-cell identity, leakage, source-policy, rubric, threshold, mode or unresolved-pin drift"
+  },
+  "options": [
+    {
+      "id": "O0_STALE_SNAPSHOT_AUTHORITY",
+      "decision": "REJECT",
+      "reason": "The user explicitly designated the runtime snapshot stale; trusting it would not prove current bytes."
+    },
+    {
+      "id": "O1_NARROW_REHASHED_COMMON_INPUT_MANIFEST",
+      "decision": "SELECT",
+      "reason": "Smallest additive capability: re-read the five current authority files, bind exact raw and canonical identities once, and point all four opaque cells to that common binding."
+    },
+    {
+      "id": "O2_COPY_AUTHORITY_BYTES_INTO_PACKAGE",
+      "decision": "REJECT",
+      "reason": "Duplicating source files would create competing authority and maintenance drift without improving the exact-byte proof."
+    }
+  ],
+  "selected": "O1_NARROW_REHASHED_COMMON_INPUT_MANIFEST",
+  "impact": {
+    "classification": "INERT_LOCAL",
+    "activation": false,
+    "active_runtime_import": false,
+    "failure_radius": "this additive package only",
+    "rollback": "remove this unique package; no existing source or runtime state changes"
+  },
+  "ownership_boundaries": {
+    "evaluation_v3_and_blind_map": "READ_ONLY_NOT_MODIFIED",
+    "stale_runtime_snapshot": "EXCLUDED_NOT_MODIFIED",
+    "mentor_authority_files": "READ_ONLY_REHASHED_NOT_COPIED",
+    "package": "OWNER_PRIVATE_LOCAL_EVIDENCE"
+  },
+  "dependency_policy": {
+    "python": "stdlib only",
+    "external_packages": false,
+    "bytedcli": false,
+    "network": false,
+    "private_or_internal_sources": false
+  },
+  "claim_limit": "Exact current input identity and provider-free validation for the frozen four-cell block only; no live authority, countable result, execution readiness, provider/addon superiority, financial return, promotion or runtime acceptance."
+}

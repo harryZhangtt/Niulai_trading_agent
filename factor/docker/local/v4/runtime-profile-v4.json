@@ -1,0 +1,68 @@
+{
+  "schema_version": 4,
+  "kind": "factor_local_docker_colima_preflight_profile",
+  "profile_id": "factor-local-docker-colima-v4",
+  "status": "selected-disabled",
+  "runnable": false,
+  "apply_allowed": false,
+  "workspace": "/Users/bytedance/Desktop/Trading Agent",
+  "predecessors": {
+    "v2_installation_receipt": {
+      "path": "factor/docker/local/v2/installation-receipt.json",
+      "physical_sha256": "cf552b48d3511ae0116d0554d3035e911aa6425fceebd7a8c8f8a4fc93164908",
+      "canonical_sha256": "c292459b46de9da23c7a90da3a439f71d83353aa14e2f4e43e91c2fd48e03327"
+    },
+    "v2_runtime_profile": {
+      "path": "factor/docker/local/v2/runtime-profile-v2.json",
+      "physical_sha256": "81d42def01f98ec29b4f12fb5cb587114c0b28bc1705598e8a04570ecfbc7d3f",
+      "canonical_sha256": "40c391e025b06da28555939d5face923469a5bd8db611d9f555529588db9a81d"
+    }
+  },
+  "roots": {
+    "colima_home": ".c",
+    "colima_cache_home": "factor/runtime/local/colima-cache",
+    "docker_config": "factor/runtime/local/docker-config",
+    "required_mode": 448,
+    "required_owner": "current-euid",
+    "must_be_empty": true,
+    "must_not_be_symlink": true,
+    "must_be_workspace_contained": true
+  },
+  "environment": {
+    "COLIMA_HOME": "/Users/bytedance/Desktop/Trading Agent/.c",
+    "COLIMA_CACHE_HOME": "/Users/bytedance/Desktop/Trading Agent/factor/runtime/local/colima-cache",
+    "COLIMA_PROFILE": "factor-mining",
+    "DOCKER_CONFIG": "/Users/bytedance/Desktop/Trading Agent/factor/runtime/local/docker-config"
+  },
+  "platform": {
+    "runtime": "docker",
+    "vm_type": "vz",
+    "cpu": 6,
+    "memory_gib": 12,
+    "disk_gib": 40,
+    "root_disk_gib": 20,
+    "mounts": "none",
+    "ssh_config": false,
+    "kubernetes": false,
+    "auto_activate": false,
+    "template": false
+  },
+  "socket_contract": {
+    "suffix": "_lima/colima-factor-mining/ssh.sock.1234567890123456",
+    "exclusive_max_bytes": 104,
+    "actual_bytes": 94
+  },
+  "failure_policy": {
+    "path_or_config_error": "permanent-pre-dispatch",
+    "retry_unchanged": false,
+    "rollback_required_after_partial_creation": true
+  },
+  "activation_command": "activation-command-v4.json",
+  "blockers": [
+    "preflight-launcher-not-yet-applied",
+    "vm-identity-unverified",
+    "docker-context-unverified",
+    "images-and-release-unresolved",
+    "lifecycle-and-runtime-acceptance-unrun"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "claude-visible-cli-placeholder-v1",
+  "semantic_contract_id": "claude-visible-cli-semantics-v1",
+  "enabled": false,
+  "invocation_prohibited": true,
+  "cli_executable": null,
+  "cli_version": null,
+  "grammar": null,
+  "required_operations": ["background", "list", "log", "attach", "stop"],
+  "conformance_status": "missing",
+  "activation_requirement": "Supply and test exact version-pinned grammar for every required operation before enabling"
+}

@@ -1,0 +1,1 @@
+export { adaptFactorMining } from './adaptFactorMining';

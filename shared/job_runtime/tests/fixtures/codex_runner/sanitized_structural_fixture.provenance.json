@@ -1,0 +1,31 @@
+{
+  "activation_blocked": true,
+  "contains_private_path": false,
+  "contains_raw_prompt": false,
+  "contains_raw_provider_text": false,
+  "fixture_kind": "sanitized_structural_fixture",
+  "fixture_output_sha256": "94f9a199cde6ef5c72cb7107e42850f41f40978571da3be20e40f297e9cc2ce8",
+  "preserved": [
+    "event_order",
+    "event_types",
+    "structural_keys",
+    "value_types"
+  ],
+  "production_translation": "runtime_unverified",
+  "raw_source_capture_retained": false,
+  "sanitizer_version": "sanitized-codex-jsonl-v1",
+  "source_capture_status": "unverified",
+  "source_capture_verified": false,
+  "source_conformance_verified": false,
+  "synthetic_fields": [
+    "thread_id",
+    "item.id",
+    "item.text",
+    "usage"
+  ],
+  "transformation_specification": {
+    "identifiers": "replaced with synthetic stable placeholders",
+    "provider_text": "removed and replaced with an explicit synthetic marker",
+    "usage": "replaced with synthetic non-negative integer values"
+  }
+}

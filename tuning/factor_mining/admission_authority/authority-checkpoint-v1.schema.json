@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"factor-authority-checkpoint-v1",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","kind","authority_id","epoch","workspace_binding_sha256","genesis_sha256","sequence","last_event_sha256","chain_sha256"],
+  "$defs":{"sha":{"type":"string","pattern":"^[a-f0-9]{64}$"}},
+  "properties":{
+    "schema_version":{"const":1},"kind":{"const":"factor_authority_checkpoint"},
+    "authority_id":{"const":"factor-admission-main-v1"},"epoch":{"const":1},
+    "workspace_binding_sha256":{"$ref":"#/$defs/sha"},"genesis_sha256":{"$ref":"#/$defs/sha"},
+    "sequence":{"type":"integer","minimum":0},
+    "last_event_sha256":{"oneOf":[{"type":"null"},{"$ref":"#/$defs/sha"}]},
+    "chain_sha256":{"$ref":"#/$defs/sha"}
+  }
+}

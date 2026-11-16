@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "kind": "factor_local_colima_preflight_activation",
+  "status": "selected-disabled",
+  "apply_allowed": false,
+  "executed": false,
+  "workspace": "/Users/bytedance/Desktop/Trading Agent",
+  "environment": {
+    "COLIMA_HOME": "/Users/bytedance/Desktop/Trading Agent/.c",
+    "COLIMA_CACHE_HOME": "/Users/bytedance/Desktop/Trading Agent/factor/runtime/local/colima-cache",
+    "COLIMA_PROFILE": "factor-mining",
+    "DOCKER_CONFIG": "/Users/bytedance/Desktop/Trading Agent/factor/runtime/local/docker-config"
+  },
+  "argv": [
+    "/opt/homebrew/bin/colima",
+    "start",
+    "factor-mining",
+    "--activate=false",
+    "--runtime",
+    "docker",
+    "--vm-type",
+    "vz",
+    "--cpus",
+    "6",
+    "--memory",
+    "12",
+    "--disk",
+    "40",
+    "--root-disk",
+    "20",
+    "--mount",
+    "none",
+    "--ssh-config=false",
+    "--kubernetes=false",
+    "--template=false",
+    "--save-config=true"
+  ],
+  "rollback": {
+    "argv": [
+      "/opt/homebrew/bin/colima",
+      "delete",
+      "factor-mining",
+      "--force"
+    ],
+    "same_environment_required": true
+  },
+  "preflight_creates_roots": true,
+  "classification_on_preflight_failure": "permanent-pre-dispatch"
+}

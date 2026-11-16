@@ -1,0 +1,104 @@
+{
+  "activation": false,
+  "authorization_sequence": [
+    "verify fixed v2 OPEN review and fixed human-validator source identities",
+    "import exact human validator module and verify module path/bytes/SHA/function origin",
+    "call fixed human validator with no arguments",
+    "require exact fixed owner-rooted human subject/review pins",
+    "require exact fixed final block grant and independent CLEAN review pins",
+    "require four fixed attempt receipts each cross-binding grant review, commitment, request and result",
+    "require evaluation packet records derived from exact attempt receipts",
+    "require human grades binding exact packet digests and exact human grant/review refs",
+    "require derived metrics binding exact grades and conditional G3 cardinality",
+    "require final manifest exact refs and strictly increasing sequences",
+    "reread every request/result/evaluation/grade/metric artifact by fixed path/bytes/SHA/mode/owner/nofollow",
+    "only then read private map and require exact alias-to-cell binding"
+  ],
+  "countable": false,
+  "cross_field_rules": [
+    "exact commitment binding is identical across grant, attempts, metrics and manifest",
+    "grant review exact ref equals canonical grant bytes",
+    "attempt refs equal canonical grant/review bytes",
+    "evaluation refs equal canonical attempt bytes",
+    "grade refs equal canonical packet bytes",
+    "metrics refs equal canonical packet/grade bytes",
+    "manifest refs equal all canonical chronology bytes",
+    "external request/result/evaluation/grade/metric refs equal fixed-pin canonical bytes",
+    "all four cells exact and ordered; aliases unique; attempt number exactly one",
+    "grant < review < admission < result < packet < grades < metrics < manifest"
+  ],
+  "current_authentic_pins": {
+    "chain": 0,
+    "human": 0
+  },
+  "current_denial_sequence": [
+    "fixed validator source identity passes",
+    "pending unsigned registry fails fixed human validator",
+    "return DENY_BEFORE_PRIVATE_MAP_READ",
+    "do not inspect any caller object because none is accepted",
+    "do not read private map"
+  ],
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "final_block_authority": "REQUIRED_PENDING",
+  "independent_rereview": "REQUIRED_PENDING_NOT_PRODUCER_CREATED",
+  "open_review_binding": {
+    "bytes": 11517,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json",
+    "sha256": "d7a453c4b04442c233bf830d8a8b5747400b15e237f3337a95e0474f6a602963",
+    "verdict": "OPEN"
+  },
+  "public_api": [
+    "create_commitment()",
+    "validate_commitment()",
+    "recover_incomplete()",
+    "authorize_opening()",
+    "scan_label_leaks()"
+  ],
+  "removed_public_authority_apis": [
+    "build_pre_call_packets",
+    "build_grade_binding",
+    "build_bound_metrics",
+    "caller-selected authority/store/root/review digest"
+  ],
+  "runtime_artifacts": {
+    "private_map": {
+      "bytes": 897,
+      "labels_disclosed": false,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/owner-private-canonical-map-v3.json",
+      "sha256": "540a744cd31fe3a764363b647f1269da5f9c60a3cd8a0d104eb16fc849ac88dd"
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "fields": [
+        "canonical_bytes",
+        "canonical_digest",
+        "schema",
+        "version"
+      ],
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/sanitized-commitment-v3.json",
+      "sha256": "e984924176b4d53fef088c758628902166ed257f307fea431cd00509e20b9489"
+    },
+    "transaction_receipt": {
+      "bytes": 451,
+      "committed_last": true,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/transaction-receipt-v3.json",
+      "sha256": "527061acd538e4191e67a790eb82efa3583cd0a7cefd9f300fb787e210b4add4"
+    }
+  },
+  "status": "FROZEN_DISABLED_FIXED_CHAIN_V3",
+  "version": "r6-data-quality-blind-map-commitment-protocol-v3"
+}

@@ -1,0 +1,25 @@
+{
+  "version": "r6-data-quality-exact-input-binding-protocol-v3",
+  "status": "FROZEN_BEFORE_PRODUCER_VERIFICATION",
+  "default": "DENY",
+  "sequence": [
+    "strict UTF-8, duplicate-key, non-finite and closed-schema validation",
+    "require process UID equals exact bound owner_uid and trusted_process_uid",
+    "require workspace root lstat/open/fstat owner identity",
+    "require exact owner and mode for every no-follow root component",
+    "require exact normalized path, regular type, owner_uid, mode, bytes, raw SHA-256 and canonical content SHA-256 for seven authority artifacts",
+    "bind entry packet and user-decision receipt in the common identity and every cell",
+    "recursively discover every object reference and sha256 claim across all seven artifacts",
+    "require discovered claims equal eleven semantic edges plus one local prompt claim exactly",
+    "validate every dependency pointer against its bound target identity",
+    "derive the exact owner/path/content/dependency canonical digest and duplicate the complete identity in all four cells",
+    "deny different-UID roots/artifacts even after digest resealing",
+    "deny missing/substituted entry packet, user decision or dependency edge",
+    "preserve path confinement, leakage denial, source/cutoff/rubric/threshold semantics and pending pins",
+    "publish provider-free noncountable producer evidence"
+  ],
+  "canonicalization": "UTF-8 JSON, sorted keys, compact separators, ensure_ascii=false, allow_nan=false",
+  "exact_common_binding": {"canonical_utf8_bytes": 6172, "canonical_sha256": "649dd0b9b0df4dfd8dccda01751a97ea6b943396acaef4aa5f1747c2ae33a5c4", "owner_uid": 501},
+  "effects": {"provider": false, "network": false, "account": false, "private_state": false, "email": false, "business": false, "host": false, "scheduler": false, "bytedcli": false},
+  "countable": false
+}

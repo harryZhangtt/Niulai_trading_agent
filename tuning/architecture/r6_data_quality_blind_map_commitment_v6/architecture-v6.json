@@ -1,0 +1,178 @@
+{
+  "activation": false,
+  "allowed_claim": "Additive provider-free v6 candidate implements producer-side repairs for all 13 OPEN-v5 findings, but remains disabled, untrusted, noncountable, leak-scan denied on declared workspace errors, pending fresh independent review, and requires P0-v10 reclosure.",
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 23467,
+    "countable": false,
+    "finding_count": 13,
+    "mode": "0644",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-open-v1-fable-20261113.json",
+    "sha256": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8",
+    "trusted": false,
+    "verdict": "OPEN"
+  },
+  "bounded_reads": {
+    "chain_schema_specific": true,
+    "commitment_bytes": 2048,
+    "lock_bytes": 2048,
+    "map_bytes": 4096,
+    "pinned_sources_exact_bytes": true,
+    "receipt_bytes": 8192,
+    "validator_exact_bytes": 14782
+  },
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fresh_independent_review": "REQUIRED_NOT_YET_PERFORMED",
+  "g3_authority": {
+    "false": {
+      "external_artifacts": 21,
+      "final_sequence": 24,
+      "g3_files_pins_grades_permitted": false,
+      "grade_records": 8
+    },
+    "negative_probes": [
+      "pending",
+      "noncountable",
+      "missing pin",
+      "digest mismatch",
+      "authority-reference mismatch"
+    ],
+    "true": {
+      "external_artifacts": 25,
+      "final_sequence": 28,
+      "g3_exact_authority_required": true,
+      "grade_records": 12
+    }
+  },
+  "impact_classification": {
+    "activation_boundary": "AUTHENTIC_HUMAN_PINS and AUTHENTIC_CHAIN_PINS remain empty; future compiler references have no byte/hash pins",
+    "affected_effects": [],
+    "class": "inert/local",
+    "failure_radius": "new v6 candidate/runtime/evidence only; no scheduler/provider/live registration",
+    "owner": "shared.job_runtime candidate plus tuning architecture"
+  },
+  "leak_scan": {
+    "errors": {
+      "oversize": 131,
+      "racy": 0,
+      "special": 0,
+      "symlink": 411,
+      "unreadable": 0
+    },
+    "label_values_disclosed": false,
+    "matching_paths": 0,
+    "meaning": "fail-closed coverage behavior demonstrated; no PASS claim",
+    "private_map_traversal_reads": 0,
+    "runtime_decision": "DENY",
+    "runtime_status": "ERROR",
+    "scope": "descriptor-relative whole workspace including source, architecture, log, runtime, tracked-shaped and untracked files; declared cache/VCS directory roots excluded"
+  },
+  "owner_and_contract": {
+    "errors": "fail closed on lock, identity, source pin, chain, schema, G3 authority, leak coverage, or transaction mismatch",
+    "input": "zero caller arguments and exact fixed owner-private artifacts",
+    "output": "deny-before-private-map or fixed-chain-validated-still-disabled"
+  },
+  "p0_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "public_opening": {
+    "current_state": "empty exact trust pins deny before manifest and private map read",
+    "pre_private_map_barriers": [
+      "exact conditional manifest and pin set",
+      "compiled pinned human validator and exact role authorities",
+      "complete chronology, nested references, external artifacts and global barriers",
+      "public-only exact current receipt/commitment binding equality",
+      "second expected-binding read revalidates before map allocation"
+    ],
+    "signature": "authorize_opening()",
+    "wrong_transaction": "DENY_BEFORE_PRIVATE_MAP_READ"
+  },
+  "review_history": [
+    {
+      "bytes": 7019,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v1-independent-review-open-v1.json",
+      "sha256": "df607b44d873590be8d402eba0f95e0265c4cdf4f7a12f85b0e3d484c34802f5",
+      "state": "PRESERVED_OPEN_HISTORY"
+    },
+    {
+      "bytes": 11517,
+      "mode": "0600",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json",
+      "sha256": "d7a453c4b04442c233bf830d8a8b5747400b15e237f3337a95e0474f6a602963",
+      "state": "PRESERVED_OPEN_HISTORY"
+    },
+    {
+      "bytes": 10160,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v3-independent-review-open-v1-fable-20261111.json",
+      "sha256": "b3ee0407e73f6f13a1c541f2cfe632abfb911d4562a59d41e740409b9e82c4bd",
+      "state": "PRESERVED_OPEN_HISTORY"
+    },
+    {
+      "bytes": 11626,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v4-independent-review-open-v1-fable-20261111.json",
+      "sha256": "df79e13a5bbfcfce8f3a1fb0f12dee01f7783598dfe9e89d8a12ef200e7113ba",
+      "state": "PRESERVED_OPEN_HISTORY"
+    },
+    {
+      "bytes": 7188,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-clean-v1-fable-20261111.json",
+      "sha256": "b2647ca1dd095c69b20a54941c580026fd8e94fa21972d25210d7b9e73c6bb0e",
+      "state": "REVOKED_BY_LATER_OPEN_REVIEW"
+    },
+    {
+      "bytes": 23467,
+      "mode": "0644",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-open-v1-fable-20261113.json",
+      "sha256": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8",
+      "state": "CURRENT_OPEN_BASELINE"
+    }
+  ],
+  "schemas": {
+    "additional_lock_contract": 1,
+    "commitment_schema_id": "r6-data-quality-blind-map-commitment-v6",
+    "draft": "2020-12",
+    "inherited_public_contracts": 11,
+    "manifest_conditionals": {
+      "false": [
+        8,
+        24
+      ],
+      "true": [
+        12,
+        28
+      ]
+    },
+    "published": 12
+  },
+  "subject": "r6_data_quality_blind_map_commitment_v6",
+  "tests": {
+    "evidence_integrity": "1/1 PASS",
+    "isolated_lifecycles": "25/25 PASS",
+    "preserved_regressions": "52/52 PASS with in-memory schema compatibility shim because host lacks jsonschema",
+    "v6_core": "12/12 PASS"
+  },
+  "transaction": {
+    "artifact_binding": "map, commitment, receipt, lock, stages and quarantines bind unique transaction_id plus exact device/inode",
+    "cleanup": "no unlink/remove/rmdir; owned artifacts atomically move to transaction-scoped quarantine and identity mismatch fences",
+    "concurrency": "create/recovery lock loser denies without reading transaction artifacts",
+    "publication": "unique self-bound stage to fixed final via Darwin renameatx_np(RENAME_EXCL), receipt last",
+    "recovery": "valid complete accepted; markerless/invalid unknown ownership fenced without deletion",
+    "reservation": "fixed descriptor-relative O_NOFOLLOW|O_CREAT|O_EXCL mode-0600 self-bound lock; full-write, file fsync, parent fsync, reopen and hash"
+  },
+  "trusted": false,
+  "version": "r6-data-quality-blind-map-commitment-architecture-v6"
+}

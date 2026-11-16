@@ -9,6 +9,8 @@ import asyncio
 import json
 import math
 import os
+import hashlib
+from contextlib import nullcontext
 from decimal import Decimal
 from typing import Any, TypedDict
 
@@ -27,10 +29,13 @@ from openai import APIError, APITimeoutError, APIConnectionError
 
 from shared.calculation.legacy.valuation.valuation_core import equity_value
 from .credentials import CredentialError, openai_api_key
-from .session_model import SessionModelError
+from .session_model import SessionModelError, canonical
+from langgraph.config import get_config
+from langsmith import tracing_context
 
 DEFAULT_MODEL = "gpt-6.1-sol"
 OPENAI_BASE_URL = "https://api.openai.com/v1"
+MAX_NUMERIC_DIGITS = 128
 
 
 class ValuationCase(BaseModel):
@@ -42,6 +47,23 @@ class ValuationCase(BaseModel):
     rate: Decimal = Field(gt=-1, le=1)
     net_debt: Decimal
     shares: Decimal = Field(gt=0)
+
+    @field_validator('fcff', 'terminal_ev', 'rate', 'net_debt', 'shares', mode='before')
+    @classmethod
+    def bounded_numbers(cls, value):
+        values = value if isinstance(value, list) else [value]
+        for item in values:
+            if isinstance(item, bool) or not isinstance(item, (str, int, float, Decimal)):
+                raise ValueError('CALCULATOR_NUMERIC_TYPE_INVALID')
+            text = str(item)
+            if len(text) > MAX_NUMERIC_DIGITS + 16:
+                raise ValueError('CALCULATOR_NUMERIC_SIZE_LIMIT')
+            try: number = Decimal(text)
+            except Exception: raise ValueError('CALCULATOR_NUMERIC_INVALID') from None
+            if not number.is_finite() or len(number.as_tuple().digits) > MAX_NUMERIC_DIGITS or abs(
+                    number.as_tuple().exponent) > MAX_NUMERIC_DIGITS:
+                raise ValueError('CALCULATOR_NUMERIC_SIZE_LIMIT')
+        return value
 
     @field_validator("fcff")
     @classmethod
@@ -66,6 +88,8 @@ class PilotOutput(TypedDict):
 class PilotState(MessagesState):
     case: dict[str, Any]
     result: dict[str, Any]
+    receipt_version: int
+    execution_thread_id: str
 
 
 def calculate(case: dict[str, Any]) -> dict[str, str]:
@@ -75,14 +99,20 @@ def calculate(case: dict[str, Any]) -> dict[str, str]:
     return {"case_id": item.case_id, **{key: str(value) for key, value in values.items()}}
 
 
-@tool
-def calculate_valuation(runtime: ToolRuntime[PilotContext, PilotState]) -> dict[str, str]:
+@tool(response_format='content_and_artifact')
+def calculate_valuation(runtime: ToolRuntime[PilotContext, PilotState]):
     """Calculate per-share value for this run's validated synthetic case.
 
     Inputs come from workflow state, so the model cannot replace the cash flows,
     debt, shares or rate. Returns exact Decimal strings from the existing tool.
     """
-    return calculate(runtime.state["case"])
+    try: result = calculate(runtime.state['case'])
+    except Exception:
+        raise RuntimeError('CALCULATOR_TOOL_FAILED') from None
+    receipt = {'schema_version': 2, 'case_sha256': hashlib.sha256(canonical(
+        runtime.state['case']).encode()).hexdigest(), 'tool_call_id': runtime.tool_call_id,
+        'execution_thread_id': runtime.state.get('execution_thread_id', '')}
+    return result, receipt
 
 
 def openai_model(*, http_async_client=None) -> BaseChatModel:
@@ -118,7 +148,16 @@ def default_model() -> BaseChatModel:
 async def bounded_model_call(request, handler):
     """Bound model time and keep raw SDK responses/credential errors out of state."""
     try:
-        return await asyncio.wait_for(handler(request), timeout=90)
+        try: callbacks = get_config().get('callbacks')
+        except RuntimeError: callbacks = None
+        parent_id = getattr(callbacks, 'parent_run_id', None)
+        parent = next((getattr(item, 'run_map', {}).get(str(parent_id))
+                       for item in getattr(callbacks, 'handlers', [])
+                       if getattr(item, 'run_map', {}).get(str(parent_id)) is not None), None)
+        # create_agent's middleware invokes the model without an explicit config.
+        # Preserve the actual native callback parent across its traceable wrapper.
+        with tracing_context(parent=parent) if parent is not None else nullcontext():
+            return await asyncio.wait_for(handler(request), timeout=90)
     except GraphBubbleUp:
         raise
     except (CredentialError, SessionModelError):
@@ -159,6 +198,8 @@ def prepare(state: PilotState, runtime: Runtime[PilotContext]) -> dict[str, Any]
     return {
         "case": item.model_dump(mode="json"),
         "result": {},
+        'receipt_version': 2,
+        'execution_thread_id': get_config().get('configurable', {}).get('thread_id', ''),
         "messages": [RemoveMessage(id=REMOVE_ALL_MESSAGES), HumanMessage(content=request)],
     }
 
@@ -173,9 +214,17 @@ def verify(state: PilotState) -> dict[str, Any]:
     receipt = receipts[-1]
     selected = any(isinstance(message, AIMessage) and any(
         call.get("id") == receipt.tool_call_id and call.get("name") == "calculate_valuation"
+        and call.get('args') == {}
         for call in message.tool_calls) for message in messages)
     if not selected:
         raise ValueError("calculator receipt is not bound to a model tool call")
+    if state.get('receipt_version') == 2:
+        artifact = receipt.artifact or {}
+        expected_artifact = {'schema_version': 2, 'case_sha256': hashlib.sha256(canonical(
+            state['case']).encode()).hexdigest(), 'tool_call_id': receipt.tool_call_id,
+            'execution_thread_id': state.get('execution_thread_id', '')}
+        if artifact != expected_artifact:
+            raise ValueError('calculator receipt identity/hash mismatch')
     tool_result = json.loads(receipt.content)
     case = ValuationCase.model_validate(state["case"])
     # Independent rational arithmetic for the bounded synthetic check. This is
@@ -186,9 +235,11 @@ def verify(state: PilotState) -> dict[str, Any]:
                      for period, value in enumerate(case.fcff, 1))
     enterprise += Fraction(case.terminal_ev) / discount ** len(case.fcff)
     expected = (enterprise - Fraction(case.net_debt)) / Fraction(case.shares)
-    observed = Fraction(Decimal(tool_result["per_share"]))
-    if tool_result["case_id"] != case.case_id or not math.isclose(
-            float(observed), float(expected), rel_tol=1e-12, abs_tol=1e-12):
+    expected_fields = {'enterprise_pv': enterprise, 'equity_pv': enterprise - Fraction(case.net_debt),
+                       'nonoperating_pv': Fraction(0), 'per_share': expected}
+    if (set(tool_result) != {'case_id', *expected_fields}
+            or tool_result['case_id'] != case.case_id
+            or any(Fraction(Decimal(tool_result[k])) != v for k, v in expected_fields.items())):
         raise ValueError("calculator result failed independent check")
     last = messages[-1]
     if not isinstance(last, AIMessage) or last.tool_calls:
@@ -219,7 +270,10 @@ def make_graph(model: BaseChatModel | None = None, *, checkpointer=None):
         state_schema=PilotState,
         context_schema=PilotContext,
         system_prompt=CALCULATOR_PROMPT,
-        middleware=[bounded_model_call, ModelCallLimitMiddleware(run_limit=3, exit_behavior="error")],
+        # run counters are untracked and reset on a cooperative resume. The
+        # child's persisted thread counter bounds the same logical invocation.
+        middleware=[bounded_model_call, ModelCallLimitMiddleware(thread_limit=3, run_limit=3,
+                                                                  exit_behavior="error")],
         name="valuation_agent",
     )
     builder = StateGraph(PilotState, input_schema=PilotInput, output_schema=PilotOutput,

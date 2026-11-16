@@ -1,0 +1,38 @@
+{
+  "accepted": [
+    "new non-overlapping candidate/test/tuning paths",
+    "fixed 1800-second block",
+    "concurrency one",
+    "exact frozen order",
+    "shared UTC/monotonic bounds",
+    "450/900/1350/1800-second admission offsets",
+    "fixed-root 0700 directory and 0600 canonical receipt/marker",
+    "single no-replace issue and crash-safe exact recovery",
+    "strict Draft 2020-12 schemas",
+    "provider-free fault matrix"
+  ],
+  "activation": false,
+  "countable": false,
+  "decision": "ACCEPT_DISABLED_TEMPLATE_ONLY",
+  "explicitly_pending": [
+    "P0-v10",
+    "runner-v2",
+    "provider authority",
+    "human authority",
+    "final reviewed block grant",
+    "authentic G1 authority",
+    "authentic G2 authority",
+    "fresh independent review"
+  ],
+  "next_decision": "A distinct fresh reviewer must assess exact final pins and code after all pending authorities exist; only a separate reviewed change may enable issuance.",
+  "prohibited": [
+    "allocate a live window",
+    "mint fresh IDs in producer tests",
+    "edit runner/P0/orchestrator/providers",
+    "credential/provider/network/email/business/host/bytedcli effect",
+    "claim countability, superiority, activation, or runtime acceptance"
+  ],
+  "rollback": "Remove only the three r6_common_execution_window_v1 paths; no active owner or state references them.",
+  "status": "DISABLED_TEMPLATE_PENDING_FINAL_PINS_AND_FRESH_REVIEW",
+  "version": "r6-common-execution-window-decision-v1"
+}

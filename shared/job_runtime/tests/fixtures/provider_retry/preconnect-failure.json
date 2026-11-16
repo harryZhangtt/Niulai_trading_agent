@@ -1,0 +1,26 @@
+{
+  "evidence_status": "synthetic_not_live_evidence",
+  "expected": {
+    "body_replay": "safe",
+    "classification": "retryable_transient",
+    "retry_delay_source": "local_backoff",
+    "retry_eligible": true,
+    "submission_state": "not_submitted"
+  },
+  "fixture_id": "preconnect-failure",
+  "input": {
+    "observation": {
+      "failure_kind": "connection_unavailable",
+      "headers": {},
+      "http_status": null
+    },
+    "request_body_state": "not_started",
+    "transport_phase": "preconnect"
+  },
+  "sanitization": {
+    "contains_credentials": false,
+    "contains_provider_payloads": false,
+    "contains_raw_errors": false
+  },
+  "schema_version": 1
+}

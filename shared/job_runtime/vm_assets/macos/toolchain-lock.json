@@ -1,0 +1,17 @@
+{
+  "compilerPath": "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+  "compilerVersion": "swift-driver version: 1.127.15 Apple Swift version 6.2.4 (swiftlang-6.2.4.1.4 clang-1700.6.4.2) Target: arm64-apple-macosx26.0 ",
+  "flags": [
+    "-parse-as-library",
+    "-framework",
+    "Virtualization",
+    "-framework",
+    "Security"
+  ],
+  "lockVersion": 1,
+  "outputDigestAlgorithm": "sha256",
+  "sources": {
+    "ContainmentHost.swift": "c5e769f7ed2e528409108e11b82c3afcc3b20597cf500aaa039f9fa540147386",
+    "Protocol.swift": "7f33e8d9bcb874cc013c459b3022e9a00ee9f98e729625bf7010682628fa60dd"
+  }
+}

@@ -6,6 +6,8 @@ decision and receives the original receipt (including its original timestamps).
 The callback owns its hard I/O timeout: arbitrary Python callbacks cannot be
 preempted here. A late result is rejected rather than published as timely.
 """
+from __future__ import annotations
+
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta, timezone
 import fcntl

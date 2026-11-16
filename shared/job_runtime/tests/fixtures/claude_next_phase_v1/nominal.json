@@ -1,0 +1,1 @@
+{"campaign_id":"R6","gateway_disposition":"pass_through","terminal_disposition":"success","http_status":200,"upstream_forward_count":1,"submission":"definitely_submitted","typed_transient":false,"retry_after_seconds":null,"request_ordinal":1,"expected_route":"R6","expected_status":"succeeded"}

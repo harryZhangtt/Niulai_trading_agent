@@ -219,6 +219,76 @@ If you catch yourself thinking:
 
 Repeated coupled failures justify architectural review; do not infer it from a numerical retry count alone.
 
+## Deterministic architecture-research escalation
+
+Count confirmed, deduplicated findings against one sealed candidate fingerprint and
+declared owner/module set. A reopen is a finding declared closed and later
+reconfirmed at the same contract boundary. Stop patch-by-patch work and open an
+architecture decision when any condition holds:
+
+1. one critical external-effect, trust, credential/path, duplicate-effect,
+   unknown-outcome or recovery defect spans at least two modules or owners;
+2. two high/critical findings share a root-cause class across at least two module
+   boundaries in one review cycle;
+3. four confirmed findings span at least three modules or two owners;
+4. one critical reopen, one reopen of the same high-severity boundary, or two
+   lower-severity reopens share a root cause;
+5. two reviews/runs are invalidated by hash drift, stale worktrees, missing
+   candidate files or competing writers; or
+6. two high/critical real-shape or adversarial findings survive a declared green
+   full suite.
+
+On trigger, freeze outward effects, nominate one integration owner, seal candidate
+hashes and producer/consumer schemas, classify the root cause, and compare
+architecture before another fix. Required internal evidence is: a full sorted
+candidate family (path, SHA-256, owner and module boundary), stable unique finding
+IDs with deduplicated counters, a minimal reproducer or sanitized real-shape
+fixture, producer and consumer schemas, a state/authority map, and the reopen
+chronology. The candidate fingerprint is the SHA-256 of canonical candidate-family
+JSON, not a label or truncated hash.
+
+When the decision depends on external protocol, provider, filesystem, framework or
+service semantics, also require one primary official source and one independent
+authoritative implementation, incident analysis or counterexample. Record direct
+URLs, primary/independent role, search/open route, source version/date,
+relevant semantics, applicability limits and access date. A search snippet or
+model answer is not evidence; a
+sanitized intended-host event outranks a synthetic wire fixture.
+
+Compare at least O0 (retain/revert and keep blocked), O1 (narrow repair at the
+canonical owner) and O2 (consolidate one shared contract/state owner). Consider a
+new service/framework only when O1/O2 fail a concrete requirement. Compare trust,
+contract fit, migration/failure radius, maintenance/runtime cost, fixture realism
+and rollback. The O0/O1/O2 table must explicitly compare trust, contract fit,
+migration/failure radius, maintenance/runtime cost, fixture realism and rollback.
+Then preregister one provider-free vertical experiment with an explicit falsifiable
+hypothesis and falsifier, one real-shaped input, one nominal path, one material
+failure and explicit identity, transition, fence/rollback and zero-external-effect
+assertions.
+
+Stop research once primary evidence resolves disputed semantics and one option
+passes the experiment. Permit one research pass and one experiment per hypothesis;
+a failed experiment needs a new hypothesis, not another layered patch. Revert on
+path/secret escape, duplicate effect, unreconciled unknown, lost messaging or
+candidate drift. If no option passes, keep the capability disabled.
+
+Do not trigger this gate for a localized reproducible defect with a clear owner,
+import/PYTHONPATH mistakes, stale test paths, formatting/plan syntax, a known
+schema mismatch with the authoritative producer already available, emergency
+rollback, missing credentials/authorization, documentation-only corrections, or
+a case with no materially different architecture options. Web research never
+substitutes for intended-runtime acceptance.
+
+A task may store the declaration in JSON and validate it read-only with:
+
+```bash
+python3 mentor/skills/progress-and-recovery/scripts/validate_architecture_escalation.py record.json
+```
+
+The validator checks trigger arithmetic and required declaration fields only. It
+never verifies truth, chooses an option, modifies files, blocks user prompts or
+establishes completion.
+
 ## your human partner's Signals You're Doing It Wrong
 
 **Watch for these redirections:**

@@ -1,0 +1,74 @@
+{
+  "activation": false,
+  "closed": true,
+  "excluded": [
+    "provider calls",
+    "network calls",
+    "account actions",
+    "inference",
+    "retry",
+    "replay",
+    "raw publication"
+  ],
+  "frozen_execution_receipt": {
+    "bytes": 2603,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-preflight-r6-execution-receipt.json",
+    "sha256": "b0b7312fe4bb6e451835f3c97288b560f53836f92cb69a1784f00ed324d44dc1"
+  },
+  "owner_private_stdout_ref": {
+    "bytes": 5288,
+    "content_exposed": false,
+    "mode": "0600",
+    "path": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/live-provider-evidence/r6-one-off/claude-catalog-r6-32489c6235ba413a99eaf4fe8d89c7a1/stdout",
+    "sha256": "162c2ffbc043b84b6396168fde4fea592f6e77b0e9a3e3eba976db5ef36966dc"
+  },
+  "sources": [
+    {
+      "bytes": 431,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_catalog_parser_v1/__init__.py",
+      "sha256": "0e545f4455286ed219387ae8eede670db983966f4cd61b65f373f5bf30fc7066"
+    },
+    {
+      "bytes": 16030,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_catalog_parser_v1/parser.py",
+      "sha256": "c20e58cad66f866a5ce1865d8937ee0ff4a87aa4cc62bbf5a3a0c5a1bc01a502"
+    },
+    {
+      "bytes": 3162,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_catalog_parser_v1/interpretation-receipt-v1.schema.json",
+      "sha256": "4fa32dea6c9be2537098ba65045fc34652bb6d0f383746afe73c6fdfbb0bb6ab"
+    },
+    {
+      "bytes": 64,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1/__init__.py",
+      "sha256": "aa81c95192cb510481fac911d394081f91d3ab14132723ac936449ad63b3c0e1"
+    },
+    {
+      "bytes": 5009,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1/test_parser.py",
+      "sha256": "69fc9c7fbdb3ac77dbbfab0059c9552cb310483bb68d11cd2d6997de6544342f"
+    },
+    {
+      "bytes": 1516,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_catalog_parser_v1/test_inertness.py",
+      "sha256": "deb3ef9c4c40fc219feca25c3c1eecbb9071ec21d3176e7714b7324e9d6f9524"
+    },
+    {
+      "bytes": 2857,
+      "path": "shared/job_runtime/tests/fixtures/r6_one_off_claude_catalog_parser_v1/nominal.jsonl",
+      "sha256": "2d2d30f9cb98a83eafbe91129cdef93b7cdeb174e948d2e5d5dbedae15d9712f"
+    },
+    {
+      "bytes": 1166,
+      "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/experiment.py",
+      "sha256": "5c8fc4fd6030e65cce0c157bd67847e5bf2b9b61ad4e9fd6a98940fdda1d16d3"
+    },
+    {
+      "bytes": 2176,
+      "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/protocol-v1.json",
+      "sha256": "ababd97a3d679efec74e6004e6f06f843252e8f6d1c769f34b8ef9eb1940729e"
+    }
+  ],
+  "status": "CLOSED_PROVIDER_FREE_FROZEN_INPUT",
+  "version": "r6-one-off-claude-catalog-parser-source-closure-1"
+}

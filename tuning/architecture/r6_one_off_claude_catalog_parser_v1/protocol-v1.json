@@ -1,0 +1,47 @@
+{
+  "version": "r6-one-off-claude-catalog-parser-protocol-1",
+  "activation": false,
+  "owner": "shared.job_runtime.candidates.r6_one_off_claude_catalog_parser_v1",
+  "problem": "The frozen execution receipt counted all textual occurrences and therefore treated non-authoritative assistant streaming copies as catalog membership occurrences.",
+  "hypothesis": "A duplicate-key-rejecting closed-schema parser restricted to the sole terminal result will establish one exact Opus 5.5 membership occurrence while preserving the original execution STOP and zero new effects.",
+  "falsification": "Any binding drift, malformed or duplicate-key JSONL, nonterminal or multiple result, result error, cost or inference usage, permission or safety error, wrong/duplicate/assistant-only model text, extra key, secret field, or non-local slash-command semantics must stop without a receipt.",
+  "input": {
+    "execution_receipt": {
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-preflight-r6-execution-receipt.json",
+      "bytes": 2603,
+      "sha256": "b0b7312fe4bb6e451835f3c97288b560f53836f92cb69a1784f00ed324d44dc1"
+    },
+    "owner_private_stdout": {
+      "path": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/live-provider-evidence/r6-one-off/claude-catalog-r6-32489c6235ba413a99eaf4fe8d89c7a1/stdout",
+      "bytes": 5288,
+      "sha256": "162c2ffbc043b84b6396168fde4fea592f6e77b0e9a3e3eba976db5ef36966dc",
+      "mode": "0600"
+    }
+  },
+  "acceptance": {
+    "status": "PASS_FROZEN_CATALOG_MEMBERSHIP_EVIDENCE",
+    "terminal_result_count": 1,
+    "terminal_exact_opus_5_5_occurrences": 1,
+    "assistant_occurrences_authoritative": false,
+    "total_cost_usd": 0,
+    "inference_and_model_usage": 0,
+    "permission_and_safety_errors": 0,
+    "original_execution_status": "STOP_CATALOG_PREFLIGHT"
+  },
+  "effects": {
+    "provider": 0,
+    "network": 0,
+    "account": 0,
+    "inference": 0,
+    "retry": 0,
+    "replay": 0,
+    "business": 0
+  },
+  "claim_limits": [
+    "frozen catalog membership only",
+    "not execution PASS",
+    "not inference success",
+    "not countable A/B",
+    "raw remains owner-private"
+  ]
+}

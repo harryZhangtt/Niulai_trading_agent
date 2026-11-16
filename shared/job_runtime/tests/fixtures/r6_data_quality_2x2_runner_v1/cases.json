@@ -1,0 +1,1 @@
+{"fault_cases":["all_four_nominal","one_cell_stop","unknown","order_drift","input_mismatch","budget_mismatch","duplicate_cell","missing_cell","provider_unblinding","addon_unblinding","denominator_drift","publication_fault","p0_envelope_rejection"],"scope":"PROVIDER_FREE_FIXTURE","effects":{"account":0,"network":0,"private_state":0,"provider":0,"subagent":0}}

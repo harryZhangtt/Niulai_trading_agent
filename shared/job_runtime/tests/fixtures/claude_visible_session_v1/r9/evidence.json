@@ -1,0 +1,15 @@
+{
+  "schema_version": "claude-visible-session-evidence-v1",
+  "case_id": "R9",
+  "session_name": "claude-visible-r9-v1",
+  "future_slot_binding": {"slot_id": "slot-2099-01-01T00:00:00Z-r9", "scheduled_for": "2099-01-01T00:00:00Z", "request_id": "request-r9-v1"},
+  "request_events": [{"logical_request_id": "r9-parent", "attempt": 1, "actor": "parent", "kind": "gateway_request"}],
+  "tool_events": [{"ordinal": 1, "actor": "parent", "tool": "Read", "target": "r9/abc.bin", "status": "succeeded"}],
+  "budget_observed": {"wall_seconds": 2, "output_tokens": 128, "tool_calls": 1},
+  "polls": [
+    {"ordinal": 1, "status": "running", "observed_at": "2099-01-01T00:00:01Z"},
+    {"ordinal": 2, "status": "succeeded", "observed_at": "2099-01-01T00:00:02Z"}
+  ],
+  "terminal": {"status": "succeeded", "completed_at": "2099-01-01T00:00:02Z", "output": {"sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad", "bytes": 3}, "children": []},
+  "cleanup": {"status": "complete", "completed_at": "2099-01-01T00:00:03Z", "active_children": 0, "session_retained_visible": true, "stopped_resources": []}
+}

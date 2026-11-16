@@ -1,0 +1,35 @@
+{
+  "$id": "https://local.invalid/clean-review-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "SYNTHETIC_AUTH_RECEIPT_REVIEW"
+    },
+    "live_authority": {
+      "const": false
+    },
+    "receipt_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reviewer": {
+      "const": "independent-provider-free-fixture-reviewer"
+    },
+    "verdict": {
+      "const": "CLEAN_FIXTURE_ONLY"
+    },
+    "version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "version",
+    "kind",
+    "reviewer",
+    "verdict",
+    "receipt_sha256",
+    "live_authority"
+  ],
+  "type": "object"
+}

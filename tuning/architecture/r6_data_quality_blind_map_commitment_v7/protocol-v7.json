@@ -1,0 +1,74 @@
+{
+  "acceptance_matrix": [
+    {
+      "expect": "No basename exclusion at any depth; only exact held-root private-map path plus receipt transaction/device/inode is excluded and every decoy scans.",
+      "id": "OPEN-V6-01"
+    },
+    {
+      "expect": "Finite frozen write-confinement scope can be authoritatively CLEAN; every regular file streams regardless size, symlink text is bounded/nofollow, and whole workspace remains diagnostic only.",
+      "id": "OPEN-V6-02"
+    },
+    {
+      "expect": "No-replace rename capability resolves before root, lock, stage, or transaction mutation; Linux/unsupported absence leaves zero artifacts.",
+      "id": "OPEN-V6-03"
+    },
+    {
+      "expect": "Component implementation verdict is separate from external P0-v10/human authority; status stays provider-free pending and noncountable.",
+      "id": "OPEN-V6-04"
+    },
+    {
+      "expect": "Any unlisted role/path denies in memory; chronology packet roles deny without fixed-chain authorization.",
+      "id": "WRITE-CONFINEMENT"
+    },
+    {
+      "expect": "G3 conditional branches, bounded reads, public-binding-first private read order, lock ownership and race fences remain exact.",
+      "id": "G3-AND-READ-ORDER"
+    }
+  ],
+  "activation": false,
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 15753,
+    "countable": false,
+    "finding_count": 4,
+    "mode": "0644",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v6-independent-review-open-fable-20261113-8e9a8076.json",
+    "sha256": "3a1d63397c2c5732ec1f4a5f9b92a620e5da93cb6ede31ec4826ceb8adeed084",
+    "trusted": false,
+    "verdict": "OPEN"
+  },
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "execution_order": [
+    "preflight no-replace capability",
+    "create receipt-last transaction",
+    "run finite authoritative scan",
+    "run diagnostic whole-workspace audit",
+    "verify opening denial",
+    "compose descriptor-bound closure",
+    "run evidence and complete regressions",
+    "request fresh independent review"
+  ],
+  "failure_policy": "Unreadable, racy, type-changing, special, oversize symlink target, identity mismatch, unsupported capability, out-of-scope write, absent chronology authorization, malformed chain, or external authority gap denies its exact operation; whole-workspace diagnostics never grant CLEAN.",
+  "fresh_independent_review": "REQUIRED_NOT_YET_PERFORMED",
+  "p0_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "preconditions": [
+    "Preserve every v1-v6 byte and mode as OPEN/revoked history.",
+    "No provider, network, bytedcli, scheduler, account, credential, email, business, host, or live effects.",
+    "Empty trust pins deny before private-map read."
+  ],
+  "subject": "r6_data_quality_blind_map_commitment_v7",
+  "trusted": false,
+  "version": "r6-data-quality-blind-map-commitment-protocol-v7"
+}

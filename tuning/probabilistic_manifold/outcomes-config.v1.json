@@ -1,0 +1,6 @@
+{
+  "schema_version": "probabilistic-manifold-outcomes-config-v1",
+  "primary_sessions": 126,
+  "provisional_sessions": 252,
+  "material_loss_drawdown_threshold": -0.3
+}

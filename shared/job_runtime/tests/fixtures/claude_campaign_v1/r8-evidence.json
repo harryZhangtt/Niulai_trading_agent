@@ -1,0 +1,28 @@
+{
+  "code": "POST_FORWARD_CUT",
+  "evidence_sha256": "48b2981bea08dbab1e6fb231656f8cf14ddeb20f458abb9c58426231efcb3e14",
+  "gateway_disposition": "cut",
+  "http_status": null,
+  "identity": {
+    "attempt_id": "r8-attempt-1",
+    "campaign_id": "R8",
+    "config_sha256": "ad7bbab715eba7850aed849919c027fddacd2486e8742e056b3a2c9a98c21f39",
+    "gateway_id": "gateway-fixture-1",
+    "job_id": "claude-campaign-v1.r8.slot-1",
+    "operation_id": "r8-operation-1",
+    "process_id": "r8-process-1",
+    "prompt_id": "r8-prompt-1",
+    "prompt_sha256": "1ce3ab3cdd6c88536fac5ad827dff5c87b71cf50278ae38b90addb5a615d97d9",
+    "request_id": "r8-request-1",
+    "run_id": "r8-run-1",
+    "slot_id": "slot-1",
+    "source_sha256": "45bf2b2444e637bc028d3546ae9c1c8ef4919ae95b88cba8c50adcae888785f5",
+    "version": 1
+  },
+  "retry_after_seconds": null,
+  "submission": "possibly_submitted",
+  "terminal_disposition": "absent",
+  "typed_transient": false,
+  "upstream_forward_count": 1,
+  "version": 1
+}

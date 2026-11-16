@@ -1,0 +1,2 @@
+{"type":"invocation.started","opaque_identity":"synthetic-opaque"}
+{"type":"invocation.completed","usage":{"input_tokens":11,"output_tokens":3}}

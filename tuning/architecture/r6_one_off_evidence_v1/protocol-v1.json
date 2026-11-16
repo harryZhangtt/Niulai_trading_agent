@@ -1,0 +1,72 @@
+{
+  "version": "r6-one-off-evidence-v1-protocol-1",
+  "status": "FROZEN_BEFORE_IMPLEMENTATION",
+  "verification_level": "BALANCED_PROVIDER_FREE_LOCAL",
+  "authority": {
+    "canonical_engine": ["job", "slot", "attempt", "operation", "status", "prompt_binding"],
+    "candidate": ["sealed_custody", "single_use_admission", "sanitized_projection", "atomic_publication"],
+    "evaluation": ["decision", "countable"],
+    "provider_free_grant": "PERMANENTLY_NONAUTHORIZING"
+  },
+  "acceptance": [
+    {
+      "id": "AC-O1-001",
+      "source": "reviewed O1 architecture",
+      "precondition": "fresh logical job and nonce; Engine identifiers absent; all effects false",
+      "action": "run one future-once nominal case through canonical Engine and injected transport",
+      "observable": "one job, slot, attempt, provider result, dispatch, admission and upstream; exact terminal; PASS; countable false",
+      "forbidden": "pre-reserved Engine IDs, historical identity reuse, second forwarding, external effect"
+    },
+    {
+      "id": "AC-O1-002",
+      "source": "reviewed O1 ambiguity fence",
+      "precondition": "admission is durable before forwarding",
+      "action": "inject truncated terminal and cleanup fault, then reconstruct Engine",
+      "observable": "Engine and evidence UNKNOWN; total dispatch remains one; retry, replay and status queries remain zero",
+      "forbidden": "PASS, replay, reconciliation, status query, second upstream"
+    },
+    {
+      "id": "AC-O1-003",
+      "source": "reviewed O1 drift fence",
+      "precondition": "sealed custody descriptor exists",
+      "action": "mutate one sealed digest before Engine construction",
+      "observable": "STOP with dispatch, admission, upstream and all external effects zero",
+      "forbidden": "Engine identifiers, database execution, forwarding"
+    },
+    {
+      "id": "AC-O1-004",
+      "source": "reviewed admission contract",
+      "precondition": "operation and request fingerprint are exact",
+      "action": "consume sha256(operation||request_fingerprint) twice",
+      "observable": "first receipt is durable before forward; second decision is STOP",
+      "forbidden": "overwrite or second forward"
+    },
+    {
+      "id": "AC-O1-005",
+      "source": "reviewed custody/publication contract",
+      "precondition": "owner-private regular files and no-follow descriptors",
+      "action": "verify held descriptors, retain raw privately, publish sanitized allowlist atomically",
+      "observable": "no-overwrite publication receipt; partial or cleanup fault never PASS",
+      "forbidden": "raw/path/secret publication, symlink acceptance, overwrite"
+    },
+    {
+      "id": "AC-O1-006",
+      "source": "user frozen acceptance",
+      "precondition": "exact additive roots only",
+      "action": "run source, schema, inertness and removal-isolation checks",
+      "observable": "Engine hash/bytes unchanged; blocked package absent from imports; candidate unreferenced by canonical runtime; Python 3.9 and project 3.12 pass with warnings errors",
+      "forbidden": "canonical/predecessor edit, network/socket/subprocess/provider/account/login/email/host effect"
+    }
+  ],
+  "schemas": [
+    "one-off-grant-v1.schema.json",
+    "engine-execution-binding-v1.schema.json",
+    "r6-evidence-v1.schema.json",
+    "publication-receipt-v1.schema.json"
+  ],
+  "claim_limits": [
+    "provider-free architecture evidence only",
+    "no live authority or provider readiness",
+    "no countable A/B, provider superiority or runtime acceptance"
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "version": "r6-claude-current-readiness-audit-protocol-v1",
+  "status": "DESIGN_ONLY_NONAUTHORIZING",
+  "owner": "tuning/architecture/r6_claude_current_readiness_audit_v1",
+  "impact": {
+    "classification": "inert_local",
+    "activation": false,
+    "active_config_or_source_change": false,
+    "external_effect_capability": false
+  },
+  "scope": {
+    "provider": "claude",
+    "model": "claude-opus-5-5",
+    "experiment": "R6 frozen four-cell A/B",
+    "audit_only": true
+  },
+  "allowed_statuses": [
+    "CURRENT_SUFFICIENT",
+    "REFRESH_REQUIRED",
+    "BLOCKED_PENDING_CLAUDE_V8_REVIEW"
+  ],
+  "status_semantics": {
+    "CURRENT_SUFFICIENT": "The exact bound bytes currently support only the narrowly stated evidence class; this status never expands historical membership or local-file identity into live account, entitlement, routing, inference, or countability authority.",
+    "REFRESH_REQUIRED": "Freshness-bounded evidence is stale, consumed, absent, or outside its half-open validity window and must be replaced by a newly authorized and independently reviewed metadata-only receipt before final grants.",
+    "BLOCKED_PENDING_CLAUDE_V8_REVIEW": "The provider-free v8 producer closure is not a live execution path and remains blocked until a fresh independent v8 review and P0 v10 reclosure both pass."
+  },
+  "expiry_semantics": {
+    "window": "Validity is half-open: not_before <= trusted_now < expires_at, or checked_at <= trusted_now < fresh_until.",
+    "exact_boundary": "At trusted_now == expires_at or trusted_now == fresh_until the evidence is stale and status is REFRESH_REQUIRED.",
+    "missing_provider_login_expiry": "Absence of a provider-reported login expiry does not remove the audit freshness deadline.",
+    "immutable_evidence": "Frozen membership interpretation and reviewed file hashes do not expire as historical facts; any byte drift invalidates their exact binding, and they never prove current account/session readiness.",
+    "account_receipt": {
+      "checked_at": "2026-11-10T06:04:58.108114+00:00",
+      "fresh_until": "2026-11-10T06:34:58.108114+00:00"
+    },
+    "consumed_catalog_grant": {
+      "deadline_at": "2026-11-10T05:46:43.008165+00:00",
+      "authorized_requests": 1,
+      "observed_requests": 1,
+      "remaining_requests": 0
+    }
+  },
+  "decision_precedence": [
+    "BLOCKED_PENDING_CLAUDE_V8_REVIEW",
+    "REFRESH_REQUIRED",
+    "CURRENT_SUFFICIENT"
+  ],
+  "inference_readback_contract": {
+    "model_attribution": "A sealed real inference terminal may establish only that its sole successful provider result event reported model claude-opus-5-5.",
+    "membership_or_entitlement": "A result-event model field does not establish current catalog membership or entitlement and does not replace the separately held catalog artifact required by the driver design.",
+    "account_readback": "No inspected terminal, result, Engine-readback, or evidence schema carries provider account identity or account-equality proof.",
+    "engine_readback": "Engine readback is a local SQLite scheduler/job/slot/attempt/prompt-binding readback, not provider model or account readback.",
+    "separate_catalog_required": true,
+    "separate_account_status_required": true
+  },
+  "minimal_metadata_only_preflight_immediately_before_final_grants": {
+    "preconditions": [
+      "fresh independent Claude-v8 review is CLEAN",
+      "P0 v10 reclosure is CLEAN",
+      "exact current binary bytes and SHA-256 still match the held binary identity",
+      "a new exact metadata-only preflight grant and independent review bind the current binary, account-readiness command, catalog command, owner-private custody, half-open window, and zero-retry policy"
+    ],
+    "sequence": [
+      {
+        "step": 1,
+        "name": "account_session_readiness",
+        "surface": "Claude auth-status metadata only",
+        "provider_requests_max": 0,
+        "account_status_reads_max": 1,
+        "inference_max": 0,
+        "required_result": "READY receipt with checked_at and fresh_until, sanitized non-identifying projection, owner-private raw custody, and independent CLEAN review"
+      },
+      {
+        "step": 2,
+        "name": "model_membership_entitlement",
+        "surface": "Claude local /model catalog metadata only",
+        "provider_catalog_requests_max": 1,
+        "account_status_reads_max": 0,
+        "inference_max": 0,
+        "required_result": "one authoritative terminal result containing exact display token Opus 5.5 once, with assistant stream copies ignored, owner-private raw custody, and independent CLEAN interpretation review"
+      }
+    ],
+    "ordering": "sequential",
+    "concurrency": 1,
+    "request_retries": 0,
+    "replay": false,
+    "status_after_unknown": 0,
+    "second_catalog_request": false,
+    "bytedcli": "FORBIDDEN",
+    "claude_binary_execution_during_this_audit": false,
+    "catalog_request_during_this_audit": false,
+    "inference_during_this_audit": false,
+    "final_grant_rule": "Issue final inference grants only while both new receipts and their reviews remain inside the same overlapping half-open validity window; any stale time, drift, ambiguity, or unknown outcome is STOP with no retry or follow-up request."
+  },
+  "verification_contract": {
+    "decision_file_glob": "readiness-decision-*.json",
+    "unique_decision_file_required": true,
+    "decision_mode": "0600",
+    "exact_path_bytes_sha256": true,
+    "timestamp_boundary_tests": true,
+    "drift_test": true,
+    "stdlib_only": true,
+    "network": false,
+    "subprocess": false,
+    "provider": false,
+    "credential_read": false,
+    "browser": false,
+    "bytedcli": false
+  },
+  "claim_limits": [
+    "read-only local evidence audit plus inert audit artifacts only",
+    "no live authority, activation, provider readiness, inference success, account equality, current entitlement, countable A/B evidence, provider superiority, or runtime acceptance",
+    "provider-free v8 producer evidence cannot substitute for fresh independent review, P0 v10 reclosure, or intended-runtime acceptance"
+  ]
+}

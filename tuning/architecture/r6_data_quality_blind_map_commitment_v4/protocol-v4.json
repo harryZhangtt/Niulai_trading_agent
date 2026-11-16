@@ -1,0 +1,115 @@
+{
+  "activation": false,
+  "adversarial_acceptance": [
+    "Fully resealed mixed/interleaved chain rejects.",
+    "Same-file/same-__module__ forged object is never loaded or invoked.",
+    "All five OPEN-v3 schema/runtime differential probes reject.",
+    "Nested path/mode/additional-property mutations reject.",
+    "G3 false and G3 true canonical chains validate locally.",
+    "authorize_opening denies before private-map read with zero pins.",
+    "Leak scan returns aggregate counts only and discloses no values."
+  ],
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 10160,
+    "countable": false,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v3-independent-review-open-v1-fable-20261111.json",
+    "sha256": "b3ee0407e73f6f13a1c541f2cfe632abfb911d4562a59d41e740409b9e82c4bd",
+    "verdict": "OPEN"
+  },
+  "countable": false,
+  "external_effect_policy": {
+    "bytedcli": false,
+    "email": false,
+    "live": false,
+    "network": false,
+    "permitted": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "fresh_independent_review": {
+    "producer_may_not_self_close": true,
+    "required_before_activation": true,
+    "status": "PENDING"
+  },
+  "preconditions": [
+    "Exact OPEN-v3 review bytes/hash match.",
+    "Fixed human validator source bytes/hash match through O_NOFOLLOW reads.",
+    "Owner-private v4 transaction root is mode 0700 and complete receipt-last files are regular owner-owned mode 0600.",
+    "No caller supplies a root, store, module, callback, object, authority, digest, clock, packets, grades, metrics, map, or randomness to authorize_opening."
+  ],
+  "schema_requirements": {
+    "closed_objects": true,
+    "draft": "https://json-schema.org/draft/2020-12/schema",
+    "mechanisms": [
+      "const fixed identities and sequences",
+      "prefixItems exact cell/role/path order",
+      "conditionals binding cell and role to exact paths and sequence slots",
+      "exact cardinality plus uniqueItems and per-cell contains constraints"
+    ],
+    "published": 11,
+    "reviewed_differentials_closed": [
+      "fixed map identity substitution",
+      "cross-cell packet attempt path",
+      "G1 record with G2 authority/artifact paths",
+      "duplicate metric cell identity",
+      "reversed manifest grade order"
+    ]
+  },
+  "sequence_ranges": {
+    "attempt_admissions": [
+      3,
+      5,
+      7,
+      9
+    ],
+    "attempt_results": [
+      4,
+      6,
+      8,
+      10
+    ],
+    "block_grant_issued": 1,
+    "block_grant_reviewed": 2,
+    "conditional_g3_grades": [
+      23,
+      24,
+      25,
+      26
+    ],
+    "evaluation_packets": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "g1_grades": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "g2_grades": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "manifest_with_g3": 28,
+    "manifest_without_g3": 24,
+    "metrics_with_g3": 27,
+    "metrics_without_g3": 23
+  },
+  "subject": "r6_data_quality_blind_map_commitment_v4",
+  "validation_order": [
+    "Verify pinned source closure before any opening decision.",
+    "Load only fixed validator source bytes into a new internal namespace and invoke its zero-argument fixed-root validator.",
+    "Deny while authentic human pins are absent, pending, fixture, noncountable, substituted, or invalid.",
+    "Require exact complete authentic chain pin set including external artifacts.",
+    "Read every pinned chain artifact nofollow and verify bytes/hash/mode/canonical JSON.",
+    "Validate exact global sequence slots, category barriers, immutable flags, aliases, and cross-reference path-set/equality constraints.",
+    "Reread and bind external request/result/evaluation/grade/metric artifacts.",
+    "Only after every prior gate succeeds, read the private map and compare aliases; candidate still returns disabled/noncountable."
+  ],
+  "version": "r6-data-quality-blind-map-commitment-protocol-v4"
+}

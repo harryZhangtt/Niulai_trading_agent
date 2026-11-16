@@ -1,0 +1,111 @@
+{
+  "activation": false,
+  "architecture": {
+    "bytes": 7860,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/architecture-v3.json",
+    "sha256": "f4e0c888ce7edce70b52552e9932d6c1495a7444a716006416862c3f47421243"
+  },
+  "canonical_key": {
+    "alternate_bound_identity_rule": "same key then RESERVATION_CLAIM_BINDING before boundary",
+    "fields": [
+      "block_id",
+      "grant_content_sha256",
+      "input_identity_sha256",
+      "map_content_sha256",
+      "runner_owner_root_id",
+      "source_identity_sha256",
+      "fixture"
+    ],
+    "same_root_public_mutation_rule": "one key, one claim, one admission, first-boundary count exactly one"
+  },
+  "cell_contract": {
+    "attempts_per_cell": 1,
+    "order": "fixed CELL_ORDER",
+    "partial_comparison": false,
+    "replays": 0,
+    "retries": 0,
+    "status_queries": 0
+  },
+  "crash_rules": {
+    "admitted_without_receipt": "durable UNKNOWN_NO_REPLAY",
+    "inside_first_boundary": "never replay",
+    "prepared_effect_residue": "fail closed",
+    "prepared_exact_dead_zero_effects": "one linked recovery",
+    "prepared_live_or_indeterminate": "no takeover",
+    "receipt_stage_or_post_link": "exact deterministic reconciliation"
+  },
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "execution_order": [
+    "rehash every closed predecessor/P0/OPEN-review source and verify imported module file identities",
+    "validate exact authority/grant and map bytes/content and immutable frozen-input digest",
+    "derive canonical fixed key without caller-shaped ref/destination/P0-root identities",
+    "bind refs/destination/P0 roots and all source pins in immutable claim",
+    "atomically publish and reopen/hash one PREPARED claim",
+    "if a claim exists, accept only LIVE, DEAD_EXACT_PROOF, or INDETERMINATE observation",
+    "fail closed on LIVE or INDETERMINATE; for DEAD_EXACT_PROOF require zero-effects proof and publish one predecessor-linked recovery claim",
+    "fsync and reopen/hash ADMITTED before first boundary",
+    "delegate once to pinned v1 fixed four-cell path",
+    "reconcile exact receipt or publish UNKNOWN_NO_REPLAY; never replay"
+  ],
+  "generated_at_utc": "2026-11-13T14:21:25Z",
+  "input": "exact authority registry/grant, canonical frozen input, exact map commitment, runner owner root, two P0 adapter owner roots, bundle destination, and fixture boundary objects",
+  "observation_protocol": {
+    "boot": {
+      "match": "LIVE",
+      "mismatch": "DEAD_EXACT_PROOF",
+      "read/format/error": "INDETERMINATE"
+    },
+    "outcomes": [
+      "LIVE",
+      "DEAD_EXACT_PROOF",
+      "INDETERMINATE"
+    ],
+    "process_start": {
+      "ESRCH-confirmed absence": "DEAD_EXACT_PROOF",
+      "match": "LIVE",
+      "mismatch": "DEAD_EXACT_PROOF",
+      "permission/transient/incomplete/ambiguous existence": "INDETERMINATE"
+    },
+    "recovery_evidence_fields": [
+      "owner process identity",
+      "pid",
+      "expected and observed boot identity",
+      "expected and observed start token",
+      "all three outcomes",
+      "reason",
+      "monotonic observation time"
+    ],
+    "stored_evidence_never_sufficient_alone": true
+  },
+  "output": "pinned execution_receipt_v6 reference or fail-closed reservation error; finalization delegates to authenticated v1 human/G3 path",
+  "provider_free": true,
+  "public_api": {
+    "caller_clock_deadline_pid_boot_start_token_observer_or_reservation_root": false,
+    "exports": [
+      "STATUS",
+      "default_run",
+      "execute_block",
+      "finalize_block"
+    ],
+    "mutable_identity_exports": []
+  },
+  "status": "PRODUCER_PROTOCOL_P0_V10_RECLOSURE_REQUIRED",
+  "unresolved": {
+    "fresh_independent_review": "PENDING",
+    "intended_runtime_acceptance": "NOT_RUN_NO_ACTIVATION",
+    "orchestrator_rebind": "PENDING",
+    "p0_checks_enabled_schema": "P0_V10_REQUIRED",
+    "runner_consumer": "P0_V10_RECLOSURE_REQUIRED"
+  },
+  "version": "r6-data-quality-2x2-runner-protocol-v3"
+}

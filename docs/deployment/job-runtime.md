@@ -39,11 +39,17 @@ configured model authentication homes. Jobs sharing one home queue sequentially
 without consuming retry attempts while waiting; independent groups can use the
 remaining worker capacity.
 
-The current Niulai allocation is **read-only readiness at 13:00 and 19:00
-America/New_York**, with a one-hour grace window and Niulai's real XNYS admission
-check. Its model prompt cannot collect prices, refresh Tiger, send email or trade.
-The original cloud email sender remains a separate production owner until its
-explicit cutover. Installing this runtime does not migrate that sender.
+The current private Niulai allocations run the combined price/holdings business
+path at13:00/19:00 America/New_York on XNYS sessions, plus five-minute missing-data
+recovery, under the user's explicit parallel-sender authorization. The checked-in
+allocation is disabled for safe redeployment. See the [domain runbook](niulai.md)
+and actual host/delivery evidence; enabled configuration alone is not proof of a
+sent report, and parallel operation is not sole-sender cutover. The earlier
+readiness-only sample remains distinct from this business path.
+
+The [local scheduler UI](scheduler-ui.md) reads these actual allocations and
+ledgers at`/scheduler`, alongside the datasource frontend. It does not dispatch,
+edit or enable jobs and adds no execution/credential dependency to the daemon.
 
 ## Device prerequisites
 
@@ -116,6 +122,68 @@ the event stream for a real completed turn and final output. Exit zero or a
 model's claim that it finished is insufficient. `requested_model` records the
 enforced selection; `observed_model` remains unknown unless the CLI actually
 emits it. See [the model adapter contract](../../shared/job_runtime/docs/model.md).
+
+### Evaluation-evidence future-write fence
+
+The `evaluation-evidence` store remains `unverified` with `manual_review`
+retention. `run_codex` now normalizes its requested run directory before any
+launch or directory creation. Every future target at or below
+`.job-runtime/evaluations/` fails before launch with
+`MODEL_STRICT_PROCESS_TREE_CONTAINMENT_UNAVAILABLE`, including lexical
+`..` aliases that normalize into that root. This is a fail-closed hold until a
+strict process-tree containment backend is actually available; it does not
+repair, migrate, reclassify or accept historical evaluation evidence.
+
+For other run directories, the adapter now gives future child-created files a
+`0077` umask, explicitly `fchmod`s parent-created output files to `0600`, and
+reads final output through a held run-directory descriptor with identity, mode,
+link-count, size and replacement checks. The inherited authentication-lock file
+descriptor is intentional. These controls reduce future output-permission and
+path-swap risk, but they do **not** contain a detached descendant that calls
+`setsid()`. Generic non-evaluation `run_codex` paths therefore retain that
+residual process-tree risk and are not promoted as durable evaluation storage.
+Umask/fchmod/held-descriptor hardening alone is insufficient to reopen the
+evaluation path.
+
+Focused provider-free check:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v \
+  shared.job_runtime.tests.test_model
+```
+
+This source/test hardening is implemented and passed 33 focused tests in the
+current documentation session. It has no intended-runtime future-triggered
+scheduled/email acceptance, so the changed capability is not runtime accepted.
+
+### Frozen-disabled strict process-tree containment candidate
+
+`shared/job_runtime/containment.py`, `macos_vm.py` and `vm_assets/` define a
+source-only macOS Virtualization.framework containment contract. The candidate
+uses a versioned Python/Swift/Linux-guest protocol, private content-addressed
+artifacts, no-follow descriptor authority, bounded cancellation/teardown and a
+pinned Swift toolchain lock. It exists because the ordinary host process-group
+backend cannot contain a descendant that creates a new session with `setsid()`.
+
+The candidate is **not configured or active**. The helper is unbuilt, unsigned,
+unentitled and unlaunched; no VM, virtio, cgroup, unrestricted-NAT, launchd or
+model-dispatch acceptance has occurred. Do not add its artifacts or profile to
+private runtime configuration, and never fall back from a requested strict
+backend to the host process backend. The source-only verification command is:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest -v \
+  shared.job_runtime.tests.test_containment \
+  shared.job_runtime.tests.test_guest_agent \
+  shared.job_runtime.tests.test_macos_vm_helper \
+  shared.job_runtime.tests.test_containment_protocol
+```
+
+The frozen candidate passed 60/60 distinct tests, Python compilation, Swift
+`-typecheck`, shell syntax, exact no-build toolchain-lock reproduction and an
+independent adversarial review. A future disposable canary requires separate
+impact review and explicit authorization; source checks do not satisfy scheduled
+runtime acceptance.
 
 ## Infrastructure configuration and job allocation
 
@@ -203,6 +271,249 @@ Schedule edits with an existing job ID are deliberately rejected by the engine.
 Treat a change in cadence or job identity as a migration: disable/reconcile the
 old allocation and its delivery records first. A new scheduler ID alone is not
 authorization to repeat a business email or complete an old production slot.
+
+## Provider-neutral retry v2 candidate: source-live, disabled
+
+The v1 configuration and allocation examples above remain unchanged and describe
+the compatibility/current installed path. A separate source-live candidate adds
+runtime `schema_version: 2`, durable database schema 8, typed provider results,
+provider-neutral retry decisions, replay contracts, reconciliation authority and
+scoped circuits. It is not installed, configured, active or production-ready.
+Provider-free checks are not scheduled-provider or delivery acceptance.
+
+The candidate contracts are owned by:
+
+- `shared/job_runtime/provider_contract.py` for immutable `ProviderResultV1`,
+  `ReplayContractV1` and `ReconciliationProofV1` values;
+- `shared/job_runtime/retry_policy.py` for deterministic `RetryPolicyV2` decisions;
+- `shared/job_runtime/config.py`, `engine.py` and `service.py` for admission,
+  persistence, dispatch gates and provider registry ownership;
+- `shared/job_runtime/providers/codex_cli.py` and `claude_host.py` for normalized
+  evidence boundaries; and
+- `shared/job_runtime/dashboard.py` for a sanitized read-only projection.
+
+### Provider result and retry authority
+
+A provider result records provider, operation, phase, submission state, terminal
+proof, status, stable code, failure kind, optional typed HTTP/retry hint and a
+bounded sanitized receipt. The result is classification evidence, not permission
+to replay. The central decision table is:
+
+| Evidence | Durable disposition | Replay rule |
+| --- | --- | --- |
+| Terminal with verified proof and no failure | `succeeded` | Never replay |
+| Permanent auth, config, model, policy or local-config failure | `terminal_failed` | Never retry unchanged |
+| Safe candidate in `not_started` or `connecting`, explicitly `not_submitted` | `retry` if policy, attempt and deadline limits allow | Only a declared automatic phase may retry |
+| Typed HTTP 408, 409, 429, 529 or 5xx before submission | Candidate; provider `false` still denies | Honor a valid server minimum wait and local bounds |
+| Noncandidate HTTP before submission | `terminal_failed` unless an explicit provider `true` hint applies | Still subject to all replay and policy gates |
+| Timeout, reset, partial output or missing terminal after possible/definite submission | `unknown` | Fence; never automatically replay |
+| Contradictory terminal proof | `unknown` | Fence and reconcile |
+
+`RetryPolicyV2` accepts a bounded attempt count, positive base and maximum delays,
+an optional deadline and exactly `sha256-full-jitter-v1`. The selected delay is
+deterministic for the slot, attempt and policy fingerprint. A typed `Retry-After`
+value may be milliseconds, seconds, an HTTP date or a typed timestamp; it is a
+minimum, never shortened. A past, malformed, over-policy or over-deadline wait
+fails closed. The exact selected timestamp is persisted, so restart does not draw
+new jitter. Do not independently enable complete SDK and scheduler retry loops:
+the scheduler owns durable deferral, unknown fencing and reconciliation and must
+account for any provider-client attempts in its total budget.
+
+A v2 replay contract has effect `none`, `idempotent` or
+`reconcile_before_replay`; automatic phases may contain only `not_started` and
+`connecting`. Even `none` and `idempotent` operate only on an already-safe
+pre-submit result. A post-submit unknown requires the named owning reconciliation
+adapter to prove the exact outcome `absent`. The immutable proof is bound to the
+attempt, operation, slot scope, canonical provider-result digest, evidence digest,
+proof digest and recorded time. The engine reloads those bindings from its own
+ledger, consumes an accepted proof once and allows only the matching unknown slot
+to enter retry wait. Ad hoc values, cross-attempt proofs and blind replay have no
+authority.
+
+### Exact v2 configuration and allocation shapes
+
+This is one complete valid v2 example, not an exhaustive display of optional
+fields; replace device paths, model names and timing values only with reviewed
+owner-private values. Codex profiles may also declare bounded `max_output_bytes`
+and `strict_process_tree_containment`; `deadline_seconds` and `jitter` may be
+omitted to use their validated defaults. Both profiles are shown for schema
+clarity, not as an activation instruction:
+
+```json
+{
+  "schema_version": 2,
+  "python_bin": "/absolute/path/to/checkout/.job-runtime/.venv/bin/python",
+  "tick_seconds": 5,
+  "heartbeat_seconds": 5,
+  "stale_seconds": 90,
+  "max_workers": 2,
+  "retry": {
+    "version": 2,
+    "max_attempts": 3,
+    "base_delay_seconds": 1,
+    "max_delay_seconds": 30,
+    "deadline_seconds": 120,
+    "jitter": "sha256-full-jitter-v1"
+  },
+  "model_profiles": {
+    "codex-candidate": {
+      "provider": "codex_cli",
+      "codex_bin": "/absolute/path/to/codex",
+      "model": "reviewed-codex-model",
+      "effort": "low",
+      "timeout_seconds": 120,
+      "auth_home": "/absolute/path/to/checkout/.job-runtime/codex-home",
+      "circuit": {
+        "failure_threshold": 3,
+        "open_seconds": 60,
+        "probe_seconds": 10
+      }
+    },
+    "claude-candidate": {
+      "provider": "claude_host",
+      "model": "reviewed-claude-model",
+      "timeout_seconds": 120,
+      "auth_home": "/absolute/path/to/checkout/.job-runtime/claude-home",
+      "circuit": {
+        "failure_threshold": 3,
+        "open_seconds": 60,
+        "probe_seconds": 10
+      }
+    }
+  },
+  "allocation_files": [".job-runtime/config/jobs-v2.json"],
+  "source_paths": []
+}
+```
+
+The exact v2 job shape is deliberately smaller than v1. It rejects `replay_safe`,
+business `adapter`, `adapter_config`, `completion_adapter`, unknown keys and every
+caller-supplied underscore key:
+
+```json
+{
+  "schema_version": 2,
+  "jobs": [
+    {
+      "id": "provider.retry.codex.candidate.v2",
+      "enabled": false,
+      "schedule": {
+        "kind": "once",
+        "at": "2026-11-07T12:00:00+00:00",
+        "grace_seconds": 300
+      },
+      "model_profile": "codex-candidate",
+      "prompt_file": "shared/job_runtime/probe-prompt.txt",
+      "replay_contract": {
+        "version": 1,
+        "effect": "none",
+        "automatic_phases": ["not_started", "connecting"],
+        "slot_operation_scope": "provider.retry.codex.candidate.v2/slot",
+        "reconciliation_adapter": null
+      }
+    },
+    {
+      "id": "provider.retry.claude.candidate.v2",
+      "enabled": false,
+      "schedule": {
+        "kind": "once",
+        "at": "2026-11-07T12:05:00+00:00",
+        "grace_seconds": 300
+      },
+      "model_profile": "claude-candidate",
+      "prompt_file": "shared/job_runtime/probe-prompt.txt",
+      "replay_contract": {
+        "version": 1,
+        "effect": "none",
+        "automatic_phases": ["not_started", "connecting"],
+        "slot_operation_scope": "provider.retry.claude.candidate.v2/slot",
+        "reconciliation_adapter": null
+      }
+    }
+  ]
+}
+```
+
+The service examples use `effect: none` because the production `serve()` path does
+not yet register a reconciliation adapter. A `reconcile_before_replay` allocation
+is schema-valid only when the owning runtime constructs `Engine` with the exact
+reviewed adapter identity; without it, startup fails closed.
+
+Operation and attempt identities, provider-result and retry-decision digests,
+reconciliation bindings and circuit generation are centrally derived and persisted.
+During loading/service preparation, only trusted runtime code injects
+`_replay_contract`, derived `replay_safe`, `_provider`, typed `_retry_policy`,
+`_prompt_snapshot` plus `_prompt_sha256`,
+`_circuit_scope` (`profile`, `resource_hash`, threshold/open/probe periods) and the
+digested `_resource_key`. Allocation keys beginning with `_` are rejected. Provider
+and circuit metadata are stripped before the adapter receives its provider-specific
+profile. A profile selects one provider; a job cannot replace the registry,
+translator, bridge, resource identity or reconciliation authority through prompt
+or allocation data.
+
+### Circuit, ledger and migration semantics
+
+Circuits are scoped by provider, profile, credential/resource identity and
+configuration generation. Opening a circuit defers work without creating an
+attempt. Half-open probes require one durable lease; contenders wait without
+consuming attempts. Success closes the matching generation, a qualifying failure
+reopens it, and a source/profile/resource generation change cannot inherit stale
+probe authority.
+
+Database schema 8 is an additive migration for canonical provider results, retry
+decisions, reconciliation records and one-time consumptions, scoped circuit state
+and generation, and the per-slot prompt snapshot/digest. Config admission reads a
+v2 prompt once through held no-follow descriptors, verifies stable inode metadata
+and strict UTF-8, then the first claim durably pins those exact bytes. Retries and
+restart use the slot snapshot rather than reopening the source path; the snapshot
+columns are immutable after their one allowed initialization. Migration and
+backfill are transactional.
+Provider results, retry decisions and reconciliation ledgers are immutable; guarded
+attempt transitions preserve the original attempt and allow only owned running to
+terminal/retry transitions and explicit unknown-to-operator-reconciled handling.
+Crash recovery records an old running typed attempt as unknown rather than replaying
+it.
+
+Do not run an old writer against a schema-8 database. Before any migration, disable
+the candidate, stop/quiesce the service, retain an owner-private database backup
+and prove the source/config/schema rollback on a copy. Rollback means restoring a
+reviewed compatible source and configuration while preserving the database,
+unknown fences, attempts, ledgers and credentials. Never delete or recreate the
+live database to make old code start; a v8 database is incompatible with an old
+writer unless a separately reviewed rollback or restore has proved otherwise.
+
+### Provider and UI activation boundaries
+
+The Codex normalized structural translator is source-live but remains activation-
+blocked. Its sanitized fixture is synthetic structure, not raw Codex semantics;
+pinned-source and sanitized-capture conformance are unverified. The service gate
+returns `RUNTIME_CODEX_TRANSLATOR_UNVERIFIED` before provider invocation. The
+configured model is a request, not provider-reported identity.
+
+The Claude adapter validates sealed host-custody evidence only. It does not invoke
+a host, model, network, scheduler or SDK and keeps `runtime_unverified` true. No
+production host bridge is available; the service gate returns
+`RUNTIME_CLAUDE_HOST_BRIDGE_UNAVAILABLE` without invocation. Neither provider path
+has scheduled or Gmail acceptance, and no production-readiness claim is permitted.
+
+The dashboard projection is read-only and has no dispatch, retry, reconcile,
+circuit-reset, configuration or enable controls. It exposes only sanitized status,
+phase, submission/proof state, stable code, delayed-until source, replay
+authorization, circuit state/probe eligibility, unknown fence and queue depth.
+Provider receipts, prompts, resource identities and paths are bounded, hashed,
+allowlisted or redacted; malformed or secret-bearing provider rows degrade to an
+unavailable detail instead of leaking raw evidence. UI/API fields do not grant
+runtime authority.
+
+The provider-free campaign uses synthetic providers, clocks, crashes,
+reconciliation and external-effect sentinels with real temporary SQLite state. It
+covers preconnect and typed HTTP retries, valid/malformed `Retry-After`, overload
+circuit open/half-open/close/reopen and scope isolation, permanent auth/config,
+provider retry true/false, post-submit reset, timeout, partial/missing terminal,
+restart and crash points, deadlines/grace/shutdown/contenders, exception/cancel,
+immutability, config drift and v1 compatibility. These checks establish only the
+source contract. Future activation must satisfy the separate acceptance contract
+below, including both intended provider lanes and exact email readback.
 
 ## Install and verify
 
@@ -405,3 +716,68 @@ while still enforcing the complete original schema locally. The shared model
 adapter classifies `invalid_json_schema` / invalid response-format schema errors
 as permanent configuration rejection rather than retryable transport failure.
 The first failed scheduled receipt remains preserved; a repair requires new proof.
+
+### Schema9 Service prompt-artifact handoff candidate (2026-11-07)
+
+The disabled source candidate publishes schema2 prompt captures into the immutable
+workspace CAS, strips raw captures before Engine admission and opens verified
+descriptors in Service before provider invocation. Its explicit side-file migrator
+now takes the Service `service.lock` nonblocking before source validation and holds
+it through SQLite backup, candidate construction, exchange, readback and any
+rollback; an active writer fails with fixed code `MIGRATION_WRITER_ACTIVE`.
+
+Every forward or rollback exchange remains outcome-unknown until exact path,
+inode, schema and SHA-256 readback classifies it. An effect-then-exception is
+reconciled from that readback rather than reported as an ordinary failure. Unknown
+forward or rollback state preserves the candidate, exchanged peer and recovery
+backup. The sealed migration receipt binds the exact active and exchanged-legacy
+paths, before/after inodes and file hashes, schema hashes, and complete per-table
+source and target counts and row digests. Receipt parsing requires the exact table
+set for the declared source version and canonical schema9 target, and recomputes
+both aggregate row-inventory digests. Rollback also rereads both databases and
+requires their complete inventories to match the receipt before exchange.
+
+Production migration and rollback are fixed to the maintained Darwin
+`darwin_rename_swap`; the receipt binds a SHA-256 digest of that implementation's
+source. Fault-injection swaps are private test-only inputs with their own source
+digest, so a callable spoofing only module and qualified name cannot satisfy a
+receipt. Rollback requires the receipt, applies the same safe-file checks to both
+paths, and accepts only the bound legacy peer and exact schema9 candidate identity;
+an arbitrary schema9 file, path/hash/inventory drift or a post-evidence fence fails
+closed.
+
+The hardened disposable tests cover real Darwin exchange, prompt canary/plaintext
+absence, every pre-swap phase, held-lock contention and duration, forward and
+rollback effect-then-exception, throwing post-swap hooks, callable-identity spoofing,
+removed/extra/rehashed receipt inventories, wrong peer/path/hash and candidate
+identity, complete target inventory, cleanup, unknown-state evidence retention,
+idempotent rollback and the evidence fence. The focused suite passed 21 tests in
+the project job-runtime environment; after the provider source freeze, the complete
+job-runtime suite passed 471 tests in the project research environment that carries
+the pinned `jsonschema` dependency needed by `test_review_campaign`.
+Fresh-host reproduction declares that test-only pin in
+`shared/job_runtime/test-requirements.txt` and installs it into the separate
+`.job-runtime/test-venv`; generated launchd services continue to use the
+production runtime interpreter and do not gain `jsonschema` as a runtime
+dependency.
+
+No migration or activation was run in this change. The active database remained
+schema 8 at SHA-256
+`33d960d8fba258f249edaad4ed9f9ab533f2fab058a729072bd2d53ad872914b`.
+The earlier disposable SQLite-backup campaign remains candidate evidence only.
+Owner-approved active migration, a future scheduled native-host exercise, exact
+business/readback acceptance and owner email notification remain required before
+any production-readiness or activation claim.
+
+Focused migration tests passed 21/21 and the earlier unchanged-family full job-runtime suite passed 471/471 after the PromptArtifactStore concurrency fix. After the launcher, stale-fixture, shellless-business, and protocol-v3 prompt-custody repairs, the current complete shared/job_runtime suite passes 510/510 in the workspace-owned test environment carrying the declared `jsonschema` pin. This remains local candidate evidence, not activation acceptance.
+
+Schema-1 protocol-v3 adapters now receive immutable `prompt_sha256` and
+`prompt_length` values computed from one owner-checked, no-follow, stable read
+before adapter preparation; a later dispatch uses that same decoded capture and
+never reopens the prompt path. Terminal adapter returns remain terminal. Business
+profiles may use `phase=business` with `shell=false`; with
+`approval_mode=automatic_review`, generated Codex arguments keep the shell feature
+disabled and expose neither shell writable roots nor `--add-dir` grants. Existing
+`business` profiles with `shell=true` retain their current private-root behavior.
+These source/test changes do not migrate the database, alter active configuration,
+regenerate plists, load services, or authorize delivery.

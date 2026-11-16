@@ -1,0 +1,74 @@
+{
+  "activation": false,
+  "allowed_claim": "producer-side provider-free tests show the exact v4 subject addresses the two controlling v3 package-reachable authority mechanisms and preserves crash/no-replay/durable-receipt/human-finalization contracts; fresh exact-subject review, P0 v10 reclosure, and orchestrator rebind remain pending",
+  "basis": {
+    "architecture": {
+      "bytes": 12080,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/architecture-v4.json",
+      "sha256": "9d5066d47ebc4a11567663917de85ca464ba8e3b806f86a2bae718a6f52fba8e"
+    },
+    "combined_schema_enabled_suite": "78/78 PASS (v4 23 + v3 22 + v2 14 + v1 19), jsonschema 4.25.1, zero skips",
+    "controlling_open_review": {
+      "bytes": 22021,
+      "finding_ids": [
+        "OPEN-RUNNER-V3-PACKAGE-REACHABLE-KEY-AUTHORITY-001",
+        "OPEN-RUNNER-V3-PACKAGE-REACHABLE-LIVENESS-AUTHORITY-002",
+        "OPEN-P0-V9-G3-SCHEMA-002"
+      ],
+      "name": "runner_v3_open_review",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v3-independent-review-fable-20261113-8e9a8076-open.json",
+      "sha256": "e11ca7dd9b35a21e8d57ef9398c4aa713a77c45d00986b3f4c3d1ca693b06afe",
+      "verdict": "OPEN"
+    },
+    "frozen_78_history": "4/4 exact records unchanged",
+    "protocol": {
+      "bytes": 3320,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/protocol-v4.json",
+      "sha256": "8f7ea5dc920fe02a3209dcb3e34864840fe20c8e31d19fe706281acbe2a7e81a"
+    },
+    "source_closure": {
+      "bytes": 9757,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/source-closure-v4.json",
+      "sha256": "38e0ad1c5c71572be4784a066d502a0d03bca066c4d510dc852a7bb81109af81"
+    },
+    "transitive_dependencies": "19/19 exact",
+    "v4_suite": "23/23 PASS"
+  },
+  "countable": false,
+  "decision": "ACCEPT_ADDITIVE_PROVIDER_FREE_RUNNER_V4_CANDIDATE_FOR_FRESH_INDEPENDENT_REVIEW_ONLY",
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "forbidden_claims": [
+    "fresh independent CLEAN",
+    "P0 v10 complete",
+    "P0_V10_RECLOSURE complete",
+    "countable cells",
+    "activation",
+    "live authority",
+    "orchestrator integration",
+    "scheduler/email/runtime acceptance"
+  ],
+  "generated_at_utc": "2026-11-14T23:35:18Z",
+  "provider_free": true,
+  "registered": false,
+  "status": "P0_V10_RECLOSURE_REQUIRED",
+  "unresolved": {
+    "activation": false,
+    "countable": false,
+    "fresh_independent_review": "PENDING_FRESH_EXACT_SUBJECT_REVIEW",
+    "intended_runtime_acceptance": "NOT_RUN_NO_ACTIVATION",
+    "orchestrator_rebind": "PENDING",
+    "p0_schema_status": "P0_V10_REQUIRED",
+    "runner_consumer_status": "P0_V10_RECLOSURE_REQUIRED"
+  },
+  "version": "r6-data-quality-2x2-runner-decision-v4"
+}

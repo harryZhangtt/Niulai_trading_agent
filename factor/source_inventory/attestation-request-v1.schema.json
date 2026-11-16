@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "factor-source-attestation-request-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "purpose",
+    "inventory_sha256",
+    "trust_class",
+    "requested_roles",
+    "required_receipt_fields",
+    "status",
+    "real_ready",
+    "blockers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "factor_source_attestation_request"
+    },
+    "purpose": {
+      "const": "pit-factor-data-attestation"
+    },
+    "inventory_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "trust_class": {
+      "enum": [
+        "candidate_real",
+        "synthetic_fixture"
+      ]
+    },
+    "requested_roles": {
+      "const": [
+        "real_yield",
+        "credit_spread",
+        "cash_rate",
+        "spy_market",
+        "oneq_market"
+      ],
+      "uniqueItems": true
+    },
+    "required_receipt_fields": {
+      "const": [
+        "source_authority_id",
+        "provider_id",
+        "product_id",
+        "series_id",
+        "source_version",
+        "vintage_history_complete",
+        "vintage_history_receipt_sha256",
+        "available_at_basis",
+        "available_at_receipt_sha256",
+        "acquisition_receipt_sha256",
+        "license_id",
+        "redistribution",
+        "retention_policy_id",
+        "calendar_id",
+        "calendar_attestation_sha256",
+        "security_master_id",
+        "security_master_attestation_sha256",
+        "corporate_action_policy_id",
+        "executable_price_policy_id",
+        "total_return_policy_id",
+        "cost_policy_id",
+        "missingness_policy_id",
+        "missingness_coverage_receipt_sha256",
+        "raw_identity_sha256",
+        "normalized_identity_sha256"
+      ],
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "blocked",
+        "fixture_only"
+      ]
+    },
+    "real_ready": {
+      "const": false
+    },
+    "blockers": {
+      "type": "array",
+      "maxItems": 22,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9_.-]{0,95}$"
+      },
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "trust_class": {
+            "const": "candidate_real"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "blocked"
+          },
+          "real_ready": {
+            "const": false
+          },
+          "blockers": {
+            "const": [
+              "source-authority-unverified",
+              "source-version-unverified",
+              "vintage-history-unverified",
+              "available-at-basis-unverified",
+              "acquisition-receipts-unavailable",
+              "license-unresolved",
+              "redistribution-unresolved",
+              "retention-unresolved",
+              "calendar-authority-unresolved",
+              "security-master-unresolved",
+              "corporate-actions-unresolved",
+              "executable-price-policy-unresolved",
+              "total-return-policy-unresolved",
+              "cost-policy-unresolved",
+              "missingness-coverage-unverified",
+              "provider-accounts-unprovisioned",
+              "provider-api-access-unprovisioned",
+              "provider-entitlements-unverified",
+              "provider-orders-unverified",
+              "provider-license-receipts-unavailable",
+              "provider-retention-receipts-unavailable",
+              "pit-route-receipts-unavailable"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trust_class": {
+            "const": "synthetic_fixture"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "fixture_only"
+          },
+          "real_ready": {
+            "const": false
+          },
+          "blockers": {
+            "const": []
+          }
+        }
+      }
+    }
+  ]
+}

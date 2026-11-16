@@ -1,0 +1,3790 @@
+{
+  "status": "FROZEN",
+  "revision": "atomic-contract-v1.1",
+  "frozen_date": "2026-11-15",
+  "provenance": "Independent requirement-derived development cases; proposed implementation/tests not inspected. No private data source used.",
+  "access_classification": "Shared workspace development cases, not blind/protected holdouts. Implementer must not alter expectations.",
+  "canonical_input_note": "Canonical semantic givens require explicit mapping to the public adapter schema; they do not prescribe internal implementation. Network ingress accepts only frozen selectors, never these arbitrary semantic objects.",
+  "holdings_base_fixture": {
+    "status": "complete_requested_scope",
+    "checkpoint": {
+      "state": "committed",
+      "id": "SYNTHETIC-CHECKPOINT-1"
+    },
+    "scope": {
+      "account": "SYNTHETIC-A",
+      "currency": "USD",
+      "requestedTypes": [
+        "STK",
+        "OPT",
+        "FUT",
+        "FUND"
+      ],
+      "completedTypes": [
+        "STK",
+        "OPT",
+        "FUT",
+        "FUND"
+      ],
+      "wholePortfolioVerified": false
+    },
+    "holdings": [],
+    "assets": {
+      "account": "SYNTHETIC-A",
+      "currency": "USD",
+      "summary": {
+        "amounts": {
+          "netLiquidation": "1000",
+          "cash": "300"
+        }
+      }
+    },
+    "times": {
+      "queriedAt": "2026-11-15T16:00:00Z",
+      "quoteAt": "2026-11-15T15:59:00Z"
+    }
+  },
+  "public_synthetic_roster": [
+    {
+      "selector": "public-calc-one-period",
+      "case": "CAL-01"
+    },
+    {
+      "selector": "public-calc-debt",
+      "case": "CAL-05"
+    },
+    {
+      "selector": "public-calc-negative-fcff",
+      "case": "CAL-08"
+    },
+    {
+      "selector": "public-calc-invalid-shares",
+      "case": "CAL-18"
+    },
+    {
+      "selector": "public-holdings-empty-requested-scope",
+      "case": "HOLD-01"
+    },
+    {
+      "selector": "public-holdings-failed-empty",
+      "case": "HOLD-02"
+    },
+    {
+      "selector": "public-holdings-partial-empty",
+      "case": "HOLD-03"
+    },
+    {
+      "selector": "public-holdings-long-short",
+      "case": "HOLD-40"
+    },
+    {
+      "selector": "public-holdings-no-daily-performance",
+      "case": "HOLD-47"
+    },
+    {
+      "selector": "public-holdings-unknown-checkpoint",
+      "case": "HOLD-52"
+    }
+  ],
+  "cloud_grading_roster": [
+    "CAL-01",
+    "CAL-05",
+    "CAL-08",
+    "CAL-18",
+    "HOLD-01",
+    "HOLD-02",
+    "HOLD-03",
+    "HOLD-40",
+    "HOLD-47",
+    "HOLD-52"
+  ],
+  "cloud_score_contract": {
+    "feedback_key": "atomic_contract_correct",
+    "correct_score": 1,
+    "incorrect_score": 0,
+    "all_case_scores_and_exact_bindings_required": true,
+    "critical_violation_cannot_be_averaged": true,
+    "note": "Expected explicit failure/unknown handling can be correct; this is not a successful financial/model result. Existing historical calculator grades stay untouched."
+  },
+  "case_counts": {
+    "IN": 8,
+    "ISO": 4,
+    "CAL": 30,
+    "MOD": 11,
+    "SES": 18,
+    "TRC": 14,
+    "PRIV": 6,
+    "HOLD": 60,
+    "API": 9,
+    "LIFE": 7,
+    "CLD": 23,
+    "EVID": 6
+  },
+  "cases": [
+    {
+      "id": "IN-01",
+      "criterion": "AC-001",
+      "title": "known selector",
+      "given": {
+        "selector": "public-calc-one-period"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Resolve exact frozen CAL-01 fixture",
+      "forbidden": "Raw arbitrary content reaches any exporting callback or effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "IN-02",
+      "criterion": "AC-001",
+      "title": "unknown selector",
+      "given": {
+        "selector": "not-in-frozen-roster"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject before model/tool/export",
+      "forbidden": "Raw arbitrary content reaches any exporting callback or effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "IN-03",
+      "criterion": "AC-001",
+      "title": "extra top-level field",
+      "given": {
+        "selector": "public-calc-one-period",
+        "extra": "synthetic-private-canary"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject before model/tool/export",
+      "forbidden": "Raw arbitrary content reaches any exporting callback or effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "IN-04",
+      "criterion": "AC-001",
+      "title": "nested raw case override",
+      "given": {
+        "selector": "public-calc-one-period",
+        "case": {
+          "shares": "SYNTHETIC-SECRET-NEVER-EXPORT"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject before callback receives raw override",
+      "forbidden": "Raw arbitrary content reaches any exporting callback or effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "IN-05",
+      "criterion": "AC-001",
+      "title": "selector is object",
+      "given": {
+        "selector": {
+          "url": "https://invalid.example/private"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject type; no URL retrieval",
+      "forbidden": "Raw arbitrary content reaches any exporting callback or effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "IN-06",
+      "criterion": "AC-001",
+      "title": "selector is null",
+      "given": {
+        "selector": null
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject type before dispatch",
+      "forbidden": "Raw arbitrary content reaches any exporting callback or effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "IN-07",
+      "criterion": "AC-001",
+      "title": "oversized request",
+      "given": {
+        "request_bytes": "declared_max_bytes + 1"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject boundedly at actual ingress before exporter",
+      "forbidden": "Raw arbitrary content reaches any exporting callback or effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "IN-08",
+      "criterion": "AC-001",
+      "title": "private path or account selector",
+      "given": {
+        "selector": "/synthetic/private/account/SYNTHETIC-A"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject without file/account lookup",
+      "forbidden": "Raw arbitrary content reaches any exporting callback or effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "ISO-01",
+      "criterion": "AC-002",
+      "title": "nominal effects",
+      "given": {
+        "graphs": [
+          "calculator",
+          "holdings"
+        ]
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Zero prohibited calls/mutations; only owned local/synthetic test effects",
+      "forbidden": "Provider, brokerage, email, scheduler, global settings, private-account read or main-server replacement",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "ISO-02",
+      "criterion": "AC-002",
+      "title": "failure effects",
+      "given": {
+        "error": "synthetic validation/tool/analytics exception"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Zero prohibited calls/mutations; only owned local/synthetic test effects",
+      "forbidden": "Provider, brokerage, email, scheduler, global settings, private-account read or main-server replacement",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "ISO-03",
+      "criterion": "AC-002",
+      "title": "inherited provider route",
+      "given": {
+        "env": "synthetic base URL/provider variable observer"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Zero prohibited calls/mutations; only owned local/synthetic test effects",
+      "forbidden": "Provider, brokerage, email, scheduler, global settings, private-account read or main-server replacement",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "ISO-04",
+      "criterion": "AC-002",
+      "title": "workspace ownership",
+      "given": {
+        "observe": "source/global config/main PID64553/private archive/cache paths"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Zero prohibited calls/mutations; only owned local/synthetic test effects",
+      "forbidden": "Provider, brokerage, email, scheduler, global settings, private-account read or main-server replacement",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "CAL-01",
+      "criterion": "AC-003",
+      "title": "original one period",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "100",
+        "equity": "100",
+        "per_share": "10"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-02",
+      "criterion": "AC-003",
+      "title": "zero rate",
+      "given": {
+        "fcff": [
+          "100",
+          "100"
+        ],
+        "terminal_ev": "0",
+        "rate": "0",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "200",
+        "equity": "200",
+        "per_share": "20"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-03",
+      "criterion": "AC-003",
+      "title": "two periods discounted",
+      "given": {
+        "fcff": [
+          "110",
+          "121"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "200",
+        "equity": "200",
+        "per_share": "20"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-04",
+      "criterion": "AC-003",
+      "title": "terminal at final period",
+      "given": {
+        "fcff": [
+          "110",
+          "121"
+        ],
+        "terminal_ev": "242",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "400",
+        "equity": "400",
+        "per_share": "40"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-05",
+      "criterion": "AC-003",
+      "title": "positive debt",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "30",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "100",
+        "equity": "70",
+        "per_share": "7"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-06",
+      "criterion": "AC-003",
+      "title": "negative net debt",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "-25",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "100",
+        "equity": "125",
+        "per_share": "12.5"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-07",
+      "criterion": "AC-003",
+      "title": "zero cash flow",
+      "given": {
+        "fcff": [
+          "0"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "0",
+        "equity": "0",
+        "per_share": "0"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-08",
+      "criterion": "AC-003",
+      "title": "negative cash flow",
+      "given": {
+        "fcff": [
+          "-110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "-100",
+        "equity": "-100",
+        "per_share": "-10"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-09",
+      "criterion": "AC-003",
+      "title": "exact decimal money",
+      "given": {
+        "fcff": [
+          "0.1",
+          "0.2"
+        ],
+        "terminal_ev": "0",
+        "rate": "0",
+        "net_debt": "0",
+        "shares": "0.1"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "0.3",
+        "equity": "0.3",
+        "per_share": "3"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-10",
+      "criterion": "AC-003",
+      "title": "debt exceeds EV",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "120",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "100",
+        "equity": "-20",
+        "per_share": "-2"
+      },
+      "forbidden": "Wrong period, debt sign, float drift or clamped negative values",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-11",
+      "criterion": "AC-004",
+      "title": "scale all monetary inputs by 7",
+      "given": {
+        "base": {
+          "fcff": [
+            "110",
+            "121"
+          ],
+          "terminal_ev": "242",
+          "rate": "0.1",
+          "net_debt": "40",
+          "shares": "20"
+        },
+        "transformed": {
+          "fcff": [
+            "770",
+            "847"
+          ],
+          "terminal_ev": "1694",
+          "rate": "0.1",
+          "net_debt": "280",
+          "shares": "20"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "base_per_share": "18",
+        "transformed_per_share": "126",
+        "ev_scale": "7"
+      },
+      "forbidden": "Clamping, intermediate rounding, ignored terminal/debt or unlimited numeric input",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-12",
+      "criterion": "AC-004",
+      "title": "double shares",
+      "given": {
+        "base": {
+          "fcff": [
+            "110"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "0",
+          "shares": "10"
+        },
+        "transformed": {
+          "fcff": [
+            "110"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "0",
+          "shares": "20"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "base_per_share": "10",
+        "transformed_per_share": "5"
+      },
+      "forbidden": "Clamping, intermediate rounding, ignored terminal/debt or unlimited numeric input",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-13",
+      "criterion": "AC-004",
+      "title": "component linearity same time",
+      "given": {
+        "left": {
+          "fcff": [
+            "33"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "0",
+          "shares": "10"
+        },
+        "right": {
+          "fcff": [
+            "77"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "0",
+          "shares": "10"
+        },
+        "combined": {
+          "fcff": [
+            "110"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "0",
+          "shares": "10"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "left_ev": "30",
+        "right_ev": "70",
+        "combined_ev": "100"
+      },
+      "forbidden": "Clamping, intermediate rounding, ignored terminal/debt or unlimited numeric input",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-14",
+      "criterion": "AC-004",
+      "title": "second-period delta",
+      "given": {
+        "base": {
+          "fcff": [
+            "110",
+            "121"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "0",
+          "shares": "10"
+        },
+        "transformed": {
+          "fcff": [
+            "110",
+            "242"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "0",
+          "shares": "10"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev_delta": "100",
+        "per_share_delta": "10"
+      },
+      "forbidden": "Clamping, intermediate rounding, ignored terminal/debt or unlimited numeric input",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-15",
+      "criterion": "AC-004",
+      "title": "near negative rate domain edge",
+      "given": {
+        "fcff": [
+          "1"
+        ],
+        "terminal_ev": "0",
+        "rate": "-0.999",
+        "net_debt": "0",
+        "shares": "1"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "ev": "1000",
+        "equity": "1000",
+        "per_share": "1000"
+      },
+      "forbidden": "Clamping, intermediate rounding, ignored terminal/debt or unlimited numeric input",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-16",
+      "criterion": "AC-004",
+      "title": "negative equity preserved under scaling",
+      "given": {
+        "base": {
+          "fcff": [
+            "110"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "120",
+          "shares": "10"
+        },
+        "transformed": {
+          "fcff": [
+            "220"
+          ],
+          "terminal_ev": "0",
+          "rate": "0.1",
+          "net_debt": "240",
+          "shares": "10"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "base_per_share": "-2",
+        "transformed_per_share": "-4"
+      },
+      "forbidden": "Clamping, intermediate rounding, ignored terminal/debt or unlimited numeric input",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-17",
+      "criterion": "AC-004",
+      "title": "numeric-size bound",
+      "given": {
+        "value_size": "declared_max_numeric_digits + 1"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit bounded invalid result; no model/tool request",
+      "forbidden": "Clamping, intermediate rounding, ignored terminal/debt or unlimited numeric input",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-18",
+      "criterion": "AC-005",
+      "title": "zero shares",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "0"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-19",
+      "criterion": "AC-005",
+      "title": "negative shares",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "-1"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-20",
+      "criterion": "AC-005",
+      "title": "missing shares",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-21",
+      "criterion": "AC-005",
+      "title": "bool shares",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": true
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-22",
+      "criterion": "AC-005",
+      "title": "nonfinite shares",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "NaN"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-23",
+      "criterion": "AC-005",
+      "title": "rate minus one",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "-1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-24",
+      "criterion": "AC-005",
+      "title": "rate below minus one",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "-1.01",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-25",
+      "criterion": "AC-005",
+      "title": "infinite rate",
+      "given": {
+        "fcff": [
+          "110"
+        ],
+        "terminal_ev": "0",
+        "rate": "Infinity",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-26",
+      "criterion": "AC-005",
+      "title": "nonfinite FCFF",
+      "given": {
+        "fcff": [
+          "NaN"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-27",
+      "criterion": "AC-005",
+      "title": "bool FCFF",
+      "given": {
+        "fcff": [
+          false
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-28",
+      "criterion": "AC-005",
+      "title": "malformed money",
+      "given": {
+        "fcff": [
+          "1,100 USD"
+        ],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-29",
+      "criterion": "AC-005",
+      "title": "empty cash-flow vector",
+      "given": {
+        "fcff": [],
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "CAL-30",
+      "criterion": "AC-005",
+      "title": "malformed cash-flow shape",
+      "given": {
+        "fcff": {
+          "year1": "110"
+        },
+        "terminal_ev": "0",
+        "rate": "0.1",
+        "net_debt": "0",
+        "shares": "10"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit invalid result; model requests=0, tool calls=0",
+      "forbidden": "Invalid financial data reaches model or tool",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-01",
+      "criterion": "AC-006",
+      "title": "actual host-selected tool",
+      "given": {
+        "reply": "assistant tool_call for same frozen case"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "LangChain executes real allowlisted calculator; final exact independent answer matches",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "MOD-02",
+      "criterion": "AC-006",
+      "title": "correct number without receipt",
+      "given": {
+        "reply": "assistant final exact numeric answer before tool"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject independent success gate",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-03",
+      "criterion": "AC-006",
+      "title": "foreign case receipt",
+      "given": {
+        "receipt_case": "different frozen case"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject case hash mismatch",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-04",
+      "criterion": "AC-006",
+      "title": "modified financial tool arguments",
+      "given": {
+        "tool_arguments": "change shares from frozen case"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject unmatched argument/result binding",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-05",
+      "criterion": "AC-006",
+      "title": "host-provided tool message",
+      "given": {
+        "reply_role": "tool"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject; host cannot create authoritative tool receipt",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-06",
+      "criterion": "AC-006",
+      "title": "foreign or forged tool receipt",
+      "given": {
+        "receipt_run": "other run or synthetic invented ID"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject run/receipt mismatch",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-07",
+      "criterion": "AC-007",
+      "title": "wrong final value",
+      "given": {
+        "actual_tool_per_share": "10",
+        "final_per_share": "11"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Fail exact independent answer gate",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "MOD-08",
+      "criterion": "AC-007",
+      "title": "missing final answer",
+      "given": {
+        "final": {}
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Fail required final schema",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-09",
+      "criterion": "AC-007",
+      "title": "malformed final JSON",
+      "given": {
+        "final": "{broken"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Fail final parse visibly",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-10",
+      "criterion": "AC-007",
+      "title": "approximate wrong value",
+      "given": {
+        "actual_tool_per_share": "10",
+        "final_per_share": "9.999"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Fail; no post-hoc tolerance",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "MOD-11",
+      "criterion": "AC-007",
+      "title": "unsupported extra monetary claim",
+      "given": {
+        "final": {
+          "per_share": "10",
+          "dailyPnl": "100"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject unsupported field/schema or explicitly fail unsupported claim",
+      "forbidden": "Unbound/forged receipt or incorrect final assertion accepted",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "SES-01",
+      "criterion": "AC-008",
+      "title": "unserviced cooperative request",
+      "given": {
+        "keys": "none",
+        "host_response": "none"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Persist bounded interrupt; no inference/provider/wake-up claim",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-02",
+      "criterion": "AC-008",
+      "title": "three-call ceiling",
+      "given": {
+        "assistant_replies": "nonterminal replies through call 3"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Next model dispatch refused at documented cap",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-03",
+      "criterion": "AC-008",
+      "title": "tool loop pressure",
+      "given": {
+        "reply": "repeated identical tool calls"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Bound by declared tool/model limits; explicit exhaustion",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-04",
+      "criterion": "AC-008",
+      "title": "deadline exhaustion",
+      "given": {
+        "clock": "controlled monotonic deadline expires"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Visible bounded timeout; no late tool commit",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-05",
+      "criterion": "AC-008",
+      "title": "unavailable host",
+      "given": {
+        "host": "no active session responder"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Pending/resumable or explicit timeout; no scripted fallback",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-06",
+      "criterion": "AC-009",
+      "title": "duplicate admitted reply",
+      "given": {
+        "repeat": "same response after admission"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "No second admission or tool execution",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-07",
+      "criterion": "AC-009",
+      "title": "stale request",
+      "given": {
+        "request_id": "previous turn"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject before graph advance",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-08",
+      "criterion": "AC-009",
+      "title": "stale binding revision",
+      "given": {
+        "revision": "retired revision"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject for next admission",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-09",
+      "criterion": "AC-009",
+      "title": "wrong thread or run",
+      "given": {
+        "identity": "foreign thread/run"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject without cross-thread mutation",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-10",
+      "criterion": "AC-009",
+      "title": "non-assistant reply",
+      "given": {
+        "role": "system or tool"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject role",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-11",
+      "criterion": "AC-009",
+      "title": "malformed selected tool arguments",
+      "given": {
+        "arguments": "not valid JSON/object"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Bounded visible rejection/error, no forged success",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-12",
+      "criterion": "AC-009",
+      "title": "oversized model response",
+      "given": {
+        "bytes": "declared_max_response_bytes + 1"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject before state advance/export",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-13",
+      "criterion": "AC-009",
+      "title": "two simultaneous replies",
+      "given": {
+        "barrier": "both target same pending request"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "At most one legal admission; other rejects/reconciles; calculator once",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-14",
+      "criterion": "AC-010",
+      "title": "rebind before tool",
+      "given": {
+        "state": "first pending request"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Same thread/messages/inputs; next admission uses new owner",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-15",
+      "criterion": "AC-010",
+      "title": "rebind after tool",
+      "given": {
+        "state": "completed tool, next pending model"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Keep actual tool receipt; no repeat calculation",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-16",
+      "criterion": "AC-010",
+      "title": "stop/restart with pending request",
+      "given": {
+        "state": "first interrupt"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Original request discoverable and resumable under dev durability contract",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-17",
+      "criterion": "AC-010",
+      "title": "stop/restart after tool",
+      "given": {
+        "state": "tool completed, final pending"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Final can complete with original receipt; calculator executes once",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "SES-18",
+      "criterion": "AC-010",
+      "title": "already admitted binding snapshot",
+      "given": {
+        "order": "admit reply under binding snapshot, then rebind"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Honor documented snapshot for admitted reply; future requests use current binding",
+      "forbidden": "Replay, wrong ownership, lost state, unbounded calls or hidden inference",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "TRC-01",
+      "criterion": "AC-011",
+      "title": "root identity",
+      "given": {
+        "check": "graph/thread/run/case/config/source"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Exact manifest identities",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-02",
+      "criterion": "AC-011",
+      "title": "actual cooperative model child",
+      "given": {
+        "check": "pending/completed real SessionChatModel request"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Actual model span tied to its root/request",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-03",
+      "criterion": "AC-011",
+      "title": "actual calculator tool child",
+      "given": {
+        "check": "real tool receipt"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Actual tool span and exact inputs/output bound to same root",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-04",
+      "criterion": "AC-011",
+      "title": "foreign parent control",
+      "given": {
+        "mutated": "parent_run_id from another root"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Independent trace check rejects",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-05",
+      "criterion": "AC-011",
+      "title": "holdings analytics and deterministic graph",
+      "given": {
+        "graphs": [
+          "holdings",
+          "calculator-only"
+        ]
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Tool/analytics trace allowed; model spans absent and no inference claim",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-06",
+      "criterion": "AC-012",
+      "title": "pending is pending",
+      "given": {
+        "run": "unserviced model interrupt"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Never label completed inference",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-07",
+      "criterion": "AC-012",
+      "title": "tool exception",
+      "given": {
+        "exception": "synthetic tool failure"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Error visible in child/root; no successful final output",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-08",
+      "criterion": "AC-012",
+      "title": "timeout/cancellation",
+      "given": {
+        "run": "session deadline cancelled"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Correct bounded status with honest timing",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-09",
+      "criterion": "AC-012",
+      "title": "root false success",
+      "given": {
+        "mutated": "failed child with PASS root"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Independent checker rejects inconsistent success",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-10",
+      "criterion": "AC-014",
+      "title": "trace acknowledgement lost",
+      "given": {
+        "export": "timeout after possible write"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Preserve exact attempted IDs; no capability rerun",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-11",
+      "criterion": "AC-014",
+      "title": "delayed read visibility",
+      "given": {
+        "read": "exact run not yet visible"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Pending/unknown until bounded exact reconciliation",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-12",
+      "criterion": "AC-014",
+      "title": "export 429",
+      "given": {
+        "response": "rate limit with retry-after"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Read bounds honor service window; no new target runs",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-13",
+      "criterion": "AC-014",
+      "title": "nested retry pressure",
+      "given": {
+        "outer_and_sdk": "attempt to multiply retries"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "One declared bounded authority; no rerun",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "TRC-14",
+      "criterion": "AC-014",
+      "title": "unknown receipt replay",
+      "given": {
+        "command": "run again with unknown trace attempt"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Refuse rerun; only exact read reconciliation",
+      "forbidden": "Invented/wrong-parent traces, false status or blind retry",
+      "required_levels": [
+        "atomic",
+        "integration",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "PRIV-01",
+      "criterion": "AC-013",
+      "title": "nested input canary",
+      "given": {
+        "raw": {
+          "metadata": {
+            "secret": "SYNTHETIC-SECRET-NEVER-EXPORT"
+          }
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Rejected/sanitized before every exporting callback; canary absent from all local allowed exports and cloud readbacks",
+      "forbidden": "Any raw canary/private arbitrary input exported; output-only redaction",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "PRIV-02",
+      "criterion": "AC-013",
+      "title": "exception canary",
+      "given": {
+        "exception": "nested payload contains SYNTHETIC-SECRET-NEVER-EXPORT"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Rejected/sanitized before every exporting callback; canary absent from all local allowed exports and cloud readbacks",
+      "forbidden": "Any raw canary/private arbitrary input exported; output-only redaction",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "PRIV-03",
+      "criterion": "AC-013",
+      "title": "private account/path canary",
+      "given": {
+        "account": "SYNTHETIC-PRIVATE-A",
+        "path": "/synthetic/private/account.json"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Rejected/sanitized before every exporting callback; canary absent from all local allowed exports and cloud readbacks",
+      "forbidden": "Any raw canary/private arbitrary input exported; output-only redaction",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "PRIV-04",
+      "criterion": "AC-013",
+      "title": "header/environment canary",
+      "given": {
+        "header": "synthetic auth canary",
+        "env": "synthetic provider token canary"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Rejected/sanitized before every exporting callback; canary absent from all local allowed exports and cloud readbacks",
+      "forbidden": "Any raw canary/private arbitrary input exported; output-only redaction",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "PRIV-05",
+      "criterion": "AC-013",
+      "title": "callback before body control",
+      "given": {
+        "observer": "pre-run callback sink receives input before graph body"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Rejected/sanitized before every exporting callback; canary absent from all local allowed exports and cloud readbacks",
+      "forbidden": "Any raw canary/private arbitrary input exported; output-only redaction",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "PRIV-06",
+      "criterion": "AC-013",
+      "title": "export failure diagnostic",
+      "given": {
+        "error": "exporter embeds nested original payload"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Rejected/sanitized before every exporting callback; canary absent from all local allowed exports and cloud readbacks",
+      "forbidden": "Any raw canary/private arbitrary input exported; output-only redaction",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "HOLD-01",
+      "criterion": "AC-015",
+      "title": "complete requested-scope empty",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {}
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Successful empty within requested scope; wholePortfolioVerified=false",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "HOLD-02",
+      "criterion": "AC-015",
+      "title": "failed empty",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "status": "failed",
+          "holdings": []
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Failure; empty rows do not prove empty portfolio",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "HOLD-03",
+      "criterion": "AC-015",
+      "title": "partial empty",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "status": "partial",
+          "scope.completedTypes": [
+            "STK"
+          ]
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Partial with required missing types; no full requested-scope success",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "HOLD-04",
+      "criterion": "AC-015",
+      "title": "unknown empty",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "status": "unknown",
+          "checkpoint.state": "unknown"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Unknown/rejected; no empty-success inference",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-05",
+      "criterion": "AC-015",
+      "title": "separate whole-portfolio evidence",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "scope.wholePortfolioVerified": false,
+          "status": "complete_requested_scope"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Completion never changes wholePortfolioVerified to true",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-06",
+      "criterion": "AC-016",
+      "title": "all requested type counts",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "counts": {
+            "STK": 1,
+            "OPT": 2,
+            "FUT": 0,
+            "FUND": 1
+          },
+          "rows": "four matching distinct contracts"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Exact counts and all requested type completions retained",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-07",
+      "criterion": "AC-016",
+      "title": "STK-only completed request",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "scope.requestedTypes": [
+            "STK"
+          ],
+          "scope.completedTypes": [
+            "STK"
+          ],
+          "counts": {
+            "STK": 1
+          }
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Complete STK request only; no full-portfolio claim",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-08",
+      "criterion": "AC-016",
+      "title": "missing required OPT",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "scope.completedTypes": [
+            "STK",
+            "FUT",
+            "FUND"
+          ]
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Partial/reject inconsistent complete claim; OPT gap visible",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-09",
+      "criterion": "AC-016",
+      "title": "inconsistent metadata counts",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "declared_STK_count": 2,
+          "actual_STK_rows": 1
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject/quarantine inconsistency before full summary",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-10",
+      "criterion": "AC-016",
+      "title": "cash outside security counts",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "assets.summary.amounts.cash": "300",
+          "counts": {
+            "STK": 0,
+            "OPT": 0,
+            "FUT": 0,
+            "FUND": 0
+          }
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Cash=300 as asset amount; zero position rows; no CASH security type",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-11",
+      "criterion": "AC-017",
+      "title": "account exact match",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "holdings.account": "SYNTHETIC-A",
+          "assets.account": "SYNTHETIC-A"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Matched synthetic identity; no authentication claim",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-12",
+      "criterion": "AC-017",
+      "title": "holdings/assets account mismatch",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "holdings.account": "SYNTHETIC-A",
+          "assets.account": "SYNTHETIC-B"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject mismatch before complete analytics",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-13",
+      "criterion": "AC-017",
+      "title": "ambiguous multiple accounts",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "accountResults": [
+            "SYNTHETIC-A",
+            "SYNTHETIC-B"
+          ],
+          "selected_account": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject ambiguity; never choose first",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-14",
+      "criterion": "AC-017",
+      "title": "account absent",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "scope.account": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Unknown/unresolved; no inferred full scope",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-15",
+      "criterion": "AC-017",
+      "title": "spoofed permission label",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "scope.account": "SYNTHETIC-A",
+          "scope.permission": "admin"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Synthetic identity does not authorize provider or account effects",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-16",
+      "criterion": "AC-018",
+      "title": "USD exact match",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "holding_currency": "USD",
+          "assets.currency": "USD"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "USD retained in compatible monetary totals",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-17",
+      "criterion": "AC-018",
+      "title": "USD/HKD mismatch",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "holding_currency": "HKD",
+          "assets.currency": "USD"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject or separate partial/unaggregated; never sum without FX",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-18",
+      "criterion": "AC-018",
+      "title": "currency absent",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "holding_currency": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Currency unknown; complete same-currency total unavailable",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-19",
+      "criterion": "AC-018",
+      "title": "mixed currencies",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "values": [
+            {
+              "currency": "USD",
+              "value": "10"
+            },
+            {
+              "currency": "HKD",
+              "value": "20"
+            }
+          ]
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Separate/unresolved currencies; total 30 USD forbidden",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-20",
+      "criterion": "AC-018",
+      "title": "unauthorized FX assumption",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "holding_currency": "HKD",
+          "assets.currency": "USD",
+          "fx_contract": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "No invented FX rate or USD coercion",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-21",
+      "criterion": "AC-019",
+      "title": "identical canonical duplicate",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "contracts": [
+            {
+              "id": "STK:A",
+              "value": "100"
+            },
+            {
+              "id": "STK:A",
+              "value": "100"
+            }
+          ]
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject/quarantine duplicate; total 200 full success forbidden",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-22",
+      "criterion": "AC-019",
+      "title": "conflicting duplicate",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "contracts": [
+            {
+              "id": "STK:A",
+              "value": "100"
+            },
+            {
+              "id": "STK:A",
+              "value": "120"
+            }
+          ]
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject conflict; neither last-row-wins nor sum",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-23",
+      "criterion": "AC-019",
+      "title": "distinct option expiries",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "contracts": [
+            "OPT:A:2027-01-15:100:C",
+            "OPT:A:2027-02-19:100:C"
+          ]
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Both distinct contracts retained",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-24",
+      "criterion": "AC-019",
+      "title": "distinct strikes or rights",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "contracts": [
+            "OPT:A:2027-01-15:100:C",
+            "OPT:A:2027-01-15:110:C",
+            "OPT:A:2027-01-15:100:P"
+          ]
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Three distinct contracts retained",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-25",
+      "criterion": "AC-019",
+      "title": "stock and option same ticker",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "contracts": [
+            "STK:A",
+            "OPT:A:2027-01-15:100:C"
+          ]
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Separate contract/type identities; no ticker-only dedup",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-26",
+      "criterion": "AC-020",
+      "title": "explicit zero value",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValue": "0"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Explicit zero valid where allowed; not missing",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-27",
+      "criterion": "AC-020",
+      "title": "missing market value",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValue": "<absent>"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Missing/unavailable/partial or reject; never default zero",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-28",
+      "criterion": "AC-020",
+      "title": "null required amount",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValue": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Missing/invalid; no complete total",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-29",
+      "criterion": "AC-020",
+      "title": "malformed amount",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValue": "$1,000?"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Invalid typed number",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-30",
+      "criterion": "AC-020",
+      "title": "bool amount",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValue": true
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Invalid; bool must not become 1",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-31",
+      "criterion": "AC-020",
+      "title": "nonfinite amount",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValue": "Infinity"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Invalid finite-number requirement",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-32",
+      "criterion": "AC-020",
+      "title": "zero NAV denominator",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "assets.summary.amounts.netLiquidation": "0"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Money can remain explicit; NAV ratios unavailable/reject, never Infinity",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-33",
+      "criterion": "AC-020",
+      "title": "missing NAV/cash/quantity/price",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "variants": "each field absent separately"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Required missing fields explicitly unavailable/partial; no invented amounts",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-34",
+      "criterion": "AC-021",
+      "title": "fresh query stale quote",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "queriedAt": "2026-11-15T16:00:00Z",
+          "quoteAt": "2026-11-14T16:00:00Z"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Fresh query does not make quote fresh",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-35",
+      "criterion": "AC-021",
+      "title": "fresh query unknown quote",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "queriedAt": "2026-11-15T16:00:00Z",
+          "quoteAt": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Quote time/freshness unknown",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-36",
+      "criterion": "AC-021",
+      "title": "quote exactly at cutoff",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "quoteAt": "2026-11-15T15:59:00Z",
+          "cutoff": "2026-11-15T15:59:00Z"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Declared inclusive/exclusive policy used consistently; exact timestamp retained",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-37",
+      "criterion": "AC-021",
+      "title": "quote before cutoff",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "quoteAt": "2026-11-15T15:58:59Z",
+          "cutoff": "2026-11-15T15:59:00Z"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Stale under declared cutoff",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-38",
+      "criterion": "AC-021",
+      "title": "impossible future quote",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "quoteAt": "2026-11-16T00:00:00Z",
+          "queriedAt": "2026-11-15T16:00:00Z"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject or visibly unresolved inconsistent time",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-39",
+      "criterion": "AC-021",
+      "title": "unknown zone or as-of",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "quoteAt": "2026-11-15 09:00",
+          "timezone": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Unknown/inconsistent time; never assume historical/PIT freshness",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-40",
+      "criterion": "AC-022",
+      "title": "mixed long short leverage",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValues": [
+            "600",
+            "-200",
+            "300"
+          ],
+          "NAV": "1000",
+          "cash": "300"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "netExposure": "700",
+        "grossExposure": "1100",
+        "netExposureOverNAV": "0.7",
+        "grossExposureOverNAV": "1.1",
+        "cashOverNAV": "0.3"
+      },
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "HOLD-41",
+      "criterion": "AC-022",
+      "title": "exact decimal total",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValues": [
+            "0.1",
+            "0.2"
+          ],
+          "NAV": "1"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "netExposure": "0.3",
+        "grossExposure": "0.3"
+      },
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-42",
+      "criterion": "AC-022",
+      "title": "net zero gross nonzero",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValues": [
+            "100",
+            "-100"
+          ],
+          "NAV": "100"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": {
+        "netExposure": "0",
+        "grossExposure": "200",
+        "grossExposureOverNAV": "2"
+      },
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-43",
+      "criterion": "AC-022",
+      "title": "short derivative explicit value",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "type": "OPT",
+          "quantity": "-2",
+          "multiplier": "100",
+          "price": "1.25",
+          "marketValue": "-250"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Preserve explicit -250 monetary value; no stock share-size assumption",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-44",
+      "criterion": "AC-022",
+      "title": "negative cash",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "cash": "-50",
+          "NAV": "1000"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "cash=-50; cashOverNAV=-0.05; no clamp",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-45",
+      "criterion": "AC-022",
+      "title": "gross greater than NAV",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValues": [
+            "1500"
+          ],
+          "NAV": "1000"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "grossExposureOverNAV=1.5; no clamp at 1",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-46",
+      "criterion": "AC-022",
+      "title": "declared NAV denominator",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValues": [
+            "600"
+          ],
+          "NAV": "1000"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "exposureOverNAV=0.6; never divide by market value to yield 1",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-47",
+      "criterion": "AC-023",
+      "title": "current snapshot only",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "marketValue": "700",
+          "NAV": "1000"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "dailyPnl/daily return absent or unavailable",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-48",
+      "criterion": "AC-023",
+      "title": "unrealized PnL not daily",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "unrealizedPnl": "123",
+          "daily_contract": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Unrealized label retained; dailyPnl not 123",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-49",
+      "criterion": "AC-023",
+      "title": "cash/NAV do not imply daily",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "cash": "300",
+          "NAV": "1000",
+          "prior_snapshot": null
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "No inferred daily return",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-50",
+      "criterion": "AC-023",
+      "title": "no order recommendation",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "synthetic_summary": "nominal current portfolio"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Pure analytics; no execution/order/delivery effect",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-51",
+      "criterion": "AC-024",
+      "title": "committed receipt consumed",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "checkpoint.state": "committed",
+          "receipt_hash": "same frozen fixture"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Allowed pure analysis; provider calls=0",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-52",
+      "criterion": "AC-024",
+      "title": "unknown checkpoint",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "checkpoint.state": "unknown"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject/fence before analytics success; provider calls=0",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "HOLD-53",
+      "criterion": "AC-024",
+      "title": "stale checkpoint",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "checkpoint.state": "stale"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject/unresolved without reacquisition",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-54",
+      "criterion": "AC-024",
+      "title": "receipt/checkpoint mismatch",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "checkpoint.receipt_hash": "foreign hash"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject identity/hash mismatch",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-55",
+      "criterion": "AC-024",
+      "title": "resume unknown",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "state": "unknown persisted at interruption",
+          "action": "resume"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Preserve fence; provider calls=0, no fabricated committed state",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-56",
+      "criterion": "AC-024",
+      "title": "repeated failure recovery",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "state": "analytics error or unknown receipt",
+          "action": "restart and repeat"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "No provider replay; original attempt/result retained",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-57",
+      "criterion": "AC-025",
+      "title": "direct adapter versus graph",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "fixture": "same synthetic committed nominal"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Semantically identical canonical output/provenance",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic",
+        "integration"
+      ]
+    },
+    {
+      "id": "HOLD-58",
+      "criterion": "AC-025",
+      "title": "analytics exception",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "dependency": "synthetic analytics exception"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Visible bounded error; no empty success",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-59",
+      "criterion": "AC-025",
+      "title": "frozen input unchanged",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "input": "deep-frozen/hash-before synthetic receipt"
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "After call input hash unchanged; no receipt mutation",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "HOLD-60",
+      "criterion": "AC-025",
+      "title": "narrow request scope authority",
+      "given": {
+        "base_fixture": "synthetic-holdings-base",
+        "variant": {
+          "scope.requestedTypes": [
+            "STK"
+          ],
+          "scope.wholePortfolioVerified": false
+        }
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Same declared scope/false authority through adapter and graph",
+      "forbidden": "Invented whole-account coverage, incompatible totals, missing-as-zero, replay or private effect",
+      "required_levels": [
+        "atomic"
+      ]
+    },
+    {
+      "id": "API-01",
+      "criterion": "AC-026",
+      "title": "actual graph discovery",
+      "given": {
+        "graphs": "declared cooperative calculator + holdings"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Exact registered IDs discoverable through public API",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "API-02",
+      "criterion": "AC-026",
+      "title": "actual graph schemas",
+      "given": {
+        "query": "each graph public schema"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Execution schema permits frozen selectors and disallows arbitrary raw payload",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "API-03",
+      "criterion": "AC-026",
+      "title": "calculator public run/readback",
+      "given": {
+        "selector": "public-calc-one-period"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Cooperative actual model/tool result or explicitly tool-only result; identities distinguish these",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "API-04",
+      "criterion": "AC-026",
+      "title": "holdings public run/readback",
+      "given": {
+        "selector": "public-holdings-long-short"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Correct registered holdings graph state/result independently retrievable",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "API-05",
+      "criterion": "AC-026",
+      "title": "invalid public run",
+      "given": {
+        "selector": "unknown"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject before callbacks/model/tool; readable public failure",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "API-06",
+      "criterion": "AC-027",
+      "title": "owned listener test URL",
+      "given": {
+        "manifest": "owned PID/port/config/source"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Supplied base/Studio URL matches actual owned listener and IDs",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "API-07",
+      "criterion": "AC-027",
+      "title": "occupied selected port",
+      "given": {
+        "port": "chosen port held by disposable fixture listener"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Fail start explicitly; no fallback port and no kill",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "API-08",
+      "criterion": "AC-027",
+      "title": "main server preserved",
+      "given": {
+        "main": "127.0.0.1:2024 PID64553"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Listener/PID/config unchanged during candidate staging",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "API-09",
+      "criterion": "AC-027",
+      "title": "printed link versus observed UI",
+      "given": {
+        "evidence": "URL printed only"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "API URL tested; browser UI connection remains unverified unless actually observed",
+      "forbidden": "Wrong-server results, main replacement, silent port fallback or untested URL",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "LIFE-01",
+      "criterion": "AC-028",
+      "title": "startup bad config",
+      "given": "invalid graph/config fingerprint",
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Bounded startup fail; no listener/global mutation",
+      "forbidden": "Orphan, main server interference, state deletion or blocked recovery",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "LIFE-02",
+      "criterion": "AC-028",
+      "title": "startup timeout",
+      "given": "candidate fails readiness within declared bound",
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Owned process group cleaned; main preserved",
+      "forbidden": "Orphan, main server interference, state deletion or blocked recovery",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "LIFE-03",
+      "criterion": "AC-028",
+      "title": "cancel in flight",
+      "given": "controlled cancellation before admitted tool",
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "No late tool/duplicate completion; honest state",
+      "forbidden": "Orphan, main server interference, state deletion or blocked recovery",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "LIFE-04",
+      "criterion": "AC-028",
+      "title": "stop pending model",
+      "given": "first cooperative interrupt persisted",
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Bounded stop; original state retained",
+      "forbidden": "Orphan, main server interference, state deletion or blocked recovery",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "LIFE-05",
+      "criterion": "AC-028",
+      "title": "stop after tool",
+      "given": "actual tool completed final pending",
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Retained receipt; restart final completes without recalculation",
+      "forbidden": "Orphan, main server interference, state deletion or blocked recovery",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "LIFE-06",
+      "criterion": "AC-028",
+      "title": "rollback owned candidate",
+      "given": "restore reviewed source/config pairing on copy",
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Rollback proven; original state/receipts retained",
+      "forbidden": "Orphan, main server interference, state deletion or blocked recovery",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "LIFE-07",
+      "criterion": "AC-028",
+      "title": "cleanup and recovery",
+      "given": "stop children/sockets and run read-only diagnosis",
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "No owned orphan; diagnosis/prompt/recovery remains available",
+      "forbidden": "Orphan, main server interference, state deletion or blocked recovery",
+      "required_levels": [
+        "integration"
+      ]
+    },
+    {
+      "id": "CLD-01",
+      "criterion": "AC-029",
+      "title": "exact test project identity",
+      "given": {
+        "project": "manifest exact ID"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "ID/workspace match intended isolated synthetic project",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-02",
+      "criterion": "AC-029",
+      "title": "same name wrong identity",
+      "given": {
+        "project": "same name different ID/workspace"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject substitution",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-03",
+      "criterion": "AC-029",
+      "title": "dataset/experiment identity",
+      "given": {
+        "objects": "exact manifest IDs and hashes"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Exact bound versions/resource metadata",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-04",
+      "criterion": "AC-029",
+      "title": "existing calculator preservation",
+      "given": {
+        "baseline": "owned read-only historical manifest hashes/IDs"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Historical results/feedback/dataset unchanged",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-05",
+      "criterion": "AC-029",
+      "title": "production target refusal",
+      "given": {
+        "target": "unowned or production resource"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "No write; explicit boundary rejection",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-06",
+      "criterion": "AC-030",
+      "title": "prompt pinned commit",
+      "given": {
+        "prompt": "exact frozen commit/content hash"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Load exact committed content, no latest alias",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-07",
+      "criterion": "AC-030",
+      "title": "dataset pinned as-of",
+      "given": {
+        "dataset": "frozen version/as_of and roster hash"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Exact case IDs/content/expected outputs",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-08",
+      "criterion": "AC-030",
+      "title": "missing case",
+      "given": {
+        "roster": "one required ID omitted"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Deterministic roster failure",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-09",
+      "criterion": "AC-030",
+      "title": "extra case",
+      "given": {
+        "roster": "unexpected case added"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Deterministic roster failure/new version required",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-10",
+      "criterion": "AC-030",
+      "title": "drifted expected value",
+      "given": {
+        "oracle": "same ID changed expectation"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Hash/gate fail; no silent regrade",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-11",
+      "criterion": "AC-030",
+      "title": "duplicate case ID",
+      "given": {
+        "roster": "duplicate canonical ID"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Reject duplicates before evaluation",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-12",
+      "criterion": "AC-031",
+      "title": "correct nominal code grade",
+      "given": {
+        "output": "independent exact nominal result"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Exact predeclared correct score and feedback key",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-13",
+      "criterion": "AC-031",
+      "title": "correct expected invalid result",
+      "given": {
+        "output": "explicit invalid shares/unknown checkpoint as expected"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Correct handling may score correct; never fake successful capability output",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-14",
+      "criterion": "AC-031",
+      "title": "wrong arithmetic inverse",
+      "given": {
+        "output": "perShare off by 1"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Critical arithmetic grade fails",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-15",
+      "criterion": "AC-031",
+      "title": "wrong scope inverse",
+      "given": {
+        "output": "wholePortfolioVerified=true without proof"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Critical scope grade fails",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-16",
+      "criterion": "AC-031",
+      "title": "foreign reference example",
+      "given": {
+        "run": "bound to another example ID"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Independent binding failure regardless favorable score",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-17",
+      "criterion": "AC-031",
+      "title": "feedback missing or changed",
+      "given": {
+        "feedback": "missing/key mismatch/score mismatch"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Readback unverified/fail; no aggregate PASS",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-18",
+      "criterion": "AC-032",
+      "title": "bootstrap acknowledgement unknown",
+      "given": {
+        "write": "objects may exist, acknowledgement lost"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Owned unknown attempt; exact read-only reconciliation",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-19",
+      "criterion": "AC-032",
+      "title": "trace acknowledgement unknown",
+      "given": {
+        "write": "span may exist, acknowledgement lost"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "No capability rerun/new root",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-20",
+      "criterion": "AC-032",
+      "title": "evaluate acknowledgement unknown",
+      "given": {
+        "write": "run/feedback may exist, interruption"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Fence and exact run/example/feedback reads; no repeat eval",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-21",
+      "criterion": "AC-032",
+      "title": "missing reconciliation target",
+      "given": {
+        "read": "exact intended object absent"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Remain failed/unverified; do not recreate via reconcile",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-22",
+      "criterion": "AC-032",
+      "title": "cloud read rate limit",
+      "given": {
+        "read": "429 with retry-after"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Bounded read wait honors window; no added writes",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "CLD-23",
+      "criterion": "AC-032",
+      "title": "clear-fence inverse",
+      "given": {
+        "attempt": "unknown receipt deleted or rerun requested"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Refuse replay; original unknown evidence retained",
+      "forbidden": "Production change, changed historical result, name-only binding, favorable false grade or blind write replay",
+      "required_levels": [
+        "atomic",
+        "cloud_readback"
+      ]
+    },
+    {
+      "id": "EVID-01",
+      "criterion": "AC-033",
+      "title": "zero executed",
+      "given": {
+        "executed": 0
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Failure; never PASS",
+      "forbidden": "Dropped failures, fabricated metrics or overclaimed production/generalization",
+      "required_levels": [
+        "independent_review"
+      ]
+    },
+    {
+      "id": "EVID-02",
+      "criterion": "AC-033",
+      "title": "skipped critical case",
+      "given": {
+        "case": "critical missing evidence"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "BLOCKED/NOT RUN and acceptance withheld; no exclusion",
+      "forbidden": "Dropped failures, fabricated metrics or overclaimed production/generalization",
+      "required_levels": [
+        "independent_review"
+      ]
+    },
+    {
+      "id": "EVID-03",
+      "criterion": "AC-033",
+      "title": "surviving mutation",
+      "given": {
+        "mutation": "critical break remains green"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Finding classified and enforcing layer retested, never success",
+      "forbidden": "Dropped failures, fabricated metrics or overclaimed production/generalization",
+      "required_levels": [
+        "independent_review"
+      ]
+    },
+    {
+      "id": "EVID-04",
+      "criterion": "AC-033",
+      "title": "unknown usage/model identity",
+      "given": {
+        "transport": "does not independently report cost/backend"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Unknown/declaration labels preserved",
+      "forbidden": "Dropped failures, fabricated metrics or overclaimed production/generalization",
+      "required_levels": [
+        "independent_review"
+      ]
+    },
+    {
+      "id": "EVID-05",
+      "criterion": "AC-033",
+      "title": "setup gate failing",
+      "given": {
+        "setup_changed": true,
+        "audit": "fail"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Setup incomplete until applicable docs/inventory/check succeeds",
+      "forbidden": "Dropped failures, fabricated metrics or overclaimed production/generalization",
+      "required_levels": [
+        "independent_review"
+      ]
+    },
+    {
+      "id": "EVID-06",
+      "criterion": "AC-033",
+      "title": "scope completion claim",
+      "given": {
+        "proof": "local cooperative and synthetic cloud only"
+      },
+      "action": "Exercise the named public contract under the stated condition; use only frozen selector at network ingress.",
+      "expected": "Scoped development conformance; scheduled/production/email acceptance unverified",
+      "forbidden": "Dropped failures, fabricated metrics or overclaimed production/generalization",
+      "required_levels": [
+        "independent_review"
+      ]
+    }
+  ],
+  "deliberate_breaks": [
+    {
+      "id": "MUT-001",
+      "criterion": "AC-001",
+      "break": "Move selector validation after exporting callback",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-002",
+      "criterion": "AC-002",
+      "break": "Enable forbidden provider/broker/mail adapter",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-003",
+      "criterion": "AC-003",
+      "break": "Change discount exponent, terminal period or debt sign",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-004",
+      "criterion": "AC-004",
+      "break": "Round/clamp intermediates or ignore terminal",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-005",
+      "criterion": "AC-005",
+      "break": "Accept bool/nonfinite/zero shares without pre-model validation",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-006",
+      "criterion": "AC-006",
+      "break": "Accept foreign/forged/no tool receipt",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-007",
+      "criterion": "AC-007",
+      "break": "Use substring/tolerant final-answer gate",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-008",
+      "criterion": "AC-008",
+      "break": "Remove model cap or enable scripted fallback",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-009",
+      "criterion": "AC-009",
+      "break": "Skip request/revision/dedup admission",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-010",
+      "criterion": "AC-010",
+      "break": "Reset recovered state or repeat completed tool",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-011",
+      "criterion": "AC-011",
+      "break": "Wrong parent/root or fabricated model span",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-012",
+      "criterion": "AC-012",
+      "break": "Swallow tool failure into successful root",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-013",
+      "criterion": "AC-013",
+      "break": "Post-callback redaction or nested exception leak",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-014",
+      "criterion": "AC-014",
+      "break": "Rerun capability after trace acknowledgement loss",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-015",
+      "criterion": "AC-015",
+      "break": "Return complete empty after failed/unknown input",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-016",
+      "criterion": "AC-016",
+      "break": "Ignore missing requested type/count or promote wholePortfolioVerified",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-017",
+      "criterion": "AC-017",
+      "break": "Choose first/omit account identity check",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-018",
+      "criterion": "AC-018",
+      "break": "Add mismatched currency values or assume USD",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-019",
+      "criterion": "AC-019",
+      "break": "Double count canonical duplicate or dedup distinct options by ticker",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-020",
+      "criterion": "AC-020",
+      "break": "Default missing amount to zero or allow invalid ratio",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-021",
+      "criterion": "AC-021",
+      "break": "Use query completion as quote time",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-022",
+      "criterion": "AC-022",
+      "break": "Abs net exposure, clamp leverage or change NAV denominator",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-023",
+      "criterion": "AC-023",
+      "break": "Relabel unrealized PnL as daily PnL",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-024",
+      "criterion": "AC-024",
+      "break": "Accept unknown checkpoint or provider reacquire on resume",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-025",
+      "criterion": "AC-025",
+      "break": "Mutate original receipt or suppress analytics exception",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-026",
+      "criterion": "AC-026",
+      "break": "Unregister/misroute graph while health stays up",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-027",
+      "criterion": "AC-027",
+      "break": "Silently fallback occupied port",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-028",
+      "criterion": "AC-028",
+      "break": "Skip child cleanup or remove durable pending state",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-029",
+      "criterion": "AC-029",
+      "break": "Accept same name with wrong cloud identity",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-030",
+      "criterion": "AC-030",
+      "break": "Allow latest prompt/changed oracle/dropped case",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-031",
+      "criterion": "AC-031",
+      "break": "Always-pass grader/wrong reference/drop failing feedback",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-032",
+      "criterion": "AC-032",
+      "break": "Clear unknown write fence and rerun",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    },
+    {
+      "id": "MUT-033",
+      "criterion": "AC-033",
+      "break": "Report zero/skip/favorable narrative as executed evidence",
+      "expected": "At least the mapped discriminating test turns red in disposable copy; report any survivor classification."
+    }
+  ]
+}

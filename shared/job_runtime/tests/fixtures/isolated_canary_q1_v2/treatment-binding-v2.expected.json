@@ -1,0 +1,37 @@
+{
+  "authority_manifest_sha256": "b542ec00324f58137f7ff7662ae6c980e8df8990f3a14a2c9f759339ad9209b6",
+  "binary_sha256": "030316ecfbb41f4e7946e584b0063ef333b7a36cd312ba349f2f6869e39b62cc",
+  "candidate_id": "codex-rust-0.167-isolated-canary-q1-v2",
+  "capabilities": {
+    "binary_asset_verified": true,
+    "capability_open": false,
+    "gateway_observer_reconciliation_verified": false,
+    "retry_zero_live_verified": false,
+    "sanitized_live_capture_verified": false,
+    "source_authority_verified": true,
+    "source_grammar_verified": true,
+    "source_to_binary_reproducible_build_verified": false
+  },
+  "config_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+  "configured_model": "gpt-test",
+  "effort": "low",
+  "loader": {
+    "authority_py_sha256": "3992763efffffa7d49172791e4580326675808499e1be04a5b171258223b6dee",
+    "contracts_py_sha256": "028adf6b7194099510ca0f5f46bc7e82a71b50ebbf79a964443586a25aa3456d",
+    "init_py_sha256": "4e2e0789acc12cc928013aff2a256131138b70fcb5dbb5418799dd4ff8ec1dbc",
+    "verification_sha256": "4a10ac58d2a0f39f039e11a263eb599aa06535f01a97cf817938e4410fdcaa31"
+  },
+  "model_authority": "configured_cli_argument_nonclaim",
+  "payload_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+  "predecessor_v1_sha256": "1cf1d9000e282eebe0ac067f156876ffd1db3e113eab66aef0bacf7ee035eb34",
+  "profile_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "provider": "codex_cli",
+  "release": "0.167.0",
+  "retry": {
+    "request": 0,
+    "stream": 0
+  },
+  "schema_version": "treatment-binding-v2",
+  "source_cutoff_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+  "treatment_fingerprint_sha256": "756444e309901acd4c550a146923b1ace4df4bfa7716e6cf192d55febffa56b5"
+}

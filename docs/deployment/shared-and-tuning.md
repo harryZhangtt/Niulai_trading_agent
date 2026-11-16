@@ -444,3 +444,158 @@ component's runbook and the workspace setup consistency record whenever a local
 dependency, environment variable, path, credential mechanism, launch command or
 activation state changes. Distinguish configured intent, local tests, live
 provider acceptance and actual host activation; none substitutes for the next.
+
+## Information-yield readiness template (unchanged 2026-11-09)
+
+The separate local readiness template already binds the current
+`docs/deployment/runtime-acceptance.md` SHA-256
+`6e1acdd976cc9bec5d3180d575fff3cbce28f3150cff95345b3e45b57dcff048`.
+This setup synchronization does not reseal either file. The focused readiness and
+once-acceptance suites previously passed 31 tests in the project research
+environment. The template remains SHA-256
+`c36ac94ca3df4849b945b788b77a028018a17b5c3dc35a8b948a26021360b081`;
+the derived packet remains `not_ready` and grants no authorization, provider
+invocation, scheduling, email, migration or production effect. Future changes to
+the acceptance document require a separately reviewed template reseal, focused
+tests and a synchronized setup-lock refresh.
+
+## Information-yield v5 Lane A frozen-disabled setup
+
+Lane A is disjoint from the datasource/UI owner. Its contract/checker sources are
+`shared/research_sources/information_yield_v5_contracts.py` and
+`investment/research/acquisition_eiy_checker_v5.py`; its ten JSON Schema classes
+are `shared/research_sources/schemas/information-yield-{check-request-v5,checked-fact-v5,evaluation-context-v5,evaluation-custody-v5,metric-policy-v5,now-diagnostic-result-5,policy-gates-v5,result-5,result-custody-v1,result-index-entry-v1}.schema.json`.
+Policy, evaluation, publication and CLI classes are under
+`tuning/evals/information_fetch/information_yield/`: `_v5_support.py`,
+`policy_v5.py`, `evaluator_v5.py`, `publisher_v1.py`, `cli_v5.py`, canonical
+`metric-policy-v5.json`, `architecture-v5.json` and rejected `rejected-v4.json`.
+Focused tests are `test_acquisition_eiy_checker_v5.py`, `test_policy_v5.py`,
+`test_evaluator_v5.py` and `test_publisher_v1.py`; the Lane B projector has its
+own `test_information_yield_projection_v5.py`.
+
+Use only the existing Python 3.12.16 research interpreter and pinned
+`jsonschema==4.25.1`; no provider SDK, database, service or new package is needed.
+The exact operational CLI shape is:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python -B -m \
+  tuning.evals.information_fetch.information_yield.cli_v5 \
+  --evaluation-ref '<immutable-custody-ref.json>' \
+  --publication-root "$PWD/tuning/runtime/information-yield-v5" \
+  --mode evaluation
+```
+
+`--mode now_diagnostic` is the only other mode. The CLI accepts only the exact
+absolute canonical root produced by `$PWD/tuning/runtime/information-yield-v5`;
+missing root input, trailing slash, `.`/`..`, symlink, alias or alternate root is
+rejected. This setup synchronization does not run the CLI and the root remains
+absent. If separately authorized later, root/directories must be exactly `0700`
+and immutable publication files exactly `0600`.
+
+Publication validates first, then writes context, result and custody into a
+no-clobber content-addressed object, fsyncs it, and atomically publishes one
+immutable evaluation index. Existing identical content is idempotent; conflicting
+objects/indexes fail. An unknown publication outcome is fenced and reconciled
+before retry. Referenced immutable publications are retained: no reference-unaware garbage
+collection is allowed. The named owner for any future
+reference-aware GC and rollback procedure is
+`information-yield-v5-integration-owner`; no cleanup command is currently
+authorized or supplied.
+
+Idempotent reuse validates existing root, `objects`, `index`, object and `.locks`
+directories as non-symlinks owned by the exact current UID, with exact mode `0700`
+and expected identity; existing context, result, custody, index, staging and lock
+files must be regular non-symlinks owned by the exact current UID, with exact mode
+`0600`, `nlink == 1`, bounded size and expected identity. Unsafe existing state is
+never repaired or chmodded and fixed-fails. Byte-identical reuse receives the same
+checks as first creation. This adds no command or activation.
+
+The combined v5 family closure is separate from live readiness.
+`tuning/evals/information_fetch/live_e2e/readiness-template.json` remains SHA-256
+`c36ac94ca3df4849b945b788b77a028018a17b5c3dc35a8b948a26021360b081`
+and `status: not_ready`; it was not resealed. The runtime-acceptance contract is
+unchanged. Provider-free source/schema/unit/vertical evidence does not authorize
+the flag, locator, scheduler, provider, network or email.
+
+
+## Nasdaq-listed proxy and Tiger/Yahoo calibration candidate
+
+The additive proxy lane keeps strict coverage-v3 and canonical candidate-v4
+unchanged and failed. `nasdaqlisted.txt` is admitted only as a current
+Nasdaq-listed proxy, never as exact COMP membership. Contracts, parser and
+validator are hash-bound; roster source age is limited to three New York calendar
+days, redirects are rejected before follow and companion reports must rerun the
+canonical validator and preserve strict blockers, null probability and no action.
+
+Tiger `market_snapshot` is a manual, unregistered calibration candidate. It uses
+the existing private lease/fence/checkpoint path and an isolated QuoteClient; raw
+values remain under the private research-source run root. Yahoo direct endpoints
+are secondary only. Public receipts contain counts, hashes and fixed reason codes,
+not symbols or provider values. The current authorization permits one calibration
+cohort only. A fixed-root private authorization ledger atomically consumes it before
+credential/provider I/O; success, failure, unresolved and interrupted claimed states
+reject replay, and interrupted claims require reconciliation. Provider promotion,
+full proxy completeness, scheduler use and active MCP registration remain
+unauthorized and unverified.
+
+
+### Market calibration authorization issuance
+
+Authorization issuance is an owner-controlled orchestration step, not a query or
+MCP tool. It requires an explicit user approval record plus independently verified
+calibration-contract and frozen-cohort hashes. The issuer creates the exact
+five-field receipt through `shared.tiger.authorization.create_authorization`; the
+worker cannot self-issue. Check the public opaque ID/hash and `unused` state before
+dispatch. Creation grants one manual calibration attempt only and establishes no
+provider, promotion, scheduler or runtime acceptance. Consumed or interrupted
+claims remain immutable and require reconciliation rather than reset.
+
+
+### Frozen calibration and promotion cohorts
+
+The roster-bound sample-selection contract deterministically freezes eight
+calibration records and eight disjoint unseen promotion records. The selection
+document, validator receipt, cohort hashes and ordered query-record hash are
+immutable inputs to the authorization and Tiger query contracts. Calibration may
+query only its frozen cohort. Promotion remains unauthorized, requires a separate
+one-time authorization and may not reuse calibration observations. Setup and
+public reports record counts and hashes but do not disclose sampled symbols or
+private provider values.
+
+
+### Observed one-time calibration outcome
+
+The authorized calibration ran once on 2026-11-10 through a fresh native Sites
+context after full frozen-query validation. The authorization was consumed before
+StoreClient access. Tiger reached the checkpoint phase but returned an unresolved
+outcome: checkpoint commit and lease release are not authoritative, the private
+fence and retained profile remain preserved, and the authorization cannot be
+reused. Yahoo did not start, no pilot result became available and no provider,
+business or email replay is allowed.
+
+Public unresolved evidence is bound by live-result SHA
+`905e156c633106df1f05e99a55ebf5c41f7fc89f19dc762856e26d4cf70c4120`
+and closure SHA
+`e42550b11af79912142c14b3973d8fa8f6475e559deda35f3c3dac0f615f4775`.
+No local or installed owner-audit route can authoritatively determine the remote
+commit, lease or profile state. The future owner-readback contract SHA
+`5f0bc0391f4c5db9a7f7a6a049ad5575e523f9e8bed23aaed6d1d7359ed04d4e`
+is disabled and not implemented; it cannot repair this legacy uncorrelated
+attempt or clear its fence.
+
+The immutable unresolved pilot receipt SHA is
+`e442da33074c85298f220a44f779bba5db0cf53cb3294f329b127cc3d4ff51cf`.
+The 2026-11-11 proxy companion remains strict `FAIL`, pilot
+`UNRESOLVED_PILOT_OUTCOME` and full proxy `BLOCKED_NOT_FULL_PROXY_SCOPE`.
+Its HTML SHA is
+`4d8f984874830214f597cb6ad338b199cf543f8c04bd035d486e6b9886bc26dd`;
+browser review SHA is
+`1747f4197cf22f84caa9b5080bb1280e7143c80436448143afd07196f544dc8f`.
+Rendered checks passed for desktop, keyboard, narrow mobile, 200 percent scale,
+dark mode, print, contrast, overflow, touch targets and zero console errors. This
+is evidence/report acceptance only, not provider promotion, runtime acceptance,
+exact COMP coverage, probability or action authority.
+
+Independent final artifact review confirmed cross-format parity, lineage custody
+and browser evidence. Final review bundle SHA is `b15a474d797e18ae3be65aff38ccf3b1cde767c648659b7e53aee889f781efe7`. The report is
+accepted as an unresolved evidence artifact only; every business block remains.

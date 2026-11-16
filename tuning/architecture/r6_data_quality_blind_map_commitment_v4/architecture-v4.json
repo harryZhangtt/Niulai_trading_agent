@@ -1,0 +1,144 @@
+{
+  "activation": false,
+  "allowed_claim": "Disabled provider-free additive v4 locally repairs the four OPEN-v3 findings and remains untrusted pending a fresh independent review; no opening, live run, provider call, scheduler change, or countable result is authorized.",
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 10160,
+    "countable": false,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v3-independent-review-open-v1-fable-20261111.json",
+    "sha256": "b3ee0407e73f6f13a1c541f2cfe632abfb911d4562a59d41e740409b9e82c4bd",
+    "verdict": "OPEN"
+  },
+  "chronology": {
+    "cross_reference_contract": "Exact record path set equality, per-cell and per-role fixed paths, exact canonical manifest ordering/cardinality, and runtime equality to canonical referenced bytes/hashes. Fully resealed mixed/interleaved chains are rejected.",
+    "exact_slots": {
+      "attempt_admissions": [
+        3,
+        5,
+        7,
+        9
+      ],
+      "attempt_results": [
+        4,
+        6,
+        8,
+        10
+      ],
+      "block_grant_issued": 1,
+      "block_grant_reviewed": 2,
+      "conditional_g3_grades": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "evaluation_packets": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "g1_grades": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "g2_grades": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "manifest_with_g3": 28,
+      "manifest_without_g3": 24,
+      "metrics_with_g3": 27,
+      "metrics_without_g3": 23
+    },
+    "global_barriers": [
+      "reviewed grant precedes every attempt admission",
+      "all four exact attempt results precede every evaluation packet",
+      "all four evaluation packets precede every required human grade",
+      "all required G1/G2 and conditional G3 grades precede metrics",
+      "metrics precede manifest"
+    ]
+  },
+  "countable": false,
+  "current_state": {
+    "authentic_chain_pins": 0,
+    "authentic_human_pins": 0,
+    "decision": "DENY_BEFORE_PRIVATE_MAP_READ",
+    "fresh_independent_review": "PENDING",
+    "private_map_read": false,
+    "reason": "AUTHENTIC_HUMAN_AUTHORITY_ABSENT_OR_PENDING"
+  },
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "owner_and_boundary": {
+    "activation_boundary": "No activation path. AUTHENTIC_HUMAN_PINS and AUTHENTIC_CHAIN_PINS are empty and public authorize_opening accepts zero arguments.",
+    "affected_runtime": "New owner-private runtime/r6_data_quality_blind_map_commitment_v4 only. No provider, runner, evaluation, scheduler, or active runtime edits.",
+    "failure_radius": "New v4 candidate, test, runtime, and tuning/architecture paths only.",
+    "owner": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v4"
+  },
+  "preserved_properties": [
+    "v2 receipt-last no-replace transaction",
+    "v2 deterministic recovery and retry fence",
+    "owner-only 0700 runtime root and 0600 artifacts",
+    "label secrecy and value-suppressing scans",
+    "zero external effects"
+  ],
+  "production_chain_builders": 0,
+  "public_api": [
+    "CommitmentError",
+    "authorize_opening",
+    "create_commitment",
+    "recover_incomplete",
+    "scan_label_leaks",
+    "validate_commitment"
+  ],
+  "schema_contract": {
+    "closed_objects": true,
+    "draft": "https://json-schema.org/draft/2020-12/schema",
+    "mechanisms": [
+      "const fixed identities and sequences",
+      "prefixItems exact cell/role/path order",
+      "conditionals binding cell and role to exact paths and sequence slots",
+      "exact cardinality plus uniqueItems and per-cell contains constraints"
+    ],
+    "published": 11,
+    "reviewed_differentials_closed": [
+      "fixed map identity substitution",
+      "cross-cell packet attempt path",
+      "G1 record with G2 authority/artifact paths",
+      "duplicate metric cell identity",
+      "reversed manifest grade order"
+    ]
+  },
+  "subject": "r6_data_quality_blind_map_commitment_v4",
+  "validator_authority": {
+    "load_method": "Owner-checked component-by-component O_NOFOLLOW read; compile and execute those exact bytes in an internally created ModuleType namespace; verify exact FunctionType globals/module/code filename; invoke validate_registry_attestations with zero arguments.",
+    "public_inputs": 0,
+    "rejected_authority": [
+      "caller module",
+      "caller callback",
+      "caller object",
+      "claimed __file__ string",
+      "claimed __module__ string",
+      "duck-typed validator"
+    ],
+    "source_bytes": 14782,
+    "source_path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/registry.py",
+    "source_sha256": "63d2eaff7f331cb7227337e19e0eb0aa7cd9ed5a7021e7f8064f28ec1c78f431"
+  },
+  "version": "r6-data-quality-blind-map-commitment-architecture-v4"
+}

@@ -35,6 +35,17 @@ class HostWebTests(unittest.TestCase):
         return HostWeb(directory or self.root / config['execution_id'], config=config,
             cache_directory=self.root / 'cache', now=lambda: self.clock[0].isoformat())
 
+    @staticmethod
+    def alternate(arguments, triggers):
+        return {
+            'representation_kind': 'html', 'exact_arguments': arguments,
+            'source_role': 'issuer document', 'required_capability': 'official_document',
+            'required_access_level': 'document', 'canonical_disclosure_id': 'synthetic-disclosure',
+            'relationship_to_primary': 'semantically_equivalent_representation',
+            'semantic_equivalence_rationale': 'Synthetic fixtures represent one frozen disclosure.',
+            'permitted_trigger_codes': triggers, 'budget_cost': 1,
+        }
+
     def open(self, operation='read', portal=None):
         portal = portal or self.portal; args = {'open': [{'ref_id': URL}], 'response_length': 'long'}
         prepared = portal.prepare(operation, args, requirement_ids=['pricing'])
@@ -60,6 +71,11 @@ class HostWebTests(unittest.TestCase):
         self.assertEqual(read(source['raw']), f'Synthetic search result ({URL}) turn99search0')
         operation = read(result['operation_ref']); self.assertEqual(operation['provider_items'], 2)
         self.assertEqual(operation['requirement_ids'], ['pricing', 'adoption'])
+        self.assertEqual((operation['logical_operations'], operation['reserved_provider_items'],
+                          operation['actual_dispatches']), (1, 2, 2))
+        self.assertEqual(read(self.portal._head())['usage']['logical_operations'], 1)
+        self.assertEqual(read(self.portal._head())['usage']['reserved_provider_items'], 2)
+        self.assertEqual(read(self.portal._head())['usage']['actual_dispatches'], 2)
 
     def test_search_preserves_rare_non_url_discovery_clue_as_metadata(self):
         args = {'search_query': [{'q': 'synthetic pricing'}], 'response_length': 'long'}
@@ -261,13 +277,40 @@ class HostWebTests(unittest.TestCase):
         checked = validate_run(final['run_ref'], frozen)
         self.assertEqual(checked[3:5], (1, 1))
 
-    def test_failure_no_identical_retry_and_explicit_fallback_budgeted(self):
+    def test_policy_failure_forbids_fallback_and_representation_failure_allows_sealed_alternate(self):
         args = {'open': [{'ref_id': URL}]}; self.portal.prepare('one', args, requirement_ids=['pricing'])
         self.portal.capture('one', {'actual_arguments': args, 'raw_result': 'Synthetic forbidden response', 'status': 'failed', 'code': 'SOURCE_HTTP_403'})
         self.assertEqual(self.portal.prepare('again', args, requirement_ids=['pricing'])['status'], 'not_retry')
         other = {'open': [{'ref_id': URL + '-other'}]}
-        prepared = self.portal.prepare('fallback', other, fallback_of='one', requirement_ids=['pricing'])
-        self.assertTrue(prepared['dispatch']); self.assertEqual(read(self.portal._head())['usage']['provider_items'], 2)
+        with self.assertRaisesRegex(SourceError, 'HOST_WEB_FALLBACK_FORBIDDEN'):
+            self.portal.prepare('forbidden-fallback', other, fallback_of='one', requirement_ids=['pricing'],
+                                alternate_descriptor=self.alternate(other, ['HOST_WEB_SOURCE_INACCESSIBLE']))
+
+        portal = self.make({**self.config, 'execution_id': str(uuid.uuid4())})
+        portal.prepare('primary', args, requirement_ids=['pricing'])
+        portal.capture('primary', {'actual_arguments': args, 'raw_result': 'Synthetic structured failure',
+                                   'status': 'failed', 'code': 'HOST_WEB_SOURCE_INACCESSIBLE'})
+        prepared = portal.prepare('fallback', other, fallback_of='primary', requirement_ids=['pricing'],
+                                  alternate_descriptor=self.alternate(other, ['HOST_WEB_SOURCE_INACCESSIBLE']))
+        self.assertTrue(prepared['dispatch']); self.assertEqual(read(portal._head())['usage']['provider_items'], 2)
+
+    def test_native_open_diagnostics_preserve_recoverable_failure_class(self):
+        cases = [
+            ('Content length is too large: 15229853', 'HOST_WEB_BODY_TOO_LARGE'),
+            ('URL is not accessible via this tool.', 'HOST_WEB_SOURCE_INACCESSIBLE'),
+        ]
+        for raw, code in cases:
+            with self.subTest(code=code):
+                portal = self.make({**self.config, 'execution_id': str(uuid.uuid4())})
+                args = {'open': [{'ref_id': URL}]}
+                portal.prepare('read', args, requirement_ids=['pricing'])
+                captured = portal.capture('read', {'actual_arguments': args, 'raw_result': raw, 'status': 'returned',
+                                                    'diagnostic': {'code': code}})
+                self.assertEqual((captured['status'], captured['code']), ('failed', code))
+                receipt = read(captured['operation_ref'])
+                self.assertEqual(receipt['code'], code)
+                self.assertEqual(read(receipt['response_ref']), raw)
+                self.assertEqual(captured['packet'], {})
 
     def test_transport_circuit_and_genuine_unknown_do_not_dispatch_again(self):
         for code, status in [('NATIVE_TRANSPORT_FAILED', 'failed'), ('HOST_WEB_RESULT_UNKNOWN', 'unknown')]:
@@ -282,9 +325,20 @@ class HostWebTests(unittest.TestCase):
         self.assertEqual(read(read(captured['operation_ref'])['response_ref']), 'not a source body')
         self.assertEqual(self.portal.prepare('same', args, requirement_ids=['pricing'])['status'], 'not_retry')
         other = {'open': [{'ref_id': URL + '-alternate'}]}
-        self.assertTrue(self.portal.prepare('alternate', other, fallback_of='read', requirement_ids=['pricing'])['dispatch'])
+        descriptor = self.alternate(other, ['HOST_WEB_BODY_UNPARSEABLE'])
+        self.assertTrue(self.portal.prepare('alternate', other, fallback_of='read', requirement_ids=['pricing'],
+                                            alternate_descriptor=descriptor)['dispatch'])
         result = self.portal.capture('alternate', {'actual_arguments': other, 'raw_result': RAW.replace(URL, URL + '-alternate'), 'status': 'returned'})
         self.assertEqual(result['status'], 'returned'); self.assertEqual(self.portal.finish()['run']['status'], 'partial')
+
+    def test_deadline_before_dispatch_has_distinct_closed_code_and_zero_accounting(self):
+        portal = self.make({**self.config, 'execution_id': str(uuid.uuid4())})
+        self.clock[0] += timedelta(minutes=11)
+        with self.assertRaisesRegex(SourceError, 'HOST_WEB_DEADLINE_BEFORE_DISPATCH'):
+            portal.prepare('late-before', {'search_query': [{'q': 'synthetic'}]}, requirement_ids=['pricing'])
+        usage = read(portal._head())['usage']
+        self.assertEqual((usage['logical_operations'], usage['reserved_provider_items'],
+                          usage['actual_dispatches']), (0, 0, 0))
 
     def test_future_publication_and_late_response_never_exposed(self):
         args = {'open': [{'ref_id': URL}]}; self.portal.prepare('future', args, requirement_ids=['pricing'])
@@ -297,6 +351,48 @@ class HostWebTests(unittest.TestCase):
         result = portal.capture('late', {'actual_arguments': args, 'raw_result': RAW, 'status': 'returned'})
         self.assertEqual(result['status'], 'failed'); self.assertEqual(read(result['operation_ref'])['code'], 'HOST_WEB_DEADLINE')
         self.assertEqual(result['packet'], {})
+
+    def test_shared_preflight_uses_catalog_question_ids_and_dispatch_safe_operation_ids(self):
+        config = deepcopy(self.config)
+        config['execution_id'] = str(uuid.uuid4())
+        config['requirement_ids'] = ['pricing.v1:issuer']
+        portal = self.make(config)
+        args = {'search_query': [{'q': 'synthetic pricing'}]}
+        prepared = portal.prepare('safe-operation', args, requirement_ids=['pricing.v1:issuer'])
+        self.assertTrue(prepared['dispatch'])
+        other = self.make({**config, 'execution_id': str(uuid.uuid4())})
+        with self.assertRaisesRegex(SourceError, 'HOST_WEB_OPERATION_ID'):
+            other.prepare('unsafe.operation', args, requirement_ids=['pricing.v1:issuer'])
+        with self.assertRaisesRegex(SourceError, 'HOST_WEB_URL_INVALID'):
+            other.prepare('unsafe-url', {'open': [{'ref_id': 'https://localhost/private'}]},
+                          requirement_ids=['pricing.v1:issuer'])
+        self.assertEqual(read(other._head())['usage']['provider_items'], 0)
+
+    def test_provider_secret_fails_closed_and_private_path_is_redacted_everywhere(self):
+        args = {'open': [{'ref_id': URL}], 'response_length': 'long'}
+        self.portal.prepare('secret-capture', args, requirement_ids=['pricing'])
+        secret = {'result': f'{URL} bearer synthetic-token-12345678 ' + BODY}
+        rejected = self.portal.capture('secret-capture', {
+            'actual_arguments': args, 'raw_result': secret, 'status': 'returned'})
+        self.assertEqual((rejected['status'], rejected['code']),
+                         ('failed', 'ACQ_PERMANENT_FAILURE'))
+        receipt = read(rejected['operation_ref'])
+        persisted = json.dumps(read(receipt['response_ref']))
+        self.assertNotIn('synthetic-token-12345678', persisted)
+        self.assertEqual(rejected['packet'], {})
+
+        portal = self.make({**self.config, 'execution_id': str(uuid.uuid4())})
+        portal.prepare('path-capture', args, requirement_ids=['pricing'])
+        private = str(Path(__file__).resolve().parents[3] / '.research-sources/private/capture')
+        raw = f'Synthetic issuer ({URL})\nL0: {BODY} stored at {private}'
+        captured = portal.capture('path-capture', {
+            'actual_arguments': args, 'raw_result': raw, 'status': 'returned'})
+        projected = json.dumps(captured)
+        source = read(captured['source_refs'][0])
+        self.assertNotIn(private, projected)
+        self.assertNotIn(private, read(source['text'], json_value=False).decode())
+        self.assertNotIn(private, read(source['raw']))
+        self.assertIn('[PRIVATE_PATH_REDACTED]', projected)
 
     def test_ephemeral_refs_secrets_budget_and_observer_failure_are_contained(self):
         for value in ['turn0search0', 'https://user:password@example.com/a', 'https://127.0.0.1/a', 'https://example.com:8443/a']:

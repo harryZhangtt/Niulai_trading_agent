@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "role": "controller",
+  "status": "unresolved",
+  "python": "cp310",
+  "platforms": ["manylinux_2_28_x86_64", "manylinux_2_28_aarch64"],
+  "source_revision": "484776c211e4fbbeef03e0ec00d6bbee7362a4f4",
+  "required_output": "controller.requirements.lock",
+  "blockers": ["transitive-resolution-not-run", "hash-complete-wheelhouse-absent", "wheel-completeness-unverified"]
+}

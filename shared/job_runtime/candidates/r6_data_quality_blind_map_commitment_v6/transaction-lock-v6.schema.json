@@ -1,0 +1,58 @@
+{
+  "$id": "r6-data-quality-blind-map-transaction-lock-v6",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "device": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "inode": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "device",
+        "inode"
+      ],
+      "type": "object"
+    },
+    "immutable": {
+      "const": true
+    },
+    "operation": {
+      "enum": [
+        "CREATE",
+        "RECOVER"
+      ]
+    },
+    "owner_pid": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-transaction-lock-v6"
+    },
+    "transaction_id": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "version": {
+      "const": 6
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "transaction_id",
+    "artifact_identity",
+    "operation",
+    "owner_pid",
+    "immutable"
+  ],
+  "type": "object"
+}

@@ -18,7 +18,7 @@ function request(port, { pathname = '/api/datasource', method = 'GET', headers =
   return new Promise((resolve, reject) => {
     const req = http.request({ host: '127.0.0.1', port, path: pathname, method, headers }, res => {
       let text = ''; res.on('data', chunk => text += chunk);
-      res.on('end', () => resolve({ status: res.statusCode, text }));
+      res.on('end', () => resolve({ status: res.statusCode, text, headers: res.headers }));
     }); req.on('error', reject); req.end();
   });
 }
@@ -68,6 +68,8 @@ test('loopback service serves reads, rejects foreign Host/Origin and writes, dup
     assert.equal((await request(port, { headers: { Origin: 'https://foreign.example' } })).status, 403);
     assert.equal((await request(port, { pathname: '/api/unknown' })).status, 404);
     assert.equal((await request(port, { pathname: '/datasource' })).status, 200);
+    const typo = await request(port, { pathname: '/datasouce?subject=NOW&view=evidence' });
+    assert.equal(typo.status, 308); assert.equal(typo.headers.location, '/datasource?subject=NOW&view=evidence');
     const duplicate = await run(process.execPath, ['ui/datasource/dev.mjs'], { cwd: ROOT, timeout: 6000,
       env: { ...process.env, DATASOURCE_PORT: String(port) } });
     assert.match(duplicate.stdout, /already running/); assert.ok(service.server.listening);

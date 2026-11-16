@@ -1,0 +1,51 @@
+{
+  "schema_version": 10,
+  "kind": "factor_local_health_lifecycle",
+  "profile_id": "factor-local-health-v10",
+  "status": "selected-disabled",
+  "runnable": false,
+  "apply_allowed": false,
+  "capability": "factor-local-health-v10-run",
+  "docker_context": "colima-factor-mining",
+  "colima_profile": "factor-mining",
+  "reconciliation_evidence_sha256": "95b18403e961557f3968407fb39a2c481ea751472039cb09ec14435c4eefc910",
+  "image": {
+    "tag": "factor-local-health-v10:source-only",
+    "image_id": null,
+    "build_context": "build-context.json",
+    "pull_required_first": true,
+    "pull_reference": "python:3.11-slim-bookworm@sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39",
+    "platform": "linux/arm64"
+  },
+  "container": {
+    "name": "factor-health-v10",
+    "network": "none",
+    "read_only": true,
+    "user": "65532:65532",
+    "cap_drop": ["ALL"],
+    "security_opt": ["no-new-privileges=true"],
+    "pids_limit": 128,
+    "cpus": "0.5",
+    "memory": "256m",
+    "memory_swap": "256m",
+    "tmpfs": ["/tmp:rw,noexec,nosuid,nodev,size=64m", "/run:rw,noexec,nosuid,nodev,size=16m"],
+    "restart": "no",
+    "logging": {"driver": "local", "max_size": "10m", "max_file": "3"},
+    "mounts": [],
+    "secrets": [],
+    "docker_socket": false,
+    "privileged": false,
+    "command": ["health"]
+  },
+  "lifecycle": {
+    "steps": ["pull", "build", "inspect-image", "create", "inspect-container", "start", "wait", "logs", "inspect-terminal", "publish-receipt", "remove"],
+    "no_rm_flag": true,
+    "cli_failure_after_create": "unknown-fence",
+    "timeout": "cancel-term-grace-kill-unknown",
+    "receipt_required_before_remove": true,
+    "retry_allowed": false
+  },
+  "capacity": {"default_executor_concurrency": 1, "burst_executor_concurrency_max": 2, "burst_tested": false},
+  "blockers": ["explicit-capability-not-issued", "parent-approval-not-recorded", "base-image-not-pulled", "health-image-unbuilt", "health-lifecycle-unrun", "scientific-images-unresolved", "scientific-release-unresolved"],
+  "limitations": ["health-only", "no-scientific-execution", "no-scaling-evidence", "no-runtime-acceptance"]
+}

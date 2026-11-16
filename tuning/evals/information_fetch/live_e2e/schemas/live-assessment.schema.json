@@ -1,0 +1,49 @@
+{
+  "$id": "urn:trading-agent:live-assessment",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "disposition": {
+            "const": "candidate_support"
+          },
+          "question_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "quote": {
+            "maxLength": 8192,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "question_id",
+          "quote",
+          "disposition"
+        ],
+        "type": "object"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "assessor_version": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+      "type": "string"
+    },
+    "operation_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "operation_id",
+    "assessor_version",
+    "assessments"
+  ],
+  "type": "object"
+}

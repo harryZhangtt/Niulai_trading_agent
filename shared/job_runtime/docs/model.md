@@ -19,11 +19,15 @@ to reset credentials or switch authentication methods automatically.
 
 The supported `CODEX_HOME` override places Codex's authentication and private
 state under `.job-runtime/`; `--ignore-user-config`, `--ephemeral`, and explicit
-log/SQLite/cache/temp paths keep this execution isolated from global settings.
-The adapter preserves the user's actual `HOME`. Command, app and web tools are
+SQLite/cache/temp paths keep this execution isolated from global settings. The
+adapter preserves the user's actual `HOME`. Command, app and web tools are
 disabled, the filesystem sandbox is read-only, and shell/environment overrides
-are built as an argument list with no shell interpolation. The prompt enters
-through a private stdin file rather than the process command line.
+are built as an argument list with no shell interpolation. Prompt bytes stream
+only through an anonymous stdin pipe; no prompt file is created. The v2 entry
+accepts exact `bytes` only; the central service owns prompt-lease reading and
+binding verification before this boundary. The legacy v1 entry may still accept
+a string, but encodes it directly into the same bounded internal byte chunks.
+Codex history persistence is explicitly disabled.
 
 All attempts use fresh private directories. An exit code of zero and a model's
 own success statement are insufficient: success requires a parsed real
@@ -34,11 +38,16 @@ supplies it. A different observed model or unexpected tool activity fails the
 attempt. The optional context `response_schema` is passed to Codex's structured
 output option; `cancel_event` supports cooperative service shutdown.
 
-Timeout, output overflow and cancellation terminate the invocation process group
-and retain an `unknown` outcome. The adapter never automatically resubmits these
-runs. Known transient provider/network failures are classified `retryable`;
-known auth/config/model errors are `failed`. Raw stdout/stderr remains private
-for diagnosis and is never embedded in the public diagnostic receipt.
+Timeout, output overflow, partial/EPIPE delivery and cancellation terminate the
+invocation process group and retain an `unknown` outcome. The adapter never
+automatically resubmits these runs. Known transient provider/network failures are
+classified `retryable`; known auth/config/model errors are `failed`. Raw stdout,
+stderr and provider events are bounded in memory and are neither persisted nor
+embedded in the public diagnostic receipt. V2 uses one owner-private, exclusive
+final-output file only while the normalizer's descriptor resolver needs it. A
+known terminal result removes that file and fsyncs its directory; an unknown or
+cleanup-uncertain outcome retains private attempt custody and exposes only the
+fixed `retained_unknown` disposition, never a path, reference or digest.
 
 The installed readiness profile intentionally has no business side effects:
 shell, app/connector and web tools are disabled. It can verify that a scheduled

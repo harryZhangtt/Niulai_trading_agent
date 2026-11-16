@@ -1,0 +1,28 @@
+{
+  "code": "UPSTREAM_502_FORWARDED",
+  "evidence_sha256": "b2c7e51eff240b9cc2ca0f8eb385abc8a64c906826100f90fc3180a620163eef",
+  "gateway_disposition": "pass_through",
+  "http_status": 502,
+  "identity": {
+    "attempt_id": "r8-forwarded-502-attempt-1",
+    "campaign_id": "R8",
+    "config_sha256": "ad7bbab715eba7850aed849919c027fddacd2486e8742e056b3a2c9a98c21f39",
+    "gateway_id": "gateway-fixture-1",
+    "job_id": "claude-campaign-v1.r8.slot-1",
+    "operation_id": "r8-forwarded-502-operation-1",
+    "process_id": "r8-forwarded-502-process-1",
+    "prompt_id": "r8-prompt-1",
+    "prompt_sha256": "1ce3ab3cdd6c88536fac5ad827dff5c87b71cf50278ae38b90addb5a615d97d9",
+    "request_id": "r8-forwarded-502-request-1",
+    "run_id": "r8-run-1",
+    "slot_id": "slot-1",
+    "source_sha256": "45bf2b2444e637bc028d3546ae9c1c8ef4919ae95b88cba8c50adcae888785f5",
+    "version": 1
+  },
+  "retry_after_seconds": 30,
+  "submission": "possibly_submitted",
+  "terminal_disposition": "failure",
+  "typed_transient": true,
+  "upstream_forward_count": 1,
+  "version": 1
+}

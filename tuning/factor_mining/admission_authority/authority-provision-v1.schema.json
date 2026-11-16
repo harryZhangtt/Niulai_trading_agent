@@ -1,0 +1,13 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"factor-authority-provision-v1",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","kind","authority_id","workspace_id","epoch","genesis_sha256","authority_policy_sha256","workspace_binding_sha256","trust_class","status"],
+  "$defs":{"sha":{"type":"string","pattern":"^[a-f0-9]{64}$"}},
+  "properties":{
+    "schema_version":{"const":1},"kind":{"const":"factor_authority_provision"},
+    "authority_id":{"const":"factor-admission-main-v1"},"workspace_id":{"const":"trading-agent"},"epoch":{"const":1},
+    "genesis_sha256":{"$ref":"#/$defs/sha"},"authority_policy_sha256":{"$ref":"#/$defs/sha"},
+    "workspace_binding_sha256":{"$ref":"#/$defs/sha"},"trust_class":{"const":"synthetic"},
+    "status":{"const":"structural-fixture-only"}
+  }
+}

@@ -1,0 +1,24 @@
+.root { min-width: 0; padding: 23px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+.root > :global(.section-heading) { align-items: flex-start; }
+.root > :global(.section-heading) a { flex: 0 0 auto; min-height: 44px; display: inline-flex; align-items: center; font-size: .82rem; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 18px 0; border-block: 1px solid var(--border); }
+.stats > div { min-width: 0; padding: 13px 12px; border-inline-end: 1px solid var(--border); }
+.stats > div:first-child { padding-inline-start: 0; }
+.stats > div:last-child { border-inline-end: 0; }
+.stats dt { color: var(--muted); font-size: .76rem; line-height: 1.5; }
+.stats dd { margin: 5px 0 0; font-size: 1.15rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.coverageBar { display: flex; gap: 2px; height: 10px; background: var(--surface-subtle); border-radius: 5px; overflow: hidden; }
+.coverageBar span:first-child { background: var(--chart-series-a, var(--blue)); }
+.coverageBar span:last-child { background: var(--muted); }
+.coverage p { margin-top: 9px; color: var(--muted); font-size: .78rem; line-height: 1.6; }
+.coverage strong { color: var(--ink); }
+.classes { margin-top: 20px; }
+.classes h4 { margin-bottom: 8px; font-weight: 500; }
+.classes a { display: grid; grid-template-columns: minmax(105px, .7fr) minmax(65px, 1fr) 32px; align-items: center; gap: 10px; min-height: 44px; color: var(--ink); text-decoration: none; font-size: .8rem; }
+.classes a:hover span:first-child { color: var(--text-accent); text-decoration: underline; }
+.classes strong { text-align: end; font-variant-numeric: tabular-nums; font-weight: 600; }
+.track { height: 7px; background: var(--surface-subtle); border-radius: 4px; overflow: hidden; }
+.track i { display: block; height: 100%; background: var(--blue); border-radius: 4px; }
+.root > details { border-top: 1px solid var(--border); margin-top: 14px; padding-top: 6px; }
+.root > details :global(.table-wrap) { border: 1px solid var(--border); border-radius: 10px; }
+@media (max-width: 520px) { .root { padding: 20px 17px; } .stats { grid-template-columns: 1fr; } .stats > div { border-inline-end: 0; border-bottom: 1px solid var(--border); padding-inline: 0; } .stats > div:last-child { border-bottom: 0; } .root > :global(.section-heading) { flex-wrap: wrap; gap: 10px; } }

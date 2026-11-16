@@ -13,6 +13,15 @@ from urllib.parse import urlsplit
 from shared.research_sources.artifacts import require
 
 DEFAULT_CONFIG = Path(__file__).with_name('candidate.json')
+_QUERY_SECRET = re.compile(r'(?i)(?:bearer\s+|api[_ -]?key|access[_ -]?token|refresh[_ -]?token|password|secret|authorization|cookie|jwt)')
+_SHA256 = re.compile(r'[a-f0-9]{64}')
+
+
+def discovery_key(query):
+    require(isinstance(query, str), 'WEB_QUERY_INVALID')
+    normalized = ' '.join(query.split())
+    require(0 < len(normalized) <= 2000 and _QUERY_SECRET.search(normalized) is None, 'WEB_QUERY_INVALID')
+    return hashlib.sha256(normalized.encode()).hexdigest()
 
 
 def fingerprint(path):
@@ -79,12 +88,23 @@ def load_config(path=DEFAULT_CONFIG):
 
 class Session:
     """One host-owned research session; callers cannot reset its limits in proposals."""
-    def __init__(self, config, *, clock=time.monotonic):
+    def __init__(self, config, *, clock=time.monotonic, native_search_budget=None,
+                 transient_retry_limit=2):
         self.config = validate_config(config)
+        require(native_search_budget is None or type(native_search_budget) is int
+                and 1 <= native_search_budget <= 64, 'WEB_SEARCH_BUDGET_INVALID')
+        require(type(transient_retry_limit) is int and 0 <= transient_retry_limit <= 4,
+                'WEB_SEARCH_RETRY_LIMIT_INVALID')
         self.clock = clock
         self.started = clock()
         self.reads = 0
         self.native_available = True
+        self.native_search_budget = (self.config['limits']['max_reads']
+                                     if native_search_budget is None else native_search_budget)
+        self.transient_retry_limit = transient_retry_limit
+        self.native_searches = 0
+        self.native_quota_exhausted = False
+        self.discoveries = {}
         self.events = []
         self._lock = threading.RLock()
 
@@ -98,15 +118,90 @@ class Session:
             self.native_available = False
         self.events.append({'kind': 'native_outcome', 'outcome': outcome})
 
+    def record_discovery(self, query, outcome, *, result_sha256=None):
+        with self._lock:
+            key = discovery_key(query)
+            require(outcome in ('success', 'quota_exhausted', 'transient_error',
+                                'permanent_error', 'unknown_outcome'), 'WEB_DISCOVERY_OUTCOME_INVALID')
+            state = self.discoveries.get(key)
+            require(state is not None and state.get('status') == 'pending',
+                    'WEB_DISCOVERY_NOT_PENDING')
+            if outcome == 'success':
+                require(isinstance(result_sha256, str) and _SHA256.fullmatch(result_sha256),
+                        'WEB_DISCOVERY_RESULT_INVALID')
+                state.update(status='success', result_sha256=result_sha256)
+            else:
+                require(result_sha256 is None, 'WEB_DISCOVERY_RESULT_INVALID')
+                state['status'] = outcome
+                if outcome == 'quota_exhausted':
+                    self.native_quota_exhausted = True
+                elif outcome == 'unknown_outcome':
+                    state['fenced'] = True
+            self.events.append({'kind': 'discovery_outcome', 'query_sha256': key,
+                                'outcome': outcome, 'attempts': state['attempts']})
+            return deepcopy(state)
+
+    def _plan_discovery(self, query):
+        if query is None:
+            if self.native_quota_exhausted or not self.native_available:
+                return {'route': 'work_browser_discovery',
+                        'reason': ('native_quota_exhausted' if self.native_quota_exhausted
+                                   else 'native_circuit_open'), 'requires_host_tool': True}
+            if self.native_searches >= self.native_search_budget:
+                return {'route': 'work_browser_discovery', 'reason': 'task_native_search_budget',
+                        'requires_host_tool': True}
+            self.native_searches += 1
+            return {'route': 'native_search', 'reason': 'broad_discovery',
+                    'attempt_ordinal': 1, 'requires_host_tool': True}
+        key = discovery_key(query)
+        state = self.discoveries.get(key)
+        if state:
+            status = state['status']
+            if status == 'success':
+                return {'route': 'cached_discovery', 'reason': 'exact_query_cache',
+                        'query_sha256': key, 'result_sha256': state['result_sha256'],
+                        'requires_host_tool': False}
+            if status == 'pending':
+                return {'route': 'wait', 'reason': 'duplicate_query_inflight',
+                        'query_sha256': key, 'requires_host_tool': False}
+            if status in ('permanent_error', 'unknown_outcome'):
+                return {'route': 'blocked', 'reason': status, 'query_sha256': key,
+                        'requires_host_tool': False}
+        if self.native_quota_exhausted or not self.native_available:
+            return {'route': 'work_browser_discovery',
+                    'reason': ('native_quota_exhausted' if self.native_quota_exhausted
+                               else 'native_circuit_open'), 'query_sha256': key,
+                    'requires_host_tool': True}
+        attempts = 0 if state is None else state['attempts']
+        if state and state['status'] == 'quota_exhausted':
+            return {'route': 'work_browser_discovery', 'reason': 'native_quota_exhausted',
+                    'query_sha256': key, 'requires_host_tool': True}
+        if state and state['status'] == 'transient_error' and attempts >= 1 + self.transient_retry_limit:
+            return {'route': 'work_browser_discovery', 'reason': 'transient_retry_exhausted',
+                    'query_sha256': key, 'requires_host_tool': True}
+        if self.native_searches >= self.native_search_budget:
+            return {'route': 'work_browser_discovery', 'reason': 'task_native_search_budget',
+                    'query_sha256': key, 'requires_host_tool': True}
+        attempts += 1
+        self.native_searches += 1
+        self.discoveries[key] = {'status': 'pending', 'attempts': attempts}
+        decision = {'route': 'native_search', 'reason': ('broad_discovery' if attempts == 1
+                    else 'bounded_transient_retry'), 'query_sha256': key,
+                    'attempt_ordinal': attempts, 'requires_host_tool': True}
+        if attempts > 1:
+            decision['retry_after_seconds'] = min(30, 2 ** (attempts - 1))
+        self.events.append({'kind': 'discovery_route', **decision})
+        return decision
+
     def plan(self, *, operation, url=None, native_outcome=None, interactive=False,
-             browser='egolite', authenticated=False, authorized_session=False, document_format='auto'):
+             browser='egolite', authenticated=False, authorized_session=False, document_format='auto', query=None):
         with self._lock:
             return self._plan(operation=operation, url=url, native_outcome=native_outcome,
                 interactive=interactive, browser=browser, authenticated=authenticated,
-                authorized_session=authorized_session, document_format=document_format)
+                authorized_session=authorized_session, document_format=document_format, query=query)
 
     def _plan(self, *, operation, url, native_outcome, interactive, browser,
-              authenticated, authorized_session, document_format):
+              authenticated, authorized_session, document_format, query):
         require(operation in ('discover', 'read') and type(interactive) is bool and
                 type(authenticated) is bool and type(authorized_session) is bool, 'WEB_REQUEST_INVALID')
         require(browser in ('egolite', 'chrome'), 'WEB_BROWSER_INVALID')
@@ -116,9 +211,7 @@ class Session:
         if native_outcome is not None:
             self.record_native(native_outcome)
         if operation == 'discover':
-            route = 'native_search' if self.native_available else 'work_browser_discovery'
-            return {'route': route, 'reason': 'broad_discovery' if self.native_available else 'native_circuit_open',
-                    'requires_host_tool': True}
+            return self._plan_discovery(query)
         require(origin(url) in self.config['allowed_origins'], 'WEB_ORIGIN_NOT_ALLOWED')
         require(not authenticated or authorized_session, 'WEB_AUTHORIZATION_REQUIRED')
         require(self.reads < self.config['limits']['max_reads'], 'WEB_READ_BUDGET')

@@ -1,0 +1,359 @@
+{
+  "$defs": {
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "lockedFile": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:trading-agent:macos-vm-request:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifactGeneration": {
+      "$ref": "#/$defs/digest"
+    },
+    "artifacts": {
+      "additionalProperties": false,
+      "properties": {
+        "cowDisk": {
+          "$ref": "#/$defs/lockedFile"
+        },
+        "guestAgent": {
+          "additionalProperties": false,
+          "properties": {
+            "bakedInto": {
+              "const": "rootDisk"
+            },
+            "rootManifest": {
+              "$ref": "#/$defs/lockedFile"
+            },
+            "sha256": {
+              "$ref": "#/$defs/digest"
+            }
+          },
+          "required": [
+            "sha256",
+            "bakedInto",
+            "rootManifest"
+          ],
+          "type": "object"
+        },
+        "initramfs": {
+          "$ref": "#/$defs/lockedFile"
+        },
+        "kernel": {
+          "$ref": "#/$defs/lockedFile"
+        },
+        "rootDisk": {
+          "$ref": "#/$defs/lockedFile"
+        }
+      },
+      "required": [
+        "kernel",
+        "initramfs",
+        "rootDisk",
+        "cowDisk",
+        "guestAgent"
+      ],
+      "type": "object"
+    },
+    "execution": {
+      "additionalProperties": false,
+      "properties": {
+        "argv": {
+          "items": {
+            "pattern": "^[A-Za-z0-9_.-]{1,128}$",
+            "type": "string"
+          },
+          "maxItems": 128,
+          "type": "array"
+        },
+        "env": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "pattern": "^[A-Z][A-Z0-9_]{0,63}$",
+                "type": "string"
+              },
+              "reference": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "reference"
+            ],
+            "type": "object"
+          },
+          "maxItems": 64,
+          "type": "array"
+        },
+        "executable": {
+          "pattern": "^[A-Za-z0-9_.-]{1,128}$",
+          "type": "string"
+        },
+        "strictContainment": {
+          "const": true
+        }
+      },
+      "required": [
+        "executable",
+        "argv",
+        "env",
+        "strictContainment"
+      ],
+      "type": "object"
+    },
+    "io": {
+      "additionalProperties": false,
+      "properties": {
+        "outputPath": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "prompt": {
+          "$ref": "#/$defs/lockedFile"
+        }
+      },
+      "required": [
+        "prompt",
+        "outputPath"
+      ],
+      "type": "object"
+    },
+    "mounts": {
+      "items": {
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "guestPath": {
+                "pattern": "^/(input|auth|run|output)(/[^/.][^/]*)*$",
+                "type": "string"
+              },
+              "readOnly": {
+                "const": true
+              },
+              "role": {
+                "const": "input"
+              },
+              "sourcePath": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "tag": {
+                "pattern": "^[A-Za-z0-9._-]{1,36}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "role",
+              "tag",
+              "sourcePath",
+              "guestPath",
+              "readOnly"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "guestPath": {
+                "pattern": "^/(input|auth|run|output)(/[^/.][^/]*)*$",
+                "type": "string"
+              },
+              "readOnly": {
+                "const": false
+              },
+              "role": {
+                "enum": [
+                  "auth",
+                  "run",
+                  "output"
+                ]
+              },
+              "sourcePath": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "tag": {
+                "pattern": "^[A-Za-z0-9._-]{1,36}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "role",
+              "tag",
+              "sourcePath",
+              "guestPath",
+              "readOnly"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "maxItems": 16,
+      "type": "array"
+    },
+    "network": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "const": "disabled"
+            },
+            "profile": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "mode",
+            "profile"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "const": "unrestrictedNat"
+            },
+            "profile": {
+              "$ref": "#/$defs/lockedFile"
+            }
+          },
+          "required": [
+            "mode",
+            "profile"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "nonce": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "protocolVersion": {
+      "const": 1
+    },
+    "receiptPath": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "requestID": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "requestSHA256": {
+      "$ref": "#/$defs/digest"
+    },
+    "resources": {
+      "additionalProperties": false,
+      "properties": {
+        "cpuCount": {
+          "maximum": 64,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "maxDiskBytes": {
+          "maximum": 1099511627776,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "maxFrameBytes": {
+          "maximum": 16777216,
+          "minimum": 1024,
+          "type": "integer"
+        },
+        "maxOutputBytes": {
+          "maximum": 16777216,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "maxRuntimeSeconds": {
+          "maximum": 86400,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "memoryMiB": {
+          "maximum": 65536,
+          "minimum": 512,
+          "type": "integer"
+        },
+        "shutdownGraceSeconds": {
+          "maximum": 300,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cpuCount",
+        "memoryMiB",
+        "maxRuntimeSeconds",
+        "shutdownGraceSeconds",
+        "maxFrameBytes",
+        "maxOutputBytes",
+        "maxDiskBytes"
+      ],
+      "type": "object"
+    },
+    "sockets": {
+      "additionalProperties": false,
+      "properties": {
+        "controlPort": {
+          "maximum": 4294967295,
+          "minimum": 1024,
+          "type": "integer"
+        },
+        "stdioPort": {
+          "maximum": 4294967295,
+          "minimum": 1024,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "controlPort",
+        "stdioPort"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "protocolVersion",
+    "requestID",
+    "nonce",
+    "requestSHA256",
+    "artifactGeneration",
+    "artifacts",
+    "execution",
+    "resources",
+    "sockets",
+    "mounts",
+    "network",
+    "io",
+    "receiptPath"
+  ],
+  "title": "ContainmentHost request v1",
+  "type": "object"
+}

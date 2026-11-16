@@ -1,0 +1,13 @@
+.stages { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.stages li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.stages li:first-child { padding-top: 4px; }
+.stages li:last-child { border-bottom: 0; padding-bottom: 4px; }
+.stages div { display: grid; gap: 7px; min-width: 0; }
+.stages strong { color: var(--ink); text-transform: capitalize; overflow-wrap: anywhere; font-size: .88rem; font-weight: 550; }
+.stages span, .stages code { color: var(--muted); font-size: .79rem; overflow-wrap: anywhere; }
+.stages summary { color: var(--text-accent); font-size: .8rem; cursor: pointer; }
+.stages details code { display: block; margin-top: 9px; }
+@media (forced-colors: active) { .stages li { border-color: CanvasText; } }
+@media (max-width: 760px) {
+  .stages strong, .stages span, .stages code, .stages summary { font-size: 14px; }
+}

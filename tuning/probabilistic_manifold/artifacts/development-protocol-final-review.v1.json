@@ -1,0 +1,94 @@
+{
+  "authorization": "exactly_one_development_only_run_conditional",
+  "claim_limits": [
+    "development_only_no_action",
+    "no protected validation",
+    "no prospective evidence",
+    "no alpha/causality/expected-return/sizing/trading claim"
+  ],
+  "protected_access": false,
+  "scope": "independent_protocol_read_only",
+  "source": "in_session_independent_review",
+  "subjects": [
+    {
+      "bytes": 6635,
+      "id": "config",
+      "path": "tuning/probabilistic_manifold/rolling-config.v2.json",
+      "sha256": "bb71529fd561faf498a6c29257372d214ad5f7bdd79ba910d6e688bb1ccb5e8f"
+    },
+    {
+      "bytes": 75604,
+      "id": "runner",
+      "path": "tuning/probabilistic_manifold/rolling_origin.py",
+      "sha256": "ded4fe94b17ed4cfb282116260b4e9a3f8c067e0486c03e66ac1c98e014c46a9"
+    },
+    {
+      "bytes": 1869,
+      "id": "outcomes",
+      "path": "tuning/probabilistic_manifold/rolling_outcomes.py",
+      "sha256": "cb6a13cf35b8d962f8d4df271ec6b4e0019acbc3006450cef6435622c5922cbb"
+    },
+    {
+      "bytes": 8149,
+      "id": "builder",
+      "path": "tuning/probabilistic_manifold/development_inputs.py",
+      "sha256": "d710de642601d9d358f22b9b55f65d5991905cd93cdce3990cb20fb460471c94"
+    },
+    {
+      "bytes": 32832,
+      "id": "dev_split",
+      "path": "tuning/probabilistic_manifold/artifacts/development-split.v7.json",
+      "sha256": "2cc54bffaa130ddeaf3576e8f317b01568ad257f3b7af790c7ead7bc32c96007"
+    },
+    {
+      "bytes": 11072,
+      "id": "features",
+      "path": "tuning/probabilistic_manifold/artifacts/development-features.v3.json",
+      "sha256": "53815e3c5bcb4b3560f8d0d9361360c67284b7c063cc4c5505431bfdf1b1f8ce"
+    },
+    {
+      "bytes": 6417,
+      "id": "support",
+      "path": "tuning/probabilistic_manifold/artifacts/development-support.v3.json",
+      "sha256": "0b49ddd64ae17f40df3c1aac89722c193d5cd8d9008fb9a82eeb280a7243adf5"
+    },
+    {
+      "bytes": 6502,
+      "id": "prereg",
+      "path": "tuning/probabilistic_manifold/artifacts/rolling-preregistration.v7.json",
+      "sha256": "ff7c991784c5745506c2d93831838008bdd2a8b049c5763a4e13c98ebc65889f"
+    },
+    {
+      "bytes": 1418,
+      "id": "protected",
+      "path": "tuning/probabilistic_manifold/artifacts/protected-split.v7.json",
+      "sha256": "99d767368a89d415dd5594e8e0fad39745b31affafa5757ef070b06b1a5fa757"
+    },
+    {
+      "bytes": 1971,
+      "id": "ledger",
+      "path": "tuning/probabilistic_manifold/artifacts/rolling-attempt-ledger.v7.json",
+      "sha256": "f754534131cbb278af9cc8ef9bfe99d509d2ccda620c15f1028fe0f8ad99fa5d"
+    },
+    {
+      "bytes": 2059,
+      "id": "source_manifest",
+      "path": "tuning/probabilistic_manifold/artifacts/source-manifest.v2.json",
+      "sha256": "5ca62dc8cf180203b71e5e1e232d53d934285baa7242e54e72786abaa9b8436f"
+    },
+    {
+      "bytes": 55205,
+      "id": "roster_file",
+      "path": "tuning/probabilistic_manifold/artifacts/session-roster.v1.json",
+      "sha256": "f34dd6d70b4440bb43eeecbd3ec4f6aec8163e01498e8c0675929ffe748a4745"
+    }
+  ],
+  "support_counts": {
+    "edge": 0,
+    "inconclusive_eligible": 0,
+    "inside": 5,
+    "outside": 1
+  },
+  "verdict": "PASS",
+  "version": "tqqq-development-protocol-final-review-v1"
+}

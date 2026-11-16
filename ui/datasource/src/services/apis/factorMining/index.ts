@@ -1,0 +1,1 @@
+export { fetchFactorMining } from './factorMining';

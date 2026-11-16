@@ -1,0 +1,61 @@
+{
+  "acceptance_evidence": {
+    "current_empty_pins_deny_before_map": "PASS",
+    "duplicate_label_and_order_probes": "PASS",
+    "eleven_draft_schemas": "PASS",
+    "fresh_independent_review": "PENDING",
+    "full_v5_suite": "8/8 PASS",
+    "g3_true_false_and_missing_forged_probes": "PASS",
+    "preclosure_v5_tests": "7/7 PASS",
+    "runtime_transaction": "PASS",
+    "source_closure": "107/107 PASS_ACTUAL_LSTAT_FSTAT_BYTES_SHA_MODE",
+    "v1_v4_and_evaluation_regressions": "44/44 PASS",
+    "value_suppressing_scan": "PASS_ZERO_MATCHES"
+  },
+  "activation": false,
+  "allowed_claim": "Local provider-free additive repair candidate only; not independently reviewed, activated, countable, live, or accepted for business use.",
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "expected_benefit": "A future reviewed chain cannot use G3 grades without authenticated G3 authority; blind-map schema consumers and runtime accept the same positional shape; closure claims bind actual modes.",
+  "fresh_independent_review": "PENDING",
+  "observed_problem": "OPEN-v4 found one P0 conditional-G3 authority gap and two P1 gaps: schema/runtime mismatch for duplicate labels/order and one stale closure mode binding.",
+  "options": [
+    {
+      "decision": "REJECTED_FOR_REPAIR",
+      "id": "O0",
+      "name": "retain v4 disabled",
+      "reason": "Preserves current safe denial but leaves all three OPEN findings."
+    },
+    {
+      "decision": "SELECTED",
+      "id": "O1",
+      "name": "additive v5 sibling",
+      "reason": "Smallest isolated repair preserving v1-v4 history and protected runtime/scheduler surfaces."
+    },
+    {
+      "decision": "REJECTED",
+      "id": "O2",
+      "name": "edit v4 or shared active runtime",
+      "reason": "Violates additive history and expands failure/activation radius without need."
+    }
+  ],
+  "owner_and_contract": {
+    "errors": "fail closed on source pin human authority chain schema transaction or closure mismatch",
+    "input": "zero caller arguments; exact fixed workspace artifacts only",
+    "output": "deny-before-private-map or fixed-chain-validated-still-disabled report",
+    "owner": "shared.job_runtime/candidates/r6_data_quality_blind_map_commitment_v5"
+  },
+  "subject": "r6_data_quality_blind_map_commitment_v5",
+  "version": "r6-data-quality-blind-map-commitment-decision-v5"
+}

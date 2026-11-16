@@ -319,8 +319,12 @@ def execute(config, state, root, base, context):
     work = Path(config['worktree'])
     before, protected = sources(work), protected_sources(work)
     # Invoke canonical mentor loader explicitly; automatic hook trust is untouched.
-    from mentor.session_init import initialize
-    hook = initialize(work, {'hook_event_name': 'SessionStart', 'source': 'resume', 'cwd': str(work)})
+    from mentor.session_init import SESSION_ID, initialize
+    session_id = context.get('attempt_id')
+    if not isinstance(session_id, str) or not SESSION_ID.fullmatch(session_id):
+        raise ValueError('CAMPAIGN_SESSION_ID_INVALID')
+    hook = initialize(work, {'hook_event_name': 'SessionStart', 'source': 'resume',
+                             'cwd': str(work), 'session_id': session_id})
     mentor_context = hook['hookSpecificOutput']['additionalContext']
     atomic(attempt / 'mentor-hook.json', hook)
     if not mentor_context.startswith('MENTOR_INIT_OK\n'):

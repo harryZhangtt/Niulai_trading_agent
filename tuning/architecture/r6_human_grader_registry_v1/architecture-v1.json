@@ -1,0 +1,35 @@
+{
+  "version": "r6-human-grader-registry-architecture-v1",
+  "classification": "INERT_LOCAL_DISABLED_PROVIDER_FREE",
+  "owner": "tuning evaluation",
+  "activation": false,
+  "default": "DENY",
+  "problem": "The frozen grading v3 contract has no trusted live human registry and must not treat AI-created, fixture, pending, unreviewed, or self-declared grader material as live authority.",
+  "capability": "Read-only validation of exact owner-private, fixed-path human registry and role-grant subjects after human-supplied attestations and exact independent CLEAN reviews are installed.",
+  "bindings": {
+    "role_assignment": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-role-assignment-v1.json", "sha256": "62db631b77d728c98ae5349a43862c079e2fdafa6b3eb6701b9c908df2de6935", "bytes": 2407, "mode": "0600"},
+    "grading_v3_contract": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json", "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d", "bytes": 9944, "mode": "0644"},
+    "grading_v3_producer": {"path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json", "sha256": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea", "bytes": 2588, "mode": "0644"},
+    "grading_v3_clean_review": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json", "sha256": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429", "bytes": 10585, "mode": "0644", "verdict": "CLEAN_PROVIDER_FREE_2X2_EVALUATION_V3"}
+  },
+  "fixed_subjects": {
+    "registry": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-registry-subject-v1.json",
+    "G1": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g1-role-grant-subject-v1.json",
+    "G2": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g2-role-grant-subject-v1.json",
+    "G3_optional": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g3-role-grant-subject-v1.json"
+  },
+  "acceptance": [
+    "exact approved role and opaque ID",
+    "registry and grants carry human-supplied signature/attestation fields",
+    "independence, no-conflict, blind-commitment, and no-map-access attestations",
+    "fixed-path independent CLEAN review bound to each exact subject hash and byte length",
+    "distinct G1 and G2 humans; distinct G3 when triggered",
+    "owner, mode, fixed path, byte length, hash, duplicate-key, and component nofollow checks"
+  ],
+  "fixture_policy": "Fixture-human declarations are test-only and never countable.",
+  "g3_policy": "G3 subject and review are ignored until the grading-v3 disagreement trigger occurs, then required exactly.",
+  "self_mint_policy": "The package exposes no writer, signer, reviewer, installer, activation, network, provider, or live-registry pinning surface. Declarations are not cryptographic identity proof and validation still returns not-live/not-countable pending a separate explicit pinning decision.",
+  "templates": "PENDING_HUMAN_SIGNATURE, activation=false, countable=false for role grants, signature fields absent, and review artifacts absent.",
+  "effects": {"account": 0, "business": 0, "credential": 0, "email": 0, "live": 0, "network": 0, "private_state": 0, "provider": 0, "scheduler": 0, "subagent": 0},
+  "allowed_claim": "Disabled provider-free registry/attestation validation kit and pending nonauthorizing templates only; no human has attested and no grader is live."
+}

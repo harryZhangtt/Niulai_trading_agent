@@ -1,0 +1,84 @@
+{
+  "activation": false,
+  "adversarial_coverage": [
+    "traversal",
+    "absolute path",
+    "path metadata leakage",
+    "nofollow symlink",
+    "owner/mode/hash/bytes/canonical digest",
+    "substituted evidence/gate/root",
+    "grade packet-ref mismatch",
+    "nested extras",
+    "mixed missing/wrong",
+    "selective UNKNOWN",
+    "cost unknown/zero claim edges",
+    "early unblind",
+    "valid four cell fixture"
+  ],
+  "allowed_claim": "disabled provider-free v2 producer verification only",
+  "bindings": {
+    "contract": {
+      "bytes": 8442,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v2.json",
+      "sha256": "20ff8382756fa18e1fcbda05d6d254e6dc7f7973925b15b1705682cd788c75cf"
+    },
+    "decision": {
+      "bytes": 1083,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v2/decision-v2.json",
+      "sha256": "b3dc5d326727c23b84b06b103087dce47cdc1dea57c42ebd115528a30079e65c"
+    },
+    "protocol": {
+      "bytes": 1085,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v2/protocol-v2.json",
+      "sha256": "8441211faafec2eda5b0c7aa40f58a480c3d1a5365b05845349ffec60ff45a02"
+    },
+    "source_closure": {
+      "bytes": 6765,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v2/source-closure-v2.json",
+      "sha256": "493a2a0b25dae0b6ce3768fc07a4f2d32780916356984f2610ecad87080159cb"
+    }
+  },
+  "countable_now": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "live": 0,
+    "network": 0,
+    "private_state": 0,
+    "provider": 0,
+    "scheduler": 0,
+    "subagent": 0
+  },
+  "independent_review": "PENDING_NOT_CREATED_BY_PRODUCER",
+  "status": "PRODUCER_PASS_PROVIDER_FREE_V2_PENDING_INDEPENDENT_REVIEW",
+  "tests": {
+    "research_draft_2020_12": {
+      "result": "PASS",
+      "schemas": 10,
+      "valid": 10
+    },
+    "research_python_3_12": {
+      "passed": 16,
+      "result": "PASS",
+      "skipped": 0,
+      "tests": 16
+    },
+    "system_python_3_9": {
+      "passed": 16,
+      "result": "PASS",
+      "skipped": 1,
+      "tests": 16
+    },
+    "workspace_python_3_12": {
+      "passed": 16,
+      "result": "PASS",
+      "skipped": 1,
+      "tests": 16
+    }
+  },
+  "v1": "OPEN_SUPERSEDED_NOT_MODIFIED",
+  "verdict": "PASS",
+  "version": "r6-data-quality-2x2-evaluation-producer-verification-v2"
+}

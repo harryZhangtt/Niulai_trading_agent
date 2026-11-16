@@ -77,13 +77,36 @@ class BusinessTests(unittest.TestCase):
 
 
     def test_automatic_review_is_explicit_business_only_and_no_sandbox_conflict(self):
-        self.profile.update(phase='business',shell=True,approval_mode='automatic_review')
+        self.profile.update(apps=[SITES],phase='business',shell=True,approval_mode='automatic_review')
         self.fake('args=sys.argv[1:];assert "--approve-for-me" in args;assert "--sandbox" not in args;assert not any(x.startswith("approval_policy=") for x in args);assert \'approvals_reviewer="auto_review"\' in args',
                   final={'status':'verified','code':'SYNTHETIC_REVIEW_MODE'})
         self.assertEqual(self.run_probe()['status'],'succeeded')
         self.profile.update(phase='catalog',shell=False)
         result=run_business(self.profile,'synthetic',ROOT,self.base/'second')
         self.assertEqual(result['code'],'BUSINESS_APPROVAL_MODE_INVALID')
+
+    def test_business_without_shell_keeps_automatic_review_and_has_no_write_grants(self):
+        self.profile.update(apps=[SITES],phase='business',shell=False,
+                            approval_mode='automatic_review')
+        self.fake(
+            'args=sys.argv[1:];assert "--approve-for-me" in args;'
+            'assert "--sandbox" not in args;assert "--add-dir" not in args;'
+            'assert "features.shell_tool=false" in args;'
+            'assert "features.shell_snapshot=false" in args;'
+            'assert not any(x.startswith("sandbox_workspace_write.") for x in args)',
+            final={'status':'verified','code':'SYNTHETIC_SHELL_DISABLED'})
+        result=self.run_probe()
+        self.assertEqual(result['status'],'succeeded')
+        self.assertEqual(result['receipt']['approval_mode'],'automatic_review')
+        self.assertEqual(result['receipt']['writable_roots'],[])
+
+    def test_gmail_business_without_shell_reaches_claim_gate_under_automatic_review(self):
+        self.profile.update(apps=[GMAIL],phase='business',shell=False,
+                            approval_mode='automatic_review')
+        self.fake()
+        result=self.run_probe()
+        self.assertEqual(result['code'],'BUSINESS_GMAIL_CLAIM_REQUIRED')
+        self.assertFalse((self.base/'run').exists())
 
     def test_actual_host_approval_error_is_sanitized_and_not_a_success(self):
         value={'isError':True,'content':[{'type':'text','text':'Tool call requires approval, but approval_policy is set to never. SYNTHETIC_RAW_SECRET'}]}
@@ -103,7 +126,7 @@ class BusinessTests(unittest.TestCase):
         self.assertNotIn('summary_parse_failure',result['receipt'])
 
     def test_summary_enum_failure_identifies_only_fixed_field_and_stays_failed(self):
-        self.profile.update(phase='business',shell=True)
+        self.profile.update(apps=[SITES],phase='business',shell=True)
         self.fake(final={'status':'completed','price_status':'SYNTHETIC_UNSUPPORTED_ENUM'})
         result=self.run_probe()
         self.assertEqual(result['status'],'failed')
@@ -141,7 +164,7 @@ class BusinessTests(unittest.TestCase):
     def test_explicit_private_writable_root_replaces_niulai_default(self):
         calculation=self.base/'calculation';calculation.mkdir(mode=0o700)
         relative=str(calculation.relative_to(ROOT))
-        self.profile.update(phase='business',shell=True,writable_roots=[relative])
+        self.profile.update(apps=[SITES],phase='business',shell=True,writable_roots=[relative])
         self.fake('args=sys.argv[1:];grants=[args[i+1] for i,x in enumerate(args) if x=="--add-dir"];assert grants=='+repr([str(calculation)])+';Path('+repr(str(calculation/'proof.txt'))+').write_text("synthetic")',
                   final={'status':'ok','code':'SYNTHETIC_ROOT_CHECK'})
         result=self.run_probe()
@@ -150,7 +173,7 @@ class BusinessTests(unittest.TestCase):
         self.assertEqual((calculation/'proof.txt').read_text(),'synthetic')
 
     def test_absent_writable_roots_preserves_niulai_default(self):
-        self.profile.update(phase='business',shell=True)
+        self.profile.update(apps=[SITES],phase='business',shell=True)
         self.fake('args=sys.argv[1:];grants=[args[i+1] for i,x in enumerate(args) if x=="--add-dir"];assert grants=='+repr([str(ROOT/'.niulai-state')]),
                   final={'status':'ok','code':'SYNTHETIC_DEFAULT_CHECK'})
         result=self.run_probe()
@@ -158,7 +181,7 @@ class BusinessTests(unittest.TestCase):
         self.assertEqual(result['receipt']['writable_roots'],['.niulai-state'])
 
     def test_source_absolute_traversal_and_missing_roots_fail_before_launch(self):
-        self.fake();self.profile.update(phase='business',shell=True)
+        self.fake();self.profile.update(apps=[SITES],phase='business',shell=True)
         cases=[('.', 'BUSINESS_WRITABLE_ROOT_REJECTED'),
                ('shared/job_runtime','BUSINESS_WRITABLE_ROOT_REJECTED'),
                (str(self.base),'BUSINESS_WRITABLE_ROOT_REJECTED'),
@@ -172,7 +195,7 @@ class BusinessTests(unittest.TestCase):
             self.assertFalse(run.exists())
 
     def test_auth_ancestor_and_descendant_grants_are_rejected(self):
-        self.fake();self.profile.update(phase='business',shell=True)
+        self.fake();self.profile.update(apps=[SITES],phase='business',shell=True)
         child=self.home/'private-child';child.mkdir(mode=0o700)
         for index,root in enumerate((self.base,self.home,child)):
             self.profile['writable_roots']=[str(root.relative_to(ROOT))]
@@ -182,7 +205,7 @@ class BusinessTests(unittest.TestCase):
             self.assertFalse(run.exists())
 
     def test_symlink_and_duplicate_grants_are_rejected(self):
-        self.fake();self.profile.update(phase='business',shell=True)
+        self.fake();self.profile.update(apps=[SITES],phase='business',shell=True)
         target=self.base/'calculation';target.mkdir(mode=0o700)
         link=self.base/'linked';link.symlink_to(target,target_is_directory=True)
         self.profile['writable_roots']=[str(link.relative_to(ROOT))]
@@ -194,7 +217,7 @@ class BusinessTests(unittest.TestCase):
     def test_catalog_or_job_context_cannot_expand_writable_roots(self):
         self.fake();self.profile['writable_roots']=[]
         self.assertEqual(self.run_probe()['code'],'BUSINESS_WRITABLE_ROOTS_INVALID')
-        self.profile.update(phase='business',shell=True,writable_roots=[])
+        self.profile.update(apps=[SITES],phase='business',shell=True,writable_roots=[])
         result=run_business(self.profile,'synthetic',ROOT,self.base/'run',
                             {'writable_roots':['shared/job_runtime']})
         self.assertEqual(result['code'],'BUSINESS_CONTEXT_INVALID')

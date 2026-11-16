@@ -1,0 +1,395 @@
+{
+  "$id": "r6-data-quality-blind-map-evaluation-packet-record-v5",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "cell_id": {
+            "const": "R6DQ-7F2C91A4"
+          }
+        },
+        "required": [
+          "cell_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attempt_receipt_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/attempt-R6DQ-7F2C91A4-v5.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "evaluation_packet_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/evaluation-artifact-R6DQ-7F2C91A4-v5.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "produced_sequence": {
+            "const": 11
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "cell_id": {
+            "const": "R6DQ-1B8E43D7"
+          }
+        },
+        "required": [
+          "cell_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attempt_receipt_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/attempt-R6DQ-1B8E43D7-v5.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "evaluation_packet_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/evaluation-artifact-R6DQ-1B8E43D7-v5.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "produced_sequence": {
+            "const": 12
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "cell_id": {
+            "const": "R6DQ-C4A7095E"
+          }
+        },
+        "required": [
+          "cell_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attempt_receipt_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/attempt-R6DQ-C4A7095E-v5.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "evaluation_packet_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/evaluation-artifact-R6DQ-C4A7095E-v5.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "produced_sequence": {
+            "const": 13
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "cell_id": {
+            "const": "R6DQ-92D6F0B3"
+          }
+        },
+        "required": [
+          "cell_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attempt_receipt_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/attempt-R6DQ-92D6F0B3-v5.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "evaluation_packet_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "mode": {
+                "const": "0600"
+              },
+              "path": {
+                "const": "chronology/evaluation-artifact-R6DQ-92D6F0B3-v5.json"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "mode"
+            ],
+            "type": "object"
+          },
+          "produced_sequence": {
+            "const": 14
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "attempt_receipt_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "enum": [
+            "chronology/attempt-R6DQ-7F2C91A4-v5.json",
+            "chronology/attempt-R6DQ-1B8E43D7-v5.json",
+            "chronology/attempt-R6DQ-C4A7095E-v5.json",
+            "chronology/attempt-R6DQ-92D6F0B3-v5.json"
+          ]
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "blind_alias": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "cell_id": {
+      "enum": [
+        "R6DQ-7F2C91A4",
+        "R6DQ-1B8E43D7",
+        "R6DQ-C4A7095E",
+        "R6DQ-92D6F0B3"
+      ]
+    },
+    "evaluation_packet_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "enum": [
+            "chronology/evaluation-artifact-R6DQ-7F2C91A4-v5.json",
+            "chronology/evaluation-artifact-R6DQ-1B8E43D7-v5.json",
+            "chronology/evaluation-artifact-R6DQ-C4A7095E-v5.json",
+            "chronology/evaluation-artifact-R6DQ-92D6F0B3-v5.json"
+          ]
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "immutable": {
+      "const": true
+    },
+    "packet_record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "produced_sequence": {
+      "type": "integer"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-evaluation-packet-record-v5"
+    },
+    "version": {
+      "const": 5
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "packet_record_id",
+    "cell_id",
+    "blind_alias",
+    "attempt_receipt_ref",
+    "evaluation_packet_ref",
+    "produced_sequence",
+    "immutable"
+  ],
+  "type": "object"
+}

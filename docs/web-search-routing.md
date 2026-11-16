@@ -65,3 +65,27 @@ acceptance are unverified. See [setup and recovery](deployment/web-access.md)
 and the [matched evaluation protocol](../tuning/evals/browser_cooperation/README.md).
 The existing session-scoped native circuit and authorized Work fallback still
 apply. A new diagnostic CLI process does not reset the real agent's circuit.
+
+## Quota-aware fan-out coordination
+
+For multi-agent research, one host-owned `shared.web_access.policy.Session` must
+plan discovery for all workers. Workers receive saved discovery packets and exact
+source URLs; they do not each spend native search calls independently.
+
+Call `Session.plan(operation="discover", query=...)` before native discovery.
+The coordinator hashes normalized queries without storing their text in events,
+reserves one in-flight call for an exact query, and returns `wait` to duplicate
+workers. After the host tool finishes, call `record_discovery` with one typed
+outcome:
+
+- `success` plus the saved result SHA-256 enables exact-query cache reuse;
+- `quota_exhausted` immediately routes this session to `work_browser_discovery`;
+- `transient_error` permits only the configured bounded retries and then routes
+  to browser discovery;
+- `permanent_error` and `unknown_outcome` block unchanged replay.
+
+The per-task native-search budget also routes overflow to browser discovery. This
+is host planning, not tool interception. Agents that bypass this interface are not
+automatically controlled. Browser results remain discovery metadata until the
+original source is opened and reviewed. Ferry `/health` is control-plane evidence
+only; each inference and acquisition call still records its actual outcome.

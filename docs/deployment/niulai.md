@@ -199,6 +199,15 @@ The cloud task does not consult the local crash fence. Reconcile the remote
 lease and any retained rotated profile before another owner proceeds. Do not
 delete the fence or reseed old tokens to clear an error. A missing local directory
 or failed Sites request is not evidence that the broker grant expired.
+
+The additive [owner readback diagnostic](../../shared/tiger/README.md#read-only-owner-acknowledgement-diagnostic)
+uses the existing Python environment and fresh native Site/version/deployment
+context. It makes at most two bounded no-profile acknowledgement reads against
+the exact verified version; it cannot retire a fence or perform a broker query.
+The recovered service has no historical commit journal and does not attest the
+original commit/lease tuple. Preserve the current remote credential owner and
+local recovery evidence when readback is inconclusive. Native service access
+remains host-provided; remote storage alone does not establish unattended access.
 [Tiger documents a maximum OAuth authorization lifetime](https://docs-en.itigerup.com/docs/authentication);
 refresh persistence reduces unnecessary login requests but does not make consent
 permanent. Do not change authentication method or broaden scope to evade expiry.

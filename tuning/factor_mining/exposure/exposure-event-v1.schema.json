@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"factor-outcome-exposure-event-v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","kind","ledger_genesis_sha256","sequence","previous_event_sha256","event_id","exposure_class","semantic_subject_id","source_inventory_sha256","evidence_sha256","observed_at","latest_affected_session","provenance"],
+  "properties":{
+    "schema_version":{"const":1},
+    "kind":{"const":"factor_outcome_exposure"},
+    "ledger_genesis_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "sequence":{"type":"integer","minimum":1},
+    "previous_event_sha256":{"oneOf":[{"type":"null"},{"type":"string","pattern":"^[a-f0-9]{64}$"}]},
+    "event_id":{"type":"string","pattern":"^[a-z0-9][a-z0-9_.-]{0,95}$"},
+    "exposure_class":{"enum":["raw_outcome","outcome_summary","strategy_result","selection_feedback"]},
+    "semantic_subject_id":{"enum":["spy","oneq","joint-spy-oneq"]},
+    "source_inventory_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "evidence_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "observed_at":{"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"},
+    "latest_affected_session":{"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}$"},
+    "provenance":{"type":"object","additionalProperties":false,"required":["source_type","source_ref_sha256","limitations"],"properties":{"source_type":{"enum":["public_share","local_report","reviewer_receipt","manual_inventory"]},"source_ref_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"limitations":{"type":"array","maxItems":16,"items":{"enum":["reported-unverified","historical-inventory-incomplete","date-only-scope","manual-review-required"]}}}}
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "r6-human-grader-independent-review-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "artifact_kind", "status", "subject_path", "subject_sha256", "subject_bytes", "reviewer_opaque_id", "independent_human_reviewer", "independent_of_all_graders", "conflict_disclosure", "review_created_by_human", "reviewed_at", "human_signature_attestation"],
+  "properties": {
+    "version": {"const": "r6-human-grader-independent-review-v1"},
+    "artifact_kind": {"const": "INDEPENDENT_HUMAN_ATTESTATION_REVIEW"},
+    "status": {"const": "CLEAN"},
+    "subject_path": {"type": "string", "minLength": 1},
+    "subject_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "subject_bytes": {"type": "integer", "minimum": 1},
+    "reviewer_opaque_id": {"type": "string", "pattern": "^HGRV-[0-9A-F]{4,16}$"},
+    "independent_human_reviewer": {"const": true},
+    "independent_of_all_graders": {"const": true},
+    "conflict_disclosure": {"const": "NO_KNOWN_CONFLICT"},
+    "review_created_by_human": {"const": true},
+    "reviewed_at": {"type": "string", "minLength": 1},
+    "human_signature_attestation": {"type": "string", "minLength": 16, "maxLength": 512, "pattern": "^[A-Za-z0-9._:-]+$"}
+  }
+}

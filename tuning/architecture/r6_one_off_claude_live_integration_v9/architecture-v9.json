@@ -1,0 +1,76 @@
+{
+  "activation": false,
+  "artifact_type": "architecture",
+  "bound_candidate": {
+    "impact_class": "STAGED_HOST_IMPACTING_DISABLED_CANDIDATE",
+    "owner": "shared.job_runtime.candidates.r6_one_off_claude_live_integration_v8",
+    "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8",
+    "source_version": 8
+  },
+  "countable": false,
+  "effect_boundary": {
+    "binary": "grant-selected exact test fixture",
+    "callable_injection": false,
+    "caller_effect": false,
+    "caller_root": false,
+    "caller_scenario": false,
+    "provider": "claude_host",
+    "public_entrypoint": "run()",
+    "public_package_callables": [
+      "run"
+    ],
+    "transport": "numeric loopback only"
+  },
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "evidence_owner": "tuning.architecture.r6_one_off_claude_live_integration_v9",
+  "impact_class": "INERT_LOCAL_EVIDENCE_ONLY",
+  "no_semantic_source_delta": true,
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "predecessor_review_binding": {
+    "bytes": 10896,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v8-independent-review-open-fable-20261113-8e9a8076.json",
+    "sha256": "65e425cab9b0fd7ed9381e0f8019360fad0e5c0f2da432c3b5c4e4c27c16df0d",
+    "verdict": "OPEN"
+  },
+  "registration": false,
+  "runtime_acceptance": "PENDING_FUTURE_SCHEDULED_INTENDED_RUNTIME_AND_VERIFIED_EMAIL",
+  "source_closure": {
+    "aggregate_sha256": "95d4d0a321d143574c03eccc84e56f89c5cd363eb14a783eb8f594a56a244b1c",
+    "artifact_count": 36,
+    "bytes": 10443,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v9/source-closure-v9.json",
+    "sha256": "83dd031482f383302bf03b9e7e9d77b00d6ec6b02801c8a722515d41743f0e68"
+  },
+  "source_namespace": {
+    "created": false,
+    "required": false,
+    "version_namespace": "v8 source bound by v9 evidence"
+  },
+  "status": "OPEN_EVIDENCE_ONLY_V9_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "unchanged_v8_contract": {
+    "schemas": [
+      "post-run-seal-v8.schema.json",
+      "pending-publication-v8.schema.json",
+      "unknown-fence-v8.schema.json",
+      "p0-output-v8.schema.json"
+    ],
+    "source_schema_test_delta": [],
+    "tests": [
+      "test_integration.py",
+      "test_schemas_closure.py",
+      "test_z_public_boundary.py"
+    ]
+  },
+  "version": 9
+}

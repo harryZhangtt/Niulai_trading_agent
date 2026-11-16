@@ -1,0 +1,28 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"RD-Agent synthetic runner receipt v2",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","kind","request_sha256","authority_binding","runner_implementation_sha256","status","artifact","failure_code","outcome_accessed","protected_labels_accessed","performance_claim"],
+  "properties":{
+    "schema_version":{"const":2},
+    "kind":{"const":"rdagent_synthetic_runner_receipt"},
+    "request_sha256":{"$ref":"#/$defs/sha"},
+    "authority_binding":{"$ref":"request-v2.schema.json#/$defs/binding"},
+    "runner_implementation_sha256":{"$ref":"#/$defs/sha"},
+    "status":{"enum":["synthetic-structural-complete","failed"]},
+    "artifact":{"oneOf":[{"type":"null"},{"$ref":"#/$defs/artifact"}]},
+    "failure_code":{"oneOf":[{"type":"null"},{"const":"FIXED_WORKER_REJECTED"}]},
+    "outcome_accessed":{"const":false},
+    "protected_labels_accessed":{"const":false},
+    "performance_claim":{"const":"withheld"}
+  },
+  "$defs":{
+    "sha":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "artifact":{"type":"object","additionalProperties":false,"required":["id","kind","sha256","size_bytes"],"properties":{"id":{"const":"structural-proof"},"kind":{"const":"authority-binding-proof"},"sha256":{"$ref":"#/$defs/sha"},"size_bytes":{"type":"integer","minimum":1,"maximum":65536}}}
+  },
+  "allOf":[
+    {"if":{"properties":{"status":{"const":"synthetic-structural-complete"}}},"then":{"properties":{"artifact":{"$ref":"#/$defs/artifact"},"failure_code":{"type":"null"}}}},
+    {"if":{"properties":{"status":{"const":"failed"}}},"then":{"properties":{"artifact":{"type":"null"},"failure_code":{"const":"FIXED_WORKER_REJECTED"}}}}
+  ]
+}

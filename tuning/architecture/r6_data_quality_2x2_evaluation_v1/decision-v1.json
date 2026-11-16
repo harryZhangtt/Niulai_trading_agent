@@ -1,0 +1,29 @@
+{
+  "activation": false,
+  "allowed_claim": "Contract, schema, validator, derivation, adjudication, and unblinding fixture behavior passed locally. No human/live/provider/addon superiority or runtime-acceptance claim.",
+  "decision": "PASS_IMPLEMENTATION_NOT_LIVE_NOT_COUNTABLE",
+  "effects": {
+    "account": false,
+    "business": false,
+    "credential": false,
+    "email": false,
+    "live": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false,
+    "subagent": false
+  },
+  "independent_review": "PENDING_NOT_PRODUCER_CREATED",
+  "rationale": "Smallest additive pure-Python intake/derivation harness closes the pair-unbound evaluation gap without editing frozen predecessors or adding a provider surface.",
+  "rejected_scope": [
+    "provider calls",
+    "network/account/private state",
+    "fake human live grades",
+    "self-created independent review",
+    "active Engine/driver/scheduler edits"
+  ],
+  "status": "ACCEPT_DISABLED_PROVIDER_FREE_CAPABILITY_PENDING_INDEPENDENT_REVIEW",
+  "supersession": "Only evaluation bindings for frozen design fcf096d0/review 0018e413; old files unchanged.",
+  "version": "r6-data-quality-2x2-evaluation-decision-v1"
+}

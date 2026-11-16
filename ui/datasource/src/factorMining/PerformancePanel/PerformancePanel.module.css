@@ -1,0 +1,15 @@
+.panel { min-width: 0; display: grid; gap: 20px; color: var(--ink); }
+.heading { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: 12px; }
+.heading h3 { margin: 0; font-weight: 550; }
+.heading p, .heading > span { margin: 8px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.7; }
+.heading > span { font-variant-numeric: tabular-nums; }
+.controls { display: flex; flex-wrap: wrap; gap: 16px; padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-subtle); }
+.controls label { display: grid; gap: 8px; font-size: .8rem; font-weight: 500; color: var(--muted); flex: 1; min-width: 0; }
+.controls select { width: 100%; min-width: 0; min-height: 44px; color: var(--ink); background: var(--surface); border: 1px solid var(--control-border); border-radius: 9px; }
+.cohorts { min-width: 0; display: grid; gap: 24px; }
+@media (max-width: 760px) { .controls { padding: 16px; } .controls label { flex-basis: 100%; } .controls select { font-size: 1rem; } }
+@media (forced-colors: active) { .controls { border-color: CanvasText; } }
+@media (max-width: 760px) {
+  .heading p, .heading > span, .controls label { font-size: 14px; }
+  .controls select { font-size: 16px; }
+}

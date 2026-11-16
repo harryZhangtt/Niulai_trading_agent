@@ -1,0 +1,48 @@
+.cohort { min-width: 0; display: grid; gap: 18px; padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-subtle); color: var(--ink); }
+.heading { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: 16px; }
+.heading h4, .heading p { margin: 0; }
+.heading h4 { font-size: .92rem; font-weight: 550; }
+.heading p { margin-top: 8px; color: var(--muted); font-size: .78rem; font-variant-numeric: tabular-nums; }
+.pagination { display: flex; flex-wrap: wrap; gap: 8px; }
+.pagination button { min-height: 44px; padding-inline: 14px; border: 1px solid var(--control-border); border-radius: 9px; background: var(--surface); color: var(--ink); font-size: .8rem; cursor: pointer; }
+.pagination button:hover:not(:disabled) { background: var(--blue-tint); border-color: var(--blue); }
+.pagination button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.pagination button:disabled { cursor: default; opacity: .5; }
+.plotWrap, .tableWrap { min-width: 0; max-width: 100%; overflow-x: auto; contain: inline-size; scrollbar-color: var(--border) var(--surface-subtle); border-radius: 10px; }
+.plotWrap { padding: 12px 8px; background: var(--page); border: 1px solid var(--border); }
+.plot { display: block; min-width: 560px; width: 100%; height: auto; color: var(--ink); }
+.reference { stroke: var(--muted); stroke-width: 1; }
+.interval { stroke: var(--blue); stroke-width: 3; stroke-linecap: round; }
+.point { fill: var(--blue); stroke: var(--page); stroke-width: 2; }
+.label, .axisLabel { fill: var(--muted); font-family: Poppins, sans-serif; font-size: 12px; font-weight: 400; }
+.tableWrap { border: 1px solid var(--border); }
+.table { width: 100%; min-width: 880px; border-collapse: collapse; font-size: .8rem; }
+.table th, .table td { padding: 14px 15px; border-bottom: 1px solid var(--border); text-align: start; vertical-align: top; overflow-wrap: anywhere; }
+.table thead th { color: var(--muted); background: var(--surface-subtle); font-size: .76rem; font-weight: 500; }
+.table tbody th, .table tbody td { background: var(--surface); color: var(--ink); }
+.table tbody th { max-width: 240px; font-weight: 550; }
+.table tbody tr:last-child th, .table tbody tr:last-child td { border-bottom: 0; }
+.table small, .table code { display: block; margin-top: 7px; color: var(--muted); overflow-wrap: anywhere; }
+.table small { font-size: .74rem; line-height: 1.6; }
+.table code { max-width: 220px; font-size: .72rem; }
+.numeric { font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 760px) { .cohort { padding: 16px; } .heading, .pagination { align-items: stretch; } .pagination { width: 100%; } .pagination button { flex: 1; } }
+@media (forced-colors: active) { .cohort, .plotWrap, .tableWrap, .table th, .table td { border-color: CanvasText; } .interval, .reference { stroke: CanvasText; } .point { fill: CanvasText; stroke: Canvas; } }
+.scrollHint { display: none; }
+.plotWrap:focus-visible, .tableWrap:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+@media (max-width: 760px) {
+  .heading h4 { font-size: 15px; }
+  .heading p, .pagination button, .scrollHint { font-size: 14px; line-height: 1.6; }
+  .scrollHint { display: block; margin: 0; color: var(--muted); }
+  .table { min-width: 0; width: 100%; font-size: 14px; }
+  .table thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  .table tbody { display: block; }
+  .table tbody tr { display: block; padding: 18px 16px; border-bottom: 1px solid var(--border); background: var(--surface); }
+  .table tbody tr:last-child { border-bottom: 0; }
+  .table tbody th, .table tbody td { display: block; padding: 0; border: 0; max-width: none; width: 100%; white-space: normal; }
+  .table tbody th { margin-bottom: 18px; color: var(--ink); font-size: 15px; }
+  .table tbody td + td { margin-top: 16px; }
+  .table tbody td::before { content: attr(data-label); display: block; color: var(--muted); font-size: 14px; font-weight: 500; margin-bottom: 5px; }
+  .table small, .table code { font-size: 14px; }
+  .table td :global(.badge) { font-size: 14px; }
+}

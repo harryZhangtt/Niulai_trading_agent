@@ -116,18 +116,23 @@ credential-free environment, private local HOME/cache/temp, pinned code and
 public/synthetic samples. An inherited macOS profile denies network operations,
 reads of broker/private archive/market-data credentials/Codex auth and other
 runtime contents, and writes outside calculation state. Parent metadata needed
-for symlink rejection is permitted. Python read/write audit checks add a narrow
-allow-list; their restrictions alone do not propagate to fresh subprocesses.
-The OS profile does propagate. Synthetic negative probes verify network denial,
-private-runtime content-read denial and outside-state write denial before suites.
+for symlink rejection is permitted. Python audit checks add narrow read/write rules and deny native subprocess,
+direct exec, fork-family and spawn by default. Only the pinned validation interpreter and exact
+reviewed nested Python command shapes required by three suites are allowed. The
+Python hook does not propagate into those fresh interpreters; the OS profile does.
+Synthetic negative probes verify `/bin/cat` and arbitrary native-process denial,
+real `os.fork` denial, direct spawn denial, network denial, private-runtime content-read denial and
+outside-state write denial before suites.
 
 Keep ONLY public/synthetic data and validation environment/artifacts in calculation
 state; never store credentials or private account data there. The OS profile uses
 allow-default for required native-library/system operations with explicit denies;
 it is not a universal hostile-code/container isolation claim. The model-host and
-acquisition tools are separate from the offline worker boundary. CPU/wall time
-and retained result-size budgets are explicit; no unsupported peak-memory limit
-is claimed. A stricter initial OS read whitelist aborted native-library startup;
+acquisition tools are separate from the offline worker boundary. CPU/wall time and retained result-size budgets are explicit. On Darwin the
+worker requests an inherited address-space limit but records it as unsupported when
+`setrlimit` rejects the change; file-size, descriptor, real-UID process-count, CPU
+and core limits are applied and read back. Other platforms must report unsupported
+limits honestly rather than claiming enforcement. A stricter initial OS read whitelist aborted native-library startup;
 that failed probe is retained rather than reported as a working boundary.
 
 ### Numeric contracts and acceptance
@@ -256,3 +261,70 @@ public docs contain no owner address or private account data. All completed
 calculator one-time allocations are disabled after verification; durable
 attempts/results remain intact. Mainstream calculation imports and production
 email ownership remain unchanged.
+
+
+## Leveraged-fund operator candidate (2026-11-07)
+
+`shared/calculation/operators/leveraged_funds.py` is now a versioned, deterministic
+local candidate around the pinned legacy reset arithmetic. It distinguishes exact
+benchmark, proxy, NAV and market-price bases; prevents cost double charging; binds
+the backend digest; contains positive-wealth underflow; bounds output; and exposes
+no data acquisition, probability calibration, sizing, entry, order or broker effect.
+
+The maintained offline runner candidate now has five suites by adding
+`leveraged_operator`. Local focused, legacy, bridge, worker and runner evidence is
+recorded separately. The 2026-10-31 scheduled acceptance remains an immutable
+four-suite historical result and does not accept this five-suite revision. A new
+future scheduled native-host run, independent postcondition verification and owner
+email readback remain required before runtime acceptance. No service reload, active
+allocation, production caller or email path is changed by this candidate.
+
+The five-suite runner uses `completed` for transport/execution completion. Its
+`paths` three findings and `contracts` two findings are the same retained legacy
+baseline defects documented in the 2026-10-31 evidence; they are not new candidate
+regressions and are not relabeled passes. Acceptance additionally requires the new
+`leveraged_operator` suite itself to report `passed`.
+
+The five-suite acceptance predicate freezes the exact three paths and two contracts historical finding IDs. Missing, duplicate, extra, or nonbaseline findings block acceptance; execution completion alone is insufficient.
+
+### Common-factor attribution candidate (2026-11-07)
+
+The six-suite local candidate adds a generic single-target common-factor attribution operator. SOXL and TQQQ must be separate requests; caller-owned acquisition, alignment and factor policy remain outside. Local synthetic tests and independent review passed in the pinned environment, but no empirical factor quality, causal share, probability, alpha or production claim follows. A future scheduled native-host six-suite acceptance and owner readback are required before runtime acceptance.
+
+
+### O1 trusted-code runner hardening (2026-11-07)
+
+This local candidate remains an inactive trusted-code calculation runner, not
+hostile-code isolation. Source-fingerprinted reviewed suite modules are the trust
+boundary. Python audit events deny arbitrary `subprocess.Popen`, direct `os.exec`,
+`os.posix_spawn`, `os.fork`, `os.forkpty` and `pty.spawn`; the allowlist contains only the project-local
+pinned Python interpreter and exact valuation, inherited-contract-test and
+leveraged-operator CLI invocation forms. `/bin/cat`, `/usr/bin/true`, a real
+`os.fork`, direct spawn, network, synthetic private-runtime read and outside-state write probes must all be
+denied before the six suites start. Allowlisted fresh Python children inherit the
+Seatbelt profile and resource limits, but not the Python audit hook. Native
+extensions, memory-safety flaws, same-user host interference and OS/Seatbelt bugs
+are not contained as hostile code.
+
+Workers request an 8 GiB `RLIMIT_AS` and lower both soft and hard limits for
+`RLIMIT_FSIZE` to 16 MiB, `RLIMIT_NOFILE` to 256, `RLIMIT_NPROC` to 1024,
+`RLIMIT_CPU` to 150 seconds and `RLIMIT_CORE` to zero. Darwin 25.4 exposes
+`RLIMIT_AS` but `setrlimit` rejects both soft-only and hard-limit changes with
+`ValueError`; reports therefore mark it available-but-unsupported, not enforced.
+`RLIMIT_NPROC` is a real-UID total rather than a private per-worker process quota;
+the worker audit guard additionally denies Python fork/forkpty before child creation.
+The parent retains the 180-second wall timeout, 2 MiB
+combined pipe cap and process-group kill/reap path. Linux/Windows and non-Seatbelt
+parity remain unverified.
+
+Each suite gets attempt-local HOME/temp/cache state. Output plus scratch is checked
+against 64 MiB and 2,048 files; scratch is always cleaned and failed or over-budget
+output is deleted. The aggregate check occurs after termination and is not a disk
+quota, while `RLIMIT_FSIZE` bounds each file during execution. Reports bind source
+and environment fingerprints, interpreter and audit-policy digests, actual limit
+readback and storage accounting. Local security, bridge, focused and all-six-suite
+runs are development evidence only. This change performs no scheduler activation,
+service reload, external delivery or email, and requires a separate future native-
+host acceptance after any activation decision.
+
+The common-factor suite is registered through the single maintained runner/worker suite owner and is required by acceptance. The prior standalone/not-registered and indirect-SciPy limitations are superseded. NumPy and SciPy remain directly pinned; deterministic evidence is local to the pinned environment and does not claim cross-platform BLAS bitwise equivalence. The latest local six-suite rerun uses the corrected truthful receipt; future scheduled native-host acceptance remains pending.

@@ -1,0 +1,81 @@
+{
+  "$id": "r6-data-quality-blind-map-transaction-v4",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commitment_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "sanitized-commitment-v4.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "complete": {
+      "const": true
+    },
+    "map_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "owner-private-canonical-map-v4.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-transaction-v4"
+    },
+    "transaction_id": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "version": {
+      "const": 4
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "transaction_id",
+    "map_ref",
+    "commitment_ref",
+    "complete"
+  ],
+  "type": "object"
+}

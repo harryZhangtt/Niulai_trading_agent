@@ -1,0 +1,34 @@
+{
+  "version": "r6-data-quality-exact-input-binding-decision-v3",
+  "status": "ACCEPT_OWNER_BOUND_TRANSITIVE_PROVIDER_FREE_NONCOUNTABLE_PENDING_INDEPENDENT_REVIEW",
+  "decision": "PASS_IMPLEMENTATION_CLOSES_OPEN_V2_OWNER_AND_SOURCE_CLOSURE",
+  "activation": false,
+  "countable": false,
+  "review_basis": {
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v2-independent-review-open-20261111-46ee3e157a72.json",
+    "bytes": 14940,
+    "sha256": "ecc9291ea0ecd30cb54bbf641ea2562a983d56fe666d20662bc2426119a946a2",
+    "findings": ["OPEN-V2-OWNER-BINDING-1", "OPEN-V2-SOURCE-CLOSURE-2"]
+  },
+  "history_disposition": "V1_V2_PRODUCERS_AND_REVIEWS_OPEN_PRESERVED_UNCHANGED",
+  "closed_by_v3": [
+    "exact owner_uid 501 serialized in every authority ref, root component, common identity and all four cells",
+    "trusted_process_uid 501 must equal bound owner and actual process UID",
+    "workspace lstat/open/fstat, root-component fstat and final-file fstat validate exact owner identity",
+    "different-UID artifact/root resealing changes the canonical digest and remains unauthorized",
+    "entry packet 4756/398abd and user-decision receipt 633/0b86722 are exact owner/path/mode/byte/raw/content-bound authorities",
+    "eleven semantic dependency edges and one local prompt claim cover all nineteen recursively discovered artifact/hash claims",
+    "missing, substituted or uncovered bound dependency denies and changes canonical identity",
+    "full owner/path/content/dependency identity duplicated exactly into all four cells"
+  ],
+  "tests": {
+    "v3_adversarial": {"passed": 21, "total": 21, "result": "PASS_DENIED_ALL"},
+    "v2_regression": {"passed": 15, "total": 15, "result": "PASS"},
+    "v1_regression": {"passed": 10, "total": 10, "result": "PASS"},
+    "protected_evaluation_and_blind_map": {"run": 32, "passed": 30, "skipped_optional_jsonschema": 2, "failed": 0, "result": "PASS"}
+  },
+  "unresolved": ["tool_roster pin", "common time-window pin", "final four-cell grants and CLEAN reviews"],
+  "effects": {"provider": false, "network": false, "account": false, "private_state": false, "email": false, "business": false, "host": false, "scheduler": false, "bytedcli": false},
+  "allowed_claim": "The v3 provider-free implementation closes the v2 owner-binding and transitive-source-closure findings and remains noncountable pending a distinct independent review.",
+  "forbidden_claims": ["independent CLEAN review", "live or countable authority", "sealed tool roster or time window", "final inference grants", "provider or addon superiority", "financial-return improvement", "production readiness or runtime acceptance"]
+}

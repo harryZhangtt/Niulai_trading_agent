@@ -51,6 +51,42 @@ Do not claim completion without checking the requested outcome.
 
 These are behavioral instructions, not an independently running watchdog.
 
+# Host-impact safety red line
+
+Before proposing or making a change to hooks, settings, daemons, MCP, shared
+runtime, schedulers, or any path that can create an external effect, classify its
+impact surface as one of:
+
+- **inert/local**: source, fixture, or disabled configuration that the active host
+  cannot load and that cannot emit an external effect;
+- **staged host-impacting**: a disabled candidate that can affect a host or shared
+  runtime only after a separate activation; or
+- **active host/session-impacting**: anything loaded by a current or future
+  session, a persistent process, shared runtime, or an external-effect path.
+
+Record the owner, activation boundary, affected sessions/processes/effects, and
+failure radius before mutation. Treat uncertainty as the more host-impacting
+class until isolated; a small text diff does not make an active hook low impact.
+
+An active host/session-impacting candidate must first be kept disabled and pass a
+disposable lifecycle and failure-injection path. Exercise startup, normal use,
+timeout, malformed output/receipt, source or configuration drift, cleanup, and
+recovery. Demonstrate that user prompts and messaging, task notifications,
+read-only diagnosis, and recovery/rollback remain available when the candidate
+fails. Require an owned backup and tested rollback, then a narrow canary with an
+explicit activation decision. Reject direct broad or hot replacement of active
+hooks/settings/daemons/MCP/shared runtime, including changes that make every
+prompt or session depend on an unproven component.
+
+Failure containment is scoped to the exact risky mutation or external effect.
+Fail closed on that activation, write, command, delivery, or replay when its
+safety evidence is missing; do not fail closed on the whole conversation or
+recovery surface. Mentor initialization timeout, malformed receipt, source drift,
+or missing/untrusted output may warn, fall back to direct policy reads, and deny
+only the unsafe mutation. It must never block user messaging, task notification,
+read-only inspection, rollback, or recovery. Availability of those paths is a
+first-class acceptance condition, not a best-effort fallback.
+
 # Skill routing
 
 Use the provisional selective-loading contract in `ROUTING.md`. Keep the small

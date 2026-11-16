@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "kind": "factor_local_service_declarations",
+  "apply_allowed": false,
+  "compose_file": null,
+  "stable": {
+    "controller": {
+      "name": "controller",
+      "class": "stable",
+      "image_digest": null,
+      "image_blocker": "controller-image-digest-unresolved",
+      "image_contract_id": "controller-linux-oci-v1",
+      "restart": "no",
+      "restart_owner": "host-authority",
+      "replicas": 1,
+      "scale_mode": "explicit-only",
+      "future_network_policy": "future-internal-only",
+      "mounts": [],
+      "docker_socket": false,
+      "privileged": false,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "logging": {
+        "driver": "local",
+        "max_size": "10m",
+        "max_files": 3
+      },
+      "network_mode": "unconfigured-blocked",
+      "read_only_root": true,
+      "tmpfs": [
+        {
+          "target": "/tmp",
+          "size_bytes": 67108864,
+          "mode": "1777"
+        }
+      ],
+      "secrets": [],
+      "resources": {
+        "cpu_hard": 1.0,
+        "memory_hard_bytes": 1073741824,
+        "memory_swap_bytes": 1073741824,
+        "additional_swap_bytes": 0,
+        "pids_limit": 512
+      }
+    },
+    "proxy": {
+      "name": "proxy",
+      "class": "stable",
+      "image_digest": null,
+      "image_blocker": "proxy-image-digest-unresolved",
+      "image_contract_id": "proxy-linux-oci-v1",
+      "restart": "no",
+      "restart_owner": "host-authority",
+      "replicas": 1,
+      "scale_mode": "explicit-only",
+      "future_network_policy": "future-internal-plus-egress",
+      "mounts": [],
+      "docker_socket": false,
+      "privileged": false,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "logging": {
+        "driver": "local",
+        "max_size": "10m",
+        "max_files": 3
+      },
+      "network_mode": "unconfigured-blocked",
+      "read_only_root": true,
+      "tmpfs": [
+        {
+          "target": "/tmp",
+          "size_bytes": 268435456,
+          "mode": "1777"
+        }
+      ],
+      "secrets": [],
+      "resources": {
+        "cpu_hard": 1.0,
+        "memory_hard_bytes": 1073741824,
+        "memory_swap_bytes": 1073741824,
+        "additional_swap_bytes": 0,
+        "pids_limit": 512
+      }
+    }
+  },
+  "attempt": {
+    "executor": {
+      "name": "executor",
+      "class": "attempt",
+      "image_digest": null,
+      "image_blocker": "executor-image-digest-unresolved",
+      "image_contract_id": "executor-linux-oci-v1",
+      "restart": "no",
+      "restart_owner": "engine",
+      "replicas": 1,
+      "scale_mode": "explicit-only",
+      "future_network_policy": "none",
+      "mounts": [],
+      "docker_socket": false,
+      "privileged": false,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "logging": {
+        "driver": "local",
+        "max_size": "10m",
+        "max_files": 3
+      },
+      "network_mode": "none",
+      "read_only_root": true,
+      "tmpfs": [
+        {
+          "target": "/tmp",
+          "size_bytes": 536870912,
+          "mode": "1777"
+        },
+        {
+          "target": "/run",
+          "size_bytes": 67108864,
+          "mode": "0755"
+        }
+      ],
+      "secrets": [],
+      "resources": {
+        "cpu_hard": 2.0,
+        "memory_hard_bytes": 4294967296,
+        "memory_reservation_bytes": 2147483648,
+        "memory_swap_bytes": 4294967296,
+        "additional_swap_bytes": 0,
+        "pids_limit": 512,
+        "cpu_shares": 256
+      }
+    },
+    "evaluator": {
+      "name": "evaluator",
+      "class": "attempt",
+      "image_digest": null,
+      "image_blocker": "evaluator-image-digest-unresolved",
+      "image_contract_id": "evaluator-linux-oci-v1",
+      "restart": "no",
+      "restart_owner": "engine",
+      "replicas": 1,
+      "scale_mode": "explicit-only",
+      "future_network_policy": "none",
+      "mounts": [],
+      "docker_socket": false,
+      "privileged": false,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "logging": {
+        "driver": "local",
+        "max_size": "10m",
+        "max_files": 3
+      },
+      "network_mode": "none",
+      "read_only_root": true,
+      "tmpfs": [
+        {
+          "target": "/tmp",
+          "size_bytes": 268435456,
+          "mode": "1777"
+        }
+      ],
+      "secrets": [],
+      "resources": {
+        "cpu_hard": 1.0,
+        "memory_hard_bytes": 1073741824,
+        "memory_swap_bytes": 1073741824,
+        "additional_swap_bytes": 0,
+        "pids_limit": 512
+      }
+    },
+    "checker": {
+      "name": "checker",
+      "class": "attempt",
+      "image_digest": null,
+      "image_blocker": "checker-image-digest-unresolved",
+      "image_contract_id": "checker-linux-oci-v1",
+      "restart": "no",
+      "restart_owner": "engine",
+      "replicas": 1,
+      "scale_mode": "explicit-only",
+      "future_network_policy": "none",
+      "mounts": [],
+      "docker_socket": false,
+      "privileged": false,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "logging": {
+        "driver": "local",
+        "max_size": "10m",
+        "max_files": 3
+      },
+      "network_mode": "none",
+      "read_only_root": true,
+      "tmpfs": [
+        {
+          "target": "/tmp",
+          "size_bytes": 268435456,
+          "mode": "1777"
+        }
+      ],
+      "secrets": [],
+      "resources": {
+        "cpu_hard": 1.0,
+        "memory_hard_bytes": 1073741824,
+        "memory_swap_bytes": 1073741824,
+        "additional_swap_bytes": 0,
+        "pids_limit": 512
+      }
+    }
+  }
+}

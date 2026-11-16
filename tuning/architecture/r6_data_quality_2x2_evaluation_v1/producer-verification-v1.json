@@ -1,0 +1,89 @@
+{
+  "acceptance_coverage": [
+    "missing G1/G2",
+    "G1/G2 nonindependence",
+    "prepacket grade",
+    "dimension gap greater than one without G3",
+    "hard-gate disagreement without G3",
+    "invalid G3 deterministic hard-gate override",
+    "missing blind-packet artifact refs",
+    "denominator/missing/UNKNOWN/NOT_APPLICABLE/false-new-fact semantics",
+    "metric tamper",
+    "early unblinding",
+    "valid four-cell explicit non-countable fixture",
+    "live intake rejects fixture humans",
+    "storage/intake preflight"
+  ],
+  "activation": false,
+  "allowed_claim": "Provider-free disabled evaluation contract/harness passed producer verification; fixture humans are explicit and never countable. No live/provider/quality-superiority/runtime-acceptance claim.",
+  "bindings": {
+    "contract": {
+      "bytes": 21151,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v1.json",
+      "sha256": "18c865850f03d959d361b5d7f481c78e0e6d406fe4bfb5915c1008f5ff97f361"
+    },
+    "decision": {
+      "bytes": 1215,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v1/decision-v1.json",
+      "sha256": "36c62dfb7af76694f1c821a929d3b44193629c59f1ca1e67e2166cb0add7248e"
+    },
+    "protocol": {
+      "bytes": 1535,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v1/protocol-v1.json",
+      "sha256": "1be394320163e9b7a2e84b1d4127af0258c6b4096a3b98d432826f4e8c53ecc6"
+    },
+    "source_closure": {
+      "bytes": 4381,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v1/source-closure-v1.json",
+      "sha256": "671fe8a952c3582d18f071e5e59da0439fc2b505578ee5908c10facae3040e87"
+    }
+  },
+  "countable_now": false,
+  "effects": {
+    "account": false,
+    "business": false,
+    "credential": false,
+    "email": false,
+    "live": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false,
+    "subagent": false
+  },
+  "independent_review": {
+    "expected_path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v1-independent-review.json",
+    "status": "PENDING_NOT_CREATED_BY_PRODUCER"
+  },
+  "status": "PRODUCER_PASS_PROVIDER_FREE_PENDING_INDEPENDENT_REVIEW",
+  "tests": {
+    "contract_semantics": {
+      "result": "PASS"
+    },
+    "independent_review_absence": {
+      "result": "PASS_PENDING_NOT_CREATED"
+    },
+    "research_draft_2020_12": {
+      "result": "PASS",
+      "runtime": "research-sources Python 3.12.16",
+      "schemas": 2,
+      "valid": 2
+    },
+    "system_python3_9": {
+      "failed": 0,
+      "passed": 14,
+      "result": "PASS",
+      "tests": 14,
+      "version": "3.9.6"
+    },
+    "workspace_python3_12": {
+      "failed": 0,
+      "passed": 14,
+      "result": "PASS",
+      "tests": 14,
+      "version": "3.12.16"
+    }
+  },
+  "verdict": "PASS",
+  "version": "r6-data-quality-2x2-evaluation-producer-verification-v1"
+}

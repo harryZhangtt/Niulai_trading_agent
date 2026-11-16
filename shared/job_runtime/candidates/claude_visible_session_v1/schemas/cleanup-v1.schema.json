@@ -1,0 +1,68 @@
+{
+  "$id": "claude-visible-session-cleanup-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "active_children": {
+          "const": 0
+        },
+        "completed_at": {
+          "const": "2099-01-01T00:00:03Z"
+        },
+        "session_retained_visible": {
+          "const": true
+        },
+        "status": {
+          "const": "complete"
+        },
+        "stopped_resources": {
+          "const": []
+        }
+      },
+      "required": [
+        "status",
+        "completed_at",
+        "active_children",
+        "session_retained_visible",
+        "stopped_resources"
+      ],
+      "type": "object",
+      "x-case-id": "R9"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "active_children": {
+          "const": 0
+        },
+        "completed_at": {
+          "const": "2099-01-01T00:00:04Z"
+        },
+        "session_retained_visible": {
+          "const": true
+        },
+        "status": {
+          "const": "complete"
+        },
+        "stopped_resources": {
+          "const": [
+            "child-1"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "completed_at",
+        "active_children",
+        "session_retained_visible",
+        "stopped_resources"
+      ],
+      "type": "object",
+      "x-case-id": "R10"
+    }
+  ],
+  "type": "object",
+  "x-python-validator": "validate_evidence_bundle"
+}

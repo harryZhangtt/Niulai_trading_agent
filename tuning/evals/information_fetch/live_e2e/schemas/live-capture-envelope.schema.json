@@ -1,0 +1,160 @@
+{
+  "$id": "urn:trading-agent:live-capture-envelope",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "host_adapter": {
+            "const": "claude_code_web"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "actual_tool_input",
+          "captured_at"
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "actual_tool_input": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "query": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "prompt": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "prompt"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "captured_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "code": {
+      "pattern": "^[A-Z][A-Z0-9_]{2,95}$",
+      "type": "string"
+    },
+    "diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "documents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "host_adapter": {
+      "enum": [
+        "codex_native_web",
+        "claude_code_web"
+      ]
+    },
+    "host_identity": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+      "type": "string"
+    },
+    "host_invocation_receipt_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "observed_backend": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "returned",
+        "failed",
+        "unknown"
+      ]
+    },
+    "tool_identity": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "host_adapter",
+    "host_identity",
+    "tool_identity",
+    "host_invocation_receipt_ref"
+  ],
+  "type": "object"
+}

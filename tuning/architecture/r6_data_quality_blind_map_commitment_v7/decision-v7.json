@@ -1,0 +1,80 @@
+{
+  "acceptance_evidence": {
+    "authoritative_scope": "PASS/CLEAN, 0 errors, 0 matches, 1 exact exclusion",
+    "fresh_review": "PENDING",
+    "frozen_history": "137/137 exact",
+    "lifecycle": "25/25 PASS",
+    "opening": "DENY_BEFORE_PRIVATE_MAP_READ",
+    "p0_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+    "v7_focused": "13/13 PASS",
+    "workspace_diagnostic": "DIAGNOSTIC_ONLY/NO_MATCHES_OBSERVED, 177894 entries, 422 symlinks, 0 errors"
+  },
+  "activation": false,
+  "allowed_claim": "Provider-free v7 producer implementation only; fresh independent review and P0-v10/human authority are pending, so it is not countable, trusted, activated, or live.",
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 15753,
+    "countable": false,
+    "finding_count": 4,
+    "mode": "0644",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v6-independent-review-open-fable-20261113-8e9a8076.json",
+    "sha256": "3a1d63397c2c5732ec1f4a5f9b92a620e5da93cb6ede31ec4826ceb8adeed084",
+    "trusted": false,
+    "verdict": "OPEN"
+  },
+  "closed_findings": [
+    {
+      "id": "OPEN-V6-01",
+      "producer_result": "Exact path+device+inode+transaction private-map exclusion only; nested .git and same-basename decoys scan."
+    },
+    {
+      "id": "OPEN-V6-02",
+      "producer_result": "Finite write-confined authority scope is satisfiable; arbitrary-size files stream with constant memory and symlink targets are bounded-scanned without following; whole workspace is diagnostic only."
+    },
+    {
+      "id": "OPEN-V6-03",
+      "producer_result": "Darwin/Linux no-replace primitive resolves before mutation; unsupported simulations leave zero artifacts."
+    },
+    {
+      "id": "OPEN-V6-04",
+      "producer_result": "Implementation component result is independently clean if exact while status remains provider-free pending P0-v10/humans and noncountable."
+    }
+  ],
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "observed_problem": "OPEN-v6 found attacker-selectable basename scan exclusions, an unsatisfiable whole-workspace authority gate, post-mutation unsupported-platform failure, and absent external authority.",
+  "options": [
+    {
+      "decision": "REJECTED_FOR_REPAIR",
+      "id": "O0",
+      "name": "retain v6 disabled",
+      "reason": "safe denial but leaves four exact findings open"
+    },
+    {
+      "decision": "SELECTED",
+      "id": "O1",
+      "name": "additive v7 finite-scope repair",
+      "reason": "smallest isolated repair preserving v1-v6 and separating component cleanliness from external authority"
+    },
+    {
+      "decision": "REJECTED",
+      "id": "O2",
+      "name": "edit history or active runtime",
+      "reason": "violates additive history and expands failure radius"
+    }
+  ],
+  "subject": "r6_data_quality_blind_map_commitment_v7",
+  "trusted": false,
+  "version": "r6-data-quality-blind-map-commitment-decision-v7"
+}

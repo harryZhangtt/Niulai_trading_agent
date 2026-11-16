@@ -1,0 +1,771 @@
+{
+  "schema_version": 1,
+  "kind": "storage_governance_registry",
+  "stores": [
+    {
+      "id": "scheduler-ledger",
+      "root": ".job-runtime/engine/schedule.sqlite",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "authority",
+        "evidence"
+      ],
+      "sensitivity": "confidential",
+      "owner": "job-runtime-scheduler",
+      "format": "sqlite",
+      "writer_model": "transactional_multi_writer",
+      "durability": "local_durable",
+      "backup_unit": "database",
+      "retention_class": "operational_record",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Scheduler schema, delivery fencing, or scheduler ownership changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "delivery-outbox",
+      "root": ".niulai-state/databases/outbox.sqlite",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "authority",
+        "evidence"
+      ],
+      "sensitivity": "restricted",
+      "owner": "delivery-runtime",
+      "format": "sqlite",
+      "writer_model": "transactional_multi_writer",
+      "durability": "local_durable",
+      "backup_unit": "database",
+      "retention_class": "operational_record",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Delivery key, claim fencing, receipt schema, or outbox ownership changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "evaluation-definitions",
+      "root": "tuning/evals",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "evidence",
+        "reference"
+      ],
+      "sensitivity": "internal",
+      "owner": "tuning",
+      "format": "python+json+markdown",
+      "writer_model": "read_only",
+      "durability": "source_controlled",
+      "backup_unit": "directory",
+      "retention_class": "source_history",
+      "generated_file_mode": null,
+      "derived_from": [],
+      "migration_triggers": [
+        "Evaluation protocol, case definition, grader, or tuning ownership changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "evaluation-evidence",
+      "root": ".job-runtime/evaluations",
+      "location_scope": "workspace",
+      "status": "unverified",
+      "roles": [
+        "evidence"
+      ],
+      "sensitivity": "confidential",
+      "owner": "tuning",
+      "format": "artifact-set",
+      "writer_model": "immutable_publish",
+      "durability": "local_durable",
+      "backup_unit": "artifact_set",
+      "retention_class": "manual_review",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Evidence identity, protected result, model trace, or promotion record changes. Historical permission normalization requires an owner-specific reviewed migration, backup, and rollback.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "knowledge-corpus",
+      "root": "mentor/references/llm-engineering",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "reference"
+      ],
+      "sensitivity": "internal",
+      "owner": "mentor",
+      "format": "json+markdown",
+      "writer_model": "read_only",
+      "durability": "source_controlled",
+      "backup_unit": "directory",
+      "retention_class": "source_history",
+      "generated_file_mode": null,
+      "derived_from": [],
+      "migration_triggers": [
+        "Corpus schema, source ledger, release identity, or Mentor ownership changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "agent-memory",
+      "root": "agent-memory",
+      "location_scope": "external",
+      "status": "unverified",
+      "roles": [
+        "reference"
+      ],
+      "sensitivity": "confidential",
+      "owner": "agent-memory-host",
+      "format": "external",
+      "writer_model": "external_managed",
+      "durability": "external_unverified",
+      "backup_unit": "external_store",
+      "retention_class": "external_policy",
+      "generated_file_mode": null,
+      "derived_from": [],
+      "migration_triggers": [
+        "Host export, retention, location, or authority becomes independently verified."
+      ]
+    },
+    {
+      "id": "investment-alerts-input",
+      "root": ".niulai-state/daily-inputs/current/alerts.json",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "authority",
+        "reference"
+      ],
+      "sensitivity": "restricted",
+      "owner": "investment-daily-policy",
+      "format": "json",
+      "writer_model": "single_writer",
+      "durability": "local_durable",
+      "backup_unit": "file",
+      "retention_class": "operational_record",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Saved alert-rule or configuration revision, deployed input selection, or rule-policy ownership changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "investment-alert-runtime",
+      "root": ".niulai-state/daily-inputs/current/alerts.sqlite",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "authority",
+        "evidence"
+      ],
+      "sensitivity": "restricted",
+      "owner": "investment-alert-runtime",
+      "format": "sqlite",
+      "writer_model": "transactional_multi_writer",
+      "durability": "local_durable",
+      "backup_unit": "database",
+      "retention_class": "operational_record",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Alert detection schema, observed crossing history, runtime identity, or alert-runtime ownership changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "investment-daily-prices",
+      "root": ".niulai-state/databases/daily-prices.sqlite",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "authority",
+        "evidence"
+      ],
+      "sensitivity": "restricted",
+      "owner": "investment-daily-prices",
+      "format": "sqlite",
+      "writer_model": "transactional_multi_writer",
+      "durability": "local_durable",
+      "backup_unit": "database",
+      "retention_class": "operational_record",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Price observation schema, provenance contract, or price owner changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "investment-research-evidence",
+      "root": ".niulai-state/reports/investment-research",
+      "location_scope": "workspace",
+      "status": "unverified",
+      "roles": [
+        "evidence"
+      ],
+      "sensitivity": "restricted",
+      "owner": "investment-research",
+      "format": "artifact-set",
+      "writer_model": "immutable_publish",
+      "durability": "local_durable",
+      "backup_unit": "artifact_set",
+      "retention_class": "manual_review",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Research finalization, source coverage, evidence identity, or research owner changes. Historical permission normalization requires an owner-specific reviewed migration, backup, and rollback.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "factor-registry",
+      "root": "factor/runtime/registry",
+      "location_scope": "workspace",
+      "status": "planned",
+      "roles": [
+        "evidence",
+        "reference"
+      ],
+      "sensitivity": "confidential",
+      "owner": "factor-mining",
+      "format": "content-addressed-json",
+      "writer_model": "immutable_publish",
+      "durability": "immutable_content_addressed",
+      "backup_unit": "directory",
+      "retention_class": "evidence_record",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "First validated publication, RunManifest schema, content identity, or publication contract changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "job-runtime-credentials",
+      "root": ".job-runtime/credentials",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "credential"
+      ],
+      "sensitivity": "restricted",
+      "owner": "job-runtime",
+      "format": "private-files",
+      "writer_model": "single_writer",
+      "durability": "local_durable",
+      "backup_unit": "directory",
+      "retention_class": "credential_lifecycle",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Credential provider, reference format, rotation policy, or runtime owner changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "market-data-credentials",
+      "root": ".market-data-mcp/credentials",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "credential"
+      ],
+      "sensitivity": "restricted",
+      "owner": "market-data-adapter",
+      "format": "private-files",
+      "writer_model": "single_writer",
+      "durability": "local_durable",
+      "backup_unit": "directory",
+      "retention_class": "credential_lifecycle",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Provider set, reference format, rotation policy, or adapter owner changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "market-data-schwab-credentials",
+      "root": ".market-data-mcp/credentials.json",
+      "location_scope": "workspace",
+      "status": "current",
+      "roles": [
+        "credential"
+      ],
+      "sensitivity": "restricted",
+      "owner": "market-data-adapter",
+      "format": "json",
+      "writer_model": "single_writer",
+      "durability": "local_durable",
+      "backup_unit": "file",
+      "retention_class": "credential_lifecycle",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Schwab application credential schema, rotation policy, or adapter owner changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "ui-artifacts",
+      "root": "ui/artifacts",
+      "location_scope": "workspace",
+      "status": "unverified",
+      "roles": [
+        "evidence"
+      ],
+      "sensitivity": "confidential",
+      "owner": "ui",
+      "format": "artifact-set",
+      "writer_model": "generated_output",
+      "durability": "local_durable",
+      "backup_unit": "artifact_set",
+      "retention_class": "manual_review",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Browser evidence format, acceptance scope, artifact identity, or UI ownership changes. Historical permission normalization requires an owner-specific reviewed migration, backup, and rollback.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    },
+    {
+      "id": "ui-runtime-cache",
+      "root": "ui/runtime",
+      "location_scope": "workspace",
+      "status": "unverified",
+      "roles": [
+        "evidence",
+        "cache",
+        "projection"
+      ],
+      "sensitivity": "confidential",
+      "owner": "ui",
+      "format": "artifact-set",
+      "writer_model": "generated_output",
+      "durability": "local_durable",
+      "backup_unit": "artifact_set",
+      "retention_class": "manual_review",
+      "generated_file_mode": "0600",
+      "derived_from": [],
+      "migration_triggers": [
+        "Mixed runtime evidence, cache, projection boundaries, retention review, or UI ownership changes.",
+        {
+          "id": "missing-review",
+          "metric": "missing",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a current workspace store when its registered root is missing."
+        },
+        {
+          "id": "permission-review",
+          "metric": "permission_finding",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review group, world, or private-store permission findings."
+        },
+        {
+          "id": "symlink-review",
+          "metric": "symlink_present",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review any symlink at or below the registered root."
+        },
+        {
+          "id": "truncation-review",
+          "metric": "scan_truncated",
+          "operator": "==",
+          "threshold": true,
+          "rationale": "Review a metadata scan that reached a configured traversal limit."
+        }
+      ]
+    }
+  ]
+}

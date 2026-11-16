@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"urn:trading-agent:r6-one-off-evidence-v1:engine-binding",
+  "type":"object","additionalProperties":false,
+  "required":["version","logical_job_id","provider","preflight_nonce","scenario","slot_id","attempt_id","operation_id","prompt_sha256","prompt_binding_sha256","config_sha256","allocation_sha256","treatment_fingerprint","source_generation_sha256","result_sha256","engine_status","counts","operation_equal","prompt_binding_equal","transaction","receipt_durable"],
+  "properties":{
+    "version":{"const":1},"provider":{"enum":["codex_cli","claude_host"]},"logical_job_id":{"type":"string","pattern":"^r6o1-[a-f0-9]{32}$"},"preflight_nonce":{"$ref":"#/$defs/digest"},"scenario":{"enum":["nominal","post_admission_unknown"]},
+    "slot_id":{"type":"string","minLength":1,"maxLength":256},"attempt_id":{"type":"string","minLength":1,"maxLength":256},"operation_id":{"type":"string","minLength":1,"maxLength":512},
+    "prompt_sha256":{"$ref":"#/$defs/digest"},"prompt_binding_sha256":{"$ref":"#/$defs/digest"},"config_sha256":{"$ref":"#/$defs/digest"},"allocation_sha256":{"$ref":"#/$defs/digest"},"treatment_fingerprint":{"$ref":"#/$defs/digest"},"source_generation_sha256":{"$ref":"#/$defs/digest"},"result_sha256":{"$ref":"#/$defs/digest"},
+    "engine_status":{"enum":["succeeded","unknown"]},
+    "counts":{"type":"object","additionalProperties":false,"required":["job","slot","attempt","provider_result"],"properties":{"job":{"const":1},"slot":{"const":1},"attempt":{"const":1},"provider_result":{"const":1}}},
+    "operation_equal":{"const":true},"prompt_binding_equal":{"const":true},"transaction":{"const":"BEGIN_IMMEDIATE_SINGLE_READBACK"},"receipt_durable":{"const":true}
+  },
+  "$defs":{"digest":{"type":"string","pattern":"^[a-f0-9]{64}$"}}
+}

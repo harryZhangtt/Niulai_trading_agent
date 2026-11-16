@@ -172,6 +172,58 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(e.tick(self.now)["unknown"], 1)
         self.assertEqual(self.slots(e)[0]["code"], "TRANSPORT_RECEIPT_REQUIRED")
 
+    def test_receipts_reject_non_finite_json_and_bound_utf8_bytes(self):
+        for index, receipt in enumerate(({"value": float("nan")}, {"value": "界" * 22000})):
+            with self.subTest(index=index):
+                self.state = self.root / ".job-runtime" / f"receipt-{index}"
+                e = self.engine(dispatch=lambda j, c, value=receipt: {
+                    "status": "succeeded", "code": "TRANSPORT_COMPLETED", "receipt": value})
+                self.assertEqual(e.tick(self.now)["unknown"], 1)
+                self.assertEqual(self.slots(e)[0]["code"], "INVALID_TRANSPORT_RECEIPT")
+                with e._db() as db:
+                    self.assertIsNone(db.execute("SELECT receipt FROM attempts").fetchone()[0])
+
+    def test_recursive_and_deep_receipts_fail_without_leaving_attempt_running(self):
+        recursive = {}; recursive['self'] = recursive
+        deep = {}; cursor = deep
+        for _ in range(1500):
+            cursor['next'] = {}; cursor = cursor['next']
+        wide = {"values": [0] * 10001}
+        for index, receipt in enumerate((recursive, deep, wide)):
+            with self.subTest(index=index):
+                self.state = self.root / ".job-runtime" / f"recursive-receipt-{index}"
+                e = self.engine(dispatch=lambda j, c, value=receipt: {
+                    "status": "succeeded", "code": "TRANSPORT_COMPLETED", "receipt": value})
+                self.assertEqual(e.tick(self.now)["unknown"], 1)
+                self.assertEqual(self.slots(e)[0]["code"], "INVALID_TRANSPORT_RECEIPT")
+                with e._db() as db:
+                    attempt = db.execute("SELECT status,code,receipt FROM attempts").fetchone()
+                    self.assertEqual((attempt["status"], attempt["code"], attempt["receipt"]),
+                                     ("unknown", "INVALID_TRANSPORT_RECEIPT", None))
+
+    def test_manual_reconciliation_rejects_cycles_and_1500_level_receipts(self):
+        e = self.engine(dispatch=lambda j, c: {"status": "unknown", "code": "OUTCOME_UNKNOWN"})
+        self.assertEqual(e.tick(self.now)["unknown"], 1)
+        slot = self.slots(e)[0]["slot_id"]
+        recursive = {}; recursive['self'] = recursive
+        deep = {}; cursor = deep
+        for _ in range(1500):
+            cursor['next'] = {}; cursor = cursor['next']
+        for receipt in (recursive, deep):
+            with self.assertRaisesRegex(EngineError, "INVALID_TRANSPORT_RECEIPT"):
+                e.resolve_unknown(slot, "failed", receipt, self.now + timedelta(seconds=1))
+        self.assertEqual(self.slots(e)[0]["status"], "unknown")
+
+    def test_manual_reconciliation_receipts_use_strict_json_byte_bounds(self):
+        e = self.engine(dispatch=lambda j, c: {"status": "unknown", "code": "OUTCOME_UNKNOWN"})
+        self.assertEqual(e.tick(self.now)["unknown"], 1)
+        slot = self.slots(e)[0]["slot_id"]
+        for receipt, code in (({"value": float("nan")}, "INVALID_TRANSPORT_RECEIPT"),
+                              ({"value": "界" * 22000}, "RECEIPT_TOO_LARGE")):
+            with self.subTest(code=code), self.assertRaisesRegex(EngineError, code):
+                e.resolve_unknown(slot, "failed", receipt, self.now + timedelta(seconds=1))
+        self.assertEqual(self.slots(e)[0]["status"], "unknown")
+
     def test_independent_jobs_dispatch_concurrently_with_central_limit(self):
         first_started = threading.Event()
         second_finished = threading.Event()
@@ -290,6 +342,26 @@ class EngineTests(unittest.TestCase):
         for changed in (dict(evidence, message_id='1234567890abcdef'), dict(evidence, payload_digest='b' * 64)):
             with self.assertRaisesRegex(EngineError, 'DELIVERY_RECONCILIATION_CONFLICT'):
                 e.reconcile_failed_delivery(slot, changed, self.now + timedelta(seconds=4))
+
+    def test_delivery_reconciliation_rejects_cycles_and_1500_level_receipts(self):
+        e, slot = self.failed_format()
+        recursive = self.delivery_evidence(); recursive['cycle'] = recursive
+        deep = self.delivery_evidence(); cursor = {}; deep['nested'] = cursor
+        for _ in range(1500):
+            cursor['next'] = {}; cursor = cursor['next']
+        for receipt in (recursive, deep):
+            with self.assertRaisesRegex(EngineError, 'INVALID_TRANSPORT_RECEIPT'):
+                e.reconcile_failed_delivery(slot, receipt, self.now + timedelta(seconds=3))
+        with e._db() as db:
+            self.assertEqual(db.execute('SELECT count(*) FROM delivery_reconciliations').fetchone()[0], 0)
+
+    def test_delivery_reconciliation_receipt_is_bounded_by_utf8_bytes(self):
+        e, slot = self.failed_format()
+        oversized = dict(self.delivery_evidence(), note='界' * 22000)
+        with self.assertRaisesRegex(EngineError, 'RECEIPT_TOO_LARGE'):
+            e.reconcile_failed_delivery(slot, oversized, self.now + timedelta(seconds=3))
+        with e._db() as db:
+            self.assertEqual(db.execute('SELECT count(*) FROM delivery_reconciliations').fetchone()[0], 0)
 
     def test_unrelated_failure_or_incomplete_transport_cannot_be_promoted(self):
         e, slot = self.failed_format('MODEL_AUTH_REQUIRED')

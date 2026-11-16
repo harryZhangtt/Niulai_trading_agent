@@ -1,0 +1,200 @@
+{
+  "activation": false,
+  "caller_provider_identity": "FORBIDDEN",
+  "clean_consumer_readiness": {
+    "claim_limit": "Consumer boundary CLEAN only; P0-v10 final closure and authority remain pending.",
+    "codex_boundary_v6": {
+      "bytes": 11249,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-codex-live-integration-v6-independent-review-clean-fable-20261113-8e9a8076.json",
+      "sha256": "a612f581be86741f49be7ee2e511fdf9526b2ac6481da65a3e4bd069e602221b",
+      "verdict": "CLEAN_CODEX_LIVE_BOUNDARY_V6_PENDING_P0_V10"
+    }
+  },
+  "countable": false,
+  "effects": {
+    "account": false,
+    "activation": false,
+    "business": false,
+    "bytedcli": false,
+    "credential": false,
+    "email": false,
+    "host": false,
+    "live": false,
+    "network": false,
+    "provider": false,
+    "publication": false,
+    "scheduler": false
+  },
+  "exact_provider_bindings": {
+    "ARM-A": {
+      "adapter_type": "ClaudeAttemptAdapterV9",
+      "blind_provider_label": "ARM-A",
+      "provider_schema": "claude-evidence-v1",
+      "publication_driver": "claude_publish_public",
+      "publication_driver_identity_sha256": "1ae0b76d43fcc2371042d78cefadcb89f972c14c7aac80f251b7a61ff9d5dd25",
+      "research_material_profile_sha256": "95fd61d9271ed5659d75fa036393724c11a9fe7e22f46ca226294c2fb9311468"
+    },
+    "ARM-B": {
+      "adapter_type": "CodexAttemptAdapterV9",
+      "blind_provider_label": "ARM-B",
+      "provider_schema": "stage-b-execution-v3",
+      "publication_driver": "AtomicPublisher.publish",
+      "publication_driver_identity_sha256": "15c4baba5461bf501f08b713be9dddfeb881e31832e09bd66bc04e3b9099d3a6",
+      "research_material_profile_sha256": "99d77ac9cc71d9f2fed80c65b956d2c15af32e327e8a6abb9b47f52051c9a9c3"
+    }
+  },
+  "fact_citation_source_authority": "Exact closed tuple plus semantic ID equality and one-to-one resolution; no orphan, duplicate, or same-shape substitution.",
+  "impact_class": "INERT_LOCAL_DESIGN_ONLY",
+  "implementation_claimed": false,
+  "not_selected": [
+    "editing P0-v9 in place",
+    "rewriting the embedded v8 OPEN review",
+    "caller-selected provider identity",
+    "parallel weaker schemas",
+    "producer self-certification",
+    "activation or live/provider testing",
+    "treating the revoked blind-map-v5 review as current CLEAN authority",
+    "treating execution-window-v1 as execution-window-v2",
+    "trusting a mutable/public PREDECESSOR mapping without exact source rehash"
+  ],
+  "open_review": {
+    "bytes": 6255,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v8-independent-review-fable-20261112-8e9a8076-open.json",
+    "sha256": "145265647df2a9231d7b64f3b7c70c7266403b38cb15ad98e38deef3a6d588f5",
+    "verdict": "OPEN"
+  },
+  "owner_uid": 501,
+  "predecessor": {
+    "embedded_runtime_history": {
+      "bytes": 11667,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v8-independent-review-fable-20261111-provider-relabel-open.json",
+      "sha256": "0a150a6221ba082ae38eae6951bff43fc904996a99623e425d36059e431ec2e6",
+      "verdict": "OPEN"
+    },
+    "migration_rule": "P0-v9 CLEAN remains a byte-preserved predecessor and is never silently invalidated, rewritten, relabeled, or replaced in place.",
+    "producer": {
+      "bytes": 37099,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-producer-verification-v9.json",
+      "sha256": "3bff74674ab8fe720dd99d8043d8faa080809d0a223bab00ae470e46ebf8e453"
+    },
+    "review": {
+      "bytes": 15534,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v9-independent-review-fable-20261111-clean.json",
+      "sha256": "0505e961774d325fdc6b89105215fd88cb0a71f8b942a78976d7ea1e8f49fbb2",
+      "verdict": "CLEAN_P0_V9"
+    }
+  },
+  "problem": "Runner-v2 is exact OPEN for mutable reservation-key authority, unsafe liveness-UNKNOWN takeover, and the preserved P0 checks_enabled schema defect; blind-map-v5 and Claude-v8 are also OPEN. Runner-v3 CLEAN, blind-map-v6 CLEAN, evidence-only Claude-v9 CLEAN, execution-window-v2, and final P0-v10 bytes are required before closure.",
+  "required_additive_consumers": {
+    "blind_map_v6": {
+      "contract_closure_producer_review": "UNRESOLVED",
+      "status": "REQUIRED_FOR_FINAL_CLOSURE_LAST"
+    },
+    "claude_evidence_only_boundary_v9": {
+      "contract_closure_producer_review": "UNRESOLVED",
+      "status": "REQUIRED_FUTURE_CLEAN_FOR_FINAL_CLOSURE_LAST"
+    },
+    "claude_exact_provider_boundary_v8": {
+      "closure": {
+        "bytes": 8519,
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/source-closure-v8.json",
+        "sha256": "a8946dc8a69a3787be82fa631ad129d4d473cdca40569f6175eb7bac081db3a9"
+      },
+      "history_disposition": "PRESERVE_OPEN",
+      "independent_review": {
+        "bytes": 10896,
+        "finding_count": 1,
+        "open_reason": "CLOSURE_DESCRIPTOR_MISLABEL",
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v8-independent-review-open-fable-20261113-8e9a8076.json",
+        "sha256": "65e425cab9b0fd7ed9381e0f8019360fad0e5c0f2da432c3b5c4e4c27c16df0d",
+        "technical_parity": "PASS",
+        "verdict": "OPEN"
+      },
+      "status": "OPEN_TECHNICAL_PARITY_PASS_CLOSURE_DESCRIPTOR_MISLABEL"
+    },
+    "codex_exact_provider_boundary_v6": {
+      "closure": {
+        "bytes": 9745,
+        "path": "tuning/architecture/r6_one_off_codex_live_integration_v1/source-closure-v6.json",
+        "sha256": "1dedbc090dab5abc64e9d3c1e7fcda99fe77deb7c566ab7f85a3f1c982fd0345",
+        "status": "FROZEN_EXACT_CODEX_V6_CONSUMER"
+      },
+      "independent_review": {
+        "bytes": 11249,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-codex-live-integration-v6-independent-review-clean-fable-20261113-8e9a8076.json",
+        "sha256": "a612f581be86741f49be7ee2e511fdf9526b2ac6481da65a3e4bd069e602221b",
+        "verdict": "CLEAN_CODEX_LIVE_BOUNDARY_V6_PENDING_P0_V10"
+      },
+      "producer": {
+        "bytes": 5284,
+        "path": "tuning/architecture/r6_one_off_codex_live_integration_v1/distinct-producer-verification-v6.json",
+        "sha256": "b5c872ce8f962e2725ab75e7a6e4158fb5763c1c027a31645ba246f7f8304a27",
+        "status": "UNTRUSTED_PRODUCER_SUPPORTING_EVIDENCE"
+      },
+      "status": "CLEAN_CONSUMER_READY_FOR_FINAL_CLOSURE_LAST_NOT_P0_V10_AUTHORITY"
+    },
+    "runner_v2_concurrency_reservation": {
+      "closure": {
+        "bytes": 4729,
+        "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/source-closure-v2.json",
+        "sha256": "106dc605648f385e5ec0431957f190fd51915462801059cff8898ee6e160b889"
+      },
+      "future_review": "UNRESOLVED",
+      "history_disposition": "PRESERVE_OPEN",
+      "independent_review": {
+        "bytes": 13206,
+        "finding_count": 3,
+        "findings": [
+          "OPEN-RUNNER-V2-MUTABLE-KEY-AUTHORITY-001",
+          "OPEN-RUNNER-V2-LIVENESS-UNKNOWN-002",
+          "OPEN-P0-V9-G3-SCHEMA-002"
+        ],
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v2-independent-review-fable-20261113-8e9a8076-open.json",
+        "sha256": "c2669dec8fd1e32f616a6d97ce1e75f6de9a736d106814db1c99f8328215cff1",
+        "verdict": "OPEN"
+      },
+      "public_predecessor_identity": {
+        "bytes": 39451,
+        "export": "PREDECESSOR",
+        "hardening": "REQUIRED_IMMUTABLE_PUBLIC_IDENTITY_SOURCE_REHASH_AND_FRESH_REVIEW",
+        "history_status": "OPEN",
+        "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/runner.py",
+        "sha256": "bc45fceff79a1106ef66c09376075f3bb72a235ac4a23ca69b7344f914ff0bff"
+      },
+      "status": "OPEN_MUTABLE_KEY_AND_LIVENESS_UNKNOWN"
+    },
+    "runner_v3": {
+      "contract_closure_producer_review": "UNRESOLVED",
+      "requirements": [
+        "immutable non-public key authority",
+        "indeterminate process observation denies takeover",
+        "P0 checks_enabled Draft conditionals"
+      ],
+      "status": "REQUIRED_FUTURE_CLEAN_FOR_FINAL_CLOSURE_LAST"
+    }
+  },
+  "selected_design": "Additive P0-v10 schema/semantic reclosure with unchanged provider-neutral envelope ownership, exact provider bindings, complete source graph, and authority-last review.",
+  "state_authority": "Owner-private raw and append-only/reservation authority precede derived envelope/publication projections.",
+  "status": "DESIGN_ONLY_PENDING_SUCCESSOR_BYTES_AND_INDEPENDENT_REVIEW",
+  "superseding_dependencies": {
+    "blind_map_v5": {
+      "historical_clean_review_preserved_as": "CONTRADICTED_HISTORY_ONLY",
+      "open_review": {
+        "bytes": 23467,
+        "finding_count": 13,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-open-v1-fable-20261113.json",
+        "sha256": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8",
+        "verdict": "OPEN"
+      },
+      "required_successor": "BLIND_MAP_V6_CLEAN",
+      "status": "OPEN_REVOKED_BY_13_FINDINGS",
+      "successor_bytes_and_review": "UNRESOLVED"
+    },
+    "execution_window_v2": {
+      "status": "UNRESOLVED_SUCCESSOR_BYTES",
+      "template_closure_review": "UNRESOLVED",
+      "v1_disposition": "PRESERVED_PREDECESSOR_NOT_CURRENT_V2"
+    }
+  },
+  "version": "r6-data-quality-attempt-envelope-v10-architecture-plan-1"
+}

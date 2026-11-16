@@ -1,0 +1,38 @@
+{
+  "activation": false,
+  "allowed_claim": "Provider-free candidate and synthetic tests only; no current readiness, entitlement, inference success, countable A/B evidence, activation, or runtime acceptance.",
+  "countable": false,
+  "current_evidence": {
+    "binary_identity": "CLEAN_LOCAL_FILE_IDENTITY_ONLY",
+    "claude_v8_review": {
+      "bytes": 10896,
+      "finding": "OPEN-CLAUDE-V8-001",
+      "sha256": "65e425cab9b0fd7ed9381e0f8019360fad0e5c0f2da432c3b5c4e4c27c16df0d",
+      "verdict": "OPEN"
+    },
+    "historical_membership": "CLEAN_FROZEN_MEMBERSHIP_EVIDENCE_ONLY",
+    "p0_v10": "ABSENT_REQUIRED"
+  },
+  "decision": "Keep an additive provider-free metadata preflight candidate behind two inert zero-argument public entrypoints; do not mutate v8 or the 14863/6073 audit artifacts.",
+  "live_effects": 0,
+  "pending_exact_authority": [
+    "auth grant",
+    "auth grant independent CLEAN review",
+    "catalog grant",
+    "catalog grant independent CLEAN review",
+    "fresh CLEAN Claude-v8 review",
+    "CLEAN P0-v10 closure"
+  ],
+  "registration": false,
+  "review_repairs": {
+    "binary_race": "execute fsynced/reopened/hashed owner-private copy only",
+    "forgeable_authority": "fixed synthetic registry and exact review-to-grant hashes; no caller authority/review arguments",
+    "missing_accounting": "required zero accounting on system/assistant/result and no optional defaults",
+    "schema_contradictions": "operation counts and status/fence/terminal-index conditionals",
+    "substring_membership": "source-pinned canonical closed grammar parser",
+    "transient_cleanup": "both cleanup attempts plus verified-copy cleanup on every path"
+  },
+  "selected_option": "O1_NARROW_ADDITIVE_CANDIDATE_REVIEW_REPAIRED_PROVIDER_FREE",
+  "status": "DISABLED_PROVIDER_FREE_PENDING_CLAUDE_V8_P0_V10_GRANTS_AND_FRESH_REVIEW",
+  "version": 1
+}

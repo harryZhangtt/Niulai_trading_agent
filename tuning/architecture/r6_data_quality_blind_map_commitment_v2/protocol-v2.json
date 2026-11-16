@@ -1,0 +1,98 @@
+{
+  "activation": false,
+  "authority_rule": "Fixture, noncountable, and current unpinned/pending human authority deny before private-map read. Test-only simulated trusted authority verifies the provider-free success path but creates no live authority.",
+  "countable": false,
+  "creation_sequence": [
+    "verify exact pinned design/evaluation/OPEN-review sources",
+    "recover or quarantine any invalid/markerless recognized v2 residue; if recovery occurred require explicit retry",
+    "preflight clean final map, commitment, and receipt namespaces",
+    "generate four unique opaque labels internally and canonicalize the exact private map",
+    "O_EXCL/O_NOFOLLOW full-write/fsync/reopen private-map stage",
+    "O_EXCL/O_NOFOLLOW full-write/fsync/reopen commitment stage",
+    "no-replace link map stage to final and parent fsync/reopen",
+    "no-replace link commitment stage to final and parent fsync/reopen",
+    "exactly reread both final bytes/hashes",
+    "O_EXCL/O_NOFOLLOW full-write/fsync receipt last and parent fsync/reopen",
+    "validate complete marker-bound pair",
+    "remove stage links and parent fsync"
+  ],
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "failure_matrix": [
+    "zero write",
+    "positive short writes",
+    "map-stage file fsync",
+    "map-stage directory fsync",
+    "commitment-stage file fsync",
+    "commitment-stage directory fsync",
+    "map namespace link/fsync",
+    "commitment namespace link/fsync",
+    "receipt file fsync",
+    "receipt directory fsync",
+    "pre-existing conflict",
+    "readback failure",
+    "cleanup fsync failure",
+    "stage crash residue",
+    "one-final crash residue",
+    "mixed-final crash residue"
+  ],
+  "final_block_authority": "REQUIRED_PENDING",
+  "independent_rereview": "REQUIRED_PENDING_NOT_PRODUCER_CREATED",
+  "open_review_binding": {
+    "bytes": 7019,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v1-independent-review-open-v1.json",
+    "sha256": "df607b44d873590be8d402eba0f95e0265c4cdf4f7a12f85b0e3d484c34802f5",
+    "verdict": "OPEN"
+  },
+  "reader_sequence": [
+    "require owner-controlled 0700 root and owner-controlled regular 0600 no-follow files",
+    "read and validate canonical receipt first",
+    "read exact commitment ref from receipt",
+    "do not read private map for opening preflight",
+    "require live countable externally pinned authority",
+    "revalidate exact ordered pre-call packets, evaluation packets, grade bindings, grades, metrics and metric binding",
+    "read private map only after all prior checks",
+    "require receipt map ref, canonical commitment bytes/digest, strict map schema, and exact alias-to-cell binding"
+  ],
+  "review_boundary": "Independent rereview and final block authority remain mandatory.",
+  "runtime_artifacts": {
+    "private_map": {
+      "bytes": 897,
+      "labels_disclosed": false,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/owner-private-canonical-map-v2.json",
+      "sha256": "8c0affb05319a96f4044a5cc663827b6b6c7613e6cddc0c4d08ca23ae169515d"
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "fields": [
+        "canonical_bytes",
+        "canonical_digest",
+        "schema",
+        "version"
+      ],
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/sanitized-commitment-v2.json",
+      "sha256": "b52b5a7d635e33203d08e02c552ae0fdb8655fce54a32d118058263015b8975c"
+    },
+    "transaction_receipt": {
+      "bytes": 423,
+      "committed_last": true,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/transaction-receipt-v2.json",
+      "sha256": "6814194f41676b4e804ea8addf73f5da9c53376ec0b6072956988b2a141a2199"
+    }
+  },
+  "status": "FROZEN_DISABLED_PROVIDER_FREE_V2",
+  "version": "r6-data-quality-blind-map-commitment-protocol-v2"
+}

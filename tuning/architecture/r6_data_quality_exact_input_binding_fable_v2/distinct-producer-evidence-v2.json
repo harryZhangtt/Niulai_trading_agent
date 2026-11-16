@@ -1,0 +1,77 @@
+{
+  "version": "r6-data-quality-exact-input-binding-distinct-producer-evidence-v2",
+  "status": "PRODUCER_PASS_PATH_BOUND_PROVIDER_FREE_NONCOUNTABLE",
+  "verdict": "PASS_CLOSES_OPEN_EXACT_BINDING_1_PENDING_INDEPENDENT_REVIEW",
+  "producer": {
+    "role": "R6_EXACT_INPUT_BINDING_V2_PRODUCER",
+    "distinct_from": "R6_DATA_QUALITY_2X2_EVALUATION_V3_AND_V1_REVIEW_PRODUCERS",
+    "v1_or_review_edit": false,
+    "evaluation_v3_or_blind_map_edit": false,
+    "independent_review_claimed": false
+  },
+  "review_basis": {
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v1-independent-review-20261111.json",
+    "bytes": 11063,
+    "sha256": "c79a5efa79c110acc28a8f4a85ec3636ae7da1cb486536258c64000c292c1ace",
+    "finding": "OPEN-EXACT-BINDING-1",
+    "v1_disposition": "OPEN_HISTORY_PRESERVED_UNCHANGED"
+  },
+  "bindings": {
+    "current_input_manifest": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/current-input-manifest-v2.json", "bytes": 17945, "sha256": "94e07119819a1ae3d05158ac9bc8653ae534a0aa3dc7e6c5d86555bc7d02090e"},
+    "manifest_schema": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/input-manifest-v2.schema.json", "bytes": 10016, "sha256": "5023a68486080b687d2ea73be647f8312402acd165851c5c65677238488ece5e"},
+    "architecture": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/architecture-v2.json", "bytes": 3014, "sha256": "85a16e8a277f1c378ffabd797e5417aa36045922ac01faf5a11d5dbc96c13c9d"},
+    "protocol": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/protocol-v2.json", "bytes": 2129, "sha256": "bce1bc98e38ba0939891f1296a86f382a2714dad8dd00f83006e990a2e060c13"},
+    "decision": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/decision-v2.json", "bytes": 2627, "sha256": "26b39766fcc6610295a314040e45b1caa6346e624fbbecca7d888759bde35386"},
+    "source_closure": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/source-closure-v2.json", "bytes": 5662, "sha256": "ee1c22f785cc681d7f9551b68ae3fd22c43449f2ea3ea6a8e15ccd5d5be9141e", "members_verified": 20},
+    "verifier": {"path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/verify.py", "bytes": 19751, "sha256": "872a2a518c3334aec45abeb3bb23ae4f4246acecc75229e628cab7c8f97dad56"}
+  },
+  "exact_authority_identities": {
+    "payload": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json", "mode": "0644", "bytes": 2065, "sha256": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a", "content_sha256": "b1941934d2aa879c52e42bbce5b2d0c49001732342aa5f6b25f1dc6c66b2cd5c"},
+    "source_cutoff": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json", "mode": "0644", "bytes": 1044, "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072", "content_sha256": "2c4f69d233e90b7047dbf23d70167a5e4d59366a4d83ea1a1aa959ec06633f9c"},
+    "rubric": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json", "mode": "0600", "bytes": 2259, "sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f", "content_sha256": "35c155ab610cdc8bb6dc9ea639fce16ca51256b5703b99d0849279831685f790"},
+    "thresholds": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json", "mode": "0644", "bytes": 3597, "sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b", "content_sha256": "98ca21509f9a920f42fa79bda31696023422575d49040070c696519183e1d8e9"},
+    "evaluation_schema": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json", "mode": "0600", "bytes": 1876, "sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5", "content_sha256": "cafbfe18e695e4dfa2ff9bf2cfab0d0b29ff89c8e58a34bf3c42f8c9a6676f9c"}
+  },
+  "canonical_input": {
+    "allowed_root": "mentor/runtime/scheduler-midresponse-recovery-20261107",
+    "prompt_utf8_bytes": 526,
+    "prompt_sha256": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b",
+    "common_binding_canonical_utf8_bytes": 2417,
+    "common_binding_canonical_sha256": "4a3e3ecc0aec340d3e7d760c70a4671878f77f1a23348d5a520425e417bf24ec",
+    "full_path_content_identity_identical_across_four_cells": true
+  },
+  "closed_finding": {
+    "id": "OPEN-EXACT-BINDING-1",
+    "exact_paths_pinned": true,
+    "alternate_same_byte_paths_denied": true,
+    "component_nofollow": true,
+    "regular_owner_mode_pinned": true,
+    "locator_leakage_denied": true,
+    "path_bytes_raw_and_content_digests_in_common_and_cells": true,
+    "path_substitution_changes_or_invalidates_digest": true
+  },
+  "semantic_results": {
+    "prompt_cutoff_rubric_threshold_semantics_preserved": "PASS",
+    "official_source_only_and_exact_cutoff": "PASS",
+    "identity_treatment_addon_order_locator_leakage": "PASS_NONE_FOUND",
+    "private_internal_or_bytedcli_dependency": "PASS_NONE_REQUIRED",
+    "financial_return_metric_or_specific_provider_preference": "PASS_NONE_FOUND"
+  },
+  "tests": {
+    "strict_utf8_duplicate_key_nonfinite_and_closed_schema": "PASS",
+    "v2_path_content_positive_checks": "PASS",
+    "v2_adversarial": {"passed": 15, "total": 15, "result": "PASS_DENIED_ALL"},
+    "v1_regression": {"passed": 10, "total": 10, "result": "PASS"},
+    "evaluation_v3": {"run": 12, "passed": 11, "skipped_optional_jsonschema": 1, "failed": 0, "result": "PASS"},
+    "blind_map_v1_v2": {"run": 20, "passed": 19, "skipped_optional_jsonschema": 1, "failed": 0, "result": "PASS"},
+    "source_closure": {"members": 20, "result": "PASS"},
+    "protected_surface_inventory": {"files": 39, "sha256": "10fa66ba3a6a5d2f48a09efa2aed24380f40e837a67a304631eddd8a44494eb7", "result": "PASS_UNCHANGED"},
+    "system_python": "3.9.6",
+    "external_python_packages": false
+  },
+  "owner_private": {"package_mode": "0700", "all_package_files_mode": "0600", "owner_uid_matches_process": true},
+  "unresolved_pins": ["exact common read-only tool roster, versions, call ceilings and blocked-effect list", "exact common window start/end and per-cell deadline semantics", "exact four-cell authority, budget/subcaps, attempt counts, final inference grants and CLEAN reviews"],
+  "effects": {"provider": false, "network": false, "account": false, "private_state": false, "email": false, "business": false, "host": false, "scheduler": false, "bytedcli": false},
+  "countable": false,
+  "allowed_claim": "The v2 producer implementation closes OPEN-EXACT-BINDING-1 with exact path/content binding and remains provider-free and noncountable pending distinct independent review."
+}

@@ -7,8 +7,9 @@ import importlib
 import json
 from pathlib import Path
 import sys
-from shared.research_sources.artifacts import ROOT, private_path, read, require, save
+from shared.research_sources.artifacts import ROOT, private_path, publish_json_command, read, require, save
 from .coverage import validate
+from .requirements import load as load_contract
 
 LEGACY = ROOT / 'niulai/skills/investment-research-financial-services/references/niulai-workflow/scripts'
 
@@ -21,15 +22,24 @@ def legacy(name):
     return module
 
 
+def publish_contract_pointer(path, command):
+    return publish_json_command(path, command, validator=load_contract)
+
+
 def finalize(item, output_directory, *, contract, packet):
     record = json.loads(private_path(item['record']).read_text())
-    # Before legacy finalization can produce a completed record.
-    receipt = validate(contract, packet, record=record)
+    # Reject missing coverage before legacy work, but publish no legacy pointer.
+    validate(contract, packet, record=record)
     private_path(output_directory, create=True)
-    result = legacy('finalize_research').assemble(item, output_directory)
-    final = json.loads(Path(result['record']['path']).read_text())
-    final['source_coverage_evidence'] = {'contract': contract, 'packet': packet, 'receipt': receipt}
+    module = legacy('finalize_research')
+    result = module.assemble(item, output_directory, publish=False)
+    final = read(result['record'])
+    evidence = {'contract': contract, 'packet': packet}
+    final['source_coverage_evidence'] = evidence
+    # Recheck the fully transformed final record immediately before its save.
+    evidence['receipt'] = validate(contract, packet, record=final)
     result['record'] = save(output_directory, final)
+    module.publish_completion(output_directory, result)
     return result
 
 

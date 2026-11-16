@@ -1,0 +1,1 @@
+{"$id":"r6dq-output-v3","$schema":"https://json-schema.org/draft/2020-12/schema","additionalProperties":false,"properties":{"blind_alias":{"enum":["BLIND-01","BLIND-02","BLIND-03","BLIND-04"]},"text":{"type":"string"},"version":{"const":3}},"required":["version","blind_alias","text"],"type":"object"}

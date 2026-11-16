@@ -1,0 +1,97 @@
+{
+  "activation": false,
+  "artifact_type": "architecture",
+  "authority": {
+    "fixed_root": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/r6-one-off-claude-live-integration-v8",
+    "ledger": "terminal-generation-v8.ledger",
+    "ledger_mode": "0600",
+    "locking": "exclusive_flock",
+    "opening": "component-wise descriptor-relative O_DIRECTORY|O_NOFOLLOW",
+    "owner_uid": 501,
+    "parent_entry_fsync": true,
+    "protocol": "LOCKED_APPEND_ONLY_HASH_CHAIN_V1",
+    "root_mode": "0700",
+    "sqlite": false,
+    "sync": "fsync plus F_FULLFSYNC where available",
+    "truncated_tail": "PREVIOUS_OUTCOME_UNKNOWN_DENY"
+  },
+  "claim_semantics": {
+    "ambiguous_transition": "NO_TERMINAL_CLAIM_DURABILITY exception",
+    "exact_return": "only canonical terminal from an exact held-ledger reread",
+    "future_unclaimable": "PREVIOUS_OUTCOME_UNKNOWN_DENY",
+    "no_reconstruction": true,
+    "no_replay": true
+  },
+  "effect_boundary": {
+    "binary": "grant-selected exact test fixture",
+    "callable_injection": false,
+    "caller_effect": false,
+    "caller_root": false,
+    "caller_scenario": false,
+    "provider": "claude_host",
+    "public_entrypoint": "run()",
+    "public_package_callables": [
+      "run"
+    ],
+    "transport": "numeric loopback only"
+  },
+  "impact_class": "STAGED_HOST_IMPACTING_DISABLED_CANDIDATE",
+  "owner": "shared.job_runtime.candidates.r6_one_off_claude_live_integration_v8",
+  "p0_contract": {
+    "discriminators": [
+      "state_authority",
+      "durability"
+    ],
+    "durable_bound_unknown": {
+      "cell_id": "NON_NULL",
+      "durability": "DURABLE",
+      "engine_provider": "claude_host",
+      "engine_readback_digest": "NON_NULL_SHA256",
+      "state_authority": [
+        "UNKNOWN",
+        "POISONED"
+      ],
+      "status": "UNKNOWN"
+    },
+    "nondurable_absent_unknown": {
+      "cell_id": null,
+      "durability": "NON_DURABLE",
+      "engine_provider": null,
+      "engine_readback_digest": null,
+      "state_authority": "ABSENT",
+      "status": "UNKNOWN"
+    },
+    "pass": "PASS + PASS authority + NOT_APPLICABLE durability + exact non-null identities",
+    "stop": "STOP + ABSENT authority + NOT_APPLICABLE durability + exact null identities"
+  },
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "projection": {
+    "authoritative": false,
+    "compound_failure_containment": true,
+    "pass_verified_before_authority_promotion": true,
+    "recovery_before_freshness": true
+  },
+  "review_binding": {
+    "bytes": 10536,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v7-independent-review-open-fable-20261112-8e9a8076.json",
+    "sha256": "3ebc954c253ae104f97ef5fe52e0fb96ac6d70a0eb273677e022145962dc258a",
+    "verdict": "OPEN"
+  },
+  "runtime_acceptance": "PENDING_FUTURE_SCHEDULED_INTENDED_RUNTIME_AND_VERIFIED_EMAIL",
+  "schemas": {
+    "draft": "2020-12",
+    "nested_additional_properties": false,
+    "projection_without_authority_parity": true,
+    "status_authority_durability_identity_parity": true
+  },
+  "state_graph": [
+    "ABSENT->UNKNOWN",
+    "UNKNOWN->PASS",
+    "UNKNOWN->POISONED",
+    "PASS->POISONED",
+    "PASS->PASS exact idempotent only",
+    "POISONED->POISONED exact idempotent only"
+  ],
+  "status": "OPEN_PROVIDER_FREE_V8_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "version": 8
+}

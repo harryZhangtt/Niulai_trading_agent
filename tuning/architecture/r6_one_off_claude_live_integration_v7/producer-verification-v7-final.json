@@ -1,0 +1,135 @@
+{
+  "activation": false,
+  "allowed_claim": "Provider-free v7 producer source and tests pass; fresh independent review and major-runtime acceptance remain pending.",
+  "architecture": {
+    "bytes": 2422,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/architecture-v7.json",
+    "sha256": "b92f806f542015f458ee7cfd950c5ae719295abc70be538b67b21d697e637b77"
+  },
+  "artifact_type": "distinct_producer_verification",
+  "closure_verification": {
+    "aggregate_sha256": "6804a6ffb4d5a3818e9af43ed9146b1f895c7358ed343b6b8b9eac7b96a9d39a",
+    "artifact_count": 33,
+    "dynamic_binary_audit": true,
+    "mismatch_count": 0,
+    "missing_manifest_members": 0,
+    "recursive_import_audit": true,
+    "result": "PASS"
+  },
+  "countable": false,
+  "decision": {
+    "bytes": 1972,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/decision-v7.json",
+    "sha256": "434c0a038d8b341c5dd86d741e9387309f3fb2e5b13a1a851902508bc3ee8b8e"
+  },
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fresh_independent_review": false,
+  "lineage": {
+    "bytes": 1002,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/lineage-v7.json",
+    "sha256": "6a3c358006dd185e91ef3889c5bc17a1ec2cbb49fa52a89c09a1eb2b77d65990"
+  },
+  "protocol": {
+    "bytes": 3588,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/protocol-v7.json",
+    "sha256": "d27467e10e04ac0529469b3f5c829afb33fd63886d1e2a634d863cdc24372a7e"
+  },
+  "registration": false,
+  "runtime_acceptance": {
+    "email": "PENDING",
+    "execution": "PENDING"
+  },
+  "source_closure": {
+    "bytes": 8319,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/source-closure-v7.json",
+    "sha256": "8e04fa3601b1b6fcf9e1419572501465c006bb824d07cd82861d9a0aaf134750"
+  },
+  "status": "OPEN_PROVIDER_FREE_V7_PRODUCER_VERIFIED_REVIEW_PENDING",
+  "tests": [
+    {
+      "entrypoint": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v7/test_integration.py",
+      "errors": 0,
+      "failures": 0,
+      "methods": 7,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v7/test_schemas_closure.py",
+      "errors": 0,
+      "failures": 0,
+      "methods": 4,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v7/test_z_public_boundary.py",
+      "errors": 0,
+      "failures": 0,
+      "methods": 1,
+      "result": "PASS"
+    },
+    {
+      "aggregate_sha256": "6804a6ffb4d5a3818e9af43ed9146b1f895c7358ed343b6b8b9eac7b96a9d39a",
+      "artifacts": 33,
+      "entrypoint": "tuning/architecture/r6_one_off_claude_live_integration_v7/verify_v7.py",
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "preserved v6 candidate regressions",
+      "errors": 0,
+      "failures": 0,
+      "methods": 17,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "preserved v5 candidate regressions",
+      "errors": 0,
+      "failures": 0,
+      "methods": 16,
+      "result": "PASS"
+    },
+    {
+      "entrypoint": "shared one-off evidence regressions with isolated root bootstrap",
+      "errors": 0,
+      "failures": 0,
+      "methods": 15,
+      "result": "PASS"
+    }
+  ],
+  "verdict": "PROVIDER_FREE_V7_PRODUCER_VERIFIED_FRESH_REVIEW_PENDING",
+  "verified_properties": [
+    "fixed owner-private root opened component-wise descriptor-relative no-follow with exact UID and modes",
+    "locked 0600 append-only canonical hash-chain ledger with full writes and full sync",
+    "truncated tail and unclaimable generation deny terminal claims",
+    "public package exposes only zero-argument run",
+    "provider effect is fixed, internal, non-subclassable, and source pinned",
+    "illegal terminal regressions and terminal mismatches rejected",
+    "poison post-commit ambiguity never returns cached PASS and future reads deny",
+    "recovery precedes freshness and compound projection failures remain contained",
+    "recursive closure includes the 11 previously omitted executable dependencies",
+    "Draft 2020-12 schemas reject impossible PASS and nested extras",
+    "v1-v6 history and exact v6 OPEN review preserved",
+    "no bytedcli, provider, live, scheduler, email, account, or business effect"
+  ],
+  "verifier": {
+    "distinct_from_public_entrypoint": true,
+    "identity": "deterministic/isolated-v7-producer-verifier",
+    "independence_limit": "producer-owned deterministic verifier; not a fresh independent reviewer",
+    "source": {
+      "bytes": 2421,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/verify_v7.py",
+      "sha256": "61193e71dbd2529ef8845333682e4e4dacf7092efaf4af631d71a852ce94556c"
+    }
+  },
+  "version": 7
+}

@@ -1,0 +1,192 @@
+{
+  "authority": "EXACT_OWNER_PATH_MODE_BYTES_RAW_CONTENT_AND_RECURSIVE_SEMANTIC_CLOSURE",
+  "authority_artifacts": 7,
+  "countable": false,
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "evaluation_v3_or_blind_map_modified": false,
+  "excluded_by_construction": [
+    "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/source-closure-v3.json",
+    "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/distinct-producer-evidence-v3.json",
+    "runtime/data-quality-r6-window-20261111-v1/snapshot-and-first-evidence.json",
+    "evaluation-v3/blind-map modifications",
+    "live/provider/network/account/private-state/email/business artifacts"
+  ],
+  "local_content_claims": 1,
+  "members": [
+    {
+      "bytes": 2065,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json",
+      "sha256": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a"
+    },
+    {
+      "bytes": 1044,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json",
+      "sha256": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"
+    },
+    {
+      "bytes": 2259,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json",
+      "sha256": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"
+    },
+    {
+      "bytes": 3597,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json",
+      "sha256": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"
+    },
+    {
+      "bytes": 1876,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json",
+      "sha256": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"
+    },
+    {
+      "bytes": 4756,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-entry-packet.json",
+      "sha256": "398abd1b7c512eb3c7eb8eec210c8b1eaa43c8318cb08838a20194a18a1e676b"
+    },
+    {
+      "bytes": 633,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-user-decision-receipt.json",
+      "sha256": "0b86722bf9c65fd068af8d4f16dd931bd0c8fc18e585842d382f0063f42e5d30"
+    },
+    {
+      "bytes": 11063,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v1-independent-review-20261111.json",
+      "sha256": "c79a5efa79c110acc28a8f4a85ec3636ae7da1cb486536258c64000c292c1ace"
+    },
+    {
+      "bytes": 14940,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v2-independent-review-open-20261111-46ee3e157a72.json",
+      "sha256": "ecc9291ea0ecd30cb54bbf641ea2562a983d56fe666d20662bc2426119a946a2"
+    },
+    {
+      "bytes": 2605,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/architecture-v1.json",
+      "sha256": "cbbaf3fa248477a46bec3fe288132aece695a16bffac20dd0adabf97a31caf9c"
+    },
+    {
+      "bytes": 5378,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/current-input-manifest-v1.json",
+      "sha256": "fc2be898724fe281864b9800ef861da060f2a40d8b64c975ebb398ef82fea8ab"
+    },
+    {
+      "bytes": 1420,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/decision-v1.json",
+      "sha256": "ae78ce1a6b0a2cc06c642f0f7f5d5c3040dad90bfb4b7b79b269ef1d8cee1e32"
+    },
+    {
+      "bytes": 5221,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/distinct-producer-evidence-v1.json",
+      "sha256": "1fb51d960a91e9b8eb90b11d83d6f7f6e59a67b2d237fa00dad674fa218543df"
+    },
+    {
+      "bytes": 7108,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/input-manifest-v1.schema.json",
+      "sha256": "05c8b40857e4e65931f2d2d1fe17b0f874ce73172488b59094d0b46b1351c5d9"
+    },
+    {
+      "bytes": 1975,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/protocol-v1.json",
+      "sha256": "9b10dea31197a90c9f0f2317f246e4508574fa16731bb41af7fd3461d5d410fb"
+    },
+    {
+      "bytes": 3775,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/source-closure-v1.json",
+      "sha256": "cc0be066df044782b7fefe8c69e5471e591a4c392f306a9922382796a9c76795"
+    },
+    {
+      "bytes": 14540,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v1/verify.py",
+      "sha256": "1a1e13f81829823b6591dd84b7bc70541e0b692d845ed30f57cb9db5f71da674"
+    },
+    {
+      "bytes": 3014,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/architecture-v2.json",
+      "sha256": "85a16e8a277f1c378ffabd797e5417aa36045922ac01faf5a11d5dbc96c13c9d"
+    },
+    {
+      "bytes": 17945,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/current-input-manifest-v2.json",
+      "sha256": "94e07119819a1ae3d05158ac9bc8653ae534a0aa3dc7e6c5d86555bc7d02090e"
+    },
+    {
+      "bytes": 2627,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/decision-v2.json",
+      "sha256": "26b39766fcc6610295a314040e45b1caa6346e624fbbecca7d888759bde35386"
+    },
+    {
+      "bytes": 6866,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/distinct-producer-evidence-v2.json",
+      "sha256": "ed391df5dbf2f2001f5777a243bc4cc042f462fe5ea454f45e16816055947cba"
+    },
+    {
+      "bytes": 10016,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/input-manifest-v2.schema.json",
+      "sha256": "5023a68486080b687d2ea73be647f8312402acd165851c5c65677238488ece5e"
+    },
+    {
+      "bytes": 2129,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/protocol-v2.json",
+      "sha256": "bce1bc98e38ba0939891f1296a86f382a2714dad8dd00f83006e990a2e060c13"
+    },
+    {
+      "bytes": 5662,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/source-closure-v2.json",
+      "sha256": "ee1c22f785cc681d7f9551b68ae3fd22c43449f2ea3ea6a8e15ccd5d5be9141e"
+    },
+    {
+      "bytes": 19751,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v2/verify.py",
+      "sha256": "872a2a518c3334aec45abeb3bb23ae4f4246acecc75229e628cab7c8f97dad56"
+    },
+    {
+      "bytes": 18567,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/input-manifest-v3.schema.json",
+      "sha256": "66a2d49fb336682763f0732cd5ae9d44f087b1bba322590c0b2e0acc2d72cd4b"
+    },
+    {
+      "bytes": 44891,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/current-input-manifest-v3.json",
+      "sha256": "ed63dec9a5f386a095ffee43f84cb2c6130143579251918b4d6d4c0ffc187f1a"
+    },
+    {
+      "bytes": 2751,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/architecture-v3.json",
+      "sha256": "978e248df2e2f554b5be09031fb5b0970af34a627d04c42c2ac142d7d3a18e8c"
+    },
+    {
+      "bytes": 1869,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/protocol-v3.json",
+      "sha256": "2820ea16b9dee770c40a632478a940fb88ee81890eaa73edce5b68236efc063e"
+    },
+    {
+      "bytes": 2704,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/decision-v3.json",
+      "sha256": "ba6b42826efbc167016a1fbe73fd0c8b98ec18331aeb9772e14febeffb98dc00"
+    },
+    {
+      "bytes": 20369,
+      "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/verify.py",
+      "sha256": "1d8afb2f92a7bb06646f491945980433e756f8402435db271f48512b15645f33"
+    }
+  ],
+  "recursive_reference_claims": 19,
+  "review_findings_closed": [
+    "OPEN-V2-OWNER-BINDING-1",
+    "OPEN-V2-SOURCE-CLOSURE-2"
+  ],
+  "semantic_dependency_edges": 11,
+  "stale_snapshot_used_as_authority": false,
+  "status": "FROZEN_OWNER_BOUND_TRANSITIVELY_CLOSED_PROVIDER_FREE_SOURCE_CLOSURE",
+  "v1_v2_producers_and_reviews_modified": false,
+  "version": "r6-data-quality-exact-input-binding-source-closure-v3"
+}

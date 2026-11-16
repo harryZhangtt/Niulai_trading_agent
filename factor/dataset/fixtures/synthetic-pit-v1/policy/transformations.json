@@ -1,0 +1,1 @@
+{"schema_version":1,"transforms":[{"input_series_id":"macro-level","lookback_sessions":2,"min_periods":3,"operator":"difference","output_series_id":"macro-diff-2","transform_id":"macro-diff-2"},{"input_series_id":"price-close","lookback_sessions":2,"min_periods":3,"operator":"rolling_mean","output_series_id":"price-mean-2","transform_id":"price-mean-2"}]}

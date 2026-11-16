@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dual-host-input.schema.json",
+  "title": "Private dual-host runtime input references",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "host", "credential_ref", "runtime_profile_ref", "execution", "unknown_outcome_fence"],
+  "properties": {
+    "schema_version": {"const": "dual-host-private-input-1"},
+    "host": {"enum": ["codex", "claude"]},
+    "credential_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_ref", "source", "profile_ref", "fingerprint_sha256"],
+      "properties": {
+        "owner_ref": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"},
+        "source": {"enum": ["codex_profile", "claude_profile"]},
+        "profile_ref": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"},
+        "fingerprint_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "runtime_profile_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["execution_id", "trace_id", "dispatch_namespace", "artifact_root", "cache_root"],
+      "properties": {
+        "execution_id": {"type": "string", "format": "uuid"},
+        "trace_id": {"type": "string", "minLength": 1},
+        "dispatch_namespace": {"type": "string", "minLength": 1},
+        "artifact_root": {"type": "string", "minLength": 1},
+        "cache_root": {"type": "string", "minLength": 1}
+      }
+    },
+    "unknown_outcome_fence": {"type": "string", "minLength": 1}
+  }
+}

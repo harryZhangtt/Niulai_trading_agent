@@ -1,0 +1,165 @@
+{
+  "architecture_candidate_sha256": "a178b1975f4903a56e379c153d04a73fe2e967a35dc1373af401ed384f3ee918",
+  "decision": "O2_NOT_FALSIFIED_IN_BOUNDED_EXPERIMENT",
+  "external_effects": {
+    "alerts": false,
+    "configuration": false,
+    "email": false,
+    "holdings": false,
+    "hooks": false,
+    "network": false,
+    "orders": false,
+    "scheduler_or_runtime_activation": false
+  },
+  "failure_results": {
+    "access_without_maturity_or_grant": {
+      "code": "RECEIPT_WRONG_TYPE",
+      "status": "rejected"
+    },
+    "authorization_before_evidence": {
+      "code": "AUTHORIZATION_EVIDENCE_INCOMPLETE",
+      "status": "rejected"
+    },
+    "backdated_issue": {
+      "code": "RECEIPT_STATE_MAC",
+      "status": "rejected"
+    },
+    "cross_scope_receipt_reuse": {
+      "codes": [
+        "RECEIPT_SCOPE_MISMATCH",
+        "RECEIPT_SCOPE_MISMATCH"
+      ],
+      "status": "rejected"
+    },
+    "duplicate_protected_access": {
+      "code": "PROTECTED_ACCESS_DUPLICATE",
+      "status": "rejected"
+    },
+    "outcome_before_maturity": {
+      "code": "OUTCOME_BEFORE_MATURITY",
+      "status": "rejected"
+    },
+    "producer_access_grant": {
+      "code": "PROTECTED_ACCESS_DENIED",
+      "status": "rejected"
+    },
+    "producer_authored_public_sha_chain": {
+      "code": "RECEIPT_STATE_MAC",
+      "status": "rejected"
+    },
+    "producer_reviewer": {
+      "code": "REVIEWER_NOT_INDEPENDENT",
+      "status": "rejected"
+    },
+    "producer_subprocess_parent_memory": {
+      "secret_or_outcome_observed": false,
+      "sensitive_environment_names": [],
+      "status": "unavailable",
+      "workspace_files_observed": 0
+    },
+    "replay_maturity": {
+      "code": "MATURITY_REPLAY",
+      "status": "rejected"
+    },
+    "same_reviewer": {
+      "code": "REVIEWER_NOT_DISTINCT",
+      "status": "rejected"
+    },
+    "state_head_rewrite": {
+      "code": "SNAPSHOT_STATE_HEAD",
+      "status": "rejected"
+    }
+  },
+  "falsifier_triggered": false,
+  "identity": {
+    "as_of": "2026-01-02T11:59:00Z",
+    "attempt_id": "attempt-001",
+    "calendar_id": "xnys_sessions_v1",
+    "event_id": "drawdown_30pct",
+    "forecast_sha256": "ca70331f953337f25f4d1213fafae261998dc6fdd8b82eff59b9f7efec523d98",
+    "holdout_id": "holdout-protected-001",
+    "horizon_reset_days": 126,
+    "target_id": "soxl.reset_loss",
+    "variant_id": "variant-base",
+    "vintage_sha256": "890c61c48ce99b4b738d202bc88c708cdcbac5a3c4eeab148ac58a212e365a9e"
+  },
+  "limitations": [
+    "experiment process boundary only; not same-user hostile security",
+    "synthetic in-memory key; no durable production key management",
+    "no crash-safe durable ledger or intended-runtime acceptance",
+    "no probability quality, L3/L4, transport, factor, trade, sizing, or alert claim"
+  ],
+  "nominal": {
+    "event_count": 10,
+    "event_sha256s": [
+      "a1c033e862d56d99d03306e299a75698fe43ea941bef35dc5710749149ab1d1a",
+      "1b80ade8e997a46efdeee6eb85beedea6935497038c7ee48ce63710aa8156cb0",
+      "7ff731e3fca2de0209d216861303b88e1a7e18ec034e8275275bbf0f892fd900",
+      "d724a2937af59aa40c5db75e5a22ac4098f8062f148e94563ced2f23185ee76b",
+      "50740c9e6263bad9ceba865972bc2904040afb90eda2f95637ccb6a712a62cf6",
+      "a8dcc228b71139851f5f9b90ee2b348018feee4b31106ede92bdc1d78abeebf8",
+      "d699f3e99afa82df78f8af183dfc0b5531f3514581063af668b90914e6baf0db",
+      "19b99b3d040e3ac73f4f9e92074161c890de7a4f3ee0262c129ec8202f490ad9",
+      "7b48fd954ede28d6e4c8d5adee5e392a1bbbeed32b36cbdff84a5674a09f6c9a",
+      "ed07b61148fcca4f4a419a1c0952cb3449a9909dc7c455ea7918c6b813c78751"
+    ],
+    "event_types": [
+      "issue",
+      "maturity",
+      "protected_access_grant",
+      "protected_outcome_access",
+      "score",
+      "review_data",
+      "review_statistics",
+      "review_methodology",
+      "transport_authorization",
+      "factor_authorization"
+    ],
+    "factor_scope": {
+      "authorization_purpose": "combination_selection",
+      "factor_id": "probability-feature-01",
+      "use_scope_sha256": "eebdb9f87a19abaaf8c82c5fbd6e0427f9b13d6dbf6c4a62323787e4f5377898"
+    },
+    "issued_at": "2026-01-02T12:00:00Z",
+    "maturity_at": "2026-07-02T12:00:00Z",
+    "outcome_sha256": "517fe0410b426ee5d4402666fdd520487e953669b789ed308b60b962c9968cd5",
+    "receipt_macs": [
+      "158b2d9841982cc624ac0b81be6c6ed98047f6e8aee754910423e496f626130a",
+      "ffdf333c0591787635b05b2b2c09f1066d941ab5b4bcd6cc8c46ff3da873bfd7",
+      "ef034a20364cae7ee394cc39d6f9cd96c3a2c3b50b0f6a7413312a0bc98201af",
+      "2fdb55dfcc456015fe09d3806e0922a9b8acdc755658210127c47ed18398e0b8",
+      "2e337ace6242ef0ac5a4b57ecc8ea44166981f1fd86b3c4867bc6ce6b827d39c",
+      "259964565fc032dda3b64a3fb655fe48ffb91ef0124271d152f36fee6829bfec",
+      "553f34067af2139aa2792abe9f688fc2e1a0c81620e4f3bd8e1b9d6efcf220e9",
+      "93f522013baaf7933d25d5d89c8f0cd43767200f6f4f42d645735bd4b6e7870e",
+      "0e68881aa9ec840d7782832e979c07ebd5cdd7fbce172e66346814cc7289277c",
+      "e76398e447f62025d60a8153b0d899c1f3b33665a2d2e10ac182ad1d4daaee20"
+    ],
+    "reviewers": {
+      "data": "reviewer-data",
+      "methodology": "reviewer-methodology",
+      "statistics": "reviewer-statistics"
+    },
+    "score": {
+      "metric": "brier",
+      "value": 0.140625
+    },
+    "state_head": "378b729dbbeebaa5b1a99c596d5475180b5c9d892d497febf84cc44c1190c7b5",
+    "transport_scope": {
+      "destination_target_id": "tqqq.reset_loss",
+      "source_target_id": "soxl.reset_loss",
+      "transport_policy_sha256": "802bab2f4cb5c9307d935e1be2ddabefc7ffe70d48361cb9dbc9d7dda7dd2527"
+    }
+  },
+  "protocol_sha256": "64041274d5dd3386852927405b25c9dcb66de7ce141272455d79a01d1fd1a3ef",
+  "receipt_sha256": "d38ad68a8bbc229a370e7deb66d5a58cddbbc16fb1d36865eddd42aa34a3b2e9",
+  "source_sha256": {
+    "PROTOCOL.md": "8c4c2d9475cb975a538e1a29d103b056b21aa935c9806644aa70e57634642d19",
+    "README.md": "9eaf34eb24adcc0abae5dbb20c4f4b84ddfb31717dc60a434916147fa4783846",
+    "__init__.py": "846db3f1cc43f8de3fb5ffc8e41771f69cfa25620a7c4547fecb813f259392d1",
+    "experiment.py": "8c2251df4a896b60dfb3d41dbd8e6c17c0a5b57cf2e94af8dad452d12aafaea5",
+    "probability_guard.py": "60463da26db885ab17c0a68c76fa34691bfe2e084820d672639d26911a3e3323",
+    "tests/test_probability_guard.py": "bdbed480b6752c1b6e11de53e2ae7c40a6e3aa12013f25b1b84b7399b2828e0f"
+  },
+  "version": "probability-guard-experiment-receipt-1"
+}

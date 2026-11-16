@@ -1,0 +1,30 @@
+{
+  "R9": {
+    "schema_version": "claude-visible-session-case-v1",
+    "case_id": "R9",
+    "purpose": "Read-only digest of the three-byte abc fixture",
+    "session": {"name": "claude-visible-r9-v1", "model_id": "claude-opus-5-5", "model_display_name": "Claude Opus 5.5", "effort": "low"},
+    "budget": {"max_wall_seconds": 60, "max_output_tokens": 512, "max_tool_calls": 1},
+    "retries": {"provider": 0, "transport": 0, "task": 0},
+    "persistence": {"visible": true, "persist": true, "resume": false},
+    "tools": {"parent_allow": ["Read"], "parent_deny": ["Agent", "Bash", "Edit", "Glob", "Grep", "WebFetch", "WebSearch", "Write"], "child_allow": [], "child_deny": ["Agent", "Bash", "Edit", "Glob", "Grep", "Read", "WebFetch", "WebSearch", "Write"]},
+    "topology": {"max_depth": 0, "max_concurrency": 1, "exact_child_count": 0},
+    "gateway_requests": {"exact_logical": 1, "max_attempts_total": 1},
+    "future_slot_binding": {"slot_id": "slot-2099-01-01T00:00:00Z-r9", "scheduled_for": "2099-01-01T00:00:00Z", "request_id": "request-r9-v1"},
+    "fixture": {"relative_path": "r9/abc.bin", "bytes": 3, "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"}
+  },
+  "R10": {
+    "schema_version": "claude-visible-session-case-v1",
+    "case_id": "R10",
+    "purpose": "Exactly one read-only child mines three synthetic skills",
+    "session": {"name": "claude-visible-r10-v1", "model_id": "claude-opus-5-5", "model_display_name": "Claude Opus 5.5", "effort": "low"},
+    "budget": {"max_wall_seconds": 120, "max_output_tokens": 2048, "max_tool_calls": 4},
+    "retries": {"provider": 0, "transport": 0, "task": 0},
+    "persistence": {"visible": true, "persist": true, "resume": false},
+    "tools": {"parent_allow": ["Agent"], "parent_deny": ["Bash", "Edit", "Glob", "Grep", "Read", "WebFetch", "WebSearch", "Write"], "child_allow": ["Glob", "Grep", "Read"], "child_deny": ["Agent", "Bash", "Edit", "WebFetch", "WebSearch", "Write"]},
+    "topology": {"max_depth": 1, "max_concurrency": 1, "exact_child_count": 1},
+    "gateway_requests": {"exact_logical": 2, "max_attempts_total": 2},
+    "future_slot_binding": {"slot_id": "slot-2099-01-01T00:00:00Z-r10", "scheduled_for": "2099-01-01T00:00:00Z", "request_id": "request-r10-v1"},
+    "fixture": {"input_path": "r10/skills-input.json", "input_sha256": "c084f6a3d0f3ad095ab9508535f923af137545d8f4d55af5aeea9a8ba725fbae", "agent_definition_path": "r10/agent-definition.json", "agent_definition_sha256": "a593f09aba8317d9505f66393c07ec1f9e71d932132b034921be0c2b72432cad", "output_path": "r10/mining-output.json", "output_sha256": "62f2f92246cf4392b11628d7dfb1a106cbcb8a1921f9ce4a3f08699e5615cae6", "skill_ids": ["S1", "S2", "S3"]}
+  }
+}

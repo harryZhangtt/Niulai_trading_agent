@@ -1,0 +1,245 @@
+{
+  "$id": "claude-visible-session-case-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "budget": {
+          "const": {
+            "max_output_tokens": 512,
+            "max_tool_calls": 1,
+            "max_wall_seconds": 60
+          }
+        },
+        "case_id": {
+          "const": "R9"
+        },
+        "fixture": {
+          "const": {
+            "bytes": 3,
+            "relative_path": "r9/abc.bin",
+            "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+          }
+        },
+        "future_slot_binding": {
+          "const": {
+            "request_id": "request-r9-v1",
+            "scheduled_for": "2099-01-01T00:00:00Z",
+            "slot_id": "slot-2099-01-01T00:00:00Z-r9"
+          }
+        },
+        "gateway_requests": {
+          "const": {
+            "exact_logical": 1,
+            "max_attempts_total": 1
+          }
+        },
+        "persistence": {
+          "const": {
+            "persist": true,
+            "resume": false,
+            "visible": true
+          }
+        },
+        "purpose": {
+          "const": "Read-only digest of the three-byte abc fixture"
+        },
+        "retries": {
+          "const": {
+            "provider": 0,
+            "task": 0,
+            "transport": 0
+          }
+        },
+        "schema_version": {
+          "const": "claude-visible-session-case-v1"
+        },
+        "session": {
+          "const": {
+            "effort": "low",
+            "model_display_name": "Claude Opus 5.5",
+            "model_id": "claude-opus-5-5",
+            "name": "claude-visible-r9-v1"
+          }
+        },
+        "tools": {
+          "const": {
+            "child_allow": [],
+            "child_deny": [
+              "Agent",
+              "Bash",
+              "Edit",
+              "Glob",
+              "Grep",
+              "Read",
+              "WebFetch",
+              "WebSearch",
+              "Write"
+            ],
+            "parent_allow": [
+              "Read"
+            ],
+            "parent_deny": [
+              "Agent",
+              "Bash",
+              "Edit",
+              "Glob",
+              "Grep",
+              "WebFetch",
+              "WebSearch",
+              "Write"
+            ]
+          }
+        },
+        "topology": {
+          "const": {
+            "exact_child_count": 0,
+            "max_concurrency": 1,
+            "max_depth": 0
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "case_id",
+        "purpose",
+        "session",
+        "budget",
+        "retries",
+        "persistence",
+        "tools",
+        "topology",
+        "gateway_requests",
+        "future_slot_binding",
+        "fixture"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "budget": {
+          "const": {
+            "max_output_tokens": 2048,
+            "max_tool_calls": 4,
+            "max_wall_seconds": 120
+          }
+        },
+        "case_id": {
+          "const": "R10"
+        },
+        "fixture": {
+          "const": {
+            "agent_definition_path": "r10/agent-definition.json",
+            "agent_definition_sha256": "a593f09aba8317d9505f66393c07ec1f9e71d932132b034921be0c2b72432cad",
+            "input_path": "r10/skills-input.json",
+            "input_sha256": "c084f6a3d0f3ad095ab9508535f923af137545d8f4d55af5aeea9a8ba725fbae",
+            "output_path": "r10/mining-output.json",
+            "output_sha256": "62f2f92246cf4392b11628d7dfb1a106cbcb8a1921f9ce4a3f08699e5615cae6",
+            "skill_ids": [
+              "S1",
+              "S2",
+              "S3"
+            ]
+          }
+        },
+        "future_slot_binding": {
+          "const": {
+            "request_id": "request-r10-v1",
+            "scheduled_for": "2099-01-01T00:00:00Z",
+            "slot_id": "slot-2099-01-01T00:00:00Z-r10"
+          }
+        },
+        "gateway_requests": {
+          "const": {
+            "exact_logical": 2,
+            "max_attempts_total": 2
+          }
+        },
+        "persistence": {
+          "const": {
+            "persist": true,
+            "resume": false,
+            "visible": true
+          }
+        },
+        "purpose": {
+          "const": "Exactly one read-only child mines three synthetic skills"
+        },
+        "retries": {
+          "const": {
+            "provider": 0,
+            "task": 0,
+            "transport": 0
+          }
+        },
+        "schema_version": {
+          "const": "claude-visible-session-case-v1"
+        },
+        "session": {
+          "const": {
+            "effort": "low",
+            "model_display_name": "Claude Opus 5.5",
+            "model_id": "claude-opus-5-5",
+            "name": "claude-visible-r10-v1"
+          }
+        },
+        "tools": {
+          "const": {
+            "child_allow": [
+              "Glob",
+              "Grep",
+              "Read"
+            ],
+            "child_deny": [
+              "Agent",
+              "Bash",
+              "Edit",
+              "WebFetch",
+              "WebSearch",
+              "Write"
+            ],
+            "parent_allow": [
+              "Agent"
+            ],
+            "parent_deny": [
+              "Bash",
+              "Edit",
+              "Glob",
+              "Grep",
+              "Read",
+              "WebFetch",
+              "WebSearch",
+              "Write"
+            ]
+          }
+        },
+        "topology": {
+          "const": {
+            "exact_child_count": 1,
+            "max_concurrency": 1,
+            "max_depth": 1
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "case_id",
+        "purpose",
+        "session",
+        "budget",
+        "retries",
+        "persistence",
+        "tools",
+        "topology",
+        "gateway_requests",
+        "future_slot_binding",
+        "fixture"
+      ],
+      "type": "object"
+    }
+  ],
+  "type": "object",
+  "x-python-validator": "validate_case"
+}

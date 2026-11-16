@@ -1,0 +1,64 @@
+{
+  "acceptance_evidence": {
+    "diff_check": "PASS",
+    "evaluation_v3_regression": "12/12 PASS",
+    "focused_system_python": "9/9 PASS",
+    "focused_workspace_python_draft_2020_12": "9/9 PASS",
+    "syntax": "PASS"
+  },
+  "activation": false,
+  "allowed_claim": "Disabled provider-free commitment producer and immutable opening fence pass local evidence; independent review and final block authority remain required.",
+  "countable": false,
+  "decision": "PASS_IMPLEMENTATION_NOT_ACTIVATED_NOT_COUNTABLE",
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "final_block_authority": "PENDING_REQUIRED",
+  "independent_review": "PENDING_NOT_CREATED_BY_PRODUCER",
+  "live_or_provider_evidence": "NONE",
+  "options": {
+    "O0_reuse_only": {
+      "disposition": "REJECT_FOR_THIS_GAP",
+      "reason": "Evaluation-v3 has the opening semantics but no durable no-argument private-map producer and uses sequential fixture aliases."
+    },
+    "O1_narrow_additive_producer": {
+      "disposition": "SELECTED",
+      "reason": "Smallest stdlib-only additive capability; reuses evaluation-v3 gates/grades/metrics, keeps runtime state ignored, and leaves runner/history untouched."
+    },
+    "O2_runner_or_evaluator_rewrite": {
+      "disposition": "REJECT",
+      "reason": "Unnecessary duplication and larger live/runtime failure radius."
+    }
+  },
+  "status": "ACCEPT_DISABLED_PROVIDER_FREE_CANDIDATE_PENDING_INDEPENDENT_REVIEW_AND_FINAL_BLOCK_AUTHORITY",
+  "verified_runtime_artifacts": {
+    "private_map": {
+      "bytes": 807,
+      "labels_disclosed": false,
+      "mode": "0600",
+      "owner_private": true,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v1/owner-private-canonical-map-v1.json",
+      "sha256": "fd7d7adfe3e7c53d5b4293426ae6d07c1fdd2aa1fbbe39d031183e2587862e7a"
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "fields": [
+        "canonical_bytes",
+        "canonical_digest",
+        "schema",
+        "version"
+      ],
+      "path": "runtime/r6_data_quality_blind_map_commitment_v1/sanitized-commitment-v1.json",
+      "sha256": "1209f4a14655d6b7ae9d8ddcbe98f5af245d62f83eeea780ddcdcaa5a367d23c"
+    }
+  },
+  "version": "r6-data-quality-blind-map-commitment-decision-v1"
+}

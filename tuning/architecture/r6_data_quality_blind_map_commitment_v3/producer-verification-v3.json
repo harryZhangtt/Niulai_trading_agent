@@ -1,0 +1,211 @@
+{
+  "activation": false,
+  "allowed_claim": "Disabled provider-free v3 locally repairs the v2 OPEN chronology, authority, schema, and leak-scan findings and denies safely with authentic artifacts absent.",
+  "bindings": {
+    "architecture": {
+      "bytes": 5240,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v3/architecture-v3.json",
+      "sha256": "80bef68f5e8f297f2e68b2fa4604a69373944f70ae52bec9491b80b072f7d6d2"
+    },
+    "decision": {
+      "bytes": 3859,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v3/decision-v3.json",
+      "sha256": "1e48ce3c34deea9d0e88b7c314bb65cd3df4e0cf3b8f74e412f8691f02aece4d"
+    },
+    "protocol": {
+      "bytes": 4174,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v3/protocol-v3.json",
+      "sha256": "8d799612cbad65dc615c82b22b1c3b06bee5a5a33bb4b1fd4dc975288db023fd"
+    },
+    "source_closure": {
+      "bytes": 15451,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v3/source-closure-v3.json",
+      "sha256": "47c8b2ad10c26b0f1fbf8c64a7f83c7f5ecffe594e99e1488266bbfe5c7b4596"
+    }
+  },
+  "countable_now": false,
+  "current_public_authorization": {
+    "authentic_chain_pins": 0,
+    "authentic_human_pins": 0,
+    "authorize_parameters": 0,
+    "decision": "DENY_BEFORE_PRIVATE_MAP_READ",
+    "private_map_read": false,
+    "public_rebinding_apis": 0,
+    "reason": "AUTHENTIC_HUMAN_AUTHORITY_ABSENT_OR_PENDING"
+  },
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "final_block_authority": "REQUIRED_PENDING",
+  "finding_dispositions": {
+    "OPEN_V2_1_CHRONOLOGY": {
+      "evidence": [
+        "public opening accepts zero parameters and exposes no packet/grade/metric rebinding builders",
+        "fixed chronology requires exact commitment to reviewed block grant to attempt request/result to evaluation packet to human grades to derived metrics",
+        "every cross-reference equals canonical path/bytes/SHA/mode for the referenced artifact",
+        "strict monotone sequence grant-review-admission-result-packet-grade-metrics-manifest",
+        "full post-grade commitment rebinding fails original exact grant/attempt refs and public opening denies before private-map read"
+      ],
+      "producer_disposition": "CLOSED_LOCALLY_PENDING_INDEPENDENT_REREVIEW"
+    },
+    "OPEN_V2_2_AUTHORITY": {
+      "evidence": [
+        "exact human validator module path/bytes/SHA/function origin is checked",
+        "fixed validator is called with no arguments",
+        "no caller authority/store/root/review digest accepted",
+        "exact human and chronology pin sets are empty until separately reviewed authentic files exist",
+        "pending actual authority and forged module both deny before private-map read"
+      ],
+      "producer_disposition": "CLOSED_LOCALLY_PENDING_INDEPENDENT_REREVIEW"
+    },
+    "OPEN_V2_3_SCHEMAS": {
+      "evidence": [
+        "11 closed Draft 2020-12 schemas",
+        "all positive instances validated",
+        "empty grade cell, empty metric cell, empty grade refs, unexpected receipt path rejected",
+        "nested extras and duplicate array refs rejected",
+        "runtime cross-field sequence and exact external-artifact substitutions rejected"
+      ],
+      "producer_disposition": "CLOSED_LOCALLY_PENDING_INDEPENDENT_REREVIEW"
+    },
+    "UNVERIFIED_LABEL_SCAN": {
+      "evidence": [
+        "value-suppressing scan returns only category counts",
+        "four labels checked, zero matches, no label values returned"
+      ],
+      "producer_disposition": "CLOSED_LOCALLY_PENDING_INDEPENDENT_REREVIEW"
+    }
+  },
+  "forbidden_claims": [
+    "activation",
+    "countability",
+    "authentic final block grant",
+    "authentic provider attempt receipts",
+    "authentic human authority",
+    "live execution",
+    "CLEAN independent rereview",
+    "final block authorization",
+    "provider/add-on superiority",
+    "label disclosure"
+  ],
+  "independent_rereview": "REQUIRED_PENDING_NOT_CREATED_BY_PRODUCER",
+  "leak_scan": {
+    "files_scanned_by_category": {
+      "architecture": 2340,
+      "logs": 4331,
+      "other": 154414,
+      "source": 13802
+    },
+    "label_values_disclosed": false,
+    "labels_checked": 4,
+    "matching_paths_by_category": {
+      "architecture": 0,
+      "logs": 0,
+      "other": 0,
+      "source": 0
+    },
+    "status": "PASS",
+    "total_matching_paths": 0
+  },
+  "open_review_binding": {
+    "bytes": 11517,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json",
+    "sha256": "d7a453c4b04442c233bf830d8a8b5747400b15e237f3337a95e0474f6a602963",
+    "verdict": "OPEN"
+  },
+  "preserved_open_history": {
+    "v1_private_map_sha256": "fd7d7adfe3e7c53d5b4293426ae6d07c1fdd2aa1fbbe39d031183e2587862e7a",
+    "v1_producer_verification_sha256": "5a2a437464476bb102d224e247354c2d15ec27b62fdcdd845d7fc768a617f648",
+    "v1_unchanged": true,
+    "v2_private_map_sha256": "8c0affb05319a96f4044a5cc663827b6b6c7613e6cddc0c4d08ca23ae169515d",
+    "v2_producer_verification_sha256": "65598f229232900a9b7380f3fb1ef6eead71a6364fdee5f472d2462b5f0d8461",
+    "v2_unchanged": true
+  },
+  "runtime_transaction": {
+    "canonical_binding": {
+      "canonical_bytes": 897,
+      "canonical_digest": "540a744cd31fe3a764363b647f1269da5f9c60a3cd8a0d104eb16fc849ac88dd",
+      "exact_reopen_verified": true,
+      "git_ignored": true,
+      "stage_residue": false
+    },
+    "owner_private_map": {
+      "bytes": 897,
+      "labels_disclosed": false,
+      "mode": "0600",
+      "owner_matches": true,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/owner-private-canonical-map-v3.json",
+      "regular": true,
+      "sha256": "540a744cd31fe3a764363b647f1269da5f9c60a3cd8a0d104eb16fc849ac88dd",
+      "symlink": false
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "fields": [
+        "canonical_bytes",
+        "canonical_digest",
+        "schema",
+        "version"
+      ],
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/sanitized-commitment-v3.json",
+      "sha256": "e984924176b4d53fef088c758628902166ed257f307fea431cd00509e20b9489"
+    },
+    "transaction_receipt": {
+      "bytes": 451,
+      "committed_last": true,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/transaction-receipt-v3.json",
+      "sha256": "527061acd538e4191e67a790eb82efa3583cd0a7cefd9f300fb787e210b4add4"
+    }
+  },
+  "status": "PRODUCER_PASS_DISABLED_FIXED_CHAIN_REPAIR_PENDING_AUTHENTIC_ARTIFACTS_INDEPENDENT_REREVIEW_AND_FINAL_BLOCK_AUTHORITY",
+  "tests": {
+    "compile_and_eleven_schema_metaschema": {
+      "result": "PASS"
+    },
+    "diff_check": {
+      "result": "PASS"
+    },
+    "external_effect_scan": {
+      "result": "PASS"
+    },
+    "predecessor_regression": {
+      "failed": 0,
+      "passed": 32,
+      "result": "PASS"
+    },
+    "source_closure_readback": {
+      "history": 7,
+      "predecessors": 11,
+      "result": "PASS",
+      "runtime": 3,
+      "sources": 19
+    },
+    "system_python_3": {
+      "failed": 0,
+      "passed": 5,
+      "result": "PASS",
+      "skip_reason": "jsonschema unavailable only",
+      "skipped": 1
+    },
+    "workspace_python_3_12": {
+      "draft_2020_12": true,
+      "failed": 0,
+      "passed": 6,
+      "result": "PASS",
+      "skipped": 0
+    }
+  },
+  "verdict": "PASS_LOCAL_REPAIR_AND_DENIAL_ONLY",
+  "version": "r6-data-quality-blind-map-commitment-producer-verification-v3"
+}

@@ -1,0 +1,298 @@
+{
+  "$id": "urn:trading-agent:live-e2e-packet-materialization-input-1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cutoff": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lanes": {
+      "additionalProperties": false,
+      "properties": {
+        "claude_narrow": {
+          "additionalProperties": false,
+          "properties": {
+            "experiment_id": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$",
+              "type": "string"
+            },
+            "provider_call_seconds": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "publication_root": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "registry_path": {
+              "pattern": "^(?!/)(?!.*\\.\\.).+\\.json$",
+              "type": "string"
+            },
+            "run_wall_seconds": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "session_root": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "unknown_outcome_fence": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_root",
+            "registry_path",
+            "publication_root",
+            "unknown_outcome_fence",
+            "experiment_id",
+            "run_wall_seconds",
+            "provider_call_seconds"
+          ],
+          "type": "object"
+        },
+        "claude_smoke": {
+          "additionalProperties": false,
+          "properties": {
+            "experiment_id": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$",
+              "type": "string"
+            },
+            "provider_call_seconds": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "publication_root": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "registry_path": {
+              "pattern": "^(?!/)(?!.*\\.\\.).+\\.json$",
+              "type": "string"
+            },
+            "run_wall_seconds": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "session_root": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "unknown_outcome_fence": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_root",
+            "registry_path",
+            "publication_root",
+            "unknown_outcome_fence",
+            "experiment_id",
+            "run_wall_seconds",
+            "provider_call_seconds"
+          ],
+          "type": "object"
+        },
+        "codex_narrow": {
+          "additionalProperties": false,
+          "properties": {
+            "experiment_id": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$",
+              "type": "string"
+            },
+            "provider_call_seconds": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "publication_root": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "registry_path": {
+              "pattern": "^(?!/)(?!.*\\.\\.).+\\.json$",
+              "type": "string"
+            },
+            "run_wall_seconds": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "session_root": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "unknown_outcome_fence": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_root",
+            "registry_path",
+            "publication_root",
+            "unknown_outcome_fence",
+            "experiment_id",
+            "run_wall_seconds",
+            "provider_call_seconds"
+          ],
+          "type": "object"
+        },
+        "codex_smoke": {
+          "additionalProperties": false,
+          "properties": {
+            "experiment_id": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$",
+              "type": "string"
+            },
+            "provider_call_seconds": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "publication_root": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "registry_path": {
+              "pattern": "^(?!/)(?!.*\\.\\.).+\\.json$",
+              "type": "string"
+            },
+            "run_wall_seconds": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "session_root": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "unknown_outcome_fence": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_root",
+            "registry_path",
+            "publication_root",
+            "unknown_outcome_fence",
+            "experiment_id",
+            "run_wall_seconds",
+            "provider_call_seconds"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "codex_smoke",
+        "claude_smoke",
+        "codex_narrow",
+        "claude_narrow"
+      ],
+      "type": "object"
+    },
+    "materialized": {
+      "additionalProperties": false,
+      "properties": {
+        "narrow": {
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "smoke": {
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "smoke",
+        "narrow"
+      ],
+      "type": "object"
+    },
+    "model_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "output_directory": {
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+      "type": "string"
+    },
+    "owners": {
+      "additionalProperties": false,
+      "properties": {
+        "raw_retention": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reconciliation_owner": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "retention_owner": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rollback_target": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "raw_retention",
+        "reconciliation_owner",
+        "retention_owner",
+        "rollback_target"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "live-e2e-packet-materialization-input-1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "output_directory",
+    "cutoff",
+    "model_sha256",
+    "owners",
+    "materialized",
+    "lanes"
+  ],
+  "type": "object"
+}

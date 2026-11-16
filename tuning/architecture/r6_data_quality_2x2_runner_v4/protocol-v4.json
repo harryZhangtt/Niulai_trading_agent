@@ -1,0 +1,85 @@
+{
+  "activation": false,
+  "architecture": {
+    "bytes": 12080,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/architecture-v4.json",
+    "sha256": "9d5066d47ebc4a11567663917de85ca464ba8e3b806f86a2bae718a6f52fba8e"
+  },
+  "attack_contract": {
+    "alias_reload_package_sys_modules_function_globals": "isolated child uses exact disk subject",
+    "closure_or_malformed_child": "authentication/readback fail closed before parent acceptance",
+    "source_drift": "fail before claim and restore exact bytes",
+    "v3_forged_liveness_reproduction": "live owner cannot be recovered despite parent v3 observer mutation",
+    "v3_key_split_reproduction": "one key, one claim, one admission, one four-cell effect set"
+  },
+  "cell_contract": {
+    "attempts_per_cell": 1,
+    "order": [
+      "R6DQ-7F2C91A4",
+      "R6DQ-1B8E43D7",
+      "R6DQ-C4A7095E",
+      "R6DQ-92D6F0B3"
+    ],
+    "partial_comparison": false,
+    "replays": 0,
+    "retries": 0,
+    "status_queries": 0
+  },
+  "child_protocol": [
+    "strictly parse exact request shape",
+    "rehash self and 19 transitive dependencies",
+    "validate exact authority/map and frozen inputs",
+    "derive fixed key excluding caller-selected destination/ref identities while binding them in claim",
+    "publish PREPARED then ADMITTED before first boundary",
+    "construct four boundaries from allowlisted descriptors",
+    "execute fixed CELL_ORDER once",
+    "publish/reconcile durable receipt",
+    "publish COMPLETED or UNKNOWN_NO_REPLAY"
+  ],
+  "countable": false,
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "generated_at_utc": "2026-11-14T23:35:18Z",
+  "input": "exact authority registry/grant, canonical frozen input, exact map commitment, validated owner/bundle roots, and two inert fixture descriptors",
+  "output": "fully reread and validated execution_receipt_v6 reference or fail-closed error; finalization delegates inside isolated child to authenticated human/G3 path",
+  "parent_protocol": [
+    "rehash exact runner/transitive dependency subject",
+    "canonicalize descriptor-only request",
+    "launch source file with python -I, cwd /, minimal environment, 30-second timeout",
+    "validate exact child response shape/source/request/PID/HMAC",
+    "reread receipt via validated owner/receipt directory descriptors and O_NOFOLLOW",
+    "validate exact ref/hash/canonical body/authority/map/fixture/time binding"
+  ],
+  "provider_free": true,
+  "public_api": {
+    "caller_boundary_object_executed": false,
+    "exports": [
+      "STATUS",
+      "default_run",
+      "execute_block",
+      "finalize_block"
+    ],
+    "liveness_or_key_injection": false,
+    "mutable_identity_exports": []
+  },
+  "status": "PRODUCER_PROTOCOL_P0_V10_RECLOSURE_REQUIRED",
+  "unresolved": {
+    "activation": false,
+    "countable": false,
+    "fresh_independent_review": "PENDING_FRESH_EXACT_SUBJECT_REVIEW",
+    "intended_runtime_acceptance": "NOT_RUN_NO_ACTIVATION",
+    "orchestrator_rebind": "PENDING",
+    "p0_schema_status": "P0_V10_REQUIRED",
+    "runner_consumer_status": "P0_V10_RECLOSURE_REQUIRED"
+  },
+  "version": "r6-data-quality-2x2-runner-protocol-v4"
+}

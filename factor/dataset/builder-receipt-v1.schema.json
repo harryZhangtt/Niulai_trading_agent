@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "factor-dataset-builder-receipt-v1",
+  "title": "Synthetic PIT builder receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "builder_code_sha256", "dataset_id", "observation_set_sha256", "label_roster_sha256", "label_authority_receipt_sha256", "feature_snapshot_sha256", "evaluation_population_sha256", "split_spec_sha256", "split_fingerprints", "full_feature_artifact_sha256", "full_feature_rows", "output_scope", "output_feature_artifact_sha256", "output_feature_rows", "sample_rows", "trust_class", "performance_claim"],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_.-]{0,95}$"},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "date": {"type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"}
+  },
+  "properties": {
+    "schema_version": {"const": 1}, "kind": {"const": "synthetic_pit_builder_receipt"},
+    "builder_code_sha256": {"$ref": "#/$defs/sha256"}, "dataset_id": {"$ref": "#/$defs/id"},
+    "observation_set_sha256": {"$ref": "#/$defs/sha256"}, "label_roster_sha256": {"$ref": "#/$defs/sha256"},
+    "label_authority_receipt_sha256": {"$ref": "#/$defs/sha256"}, "feature_snapshot_sha256": {"$ref": "#/$defs/sha256"},
+    "evaluation_population_sha256": {"$ref": "#/$defs/sha256"}, "split_spec_sha256": {"$ref": "#/$defs/sha256"},
+    "split_fingerprints": {"type": "object", "additionalProperties": false, "required": ["development", "validation", "protected"], "properties": {"development": {"$ref": "#/$defs/sha256"}, "validation": {"$ref": "#/$defs/sha256"}, "protected": {"$ref": "#/$defs/sha256"}}},
+    "full_feature_artifact_sha256": {"$ref": "#/$defs/sha256"}, "full_feature_rows": {"type": "integer", "minimum": 1},
+    "output_scope": {"type": "object", "additionalProperties": false, "required": ["start", "end"], "properties": {"start": {"$ref": "#/$defs/date"}, "end": {"$ref": "#/$defs/date"}}},
+    "output_feature_artifact_sha256": {"$ref": "#/$defs/sha256"}, "output_feature_rows": {"type": "integer", "minimum": 0},
+    "sample_rows": {"type": "integer", "minimum": 1}, "trust_class": {"const": "synthetic"},
+    "performance_claim": {"const": "withheld"}
+  }
+}

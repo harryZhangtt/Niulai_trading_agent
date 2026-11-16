@@ -1,0 +1,113 @@
+{
+  "activation": false,
+  "basis": {
+    "exact_source_custody": true,
+    "fresh_schema_enabled_suite": "19/19 PASS with warnings as errors",
+    "historical_reconciliation": "v1-v7 OPEN, stale OPEN, frozen OPEN, and contradicted CLEAN records preserved immutably",
+    "live_pins_complete": false,
+    "p0_v9_clean_review": true
+  },
+  "claim_limits": [
+    "provider-free runner-core evidence only",
+    "no live effects or bytedcli",
+    "no independent CLEAN claims for the explicitly pending external pins",
+    "no final-grant, countability, provider/addon superiority, scheduler, email, or runtime-acceptance claim"
+  ],
+  "countable": false,
+  "decision": "ACCEPT_PROVIDER_FREE_RUNNER_CORE_ONLY_PENDING_EXTERNAL_LIVE_PINS",
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "embedded_runtime_p0_contract": {
+    "contract": {
+      "bytes": 5231,
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/p0-contract-v9.json",
+      "sha256": "51f36fb46eb7a74994abf0a23152ce5d1f3fd7f4e8687aa900d1328e3b9aae1e"
+    },
+    "interpretation": "embedded runtime contract remains fail-closed; CLEAN_P0_V9 is an outer exact-source custody/review binding and does not retroactively mutate these pinned runner bytes",
+    "review": {
+      "bytes": 11667,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v8-independent-review-fable-20261111-provider-relabel-open.json",
+      "sha256": "0a150a6221ba082ae38eae6951bff43fc904996a99623e425d36059e431ec2e6",
+      "verdict": "OPEN"
+    }
+  },
+  "external_pending_pins": {
+    "claude_v7_fresh_independent_review": {
+      "current_subject": {
+        "bytes": 8319,
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/source-closure-v7.json",
+        "sha256": "8e04fa3601b1b6fcf9e1419572501465c006bb824d07cd82861d9a0aaf134750",
+        "status": "OPEN_PROVIDER_FREE_V7_PENDING_FRESH_INDEPENDENT_REVIEW"
+      },
+      "required": "complete exact-subject evidence set and fresh CLEAN review",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "codex_v5_p0_v9_rebased_clean_review": {
+      "current_open_review": {
+        "bytes": 11876,
+        "finding": "OPEN-P0-V9-REBASE-001",
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-codex-live-integration-v5-p0-v9-rebase-independent-review-fable-20261111-8e9a8076-open.json",
+        "sha256": "48b02aae9a5a34314fbfd0446a4798a6357461c811a326955341b04a85ae92dc",
+        "verdict": "OPEN"
+      },
+      "required": "new exact-subject CLEAN rebased review; prior CLEAN remains superseded",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "common_time_window_final_pin": {
+      "current_artifact": null,
+      "required": "exact authoritative common time-window artifact and applicable review",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "final_live_grants_and_reviews": {
+      "arm_a_final_grant": null,
+      "arm_a_final_review": null,
+      "arm_b_final_grant": null,
+      "arm_b_final_review": null,
+      "required": "exact authentic final live grants and CLEAN reviews for both arms",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "tool_policy_v6_fresh_independent_review": {
+      "current_subject": {
+        "bytes": 5692,
+        "path": "tuning/architecture/r6_frozen_tool_web_allowance_v6/decision-v6.json",
+        "sha256": "f8bc2e726424b2f39d6ace62e0c6fc970c555a50675a06cee47c03d6a021a409",
+        "status": "DISABLED_PENDING_FRESH_INDEPENDENT_REVIEW"
+      },
+      "required": "fresh exact-subject independent CLEAN review",
+      "state": "PENDING_EXTERNAL_PIN"
+    }
+  },
+  "history_rewrite": false,
+  "registered": false,
+  "selected": {
+    "p0_v9_clean_review": {
+      "bytes": 15534,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v9-independent-review-fable-20261111-clean.json",
+      "sha256": "0505e961774d325fdc6b89105215fd88cb0a71f8b942a78976d7ea1e8f49fbb2",
+      "verdict": "CLEAN_P0_V9"
+    },
+    "p0_v9_producer": {
+      "bytes": 37099,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-producer-verification-v9.json",
+      "sha256": "3bff74674ab8fe720dd99d8043d8faa080809d0a223bab00ae470e46ebf8e453",
+      "status": "PASS_PROVIDER_FREE_V9_PENDING_INDEPENDENT_REREVIEW_HUMAN_ATTESTATION_AND_RUNTIME_GATES"
+    },
+    "runner": {
+      "bytes": 39451,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/runner.py",
+      "sha256": "bc45fceff79a1106ef66c09376075f3bb72a235ac4a23ca69b7344f914ff0bff"
+    }
+  },
+  "source_mutation": false,
+  "status": "PASS_PROVIDER_FREE_RUNNER_CORE_PENDING_EXTERNAL_LIVE_PINS",
+  "version": "r6-data-quality-2x2-runner-decision-v8-rebased-p0-v9"
+}

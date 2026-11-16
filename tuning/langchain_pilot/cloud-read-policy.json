@@ -1,0 +1,10 @@
+{
+  "read_interval_seconds": 0.5,
+  "query_interval_seconds": 15,
+  "write_interval_seconds": 0.05,
+  "max_read_attempts": 3,
+  "read_budget_seconds": 180,
+  "fallback_backoff_seconds": 5,
+  "max_backoff_seconds": 60,
+  "warmup_delay_seconds": 0.5
+}

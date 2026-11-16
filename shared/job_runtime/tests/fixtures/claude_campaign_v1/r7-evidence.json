@@ -1,0 +1,28 @@
+{
+  "code": "UPSTREAM_502_REJECTED",
+  "evidence_sha256": "8fb1f95889fcc77799008026aba78583c1cf6687c7f57d7d3b91a0c6c0199374",
+  "gateway_disposition": "rejected_before_forward",
+  "http_status": 502,
+  "identity": {
+    "attempt_id": "r7-attempt-1",
+    "campaign_id": "R7",
+    "config_sha256": "ff9836b320dc31fe0ec2fb4f81243f648a35e4b59b2b4237fa11c631e9cd227e",
+    "gateway_id": "gateway-fixture-1",
+    "job_id": "claude-campaign-v1.r7.slot-1",
+    "operation_id": "r7-operation-1",
+    "process_id": "r7-process-1",
+    "prompt_id": "r7-prompt-1",
+    "prompt_sha256": "d84860eca432f11eff518e312528cfbfe447368744c6e49a7c1249636cebbea5",
+    "request_id": "r7-request-1",
+    "run_id": "r7-run-1",
+    "slot_id": "slot-1",
+    "source_sha256": "c42ed703ead7c14128368eb091a4e652208435210b5d5d91d8da0f43abde6b23",
+    "version": 1
+  },
+  "retry_after_seconds": 30,
+  "submission": "not_submitted",
+  "terminal_disposition": "absent",
+  "typed_transient": true,
+  "upstream_forward_count": 0,
+  "version": 1
+}

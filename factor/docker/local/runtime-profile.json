@@ -1,0 +1,340 @@
+{
+  "apply_allowed": false,
+  "artifacts": {
+    "image_digests": {
+      "checker": null,
+      "controller": null,
+      "evaluator": null,
+      "executor": null,
+      "proxy": null
+    },
+    "release_digest": null
+  },
+  "authority": {
+    "attempt_service_restart": "no",
+    "attempt_timeout_seconds": 3600,
+    "cancel_grace_seconds": 30,
+    "lease_owner": "engine",
+    "max_retries_per_attempt": 1,
+    "permanent_failure_retry": false,
+    "restart_owner": "host-authority-for-stable-engine-for-attempt",
+    "retry_owner": "engine",
+    "retry_transient_only": true,
+    "stable_service_restart": "no",
+    "unknown_lease_state": "unknown",
+    "unknown_outcome_action": "fence-and-reconcile-before-retry"
+  },
+  "blockers": [
+    "colima-version-unverified",
+    "docker-version-unverified",
+    "colima-path-unverified",
+    "docker-path-unverified",
+    "docker-context-unverified",
+    "vm-identity-unverified",
+    "controller-image-digest-unresolved",
+    "proxy-image-digest-unresolved",
+    "executor-image-digest-unresolved",
+    "evaluator-image-digest-unresolved",
+    "checker-image-digest-unresolved",
+    "release-digest-unresolved",
+    "host-headroom-unmeasured",
+    "disposable-lifecycle-unrun",
+    "pressure-behavior-unverified",
+    "future-io-sources-unresolved",
+    "output-promotion-root-unresolved",
+    "future-io-conformance-unverified",
+    "internal-network-identity-unresolved",
+    "egress-network-identity-unresolved",
+    "dual-network-conformance-unverified",
+    "stable-lifecycle-conformance-unverified",
+    "linux-userspace-base-release-unresolved",
+    "oci-architecture-unresolved",
+    "in-image-verifier-digests-unresolved",
+    "image-contract-conformance-unverified",
+    "official-source-live-verification-receipts-unavailable",
+    "runtime-acceptance-unrun"
+  ],
+  "capacity": {
+    "assumptions_measured": false,
+    "autoscaling": false,
+    "burst_executor_concurrency_max": 2,
+    "burst_requires_explicit_authority": true,
+    "default_executor_concurrency": 1,
+    "preemption": false,
+    "static_host_headroom_primary": true
+  },
+  "contracts": {
+    "services": "service-declarations.json",
+    "sources": "source-inventory.json"
+  },
+  "future_io_contract": {
+    "active_mounts": [],
+    "arbitrary_mounts": false,
+    "closed_inputs": {
+      "bundle": {
+        "allow_symlinks": false,
+        "destination": "/input/bundle",
+        "kind": "directory",
+        "mount_options": [
+          "ro",
+          "noexec",
+          "nodev",
+          "nosuid"
+        ],
+        "path_escape_policy": "reject",
+        "read_only": true,
+        "recursive": false,
+        "source_identity": null
+      },
+      "dataset": {
+        "allow_symlinks": false,
+        "destination": "/input/dataset",
+        "kind": "directory",
+        "mount_options": [
+          "ro",
+          "noexec",
+          "nodev",
+          "nosuid"
+        ],
+        "path_escape_policy": "reject",
+        "read_only": true,
+        "recursive": false,
+        "source_identity": null
+      },
+      "request": {
+        "allow_symlinks": false,
+        "destination": "/input/request",
+        "kind": "directory",
+        "mount_options": [
+          "ro",
+          "noexec",
+          "nodev",
+          "nosuid"
+        ],
+        "path_escape_policy": "reject",
+        "read_only": true,
+        "recursive": false,
+        "source_identity": null
+      }
+    },
+    "docker_socket": false,
+    "output_promotion": {
+      "allow_symlinks": false,
+      "allowlist": [
+        "result.json",
+        "artifacts/"
+      ],
+      "container_destination": "/output",
+      "host_destination_root": null,
+      "max_bytes": 1073741824,
+      "overwrite": false,
+      "path_escape_policy": "reject",
+      "promotion_gate": "attempt-succeeded-and-host-plus-in-image-verified",
+      "promotion_owner": "engine",
+      "staging_kind": "bounded-tmpfs",
+      "unknown_outcome_action": "fence-and-reconcile-before-promotion-or-retry"
+    },
+    "secrets": false,
+    "status": "blocked-unresolved-identities"
+  },
+  "future_network_contract": {
+    "attachments": {
+      "checker": [],
+      "controller": [
+        "internal"
+      ],
+      "evaluator": [],
+      "executor": [],
+      "proxy": [
+        "internal",
+        "egress"
+      ]
+    },
+    "network_identities": {
+      "egress": null,
+      "internal": null
+    },
+    "policies": {
+      "controller_bypass": false,
+      "controller_direct_egress": false,
+      "controller_egress_attachment": false,
+      "controller_proxy_only": true,
+      "default_external_attachment": false,
+      "egress_is_proxy_only": true,
+      "internal_is_internal_only": true,
+      "proxy_is_sole_egress_bridge": true,
+      "scientific_attempt_network": "none"
+    },
+    "status": "blocked-unresolved-identities"
+  },
+  "host_state": {
+    "artifact_classes": [
+      "config",
+      "cache",
+      "runtime"
+    ],
+    "artifacts_must_be_git_ignored": true,
+    "artifacts_root": "$WORKSPACE/factor/runtime/local",
+    "change_global_current_docker_context": false,
+    "colima_config": {
+      "autoActivate": false
+    },
+    "colima_environment": {
+      "COLIMA_HOME": "$WORKSPACE/factor/runtime/local/colima",
+      "COLIMA_PROFILE": "factor-mining"
+    },
+    "context_discovery": "future-activation-discover-and-validate",
+    "default_colima_home": "~/.colima",
+    "default_colima_home_policy": "prohibited-fail-closed",
+    "docker_wrapper_required_args": [
+      "--context",
+      "colima-factor-mining"
+    ],
+    "expected_docker_context": "colima-factor-mining",
+    "workspace_token": "$WORKSPACE"
+  },
+  "image_contracts": {
+    "checker": {
+      "base_image_digest": null,
+      "base_release": null,
+      "contract_id": "checker-linux-oci-v1",
+      "host_verifier_required": true,
+      "immutable_image_digest": null,
+      "in_image_verifier_digest": null,
+      "in_image_verifier_is_additive": true,
+      "in_image_verifier_path": "/usr/local/bin/verify-image-contract",
+      "linux_userspace_required": true,
+      "oci_architecture": null,
+      "oci_os": "linux"
+    },
+    "controller": {
+      "base_image_digest": null,
+      "base_release": null,
+      "contract_id": "controller-linux-oci-v1",
+      "host_verifier_required": true,
+      "immutable_image_digest": null,
+      "in_image_verifier_digest": null,
+      "in_image_verifier_is_additive": true,
+      "in_image_verifier_path": "/usr/local/bin/verify-image-contract",
+      "linux_userspace_required": true,
+      "oci_architecture": null,
+      "oci_os": "linux"
+    },
+    "evaluator": {
+      "base_image_digest": null,
+      "base_release": null,
+      "contract_id": "evaluator-linux-oci-v1",
+      "host_verifier_required": true,
+      "immutable_image_digest": null,
+      "in_image_verifier_digest": null,
+      "in_image_verifier_is_additive": true,
+      "in_image_verifier_path": "/usr/local/bin/verify-image-contract",
+      "linux_userspace_required": true,
+      "oci_architecture": null,
+      "oci_os": "linux"
+    },
+    "executor": {
+      "base_image_digest": null,
+      "base_release": null,
+      "contract_id": "executor-linux-oci-v1",
+      "host_verifier_required": true,
+      "immutable_image_digest": null,
+      "in_image_verifier_digest": null,
+      "in_image_verifier_is_additive": true,
+      "in_image_verifier_path": "/usr/local/bin/verify-image-contract",
+      "linux_userspace_required": true,
+      "oci_architecture": null,
+      "oci_os": "linux"
+    },
+    "proxy": {
+      "base_image_digest": null,
+      "base_release": null,
+      "contract_id": "proxy-linux-oci-v1",
+      "host_verifier_required": true,
+      "immutable_image_digest": null,
+      "in_image_verifier_digest": null,
+      "in_image_verifier_is_additive": true,
+      "in_image_verifier_path": "/usr/local/bin/verify-image-contract",
+      "linux_userspace_required": true,
+      "oci_architecture": null,
+      "oci_os": "linux"
+    }
+  },
+  "kind": "factor_local_docker_colima_profile",
+  "limitations": [
+    "proposed-contract-only",
+    "validator-tested-only",
+    "no-live-docker-or-colima-evidence",
+    "capacity-and-cost-unmeasured",
+    "no-runtime-acceptance",
+    "not-runnable",
+    "no-global-docker-context-change"
+  ],
+  "live_identity": {
+    "colima_path": null,
+    "colima_version": null,
+    "docker_context": null,
+    "docker_path": null,
+    "docker_version": null,
+    "vm_identity": null
+  },
+  "orchestration": {
+    "compose_scaling": "explicit-only",
+    "custom_pressure_daemon": false,
+    "kubernetes": false,
+    "redis": false,
+    "swarm": false
+  },
+  "platform": {
+    "container_runtime": "docker",
+    "cpu": 6,
+    "disk_bytes": 42949672960,
+    "memory_bytes": 12884901888,
+    "provider": "colima",
+    "vm_type": "vz"
+  },
+  "pressure_policy": {
+    "admission_under_pressure": "block-new-leases",
+    "auto_shrink_running_memory": false,
+    "colima_stop_preconditions": [
+      "queue-drained",
+      "no-running-attempt",
+      "no-unknown-attempt"
+    ],
+    "running_attempt_under_pressure": "finish-or-cancel-current-bounded-attempt"
+  },
+  "profile_id": "factor-local-docker-colima-v1",
+  "runnable": false,
+  "schema_version": 1,
+  "selection": "local-docker-replaces-paid-gcp-activation",
+  "stable_lifecycle_contract": {
+    "backoff_seconds": [
+      5,
+      15,
+      45
+    ],
+    "docker_restart_policy": "no",
+    "healthcheck": {
+      "interval_seconds": 10,
+      "retries": 3,
+      "start_period_seconds": 20,
+      "timeout_seconds": 3
+    },
+    "host_reconciliation": {
+      "unknown_state_action": "fence-and-reconcile-before-restart",
+      "verify_container_identity": true,
+      "verify_health_and_readiness": true,
+      "verify_image_digest": true,
+      "verify_network_attachments": true
+    },
+    "max_restarts": 3,
+    "owner": "host-authority",
+    "readiness": {
+      "controller": "healthcheck-passed-and-proxy-ready",
+      "proxy": "healthcheck-passed"
+    },
+    "restart_storm_action": "block-new-leases-fence-stable-services-and-reconcile",
+    "restart_window_seconds": 300
+  },
+  "status": "selected-disabled"
+}

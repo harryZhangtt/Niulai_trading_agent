@@ -1,0 +1,418 @@
+{
+  "bindings": {
+    "candidate_lock": {
+      "path": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/post_install_runtime_lock_v2.json",
+      "sha256": "f6334dd1ef9b696ef397feeedf20c3777c8ab7e19cdd2d978876bb3abcdef9c5"
+    },
+    "installed_target": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1",
+    "preflight_implementation": {
+      "path": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/claude_sdk_preflight.py",
+      "record_importlib_text_semantics": "utf8_universal_newline_normalized_compatibility",
+      "record_raw_bytes_semantics": "descriptor_safe_no_follow_authoritative",
+      "sha256": "5b038e1690bb42ddb5cf68e347abe6bb5fbbc4c749dfef51f269175f7e02e353"
+    },
+    "python": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1/bin/python",
+    "reflected_surface_source": {
+      "derivation": "python-ast-static-no-import",
+      "files": {
+        "query.py": {
+          "path": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1/lib/python3.12/site-packages/claude_agent_sdk/query.py",
+          "sha256": "5528bc5bc57992f833f7a1056d1e2847eb71b070766764c84365c2e49a05162e"
+        },
+        "types.py": {
+          "path": "/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1/lib/python3.12/site-packages/claude_agent_sdk/types.py",
+          "sha256": "536acb144fb8e515aa91a5153eb824901bacef4c6b8aa88e6d7a0f0b7b2a8004"
+        }
+      }
+    },
+    "requirements": {
+      "path": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/claude-requirements.txt",
+      "sha256": "c1d66fb29f05b8f79cb1bdd5c825b6b771963fdfbbf0270243dfedff0ee7dc5d"
+    },
+    "trusted_launcher": {
+      "path": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/sandboxed_import_launcher.py",
+      "sandbox_profile_sha256": "76acbd1ab0d5ff90ea2b8b0420bb12400f98075d4ccf13efa1fa055dd1d82441",
+      "sha256": "c21fdfc9828bc77c9129f7cbb2a84462097a43526e02fb3e9903230ae3779b60"
+    },
+    "workspace_pythonpath": "/Users/bytedance/Desktop/Trading Agent"
+  },
+  "contract": "claude-agent-sdk-provider-free-import-preflight-plan-v2",
+  "environment": {
+    "clear_environment": true,
+    "credential_variables_present": [],
+    "launcher": "/usr/bin/env",
+    "network_expected": false,
+    "network_limitation": "macOS sandbox_init is applied in-process before SDK import and kernel-denies network, filesystem writes, fork, and exec; failure to activate exits BLOCKED.",
+    "provider_variables_present": [],
+    "proxy_variables_present": [],
+    "set_exactly": {
+      "PYTHONNOUSERSITE": "1",
+      "PYTHONPATH": "/Users/bytedance/Desktop/Trading Agent"
+    }
+  },
+  "execution_contract": {
+    "bundled_cli_allowed": false,
+    "bundled_cli_expected": false,
+    "child_process_allowed": false,
+    "child_process_expected": false,
+    "expected_side_effects": [],
+    "filesystem_write_allowed": false,
+    "install_allowed": false,
+    "network_allowed": false,
+    "provider_query_allowed": false,
+    "provider_query_expected": false,
+    "sdk_import_expected": true
+  },
+  "expected_output_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "assistant_fields": {
+        "items": {
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "blockers": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "declared_requirement": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "expected_distribution_tree_sha256": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "expected_record_importlib_text_utf8_sha256": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "expected_record_raw_bytes_sha256": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "install_performed": {
+        "const": false
+      },
+      "installed_version": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "minimum_python": {
+        "const": "3.10"
+      },
+      "model_usage_keys": {
+        "items": {
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "model_usage_optional_keys": {
+        "items": {
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "model_usage_required_keys": {
+        "items": {
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "network_used": {
+        "const": false
+      },
+      "option_parameters": {
+        "items": {
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "package_tree_sha256": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "python_version": {
+        "type": "string"
+      },
+      "query_parameters": {
+        "items": {
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "record_importlib_text_utf8_sha256": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "record_raw_bytes_sha256": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "result_fields": {
+        "items": {
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "schema_version": {
+        "const": 3
+      },
+      "status": {
+        "enum": [
+          "READY_OFFLINE",
+          "BLOCKED_OFFLINE"
+        ]
+      },
+      "target_runtime_python": {
+        "const": "3.12"
+      }
+    },
+    "required": [
+      "schema_version",
+      "status",
+      "blockers",
+      "network_used",
+      "install_performed",
+      "declared_requirement",
+      "installed_version",
+      "python_version",
+      "minimum_python",
+      "target_runtime_python",
+      "package_tree_sha256",
+      "record_raw_bytes_sha256",
+      "record_importlib_text_utf8_sha256",
+      "expected_distribution_tree_sha256",
+      "expected_record_raw_bytes_sha256",
+      "expected_record_importlib_text_utf8_sha256",
+      "option_parameters",
+      "query_parameters",
+      "assistant_fields",
+      "result_fields",
+      "model_usage_keys",
+      "model_usage_required_keys",
+      "model_usage_optional_keys"
+    ],
+    "type": "object"
+  },
+  "expected_ready_bindings": {
+    "assistant_fields": [
+      "content",
+      "error",
+      "message_id",
+      "model",
+      "parent_tool_use_id",
+      "session_id",
+      "stop_reason",
+      "usage",
+      "uuid"
+    ],
+    "blockers": [],
+    "declared_requirement": "claude-agent-sdk==0.2.179",
+    "expected_distribution_tree_sha256": "96ca6774cfa68c0306336fc40268ed4afc18f09e4102210098c9aed699fde423",
+    "expected_record_importlib_text_utf8_sha256": "4476d8b36aee0f444ca3ebc09ba8d1d466de35d0ac08c8cd359ba3aaf3317b87",
+    "expected_record_raw_bytes_sha256": "17b64b092f6a3af6273ce3de9a34e2a7b20183ac61b1e4aa47f2705298571ad8",
+    "install_performed": false,
+    "installed_version": "0.2.179",
+    "minimum_python": "3.10",
+    "model_usage_keys": [
+      "cacheCreationInputTokens",
+      "cacheReadInputTokens",
+      "canonicalModel",
+      "contextWindow",
+      "costUSD",
+      "inputTokens",
+      "maxOutputTokens",
+      "outputTokens",
+      "provider",
+      "webSearchRequests"
+    ],
+    "model_usage_optional_keys": [
+      "canonicalModel",
+      "provider"
+    ],
+    "model_usage_required_keys": [
+      "cacheCreationInputTokens",
+      "cacheReadInputTokens",
+      "contextWindow",
+      "costUSD",
+      "inputTokens",
+      "maxOutputTokens",
+      "outputTokens",
+      "webSearchRequests"
+    ],
+    "network_used": false,
+    "option_parameters": [
+      "tools",
+      "allowed_tools",
+      "system_prompt",
+      "mcp_servers",
+      "strict_mcp_config",
+      "permission_mode",
+      "continue_conversation",
+      "resume",
+      "session_id",
+      "max_turns",
+      "max_budget_usd",
+      "disallowed_tools",
+      "model",
+      "fallback_model",
+      "betas",
+      "permission_prompt_tool_name",
+      "cwd",
+      "cli_path",
+      "settings",
+      "add_dirs",
+      "env",
+      "extra_args",
+      "max_buffer_size",
+      "debug_stderr",
+      "stderr",
+      "can_use_tool",
+      "hooks",
+      "user",
+      "include_partial_messages",
+      "include_hook_events",
+      "forward_subagent_text",
+      "verbatim_prompts",
+      "fork_session",
+      "resume_session_at",
+      "resume_drops_turn",
+      "agents",
+      "setting_sources",
+      "skills",
+      "sandbox",
+      "plugins",
+      "max_thinking_tokens",
+      "thinking",
+      "effort",
+      "output_format",
+      "enable_file_checkpointing",
+      "session_store",
+      "session_store_flush",
+      "load_timeout_ms",
+      "task_budget"
+    ],
+    "package_tree_sha256": "96ca6774cfa68c0306336fc40268ed4afc18f09e4102210098c9aed699fde423",
+    "python_version": "3.12.16",
+    "query_parameters": [
+      "prompt",
+      "options",
+      "transport"
+    ],
+    "record_importlib_text_utf8_sha256": "4476d8b36aee0f444ca3ebc09ba8d1d466de35d0ac08c8cd359ba3aaf3317b87",
+    "record_raw_bytes_sha256": "17b64b092f6a3af6273ce3de9a34e2a7b20183ac61b1e4aa47f2705298571ad8",
+    "result_fields": [
+      "api_error_status",
+      "deferred_tool_use",
+      "duration_api_ms",
+      "duration_ms",
+      "errors",
+      "is_error",
+      "model_usage",
+      "num_turns",
+      "origin",
+      "permission_denials",
+      "result",
+      "session_id",
+      "stop_reason",
+      "structured_output",
+      "subtype",
+      "terminal_reason",
+      "total_cost_usd",
+      "usage",
+      "uuid"
+    ],
+    "schema_version": 3,
+    "status": "READY_OFFLINE",
+    "target_runtime_python": "3.12"
+  },
+  "invocation": {
+    "argv": [
+      "/usr/bin/env",
+      "-i",
+      "PYTHONPATH=/Users/bytedance/Desktop/Trading Agent",
+      "PYTHONNOUSERSITE=1",
+      "/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1/bin/python",
+      "-P",
+      "-X",
+      "pycache_prefix=/private/var/empty/claude-sdk-preflight",
+      "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/sandboxed_import_launcher.py",
+      "--requirements",
+      "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/claude-requirements.txt",
+      "--lock",
+      "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/post_install_runtime_lock_v2.json"
+    ],
+    "calls": "trusted sandboxed_import_launcher.py -> shared.job_runtime.claude_sdk_preflight.inspect_environment schema v3",
+    "explicit_lock_argument": "/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/post_install_runtime_lock_v2.json",
+    "shell_command_for_user_bang": "/usr/bin/env -i 'PYTHONPATH=/Users/bytedance/Desktop/Trading Agent' PYTHONNOUSERSITE=1 '/Users/bytedance/Desktop/Trading Agent/.job-runtime/fable-sdk-0.2.179-install-v1/bin/python' -P -X pycache_prefix=/private/var/empty/claude-sdk-preflight '/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/sandboxed_import_launcher.py' --requirements '/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/claude-requirements.txt' --lock '/Users/bytedance/Desktop/Trading Agent/shared/job_runtime/candidates/claude_sdk_0_2_179_py312_macos_arm64_v1/post_install_runtime_lock_v2.json'"
+  },
+  "production_activated": false,
+  "receipt_template": {
+    "bundled_cli_executions_observed": 0,
+    "candidate_lock_sha256": "f6334dd1ef9b696ef397feeedf20c3777c8ab7e19cdd2d978876bb3abcdef9c5",
+    "child_processes_observed": 0,
+    "completed_at_utc": null,
+    "contract": "claude-agent-sdk-provider-free-import-preflight-receipt-v3",
+    "credential_variables_present": [],
+    "environment_was_cleared": true,
+    "exit_code": null,
+    "install_performed": false,
+    "network_calls_observed": 0,
+    "plan_sha256": null,
+    "production_activated": false,
+    "provider_queries_observed": 0,
+    "provider_variables_present": [],
+    "proxy_variables_present": [],
+    "schema_version": 3,
+    "started_at_utc": null,
+    "status": "NOT_EXECUTED",
+    "stderr": null,
+    "stdout_json": null,
+    "stdout_sha256": null
+  },
+  "schema_version": 2,
+  "status": "PLAN_V2_ONLY_NOT_EXECUTED"
+}

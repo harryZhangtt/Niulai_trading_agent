@@ -4,11 +4,22 @@ from datetime import datetime,timezone
 from pathlib import Path
 from .config import load_config,assert_recipient,ConfigError
 from .scheduler import admit
-from .delivery import Outbox,DeliveryError,assert_content_parity
+from .delivery import Outbox,DeliveryError,assert_content_parity,validate_payload
 from .replay import from_raw,private_file
 
+
+def claim_once(outbox, key, attempt_id, *, recipient, profile_email):
+    """Return only the immutable maintained payload after its canonical digest reopens."""
+    payload=outbox.claim(key,attempt_id)
+    fingerprint=validate_payload(payload,recipient,profile_email)
+    row=outbox.get(key)
+    if row is None or row['digest']!=fingerprint['digest']:
+        raise DeliveryError('CLAIMED_PAYLOAD_DIGEST_MISMATCH')
+    return payload
+
+
 def main():
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['compose','prepare','claim','accepted','unknown','verify','status'])
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['compose','prepare','claim','accepted','unknown','verify','reconcile','status'])
     for n in ('workspace','config','request-id','payload'):p.add_argument('--'+n,required=True)
     p.add_argument('--attempt-id');p.add_argument('--message-id');p.add_argument('--readback');a=p.parse_args();os.umask(0o077)
     root=Path(a.workspace).resolve(strict=True);config=load_config(a.config,root)
@@ -24,7 +35,7 @@ def main():
         with os.fdopen(fd,'w') as stream:json.dump(payload,stream,ensure_ascii=False)
         print(json.dumps({'status':'composed','payload_saved':True}));return
     payload=json.loads(path.read_text())
-    if a.action in ('prepare','claim','verify'):
+    if a.action in ('prepare','claim','verify','reconcile'):
         from .e2e_guard import validate
         validate(root,path.parent,payload,config.recipient,a.request_id)
     outbox=Outbox(config.state_root/'databases/outbox.sqlite',root)
@@ -33,12 +44,13 @@ def main():
         if a.action=='prepare':
             row=outbox.prepare(key,payload,recipient=config.recipient,profile_email=profile['email'])
             print(json.dumps({'status':row['status'],'digest':row['digest']}))
-        else:print(json.dumps(outbox.claim(key,a.attempt_id),ensure_ascii=False))
+        else:print(json.dumps(claim_once(outbox,key,a.attempt_id,recipient=config.recipient,
+                                         profile_email=profile['email']),ensure_ascii=False))
     elif a.action=='accepted':print(json.dumps(outbox.accepted(key,a.attempt_id,a.message_id)))
     elif a.action=='unknown':print(json.dumps(outbox.unknown(key,a.attempt_id)))
-    elif a.action=='verify':
+    elif a.action in ('verify','reconcile'):
         row=outbox.get(key)
-        if not row or row['status']!='accepted' or row['message_id']!=a.message_id:raise DeliveryError('ACCEPTED_RECEIPT_REQUIRED')
+        if not row or row['status'] not in ('sending','unknown','accepted'):raise DeliveryError('RECONCILIATION_REJECTED')
         actual=from_raw(private_file(a.readback,root).read_text(),config.recipient)
         fp=assert_content_parity(payload,actual,config.recipient,config.recipient)
         print(json.dumps(outbox.reconcile_accepted(key,message_id=a.message_id,verified_digest=fp['digest'])))

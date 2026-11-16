@@ -21,6 +21,9 @@ import time
 import types
 from urllib import error, parse, request
 import uuid
+from .authorization import (AuthorizationError, claim_authorization, finalize_authorization,
+                            query_sha256 as authorization_query_sha256,
+                            symbols_sha256 as authorization_symbols_sha256)
 from .queries import execute_query, validate_query
 
 
@@ -41,7 +44,7 @@ def safe_failure(exc):
     report = {"status": "failed", "error": "TIGER_BRIDGE_FAILED", "reauthorization_assumed_required": False}
     if isinstance(exc, TigerDeadline):
         report["error"] = "TIGER_RUN_DEADLINE"
-    elif isinstance(exc, TigerBridgeError):
+    elif isinstance(exc, (TigerBridgeError, AuthorizationError)):
         report["error"] = str(exc)
     else:
         n = sys.modules.get("niulai_tiger")
@@ -272,10 +275,41 @@ def run_bridge(workspace, policy, site, out, mode="verify", *, query=None):
         require(not blocker.exists(), "TIGER_PRIOR_OUTCOME_REQUIRES_RECONCILIATION")
         if mode == "query":
             require(not any((out / name).exists() for name in (
-                "tiger_status.json", "query.json", "holdings.json", "assets.json")), "TIGER_OUTPUT_EXISTS")
+                "tiger_status.json", "query.json", "holdings.json", "assets.json",
+                "market_raw.json", "market_manifest.json", "market_query.json")), "TIGER_OUTPUT_EXISTS")
+        authorization = None
+        attempt_id = None
+        if mode == "query" and query["tool"] == "market_snapshot":
+            attempt_id = str(uuid.uuid4())
+            args = query["arguments"]
+            authorization = claim_authorization(
+                workspace, authorization_id=args["authorization_id"],
+                authorization_sha256_value=args["authorization_sha256"],
+                calibration_contract_sha256=args["contract"]["calibration_sha256"],
+                cohort_sha256=args["sample_selection"]["cohorts"]["calibration"]["cohort_sha256"], attempt_id=attempt_id,
+                query_sha256_value=authorization_query_sha256(query),
+                symbols_sha256_value=authorization_symbols_sha256(args["symbols"]))
         try:
-            return _run_locked(workspace, state, out, mode, policy, session, blocker, query=query)
+            result = _run_locked(workspace, state, out, mode, policy, session, blocker,
+                                 query=query, attempt_id=attempt_id)
+            if authorization is not None:
+                finalize_authorization(workspace, authorization_id=authorization["authorization_id"],
+                                       authorization_sha256_value=authorization["authorization_sha256"],
+                                       attempt_id=attempt_id, terminal_status="success")
+                result.update(authorization_id=authorization["authorization_id"],
+                              authorization_sha256=authorization["authorization_sha256"],
+                              authorization_status="consumed")
+                write_json(out / "tiger_status.json", result)
+            return result
         except BaseException as exc:
+            if authorization is not None:
+                try:
+                    finalize_authorization(workspace, authorization_id=authorization["authorization_id"],
+                                           authorization_sha256_value=authorization["authorization_sha256"],
+                                           attempt_id=attempt_id,
+                                           terminal_status="unresolved" if blocker.exists() else "failure")
+                except AuthorizationError:
+                    pass  # Claimed ledger remains durable reconciliation evidence.
             write_json(out / "tiger_status.json", {**safe_failure(exc), "mode": mode,
                        "automatic_retry": False, "reconciliation_required": blocker.exists()})
             raise
@@ -283,9 +317,9 @@ def run_bridge(workspace, policy, site, out, mode="verify", *, query=None):
         os.close(fd)
 
 
-def _run_locked(workspace, state, out, mode, policy, session, blocker, *, query=None):
+def _run_locked(workspace, state, out, mode, policy, session, blocker, *, query=None, attempt_id=None):
     client = StoreClient(session)
-    attempt_id = str(uuid.uuid4())
+    attempt_id = attempt_id or str(uuid.uuid4())
     # Crash fence starts BEFORE remote acquisition; no automatic replay after crash.
     write_json(blocker, {"attempt_id": attempt_id, "phase": "acquiring", "automatic_retry": False})
     try:

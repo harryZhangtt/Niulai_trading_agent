@@ -1,0 +1,247 @@
+{
+  "activation": false,
+  "aggregate_sha256": "aa6e3126ca8c3a793829dc5b680e70ac249432eb6441fce86930ede9ebb5b8f5",
+  "claim_limit": "Exact local v2 source/evidence identity and producer test claim pending final run and fresh independent review only; no provider readiness, activation, inference, countable evidence, or runtime acceptance.",
+  "closure_kind": "EXACT_PROVIDER_FREE_SOURCE_AND_EVIDENCE_CLOSURE",
+  "countable": false,
+  "excluded": [
+    "source-closure-v2.json self identity",
+    "v1 source/evidence mutation",
+    "owner-private runtime outputs",
+    "credentials/account data",
+    "generated __pycache__"
+  ],
+  "live_effects": 0,
+  "member_count": 43,
+  "members": [
+    {
+      "bytes": 13066,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-claude-metadata-preflight-v1-independent-review-open-fable-20261115-a0efa3e1.json",
+      "sha256": "548ae003bf8a29f21b60753942b3414895c058daf68b9a656839d7b0fad319b5"
+    },
+    {
+      "bytes": 16898,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v10-plan-independent-review-open-fable-20261113-8e9a8076.json",
+      "sha256": "11df0a91c11bfc89f256f928c0a858ddf3e2c0753217c27770c0e9bf95c1d30d"
+    },
+    {
+      "bytes": 5166,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-provider-binary-identity-current-20261111-independent-review-fable-20261111T085348Z.json",
+      "sha256": "3af2710961a409f3c50077bf919b2c851422b185955572355254141d8cd5b40b"
+    },
+    {
+      "bytes": 1788,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-provider-binary-identity-current-20261111.json",
+      "sha256": "d1307d8dc05cfb543ac2abc3e044f6de390d1bd7bd017538cbfa2a527a43d848"
+    },
+    {
+      "bytes": 4216,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-membership-interpretation-independent-review.json",
+      "sha256": "f1b42f2cb81b3fd09ca5749813c7404e1057bb07055109e87239ebdb15432d27"
+    },
+    {
+      "bytes": 1659,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-membership-interpretation-receipt.json",
+      "sha256": "9f492a296ab261e7b7c7a2373a287f6a473577318300e35bba220e7bd3e3688c"
+    },
+    {
+      "bytes": 23525,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-driver-design.json",
+      "sha256": "443b3b865b171a7202e5cb7dd23ab1fc3c2b47d178e6f35e7ab077ee0b128f10"
+    },
+    {
+      "bytes": 11601,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-driver-provider-free-successor-v2-independent-review.json",
+      "sha256": "d3bf74efbf46806bee88b7b4e08ffd2164039ba8a996e1688fb47f11d636a7fd"
+    },
+    {
+      "bytes": 10250,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v9-independent-review-clean-fable-20261113-8e9a8076-evidence-reseal.json",
+      "sha256": "fb7fbe185b6b403aa67cd8bfeb64bdc9baf636c7788b39cd6fba6258f48e515f"
+    },
+    {
+      "bytes": 174,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/__init__.py",
+      "sha256": "13d99271165a2f55a902eb395ac6b19c268051431c1c6630e4d5448674ac230d"
+    },
+    {
+      "bytes": 5046,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/constants.py",
+      "sha256": "dff255f5bc43d1bbec7e81c36f39c725fef7a37144a9865b6ee202af095e9ced"
+    },
+    {
+      "bytes": 4843,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/contracts.py",
+      "sha256": "83bfa40da6c8434720753473a0d3f8649b2a02a06394cffe9c0640d137b1fb57"
+    },
+    {
+      "bytes": 5860,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/custody.py",
+      "sha256": "5ce2d28fe7bd1f00f6a884871e2b2b7061fe93c4a77466eb52275d416f26c090"
+    },
+    {
+      "bytes": 26061,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/engine.py",
+      "sha256": "bc0e17ba1881845e8457acb5feda8f49acf437ae96a10cecec8b1a0ab52b870a"
+    },
+    {
+      "bytes": 961,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/public.py",
+      "sha256": "193d5fa89054553c482d7d24eda7785946a1150233ccf61f9904aa7196508e09"
+    },
+    {
+      "bytes": 4185,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/schemas/auth-receipt-v1.schema.json",
+      "sha256": "453b3fa3b22f4157f658bf5845bfe6f052385027ec5e4247b691af0517a2a79a"
+    },
+    {
+      "bytes": 5223,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/schemas/catalog-receipt-v1.schema.json",
+      "sha256": "410123627cab7a996829bc4f9296c9ce88e9c78a3fe348b54546d6898d4a1ea0"
+    },
+    {
+      "bytes": 718,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/schemas/clean-review-v1.schema.json",
+      "sha256": "603bd779983acdb9c6dd0c3252ea4ec3980a1833962367da95ce0b4b93f42b27"
+    },
+    {
+      "bytes": 725,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/schemas/producer-status-v1.schema.json",
+      "sha256": "887b086213c984b800a29e7b29c9942f0fe2a546dd49c368c11c2f61b9a5803e"
+    },
+    {
+      "bytes": 1575,
+      "path": "shared/job_runtime/candidates/r6_claude_metadata_preflight_v2/schemas/public-status-v1.schema.json",
+      "sha256": "d0e015e5b47f5ab08678603767aff96cf96ee9e5ca4e9939acdb4446868b7d98"
+    },
+    {
+      "bytes": 16030,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_catalog_parser_v1/parser.py",
+      "sha256": "c20e58cad66f866a5ce1865d8937ee0ff4a87aa4cc62bbf5a3a0c5a1bc01a502"
+    },
+    {
+      "bytes": 19663,
+      "path": "shared/job_runtime/provider_contract.py",
+      "sha256": "9de31552df5b1474bf3b29e36ce07278264e71a19f05b45cc1c09213d6873333"
+    },
+    {
+      "bytes": 28572,
+      "path": "shared/job_runtime/providers/claude_host.py",
+      "sha256": "4c8b3975d06fd6d543885b1a2bbff7dee6adf3b17b0aa9ca4f61f7ab19da56c1"
+    },
+    {
+      "bytes": 70,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/__init__.py",
+      "sha256": "bb3c0c3d45a30ad908c2f55c26da8c2e15b1eea979d034dc9323515a77be1447"
+    },
+    {
+      "bytes": 245,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/authority/auth-grant-review.json",
+      "sha256": "bde6793f0b3ccc3d92af13cb2162fa16945e015bd42305b0eae39b0f4acceb1e"
+    },
+    {
+      "bytes": 189,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/authority/auth-grant.json",
+      "sha256": "a2f221fffbb2715e495d992b457d16e2138ce15510b02fbe9c2add9c0f80da51"
+    },
+    {
+      "bytes": 248,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/authority/catalog-grant-review.json",
+      "sha256": "b800ce65f86697a3f3b350268dbebef24d2f8c1f9ab3bbf278f97300dbf8ccba"
+    },
+    {
+      "bytes": 194,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/authority/catalog-grant.json",
+      "sha256": "919a0dedc7cf605eca79d6b16e1be54b177223ccee3a2d34f4744ea47be47c31"
+    },
+    {
+      "bytes": 160,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/authority/claude-v9-review.json",
+      "sha256": "7e1b6b55f2536d12bb11a41f39c216ca562557821796f145a3919dd51039aaa9"
+    },
+    {
+      "bytes": 150,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/authority/p0-v10.json",
+      "sha256": "68f21604d1c96a3bc67e1999a402e4fb5de8613bd54b902291d174966a47ec12"
+    },
+    {
+      "bytes": 948,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/authority/registry.json",
+      "sha256": "23ad853b6ae2a0b7f9fbdc39218b50a30a7993042802ada9ff59517c9c99936e"
+    },
+    {
+      "bytes": 2857,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/catalog_nominal.jsonl",
+      "sha256": "2d2d30f9cb98a83eafbe91129cdef93b7cdeb174e948d2e5d5dbedae15d9712f"
+    },
+    {
+      "bytes": 5267,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/fixtures/fake_claude",
+      "sha256": "db06e8fc3c501936d5b3e178285e6eb6d608670ed6e778927e6096ff38440b49"
+    },
+    {
+      "bytes": 4708,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/test_artifacts.py",
+      "sha256": "904d773c85e7c05e8126252bae21ac7e1167f086bc2ec5da489779bffdb1dd90"
+    },
+    {
+      "bytes": 22132,
+      "path": "shared/job_runtime/tests/candidates/r6_claude_metadata_preflight_v2/test_preflight.py",
+      "sha256": "54d73170a55408329912db6b684240bfd276cead39e904fc29e91d04fa697b97"
+    },
+    {
+      "bytes": 6073,
+      "path": "tuning/architecture/r6_claude_current_readiness_audit_v1/protocol-v1.json",
+      "sha256": "3f121d4e334c79081856aa448f32c3269b810fa94e937e18003992aac7fc06fc"
+    },
+    {
+      "bytes": 14863,
+      "path": "tuning/architecture/r6_claude_current_readiness_audit_v1/readiness-decision-v1.json",
+      "sha256": "301ad6789c4e3c979afcb0a61fa6b23c7ccc6f2a49d9a89f33ea3f5717d7fd24"
+    },
+    {
+      "bytes": 9735,
+      "path": "tuning/architecture/r6_claude_metadata_preflight_v1/source-closure-v1.json",
+      "sha256": "0fb58c599583eeb79832732b01048dd0fdb5b65abdaedf0a492fa5d2a1f17384"
+    },
+    {
+      "bytes": 3494,
+      "path": "tuning/architecture/r6_claude_metadata_preflight_v2/architecture-v2.json",
+      "sha256": "390548f5bbbdf76c779c8141caecff8ed14f6033ba1c121281e1dbf497f67310"
+    },
+    {
+      "bytes": 3024,
+      "path": "tuning/architecture/r6_claude_metadata_preflight_v2/decision-v2.json",
+      "sha256": "7bffd6ad8a011198f02e5a7cf94f73076d69bdc708135e8527a1ee010796399d"
+    },
+    {
+      "bytes": 3608,
+      "path": "tuning/architecture/r6_claude_metadata_preflight_v2/producer-verification-v2.json",
+      "sha256": "911e4b1cbabf5d4cbfa9d1956958e45ea3c8d03808db7a6349d9f015aa7c8dc1"
+    },
+    {
+      "bytes": 3733,
+      "path": "tuning/architecture/r6_claude_metadata_preflight_v2/protocol-v2.json",
+      "sha256": "e0ea6743831925e512979055455015061608b8e94fdac6fa6dbeb43eba4d1be9"
+    },
+    {
+      "bytes": 7002,
+      "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/producer-verification-v2-final.json",
+      "sha256": "bcbcdbfd37546e5b9ae9db591362c2f5810a8d622e43e9c872ad31056c55a35a"
+    }
+  ],
+  "registration": false,
+  "status": "DISABLED_PROVIDER_FREE_PENDING_GRANTS_CLEAN_P0_V10_AND_FRESH_REVIEW",
+  "v1_open_review": {
+    "bytes": 13066,
+    "closed": 5,
+    "findings_total": 6,
+    "open": 1,
+    "open_finding": "R6-CLAUDE-METADATA-PREFLIGHT-V1-005",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-claude-metadata-preflight-v1-independent-review-open-fable-20261115-a0efa3e1.json",
+    "sha256": "548ae003bf8a29f21b60753942b3414895c058daf68b9a656839d7b0fad319b5",
+    "terminal": "OPEN_HELD_BINARY_CLEANUP_REQUIRED",
+    "verdict": "OPEN"
+  },
+  "version": 2
+}

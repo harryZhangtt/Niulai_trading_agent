@@ -333,3 +333,24 @@ its exact recipient, subject and decoded HTML body were verified through Gmail
 raw readback. The private scheduled-v3/acceptance.json now records execution
 passed and email verified for this tested scope. This is not evidence of a
 scheduled business sender or production browser activation.
+
+## Quota coordination candidate, 2026-11-06
+
+A project-local extension to `shared.web_access.policy.Session` now coordinates
+native discovery inside one host process. It is inert unless an application owns
+and shares that Session across its workers. The extension adds exact-query
+singleflight, result-hash cache planning, a bounded task search budget, bounded
+transient retry advice, explicit quota exhaustion, unknown-outcome fencing and
+browser-discovery fallback planning.
+
+This addresses duplicated fan-out calls and repeated calls after the host reports
+its shared quota exhausted. It does not discover the platform's remaining global
+quota in advance, reset that quota, provide a cross-process lock, or intercept a
+worker that invokes native tools directly. The current investment task used the
+authorized EgoLite browser route successfully after native quota exhaustion, but
+that foreground observation is not automatic production activation.
+
+Verification is provider-free. The tests cover exact cache reuse, concurrent
+singleflight, quota fallback without retry, bounded transient retries, task-budget
+overflow, unknown-outcome fencing and secret-query rejection. Existing browser,
+URL, deadline, output, cleanup and narrow-sandbox checks remain unchanged.

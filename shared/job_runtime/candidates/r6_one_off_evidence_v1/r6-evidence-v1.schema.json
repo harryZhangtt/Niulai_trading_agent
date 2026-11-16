@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"urn:trading-agent:r6-one-off-evidence-v1:evidence",
+  "type":"object","additionalProperties":false,
+  "required":["version","scenario","decision","code","countable","logical_job_id","preflight_nonce_sha256","engine","counters","terminal","cleanup","second_admission","external_effects","raw_private","public_allowlist_only"],
+  "properties":{
+    "version":{"const":1},"scenario":{"enum":["nominal","post_admission_unknown","pre_dispatch_stop"]},"decision":{"enum":["PASS","STOP","UNKNOWN"]},"code":{"type":"string","pattern":"^[A-Z][A-Z0-9_]{0,95}$"},"countable":{"const":false},
+    "logical_job_id":{"type":"string","pattern":"^r6o1-[a-f0-9]{32}$"},"preflight_nonce_sha256":{"$ref":"#/$defs/digest"},
+    "engine":{"type":"object","additionalProperties":false,"required":["slot_id","attempt_id","operation_id","status"],"properties":{"slot_id":{"type":["string","null"]},"attempt_id":{"type":["string","null"]},"operation_id":{"type":["string","null"]},"status":{"type":["string","null"],"enum":["succeeded","unknown",null]}}},
+    "counters":{"type":"object","additionalProperties":false,"required":["dispatch","admission","admission_stop","upstream","retry","replay","status_query","reconstruction_dispatch"],"properties":{"dispatch":{"type":"integer","minimum":0,"maximum":1},"admission":{"type":"integer","minimum":0,"maximum":1},"admission_stop":{"type":"integer","minimum":0,"maximum":1},"upstream":{"type":"integer","minimum":0,"maximum":1},"retry":{"const":0},"replay":{"const":0},"status_query":{"const":0},"reconstruction_dispatch":{"const":0}}},
+    "terminal":{"enum":["exact","truncated","absent"]},"cleanup":{"enum":["complete","fault","not_started"]},"second_admission":{"enum":["STOP","NOT_APPLICABLE"]},
+    "external_effects":{"$ref":"#/$defs/effects"},"raw_private":{"const":true},"public_allowlist_only":{"const":true}
+  },
+  "allOf":[
+    {"if":{"properties":{"decision":{"const":"PASS"}}},"then":{"properties":{"scenario":{"const":"nominal"},"terminal":{"const":"exact"},"cleanup":{"const":"complete"},"second_admission":{"const":"STOP"},"engine":{"properties":{"status":{"const":"succeeded"}}},"counters":{"properties":{"dispatch":{"const":1},"admission":{"const":1},"admission_stop":{"const":1},"upstream":{"const":1}}}}}},
+    {"if":{"properties":{"decision":{"const":"UNKNOWN"}}},"then":{"properties":{"scenario":{"const":"post_admission_unknown"},"terminal":{"const":"truncated"},"cleanup":{"const":"fault"},"second_admission":{"const":"STOP"},"engine":{"properties":{"status":{"const":"unknown"}}},"counters":{"properties":{"dispatch":{"const":1},"admission":{"const":1},"admission_stop":{"const":1},"upstream":{"const":1}}}}}},
+    {"if":{"properties":{"decision":{"const":"STOP"}}},"then":{"properties":{"scenario":{"const":"pre_dispatch_stop"},"terminal":{"const":"absent"},"cleanup":{"const":"not_started"},"second_admission":{"const":"NOT_APPLICABLE"},"engine":{"properties":{"slot_id":{"const":null},"attempt_id":{"const":null},"operation_id":{"const":null},"status":{"const":null}}},"counters":{"properties":{"dispatch":{"const":0},"admission":{"const":0},"admission_stop":{"const":0},"upstream":{"const":0}}}}}}
+  ],
+  "$defs":{"digest":{"type":"string","pattern":"^[a-f0-9]{64}$"},"effects":{"type":"object","additionalProperties":false,"required":["provider","network","account","login","private_live_root","email","socket","subprocess","host"],"properties":{"provider":{"const":false},"network":{"const":false},"account":{"const":false},"login":{"const":false},"private_live_root":{"const":false},"email":{"const":false},"socket":{"const":false},"subprocess":{"const":false},"host":{"const":false}}}}
+}

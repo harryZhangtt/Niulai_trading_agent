@@ -12,11 +12,12 @@ test('registered NOW checkpoint shows actual catalog JSON and an explicit missin
   expect(source.local_preview.text).not.toContain('/workspace/');
   expect(source.timestamps.available_at).toBeNull();
   await page.goto('/datasource');
-  await page.getByRole('button', { name: 'Source ledger', exact: true }).click();
+  await page.getByRole('link', { name: 'Evidence', exact: true }).click();
   await page.getByLabel('Filter this page').fill(source.title);
   await page.getByRole('button', { name: source.title, exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Document contents', exact: true })).toBeVisible();
   await expect(page.locator('.document-preview')).toContainText('Document body missing');
+  await page.getByText('Catalog JSON (document body missing)', { exact: true }).click();
   await expect(page.getByLabel('Research document JSON preview')).toContainText('catalog_record');
   await expect(page.getByLabel('Research document JSON preview')).toContainText('market_price_cutoff_utc');
   await expect(page.locator('.document-preview')).toContainText('Declared SHA-256 (unverified)');

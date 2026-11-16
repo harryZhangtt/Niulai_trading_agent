@@ -1,0 +1,393 @@
+{
+  "accounts": {
+    "compute": "111111111111",
+    "custody": "222222222222",
+    "recovery": "333333333333"
+  },
+  "activation": {
+    "account_receipt_sha256": null,
+    "image_receipt_sha256": null,
+    "label_policy_receipt_sha256": null,
+    "network_receipt_sha256": null,
+    "production_retention_lock": false,
+    "protected_labels": false,
+    "publication": false,
+    "publication_policy_receipt_sha256": null,
+    "runtime_invocation": false
+  },
+  "blockers": [],
+  "controls": [
+    "digest-only-ecr",
+    "one-container-per-task",
+    "distinct-task-roles",
+    "distinct-security-groups",
+    "nonroot",
+    "read-only-root",
+    "drop-all-capabilities",
+    "no-privileged",
+    "no-ecs-exec",
+    "no-docker-socket",
+    "executor-no-internet",
+    "exact-version-label-read",
+    "no-runner-signing",
+    "no-runner-publication"
+  ],
+  "kind": "factor_aws_fargate_profile",
+  "limitations": [
+    "fixture-only",
+    "not-runnable"
+  ],
+  "network": {
+    "controller": {
+      "private_ipv4": true,
+      "provider_proxy_only": true,
+      "public_ip": false
+    },
+    "custody": {
+      "label_bucket_endpoint_only": true,
+      "private_ipv4": true,
+      "public_ip": false
+    },
+    "executor": {
+      "default_egress": false,
+      "endpoint_only": true,
+      "internet_gateway": false,
+      "ipv6": false,
+      "nat_gateway": false,
+      "private_ipv4": true,
+      "public_ip": false
+    }
+  },
+  "platform": {
+    "cpu_architectures": [
+      "X86_64",
+      "ARM64"
+    ],
+    "launch_type": "FARGATE",
+    "os": "LINUX",
+    "platform_version": "1.4.0"
+  },
+  "profile_id": "factor-aws-fargate-v1",
+  "regions": {
+    "primary": "us-east-1",
+    "recovery": "us-west-2"
+  },
+  "resources": {
+    "checkpoint_bucket_arn": "arn:aws:s3:::factor-checkpoint-fixture",
+    "dataset_kms_key_arn": "arn:aws:kms:us-east-1:111111111111:key/dataset-key",
+    "dynamodb_table_arn": "arn:aws:dynamodb:us-east-1:111111111111:table/factor-checkpoints",
+    "ecr_layer_bucket_arn": "arn:aws:s3:::prod-us-east-1-starport-layer-bucket/*",
+    "ecr_repository_arns": {
+      "checker": "arn:aws:ecr:us-east-1:222222222222:repository/factor/checker",
+      "controller": "arn:aws:ecr:us-east-1:111111111111:repository/factor/controller",
+      "evaluator": "arn:aws:ecr:us-east-1:222222222222:repository/factor/evaluator",
+      "executor": "arn:aws:ecr:us-east-1:111111111111:repository/factor/executor",
+      "publisher": "arn:aws:ecr:us-east-1:222222222222:repository/factor/publisher"
+    },
+    "label_bucket_arn": "arn:aws:s3:::factor-label-fixture",
+    "label_kms_key_arn": "arn:aws:kms:us-east-1:222222222222:key/label-key",
+    "label_object_version_id": "label-version-fixture-v1",
+    "log_group_arns": {
+      "checker": "arn:aws:logs:us-east-1:222222222222:log-group:/aws/ecs/factor-checker",
+      "controller": "arn:aws:logs:us-east-1:111111111111:log-group:/aws/ecs/factor-controller",
+      "evaluator": "arn:aws:logs:us-east-1:222222222222:log-group:/aws/ecs/factor-evaluator",
+      "executor": "arn:aws:logs:us-east-1:111111111111:log-group:/aws/ecs/factor-executor",
+      "publisher": "arn:aws:logs:us-east-1:222222222222:log-group:/aws/ecs/factor-publisher"
+    },
+    "provider_proxy_arn": "arn:aws:execute-api:us-east-1:111111111111:provider-proxy/prod/POST/invoke",
+    "publication_state_machine_arn": "arn:aws:states:us-east-1:222222222222:stateMachine:factor-publication",
+    "release_bucket_arn": "arn:aws:s3:::factor-release-fixture",
+    "vpc_endpoint_ids": {
+      "dynamodb": "vpce-dynamodb",
+      "ecr_api": "vpce-ecr-api",
+      "ecr_dkr": "vpce-ecr-dkr",
+      "kms": "vpce-kms",
+      "logs": "vpce-logs",
+      "provider_proxy": "vpce-provider-proxy",
+      "s3": "vpce-s3",
+      "states": "vpce-states"
+    }
+  },
+  "runnable": false,
+  "schema_version": 1,
+  "status": "synthetic-fixture",
+  "tasks": {
+    "checker": {
+      "account": "custody",
+      "active_access": {
+        "kms_sign": false,
+        "protected_labels": false,
+        "provider_proxy": false,
+        "publication": false
+      },
+      "aggregate_only": true,
+      "assign_public_ip": false,
+      "capabilities_drop": [
+        "ALL"
+      ],
+      "capability_intent": {
+        "kms_sign": false,
+        "protected_labels": true,
+        "provider_proxy": false,
+        "publication": false
+      },
+      "command": [
+        "factor-checker",
+        "recompute"
+      ],
+      "containers": 1,
+      "docker_socket": false,
+      "ecs_exec": false,
+      "endpoints": [
+        "ecr.api",
+        "ecr.dkr",
+        "s3",
+        "logs",
+        "kms"
+      ],
+      "execution_role_arn": "arn:aws:iam::222222222222:role/factor-checker-execution",
+      "image": "222222222222.dkr.ecr.us-east-1.amazonaws.com/factor/checker@sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "ipv6": false,
+      "name": "checker",
+      "output_schema_id": "factor-checker-aggregate-v1",
+      "platform_version": "1.4.0",
+      "privileged": false,
+      "raw_joined_rows_output": false,
+      "read_only_root": true,
+      "redaction_policy_id": "factor-no-sensitive-output-v1",
+      "region": "us-east-1",
+      "security_group_ids": [
+        "sg-checker"
+      ],
+      "sensitive_logging": false,
+      "stdout_policy": "structured-sanitized-only",
+      "subnet_ids": [
+        "subnet-checker"
+      ],
+      "task_role_arn": "arn:aws:iam::222222222222:role/factor-checker-task",
+      "user": "65532:65532"
+    },
+    "controller": {
+      "account": "compute",
+      "active_access": {
+        "kms_sign": false,
+        "protected_labels": false,
+        "provider_proxy": false,
+        "publication": false
+      },
+      "aggregate_only": false,
+      "assign_public_ip": false,
+      "capabilities_drop": [
+        "ALL"
+      ],
+      "capability_intent": {
+        "kms_sign": false,
+        "protected_labels": false,
+        "provider_proxy": true,
+        "publication": false
+      },
+      "command": [
+        "factor-controller",
+        "run"
+      ],
+      "containers": 1,
+      "docker_socket": false,
+      "ecs_exec": false,
+      "endpoints": [
+        "ecr.api",
+        "ecr.dkr",
+        "s3",
+        "logs",
+        "provider-proxy-internal"
+      ],
+      "execution_role_arn": "arn:aws:iam::111111111111:role/factor-controller-execution",
+      "image": "111111111111.dkr.ecr.us-east-1.amazonaws.com/factor/controller@sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "ipv6": false,
+      "name": "controller",
+      "output_schema_id": "factor-controller-receipt-v1",
+      "platform_version": "1.4.0",
+      "privileged": false,
+      "raw_joined_rows_output": false,
+      "read_only_root": true,
+      "redaction_policy_id": "factor-no-sensitive-output-v1",
+      "region": "us-east-1",
+      "security_group_ids": [
+        "sg-controller"
+      ],
+      "sensitive_logging": false,
+      "stdout_policy": "structured-sanitized-only",
+      "subnet_ids": [
+        "subnet-controller"
+      ],
+      "task_role_arn": "arn:aws:iam::111111111111:role/factor-controller-task",
+      "user": "65532:65532"
+    },
+    "evaluator": {
+      "account": "custody",
+      "active_access": {
+        "kms_sign": false,
+        "protected_labels": false,
+        "provider_proxy": false,
+        "publication": false
+      },
+      "aggregate_only": true,
+      "assign_public_ip": false,
+      "capabilities_drop": [
+        "ALL"
+      ],
+      "capability_intent": {
+        "kms_sign": false,
+        "protected_labels": true,
+        "provider_proxy": false,
+        "publication": false
+      },
+      "command": [
+        "factor-evaluator",
+        "aggregate"
+      ],
+      "containers": 1,
+      "docker_socket": false,
+      "ecs_exec": false,
+      "endpoints": [
+        "ecr.api",
+        "ecr.dkr",
+        "s3",
+        "logs",
+        "kms"
+      ],
+      "execution_role_arn": "arn:aws:iam::222222222222:role/factor-evaluator-execution",
+      "image": "222222222222.dkr.ecr.us-east-1.amazonaws.com/factor/evaluator@sha256:3333333333333333333333333333333333333333333333333333333333333333",
+      "ipv6": false,
+      "name": "evaluator",
+      "output_schema_id": "factor-evaluator-aggregate-v1",
+      "platform_version": "1.4.0",
+      "privileged": false,
+      "raw_joined_rows_output": false,
+      "read_only_root": true,
+      "redaction_policy_id": "factor-no-sensitive-output-v1",
+      "region": "us-east-1",
+      "security_group_ids": [
+        "sg-evaluator"
+      ],
+      "sensitive_logging": false,
+      "stdout_policy": "structured-sanitized-only",
+      "subnet_ids": [
+        "subnet-evaluator"
+      ],
+      "task_role_arn": "arn:aws:iam::222222222222:role/factor-evaluator-task",
+      "user": "65532:65532"
+    },
+    "executor": {
+      "account": "compute",
+      "active_access": {
+        "kms_sign": false,
+        "protected_labels": false,
+        "provider_proxy": false,
+        "publication": false
+      },
+      "aggregate_only": false,
+      "assign_public_ip": false,
+      "capabilities_drop": [
+        "ALL"
+      ],
+      "capability_intent": {
+        "kms_sign": false,
+        "protected_labels": false,
+        "provider_proxy": false,
+        "publication": false
+      },
+      "command": [
+        "factor-executor",
+        "run"
+      ],
+      "containers": 1,
+      "docker_socket": false,
+      "ecs_exec": false,
+      "endpoints": [
+        "ecr.api",
+        "ecr.dkr",
+        "s3",
+        "logs",
+        "dynamodb",
+        "kms"
+      ],
+      "execution_role_arn": "arn:aws:iam::111111111111:role/factor-executor-execution",
+      "image": "111111111111.dkr.ecr.us-east-1.amazonaws.com/factor/executor@sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "ipv6": false,
+      "name": "executor",
+      "output_schema_id": "factor-executor-structural-v1",
+      "platform_version": "1.4.0",
+      "privileged": false,
+      "raw_joined_rows_output": false,
+      "read_only_root": true,
+      "redaction_policy_id": "factor-no-sensitive-output-v1",
+      "region": "us-east-1",
+      "security_group_ids": [
+        "sg-executor"
+      ],
+      "sensitive_logging": false,
+      "stdout_policy": "structured-sanitized-only",
+      "subnet_ids": [
+        "subnet-executor"
+      ],
+      "task_role_arn": "arn:aws:iam::111111111111:role/factor-executor-task",
+      "user": "65532:65532"
+    },
+    "publisher": {
+      "account": "custody",
+      "active_access": {
+        "kms_sign": false,
+        "protected_labels": false,
+        "provider_proxy": false,
+        "publication": false
+      },
+      "aggregate_only": false,
+      "assign_public_ip": false,
+      "capabilities_drop": [
+        "ALL"
+      ],
+      "capability_intent": {
+        "kms_sign": false,
+        "protected_labels": false,
+        "provider_proxy": false,
+        "publication": true
+      },
+      "command": [
+        "factor-publisher",
+        "append"
+      ],
+      "containers": 1,
+      "docker_socket": false,
+      "ecs_exec": false,
+      "endpoints": [
+        "ecr.api",
+        "ecr.dkr",
+        "s3",
+        "logs",
+        "states"
+      ],
+      "execution_role_arn": "arn:aws:iam::222222222222:role/factor-publisher-execution",
+      "image": "222222222222.dkr.ecr.us-east-1.amazonaws.com/factor/publisher@sha256:5555555555555555555555555555555555555555555555555555555555555555",
+      "ipv6": false,
+      "name": "publisher",
+      "output_schema_id": "factor-publication-catalog-v1",
+      "platform_version": "1.4.0",
+      "privileged": false,
+      "raw_joined_rows_output": false,
+      "read_only_root": true,
+      "redaction_policy_id": "factor-no-sensitive-output-v1",
+      "region": "us-east-1",
+      "security_group_ids": [
+        "sg-publisher"
+      ],
+      "sensitive_logging": false,
+      "stdout_policy": "structured-sanitized-only",
+      "subnet_ids": [
+        "subnet-publisher"
+      ],
+      "task_role_arn": "arn:aws:iam::222222222222:role/factor-publisher-task",
+      "user": "65532:65532"
+    }
+  },
+  "trust_class": "synthetic_fixture"
+}

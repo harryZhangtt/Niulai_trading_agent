@@ -1,0 +1,26 @@
+{
+  "artifact_type": "append_only_supersession_lineage",
+  "history_policy": {
+    "preserve_exact_bytes": true,
+    "versions": [1, 2, 3, 4, 5, 6]
+  },
+  "status": "OPEN",
+  "supersedes_claims_only": true,
+  "v5_claim_disposition": "CONTRADICTED_NEVER_RELY_AS_PASS",
+  "v6_claim_disposition": "OPEN_CONTRADICTED_HISTORY_NEVER_RELY_AS_PASS",
+  "v6_open_review": {
+    "bytes": 17482,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v6-independent-review-open-fable-20261111-8e9a8076.json",
+    "sha256": "0ee60c531e050133f3f86e1b980e7199c52018596682b245c02cb932a28a68d8",
+    "verdict": "OPEN"
+  },
+  "v6_producer_closure": {
+    "bytes": 4396,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v6/source-closure-v6.json",
+    "sha256": "11454581da7d075de8ca1eb076ad2d79d8bf3ab3b6c721b48290edd1a7a7f7db",
+    "trusted_complete": false
+  },
+  "v7_additive_only": true,
+  "v7_fresh_independent_review": "PENDING",
+  "version": 7
+}

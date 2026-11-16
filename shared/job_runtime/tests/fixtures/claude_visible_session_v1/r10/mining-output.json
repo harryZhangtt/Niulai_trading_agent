@@ -1,0 +1,1 @@
+{"schema_version":"synthetic-skill-mining-v1","skills":[{"id":"S1","name":"Amber Index","file_count":1,"capability":"index synthetic amber records"},{"id":"S2","name":"Birch Ledger","file_count":2,"capability":"reconcile synthetic birch entries"},{"id":"S3","name":"Cobalt Lens","file_count":1,"capability":"inspect synthetic cobalt samples"}]}

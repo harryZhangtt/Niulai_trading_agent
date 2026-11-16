@@ -14,9 +14,10 @@ Select from six available specialists:
 
 | Decision needed now | Full skill to load |
 | --- | --- |
-| Choose/review a component boundary, reuse or scaling investment, implementation sequence, failure/secret handling, or engineering integration readiness | development-discipline |
+| Choose/review a component boundary, reuse or scaling investment, implementation sequence, failure/secret handling, engineering integration readiness, or the impact/activation boundary for hooks, settings, daemons, MCP, shared runtime, schedulers, or external effects | development-discipline |
 | Recover a multi-step task's state, reconcile multiple deliverables, or check a completion claim | research-supervisor |
 | Diagnose stalled work, repeated failures, an ineffective fix, or a blocker/access claim | progress-and-recovery |
+| A measurable architecture-escalation trigger fires across modules/owners or after reopened/green-suite contradictions | progress-and-recovery **and** development-discipline |
 | Plan or interpret an intervention to prompts, models, tools, selection or entry policy | experiment-design |
 | Judge evidence, source support, leakage, repeated testing, generalization or an alpha claim | evidence-and-overfitting |
 | Define/review cases, graders, metrics, splits, budgets or a promotion gate | evaluation-design |
@@ -37,8 +38,11 @@ calibration activates the advanced-evaluation guide; ordinary pass/fail checking
 does not automatically need the complete judge reference collection.
 
 If uncertain, identify the unresolved decision and load the specialist that owns
-it. Routing is selective retrieval of procedures, not a new model or autonomous
-controller. Verify outcomes against the original task, regardless of chosen route.
+it. Uncertain host impact routes to development-discipline and is classified as
+the more host-impacting case until isolated. This must not delay user messaging,
+task notifications, read-only diagnosis, rollback, or recovery. Routing is
+selective retrieval of procedures, not a new model or autonomous controller.
+Verify outcomes against the original task, regardless of chosen route.
 
 The sixth route is covered by the separate development-discipline evaluation;
 the historical five-skill screen above does not validate this addition. Reuse

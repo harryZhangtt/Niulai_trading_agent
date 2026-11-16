@@ -1,0 +1,286 @@
+{
+  "activation": false,
+  "algorithm": "lexicographic relative path; exact byte length plus SHA-256 for every regular file; __pycache__ excluded",
+  "clean_dependency_bindings": {
+    "blind_map_v5": {
+      "producer": {
+        "bytes": 5155,
+        "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v5/producer-verification-v5.json",
+        "sha256": "1f95641a80496f51e8af0c9475c83a7759da38aa4a676a2879061b23c21ab446",
+        "status": "PASS_PROVIDER_FREE_PENDING_FRESH_INDEPENDENT_REVIEW"
+      },
+      "review": {
+        "bytes": 7188,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-clean-v1-fable-20261111.json",
+        "sha256": "b2647ca1dd095c69b20a54941c580026fd8e94fa21972d25210d7b9e73c6bb0e",
+        "verdict": "CLEAN_BLIND_MAP_V5"
+      }
+    },
+    "evaluation_v3": {
+      "producer": {
+        "bytes": 2588,
+        "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json",
+        "sha256": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea",
+        "status": "PRODUCER_PASS_PROVIDER_FREE_V3_PENDING_INDEPENDENT_REVIEW"
+      },
+      "review": {
+        "bytes": 10585,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json",
+        "sha256": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429",
+        "verdict": "CLEAN_PROVIDER_FREE_2X2_EVALUATION_V3"
+      }
+    },
+    "exact_input_v3": {
+      "claim_limit": "tool roster, common time window, and final grants remain pending",
+      "producer": {
+        "bytes": 6444,
+        "path": "tuning/architecture/r6_data_quality_exact_input_binding_fable_v3/distinct-producer-evidence-v3.json",
+        "sha256": "70e0093a9c609fe198425851111b6c7a9f8a64abdebc46d66f2788486ac96349",
+        "status": "PRODUCER_PASS_OWNER_BOUND_TRANSITIVE_PROVIDER_FREE_NONCOUNTABLE"
+      },
+      "review": {
+        "bytes": 12726,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v3-independent-review-20261111-8e9a8076.json",
+        "sha256": "ef6f127291528442ddee27f25a9be71f1388a4ed9674978a870252ccb51bdae6",
+        "verdict": "CLEAN_EXACT_INPUT_BINDING_V3"
+      }
+    },
+    "no_bytedcli_v4_addendum": {
+      "authorization": {
+        "bytes": 2920,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v4-no-bytedcli-addendum.json",
+        "sha256": "4c00d39ff71ec20be18f91f8882a58f0ac54ae83a571940de060b44849a41dec",
+        "status": "AUTHORIZED_EXECUTION_SCOPE_PENDING_SAFETY_VALIDITY_AND_ATTRIBUTION_GATES"
+      },
+      "constraint": "bytedcli forbidden in CLI, skill, MCP-wrapper, and internal fallback forms",
+      "review": {
+        "bytes": 8947,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v4-no-bytedcli-addendum-independent-review-fable-20261111.json",
+        "sha256": "fbdc1eb36dcb04af06c42edf2a809925508306e80fea4192d5c113a949df8ac1",
+        "verdict": "CLEAN_NO_BYTEDCLI_ADDENDUM"
+      }
+    },
+    "p0_v9": {
+      "producer": {
+        "bytes": 37099,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-producer-verification-v9.json",
+        "sha256": "3bff74674ab8fe720dd99d8043d8faa080809d0a223bab00ae470e46ebf8e453",
+        "status": "PASS_PROVIDER_FREE_V9_PENDING_INDEPENDENT_REREVIEW_HUMAN_ATTESTATION_AND_RUNTIME_GATES"
+      },
+      "review": {
+        "bytes": 15534,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v9-independent-review-fable-20261111-clean.json",
+        "sha256": "0505e961774d325fdc6b89105215fd88cb0a71f8b942a78976d7ea1e8f49fbb2",
+        "verdict": "CLEAN_P0_V9"
+      }
+    },
+    "user_scope_v3": {
+      "authority_limit": "scope authorization only; does not waive safety, validity, attribution, final-grant, or runtime gates",
+      "authorization": {
+        "bytes": 3382,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v3.json",
+        "sha256": "4b836f2bc729b23c42670b9a6a147f9a85c667ac6bc5fc64ba85f2d4f59bac76",
+        "status": "AUTHORIZED_SCOPE_PENDING_EXACT_FINAL_GRANTS_AND_REVIEWS"
+      },
+      "review": {
+        "bytes": 5562,
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v3-independent-review.json",
+        "sha256": "1a7c5598e83615fbae8952eb84b573671b37de33f033271bf2f2dbc089b039ef",
+        "verdict": "CLEAN_SCOPE_AUTHORIZATION"
+      }
+    }
+  },
+  "closure_status": "FROZEN_EXACT_PROVIDER_FREE_RUNNER_CORE_PENDING_EXTERNAL_LIVE_PINS",
+  "countable": false,
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "embedded_runtime_p0_contract": {
+    "contract": {
+      "bytes": 5231,
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/p0-contract-v9.json",
+      "sha256": "51f36fb46eb7a74994abf0a23152ce5d1f3fd7f4e8687aa900d1328e3b9aae1e"
+    },
+    "interpretation": "embedded runtime contract remains fail-closed; CLEAN_P0_V9 is an outer exact-source custody/review binding and does not retroactively mutate these pinned runner bytes",
+    "review": {
+      "bytes": 11667,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v8-independent-review-fable-20261111-provider-relabel-open.json",
+      "sha256": "0a150a6221ba082ae38eae6951bff43fc904996a99623e425d36059e431ec2e6",
+      "verdict": "OPEN"
+    }
+  },
+  "exact_runner": {
+    "bytes": 39451,
+    "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/runner.py",
+    "sha256": "bc45fceff79a1106ef66c09376075f3bb72a235ac4a23ca69b7344f914ff0bff"
+  },
+  "excluded_by_construction": [
+    "provider calls",
+    "network access",
+    "live effects",
+    "bytedcli",
+    "private live state",
+    "scheduler mutation",
+    "source/schema/test mutation"
+  ],
+  "external_pending_pins": {
+    "claude_v7_fresh_independent_review": {
+      "current_subject": {
+        "bytes": 8319,
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/source-closure-v7.json",
+        "sha256": "8e04fa3601b1b6fcf9e1419572501465c006bb824d07cd82861d9a0aaf134750",
+        "status": "OPEN_PROVIDER_FREE_V7_PENDING_FRESH_INDEPENDENT_REVIEW"
+      },
+      "required": "complete exact-subject evidence set and fresh CLEAN review",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "codex_v5_p0_v9_rebased_clean_review": {
+      "current_open_review": {
+        "bytes": 11876,
+        "finding": "OPEN-P0-V9-REBASE-001",
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-codex-live-integration-v5-p0-v9-rebase-independent-review-fable-20261111-8e9a8076-open.json",
+        "sha256": "48b02aae9a5a34314fbfd0446a4798a6357461c811a326955341b04a85ae92dc",
+        "verdict": "OPEN"
+      },
+      "required": "new exact-subject CLEAN rebased review; prior CLEAN remains superseded",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "common_time_window_final_pin": {
+      "current_artifact": null,
+      "required": "exact authoritative common time-window artifact and applicable review",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "final_live_grants_and_reviews": {
+      "arm_a_final_grant": null,
+      "arm_a_final_review": null,
+      "arm_b_final_grant": null,
+      "arm_b_final_review": null,
+      "required": "exact authentic final live grants and CLEAN reviews for both arms",
+      "state": "PENDING_EXTERNAL_PIN"
+    },
+    "tool_policy_v6_fresh_independent_review": {
+      "current_subject": {
+        "bytes": 5692,
+        "path": "tuning/architecture/r6_frozen_tool_web_allowance_v6/decision-v6.json",
+        "sha256": "f8bc2e726424b2f39d6ace62e0c6fc970c555a50675a06cee47c03d6a021a409",
+        "status": "DISABLED_PENDING_FRESH_INDEPENDENT_REVIEW"
+      },
+      "required": "fresh exact-subject independent CLEAN review",
+      "state": "PENDING_EXTERNAL_PIN"
+    }
+  },
+  "history": {
+    "current_index": {
+      "bytes": 2908,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/history/history-index-v8.json",
+      "sha256": "5ea4d4ffa90a2ff2546843cb2c0887a98031b2d9d551c48256daacf1a78b0ce9"
+    },
+    "predecessor_index": {
+      "bytes": 1978,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/history/history-index-v7.json",
+      "sha256": "2885986ac877f9ca5011cb7f2e17845f9acb5ecb0946ef7ac705f3c2d1e0b7e4"
+    },
+    "v7_snapshot": {
+      "bytes": 2531,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/history/runner-v7-open-frozen-snapshot.json",
+      "sha256": "d6c8791a212d735bc74f7282f31e680d2b650cb59f114fee09de3fc79e52168a"
+    }
+  },
+  "p0_v9_source_custody": {
+    "producer": {
+      "bytes": 37099,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-producer-verification-v9.json",
+      "sha256": "3bff74674ab8fe720dd99d8043d8faa080809d0a223bab00ae470e46ebf8e453",
+      "status": "PASS_PROVIDER_FREE_V9_PENDING_INDEPENDENT_REREVIEW_HUMAN_ATTESTATION_AND_RUNTIME_GATES"
+    },
+    "review": {
+      "bytes": 15534,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v9-independent-review-fable-20261111-clean.json",
+      "sha256": "0505e961774d325fdc6b89105215fd88cb0a71f8b942a78976d7ea1e8f49fbb2",
+      "verdict": "CLEAN_P0_V9"
+    }
+  },
+  "provider_free": true,
+  "sources": [
+    {
+      "bytes": 191,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/__init__.py",
+      "sha256": "2b807369bbfd68966d6993561024e09855c693260e26f84f088b73f733128c38"
+    },
+    {
+      "bytes": 893,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/blind-evaluation-packet-v1.schema.json",
+      "sha256": "ba6e4f76d83e6248a78c077ad239fca76524b24827f7419d7e658d4da095e47c"
+    },
+    {
+      "bytes": 1407,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/block-execution-v4.schema.json",
+      "sha256": "8ec19279c4d66fc19f7fc96653eb5f2b9cc7c344298e67d08cd47df3a931cd81"
+    },
+    {
+      "bytes": 529,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/block-final-v4.schema.json",
+      "sha256": "e9ff8115d0fbf442bbe6361e8d8219e3ef5a9184cff9dc2b26daa86471f4cfd0"
+    },
+    {
+      "bytes": 7678,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/block-grant-v1.schema.json",
+      "sha256": "359d40f7e0ec64e305ae63366fe2039a0e6c1217ea5e191908c6e233d4e6c1e4"
+    },
+    {
+      "bytes": 10809,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/block-result-v1.schema.json",
+      "sha256": "8cff56a699bc240b1e029c881a0da6fcaee3e5cf4aff9ffa610d1aceedf0068a"
+    },
+    {
+      "bytes": 8877,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/cell-record-v1.schema.json",
+      "sha256": "daba634c521665fbd7a909ecc4fd00dad632c333d6fac2f7ac855d2d07def723"
+    },
+    {
+      "bytes": 14745,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/contracts.py",
+      "sha256": "9f0bc41282461e64ca795cb64365e84341c029e11760efbfc68dc29d72846be7"
+    },
+    {
+      "bytes": 1046,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/execution-receipt-v5.schema.json",
+      "sha256": "3a4bd019176366b8c4cb66d2d60b3d8625c456df2ebd309beb232f6b7c6fc79f"
+    },
+    {
+      "bytes": 16562,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/execution-receipt-v6.schema.json",
+      "sha256": "43a380932a350657442c0eaf5c53935f5af5f220d43273cf5b27a32dac3b7895"
+    },
+    {
+      "bytes": 39451,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/runner.py",
+      "sha256": "bc45fceff79a1106ef66c09376075f3bb72a235ac4a23ca69b7344f914ff0bff"
+    },
+    {
+      "bytes": 0,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_runner_v1/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 534,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_runner_v1/_receipt_crash_worker.py",
+      "sha256": "4cf69552b341d2bc13f7d998b952dcdde1137df0f3c1a1ec6dcada79647d9e21"
+    },
+    {
+      "bytes": 34925,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_runner_v1/test_runner.py",
+      "sha256": "22cde1a6cefad79c7ef55a6a2b180272e3688774b1ce4ccf6cca3c1cf9a5da8f"
+    }
+  ],
+  "status": "PASS_PROVIDER_FREE_RUNNER_CORE_PENDING_EXTERNAL_LIVE_PINS",
+  "version": "r6-data-quality-2x2-runner-source-closure-v8-rebased-p0-v9"
+}

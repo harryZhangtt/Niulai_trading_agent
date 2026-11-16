@@ -1,0 +1,170 @@
+{
+  "schema_version": "soxl-descriptive-support-config-v1",
+  "origin_date": "2026-11-05",
+  "price_basis": {
+    "field": "chart.result[0].indicators.adjclose[0].adjclose",
+    "label": "adjusted_market_price"
+  },
+  "sources": {
+    "SOXL": {
+      "symbol": "SOXL",
+      "required": true,
+      "path": "mentor/runtime/market-drawdown-ai-valuation-20261105/data/raw/yahoo-leveraged-history-20261105-v1/SOXL.json",
+      "sha256": "d41b0ec64a3509e6ef934153aa849c69fb27eb3683c09d8d1d67f4bcf0bb725d",
+      "bytes": 470283,
+      "rows": 4191,
+      "expected_start": "2010-03-11",
+      "expected_end": "2026-11-05"
+    },
+    "SOXX": {
+      "symbol": "SOXX",
+      "required": true,
+      "path": "mentor/runtime/market-drawdown-ai-valuation-20261105/data/raw/yahoo-leveraged-history-20261105-v1/SOXX.json",
+      "sha256": "c3cfe05f1a2683aa71bad3561208bb89ef26e679a4ed65cd3d60f4d4a2dd2b4e",
+      "bytes": 471086,
+      "rows": 4237,
+      "expected_start": "2010-01-04",
+      "expected_end": "2026-11-05"
+    },
+    "SMH": {
+      "symbol": "SMH",
+      "required": false,
+      "path": "mentor/runtime/ai-drawdown-20261105/data-close-final/SMH.json",
+      "sha256": "5c132e610f442328be9d2c76a7114f3ae0f6edc96634008289fd4a9c3621c093",
+      "bytes": 43996,
+      "rows": 403,
+      "expected_start": "2025-04-01",
+      "expected_end": "2026-11-05"
+    },
+    "SPY": {
+      "symbol": "SPY",
+      "required": false,
+      "path": "mentor/runtime/market-drawdown-ai-valuation-20261105/data/raw/yahoo-leveraged-history-20261106-v2/SPY.json",
+      "sha256": "75228aca138edf0122c78833e12ce89b08aae26c929fea20aa55d3f517b77496",
+      "bytes": 469791,
+      "rows": 4238,
+      "expected_start": "2010-01-04",
+      "expected_end": "2026-11-06"
+    },
+    "TLT": {
+      "symbol": "TLT",
+      "required": false,
+      "path": "mentor/runtime/market-drawdown-ai-valuation-20261105/data/raw/yahoo-leveraged-history-20261106-v2/TLT.json",
+      "sha256": "c0f2afef39a76415c850af25ce8a9f43af651c5ab9ffe76e83e3070ffa63b75d",
+      "bytes": 474956,
+      "rows": 4238,
+      "expected_start": "2010-01-04",
+      "expected_end": "2026-11-06"
+    },
+    "HYG": {
+      "symbol": "HYG",
+      "required": false,
+      "path": "mentor/runtime/market-drawdown-ai-valuation-20261105/data/raw/yahoo-leveraged-history-20261106-v2/HYG.json",
+      "sha256": "925d0880305fdff7ad01af3adfd2d2b8a49e9460c52df8f8c036311b0f3293ae",
+      "bytes": 461933,
+      "rows": 4238,
+      "expected_start": "2010-01-04",
+      "expected_end": "2026-11-06"
+    }
+  },
+  "distance_features": [
+    "soxl_return_21",
+    "soxl_return_63",
+    "soxl_return_126",
+    "soxl_distance_from_126_high",
+    "soxl_realized_vol_21",
+    "soxl_downside_semivariance_63",
+    "soxx_return_21",
+    "soxx_return_63",
+    "soxx_return_126",
+    "soxl_vs_3x_soxx_gap_21"
+  ],
+  "informational_diagnostics": [
+    "smh_return_21",
+    "spy_return_21",
+    "tlt_return_21",
+    "hyg_return_21"
+  ],
+  "geometry": {
+    "horizon_sessions": 126,
+    "purge_sessions": 126,
+    "calibration_stride": 21,
+    "metric": "euclidean",
+    "k": 12,
+    "q95": 0.95,
+    "q99": 0.99,
+    "minimum_training_rows": 252,
+    "minimum_nonoverlap_episodes": 3,
+    "minimum_dependence_adjusted_ess": 2.5,
+    "maximum_staleness_calendar_days": 7,
+    "scaler": "training_only_median_mad"
+  },
+  "method_contract": {
+    "contract_id": "leveraged-price-path-support-v1",
+    "version": 1,
+    "design_scope": "shared_generic_design_specification_not_proven_soxl_tqqq_predictive_parity_or_soxl_validation",
+    "formula_constants": {
+      "return_windows_sessions": [
+        21,
+        63,
+        126
+      ],
+      "annualization_sessions": 252,
+      "high_window_sessions": 126,
+      "realized_volatility_window_sessions": 21,
+      "downside_semivariance_window_sessions": 63,
+      "benchmark_gap_window_sessions": 21,
+      "benchmark_compounding_multiple": 3
+    },
+    "formula_definitions": {
+      "simple_return": "price_t / price_t_minus_window - 1",
+      "realized_volatility": "sqrt(252 * mean((log_return - mean_log_return)^2))",
+      "distance_from_126_high": "price_t / max(price_t_minus_125_through_t) - 1",
+      "downside_semivariance": "252 * mean(min(log_return, 0)^2)",
+      "soxl_vs_3x_soxx_gap_21": "soxl_return_21 - ((1 + soxx_return_21)^3 - 1)"
+    },
+    "code_sha256": {
+      "core.py": "6a6648b353269e4f111005f3d63557e8f4f00688da9a31bb93f94beb1506c9ee",
+      "soxl_support.py": "586c98f07a298cab837d1ea6ba4f9586210dc0e4e6e159dd40c1476bb84859ab"
+    },
+    "claim_limit": "This is a shared generic design specification, not evidence of SOXL/TQQQ predictive parity, SOXL validation, probability calibration, or outcome support."
+  },
+  "design_parameter_provenance": {
+    "method_family": "generic_support_v1",
+    "reuse_status": "shared_method_design_constants_not_independently_validated_for_soxl",
+    "shared_constants": {
+      "k": 12,
+      "calibration_stride": 21,
+      "q95": 0.95,
+      "q99": 0.99,
+      "minimum_training_rows": 252,
+      "minimum_nonoverlap_episodes": 3,
+      "minimum_dependence_adjusted_ess": 2.5,
+      "maximum_staleness_calendar_days": 7,
+      "horizon_sessions": 126,
+      "purge_sessions": 126
+    },
+    "target_derived_quantities": [
+      "soxl_training_loo_k_distance_q95",
+      "soxl_training_loo_k_distance_q99"
+    ],
+    "transport_rule": "Fitted SOXL q95/q99 distances are target-derived from SOXL training rows and are not transported from TQQQ or another asset.",
+    "claim_limit": "Reuse of generic support-v1 design constants is not independent SOXL validation and makes no predictive, outcome, probability, or action claim."
+  },
+  "integration": {
+    "policy_scope": "descriptive_training_cloud_v1",
+    "probability_feature_compatible": false
+  },
+  "forbidden_outputs": [
+    "outcomes",
+    "rolling_outcomes",
+    "labels",
+    "future_returns",
+    "probability",
+    "forecast",
+    "confidence",
+    "position",
+    "recommendation",
+    "action"
+  ]
+}

@@ -70,6 +70,71 @@ state. A public handoff may name the sanitized status and link this contract.
 One passing run proves that tested path and time. It does not establish perpetual
 punctuality, unrestricted production readiness or coverage of unrelated jobs.
 
+## Additional gate for provider/retry v2 and schema 8
+
+The provider-neutral retry v2/schema-8 implementation is currently a disabled,
+source-live candidate only. Provider-free source checks do not activate it or
+establish provider, scheduler, host, delivery or production readiness. The Codex
+normalized translator remains source-live but conformance-unverified and is blocked
+by the service code gate. The Claude custody normalizer is not a host invocation
+bridge; that bridge is unavailable and its runtime is unverified.
+
+Before a future acceptance attempt:
+
+1. Keep every candidate profile and allocation disabled. Quiesce the writer, create
+   an owner-private database backup, and prove schema/source/config rollback on a
+   copy without deleting or rewriting the original database. A schema-8 database
+   is not compatible with an old writer unless a separately reviewed restore or
+   rollback has demonstrated that exact pairing.
+2. Capture fresh fingerprints for all candidate source, schema/migration logic,
+   sanitized configuration, selected provider profile, translator or host bridge,
+   prompt and reconciliation adapter. Include uncommitted inputs. Any material
+   change after capture invalidates the corresponding evidence.
+3. Pass focused provider-contract, retry-policy, config, engine, service, provider
+   adapter, dashboard and provider-free campaign checks, plus adjacent Python and
+   scheduler UI typecheck/build/Node/Playwright checks. Record semantic coverage;
+   these remain pre-activation evidence, not runtime acceptance.
+4. Define bounded future `once` allocations for separate Codex and Claude lanes.
+   Each lane must use its intended service code, interpreter, provider/profile,
+   credential resource, translator or host bridge, tools and approval boundary.
+   Codex evidence cannot accept Claude, and a normalized synthetic fixture cannot
+   accept either lane.
+
+Each future scheduled lane must then demonstrate, in persistent state:
+
+- a fresh scheduler claim and attempt/operation identity bound to the captured
+  source and profile fingerprints;
+- provider result and retry-decision persistence across service restart, including
+  the exact selected retry timestamp rather than redrawn jitter;
+- a valid typed `Retry-After` minimum, exhaustion/deadline handling and permanent
+  auth/config/model/policy stop behavior;
+- circuit scope by provider, profile, resource and generation; open-circuit deferral
+  with no attempt, one durable half-open probe lease, close/reopen behavior and no
+  cross-scope leakage;
+- post-submit timeout/reset/partial/missing-terminal as an unknown fence, with no
+  automatic or blind replay;
+- if replay is needed, one owner-issued immutable reconciliation proof for the
+  exact attempt, operation, slot scope and evidence/result digests, consumed once;
+- crash/restart recovery that preserves immutable attempts, provider results,
+  retry decisions, reconciliation records and consumptions; and
+- independent proof of no duplicate business or delivery effect.
+
+Where email is an intended effect, exercise the actual `emailsender` path. Preserve
+execution outcome separately from email synchronization: a passed execution with
+missing mail readback is not fully accepted, and a verified acceptance-summary
+email cannot turn failed execution into a pass. Claim one durable notification key
+before one Gmail call, then read back the exact Gmail message by message ID and
+verify sender/recipient, subject and content. An ambiguous call remains `unknown`;
+reconcile the exact message before any resend. Never replay an unknown provider or
+email outcome merely to obtain a cleaner acceptance record.
+
+Rollback after a failed or partial attempt must disable the v2 allocations/provider
+route and restore the reviewed source and configuration pairing while preserving
+the schema-8 database, backup, attempts, ledgers, unknown fences, credentials and
+mail receipts. Never delete the database to roll back. Record execution and email
+verdicts independently, including rollback outcome and any remaining incompatible
+schema/source boundary.
+
 ## Email synchronization is part of completion
 
 Email the result to the user's recipient from the validated owner-private

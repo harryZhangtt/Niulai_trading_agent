@@ -1,0 +1,34 @@
+{
+  "activation": false,
+  "contract": {
+    "bytes": 8442,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v2.json",
+    "sha256": "20ff8382756fa18e1fcbda05d6d254e6dc7f7973925b15b1705682cd788c75cf"
+  },
+  "default": "DENY",
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "live": 0,
+    "network": 0,
+    "private_state": 0,
+    "provider": 0,
+    "scheduler": 0,
+    "subagent": 0
+  },
+  "preflight": "10 closed schemas and owner-root policy before any future call",
+  "sequence": [
+    "securely resolve six refs into blind packet",
+    "intake exact-ref-bound G1/G2 and conditional G3",
+    "re-read all six refs from same root",
+    "derive gates and evidence only from refs",
+    "derive field-specific metrics and contrasts",
+    "unblind only after immutable artifacts"
+  ],
+  "status": "FROZEN_PROVIDER_FREE_V2",
+  "substitution": "caller has no evidence, gate, or metric parameter",
+  "v1": "OPEN_SUPERSEDED",
+  "version": "r6-data-quality-2x2-evaluation-protocol-v2"
+}

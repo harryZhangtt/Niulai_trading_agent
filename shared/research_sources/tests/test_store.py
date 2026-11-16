@@ -153,7 +153,7 @@ class StoreTests(unittest.TestCase):
         for p in processes:
             _, err = p.communicate(timeout=15); self.assertEqual(p.returncode, 0, err)
         before = set(self.directory.glob('*.txt'))
-        code = "from shared.research_sources import artifacts; import os,sys\nartifacts.os.link=lambda *args: os._exit(73)\nartifacts.save(sys.argv[1],b'unpublished-complete-bytes',suffix='txt')"
+        code = "from shared.research_sources import artifacts; import os,sys\nartifacts.os.link=lambda *args, **kwargs: os._exit(73)\nartifacts.save(sys.argv[1],b'unpublished-complete-bytes',suffix='txt')"
         p = self.child(code, self.directory); p.communicate(timeout=15)
         self.assertEqual(p.returncode, 73)
         self.assertEqual(set(self.directory.glob('*.txt')), before)

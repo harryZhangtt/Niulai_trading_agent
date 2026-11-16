@@ -1,0 +1,54 @@
+{
+  "activation": false,
+  "activation_boundary": "A separately reviewed exact integration plus final block authority must explicitly activate it; source presence and runtime artifacts do not activate execution.",
+  "allowed_claim": "Provider-free disabled producer and opening-fence evidence only; no live execution, countable R6 result, provider/add-on superiority, or activation claim.",
+  "components": {
+    "commitment": "One canonical JSON regular file, owner UID, mode 0600, with only version, schema, canonical_digest, and canonical_bytes.",
+    "io_boundary": "O_CREAT|O_EXCL|O_NOFOLLOW, full write loop, file fsync, parent fsync, root/file identity checks, exact no-follow reopen, byte and SHA-256 verification.",
+    "opening": "Reads commitment first; validates exact four-cell packet/grade order through evaluation-v3; requires immutable deterministic gates, G1/G2, conditional G3, and sealed derived metrics; only then reads and returns the private map. Output remains activation=false and countable=false.",
+    "private_map": "One canonical JSON regular file, owner UID, mode 0600, ignored under runtime; exact fixed cells and source identities; labels are never emitted by creation or validation.",
+    "producer": "No-argument internal-randomness producer; fixed workspace runtime root; four 128-bit lowercase-hex labels; entries canonicalized by label and rejected if duplicate, sequential, source-ordered, reverse-source-ordered, or non-opaque."
+  },
+  "countable": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "failure_radius": "Creation/validation/opening of this ignored workspace-local candidate only; fail closed before map disclosure; no provider or host path is loaded.",
+  "final_block_authority": "REQUIRED_ABSENT",
+  "fixed_cell_ids": [
+    "R6DQ-7F2C91A4",
+    "R6DQ-1B8E43D7",
+    "R6DQ-C4A7095E",
+    "R6DQ-92D6F0B3"
+  ],
+  "fixed_identities": {
+    "design": "fcf096d0c641f373eab7163fa894e5d4f9605ab3ab36ff867e4b586bdcaf278e",
+    "design_review": "0018e413e40371bb2703aecf3963433f1a883a93b1070e815dccc0dc61866d3f",
+    "evaluation_contract": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d",
+    "evaluation_independent_review": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429",
+    "evaluation_producer": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea"
+  },
+  "impact_class": "inert/local disabled candidate",
+  "independent_review": "REQUIRED_NOT_PRODUCER_CREATED",
+  "observed_gap": "Evaluation-v3 validates a supplied legacy map commitment and opening, but has no no-argument, no-replace, owner-private canonical-map producer; its test fixture uses replaceable writes and sequential aliases.",
+  "owner": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1",
+  "selected_scope": "Add one stdlib-only pre-call producer/validator/opening wrapper; reuse evaluation-v3 gate, G1/G2, conditional G3, and metric derivation; do not modify the runner or predecessor history.",
+  "state_authority": {
+    "activation_and_countability": "external final block authority; absent",
+    "artifact_location": "module-derived fixed workspace runtime root; never caller-selected",
+    "clock": "not accepted by producer, validator, or opener",
+    "design_and_evaluation": "fixed source-pinned identities",
+    "map_and_labels": "producer internal randomness only; never caller-selected",
+    "opening_gates": "evaluation-v3 immutable packet/authority/grade/evidence contracts"
+  },
+  "status": "DISABLED_PROVIDER_FREE_PENDING_INDEPENDENT_REVIEW_AND_FINAL_BLOCK_AUTHORITY",
+  "version": "r6-data-quality-blind-map-commitment-architecture-v1"
+}

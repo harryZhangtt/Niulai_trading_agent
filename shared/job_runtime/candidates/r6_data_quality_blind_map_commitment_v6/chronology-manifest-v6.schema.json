@@ -1,0 +1,986 @@
+{
+  "$id": "r6-data-quality-blind-map-chronology-manifest-v6",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "properties": {
+        "final_sequence": {
+          "const": 24
+        },
+        "g3_required": {
+          "const": false
+        },
+        "human_grade_record_refs": {
+          "items": false,
+          "maxItems": 8,
+          "minItems": 8,
+          "prefixItems": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-7F2C91A4-g1-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-1B8E43D7-g1-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-C4A7095E-g1-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-92D6F0B3-g1-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-7F2C91A4-g2-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-1B8E43D7-g2-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-C4A7095E-g2-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-92D6F0B3-g2-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            }
+          ],
+          "type": "array",
+          "uniqueItems": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "final_sequence": {
+          "const": 28
+        },
+        "g3_required": {
+          "const": true
+        },
+        "human_grade_record_refs": {
+          "items": false,
+          "maxItems": 12,
+          "minItems": 12,
+          "prefixItems": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-7F2C91A4-g1-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-1B8E43D7-g1-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-C4A7095E-g1-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-92D6F0B3-g1-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-7F2C91A4-g2-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-1B8E43D7-g2-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-C4A7095E-g2-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-92D6F0B3-g2-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-7F2C91A4-g3-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-1B8E43D7-g3-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-C4A7095E-g3-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "mode": {
+                  "const": "0600"
+                },
+                "path": {
+                  "const": "chronology/human-grade-R6DQ-92D6F0B3-g3-v6.json"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "mode"
+              ],
+              "type": "object"
+            }
+          ],
+          "type": "array",
+          "uniqueItems": true
+        }
+      }
+    }
+  ],
+  "properties": {
+    "attempt_receipt_refs": {
+      "items": false,
+      "maxItems": 4,
+      "minItems": 4,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "chronology/attempt-R6DQ-7F2C91A4-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "chronology/attempt-R6DQ-1B8E43D7-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "chronology/attempt-R6DQ-C4A7095E-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "chronology/attempt-R6DQ-92D6F0B3-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array",
+      "uniqueItems": true
+    },
+    "block_grant_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "chronology/final-block-grant-v6.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "block_grant_review_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "chronology/final-block-grant-review-v6.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "chain_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "commitment_binding": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "canonical_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "commitment_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "sanitized-commitment-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        "receipt_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "transaction-receipt-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        "transaction_id": {
+          "pattern": "^[0-9a-f]{32}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "transaction_id",
+        "receipt_ref",
+        "commitment_ref",
+        "canonical_digest",
+        "canonical_bytes"
+      ],
+      "type": "object"
+    },
+    "derived_metrics_record_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "chronology/derived-metrics-record-v6.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "evaluation_packet_record_refs": {
+      "items": false,
+      "maxItems": 4,
+      "minItems": 4,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "chronology/evaluation-packet-R6DQ-7F2C91A4-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "chronology/evaluation-packet-R6DQ-1B8E43D7-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "chronology/evaluation-packet-R6DQ-C4A7095E-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "chronology/evaluation-packet-R6DQ-92D6F0B3-v6.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array",
+      "uniqueItems": true
+    },
+    "final_sequence": {
+      "type": "integer"
+    },
+    "g3_required": {
+      "type": "boolean"
+    },
+    "human_grade_record_refs": {
+      "type": "array"
+    },
+    "immutable": {
+      "const": true
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-chronology-manifest-v6"
+    },
+    "version": {
+      "const": 6
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "chain_id",
+    "commitment_binding",
+    "block_grant_ref",
+    "block_grant_review_ref",
+    "attempt_receipt_refs",
+    "evaluation_packet_record_refs",
+    "human_grade_record_refs",
+    "g3_required",
+    "derived_metrics_record_ref",
+    "final_sequence",
+    "immutable"
+  ],
+  "type": "object"
+}

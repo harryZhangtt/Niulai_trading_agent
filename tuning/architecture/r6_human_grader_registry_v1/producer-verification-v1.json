@@ -1,0 +1,40 @@
+{
+  "version": "r6-human-grader-registry-producer-verification-v1",
+  "verdict": "PASS",
+  "status": "PRODUCER_PASS_DISABLED_PROVIDER_FREE_PENDING_REAL_HUMANS_AND_REVIEWS",
+  "activation": false,
+  "countable_now": false,
+  "human_attestations_present": false,
+  "independent_registry_or_grant_reviews_present": false,
+  "bindings": {
+    "role_assignment": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-role-assignment-v1.json", "sha256": "62db631b77d728c98ae5349a43862c079e2fdafa6b3eb6701b9c908df2de6935", "bytes": 2407},
+    "grading_v3_contract": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json", "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d", "bytes": 9944},
+    "grading_v3_producer": {"path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json", "sha256": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea", "bytes": 2588},
+    "grading_v3_clean_review": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json", "sha256": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429", "bytes": 10585, "verdict": "CLEAN_PROVIDER_FREE_2X2_EVALUATION_V3"},
+    "source_closure": {"path": "tuning/architecture/r6_human_grader_registry_v1/source-closure-v1.json", "sha256": "7eea2c8867b61a1e0cc6a4741eda692b5ccf31f4c3b5294425ea1bb05dda004e", "bytes": 5625}
+  },
+  "templates": {
+    "registry": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-registry-subject-v1.json", "sha256": "22d71c65b43e29100bb482611c68e1e98f12073de738d7372488ae439199f221", "bytes": 1641, "mode": "0600", "status": "PENDING_HUMAN_SIGNATURE"},
+    "G1": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g1-role-grant-subject-v1.json", "sha256": "3072c43fd1b89763994ab2017be0d97332160312abc7fd865a820f5e3bbdf87b", "bytes": 855, "mode": "0600", "status": "PENDING_HUMAN_SIGNATURE", "countable": false},
+    "G2": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g2-role-grant-subject-v1.json", "sha256": "41a2001a5d7f7e81b23b0ea88936aa50767d2148d092d6fb2dd74b55edcc1d65", "bytes": 855, "mode": "0600", "status": "PENDING_HUMAN_SIGNATURE", "countable": false},
+    "G3_optional": {"path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g3-role-grant-subject-v1.json", "sha256": "859d5f37634e5d60d499b7d2519f0c9e93184dabce649a1916da085d39ce2904", "bytes": 855, "mode": "0600", "status": "PENDING_HUMAN_SIGNATURE", "countable": false}
+  },
+  "tests": {
+    "system_python_3_9": {"interpreter": "/usr/bin/python3", "tests": 10, "passed": 10, "skipped": 1, "result": "PASS"},
+    "job_runtime_python_3_12": {"interpreter": ".job-runtime/python/cpython-3.12.16-macos-aarch64-none/bin/python3.12", "tests": 10, "passed": 10, "skipped": 1, "result": "PASS"},
+    "research_python_3_12_draft": {"interpreter": ".research-sources/.venv/bin/python3.12", "tests": 10, "passed": 10, "skipped": 0, "schemas": 4, "draft": "2020-12", "recursive_closure": "PASS", "result": "PASS"},
+    "cli_pending_default_deny": {"exit": 2, "decision": "DENY", "error": "REGISTRY_PENDING_HUMAN_SIGNATURE", "result": "PASS"},
+    "adversarial": ["fixture-human-noncountable", "coherent-fixture-relabel", "duplicate-human-or-role", "G1-equals-G2", "missing-signature", "conflict-disclosure", "blind-commitment-acknowledgement", "no-map-access", "G3-trigger", "fixed-path", "hash", "bytes", "mode", "nofollow", "fixed-review-path-and-binding"]
+  },
+  "effects": {"account": 0, "business": 0, "credential": 0, "email": 0, "live": 0, "network": 0, "private_state": 0, "provider": 0, "scheduler": 0, "subagent": 0},
+  "claim_limits": [
+    "No human has signed or attested.",
+    "No independent registry or role-grant review has been created.",
+    "Fixture-human test declarations are noncountable.",
+    "Validation is declaration and review binding, not cryptographic human identity proof.",
+    "The package cannot mint, sign, review, install, activate, pin a live registry, call a provider, or create an external effect.",
+    "A separate explicit pinning decision remains required even after exact human-signed subjects and reviews validate."
+  ],
+  "independent_review": "PENDING_NOT_CREATED_BY_PRODUCER",
+  "allowed_claim": "PASS for the disabled provider-free registry/attestation kit and nonauthorizing pending templates only; no human attestation and no live/countable grader authority."
+}

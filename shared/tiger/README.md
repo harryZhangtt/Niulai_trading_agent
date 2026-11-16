@@ -51,17 +51,23 @@ host adapter does not implement unattended service authentication.
 | `positions` | Optional `security_types`: unique nonempty subset of `STK`, `OPT`, `FUT`, `FUND` | Account discovery and requested positions types |
 | `assets` | `{}` | Account discovery and assets |
 | `snapshot` | Same as positions | Account discovery, positions and assets |
+| `market_snapshot` | Fixed roster-bound symbols, frozen contract hashes, as-of, field groups, currencies and corporate actions | Isolated QuoteClient reads; private raw files and sanitized receipt only |
 
 Default types are `STK`, `OPT`, `FUT`. For a subset, pass
 `--tool positions --args '{"security_types":["STK"]}'`. Account IDs, arbitrary
 endpoints, orders and writes are rejected before credential acquisition. Exactly
-one observed `STANDARD` account is required; ambiguity fails. Quotes, bars,
-transaction history and trading are not exposed. Existing exact read-scope
-validation is preserved; no wider consent is requested.
+one observed `STANDARD` account is required for account tools; ambiguity fails.
+The additive `market_snapshot` calibration candidate branches before account
+discovery, uses an isolated QuoteClient, rejects orders/trades/accounts/arbitrary
+URLs and remains manual and unregistered. Transaction history and trading are not
+exposed. Existing account read-scope validation is preserved.
 
 Use a new output directory for each query. Stdout contains a sanitized receipt
 and portal route. Private **0700** directories and **0600** files contain
 `tiger_status.json`, `query.json` and requested `holdings.json`/`assets.json`.
+Market calibration raw values and sampled identities remain private in
+`market_raw.json`, `market_manifest.json` and `market_query.json`; the public
+receipt contains only closed-schema counts, hashes and checkpoint/release state.
 The envelope preserves source timestamps, decimal strings, unknown values and
 coverage limits. Complete means all **requested** responses completed; it does
 not establish whole-portfolio coverage or quote freshness. No cached fallback
@@ -93,6 +99,80 @@ before acquisition does not leave an acquired-lease fence; obtain fresh native
 service access. No recovery command guesses uncertain outcomes. The older cloud
 task does not consult this local fence.
 
+### Read-only owner acknowledgement diagnostic
+
+`reconciliation.py` is a separate, manually invoked diagnostic. It cannot
+acquire/release a lease, restore/read a profile, retire a fence, refresh a token or
+query the broker. Its client contract is frozen in
+[reconciliation-acceptance.md](reconciliation-acceptance.md); independent exact
+Worker tests live in `tuning/trading_agent/reconciliation/`.
+Offline proof receipts, temporary stores and Node caches stay in that component's
+ignored `.runtime/` directory; they are not source fixtures or runtime credentials.
+Do not invoke it against a new deployment without new exact-source no-write evidence.
+
+The diagnostic is pinned to the recovered version-1 Worker source and saved
+deployment. Obtain fresh native `get_site`, `get_site_version` and successful
+`get_deployment_status` structured results for the configured project. An
+authenticated host supplies exactly `{site, version, deployment}` through hidden
+stdin, from tool memory. No bearer or source credential is saved. The original
+checkpoint fence is read/hashed while the existing local bridge lock is held.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 TMPDIR="$PWD/.niulai-state/tmp" \
+  .niulai-state/.venv/bin/python -m shared.tiger.reconciliation \
+  --source .niulai-state/PATH-TO-EXACT-RECOVERED-WORKER/index.js \
+  --out .niulai-state/reports/UNIQUE-READBACK
+```
+
+The source placeholder is not an installed file. Recover the exact existing Site
+source through the supported Sites open-only helper, keep it owner-private, and
+confirm its file SHA/commit and matching deployment before this command. The
+helper's Git checkout may have 0644 source files even inside a private directory.
+Stage an identical, newly owned 0600 Worker copy under `.niulai-state/` for this
+diagnostic and verify the same SHA; preserve the retrieved checkout. The fence
+and existing lock must also be owner-private regular files. Check permissions
+before obtaining fresh service context. A rejected local preflight is not an
+HTTP retry and must be retained separately.
+The output directory must be new and its parent must already exist. A successful
+readback is saved as `readback.json`; an unsuccessful invocation saves
+only closed diagnostic fields in `readback-failure.json` in its newly owned output
+directory. Existing reports are never replaced. Dependencies and
+temporary paths are the same Python/stdlib environment as the gateway; no MCP,
+listener, daemon, package or global configuration is added.
+
+There are at most two HTTP requests: GET `/health`, then POST `/lease/checkpoint`
+with only the original `commit_id` and `lease_id`. Each is attempted once, with a
+15-second timeout, no redirects and a 64KiB body limit. The total post-input
+deadline is 40 seconds. Health failure/uninitialized state skips the second
+request. Responses are checked against closed scalar schemas; raw remote errors,
+tokens, profile values and Site URLs are not output. The original fence/profile
+are preserved even after an acknowledgement. Rollback is simply to stop using
+this diagnostic; there are no changes to the active gateway or remote owner.
+
+The recovered service retains only `last_commit`. Its idempotent branch checks
+that commit ID before lease validation and reports release from the **current**
+lease object. Therefore a matching acknowledgement recognizes the latest commit
+only; it does not attest an original commit/lease tuple, historical release or
+profile correctness. A rejected/unknown probe cannot prove the original commit
+was absent. Lease expiry, a healthy service or a later revision never permits
+automatic fence retirement. Remote historical commit readback is a remaining
+recovery gap, not an implemented journal.
+
+Remote encrypted custody remains the preferred sole credential owner. Current
+native service access is host-provided, so it does not establish unattended
+runtime access. The local working profile remains protected recovery evidence;
+it is not an automatic failover credential owner. Do not add a competing local
+refresh path after ambiguous remote persistence.
+
+On 2026-11-16 the bounded live diagnostic made 2 HTTP requests without retries:
+health reported initialized storage/no busy lease; the original commit-only
+probe returned 409. The original fence remained byte-identical. This establishes
+an available diagnostic route and unavailable original latest-commit recognition,
+not broker authorization, historical commit absence or recovered holdings access.
+The first local invocation rejected a 0644 source file before HTTP; an identical
+0600 staged source corrected that preflight condition. The record is retained.
+No broker query, credential write, fence retirement or new owner was performed.
+
 ## Verification
 
 ```sh
@@ -104,9 +184,57 @@ node --test shared/market_data_mcp/tests/*.test.mjs
 Offline checks cover request admission, audience/policy/path guards, partial reads,
 concurrency, simulated rotation checkpoints, ambiguous commits, pipe secrecy,
 malformed worker output and process cleanup. They do not prove live access.
-On 2026-10-30 the gateway completed a live snapshot, a fresh-process assets query
+On 2026-10-30 the gateway completed a live account snapshot, a fresh-process assets query
 and a positions-only query, each with fresh native service context, real Tiger responses and
 committed checkpoints. Receipts and data remain under `.niulai-state/reports/`;
 account values stay out of source and docs. These runs prove current interactive
 access and cold restoration, not continuous availability, actual token rotation
 or unattended scheduler operation.
+
+
+## Isolated market snapshot calibration candidate
+
+`market_snapshot` is an offline-tested, manual calibration candidate. It accepts
+exactly the frozen ordered calibration cohort of at most eight roster-bound US
+symbols and binds the immutable selection document, validation receipt, cohort and
+ordered-symbol hashes alongside calibration, promotion and roster hashes. Field groups, FX currencies and corporate-action types
+are closed enums. Tiger SDK retries are disabled, the portal makes one attempt,
+and uncertain outcomes retain the existing unresolved fence for reconciliation.
+
+The QuoteClient branch never calls managed accounts or order methods. Yahoo is a
+separate secondary cross-check and never replaces Tiger or establishes COMP
+membership. Public receipts must use the closed schema in
+`shared/research_sources/market_pilot.py`; raw provider values never leave the
+private run root. A fixed-root private authorization ledger is atomically claimed
+before StoreClient, credential lease or provider I/O. Success, failure, unresolved
+outcome and interrupted claimed state remain consumed and reject replay; interrupted
+claims require reconciliation. Promotion uses a separate authorization and requires
+later explicit approval.
+No active MCP registration, scheduler or production acceptance is established.
+
+
+### Authorization issuance
+
+Only the owner-controlled orchestrator may issue a calibration authorization, and
+only after an explicit user approval record, the exact calibration-contract SHA
+and the frozen cohort SHA have been independently checked. Query workers and MCP
+tools must never call the issuance API automatically.
+
+The issuer constructs the five-field receipt (`schema_version`, opaque
+`authorization_id`, `calibration_contract_sha256`, `cohort_sha256`, `created_at`)
+and calls `shared.tiger.authorization.create_authorization(workspace, receipt)`.
+No credentials, account values or private paths belong in the receipt. The returned
+public projection is checked for the same ID/hash and `unused` status before the
+manual query is dispatched. Issuance proves only the user-authorized one-time
+calibration scope; it does not prove provider availability, runtime acceptance or
+promotion. A consumed or interrupted claim is never reissued or reset; reconcile
+it under the existing private-state procedure.
+
+
+### Selection hash semantics
+
+Four hashes have distinct roles and must never be interchanged: the selection file
+custody SHA binds stored bytes, the canonical-object SHA binds the private inline
+`sample_selection` request, the calibration-cohort SHA binds the one-time
+authorization, and the ordered-query-record SHA binds the actual requested symbols.
+Offline custody validation checks the stored-file SHA. Before authorization claim or credential I/O, the provider gate checks the canonical-object, calibration-cohort and ordered-query-record hashes together with the frozen selection-contract and roster bindings.

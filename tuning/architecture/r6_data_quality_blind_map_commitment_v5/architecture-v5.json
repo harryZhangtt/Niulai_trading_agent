@@ -1,0 +1,178 @@
+{
+  "activation": false,
+  "allowed_claim": "Disabled additive provider-free v5 locally repairs OPEN-v4 G3 authority, blind-map schema exactness, and closure-mode findings; current empty trust pins deny before private-map read and fresh independent review remains pending.",
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 11626,
+    "countable": false,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v4-independent-review-open-v1-fable-20261111.json",
+    "sha256": "df79e13a5bbfcfce8f3a1fb0f12dee01f7783598dfe9e89d8a12ef200e7113ba",
+    "verdict": "OPEN"
+  },
+  "blind_map": {
+    "draft_2020_12_exactness": [
+      "duplicate labels rejected by schema alone",
+      "reversed/noncanonical cell_order rejected by schema alone"
+    ],
+    "private_values_disclosed": false,
+    "runtime_mapping": "dict(zip(cell_order, labels))",
+    "schema": "r6-data-quality-blind-map-v5",
+    "shape": {
+      "cell_order": "exact positional array of four const cell IDs",
+      "labels": "exactly four opaque lowercase-hex labels with uniqueItems=true"
+    }
+  },
+  "chronology": {
+    "barriers": [
+      "all attempt results before every packet",
+      "all packets before every required grade",
+      "all required grades before metrics",
+      "metrics before manifest"
+    ],
+    "builders": "No public or production fixture/example/builder callable.",
+    "preserved_exact_slots": {
+      "attempt_admissions": [
+        3,
+        5,
+        7,
+        9
+      ],
+      "attempt_results": [
+        4,
+        6,
+        8,
+        10
+      ],
+      "g1": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "g2": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "g3": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "grant": 1,
+      "grant_review": 2,
+      "manifest": {
+        "false": 24,
+        "true": 28
+      },
+      "metrics": {
+        "false": 23,
+        "true": 27
+      },
+      "packets": [
+        11,
+        12,
+        13,
+        14
+      ]
+    }
+  },
+  "closure": {
+    "method": "independent component-wise lstat then O_NOFOLLOW open/fstat/read; bind actual regular-file mode, bytes, SHA-256, and path",
+    "required_historical_mode": {
+      "mode": "0600",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json"
+    },
+    "v4_closure": "preserved unchanged as OPEN history"
+  },
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fresh_independent_review": "PENDING",
+  "g3_authority": {
+    "false_state": {
+      "g3_grade_records_permitted": false,
+      "human_pin_names": [
+        "REGISTRY",
+        "REGISTRY_REVIEW",
+        "G1",
+        "G1_REVIEW",
+        "G2",
+        "G2_REVIEW"
+      ],
+      "required_roles": [
+        "G1",
+        "G2"
+      ]
+    },
+    "invariant": "No G3 grade set can pass opening unless the exact G3 subject grant and independent review are source-validator accepted, securely read, exact-pinned, and equal every G3 grade authority ref.",
+    "true_state": {
+      "g3_grade_records_permitted": true,
+      "human_pin_names": [
+        "REGISTRY",
+        "REGISTRY_REVIEW",
+        "G1",
+        "G1_REVIEW",
+        "G2",
+        "G2_REVIEW",
+        "G3",
+        "G3_REVIEW"
+      ],
+      "required_roles": [
+        "G1",
+        "G2",
+        "G3"
+      ]
+    }
+  },
+  "impact_classification": {
+    "activation_boundary": "AUTHENTIC_HUMAN_PINS and AUTHENTIC_CHAIN_PINS remain empty; separate reviewed pin change required",
+    "affected_effects": [],
+    "class": "inert/local",
+    "failure_radius": "v5 candidate only; no scheduler/provider/live path registration",
+    "owner": "shared.job_runtime candidate and tuning architecture"
+  },
+  "public_opening": {
+    "caller_control": [],
+    "current_state": "empty authentic pin sets deny before manifest/private map reads",
+    "decision_source": "manifest.g3_required must be an exact boolean",
+    "first_chronology_read": "fixed exact-pin nonprivate chronology/chain-manifest-v5.json",
+    "pre_private_map_barriers": [
+      "exact manifest pin and read",
+      "exact conditional chain pin set",
+      "validator acceptance for exact G3 state",
+      "exact human pin set and secure byte/hash reads",
+      "complete chronology and external-artifact validation",
+      "all grade authority refs equal authenticated role grant/review pins"
+    ],
+    "signature": "authorize_opening()",
+    "validator": "owner-checked O_NOFOLLOW source bytes compiled in private module; exact FunctionType globals/module/code filename verified",
+    "validator_call": "validate_registry_attestations(FIXED_WORKSPACE_ROOT, g3_triggered=manifest.g3_required)"
+  },
+  "runtime_evidence": {
+    "artifact_modes": "0600",
+    "canonical_bytes": 833,
+    "canonical_digest": "de4b600ba7b12b0f6721f188d71095054605d925401c71594eaedc0c28c64679",
+    "leak_scan": {
+      "label_values_disclosed": false,
+      "labels_checked": 4,
+      "status": "PASS",
+      "total_matching_paths": 0
+    },
+    "root_mode": "0700"
+  },
+  "subject": "r6_data_quality_blind_map_commitment_v5",
+  "version": "r6-data-quality-blind-map-commitment-architecture-v5"
+}

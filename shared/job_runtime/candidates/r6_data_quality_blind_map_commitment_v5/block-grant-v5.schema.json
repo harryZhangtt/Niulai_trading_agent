@@ -1,0 +1,301 @@
+{
+  "$id": "r6-data-quality-blind-map-block-grant-v5",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "block_id": {
+      "pattern": "^R6DQ-BLOCK-[A-Z0-9-]{8,64}$",
+      "type": "string"
+    },
+    "cell_ids": {
+      "items": false,
+      "maxItems": 4,
+      "minItems": 4,
+      "prefixItems": [
+        {
+          "const": "R6DQ-7F2C91A4"
+        },
+        {
+          "const": "R6DQ-1B8E43D7"
+        },
+        {
+          "const": "R6DQ-C4A7095E"
+        },
+        {
+          "const": "R6DQ-92D6F0B3"
+        }
+      ],
+      "type": "array",
+      "uniqueItems": true
+    },
+    "commitment_binding": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "canonical_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "commitment_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "sanitized-commitment-v5.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        "receipt_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "transaction-receipt-v5.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        "transaction_id": {
+          "pattern": "^[0-9a-f]{32}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "transaction_id",
+        "receipt_ref",
+        "commitment_ref",
+        "canonical_digest",
+        "canonical_bytes"
+      ],
+      "type": "object"
+    },
+    "human_authority_refs": {
+      "items": false,
+      "maxItems": 6,
+      "minItems": 6,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-registry-subject-v1.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-registry-subject-v1-independent-review.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g1-role-grant-subject-v1.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g1-role-grant-subject-v1-independent-review.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g2-role-grant-subject-v1.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-human-grader-g2-role-grant-subject-v1-independent-review.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array",
+      "uniqueItems": true
+    },
+    "immutable": {
+      "const": true
+    },
+    "issued_sequence": {
+      "const": 1
+    },
+    "one_attempt_per_cell": {
+      "const": true
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-block-grant-v5"
+    },
+    "version": {
+      "const": 5
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "block_id",
+    "commitment_binding",
+    "human_authority_refs",
+    "cell_ids",
+    "issued_sequence",
+    "one_attempt_per_cell",
+    "immutable"
+  ],
+  "type": "object"
+}

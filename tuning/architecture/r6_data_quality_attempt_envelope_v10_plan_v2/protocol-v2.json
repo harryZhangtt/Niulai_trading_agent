@@ -1,0 +1,151 @@
+{
+  "activation": false,
+  "adjudications": {
+    "authority_compiler_v1": "OPEN_PRESERVED_HISTORY",
+    "authority_compiler_v2": "FUTURE_UNRESOLVED_UNSTABLE_SOURCE_AND_CLEAN_REVIEW",
+    "blind_map_v6": "OPEN_FALSE_CLEAN_SCOPE_CAPABILITY_AND_EXTERNAL_AUTHORITY",
+    "blind_map_v7": "CURRENT_PARTIAL_BYTES_UNSTABLE_PENDING_CLOSURE_PRODUCER_AND_CLEAN_REVIEW",
+    "claude_metadata_preflight_v1": "OPEN_HELD_BINARY_CLEANUP_RESIDUE_AND_STALE_CLAUDE_V8_AUTHORITY",
+    "claude_metadata_preflight_v2": "CURRENT_BYTES_UNSTABLE_PENDING_CLOSURE_PRODUCER_AND_CLEAN_REVIEW",
+    "claude_v9": "CLEAN_CLAUDE_LIVE_BOUNDARY_V9_EVIDENCE_RESEAL_PENDING_P0_V10",
+    "codex_v6": "CLEAN_CODEX_LIVE_BOUNDARY_V6_PENDING_P0_V10_CONSUMER_ONLY",
+    "execution_window_v1": "OPEN_PRESERVED_HISTORY",
+    "execution_window_v2": "OPEN_BOOLEAN_ORDINAL_RUNTIME_SCHEMA_MISMATCH",
+    "execution_window_v3": "CURRENT_UNSTABLE_BYTES_PENDING_SOURCE_CLOSURE_PRODUCER_FINAL_GRANTS_AND_CLEAN_REVIEW",
+    "metadata_preflight_v2": "CURRENT_UNSTABLE_BYTES_PENDING_SOURCE_CLOSURE_PRODUCER_AND_CLEAN_REVIEW",
+    "p0_v10_plan_v1": "OPEN_PRESERVED_HISTORY",
+    "runner_v3": "OPEN_PACKAGE_REACHABLE_KEY_AND_LIVENESS_AUTHORITY",
+    "runner_v4_bound_legacy_lineage": "CLEAN_PROVIDER_FREE_2X2_RUNNER_V4_NOT_SUCCESSOR_TO_RUNNER_V3",
+    "runner_v4_current_successor": "CURRENT_UNSTABLE_BYTES_PENDING_SOURCE_CLOSURE_PRODUCER_AND_CLEAN_REVIEW",
+    "tool_policy_v7": "CLEAN_TOOL_POLICY_V7"
+  },
+  "adversaries": [
+    "false CLEAN",
+    "omitted consumer",
+    "stale successor",
+    "provider field drift",
+    "bundle projection omission",
+    "graph member drift"
+  ],
+  "blind_map_v6_open_findings": [
+    "OPEN-V6-01",
+    "OPEN-V6-02",
+    "OPEN-V6-03",
+    "OPEN-V6-04"
+  ],
+  "codex_v6_clean_consumer": {
+    "bytes": 11249,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-codex-live-integration-v6-independent-review-clean-fable-20261113-8e9a8076.json",
+    "sha256": "a612f581be86741f49be7ee2e511fdf9526b2ac6481da65a3e4bd069e602221b",
+    "verdict": "CLEAN_CODEX_LIVE_BOUNDARY_V6_PENDING_P0_V10"
+  },
+  "consumer_contract": {
+    "blind_map_v6_open_and_v7_future": true,
+    "blind_map_v7_current_partial_bytes": true,
+    "declared_sets": [
+      "authority_compiler_v1",
+      "authority_compiler_v2",
+      "claude_v9",
+      "execution_window_v2",
+      "runner_v3",
+      "tool_policy_v7"
+    ],
+    "exact_equality": true,
+    "execution_window_v2_open_v3_future": true,
+    "execution_window_v3_current_unstable": true,
+    "fixed_namespace_no_stale_additions": true,
+    "metadata_preflight_v1_open_v2_future": true,
+    "stale_declared_rows_block_seal": true
+  },
+  "effects": {
+    "account": false,
+    "activation": false,
+    "business": false,
+    "bytedcli": false,
+    "credential": false,
+    "email": false,
+    "host": false,
+    "live": false,
+    "network": false,
+    "provider": false,
+    "publication": false,
+    "scheduler": false
+  },
+  "execution_window_v2_open_review": {
+    "adjudication": "OPEN",
+    "bytes": 7281,
+    "finding_count": 1,
+    "findings": [
+      "EW-V2-OPEN-004-001"
+    ],
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-common-execution-window-v2-fourth-independent-review-open-fable-20261115-8e9a8076.json",
+    "sha256": "70ceed48c522f0f59641b9eec4b9564f47d27840cb669aae4d1ae4e7a8f3e89a",
+    "status": "OPEN_BOOLEAN_ORDINAL_RUNTIME_SCHEMA_MISMATCH"
+  },
+  "metadata_preflight_v1_open_review": {
+    "bytes": 13066,
+    "finding_count": 1,
+    "open_findings": [
+      "R6-CLAUDE-METADATA-PREFLIGHT-V1-005",
+      "STALE_CLAUDE_V8_GENERATION_EXTERNAL_AUTHORITY"
+    ],
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-claude-metadata-preflight-v1-independent-review-open-fable-20261115-a0efa3e1.json",
+    "sha256": "548ae003bf8a29f21b60753942b3414895c058daf68b9a656839d7b0fad319b5",
+    "verdict": "OPEN"
+  },
+  "projection_contract": [
+    {
+      "applies": "checks_enabled_dq_checks_conditional",
+      "json_pointer": "$",
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/dq-attempt-envelope-v1.schema.json"
+    },
+    {
+      "applies": "checks_enabled_dq_checks_conditional",
+      "json_pointer": "$/properties/envelope",
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/attempt-bundle-v1.schema.json"
+    }
+  ],
+  "provider_contract": {
+    "ARM-A": {
+      "adapter_type": "ClaudeAttemptAdapterV9",
+      "blind_provider_label": "ARM-A",
+      "provider_schema": "claude-evidence-v1",
+      "publication_driver": "claude_publish_public",
+      "publication_driver_identity_sha256": "1ae0b76d43fcc2371042d78cefadcb89f972c14c7aac80f251b7a61ff9d5dd25",
+      "research_material_profile_sha256": "95fd61d9271ed5659d75fa036393724c11a9fe7e22f46ca226294c2fb9311468"
+    },
+    "ARM-B": {
+      "adapter_type": "CodexAttemptAdapterV9",
+      "blind_provider_label": "ARM-B",
+      "provider_schema": "stage-b-execution-v3",
+      "publication_driver": "AtomicPublisher.publish",
+      "publication_driver_identity_sha256": "15c4baba5461bf501f08b713be9dddfeb881e31832e09bd66bc04e3b9099d3a6",
+      "research_material_profile_sha256": "99d77ac9cc71d9f2fed80c65b956d2c15af32e327e8a6abb9b47f52051c9a9c3"
+    }
+  },
+  "runner_v3_open_findings": [
+    "OPEN-RUNNER-V3-PACKAGE-REACHABLE-KEY-AUTHORITY-001",
+    "OPEN-RUNNER-V3-PACKAGE-REACHABLE-LIVENESS-AUTHORITY-002",
+    "OPEN-P0-V9-G3-SCHEMA-002"
+  ],
+  "sequencing": [
+    "1_freeze_v2_design",
+    "2_stabilize_all_watched_bytes",
+    "3_verify_exact_consumer_and_namespace_equality",
+    "4_final_closure_last",
+    "5_producer_after_final_closure",
+    "6_fresh_independent_authority_last",
+    "7_separate_activation_if_authorized"
+  ],
+  "status": "DESIGN_ONLY_V2_PENDING_STABLE_SUCCESSOR_BYTES_AND_FRESH_INDEPENDENT_REVIEW",
+  "status_contract": {
+    "architecture": [
+      "DESIGN_ONLY_V2_PENDING_STABLE_SUCCESSOR_BYTES_AND_FRESH_INDEPENDENT_REVIEW"
+    ],
+    "decision": [
+      "DESIGN_ONLY_V2_PENDING_STABLE_SUCCESSOR_BYTES_AND_FRESH_INDEPENDENT_REVIEW"
+    ],
+    "false_clean": "REJECT"
+  },
+  "version": "r6-p0-v10-design-plan-v2-protocol"
+}

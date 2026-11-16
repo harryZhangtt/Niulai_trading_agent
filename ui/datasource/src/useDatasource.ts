@@ -1,21 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
 import type { DatasourceResponse } from './types';
+import { isDatasourceResponse } from './responseValidation';
 
 interface Request { subject: string; offset: number; snapshot?: string; revision: number; refresh?: boolean }
 interface State { subject: string; data: DatasourceResponse | null; loading: boolean; error: string | null }
 
-function isResponse(value: unknown): value is DatasourceResponse {
-  if (!value || typeof value !== 'object') return false;
-  const data = value as Partial<DatasourceResponse>;
-  return data.schema_version === 1 && typeof data.subject === 'string' && typeof data.snapshot_id === 'string'
-    && Array.isArray(data.sources) && Array.isArray(data.runs) && Array.isArray(data.comparisons)
-    && Array.isArray(data.aggregates?.cohorts) && typeof data.pagination?.total_sources === 'number';
-}
 
 export function useDatasource(initialSubject: string) {
   const [request, setRequest] = useState<Request>({ subject: initialSubject, offset: 0, revision: 0 });
   const [state, setState] = useState<State>({ subject: initialSubject, data: null, loading: true, error: null });
   const identity = useRef(0);
+
+  useEffect(() => {
+    function restoreSubject() {
+      const subject = new URLSearchParams(location.search).get('subject')?.trim().slice(0, 80) || 'NOW';
+      if (subject.toUpperCase() !== request.subject.toUpperCase()) {
+        setRequest(previous => ({ subject, offset: 0, revision: previous.revision + 1 }));
+      }
+    }
+    window.addEventListener('popstate', restoreSubject);
+    return () => window.removeEventListener('popstate', restoreSubject);
+  }, [request.subject]);
 
   useEffect(() => {
     const current = ++identity.current;
@@ -30,7 +35,7 @@ export function useDatasource(initialSubject: string) {
         const response = await fetch(`/api/datasource?${params}`, { signal: controller.signal, headers: { Accept: 'application/json' } });
         if (!response.ok) throw new Error(response.status === 409 ? 'snapshot' : 'request');
         const data: unknown = await response.json();
-        if (!isResponse(data) || data.subject.toUpperCase() !== request.subject.toUpperCase()) throw new Error('schema');
+        if (!isDatasourceResponse(data) || data.subject.toUpperCase() !== request.subject.toUpperCase()) throw new Error('schema');
         if (identity.current === current && !controller.signal.aborted) setState({ subject: request.subject, data, loading: false, error: null });
       } catch (error) {
         if (identity.current !== current || (controller.signal.aborted && controller.signal.reason !== 'timeout')) return;
@@ -52,6 +57,7 @@ export function useDatasource(initialSubject: string) {
     const next = new URL(window.location.href);
     next.pathname = '/datasource';
     next.searchParams.set('subject', subject);
+    for (const key of ['run', 'source', 'q', 'comparison', 'collection', 'runTab', 'kind']) next.searchParams.delete(key);
     window.history.replaceState(null, '', next);
   }
   function refresh() { setRequest(previous => ({ subject: previous.subject, offset: 0, refresh: true, revision: previous.revision + 1 })); }

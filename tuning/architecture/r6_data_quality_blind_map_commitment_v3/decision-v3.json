@@ -1,0 +1,98 @@
+{
+  "acceptance_evidence": {
+    "actual_authorize": "DENY_BEFORE_PRIVATE_MAP_READ",
+    "compile": "PASS",
+    "diff_check": "PASS",
+    "eleven_schema_metaschema": "PASS",
+    "leak_scan": "PASS_ZERO_MATCHES",
+    "predecessor_regression": "32/32 passed",
+    "system_python": "5 passed, 1 schema-only skip",
+    "workspace_python_3_12": "6/6 passed with Draft 2020-12"
+  },
+  "activation": false,
+  "allowed_claim": "Disabled provider-free local repair and deterministic denial only.",
+  "countable": false,
+  "decision": "PASS_LOCAL_V2_OPEN_FINDING_REPAIR_NOT_ACTIVATED_NOT_COUNTABLE",
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "final_block_authority": "REQUIRED_PENDING",
+  "finding_dispositions": {
+    "OPEN_V2_1_CHRONOLOGY": "LOCALLY_CLOSED_BY_FIXED_PIN_CHAIN_AND_FULL_REBIND_DENIAL_PENDING_INDEPENDENT_REREVIEW",
+    "OPEN_V2_2_AUTHORITY": "LOCALLY_CLOSED_BY_ZERO_ARGUMENT_FIXED_VALIDATOR_AND_FORGED_AUTHORITY_DENIAL_PENDING_INDEPENDENT_REREVIEW",
+    "OPEN_V2_3_SCHEMAS": "LOCALLY_CLOSED_BY_ELEVEN_STRICT_SCHEMAS_MATCHED_PROBES_AND_RUNTIME_CROSS_FIELD_TESTS_PENDING_INDEPENDENT_REREVIEW",
+    "UNVERIFIED_LABEL_SCAN": "CLOSED_BY_VALUE_SUPPRESSING_CATEGORY_COUNT_SCAN_PENDING_INDEPENDENT_REREVIEW"
+  },
+  "forbidden_claims": [
+    "activation",
+    "countability",
+    "authentic final block grant",
+    "authentic provider attempts",
+    "authentic human authority",
+    "live execution",
+    "CLEAN independent rereview",
+    "final block authorization",
+    "provider/add-on superiority",
+    "label disclosure"
+  ],
+  "independent_rereview": "REQUIRED_PENDING_NOT_PRODUCER_CREATED",
+  "open_review_binding": {
+    "bytes": 11517,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json",
+    "sha256": "d7a453c4b04442c233bf830d8a8b5747400b15e237f3337a95e0474f6a602963",
+    "verdict": "OPEN"
+  },
+  "options": {
+    "O0_keep_v2": {
+      "disposition": "REJECT",
+      "reason": "In-memory PRE_CALL and duck-typed authority permit full post-grade rebinding and forged opening; schemas are weaker than runtime."
+    },
+    "O1_mutate_v2": {
+      "disposition": "REJECT",
+      "reason": "Would erase OPEN history and invalidate exact review bindings."
+    },
+    "O2_additive_v3_fixed_chain": {
+      "disposition": "SELECTED",
+      "reason": "Preserves v1/v2, retains receipt-last transaction semantics, removes public rebinding authority, and validates only exact fixed artifacts across real boundaries."
+    }
+  },
+  "runtime_artifacts": {
+    "private_map": {
+      "bytes": 897,
+      "labels_disclosed": false,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/owner-private-canonical-map-v3.json",
+      "sha256": "540a744cd31fe3a764363b647f1269da5f9c60a3cd8a0d104eb16fc849ac88dd"
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "fields": [
+        "canonical_bytes",
+        "canonical_digest",
+        "schema",
+        "version"
+      ],
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/sanitized-commitment-v3.json",
+      "sha256": "e984924176b4d53fef088c758628902166ed257f307fea431cd00509e20b9489"
+    },
+    "transaction_receipt": {
+      "bytes": 451,
+      "committed_last": true,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/transaction-receipt-v3.json",
+      "sha256": "527061acd538e4191e67a790eb82efa3583cd0a7cefd9f300fb787e210b4add4"
+    }
+  },
+  "status": "ACCEPT_DISABLED_FIXED_CHAIN_SUCCESSOR_PENDING_AUTHENTIC_ARTIFACTS_INDEPENDENT_REREVIEW_AND_FINAL_BLOCK_AUTHORITY",
+  "version": "r6-data-quality-blind-map-commitment-decision-v3"
+}

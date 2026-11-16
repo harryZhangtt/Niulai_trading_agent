@@ -1,0 +1,69 @@
+{
+  "activation": false,
+  "countable": false,
+  "creation_sequence": [
+    "verify exact bytes/SHA-256 of design, design review, evaluation contract, evaluation producer, evaluation independent review, and evaluation-v3 harness",
+    "create or validate fixed owner-root mode-0700 directory without following symlinks",
+    "generate four unique 128-bit opaque labels internally; reject duplicate/cell/order leakage",
+    "canonicalize the exact private-map schema",
+    "atomically create private map with no replace, full write, file fsync, parent fsync, and exact reopen/hash verification",
+    "create sanitized four-field commitment from canonical map bytes",
+    "atomically create commitment with the same durability/no-replace checks",
+    "reopen private map by original inode and verify exact committed bytes and SHA-256"
+  ],
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fail_closed_on": [
+    "traversal or non-fixed path",
+    "root or artifact symlink",
+    "nonregular artifact",
+    "wrong owner or mode",
+    "root/file substitution",
+    "existing artifact/no-replace violation",
+    "partial write or fsync/open/reopen failure",
+    "noncanonical bytes or commitment mismatch",
+    "source identity drift",
+    "duplicate label or cell",
+    "nonopaque or order-leaking labels",
+    "cell/order/packet/grade/gate/metric validation failure"
+  ],
+  "fixed_identities": {
+    "design": "fcf096d0c641f373eab7163fa894e5d4f9605ab3ab36ff867e4b586bdcaf278e",
+    "design_review": "0018e413e40371bb2703aecf3963433f1a883a93b1070e815dccc0dc61866d3f",
+    "evaluation_contract": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d",
+    "evaluation_independent_review": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429",
+    "evaluation_producer": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea"
+  },
+  "opening_sequence": [
+    "accept packets, grades, and existing authority only; derive store from authority",
+    "read sanitized commitment without reading private map",
+    "require exact four frozen cells in frozen mapping order",
+    "reuse evaluation-v3 packet and deterministic-gate validation",
+    "reuse required independent G1/G2 and conditional G3 validation",
+    "derive and verify immutable sealed block metrics",
+    "only after every prior step succeeds, read/hash/schema-check private map",
+    "return disabled, non-countable opening record; never activate or authorize provider calls"
+  ],
+  "pre_call_boundary": "The pair is created before any integration/provider boundary; this candidate contains no provider boundary and cannot itself authorize one.",
+  "review_boundary": "Independent review and final block authority remain mandatory; producer verification is not independent review.",
+  "status": "FROZEN_DISABLED_PROVIDER_FREE_V1",
+  "validation_sequence": [
+    "accept no parameters",
+    "verify pinned sources",
+    "open only fixed root and fixed names with O_NOFOLLOW",
+    "require regular owner-owned 0600 files and stable root/file identities",
+    "require canonical JSON and strict closed fields",
+    "recompute map bytes and SHA-256 against sanitized commitment",
+    "return only the sanitized commitment"
+  ],
+  "version": "r6-data-quality-blind-map-commitment-protocol-v1"
+}

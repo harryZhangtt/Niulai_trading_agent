@@ -1,0 +1,271 @@
+{
+  "activation": false,
+  "allowed_claim": "Exact disabled provider-free v3 fixed-chain source closure and deterministic denial evidence only.",
+  "authority_state": {
+    "authentic_chain_pins": 0,
+    "authentic_human_pins": 0,
+    "authentic_human_reviews": "ABSENT",
+    "authentic_provider_attempt_receipts": "ABSENT",
+    "final_block_grant": "ABSENT",
+    "private_map_read": false,
+    "public_decision": "DENY_BEFORE_PRIVATE_MAP_READ"
+  },
+  "countable": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "excluded": [
+    "source-closure-v3.json self",
+    "producer-verification-v3.json",
+    "future CLEAN independent rereview",
+    "future final block/human/provider authority artifacts",
+    "private-map content and opaque label values",
+    "live/provider effects"
+  ],
+  "final_block_authority": "REQUIRED_PENDING",
+  "fixed_predecessor_bindings": {
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json": {
+      "bytes": 11517,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v2-independent-review-open-v1-20261111.json",
+      "sha256": "d7a453c4b04442c233bf830d8a8b5747400b15e237f3337a95e0474f6a602963"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json": {
+      "bytes": 9944,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json",
+      "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json": {
+      "bytes": 10585,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json",
+      "sha256": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design-independent-review.json": {
+      "bytes": 18741,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design-independent-review.json",
+      "sha256": "0018e413e40371bb2703aecf3963433f1a883a93b1070e815dccc0dc61866d3f"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design.json": {
+      "bytes": 26277,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design.json",
+      "sha256": "fcf096d0c641f373eab7163fa894e5d4f9605ab3ab36ff867e4b586bdcaf278e"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-human-grader-registry-v1-independent-review.json": {
+      "bytes": 8428,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-human-grader-registry-v1-independent-review.json",
+      "sha256": "348f53abe20265432fd906a4e549420222b12db4cd09adbb2eafca9dbc518c36"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-human-grader-timing-countability-independent-audit-fable-20261111.json": {
+      "bytes": 8743,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-human-grader-timing-countability-independent-audit-fable-20261111.json",
+      "sha256": "d76b44a5ed65f107bb0977632470f6178ceb787559552803158319d4f90b1861"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/harness.py": {
+      "bytes": 31895,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/harness.py",
+      "sha256": "a42f1d0303857f443b5352ed7cfd244551767d347168e3ada6b7f8042cdaa7e4"
+    },
+    "shared/job_runtime/candidates/r6_human_grader_registry_v1/registry.py": {
+      "bytes": 14782,
+      "path": "shared/job_runtime/candidates/r6_human_grader_registry_v1/registry.py",
+      "sha256": "63d2eaff7f331cb7227337e19e0eb0aa7cd9ed5a7021e7f8064f28ec1c78f431"
+    },
+    "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json": {
+      "bytes": 2588,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json",
+      "sha256": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea"
+    },
+    "tuning/architecture/r6_human_grader_registry_v1/source-closure-v1.json": {
+      "bytes": 5625,
+      "path": "tuning/architecture/r6_human_grader_registry_v1/source-closure-v1.json",
+      "sha256": "7eea2c8867b61a1e0cc6a4741eda692b5ccf31f4c3b5294425ea1bb05dda004e"
+    }
+  },
+  "history": {
+    "candidate_is_additive": true,
+    "evaluation_v3_modified": false,
+    "runner_modified": false,
+    "v1_source_runtime_evidence_modified": false,
+    "v2_source_runtime_evidence_modified": false
+  },
+  "independent_rereview": "REQUIRED_PENDING",
+  "independent_rereview_created_by_producer": false,
+  "open_findings": {
+    "OPEN_V2_1_CHRONOLOGY": "LOCALLY_CLOSED_BY_FIXED_CANONICAL_ARTIFACT_CHAIN_AND_POST_GRADE_REBIND_DENIAL_PENDING_INDEPENDENT_REREVIEW",
+    "OPEN_V2_2_AUTHORITY": "LOCALLY_CLOSED_BY_FIXED_MODULE_IDENTITY_ZERO_ARGUMENT_AUTHORITY_AND_FORGED_AUTHORITY_DENIAL_PENDING_INDEPENDENT_REREVIEW",
+    "OPEN_V2_3_SCHEMAS": "LOCALLY_CLOSED_BY_ELEVEN_STRICT_SCHEMAS_FOUR_MATCHED_PROBES_NESTED_EXTRAS_AND_RUNTIME_CROSS_FIELDS_PENDING_INDEPENDENT_REREVIEW",
+    "UNVERIFIED_LABEL_SCAN": "LOCALLY_CLOSED_BY_VALUE_SUPPRESSING_ZERO_MATCH_CATEGORY_SCAN_PENDING_INDEPENDENT_REREVIEW"
+  },
+  "preserved_v1_v2_open_history": {
+    "runtime/r6_data_quality_blind_map_commitment_v1/owner-private-canonical-map-v1.json": {
+      "bytes": 807,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v1/owner-private-canonical-map-v1.json",
+      "sha256": "fd7d7adfe3e7c53d5b4293426ae6d07c1fdd2aa1fbbe39d031183e2587862e7a"
+    },
+    "runtime/r6_data_quality_blind_map_commitment_v1/sanitized-commitment-v1.json": {
+      "bytes": 161,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v1/sanitized-commitment-v1.json",
+      "sha256": "1209f4a14655d6b7ae9d8ddcbe98f5af245d62f83eeea780ddcdcaa5a367d23c"
+    },
+    "runtime/r6_data_quality_blind_map_commitment_v2/owner-private-canonical-map-v2.json": {
+      "bytes": 897,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/owner-private-canonical-map-v2.json",
+      "sha256": "8c0affb05319a96f4044a5cc663827b6b6c7613e6cddc0c4d08ca23ae169515d"
+    },
+    "runtime/r6_data_quality_blind_map_commitment_v2/sanitized-commitment-v2.json": {
+      "bytes": 161,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/sanitized-commitment-v2.json",
+      "sha256": "b52b5a7d635e33203d08e02c552ae0fdb8655fce54a32d118058263015b8975c"
+    },
+    "runtime/r6_data_quality_blind_map_commitment_v2/transaction-receipt-v2.json": {
+      "bytes": 423,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/transaction-receipt-v2.json",
+      "sha256": "6814194f41676b4e804ea8addf73f5da9c53376ec0b6072956988b2a141a2199"
+    },
+    "tuning/architecture/r6_data_quality_blind_map_commitment_v1/producer-verification-v1.json": {
+      "bytes": 4925,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v1/producer-verification-v1.json",
+      "sha256": "5a2a437464476bb102d224e247354c2d15ec27b62fdcdd845d7fc768a617f648"
+    },
+    "tuning/architecture/r6_data_quality_blind_map_commitment_v2/producer-verification-v2.json": {
+      "bytes": 6790,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v2/producer-verification-v2.json",
+      "sha256": "65598f229232900a9b7380f3fb1ef6eead71a6364fdee5f472d2462b5f0d8461"
+    }
+  },
+  "runtime_evidence": {
+    "runtime/r6_data_quality_blind_map_commitment_v3/owner-private-canonical-map-v3.json": {
+      "bytes": 897,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/owner-private-canonical-map-v3.json",
+      "sha256": "540a744cd31fe3a764363b647f1269da5f9c60a3cd8a0d104eb16fc849ac88dd"
+    },
+    "runtime/r6_data_quality_blind_map_commitment_v3/sanitized-commitment-v3.json": {
+      "bytes": 161,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/sanitized-commitment-v3.json",
+      "sha256": "e984924176b4d53fef088c758628902166ed257f307fea431cd00509e20b9489"
+    },
+    "runtime/r6_data_quality_blind_map_commitment_v3/transaction-receipt-v3.json": {
+      "bytes": 451,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v3/transaction-receipt-v3.json",
+      "sha256": "527061acd538e4191e67a790eb82efa3583cd0a7cefd9f300fb787e210b4add4"
+    }
+  },
+  "runtime_metadata": {
+    "all_git_ignored": true,
+    "all_mode": "0600",
+    "all_nonsymlink": true,
+    "all_owner_matches": true,
+    "all_regular": true,
+    "labels_disclosed": false,
+    "leak_scan_total_matches": 0,
+    "receipt_committed_last": true,
+    "stage_residue": false
+  },
+  "sources": {
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/__init__.py": {
+      "bytes": 391,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/__init__.py",
+      "sha256": "11faf332a9bdb6e5b26cbbb801b335a5a7c8931b64825e106049632519cac868"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/artifact-ref-v3.schema.json": {
+      "bytes": 520,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/artifact-ref-v3.schema.json",
+      "sha256": "f849c192360c72972bc7d3ecd8b1bb0fd82c77569e283c011fdb7c1a9b141633"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/attempt-receipt-v3.schema.json": {
+      "bytes": 5999,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/attempt-receipt-v3.schema.json",
+      "sha256": "e8a271b0d163bef08e047899518c7cb77c57c6b656b86621a479e959dc1e38c5"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/blind-map-commitment-v3.schema.json": {
+      "bytes": 564,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/blind-map-commitment-v3.schema.json",
+      "sha256": "b3595655cb8146150c31376fe622abce486eefa89c185810714a853e25c24513"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/blind-map-v3.schema.json": {
+      "bytes": 1772,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/blind-map-v3.schema.json",
+      "sha256": "7c53d8c3ceadee158345fead90fb5cee1baac1bad145eea3cfa64787a37eecc3"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/block-grant-review-v3.schema.json": {
+      "bytes": 1441,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/block-grant-review-v3.schema.json",
+      "sha256": "bb8a963125ffec64acbf7363eb82b8360491aeaa82de2802cdba836ccb524a6d"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/block-grant-v3.schema.json": {
+      "bytes": 7983,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/block-grant-v3.schema.json",
+      "sha256": "4d4cc973145321a83431636313680c7a96f464a7c049d0129599d49557dd6c0c"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/chronology-manifest-v3.schema.json": {
+      "bytes": 12060,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/chronology-manifest-v3.schema.json",
+      "sha256": "06562f60aa7eb88dfea200bdcc871b9e040bce63ba57d96984639a5b997f67ef"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/chronology.py": {
+      "bytes": 35369,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/chronology.py",
+      "sha256": "e5e9d494f42139d0c3a72f543a1f6c7012b30840fc862c8822e33cfacba65201"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/derived-metrics-record-v3.schema.json": {
+      "bytes": 6845,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/derived-metrics-record-v3.schema.json",
+      "sha256": "ec9c8b7837bebb8bc5a59815721db108477b4c7a54414d49da4e8734f9c1565d"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/evaluation-packet-record-v3.schema.json": {
+      "bytes": 2588,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/evaluation-packet-record-v3.schema.json",
+      "sha256": "e00c74cdd88126fb312c1953b9dcefd6a288a518ba6d720b15e533c66f463649"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/human-grade-record-v3.schema.json": {
+      "bytes": 5205,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/human-grade-record-v3.schema.json",
+      "sha256": "062dc63fa1d712fdc039bb27ad1a8308831ad7d8259329c3e024a5507d3ffc86"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/transaction-receipt-v3.schema.json": {
+      "bytes": 1736,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/transaction-receipt-v3.schema.json",
+      "sha256": "4c642cde0250a4edb13b6b265918bcd101c34988d0986a84072254a709ab0e24"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/transaction.py": {
+      "bytes": 25330,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v3/transaction.py",
+      "sha256": "dcb62e9f09c6ec420697a7098445ce1572d552117dabd0ee22c1943502617c80"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_blind_map_commitment_v3/__init__.py": {
+      "bytes": 0,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_blind_map_commitment_v3/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_blind_map_commitment_v3/test_commitment_v3.py": {
+      "bytes": 12691,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_blind_map_commitment_v3/test_commitment_v3.py",
+      "sha256": "0b21ef08377d37548446d62d34d99ff44b47b2b8b19d4ba611d5979c3b5db119"
+    },
+    "tuning/architecture/r6_data_quality_blind_map_commitment_v3/architecture-v3.json": {
+      "bytes": 5240,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v3/architecture-v3.json",
+      "sha256": "80bef68f5e8f297f2e68b2fa4604a69373944f70ae52bec9491b80b072f7d6d2"
+    },
+    "tuning/architecture/r6_data_quality_blind_map_commitment_v3/decision-v3.json": {
+      "bytes": 3859,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v3/decision-v3.json",
+      "sha256": "1e48ce3c34deea9d0e88b7c314bb65cd3df4e0cf3b8f74e412f8691f02aece4d"
+    },
+    "tuning/architecture/r6_data_quality_blind_map_commitment_v3/protocol-v3.json": {
+      "bytes": 4174,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v3/protocol-v3.json",
+      "sha256": "8d799612cbad65dc615c82b22b1c3b06bee5a5a33bb4b1fd4dc975288db023fd"
+    }
+  },
+  "status": "FROZEN_ADDITIVE_PROVIDER_FREE_FIXED_CHAIN_SOURCE_CLOSURE_V3_PENDING_AUTHENTIC_ARTIFACTS_AND_INDEPENDENT_REREVIEW",
+  "version": "r6-data-quality-blind-map-commitment-source-closure-v3"
+}

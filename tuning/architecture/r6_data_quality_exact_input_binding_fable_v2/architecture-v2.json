@@ -1,0 +1,34 @@
+{
+  "version": "r6-data-quality-exact-input-binding-architecture-v2",
+  "status": "FROZEN_PROVIDER_FREE_NONCOUNTABLE_SUCCESSOR",
+  "problem": "OPEN-EXACT-BINDING-1 showed that v1 accepted alternate same-byte locator paths because path identity was neither authority-confined nor part of the common or per-cell canonical binding.",
+  "review_basis": {
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v1-independent-review-20261111.json",
+    "bytes": 11063,
+    "sha256": "c79a5efa79c110acc28a8f4a85ec3636ae7da1cb486536258c64000c292c1ace",
+    "verdict": "OPEN_EXACT_INPUT_BINDING"
+  },
+  "v1_disposition": "OPEN_HISTORY_PRESERVED_UNCHANGED",
+  "owner": "R6_EXACT_INPUT_BINDING_V2_PACKAGE",
+  "contract": {
+    "input": "five exact workspace-relative authority paths under one fixed root",
+    "output": "one owner-private closed manifest whose common and four per-cell identities include normalized exact paths, pinned modes, bytes, raw SHA-256 and canonical content SHA-256",
+    "errors": "deny on lexical, normalization, label, root, path, symlink, type, owner, mode, bytes, raw hash, content hash, canonical digest, cell equality, semantic, dependency or unresolved-pin drift"
+  },
+  "options": [
+    {"id": "O0_RETAIN_OPEN_V1", "decision": "REJECT", "reason": "Retains the demonstrated same-byte locator substitution gap."},
+    {"id": "O1_EXACT_PATH_BOUND_SUCCESSOR", "decision": "SELECT", "reason": "Pins all five paths and duplicates the complete path/content identity into every cell while retaining dependency independence."},
+    {"id": "O2_COPY_AUTHORITY_INTO_PACKAGE", "decision": "REJECT", "reason": "Creates competing authority copies and does not improve trust over fixed no-follow source reads."}
+  ],
+  "selected": "O1_EXACT_PATH_BOUND_SUCCESSOR",
+  "read_boundary": "workspace root -> pinned owned directory components with exact modes and O_NOFOLLOW -> pinned owned regular final file with exact mode",
+  "locator_policy": {
+    "allowed_root": "mentor/runtime/scheduler-midresponse-recovery-20261107",
+    "exact_paths_only": true,
+    "unicode": "ASCII plus exact NFC/NFKC identity",
+    "forbidden": ["absolute", "empty component", "dot", "dotdot", "double slash", "backslash", "case drift", "normalization drift", "alternate same-byte path", "symlink component", "nonregular final", "wrong owner", "wrong mode", "identity/treatment/private/internal label"]
+  },
+  "impact": {"classification": "INERT_LOCAL", "activation": false, "active_runtime_import": false, "failure_radius": "v2 package only", "rollback": "remove v2 package; v1 and review remain immutable OPEN history"},
+  "dependency_policy": {"python": "stdlib only", "external_packages": false, "bytedcli": false, "network": false, "private_or_internal_sources": false},
+  "claim_limit": "Provider-free exact path/content binding software evidence only; no live authority, countable result, provider/addon superiority, return claim, promotion or runtime acceptance."
+}

@@ -1,0 +1,63 @@
+{
+  "activation": false,
+  "allowed_claim": "Immutable snapshot of the v7 OPEN_AWAITING_P0_V8 evidence set; it is historical only and is not rewritten, promoted, or represented as CLEAN.",
+  "artifacts": {
+    "decision": {
+      "bytes": 1040,
+      "decision": "ACCEPT_DISABLED_RUNNER_REPAIRS_ONLY_DO_NOT_PROMOTE_OR_REBIND",
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/decision-v7-open-awaiting-p0-v8.json",
+      "role": "decision",
+      "sha256": "89e3c9a60c1395561b48c8af8e306bda7fdddab4514532d9ee7bc10ee8ba0156",
+      "status": "OPEN_AWAITING_P0_V8"
+    },
+    "producer_verification": {
+      "bytes": 2768,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/producer-verification-v7-open-awaiting-p0-v8.json",
+      "role": "producer_verification",
+      "sha256": "5c21fdaba8899acb5825895e7a6c1a771c631c4363e4968a858d9984a42d469b",
+      "status": "OPEN_AWAITING_P0_V8",
+      "verdict": "RUNNER_FINDING_REPAIRS_VERIFIED_PROVIDER_FREE_DO_NOT_PROMOTE"
+    },
+    "protocol": {
+      "bytes": 1621,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/protocol-v7-open-awaiting-p0-v8.json",
+      "role": "protocol",
+      "sha256": "cd3e387caf5e1ed151ed578db7f9bd63bcd0487f19d1444fc1b30b8534a14bf0",
+      "status": "OPEN_AWAITING_P0_V8"
+    },
+    "source_closure": {
+      "bytes": 2934,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/source-closure-v7-open-awaiting-p0-v8.json",
+      "role": "source_closure",
+      "sha256": "e6401c4145441637ecdd1a2d1bf4ff77aadb0a4c0607fc23619c4c0e1755ea16",
+      "status": "FROZEN_PROVIDER_FREE_SOURCE_CLOSURE_OPEN_AWAITING_P0_V8"
+    }
+  },
+  "countable": false,
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "historical_disposition": {
+    "v1_through_v5": "OPEN_OR_STALE_OPEN_SNAPSHOTS_PRESERVED",
+    "v4_independent_review": "CONTRADICTED_CLEAN_SNAPSHOT_PRESERVED",
+    "v6": "OPEN_FROZEN_SNAPSHOT_PRESERVED",
+    "v7": "OPEN_AWAITING_P0_V8_FROZEN_HERE"
+  },
+  "provider_free": true,
+  "status": "OPEN_V7_FROZEN_SUPERSEDED_BY_ADDITIVE_V8_CORE_EVIDENCE",
+  "supersession": {
+    "history_rewrite": false,
+    "kind": "ADDITIVE_EVIDENCE_ONLY",
+    "source_mutation": false,
+    "successor_status": "PASS_PROVIDER_FREE_RUNNER_CORE_PENDING_EXTERNAL_LIVE_PINS"
+  },
+  "version": "r6-data-quality-2x2-runner-v7-open-frozen-snapshot-1"
+}

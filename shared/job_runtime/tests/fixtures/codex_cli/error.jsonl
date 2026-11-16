@@ -1,0 +1,2 @@
+{"type":"invocation.started","opaque_identity":"synthetic-opaque"}
+{"type":"runner.error","failure":{"classification":"sanitized_fixture_failure"}}

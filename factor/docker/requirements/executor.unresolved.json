@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "role": "executor",
+  "status": "unresolved",
+  "python": "cp310",
+  "platforms": ["manylinux_2_28_x86_64", "manylinux_2_28_aarch64"],
+  "source_revision": "2fb9380b342556ddb50a4b24e4fe8655d548b2b8",
+  "required_output": "executor.requirements.lock",
+  "required_extensions": ["qlib.data._libs.rolling", "qlib.data._libs.expanding"],
+  "blockers": ["transitive-resolution-not-run", "hash-complete-wheelhouse-absent", "native-extension-reproducibility-unverified"]
+}

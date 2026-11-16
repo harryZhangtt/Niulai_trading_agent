@@ -1,0 +1,36 @@
+{
+  "version": "r6-data-quality-exact-input-binding-architecture-v3",
+  "status": "FROZEN_OWNER_BOUND_TRANSITIVELY_CLOSED_PROVIDER_FREE_SUCCESSOR",
+  "problem": "The OPEN v2 review found that dynamic same-as-process ownership was absent from the canonical identity and that entry-packet/user-decision semantic dependencies were outside enforced closure.",
+  "review_basis": {
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v2-independent-review-open-20261111-46ee3e157a72.json",
+    "bytes": 14940,
+    "sha256": "ecc9291ea0ecd30cb54bbf641ea2562a983d56fe666d20662bc2426119a946a2",
+    "verdict": "OPEN_EXACT_INPUT_BINDING_V2",
+    "findings": ["OPEN-V2-OWNER-BINDING-1", "OPEN-V2-SOURCE-CLOSURE-2"]
+  },
+  "history_disposition": "V1_V2_PRODUCERS_AND_REVIEWS_RETAINED_AS_OPEN_UNCHANGED",
+  "owner": "R6_EXACT_INPUT_BINDING_V3_PACKAGE",
+  "contract": {
+    "input": "seven exact owner/path/mode/byte/raw-hash/content-hash authority artifacts plus an exhaustive recursive semantic-reference registry",
+    "output": "one owner-private closed manifest whose common identity and every cell include exact observed owner UID, trusted process UID, root ownership, seven authority identities, eleven dependency edges and one local prompt claim",
+    "errors": "deny on process/root/artifact owner drift, missing/substituted dependency, uncovered recursive reference claim, path/type/mode/hash/content/canonical/cell/semantic/pin drift"
+  },
+  "selected": "O1_OWNER_BOUND_TRANSITIVE_CLOSURE",
+  "owner_policy": {
+    "owner_uid": 501,
+    "trusted_process_uid": 501,
+    "portability": "nonportable exact observed UID; rehash and new manifest version required on another UID",
+    "validation": "workspace lstat/open/fstat, each root-component fstat and each final-file fstat must equal the exact bound UID"
+  },
+  "semantic_closure": {
+    "authority_artifacts": 7,
+    "recursive_reference_claims": 19,
+    "semantic_dependency_edges": 11,
+    "local_content_claims": 1,
+    "rule": "discovered reference/hash claims must equal the registered coverage set exactly; missing, added or substituted claims deny"
+  },
+  "impact": {"classification": "INERT_LOCAL", "activation": false, "active_runtime_import": false, "failure_radius": "v3 package only", "rollback": "remove v3; v1/v2 and both OPEN reviews remain immutable history"},
+  "dependency_policy": {"python": "stdlib only", "external_packages": false, "bytedcli": false, "network": false, "private_or_internal_sources": false},
+  "claim_limit": "Provider-free owner/path/content/transitive-closure software evidence only; no independent CLEAN review, live authority, countable result, superiority, return, promotion or runtime acceptance."
+}

@@ -1,0 +1,35 @@
+{
+  "allowed_result_path": "tuning/probabilistic_manifold/artifacts/development-result.v7.json",
+  "allowed_source_root": ".",
+  "allowed_state_root": "tuning/probabilistic_manifold/artifacts",
+  "attempt_id": "tqqq-dev126-v7-attempt-001",
+  "candidate_id": "price_path_base",
+  "claim_scope": "development_only_no_action",
+  "forbidden": [
+    "protected IDs/outcomes",
+    "secondary/macro/diagnostic selection",
+    "provider/network/email/scheduler/trading/promotion effects",
+    "Report-C edits",
+    "probability/alpha/generalization/action promotion"
+  ],
+  "implementation_review_sha256": "121091f6f35983d098168c7df894ade0052a8cc2a114ecc4ab220d08ebcb2527",
+  "initial_ledger_head": "3fd18e96fdbc9da5ba33f42fa82ace827401adecd905b1466012f2d141bc8a6f",
+  "initial_ledger_sha256": "f754534131cbb278af9cc8ef9bfe99d509d2ccda620c15f1028fe0f8ad99fa5d",
+  "preflight_sha256": "cce0dc347e01c5327e9bdb31983d1facb984d6026efac9f07499e786c615e9c2",
+  "protected_outcomes_accessed": false,
+  "protocol_review_sha256": "ffa450a90fb9475ffb8fa6daa8d61d4474454c600bc68b03f048e4f959b826fa",
+  "replay_allowed": false,
+  "requirements": [
+    "recompute every bound hash before execution",
+    "construct only V2DevelopmentDataAdapter.from_receipts",
+    "do not mutate adapter or nested config",
+    "register attempt before any lazy label access",
+    "minimum retained N 5; fewer consumes attempt as inconclusive",
+    "no retune, rerun or unchanged replay",
+    "reconcile UNKNOWN_WRITE before any further action",
+    "read back exact result digest, completed ledger event and new head"
+  ],
+  "status": "GRANTED_EXACTLY_ONE_DEVELOPMENT_ONLY_RUN",
+  "target_id": "primary_126.material_loss",
+  "version": "tqqq-development-run-grant-v2"
+}

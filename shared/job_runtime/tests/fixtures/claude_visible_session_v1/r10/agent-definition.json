@@ -1,0 +1,1 @@
+{"schema_version":"static-readonly-agent-v1","name":"synthetic-skill-miner","description":"Mine only the supplied invented S1-S3 fixture","model_id":"claude-opus-5-5","effort":"low","tools":{"allow":["Glob","Grep","Read"],"deny":["Agent","Bash","Edit","WebFetch","WebSearch","Write"]},"max_depth":0,"max_concurrency":1,"retries":0}

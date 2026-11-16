@@ -1,0 +1,41 @@
+{
+  "bindings": {
+    "config_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "prompt_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "source_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  "campaign_id": "R8",
+  "enabled": false,
+  "execution": {
+    "max_attempts": 1,
+    "max_workers": 1
+  },
+  "live": {
+    "network": false,
+    "process": false,
+    "provider": false
+  },
+  "prompt_custody": {
+    "mode": "native_v1",
+    "raw_prompt_forbidden": true,
+    "schema_version": 2
+  },
+  "replay_contract": {
+    "automatic_phases": [],
+    "effect": "reconcile_before_replay",
+    "reconciliation_adapter": "claude_campaign_v1.named_unknown_reconciliation",
+    "slot_operation_scope": "claude-campaign-v1/r8/slot-operation",
+    "version": 1
+  },
+  "scenario": "post_forward_cut_unknown",
+  "schema_version": "claude-campaign-v1",
+  "scope": {
+    "canonical_integration": false,
+    "kind": "candidate_local"
+  },
+  "unknown_fence": {
+    "blocked_slots": 2,
+    "reconciliation_adapter": "claude_campaign_v1.named_unknown_reconciliation",
+    "scope": "campaign"
+  }
+}

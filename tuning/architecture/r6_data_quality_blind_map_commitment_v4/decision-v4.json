@@ -1,0 +1,72 @@
+{
+  "acceptance_evidence": {
+    "deny_before_map": "PASS",
+    "fresh_independent_review": "PENDING",
+    "predecessor_and_evaluation_tests": "38/38 PASS",
+    "runtime_transaction": "PASS",
+    "static_schema_surface": "PASS",
+    "v4_tests": "6/6 PASS",
+    "value_suppressing_scan": "PASS_ZERO_MATCHES"
+  },
+  "activation": false,
+  "allowed_claim": "Local provider-free repair candidate only; not independently closed, activated, countable, live, or accepted for business use.",
+  "baseline_open_review": {
+    "activation": false,
+    "bytes": 10160,
+    "countable": false,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v3-independent-review-open-v1-fable-20261111.json",
+    "sha256": "b3ee0407e73f6f13a1c541f2cfe632abfb911d4562a59d41e740409b9e82c4bd",
+    "verdict": "OPEN"
+  },
+  "countable": false,
+  "effects_observed": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "observed_problem": "OPEN-v3 found two P0 and two P1 defects: global chronology gaps, forgeable validator object provenance, five schema/runtime differentials, and a public production chain builder.",
+  "options": [
+    {
+      "decision": "REJECTED_FOR_REPAIR",
+      "id": "O0",
+      "name": "retain v3 disabled",
+      "reason": "Preserves safe denial but does not close the four reviewed defects."
+    },
+    {
+      "decision": "SELECTED",
+      "id": "O1",
+      "name": "additive fixed v4 sibling",
+      "reason": "Smallest isolated repair preserving all v1-v3 history, v2 transaction/recovery, active runtime boundaries, and zero external effects."
+    },
+    {
+      "decision": "REJECTED",
+      "id": "O2",
+      "name": "modify v3 or shared provider/runner/evaluation runtime",
+      "reason": "Violates immutable OPEN history and expands failure/activation radius without need."
+    }
+  ],
+  "out_of_scope": [
+    "v1-v3 source/runtime/evidence/reviews",
+    "provider",
+    "runner",
+    "evaluation implementation",
+    "active scheduler/runtime configuration",
+    "human or chain trust-pin population",
+    "fresh independent review artifact"
+  ],
+  "selected_scope": [
+    "New v4 source and eleven schemas",
+    "New test-only private fixture and adversarial tests",
+    "New owner-private v4 runtime transaction",
+    "New v4 architecture/protocol/decision/closure/producer artifacts"
+  ],
+  "subject": "r6_data_quality_blind_map_commitment_v4",
+  "version": "r6-data-quality-blind-map-commitment-decision-v4"
+}

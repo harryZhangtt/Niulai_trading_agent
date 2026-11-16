@@ -1,0 +1,69 @@
+{
+  "activation": false,
+  "architecture": {
+    "bytes": 4563,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/architecture-v2.json",
+    "sha256": "e04f9bc38c1e761b192988d8b408902b89ab30305751242c414f74f16d4f730d"
+  },
+  "cell_contract": {
+    "attempts_per_cell": 1,
+    "order": "fixed CELL_ORDER",
+    "partial_comparison": false,
+    "replays": 0,
+    "retries": 0,
+    "status_queries": 0
+  },
+  "crash_rules": {
+    "claim_partial_or_malformed": "fail closed; never clean or replace uncertain state",
+    "post_admission_no_receipt": "durable UNKNOWN_NO_REPLAY",
+    "prepared_effect_residue": "fail closed; no cleanup-based proof",
+    "prepared_owner_dead_zero_effects": "one predecessor-linked recovery claim O_EXCL",
+    "receipt_post_link": "same-inode exact receipt reconciliation and stage cleanup without boundary replay",
+    "receipt_stage_complete": "predecessor exact validation/link/fsync/reopen reconciliation without boundary replay"
+  },
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "execution_order": [
+    "read-only validate exact authority, grant, map, owner roots and P0-v9/runner-v1 pins",
+    "derive fixed key from block/grant/input/map/owner-root identities without caller destination/root/clock choice",
+    "descriptor-relative create or validate fixed private reservation directory",
+    "atomically O_EXCL publish and reopen/hash one owner claim, or validate current immutable claim chain",
+    "recover PREPARED only when prior kernel process identity is inactive and zero effects are proven",
+    "fsync and reopen/hash ADMITTED before any predecessor destination preflight/mutation or provider/P0 boundary",
+    "delegate once to unchanged runner-v1 four-cell path",
+    "reconcile only an exact authenticated completed receipt stage/final state; otherwise publish UNKNOWN_NO_REPLAY",
+    "publish immutable COMPLETED event bound to exact receipt reference"
+  ],
+  "generated_at_utc": "2026-11-12T01:19:07Z",
+  "history": {
+    "bytes": 2376,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/history-index-v2.json",
+    "sha256": "afd3b722f15b232f3d8f332c7ab92f97c23f1925fd12762008cb5c5cfad6e39b"
+  },
+  "input": "exact authority registry/grant, frozen input, blind-map, runner owner root, two P0 adapter owner roots, bundle destination, and fixture boundary objects",
+  "loser_rule": "a same-key loser either reconciles the exact completed receipt or fails closed before boundary; it never invokes predecessor execute after admission uncertainty",
+  "output": "pinned execution_receipt_v6 reference or fail-closed reservation error; finalization delegates unchanged to authenticated v1 human/G3 path",
+  "process_rules": {
+    "active_expired_deadline": "no takeover",
+    "boot_change": "old process identity is inactive; recovery still requires PREPARED and zero-effects proof",
+    "pid_reuse": "kernel start-token mismatch cannot inherit the claim; any permitted recovery is a new predecessor-linked claim after zero-effects proof"
+  },
+  "provider_free": true,
+  "status": "PRODUCER_PROTOCOL_P0_V10_RECLOSURE_REQUIRED",
+  "unresolved": {
+    "independent_review": "PENDING",
+    "orchestrator_rebind": "PENDING",
+    "p0_schema": "P0_V10_REQUIRED",
+    "remaining_runner_findings": "PENDING_ADJUDICATION"
+  },
+  "version": "r6-data-quality-2x2-runner-protocol-v2"
+}

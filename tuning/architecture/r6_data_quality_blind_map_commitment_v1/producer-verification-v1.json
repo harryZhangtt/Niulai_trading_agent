@@ -1,0 +1,144 @@
+{
+  "activation": false,
+  "adversarial_coverage": [
+    "fixed no-argument create/validate surface",
+    "full partial-write loop plus file and parent fsync",
+    "atomic no-replace and first-artifact preservation",
+    "exact reopen/bytes/SHA-256 binding",
+    "root and artifact symlink denial",
+    "traversal/nonfixed path denial",
+    "nonregular/wrong-owner/wrong-mode denial",
+    "artifact/root substitution denial",
+    "duplicate label and duplicate cell denial",
+    "nonopaque and order-leaking label denial",
+    "strict closed Draft 2020-12 schemas",
+    "exact frozen four-cell order denial",
+    "required G1/G2 and conditional G3 before map read",
+    "derived metrics immutable before map read",
+    "grade substitution before map read"
+  ],
+  "allowed_claim": "The disabled provider-free producer, sanitized commitment, and evaluation-v3 opening fence pass local deterministic verification only.",
+  "bindings": {
+    "architecture": {
+      "bytes": 3784,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v1/architecture-v1.json",
+      "sha256": "da0f4ac42a1fda9e042c088ad586f007ed66340d3d0ead541388b6b579185077"
+    },
+    "decision": {
+      "bytes": 2359,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v1/decision-v1.json",
+      "sha256": "77a5776db49b7fc3096704a2d775237699b4ced57843c3d323bef79a0f6e8025"
+    },
+    "protocol": {
+      "bytes": 3417,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v1/protocol-v1.json",
+      "sha256": "9bdc7251b141e2cff0254e28a7c8de453d8809e005a92d67f34c380aa3c183c8"
+    },
+    "source_closure": {
+      "bytes": 6570,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v1/source-closure-v1.json",
+      "sha256": "0c72584f1c8610941faf0f7cbd92773eb4f585fcaece9047a34c7bb8c59265e1"
+    }
+  },
+  "bytedcli_calls": 0,
+  "countable_now": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "final_block_authority": "REQUIRED_PENDING",
+  "fixed_cell_ids": [
+    "R6DQ-7F2C91A4",
+    "R6DQ-1B8E43D7",
+    "R6DQ-C4A7095E",
+    "R6DQ-92D6F0B3"
+  ],
+  "forbidden_claims": [
+    "activation",
+    "countability",
+    "live provider execution",
+    "provider or add-on superiority",
+    "independent review completion",
+    "final block authorization"
+  ],
+  "independent_review": "REQUIRED_PENDING_NOT_CREATED_BY_PRODUCER",
+  "provider_or_live_calls": 0,
+  "runtime_artifacts": {
+    "canonical_binding": {
+      "canonical_bytes": 807,
+      "canonical_digest": "fd7d7adfe3e7c53d5b4293426ae6d07c1fdd2aa1fbbe39d031183e2587862e7a",
+      "exact_reopen_verified": true,
+      "git_ignored": true
+    },
+    "owner_private_map": {
+      "bytes": 807,
+      "labels_disclosed": false,
+      "mode": "0600",
+      "owner_matches": true,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v1/owner-private-canonical-map-v1.json",
+      "regular": true,
+      "sha256": "fd7d7adfe3e7c53d5b4293426ae6d07c1fdd2aa1fbbe39d031183e2587862e7a",
+      "symlink": false
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "fields": [
+        "canonical_bytes",
+        "canonical_digest",
+        "schema",
+        "version"
+      ],
+      "mode": "0600",
+      "owner_matches": true,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v1/sanitized-commitment-v1.json",
+      "regular": true,
+      "sha256": "1209f4a14655d6b7ae9d8ddcbe98f5af245d62f83eeea780ddcdcaa5a367d23c",
+      "symlink": false
+    }
+  },
+  "status": "PRODUCER_PASS_DISABLED_PROVIDER_FREE_PENDING_INDEPENDENT_REVIEW_AND_FINAL_BLOCK_AUTHORITY",
+  "tests": {
+    "diff_check": {
+      "result": "PASS"
+    },
+    "evaluation_v3_regression": {
+      "command": ".research-sources/.venv/bin/python -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_2x2_evaluation_v3.test_evaluation_v3",
+      "failed": 0,
+      "passed": 12,
+      "result": "PASS",
+      "skipped": 0
+    },
+    "py_compile": {
+      "result": "PASS"
+    },
+    "source_closure_readback": {
+      "predecessor_rows": 6,
+      "result": "PASS",
+      "runtime_rows": 2,
+      "source_rows": 9
+    },
+    "system_python_3": {
+      "command": "python3 -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_blind_map_commitment_v1.test_commitment",
+      "failed": 0,
+      "passed": 9,
+      "result": "PASS",
+      "skipped": 0
+    },
+    "workspace_python_3_12_draft_2020_12": {
+      "command": ".research-sources/.venv/bin/python -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_blind_map_commitment_v1.test_commitment",
+      "failed": 0,
+      "passed": 9,
+      "result": "PASS",
+      "skipped": 0
+    }
+  },
+  "verdict": "PASS_PROVIDER_FREE_PRODUCER_ONLY",
+  "version": "r6-data-quality-blind-map-commitment-producer-verification-v1"
+}

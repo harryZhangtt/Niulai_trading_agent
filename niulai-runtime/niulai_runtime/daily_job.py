@@ -18,9 +18,13 @@ import time
 
 from .config import load_config, assert_recipient, ConfigError
 from .daily_work import Work, private, atomic, require, sha, stamp
-from .delivery import DeliveryError, assert_content_parity
+from .delivery import DeliveryError, assert_content_parity, validate_payload, gmail_claim
+from .delivery import IMPLEMENTATION_SHA256 as _DELIVERY_IMPLEMENTATION_SHA256
 from .scheduler import admit, ParallelRunEvidence
 from .replay import from_raw
+
+RUNTIME_CONTEXT_VERSION = 3
+REQUIRED_SERVICE_PROTOCOL_VERSION = 2
 
 UTC = timezone.utc
 
@@ -117,21 +121,116 @@ def initialize(root, options, context):
         'price_ready': (out / 'prices/branch.json').exists()}
 
 
-def prepare(options, workspace, context):
+def release_not_dispatched(options, workspace, context, claim=None):
+    """Release only this owner's unexposed work, never an uncertain delivery."""
+    root=Path(workspace).resolve()
+    if not (root/'.niulai-state/databases/outbox.sqlite').exists():return
+    from shared.job_runtime.business import _check_gmail_claim
+    if claim is not None and _check_gmail_claim(root,claim,'business'):return
+    work=Work(root)
+    with work.connect() as db:
+        db.execute('BEGIN IMMEDIATE')
+        rows=db.execute('SELECT * FROM digest_work WHERE lease_owner=?',(context['attempt_id'],)).fetchall()
+        for row in rows:
+            keys=[key for key in (row['initial_key'],row['correction_key']) if key]
+            if any(db.execute("SELECT 1 FROM outbox WHERE key=? AND status!='prepared'",(key,)).fetchone() for key in keys):continue
+            directory=root/'.niulai-state/daily'/row['id']
+            claims=list(directory.glob('mail/*/gmail_claim.json'))
+            if any(_check_gmail_claim(root,json.loads(p.read_text()),'business') for p in claims):continue
+            db.execute("UPDATE digest_work SET state='retry_wait',due_at=NULL,lease_owner=NULL,lease_until=NULL,tries=MAX(0,tries-1),last_code='DEFINITELY_NOT_DISPATCHED' WHERE id=? AND lease_owner=?",
+                       (row['id'],context['attempt_id']))
+
+
+def prepare(options, workspace, context, runtime):
     root = Path(workspace).resolve()
     env = {k: os.environ[k] for k in ('PATH', 'HOME', 'USER', 'LANG', 'SSL_CERT_FILE', 'SSL_CERT_DIR') if k in os.environ}
     env.update(PYTHONPATH=str(root) + os.pathsep + str(root / 'niulai-runtime'),
                PYTHONDONTWRITEBYTECODE='1', TMPDIR=str(root / '.niulai-state/tmp'))
-    cp = subprocess.run([str(root / '.niulai-state/.venv/bin/python'), '-m', 'niulai_runtime.daily_job',
-        'initialize', '--workspace', str(root)], input=json.dumps({'options': options, 'context': context}),
-        capture_output=True, text=True, env=env, cwd=root, timeout=30)
+    try:
+        cp = subprocess.run([str(root / '.niulai-state/.venv/bin/python'), '-m', 'niulai_runtime.daily_job',
+            'initialize', '--workspace', str(root)], input=json.dumps({'options': options, 'context': context}),
+            capture_output=True, text=True, env=env, cwd=root, timeout=30)
+    except subprocess.TimeoutExpired:
+        release_not_dispatched(options,root,context)
+        return {'status':'retryable','code':'DAILY_INITIALIZATION_TIMEOUT','receipt':{'dispatch_phase':'not_dispatched'}}
     if cp.returncode:
+        release_not_dispatched(options,root,context)
         try:
             code = json.loads(cp.stdout)['error']
         except Exception:
             code = 'DAILY_INITIALIZATION_FAILED'
         return {'status': 'failed', 'code': code}
-    return json.loads(cp.stdout)
+    try:
+        prepared = json.loads(cp.stdout)
+        require(isinstance(prepared,dict),'DAILY_INITIALIZATION_SCHEMA')
+        if 'status' in prepared:
+            require(prepared['status'] in ('failed','retryable','unknown','succeeded') and
+                    isinstance(prepared.get('code'),str),'DAILY_INITIALIZATION_SCHEMA')
+            return prepared
+        require(isinstance(prepared.get('work_id'),str) and
+                isinstance(prepared.get('output_directory'),str),'DAILY_INITIALIZATION_SCHEMA')
+    except (ValueError,TypeError):
+        release_not_dispatched(options,root,context)
+        return {'status':'failed','code':'DAILY_INITIALIZATION_INVALID','receipt':{'dispatch_phase':'not_dispatched'}}
+    try:
+        # Only finalized maintained snapshots can authorize Gmail. Acquisition is
+        # owned by the data stage; absence never grants a speculative send claim.
+        planned = plan(root, prepared['work_id'])
+        if planned['status']=='reconcile':
+            return {'status':'unknown','code':'DAILY_PRIOR_DISPATCH_RECONCILE_REQUIRED'}
+        require(planned['status'] in ('composed','prepared'), 'DAILY_DELIVERY_NOT_SENDABLE')
+        work, row, meta, out = load_work(root, prepared['work_id'])
+        policy = load_config(meta['policy'], root)
+        require(policy.recipient == meta['recipient'], 'DAILY_POLICY_RECIPIENT_CHANGED')
+        if meta['purpose'] == 'production':
+            require(policy.mode == 'production' and policy.production_enabled, 'DAILY_PRODUCTION_DISABLED')
+            authorization(root, root / meta['authorization'], policy)
+        directory = private(root, Path(planned['directory']))
+        payload = json.loads((directory / 'payload.json').read_text())
+        service = runtime['service_generation']
+        from shared.job_runtime.business import IMPLEMENTATION_SHA256 as business_digest
+        require(dict(service.get('implementations', {})) == {
+            'business': business_digest, 'delivery': _DELIVERY_IMPLEMENTATION_SHA256},
+            'DAILY_EXECUTED_SOURCE_MISMATCH')
+        claim = gmail_claim(payload, profile_email=policy.recipient, execution=context,
+            host=service['service']['source_sha256'],
+            run=sha(json.dumps(dict(service), sort_keys=True, separators=(',',':'), default=dict).encode()),
+            candidate=runtime['adapter_generation']['source_sha256'])
+        work.outbox.prepare(planned['key'], payload, recipient=policy.recipient, profile_email=policy.recipient)
+        claim_path=directory/'gmail_claim.json'
+        if claim_path.exists():
+            from shared.job_runtime.business import _check_gmail_claim
+            previous=json.loads(claim_path.read_text())
+            if _check_gmail_claim(root,previous,'business'):
+                return {'status':'unknown','code':'DAILY_PRIOR_DISPATCH_RECONCILE_REQUIRED'}
+        atomic(claim_path, claim)
+        parent_fd=os.open(directory,os.O_RDONLY)
+        try:os.fsync(parent_fd)
+        finally:os.close(parent_fd)
+        return {**prepared, 'gmail_claim':claim}
+    except OSError:
+        release_not_dispatched(options,root,context)
+        return {'status':'retryable','code':'DAILY_GMAIL_PREPARATION_IO','receipt':{'dispatch_phase':'not_dispatched'}}
+    except (ValueError, KeyError):
+        release_not_dispatched(options,root,context)
+        return {'status':'failed','code':'DAILY_GMAIL_PREPARATION_FAILED'}
+
+
+def commit_dispatch(options, workspace, context, claim):
+    """Child exists but stdin has not been released; bind sending before prompt."""
+    root=Path(workspace).resolve()
+    paths=list((root/'.niulai-state/daily').glob('*/mail/*/gmail_claim.json'))
+    matches=[p for p in paths if json.loads(p.read_text())==dict(claim)]
+    require(len(matches)==1,'DAILY_DISPATCH_CLAIM_BINDING')
+    directory=matches[0].parent
+    work,row,meta,out=load_work(root,directory.parents[1].name)
+    key=row['correction_key'] or row['initial_key']
+    payload=json.loads((directory/'payload.json').read_text())
+    policy=load_config(meta['policy'],root)
+    require(validate_payload(payload,policy.recipient,policy.recipient)['digest']==
+            claim['delivery_payload_sha256'],'DAILY_DISPATCH_PAYLOAD_CHANGED')
+    reserved=work.outbox.claim(key,context['attempt_id'],expected_digest=claim['delivery_payload_sha256'])
+    return reserved
 
 
 def load_work(root, identity):
@@ -324,7 +423,25 @@ def main():
                     encoded = (directory / 'draft_readback.b64').read_text()
                     require(sha(encoded.encode()) == draft['readback_sha256'], 'DAILY_DRAFT_READBACK_CHANGED')
                     bind_draft(directory, payload, policy.recipient, draft['draft_id'], draft['draft_message_id'], encoded)
-                    work.outbox.claim(key, a.attempt_id)
+                    fingerprint=validate_payload(payload,policy.recipient,profile['email'])
+                    sent=work.outbox.get(key)
+                    if sent['status']=='sending':
+                        claim=json.loads((directory/'gmail_claim.json').read_text())
+                        rebuilt=gmail_claim(payload,profile_email=profile['email'],execution=claim,
+                            host=claim['host'],run=claim['run'],candidate=claim['candidate'])
+                        require(claim==rebuilt,'DAILY_RUNTIME_CLAIM_INVALID')
+                        require(sent['attempt_id']==a.attempt_id and claim['attempt_id']==a.attempt_id
+                                and claim['delivery_payload_sha256']==fingerprint['digest'],
+                                'DAILY_CLAIM_IDENTITY_MISMATCH')
+                        # Only one CLI disclosure of the reserved draft is allowed.
+                        fd=os.open(directory/'draft_dispatch.spent',os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)
+                        with os.fdopen(fd,'w') as stream:
+                            stream.write(a.attempt_id);stream.flush();os.fsync(stream.fileno())
+                        claimed=payload
+                    else:
+                        raise DeliveryError('DAILY_RUNTIME_CLAIM_REQUIRED')
+                    require(validate_payload(claimed,policy.recipient,profile['email'])['digest']==fingerprint['digest'],
+                            'DAILY_CLAIMED_PAYLOAD_DIGEST_MISMATCH')
                     result = {'draft_id': draft['draft_id']}
             elif a.action == 'accepted':
                 result = work.outbox.accepted(key, a.attempt_id, a.message_id)

@@ -1,0 +1,116 @@
+{
+  "schema_version": "probabilistic-manifold-config-v1",
+  "analysis_as_of": "2026-11-09",
+  "expected_latest_completed_exchange_session": "2026-11-06",
+  "price_basis": {
+    "field": "chart.result[0].indicators.adjclose[0].adjclose",
+    "label": "adjusted_market_price",
+    "limitations": "Current-vintage adjusted exchange-traded market prices; not fund NAV, not intraday reset values, and not an exact daily-reset benchmark. Corporate-action adjustments may restate history and are not reconstructed as point-in-time vintages. The 126/252-session horizons are descriptive approximations of holding periods across daily-reset products."
+  },
+  "sources": {
+    "TQQQ": {
+      "symbol": "TQQQ",
+      "required": true,
+      "path": "mentor/runtime/market-drawdown-ai-valuation-20261105/data/raw/yahoo-leveraged-history-20261105-v1/TQQQ.json",
+      "sha256": "ca8aaae4cb66a77e281f3059fb08639840f653033cb0508762e7be753b282958",
+      "bytes": 475362,
+      "expected_start": "2010-02-11",
+      "expected_end": "2026-11-05"
+    },
+    "QQQ": {
+      "symbol": "QQQ",
+      "required": true,
+      "path": "mentor/runtime/market-drawdown-ai-valuation-20261105/data/raw/yahoo-leveraged-history-20261105-v1/QQQ.json",
+      "sha256": "3659d12dc5277987c36c676daac006e06491478fcc424002af019c7cb468e965",
+      "bytes": 466829,
+      "expected_start": "2010-01-04",
+      "expected_end": "2026-11-05"
+    },
+    "SPY": {
+      "symbol": "SPY",
+      "required": false,
+      "path": "mentor/runtime/ai-drawdown-20261105/data-close-final/SPY.json",
+      "sha256": "f91478265af3dc01d0bf254efd89e75665cca7f8cf161a8b12ce30cf6f975c06",
+      "bytes": 44435,
+      "expected_start": "2025-04-01",
+      "expected_end": "2026-11-05"
+    },
+    "TLT": {
+      "symbol": "TLT",
+      "required": false,
+      "path": "mentor/runtime/ai-drawdown-20261105/data-close-final/TLT.json",
+      "sha256": "e0bbd4d5fe236cd8538148139a8e0514dfe7e8e5a679712c3dc0e27184794511",
+      "bytes": 45241,
+      "expected_start": "2025-04-01",
+      "expected_end": "2026-11-05"
+    },
+    "HYG": {
+      "symbol": "HYG",
+      "required": false,
+      "path": "mentor/runtime/ai-drawdown-20261105/data-close-final/HYG.json",
+      "sha256": "3506ea888f7c05331a21f8df28bcdd3cf1c7f3ad5b26fe771010b228701ede5f",
+      "bytes": 45118,
+      "expected_start": "2025-04-01",
+      "expected_end": "2026-11-05"
+    }
+  },
+  "distance_features": [
+    "tqqq_return_21",
+    "tqqq_return_63",
+    "tqqq_return_126",
+    "tqqq_distance_from_126_high",
+    "tqqq_realized_vol_21",
+    "tqqq_downside_semivariance_63",
+    "qqq_return_21",
+    "qqq_return_63",
+    "qqq_return_126",
+    "tqqq_vs_3x_qqq_gap_21"
+  ],
+  "informational_proxy_features": [
+    "spy_return_21",
+    "tlt_return_21",
+    "hyg_return_21"
+  ],
+  "knn": {
+    "k": 12,
+    "calibration_stride": 21,
+    "inside_quantile": 0.95,
+    "edge_quantile": 0.99,
+    "minimum_training_rows": 252,
+    "minimum_nonoverlap_episodes": 3,
+    "minimum_dependence_adjusted_ess": 2.5,
+    "maximum_staleness_calendar_days": 7
+  },
+  "eras": [
+    {
+      "name": "pre_covid",
+      "start": "2010-01-01",
+      "end": "2020-02-18"
+    },
+    {
+      "name": "covid_shock_and_recovery",
+      "start": "2020-02-19",
+      "end": "2021-12-31"
+    },
+    {
+      "name": "tightening_bear",
+      "start": "2022-01-01",
+      "end": "2022-12-31"
+    },
+    {
+      "name": "post_2022_ai_liquidity",
+      "start": "2023-01-01",
+      "end": "2024-12-31"
+    },
+    {
+      "name": "recent_2025_plus",
+      "start": "2025-01-01",
+      "end": "2099-12-31"
+    }
+  ],
+  "integration": {
+    "policy_scope": "descriptive_training_cloud_v1",
+    "probability_feature_compatible": false
+  },
+  "training_cloud_maturity_sessions": 126
+}

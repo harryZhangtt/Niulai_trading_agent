@@ -1,0 +1,99 @@
+{
+  "activation": false,
+  "activation_boundary": "Separate CLEAN independent rereview plus explicit final block authority and integration are required; current human authority pins are absent and opening denies before private-map read.",
+  "allowed_claim": "Disabled provider-free v2 producer evidence closes P0/P1 locally; no activation, live/countable result, human authority, or provider/add-on conclusion.",
+  "close_p0": {
+    "adversaries": [
+      "second map",
+      "post-grade map",
+      "swapped aliases",
+      "unbound commitment",
+      "metric substitution",
+      "fixture authority",
+      "noncountable authority",
+      "pending human authority"
+    ],
+    "grades": "Every grade binding seals the pre-call packet hash, opaque alias, commitment binding, evaluation packet hash, base grade hash, and role.",
+    "metrics": "The metric binding seals the same commitment, all ordered packet hashes, ordered grade-binding hashes, aliases, and derived-metric hash.",
+    "opening": "Reads receipt+commitment only; rejects fixture, noncountable, or unpinned authority; revalidates all packet/grade/metric bindings; only then reads the private map and checks every alias-to-cell pair exactly.",
+    "pre_call_packets": "Each exact frozen cell packet carries one immutable opaque alias and the exact transaction ID, receipt ref, sanitized commitment ref, canonical digest, and canonical bytes."
+  },
+  "close_p1": {
+    "marker": "Create/fsync/reopen the strict receipt last; readers accept only its exact complete pair; remove stages with parent fsync.",
+    "namespace_commit": "Hard-link each stage to its no-replace final name, fsync parent after each namespace commit, and exact-readback both finals.",
+    "preflight": "Recover/quarantine recognized markerless/invalid residues and verify both final namespaces plus receipt before staging.",
+    "recovery": "On zero/short/write/fsync/link/conflict/readback/cleanup failure, remove or quarantine all recognized partial stage/final/marker artifacts and fsync; a deterministic retry is not blocked.",
+    "staging": "Create complete private-map and commitment stage files with O_EXCL/O_NOFOLLOW, full-write loops, 0600 mode, file fsync, directory fsync, and exact reopen/hash."
+  },
+  "countable": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "failure_radius": "Fixed ignored v2 runtime root and provider-free in-memory binding objects only.",
+  "final_block_authority": "REQUIRED_PENDING",
+  "impact_class": "inert/local disabled candidate",
+  "independent_rereview": "REQUIRED_PENDING_NOT_PRODUCER_CREATED",
+  "open_review_binding": {
+    "bytes": 7019,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v1-independent-review-open-v1.json",
+    "sha256": "df607b44d873590be8d402eba0f95e0265c4cdf4f7a12f85b0e3d484c34802f5",
+    "verdict": "OPEN"
+  },
+  "owner": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v2",
+  "predecessor": {
+    "evidence_mutated": false,
+    "producer_verification_sha256": "5a2a437464476bb102d224e247354c2d15ec27b62fdcdd845d7fc768a617f648",
+    "runtime_commitment_sha256": "1209f4a14655d6b7ae9d8ddcbe98f5af245d62f83eeea780ddcdcaa5a367d23c",
+    "runtime_mutated": false,
+    "runtime_private_map_sha256": "fd7d7adfe3e7c53d5b4293426ae6d07c1fdd2aa1fbbe39d031183e2587862e7a",
+    "source_mutated": false,
+    "status": "OPEN_HISTORY_PRESERVED"
+  },
+  "runtime_artifacts": {
+    "private_map": {
+      "bytes": 897,
+      "labels_disclosed": false,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/owner-private-canonical-map-v2.json",
+      "sha256": "8c0affb05319a96f4044a5cc663827b6b6c7613e6cddc0c4d08ca23ae169515d"
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "fields": [
+        "canonical_bytes",
+        "canonical_digest",
+        "schema",
+        "version"
+      ],
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/sanitized-commitment-v2.json",
+      "sha256": "b52b5a7d635e33203d08e02c552ae0fdb8655fce54a32d118058263015b8975c"
+    },
+    "transaction_receipt": {
+      "bytes": 423,
+      "committed_last": true,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v2/transaction-receipt-v2.json",
+      "sha256": "6814194f41676b4e804ea8addf73f5da9c53376ec0b6072956988b2a141a2199"
+    }
+  },
+  "state_authority": {
+    "activation_countability": "external final block authority; absent",
+    "artifact_root": "module-derived fixed v2 path",
+    "commitment_identity": "receipt plus exact bytes/SHA refs",
+    "evaluation": "pinned evaluation-v3",
+    "human_opening": "externally pinned live countable registry only; currently absent",
+    "map_and_randomness": "internal only"
+  },
+  "status": "DISABLED_PROVIDER_FREE_SUCCESSOR_PENDING_INDEPENDENT_REREVIEW_AND_FINAL_BLOCK_AUTHORITY",
+  "version": "r6-data-quality-blind-map-commitment-architecture-v2"
+}

@@ -1,0 +1,77 @@
+{
+  "$id": "r6-data-quality-blind-map-v3",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cells": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "enum": [
+              "R6DQ-7F2C91A4",
+              "R6DQ-1B8E43D7",
+              "R6DQ-C4A7095E",
+              "R6DQ-92D6F0B3"
+            ],
+            "type": "string"
+          },
+          "label": {
+            "pattern": "^[0-9a-f]{32}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "cell_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "design_identity": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "design_review_identity": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evaluation_identity": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evaluation_producer_identity": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evaluation_review_identity": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "open_review_identity": {
+      "const": "d7a453c4b04442c233bf830d8a8b5747400b15e237f3337a95e0474f6a602963"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-v3"
+    },
+    "version": {
+      "const": 3
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "design_identity",
+    "design_review_identity",
+    "evaluation_identity",
+    "evaluation_producer_identity",
+    "evaluation_review_identity",
+    "open_review_identity",
+    "cells"
+  ],
+  "type": "object"
+}

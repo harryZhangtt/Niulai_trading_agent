@@ -1,0 +1,73 @@
+{
+  "schema_version": 6,
+  "kind": "factor_local_colima_production_activation_boundary",
+  "profile_id": "factor-local-docker-colima-v6",
+  "status": "selected-disabled",
+  "runnable": false,
+  "apply_allowed": false,
+  "workspace_policy": "explicit-absolute-fd-bound",
+  "authorization": {
+    "capability": "factor-local-v6-start",
+    "explicit_apply_required": true,
+    "parent_approval_required": true
+  },
+  "roots": {
+    "COLIMA_HOME": ".c",
+    "COLIMA_CACHE_HOME": "factor/runtime/local/colima-cache",
+    "DOCKER_CONFIG": "factor/runtime/local/docker-config",
+    "HOME": "factor/runtime/local/home",
+    "mode": 448,
+    "owner": "current-euid",
+    "empty_before_spawn": true
+  },
+  "execution": {
+    "fixed_internal_runner": true,
+    "fixed_internal_status_probe": true,
+    "shell": false,
+    "start_new_session": true,
+    "timeout_seconds": 600,
+    "terminate_grace_seconds": 10,
+    "cwd": "fd-backed-workspace",
+    "pass_workspace_fd": true,
+    "closed_environment": [
+      "COLIMA_HOME",
+      "COLIMA_CACHE_HOME",
+      "COLIMA_PROFILE",
+      "DOCKER_CONFIG",
+      "HOME",
+      "PATH"
+    ]
+  },
+  "reconciliation": {
+    "timeout_outcome": "unknown-retain-roots",
+    "success_requires_child_zero": true,
+    "success_requires_colima_running": true,
+    "success_requires_context_endpoint_under_colima_home": true,
+    "success_requires_true_global_context_unchanged": true,
+    "blind_retry": false
+  },
+  "threat_model": {
+    "cooperative_lock_only": true,
+    "workspace_path_identity_checked_immediately_before_spawn": true,
+    "malicious_same_user_mutation_after_check_prevented": false,
+    "malicious_same_user_mutation_after_check_out_of_scope": true
+  },
+  "predecessors": {
+    "v5_tree_sha256": "990d35326ac4624b8d736f2475e96da0de01fac5b100f03973aea7ef94f2bd74",
+    "v5_profile_physical_sha256": "71be56773a21df8d54538863fcbd4a5b28f0ebf3690c8e5fef74d39aa042870f",
+    "v5_profile_canonical_sha256": "17b973020fec9cca079cf0e562237c9e1823540dc4f224db0cff1a637609a444",
+    "v4_profile_physical_sha256": "705c78e004d206c98c4d30de38384e3d75b72c2525efecc1cd7c7cbac3667ac3",
+    "v4_profile_canonical_sha256": "5be9d1827441ba81c8d30beac9ee1090a2866320141940b526997bcf7e8a6407",
+    "v2_receipt_physical_sha256": "cf552b48d3511ae0116d0554d3035e911aa6425fceebd7a8c8f8a4fc93164908",
+    "v2_receipt_canonical_sha256": "c292459b46de9da23c7a90da3a439f71d83353aa14e2f4e43e91c2fd48e03327",
+    "v2_profile_physical_sha256": "81d42def01f98ec29b4f12fb5cb587114c0b28bc1705598e8a04570ecfbc7d3f",
+    "v2_profile_canonical_sha256": "40c391e025b06da28555939d5face923469a5bd8db611d9f555529588db9a81d"
+  },
+  "blockers": [
+    "explicit-v6-capability-not-issued",
+    "parent-v6-approval-not-recorded",
+    "production-v6-lifecycle-unrun",
+    "images-and-release-unresolved",
+    "runtime-acceptance-unrun"
+  ]
+}

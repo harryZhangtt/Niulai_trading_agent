@@ -18,7 +18,7 @@ class CompletionTests(unittest.TestCase):
         service.STOP.clear()
 
     def run_result(self,result,verified):
-        verify=lambda *_:{'verified':verified,'evidence':'synthetic-only'}
+        verify=lambda *_:{'verified':verified,'receipt':{'evidence':'synthetic-only'}}
         with patch.object(service,'run_business',return_value=result),patch.object(service,'adapter_module',return_value=types.SimpleNamespace(verify=verify)) as module:
             outcome=service.dispatcher(self.config,self.root)(self.job,self.context)
             return outcome,module.call_count
@@ -40,5 +40,64 @@ class CompletionTests(unittest.TestCase):
     def test_model_success_without_postcondition_is_not_delivery_success(self):
         out,calls=self.run_result({'status':'succeeded','receipt':{'final':{'status':'sent','delivery_verified':True,'message_id':'synthetic'}}},False)
         self.assertEqual(out['status'],'failed');self.assertEqual(calls,1)
+
+    def test_completion_result_requires_exact_boolean_and_bounded_public_schema(self):
+        base={'status':'succeeded','receipt':{}}
+        invalid=(
+            {'code':'OK'},
+            {'receipt':{}},
+            {'code':'OK','receipt':{}},
+            {'verified':'yes'},
+            {'verified':1},
+            {'verified':True,'private':'secret'},
+            {'verified':True,'code':'lowercase'},
+            {'verified':True,'receipt':{'blob':'x'*(service._MAX_ADAPTER_RECEIPT+1)}},
+        )
+        for candidate in invalid:
+            with self.subTest(candidate=list(candidate)):
+                verify=lambda *_, candidate=candidate:candidate
+                with patch.object(service,'run_business',return_value=base), \
+                     patch.object(service,'adapter_module',return_value=types.SimpleNamespace(verify=verify)):
+                    outcome=service.dispatcher(self.config,self.root)(self.job,self.context)
+                self.assertEqual(outcome['status'],'failed')
+                self.assertEqual(outcome['code'],'BUSINESS_POSTCONDITION_INVALID')
+                self.assertNotIn('secret',str(outcome))
+
+    def test_completion_receipt_rejects_deep_and_cyclic_data_without_recursion(self):
+        deep={};cursor=deep
+        for _ in range(1500):
+            child={};cursor['child']=child;cursor=child
+        cyclic={};cyclic['self']=cyclic
+        for receipt in (deep,cyclic):
+            verify=lambda *_,receipt=receipt:{'verified':True,'receipt':receipt}
+            with patch.object(service,'run_business',return_value={'status':'succeeded','receipt':{}}), \
+                 patch.object(service,'adapter_module',return_value=types.SimpleNamespace(verify=verify)):
+                outcome=service.dispatcher(self.config,self.root)(self.job,self.context)
+            self.assertEqual(outcome['code'],'BUSINESS_POSTCONDITION_INVALID')
+
+    def test_completion_result_is_detached_json_and_legacy_false_remains_failure(self):
+        receipt={'readback':{'id':'synthetic'}}
+        candidate={'verified':True,'code':'READBACK_VERIFIED','receipt':receipt}
+        with patch.object(service,'run_business',return_value={'status':'succeeded','receipt':{}}), \
+             patch.object(service,'adapter_module',return_value=types.SimpleNamespace(verify=lambda *_:candidate)):
+            outcome=service.dispatcher(self.config,self.root)(self.job,self.context)
+        receipt['readback']['id']='mutated'
+        self.assertEqual(outcome['receipt']['postcondition'],{
+            'verified':True,'code':'READBACK_VERIFIED','receipt':{'readback':{'id':'synthetic'}}})
+        out,_=self.run_result({'status':'succeeded','receipt':{}},False)
+        self.assertEqual(out['code'],'BUSINESS_POSTCONDITION_FAILED')
+
+    def test_model_authored_delivery_fields_never_replace_host_readback(self):
+        result={'status':'succeeded','receipt':{'final':{
+            'status':'sent','delivery_verified':True,'gmail_verified':True,
+            'message_id':'abcdef1234567890','email_message_id':'ABCDEF1234567890',
+            'send_event_id':'send-event-0001','read_event_id':'read-event-0001',
+            'recipient_sha256':'a'*64,'subject_sha256':'b'*64,'body_sha256':'c'*64,
+            'raw_readback_sha256':'d'*64,'readback_verified_at':'2026-11-05T08:09:10+00:00'}}}
+        job={key:value for key,value in self.job.items() if key!='completion_adapter'}
+        with patch.object(service,'run_business',return_value=result):
+            outcome=service.dispatcher(self.config,self.root)(job,self.context)
+        self.assertEqual(outcome['status'],'failed')
+        self.assertEqual(outcome['code'],'BUSINESS_DELIVERY_NOT_VERIFIED')
 
 if __name__=='__main__':unittest.main()

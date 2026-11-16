@@ -1,0 +1,72 @@
+{
+  "activation": false,
+  "artifact_type": "append_only_supersession_lineage",
+  "history_policy": {
+    "preserve_exact_bytes": true,
+    "versions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "predecessor_review": {
+    "bytes": 10896,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v8-independent-review-open-fable-20261113-8e9a8076.json",
+    "sha256": "65e425cab9b0fd7ed9381e0f8019360fad0e5c0f2da432c3b5c4e4c27c16df0d",
+    "verdict": "OPEN"
+  },
+  "registration": false,
+  "status": "OPEN_V9_EVIDENCE_ONLY_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "supersedes_claims_only": true,
+  "v5_claim_disposition": "CONTRADICTED_NEVER_RELY_AS_PASS",
+  "v6_claim_disposition": "OPEN_CONTRADICTED_HISTORY_NEVER_RELY_AS_PASS",
+  "v7_claim_disposition": "OPEN_CONTRADICTED_HISTORY_NEVER_RELY_AS_PASS",
+  "v8_claim_disposition": "OPEN_DESCRIPTOR_DEFECT_HISTORY_NEVER_RELY_AS_CLEAN",
+  "v8_evidence_preserved": {
+    "architecture-v8.json": {
+      "bytes": 3344,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/architecture-v8.json",
+      "sha256": "9e08e851a1eb66763bab7d057e16d7a0e3fcedf87ddada76582c83bef3cf9fc1"
+    },
+    "decision-v8.json": {
+      "bytes": 2806,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/decision-v8.json",
+      "sha256": "90e3156c81c899c299ac582b10c2171e15bf64943b051b975e4a070489afc83e"
+    },
+    "lineage-v8.json": {
+      "bytes": 1230,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/lineage-v8.json",
+      "sha256": "3da506ea182c88639eb68983c152f330918bda5bceb4e3d5bd5af2219948914c"
+    },
+    "producer-verification-v8-final.json": {
+      "bytes": 6065,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/producer-verification-v8-final.json",
+      "sha256": "50afaea5d2974b876a8bc1a237bfba22a25a288ea5fc9726d25cc0a7c378ce55"
+    },
+    "protocol-v8.json": {
+      "bytes": 4930,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/protocol-v8.json",
+      "sha256": "ea5c6df13ad3f09f50bddf92b2f83748de7ddd756f27b721710062eb35f3febc"
+    },
+    "source-closure-v8.json": {
+      "bytes": 8519,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/source-closure-v8.json",
+      "sha256": "a8946dc8a69a3787be82fa631ad129d4d473cdca40569f6175eb7bac081db3a9"
+    },
+    "verify_v8.py": {
+      "bytes": 2421,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/verify_v8.py",
+      "sha256": "ee51a6ce4153306e0fbdfa7c67a91e377b18f1794a015cc0547341dce5d489ec"
+    }
+  },
+  "v9_additive_evidence_only": true,
+  "v9_fresh_independent_review": "PENDING",
+  "v9_runtime_source_created": false,
+  "version": 9
+}

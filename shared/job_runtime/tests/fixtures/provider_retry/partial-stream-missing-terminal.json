@@ -1,0 +1,30 @@
+{
+  "evidence_status": "synthetic_not_live_evidence",
+  "expected": {
+    "body_replay": "unsafe_without_operation_semantics",
+    "classification": "partial_response_missing_terminal",
+    "retry_delay_source": "none",
+    "retry_eligible": false,
+    "submission_state": "response_incomplete"
+  },
+  "fixture_id": "partial-stream-missing-terminal",
+  "input": {
+    "observation": {
+      "failure_kind": "unexpected_eof",
+      "headers": {},
+      "http_status": 200,
+      "stream": {
+        "bytes_observed": 128,
+        "terminal_marker_observed": false
+      }
+    },
+    "request_body_state": "fully_sent",
+    "transport_phase": "response_stream"
+  },
+  "sanitization": {
+    "contains_credentials": false,
+    "contains_provider_payloads": false,
+    "contains_raw_errors": false
+  },
+  "schema_version": 1
+}

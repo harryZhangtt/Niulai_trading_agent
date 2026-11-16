@@ -1,0 +1,1905 @@
+{
+  "$id": "urn:trading-agent:live-provider-readiness-v3",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "packet": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "run_kind": {
+                    "const": "smoke"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "budgets": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "cache_enabled": {
+                        "const": false
+                      },
+                      "concurrency": {
+                        "const": 1
+                      },
+                      "fallbacks": {
+                        "const": 0
+                      },
+                      "open_items": {
+                        "const": 0
+                      },
+                      "provider_call_seconds": {
+                        "maximum": 600,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "provider_items": {
+                        "const": 1
+                      },
+                      "raw_result_limit_bytes": {
+                        "const": 65536
+                      },
+                      "run_wall_seconds": {
+                        "maximum": 600,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "search_items": {
+                        "const": 1
+                      }
+                    },
+                    "required": [
+                      "search_items",
+                      "concurrency",
+                      "cache_enabled",
+                      "raw_result_limit_bytes",
+                      "run_wall_seconds",
+                      "provider_call_seconds",
+                      "open_items",
+                      "provider_items",
+                      "fallbacks"
+                    ],
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "run_kind": {
+                    "const": "narrow"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "budgets": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "cache_enabled": {
+                        "const": false
+                      },
+                      "concurrency": {
+                        "const": 1
+                      },
+                      "fallbacks": {
+                        "const": 1
+                      },
+                      "open_items": {
+                        "const": 2
+                      },
+                      "provider_call_seconds": {
+                        "maximum": 600,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "provider_items": {
+                        "const": 3
+                      },
+                      "raw_result_limit_bytes": {
+                        "const": 65536
+                      },
+                      "run_wall_seconds": {
+                        "maximum": 600,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "search_items": {
+                        "const": 1
+                      }
+                    },
+                    "required": [
+                      "search_items",
+                      "concurrency",
+                      "cache_enabled",
+                      "raw_result_limit_bytes",
+                      "run_wall_seconds",
+                      "provider_call_seconds",
+                      "open_items",
+                      "provider_items",
+                      "fallbacks"
+                    ],
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "artifacts": {
+              "additionalProperties": false,
+              "properties": {
+                "artifact_root": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "artifact_root_mode": {
+                  "const": "0700"
+                },
+                "raw_retention": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reconciliation_owner": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "retention_owner": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "rollback_target": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "runtime_root": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "artifact_root",
+                "artifact_root_mode",
+                "raw_retention",
+                "reconciliation_owner",
+                "retention_owner",
+                "rollback_target",
+                "runtime_root"
+              ],
+              "type": "object"
+            },
+            "budgets": {
+              "type": "object"
+            },
+            "case": {
+              "additionalProperties": false,
+              "properties": {
+                "alternate_html_url": {
+                  "const": "https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-Reports-First-Quarter-2025-Financial-Results/default.aspx"
+                },
+                "canonical_disclosure_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "case_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "issuer_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "primary_pdf_url": {
+                  "const": "https://s205.q4cdn.com/537566246/files/doc_news/ServiceNow-Reports-First-Quarter-2025-Financial-Results-2025.pdf"
+                },
+                "question": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "quote_preselected": {
+                  "const": false
+                },
+                "search_query": {
+                  "const": "site:newsroom.servicenow.com \"ServiceNow Reports First Quarter 2025 Financial Results\""
+                },
+                "selection_bias": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "case_id",
+                "canonical_disclosure_id",
+                "issuer_id",
+                "question",
+                "search_query",
+                "primary_pdf_url",
+                "alternate_html_url",
+                "quote_preselected",
+                "selection_bias"
+              ],
+              "type": "object"
+            },
+            "effective_config": {
+              "additionalProperties": false,
+              "properties": {
+                "inputs": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "acceptance_policy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "alternate_policy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "backend_model_config": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "budgets_deadlines": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "cache_store": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "case_packet": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "checker": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "controller": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "driver": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "evidence_schemas": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "host_web": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "projection": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "retention_gc_policy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "rollback_target": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "runner": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "runtime_interpreter": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "taxonomy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "runner",
+                    "driver",
+                    "controller",
+                    "host_web",
+                    "cache_store",
+                    "taxonomy",
+                    "alternate_policy",
+                    "evidence_schemas",
+                    "checker",
+                    "projection",
+                    "backend_model_config",
+                    "runtime_interpreter",
+                    "case_packet",
+                    "budgets_deadlines",
+                    "retention_gc_policy",
+                    "rollback_target",
+                    "acceptance_policy"
+                  ],
+                  "type": "object"
+                },
+                "required_inputs": {
+                  "const": [
+                    "runner",
+                    "driver",
+                    "controller",
+                    "host_web",
+                    "cache_store",
+                    "taxonomy",
+                    "alternate_policy",
+                    "evidence_schemas",
+                    "checker",
+                    "projection",
+                    "backend_model_config",
+                    "runtime_interpreter",
+                    "case_packet",
+                    "budgets_deadlines",
+                    "retention_gc_policy",
+                    "rollback_target",
+                    "acceptance_policy"
+                  ]
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "required_inputs",
+                "inputs",
+                "sha256"
+              ],
+              "type": "object"
+            },
+            "equivalence_review": {
+              "additionalProperties": false,
+              "properties": {
+                "caveat": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "disclosure_date_match": {
+                  "const": true
+                },
+                "publisher_control": {
+                  "const": true
+                },
+                "rationale": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "release_identity_match": {
+                  "const": true
+                },
+                "representation_relationship": {
+                  "const": true
+                },
+                "reviewer_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "status": {
+                  "const": "approved"
+                },
+                "title_match": {
+                  "const": true
+                }
+              },
+              "required": [
+                "status",
+                "reviewer_id",
+                "rationale",
+                "caveat",
+                "disclosure_date_match",
+                "publisher_control",
+                "release_identity_match",
+                "representation_relationship",
+                "title_match"
+              ],
+              "type": "object"
+            },
+            "identity_rules": {
+              "additionalProperties": false,
+              "properties": {
+                "attempt_id": {
+                  "const": "new_per_attempt"
+                },
+                "dispatch_id": {
+                  "const": "stable_per_possible_effect"
+                },
+                "execution_id": {
+                  "const": "new_per_run"
+                },
+                "experiment_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "operation_id": {
+                  "const": "stable_per_operation"
+                },
+                "trace_id": {
+                  "const": "new_per_run"
+                }
+              },
+              "required": [
+                "attempt_id",
+                "dispatch_id",
+                "execution_id",
+                "experiment_id",
+                "operation_id",
+                "trace_id"
+              ],
+              "type": "object"
+            },
+            "limitations": {
+              "items": {
+                "maxLength": 2048,
+                "minLength": 1,
+                "pattern": "^(?!.*(?:self_reference|\\.\\./|\\.research-sources/|niulai-private/|/Users/|access[_-]?token|api[_-]?key|password|bearer |sk-|github_pat_|ghp_|gho_|ghu_|ghs_|ghr_)).*$",
+                "type": "string"
+              },
+              "maxItems": 64,
+              "minItems": 1,
+              "type": "array"
+            },
+            "prohibitions": {
+              "items": {
+                "maxLength": 2048,
+                "minLength": 1,
+                "pattern": "^(?!.*(?:self_reference|\\.\\./|\\.research-sources/|niulai-private/|/Users/|access[_-]?token|api[_-]?key|password|bearer |sk-|github_pat_|ghp_|gho_|ghu_|ghs_|ghr_)).*$",
+                "type": "string"
+              },
+              "maxItems": 64,
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "question_contract": {
+              "additionalProperties": false,
+              "properties": {
+                "capability_ids": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "depends_on": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "evidence_to_seek": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "facet": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "priority": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "source_roles": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "stop_rule": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "facet",
+                "evidence_to_seek",
+                "source_roles",
+                "capability_ids",
+                "depends_on",
+                "priority",
+                "stop_rule"
+              ],
+              "type": "object"
+            },
+            "repository_evidence": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "path": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "run_kind": {
+              "enum": [
+                "smoke",
+                "narrow"
+              ]
+            },
+            "schema_version": {
+              "const": "live-provider-readiness-3"
+            },
+            "source_contract": {
+              "additionalProperties": false,
+              "properties": {
+                "cutoff": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "eligible_body_rules": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "eligible_pdf_failure_codes": {
+                  "items": {
+                    "enum": [
+                      "HOST_WEB_BODY_TOO_LARGE",
+                      "HOST_WEB_SOURCE_INACCESSIBLE",
+                      "HOST_WEB_BODY_UNPARSEABLE"
+                    ]
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "evidence_facet": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "required_access_level": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "required_capability": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "source_role": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "unparseable_predeclared": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "cutoff",
+                "eligible_body_rules",
+                "eligible_pdf_failure_codes",
+                "evidence_facet",
+                "required_access_level",
+                "required_capability",
+                "source_role",
+                "unparseable_predeclared"
+              ],
+              "type": "object"
+            },
+            "status": {
+              "const": "ready"
+            },
+            "stop_rules": {
+              "items": {
+                "enum": [
+                  "no_find",
+                  "no_second_query",
+                  "no_unchanged_retry",
+                  "no_second_alternate",
+                  "no_provider_switch",
+                  "no_curl_substitution",
+                  "stop_on_unknown_outcome",
+                  "stop_on_policy_transient_circuit_or_post_dispatch_deadline"
+                ]
+              },
+              "maxItems": 8,
+              "minItems": 8,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "unresolved": {
+              "const": []
+            },
+            "url_policy": {
+              "additionalProperties": false,
+              "properties": {
+                "allowed_hosts": {
+                  "contains": {
+                    "const": "newsroom.servicenow.com"
+                  },
+                  "items": {
+                    "enum": [
+                      "newsroom.servicenow.com",
+                      "s205.q4cdn.com"
+                    ]
+                  },
+                  "minItems": 2,
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "normalization": {
+                  "const": "exact_https_url_bytes"
+                },
+                "redirects": {
+                  "const": "reject_unless_frozen_target_matches"
+                }
+              },
+              "required": [
+                "normalization",
+                "redirects",
+                "allowed_hosts"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "schema_version",
+            "run_kind",
+            "status",
+            "question_contract",
+            "case",
+            "equivalence_review",
+            "url_policy",
+            "source_contract",
+            "budgets",
+            "stop_rules",
+            "identity_rules",
+            "artifacts",
+            "repository_evidence",
+            "effective_config",
+            "prohibitions",
+            "limitations",
+            "unresolved"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "run_kind": {
+                    "const": "smoke"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "budgets": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "cache_enabled": {
+                        "const": false
+                      },
+                      "concurrency": {
+                        "const": 1
+                      },
+                      "fallbacks": {
+                        "const": 0
+                      },
+                      "open_items": {
+                        "const": 0
+                      },
+                      "provider_call_seconds": {
+                        "maximum": 600,
+                        "minimum": 1,
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      },
+                      "provider_items": {
+                        "const": 1
+                      },
+                      "raw_result_limit_bytes": {
+                        "const": 65536
+                      },
+                      "run_wall_seconds": {
+                        "maximum": 600,
+                        "minimum": 1,
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      },
+                      "search_items": {
+                        "const": 1
+                      }
+                    },
+                    "required": [
+                      "search_items",
+                      "concurrency",
+                      "cache_enabled",
+                      "raw_result_limit_bytes",
+                      "run_wall_seconds",
+                      "provider_call_seconds",
+                      "open_items",
+                      "provider_items",
+                      "fallbacks"
+                    ],
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "run_kind": {
+                    "const": "narrow"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "budgets": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "cache_enabled": {
+                        "const": false
+                      },
+                      "concurrency": {
+                        "const": 1
+                      },
+                      "fallbacks": {
+                        "const": 1
+                      },
+                      "open_items": {
+                        "const": 2
+                      },
+                      "provider_call_seconds": {
+                        "maximum": 600,
+                        "minimum": 1,
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      },
+                      "provider_items": {
+                        "const": 3
+                      },
+                      "raw_result_limit_bytes": {
+                        "const": 65536
+                      },
+                      "run_wall_seconds": {
+                        "maximum": 600,
+                        "minimum": 1,
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      },
+                      "search_items": {
+                        "const": 1
+                      }
+                    },
+                    "required": [
+                      "search_items",
+                      "concurrency",
+                      "cache_enabled",
+                      "raw_result_limit_bytes",
+                      "run_wall_seconds",
+                      "provider_call_seconds",
+                      "open_items",
+                      "provider_items",
+                      "fallbacks"
+                    ],
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "artifacts": {
+              "additionalProperties": false,
+              "properties": {
+                "artifact_root": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "artifact_root_mode": {
+                  "const": "0700"
+                },
+                "raw_retention": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "reconciliation_owner": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "retention_owner": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "rollback_target": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "runtime_root": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "artifact_root",
+                "artifact_root_mode",
+                "raw_retention",
+                "reconciliation_owner",
+                "retention_owner",
+                "rollback_target",
+                "runtime_root"
+              ],
+              "type": "object"
+            },
+            "budgets": {
+              "type": "object"
+            },
+            "case": {
+              "additionalProperties": false,
+              "properties": {
+                "alternate_html_url": {
+                  "const": "https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-Reports-First-Quarter-2025-Financial-Results/default.aspx"
+                },
+                "canonical_disclosure_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "case_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "issuer_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "primary_pdf_url": {
+                  "const": "https://s205.q4cdn.com/537566246/files/doc_news/ServiceNow-Reports-First-Quarter-2025-Financial-Results-2025.pdf"
+                },
+                "question": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "quote_preselected": {
+                  "const": false
+                },
+                "search_query": {
+                  "const": "site:newsroom.servicenow.com \"ServiceNow Reports First Quarter 2025 Financial Results\""
+                },
+                "selection_bias": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "case_id",
+                "canonical_disclosure_id",
+                "issuer_id",
+                "question",
+                "search_query",
+                "primary_pdf_url",
+                "alternate_html_url",
+                "quote_preselected",
+                "selection_bias"
+              ],
+              "type": "object"
+            },
+            "effective_config": {
+              "additionalProperties": false,
+              "properties": {
+                "inputs": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "acceptance_policy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "alternate_policy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "backend_model_config": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "budgets_deadlines": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "cache_store": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "case_packet": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "checker": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "controller": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "driver": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "evidence_schemas": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "host_web": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "projection": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "retention_gc_policy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "rollback_target": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "runner": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "runtime_interpreter": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    "taxonomy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "runner",
+                    "driver",
+                    "controller",
+                    "host_web",
+                    "cache_store",
+                    "taxonomy",
+                    "alternate_policy",
+                    "evidence_schemas",
+                    "checker",
+                    "projection",
+                    "backend_model_config",
+                    "runtime_interpreter",
+                    "case_packet",
+                    "budgets_deadlines",
+                    "retention_gc_policy",
+                    "rollback_target",
+                    "acceptance_policy"
+                  ],
+                  "type": "object"
+                },
+                "required_inputs": {
+                  "const": [
+                    "runner",
+                    "driver",
+                    "controller",
+                    "host_web",
+                    "cache_store",
+                    "taxonomy",
+                    "alternate_policy",
+                    "evidence_schemas",
+                    "checker",
+                    "projection",
+                    "backend_model_config",
+                    "runtime_interpreter",
+                    "case_packet",
+                    "budgets_deadlines",
+                    "retention_gc_policy",
+                    "rollback_target",
+                    "acceptance_policy"
+                  ]
+                },
+                "sha256": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "required_inputs",
+                "sha256"
+              ],
+              "type": "object"
+            },
+            "equivalence_review": {
+              "additionalProperties": false,
+              "properties": {
+                "caveat": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "disclosure_date_match": {
+                  "const": true
+                },
+                "publisher_control": {
+                  "const": true
+                },
+                "rationale": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "release_identity_match": {
+                  "const": true
+                },
+                "representation_relationship": {
+                  "const": true
+                },
+                "reviewer_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "status": {
+                  "const": "approved"
+                },
+                "title_match": {
+                  "const": true
+                }
+              },
+              "required": [
+                "status",
+                "reviewer_id",
+                "rationale",
+                "caveat",
+                "disclosure_date_match",
+                "publisher_control",
+                "release_identity_match",
+                "representation_relationship",
+                "title_match"
+              ],
+              "type": "object"
+            },
+            "identity_rules": {
+              "additionalProperties": false,
+              "properties": {
+                "attempt_id": {
+                  "const": "new_per_attempt"
+                },
+                "dispatch_id": {
+                  "const": "stable_per_possible_effect"
+                },
+                "execution_id": {
+                  "const": "new_per_run"
+                },
+                "experiment_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "operation_id": {
+                  "const": "stable_per_operation"
+                },
+                "trace_id": {
+                  "const": "new_per_run"
+                }
+              },
+              "required": [
+                "attempt_id",
+                "dispatch_id",
+                "execution_id",
+                "experiment_id",
+                "operation_id",
+                "trace_id"
+              ],
+              "type": "object"
+            },
+            "limitations": {
+              "items": {
+                "maxLength": 2048,
+                "minLength": 1,
+                "pattern": "^(?!.*(?:self_reference|\\.\\./|\\.research-sources/|niulai-private/|/Users/|access[_-]?token|api[_-]?key|password|bearer |sk-|github_pat_|ghp_|gho_|ghu_|ghs_|ghr_)).*$",
+                "type": "string"
+              },
+              "maxItems": 64,
+              "minItems": 1,
+              "type": "array"
+            },
+            "prohibitions": {
+              "items": {
+                "maxLength": 2048,
+                "minLength": 1,
+                "pattern": "^(?!.*(?:self_reference|\\.\\./|\\.research-sources/|niulai-private/|/Users/|access[_-]?token|api[_-]?key|password|bearer |sk-|github_pat_|ghp_|gho_|ghu_|ghs_|ghr_)).*$",
+                "type": "string"
+              },
+              "maxItems": 64,
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "question_contract": {
+              "additionalProperties": false,
+              "properties": {
+                "capability_ids": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "depends_on": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "evidence_to_seek": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "facet": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "priority": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "source_roles": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "stop_rule": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "facet",
+                "evidence_to_seek",
+                "source_roles",
+                "capability_ids",
+                "depends_on",
+                "priority",
+                "stop_rule"
+              ],
+              "type": "object"
+            },
+            "repository_evidence": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "path": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "run_kind": {
+              "enum": [
+                "smoke",
+                "narrow"
+              ]
+            },
+            "schema_version": {
+              "const": "live-provider-readiness-3"
+            },
+            "source_contract": {
+              "additionalProperties": false,
+              "properties": {
+                "cutoff": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "eligible_body_rules": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "eligible_pdf_failure_codes": {
+                  "items": {
+                    "enum": [
+                      "HOST_WEB_BODY_TOO_LARGE",
+                      "HOST_WEB_SOURCE_INACCESSIBLE",
+                      "HOST_WEB_BODY_UNPARSEABLE"
+                    ]
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "evidence_facet": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "required_access_level": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "required_capability": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "source_role": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "unparseable_predeclared": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "cutoff",
+                "eligible_body_rules",
+                "eligible_pdf_failure_codes",
+                "evidence_facet",
+                "required_access_level",
+                "required_capability",
+                "source_role",
+                "unparseable_predeclared"
+              ],
+              "type": "object"
+            },
+            "status": {
+              "const": "not_ready"
+            },
+            "stop_rules": {
+              "items": {
+                "enum": [
+                  "no_find",
+                  "no_second_query",
+                  "no_unchanged_retry",
+                  "no_second_alternate",
+                  "no_provider_switch",
+                  "no_curl_substitution",
+                  "stop_on_unknown_outcome",
+                  "stop_on_policy_transient_circuit_or_post_dispatch_deadline"
+                ]
+              },
+              "maxItems": 8,
+              "minItems": 8,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "unresolved": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "url_policy": {
+              "additionalProperties": false,
+              "properties": {
+                "allowed_hosts": {
+                  "contains": {
+                    "const": "newsroom.servicenow.com"
+                  },
+                  "items": {
+                    "enum": [
+                      "newsroom.servicenow.com",
+                      "s205.q4cdn.com"
+                    ]
+                  },
+                  "minItems": 2,
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "normalization": {
+                  "const": "exact_https_url_bytes"
+                },
+                "redirects": {
+                  "const": "reject_unless_frozen_target_matches"
+                }
+              },
+              "required": [
+                "normalization",
+                "redirects",
+                "allowed_hosts"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "schema_version",
+            "run_kind",
+            "status",
+            "question_contract",
+            "case",
+            "equivalence_review",
+            "url_policy",
+            "source_contract",
+            "budgets",
+            "stop_rules",
+            "identity_rules",
+            "artifacts",
+            "repository_evidence",
+            "effective_config",
+            "prohibitions",
+            "limitations",
+            "unresolved"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "seal": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "sha256"
+        },
+        "packet_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "algorithm",
+        "packet_sha256"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "packet",
+    "seal"
+  ],
+  "title": "Sealed live-provider readiness-v2 packet",
+  "type": "object"
+}

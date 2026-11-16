@@ -176,8 +176,12 @@ def dispatch(root, base, config, state, context):
         state['status'] = 'stopped_budget'; return {'status': 'failed', 'code': 'REVIEW_TIME_EXHAUSTED', 'receipt': {}}
     require(digest(profile(root)) == config['profile_sha256'] and pins(root) == config['pins'], 'REVIEW_SOURCE_CHANGED')
     attempt = _private_path(base / 'attempts' / context['attempt_id'], root, directory=True)
-    from mentor.session_init import initialize
-    manual_context = initialize(root, {'hook_event_name': 'SessionStart', 'source': 'resume', 'cwd': str(root)})
+    from mentor.session_init import SESSION_ID, initialize
+    session_id = context.get('attempt_id')
+    require(isinstance(session_id, str) and SESSION_ID.fullmatch(session_id),
+            'REVIEW_SESSION_ID_INVALID')
+    manual_context = initialize(root, {'hook_event_name': 'SessionStart', 'source': 'resume',
+                                       'cwd': str(root), 'session_id': session_id})
     mentor_context = manual_context['hookSpecificOutput']['additionalContext']
     atomic(attempt / 'manual-mentor-context.json', {'origin': 'explicit_controller_load_not_automatic_app_hook', 'result': manual_context})
     require(mentor_context.startswith('MENTOR_INIT_OK\n'), 'REVIEW_MENTOR_CONTEXT_INVALID')

@@ -1,0 +1,121 @@
+{
+  "activation": false,
+  "allowed_claim": "Disabled provider-free common execution-window template and producer verification pass only.",
+  "bindings": [
+    {
+      "bytes": 412,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/__init__.py",
+      "sha256": "d4cac7517e2e8507031777bbb31b8821b8d2b10528d85701d0c3aecc7f88b671"
+    },
+    {
+      "bytes": 32141,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/window.py",
+      "sha256": "b36bf0bdffc6a0606cf197ce26d284e23f61b265612a5f89068f4d587fe8a47e"
+    },
+    {
+      "bytes": 4155,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/window-template-v1.json",
+      "sha256": "4c77fae93c9a8fa286f5fc1422bc284a48a30bc5b71a47162b16a0541e69ce2b"
+    },
+    {
+      "bytes": 3926,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/window-template-v1.schema.json",
+      "sha256": "40643843949de281b8867c57c5deff3ec4d9326a66ce00877991e9af8887270f"
+    },
+    {
+      "bytes": 5210,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/window-receipt-v1.schema.json",
+      "sha256": "f106dbdc4a2b94a666491a8e86ea2683eedf4e4cf26b871d7e8671e4296b94a5"
+    },
+    {
+      "bytes": 1186,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/terminal-receipt-v1.schema.json",
+      "sha256": "d04270678bce15aea70624a76d056711722b2857f45b5a605244f974b744563f"
+    },
+    {
+      "bytes": 982,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/admission-decision-v1.schema.json",
+      "sha256": "c89ccb95054b75ea6bb3b54ef98c06e6c18b2806e6618050e5ba15021e5d6f10"
+    },
+    {
+      "bytes": 527,
+      "path": "shared/job_runtime/candidates/r6_common_execution_window_v1/schemas/commit-marker-v1.schema.json",
+      "sha256": "b703fbc0f42835e62c23b5a06f8b73d3933ea49a8c204d95fe56662c65489d23"
+    },
+    {
+      "bytes": 15418,
+      "path": "shared/job_runtime/tests/candidates/r6_common_execution_window_v1/test_window.py",
+      "sha256": "163c4393183a35b085e9b8badd8abed8dab49f2d64db295a94e984f08ed00a8f"
+    },
+    {
+      "bytes": 3474,
+      "path": "tuning/architecture/r6_common_execution_window_v1/architecture-v1.json",
+      "sha256": "fc30228cd334573ee648cbbec2915fdf782bda33807f8cb3ca31f5ff137cdb22"
+    },
+    {
+      "bytes": 3039,
+      "path": "tuning/architecture/r6_common_execution_window_v1/protocol-v1.json",
+      "sha256": "ca391527d1ca2d0555c9c5be207aa2fe6c08437021ed7b485785cf0d39f1da08"
+    },
+    {
+      "bytes": 1469,
+      "path": "tuning/architecture/r6_common_execution_window_v1/decision-v1.json",
+      "sha256": "9dce1952c159c4249bbc71c74433bf00c18efa2e9159af81d89aa6ef63671c11"
+    },
+    {
+      "bytes": 6788,
+      "path": "tuning/architecture/r6_common_execution_window_v1/source-closure-v1.json",
+      "sha256": "7bd2822a6fea0dddacda1032a84864c76f186ed936749f51ec2f86f05b3acfae"
+    }
+  ],
+  "countable": false,
+  "coverage": [
+    "clock/now/root/identity injection attempts",
+    "wall rollback/jump and stale/future window",
+    "exact deadline edges",
+    "exact order and concurrency one",
+    "exact previous terminal binding",
+    "UNKNOWN fence",
+    "restart and PID reuse",
+    "short and zero writes",
+    "full-write/fsync/reopen/hash",
+    "commit marker last",
+    "duplicate issue",
+    "symlink/root/file mode",
+    "all crash stages and exact recovery",
+    "strict schema structure and optional Draft 2020-12 meta-validation when dependency present"
+  ],
+  "effects": {
+    "business": 0,
+    "bytedcli": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live_window": 0,
+    "network": 0,
+    "provider": 0
+  },
+  "identifier_evidence": {
+    "disabled_issue_verified_before_clock_ids_io": true,
+    "fixture_ids": "static only",
+    "fresh_ids_generated": false
+  },
+  "producer_role": "implementation producer, not independent reviewer",
+  "status": "DISABLED_TEMPLATE_PENDING_FINAL_PINS_AND_FRESH_REVIEW",
+  "test": {
+    "command": "PYTHONPATH=<workspace> python3 -m unittest discover -s shared/job_runtime/tests/candidates/r6_common_execution_window_v1 -p 'test_*.py' -v",
+    "errors": 0,
+    "evidence_class": "provider-free fixture/fault-injection",
+    "failures": 0,
+    "result": "PASS",
+    "skips": 0,
+    "tests_run": 14
+  },
+  "unverified": [
+    "fresh independent review",
+    "final authority pins",
+    "live intended-runtime issuance",
+    "major runtime acceptance"
+  ],
+  "version": "r6-common-execution-window-distinct-producer-verification-v1"
+}

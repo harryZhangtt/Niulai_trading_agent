@@ -1,0 +1,40 @@
+{
+  "activation": false,
+  "allowed_claim": "Frozen /model catalog membership evidence only.",
+  "correction": "The execution receipt occurrence criterion was overbroad because two assistant-streaming copies were counted; only the sole terminal result is authoritative and contains exactly one Opus 5.5 occurrence.",
+  "decision": "ACCEPT_TERMINAL_RESULT_ONLY_INTERPRETATION",
+  "forbidden_claims": [
+    "execution PASS",
+    "inference success",
+    "countable A/B",
+    "provider superiority",
+    "runtime acceptance"
+  ],
+  "interpretation_receipt": {
+    "bytes": 1659,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-membership-interpretation-receipt.json",
+    "sha256": "9f492a296ab261e7b7c7a2373a287f6a473577318300e35bba220e7bd3e3688c"
+  },
+  "new_effects": {
+    "account": 0,
+    "business": 0,
+    "inference": 0,
+    "network": 0,
+    "provider": 0,
+    "replay": 0,
+    "retry": 0
+  },
+  "original_execution_status": "STOP_CATALOG_PREFLIGHT",
+  "protocol": {
+    "bytes": 2176,
+    "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/protocol-v1.json",
+    "sha256": "ababd97a3d679efec74e6004e6f06f843252e8f6d1c769f34b8ef9eb1940729e"
+  },
+  "source_closure": {
+    "bytes": 2891,
+    "path": "tuning/architecture/r6_one_off_claude_catalog_parser_v1/source-closure-v1.json",
+    "sha256": "c2c12e2dee057b550f52be85dda2c6383330720c5d4ffc7fb223731388a2d251"
+  },
+  "status": "PASS_FROZEN_CATALOG_MEMBERSHIP_EVIDENCE",
+  "version": "r6-one-off-claude-catalog-parser-decision-1"
+}

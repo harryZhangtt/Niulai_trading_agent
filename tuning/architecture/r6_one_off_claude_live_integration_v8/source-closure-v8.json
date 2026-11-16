@@ -1,0 +1,206 @@
+{
+  "activation": false,
+  "aggregate_algorithm": "sha256(sorted(path\\0bytes\\0sha256\\n))",
+  "aggregate_sha256": "3ee1bf1079c5170a588efea2d573be0c25f2fcab311c81a287a75ad53a01a16c",
+  "artifact_count": 33,
+  "artifact_type": "recursive_source_closure",
+  "artifacts": [
+    {
+      "bytes": 304,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-integration-v4-provider-free-grant-independent-review.json",
+      "sha256": "d4a02c8ae663128c1bb883c71ab44f298119b22c1e38658308844826c71e4059"
+    },
+    {
+      "bytes": 1108,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-integration-v4-provider-free-grant.json",
+      "sha256": "e39fbc491d447cc239e26b837c2d8185c21de9944c39ff79c1538333edbdc06b"
+    },
+    {
+      "bytes": 2971,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-integration-v4-provider-free-registry-independent-review.json",
+      "sha256": "55cbcc07837e27607ee88e3a3d82aa59f63575444c24a257cc4ecefdb560e7cb"
+    },
+    {
+      "bytes": 918,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-integration-v4-provider-free-registry-scope.json",
+      "sha256": "d2f4d61436a8884d5a46ec3d1ae163aa0d1c17344a85010395f832c49ea3f267"
+    },
+    {
+      "bytes": 381,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-integration-v4-provider-free-registry.json",
+      "sha256": "c1b1a816a2ee42f08d6e135b495a60e65a3a081f4b94b39bf60aed3cf4c8ba82"
+    },
+    {
+      "bytes": 10536,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v7-independent-review-open-fable-20261112-8e9a8076.json",
+      "sha256": "3ebc954c253ae104f97ef5fe52e0fb96ac6d70a0eb273677e022145962dc258a"
+    },
+    {
+      "bytes": 123,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/__init__.py",
+      "sha256": "d43da31fe55b1a24622749a8437db203308ce11cddc3dada39dffa43c81fff61"
+    },
+    {
+      "bytes": 7279,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/authority.py",
+      "sha256": "5db4d9989efabf3363154f088978be835d86b56bab58002595a43f4c378bbbdb"
+    },
+    {
+      "bytes": 20151,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/contracts.py",
+      "sha256": "58183c80f9e0d2d66919a724f1695e3210fef2f9e5b95f7c3d95295ea4a1035c"
+    },
+    {
+      "bytes": 3548,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/ferry.py",
+      "sha256": "5d9a7d8aadd40ab157b669421664eccd320c3e6b35528bdef49e84e3acb8f1fe"
+    },
+    {
+      "bytes": 16380,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/process.py",
+      "sha256": "0d2a67ba18d2736d7c5d57a23630beebdac6f20b0f1ce3f644f83c8a3dc69605"
+    },
+    {
+      "bytes": 22453,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/runner.py",
+      "sha256": "9c8f1e70117208bc1b161a9afdceb5a78d0bd5d815c965a10b108fa47d664495"
+    },
+    {
+      "bytes": 4253,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/schemas/p0-output-v8.schema.json",
+      "sha256": "71a3efdf8ddb66cd687bc10bf65bc4f6f7114335323015118ee4ccdd6184b34b"
+    },
+    {
+      "bytes": 33138,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/schemas/pending-publication-v8.schema.json",
+      "sha256": "3ba7fc7198433b2cac0cfa7ad59b839dddf38f4e4c86b99cb4a248a17dc9edcc"
+    },
+    {
+      "bytes": 26394,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/schemas/post-run-seal-v8.schema.json",
+      "sha256": "5eac6ce11af23f383e1b6eaab234eeb3a0d897443ae10fe040de6e9f0e9b150a"
+    },
+    {
+      "bytes": 32522,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/schemas/unknown-fence-v8.schema.json",
+      "sha256": "2089b901ed53b52e5a923b7ab92a31bf03fd5210cdd3450ad7a51b4227a8191a"
+    },
+    {
+      "bytes": 16872,
+      "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/state.py",
+      "sha256": "9f7787789ed2ae06b95fb0b5471573c46f1b247ea882c031f09d8ce73c06f805"
+    },
+    {
+      "bytes": 369,
+      "path": "shared/job_runtime/candidates/r6_one_off_evidence_v1/__init__.py",
+      "sha256": "462aa6a838812e398ee62251d89a5efe8705475b3a96831fa746ebb434e1e9d7"
+    },
+    {
+      "bytes": 13121,
+      "path": "shared/job_runtime/candidates/r6_one_off_evidence_v1/contracts.py",
+      "sha256": "c422e6e0eec1da0325eafd3272c69849efb2005acdfd03dae9b2c3dc6076f424"
+    },
+    {
+      "bytes": 10326,
+      "path": "shared/job_runtime/candidates/r6_one_off_evidence_v1/custody.py",
+      "sha256": "ce4cd5d3440e3d97713264c0fd90e7f3068abe2493b95d1b54978a3506d138f5"
+    },
+    {
+      "bytes": 6682,
+      "path": "shared/job_runtime/candidates/r6_one_off_evidence_v1/publication.py",
+      "sha256": "8a7d2a8b74d949797254a3b135e018244e7abee708d29e9834457978a539409a"
+    },
+    {
+      "bytes": 21938,
+      "path": "shared/job_runtime/candidates/r6_one_off_evidence_v1/runner.py",
+      "sha256": "7fd13cde4d5f00ef3c6b0d89501441266657b7a32eb9d840793cf321b2e20d57"
+    },
+    {
+      "bytes": 71795,
+      "path": "shared/job_runtime/engine.py",
+      "sha256": "42721bf751ebe50cc0720138bfb66509cababd2b873e41192ee50d9cf8df10be"
+    },
+    {
+      "bytes": 17377,
+      "path": "shared/job_runtime/engine_schema.py",
+      "sha256": "f3f22ce1ec6531ad4d0e9cfdb7aa63b78b5a21ddee69fa74b6b60d713ad87e9b"
+    },
+    {
+      "bytes": 35077,
+      "path": "shared/job_runtime/prompt_custody.py",
+      "sha256": "bf553a519f646378529a510a9f0a7811bfeb409a39dc097e0086b59dd16bbd02"
+    },
+    {
+      "bytes": 19663,
+      "path": "shared/job_runtime/provider_contract.py",
+      "sha256": "9de31552df5b1474bf3b29e36ce07278264e71a19f05b45cc1c09213d6873333"
+    },
+    {
+      "bytes": 12652,
+      "path": "shared/job_runtime/retry_policy.py",
+      "sha256": "ca152ed42518ead0adfe4318e6b3b53a9a31fa6f062db578091429f44b254f56"
+    },
+    {
+      "bytes": 40,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v8/__init__.py",
+      "sha256": "bdd99265d2b7bfa1dd179ee7c078ffe37d6e9106e3ec9a70e9a0c2e4b4c454d9"
+    },
+    {
+      "bytes": 13123,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v8/test_integration.py",
+      "sha256": "69f37675b95428f49bd63ad8f00bbf90711e0522f2ac66840b7a8ce1addb9f91"
+    },
+    {
+      "bytes": 12566,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v8/test_schemas_closure.py",
+      "sha256": "8a0540660ccf7e495b39e9b5ece9ce2bc9a40b0f4d3c715fefc5d1ec230294fe"
+    },
+    {
+      "bytes": 2794,
+      "path": "shared/job_runtime/tests/candidates/r6_one_off_claude_live_integration_v8/test_z_public_boundary.py",
+      "sha256": "d665d7196fd16d2e12bdce650ff9fba6923495ed0e398f2559655bee2eead2c6"
+    },
+    {
+      "bytes": 1197,
+      "path": "shared/job_runtime/tests/fixtures/r6_one_off_claude_live_integration_v1/fake_claude.py",
+      "sha256": "441ec85d14760889d4ece3c297abd5f62b6fea8cd0aba11fc25f5e02ff925607"
+    },
+    {
+      "bytes": 2421,
+      "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/verify_v8.py",
+      "sha256": "ee51a6ce4153306e0fbdfa7c67a91e377b18f1794a015cc0547341dce5d489ec"
+    }
+  ],
+  "authority_precedence": "held append-only ledger before non-authoritative projections",
+  "countable": false,
+  "dynamic_inputs": [
+    "five pinned authority artifacts",
+    "grant-selected fake executable",
+    "recursive local Python imports",
+    "v8 schemas and tests",
+    "v6 OPEN review",
+    "distinct verifier"
+  ],
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "registration": false,
+  "review_binding": {
+    "bytes": 10536,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v7-independent-review-open-fable-20261112-8e9a8076.json",
+    "sha256": "3ebc954c253ae104f97ef5fe52e0fb96ac6d70a0eb273677e022145962dc258a",
+    "verdict": "OPEN"
+  },
+  "status": "OPEN_V8_RECURSIVE_SOURCE_CLOSURE_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "version": 8
+}

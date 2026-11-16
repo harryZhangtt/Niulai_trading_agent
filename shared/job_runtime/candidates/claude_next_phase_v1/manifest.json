@@ -1,0 +1,60 @@
+{
+  "schema_version": "claude-next-phase-v1-manifest-1",
+  "classification": "inert_local_candidate",
+  "enabled": false,
+  "capability_open": false,
+  "live_authority": false,
+  "intended_runtime": false,
+  "cli_enabled": false,
+  "cli_materialized": false,
+  "promotion_blocked": true,
+  "promotion_block_reason": "gateway authority is same-process candidate-only; promotion requires separate process or OS-protected custody and new review",
+  "source_bindings": {
+    "gateway": {
+      "shared/job_runtime/candidates/claude_loopback_gateway_v1/__init__.py": "73878f9eb830faca4fe6c2c4f68bac1f90cc75f8391e66e3955891459412fd07",
+      "shared/job_runtime/candidates/claude_loopback_gateway_v1/attestation.py": "ffb3a984dbf2f128dd481772775c2afd9caacad890be033993df8611e3325558",
+      "shared/job_runtime/candidates/claude_loopback_gateway_v1/gateway.py": "3a29ffc3cddeeb80a8b5d775ab42d8073ff4c940a62dbcc1fb5c8e295b251cf7",
+      "shared/job_runtime/candidates/claude_loopback_gateway_v1/receipts.py": "41da2c743fca24efdec45242c3ef92c094c489020addac61e4d29c9957282410",
+      "shared/job_runtime/tests/candidates/claude_loopback_gateway_v1/test_gateway.py": "440e42df9c7ed3797662236e8f0fd31540b3d1550a7ccfdfe70c5266288ba3ea",
+      "shared/job_runtime/tests/fixtures/claude_loopback_gateway_v1/stream.sse": "8cdb9fb0ef0c2a4b79b3241cc056a3b34bc19a31a7aaf08e1a41d54a27eeceb2"
+    },
+    "campaign": {
+      "shared/job_runtime/candidates/claude_campaign_v1/__init__.py": "8b7d6bff8751320ac3c625239a131c024d1faaaf85f3dc585b24caf208eab59d",
+      "shared/job_runtime/candidates/claude_campaign_v1/builders.py": "1be25957d97f27a30bd713d529e08d83c0f79fdcb8d13a416e3b29e572dfaaf5",
+      "shared/job_runtime/candidates/claude_campaign_v1/contracts.py": "dba28023d60e5dbe349d9314fff35e61f3959cdd028f107cab6c49891d84f63d",
+      "shared/job_runtime/candidates/claude_campaign_v1/state.py": "f0cd04429d00c7e7c028194cccf409b4d7d213133f06fc9749419e44ce5fcb93",
+      "shared/job_runtime/tests/candidates/claude_campaign_v1/_authority.py": "93bdea2ba7b50bb23065d2833df0d72b6bd3598e2749bce0e2b490a60ecd330d",
+      "shared/job_runtime/tests/candidates/claude_campaign_v1/_schema.py": "ff5d3b1e8980c0f2a437ec429a802971942c215678a23b27e6072f79bc289532",
+      "shared/job_runtime/tests/candidates/claude_campaign_v1/test_builders.py": "0507d83f30330cba65afe8f56140781daafc066263c3af2232059b47cb5cbe82",
+      "shared/job_runtime/tests/candidates/claude_campaign_v1/test_contracts.py": "7a807c2f2a54517a027e6943b6db1f08d49f4cf872576c69b5cabd6ac3eaad87",
+      "shared/job_runtime/tests/candidates/claude_campaign_v1/test_http502.py": "14cf3aed3cda163bbf1ecfd74d8265b4c047568da2eea74061625ae77beb7c89",
+      "shared/job_runtime/tests/candidates/claude_campaign_v1/test_state_privacy.py": "3010a76e1ce171f9d0434aa4e708ad61fb1ec42413195aa47c4f41ddfd4899a7",
+      "shared/job_runtime/tests/fixtures/claude_campaign_v1/evidence-v1.schema.json": "4730970cff0aa9e12531bfb8686460e2e0aa54aef704c2232d853d16913a1366",
+      "shared/job_runtime/tests/fixtures/claude_campaign_v1/r7-evidence.json": "d4353f24cd81e8b9781c7321258b8c8b0a16d20f22c989da2c78caac2441a08a",
+      "shared/job_runtime/tests/fixtures/claude_campaign_v1/r8-forwarded-502-evidence.json": "342417df1d68ca25a84302e4f44483e3206b5b4173fc4772d8964181c4f8cc45"
+    },
+    "o1": {
+      "mentor/runtime/scheduler-midresponse-recovery-20261107/provider-free-lifecycle-v1-producer-verification.json": "212dd883151bd2e51d14d1d13808711cd5a2f1c884394a1023a7db38be6c1335",
+      "mentor/runtime/scheduler-midresponse-recovery-20261107/provider-free-lifecycle-v1-independent-review.json": "a5f85f48fbfdbb4bfa7bbfd76421e1b70fd70d24151fbe829afa21d432cd3edf",
+      "mentor/runtime/scheduler-midresponse-recovery-20261107/provider-free-lifecycle-v1-materialization-receipt.json": "287d28a6f4eab70400eba121b1e451373919770f8f71ca90b3169b6dd9dfee8a",
+      "mentor/runtime/scheduler-midresponse-recovery-20261107/provider-free-lifecycle-v1-materialization-main-verification.json": "ff352ae127022f63056676254d939f9ca06ca7978aa9b7d256e1611d28f6973f",
+      "mentor/runtime/scheduler-midresponse-recovery-20261107/provider-free-lifecycle-v1-materialization-independent-review.json": "e708dd869ee88d5f2b0c78681a72a2609c659488045dbd998ab0a02c8a609a6e"
+    },
+    "visible": {
+      "shared/job_runtime/candidates/claude_visible_session_v1/__init__.py": "502f3137e07e87e70f67265a63f2c18bcb5578d3aaa7b4279ddbbfaee4b0b0cd",
+      "shared/job_runtime/candidates/claude_visible_session_v1/cli_semantic_contract.json": "369461cf694b483f0d3d148e6618409ae5a69d3399bc9e690b045f5aec09dfc5",
+      "shared/job_runtime/candidates/claude_visible_session_v1/contracts.py": "f6f13b5a508146a187a1609a5fc66ed40d61158c6add41ebd49084eb3affb49d",
+      "shared/job_runtime/candidates/claude_visible_session_v1/frozen_cases.json": "a8ab62700e06a1ed3760f313a6acefc11f0192fdd728a3df2ca6e68c3b82305b",
+      "shared/job_runtime/candidates/claude_visible_session_v1/manifest.json": "e82cb489e6fa0fea75fb5c9c98ec53081360f76f4c268e221d9ac2df856c1fbe"
+    },
+    "cli_candidate_unreviewed_for_integration": {
+      "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-visible-cli-v1-producer-verification.json": "28249b12116ee36e232c6be1d696151af938593cb61759b9b150580b808b7176"
+    }
+  },
+  "prior_evidence": {
+    "gateway": "42 tests plus 60 stress",
+    "campaign": "35 tests on Python 3.9 and 35 on Python 3.12",
+    "o1": "13 tests on Python 3.9 and 13 on Python 3.12"
+  },
+  "independent_review": "PENDING"
+}

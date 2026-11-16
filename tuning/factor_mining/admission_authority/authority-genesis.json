@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "kind": "factor_admission_authority_genesis",
+  "authority_id": "factor-admission-main-v1",
+  "workspace_id": "trading-agent",
+  "epoch": 1,
+  "authority_policy_sha256": "ed5ab71c758489d8e3c3917794a80054abe5c31d5885fc8c808b5535986c0d81",
+  "admission_policy_sha256": "d010b96585994ba2bc712ba96d580cbc2cd669b03bbf41eaeee2b855c53c0b9f",
+  "created_at": "2026-11-05T00:00:00Z",
+  "trust_class": "synthetic-structural-only",
+  "status": "development-only-blocked"
+}

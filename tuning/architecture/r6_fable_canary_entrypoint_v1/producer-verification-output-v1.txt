@@ -1,0 +1,48 @@
+PYTHON_3_9_6
+test_abandoned_built_dispatcher_retains_no_descriptors (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_concurrent_dispatch_invokes_exactly_once (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_descriptors_are_cleaned_on_success_and_failure (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_dir_fsync_failure_claims_before_runner_and_blocks_replay (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_dispatch_time_expiry_rejects_without_claim (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_exact_mode_nlink_leaf_and_parent_symlink_reject (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_global_and_callback_replacement_after_admission_has_no_effect (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_leaf_replacement_during_read_is_rejected (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_nominal_terminal_success_is_canonical_and_reopen_blocks (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_parent_replacement_and_reopened_builder_cannot_replay (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_profile_and_config_drift_reject_before_claim (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_review_receipt_is_specific_external_and_noncyclic (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_runner_exception_becomes_durable_unknown_without_replay (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_shipped_authority_empty_and_activation_pending (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_strict_json_rejects_noncanonical_duplicate_and_nonfinite (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_terminal_dir_fsync_failure_downgrades_to_durable_unknown (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_terminal_failed_is_canonical_and_claim_remains_immutable (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+test_ttl_and_future_skew_are_bounded (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.422s
+
+OK
+PYTHON_3_12_16_PINNED
+test_abandoned_built_dispatcher_retains_no_descriptors (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_abandoned_built_dispatcher_retains_no_descriptors) ... ok
+test_concurrent_dispatch_invokes_exactly_once (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_concurrent_dispatch_invokes_exactly_once) ... ok
+test_descriptors_are_cleaned_on_success_and_failure (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_descriptors_are_cleaned_on_success_and_failure) ... ok
+test_dir_fsync_failure_claims_before_runner_and_blocks_replay (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_dir_fsync_failure_claims_before_runner_and_blocks_replay) ... ok
+test_dispatch_time_expiry_rejects_without_claim (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_dispatch_time_expiry_rejects_without_claim) ... ok
+test_exact_mode_nlink_leaf_and_parent_symlink_reject (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_exact_mode_nlink_leaf_and_parent_symlink_reject) ... ok
+test_global_and_callback_replacement_after_admission_has_no_effect (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_global_and_callback_replacement_after_admission_has_no_effect) ... ok
+test_leaf_replacement_during_read_is_rejected (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_leaf_replacement_during_read_is_rejected) ... ok
+test_nominal_terminal_success_is_canonical_and_reopen_blocks (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_nominal_terminal_success_is_canonical_and_reopen_blocks) ... ok
+test_parent_replacement_and_reopened_builder_cannot_replay (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_parent_replacement_and_reopened_builder_cannot_replay) ... ok
+test_profile_and_config_drift_reject_before_claim (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_profile_and_config_drift_reject_before_claim) ... ok
+test_review_receipt_is_specific_external_and_noncyclic (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_review_receipt_is_specific_external_and_noncyclic) ... ok
+test_runner_exception_becomes_durable_unknown_without_replay (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_runner_exception_becomes_durable_unknown_without_replay) ... ok
+test_shipped_authority_empty_and_activation_pending (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_shipped_authority_empty_and_activation_pending) ... ok
+test_strict_json_rejects_noncanonical_duplicate_and_nonfinite (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_strict_json_rejects_noncanonical_duplicate_and_nonfinite) ... ok
+test_terminal_dir_fsync_failure_downgrades_to_durable_unknown (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_terminal_dir_fsync_failure_downgrades_to_durable_unknown) ... ok
+test_terminal_failed_is_canonical_and_claim_remains_immutable (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_terminal_failed_is_canonical_and_claim_remains_immutable) ... ok
+test_ttl_and_future_skew_are_bounded (shared.job_runtime.tests.candidates.r6_fable_canary_entrypoint_v1.test_entrypoint.FableCanaryEntrypointTests.test_ttl_and_future_skew_are_bounded) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.206s
+
+OK

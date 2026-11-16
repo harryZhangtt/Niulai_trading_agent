@@ -3,10 +3,11 @@ import json
 import os
 from pathlib import Path
 import tempfile
+import sys
 import unittest
 from unittest.mock import patch
 
-from shared.calculation.validation import client, runner, acceptance
+from shared.calculation.validation import client, runner, acceptance, worker
 
 
 class BridgeBoundaryTests(unittest.TestCase):
@@ -71,6 +72,87 @@ class BridgeBoundaryTests(unittest.TestCase):
         code="import socket\ntry:\n s=socket.socket();s.connect(('127.0.0.1',9));print(False)\nexcept PermissionError:print(True)"
         value=runner.child([str(runner.STATE/'.venv/bin/python'),'-B','-c',code],profile,runner.environment(),5)
         self.assertEqual(value['exit_code'],0);self.assertEqual(value['stdout'].strip(),'True')
+
+    def test_worker_audit_probe_denies_native_process_escape_and_applies_limits(self):
+        profile=runner.sandbox_profile(self.state)
+        env=runner.environment(self.state/'probe-state')
+        command=[str(runner.STATE/'.venv/bin/python'),'-B','-m',
+                 'shared.calculation.validation.worker','--security-probe']
+        value=runner.child(command,profile,env,10)
+        self.assertEqual(value['exit_code'],0,value.get('stderr_tail'))
+        observed=json.loads(value['stdout'])
+        self.assertTrue(all(observed['checks'].values()),observed)
+        for name in ('RLIMIT_FSIZE','RLIMIT_NOFILE','RLIMIT_NPROC'):
+            self.assertTrue(observed['resource_limits'][name]['applied'],observed)
+        address=observed['resource_limits']['RLIMIT_AS']
+        self.assertTrue(address['available'],observed)
+        if sys.platform=='darwin':
+            self.assertFalse(address['supported'],observed)
+            self.assertFalse(address['required'],observed)
+            self.assertEqual(address['error_type'],'ValueError')
+        else:
+            self.assertTrue(address['applied'],observed)
+        self.assertRegex(observed['audit_policy_sha256'],r'^[0-9a-f]{64}$')
+
+    def test_sandboxed_worker_really_denies_fork_family(self):
+        profile=runner.sandbox_profile(self.state)
+        env=runner.environment(self.state/'fork-probe-state')
+        command=[str(runner.STATE/'.venv/bin/python'),'-B','-m',
+                 'shared.calculation.validation.worker','--security-probe']
+        value=runner.child(command,profile,env,10)
+        self.assertEqual(value['exit_code'],0,value.get('stderr_tail'))
+        checks=json.loads(value['stdout'])['checks']
+        self.assertTrue(checks['fork_denied'],checks)
+        self.assertTrue(checks['forkpty_event_denied'],checks)
+        self.assertFalse(worker.process_event_allowed('os.fork',(),None,None))
+        self.assertFalse(worker.process_event_allowed('os.forkpty',(),None,None))
+
+    def test_process_allowlist_is_exact_and_limited_to_pinned_python(self):
+        output=self.state/'output';output.mkdir()
+        scratch=self.state/'scratch';scratch.mkdir()
+        env={'CALCULATION_WORKER_SCRATCH':str(scratch)}
+        command=[worker.INTERPRETER,'-B','-m','unittest','test_execution_pnl_independent']
+        child_env={'PYTHONDONTWRITEBYTECODE':'1','PYTHONHASHSEED':'0',
+                   'PYTHONPATH':str(runner.ROOT/'shared/calculation/legacy/holdings'),
+                   'TMPDIR':str(runner.STATE/'tmp')}
+        with patch.dict(os.environ,env,clear=False):
+            self.assertTrue(worker.process_event_allowed(
+                'subprocess.Popen',(worker.INTERPRETER,command,output,child_env),'contracts',output))
+            self.assertFalse(worker.process_event_allowed(
+                'subprocess.Popen',(worker.INTERPRETER,command,output,{}),'contracts',output))
+            self.assertFalse(worker.process_event_allowed(
+                'subprocess.Popen',('/bin/cat',['/bin/cat','/dev/null'],None,None),'contracts',output))
+            self.assertFalse(worker.process_event_allowed(
+                'os.exec',(worker.INTERPRETER,command,child_env),'contracts',output))
+
+    def test_worker_state_bounds_remove_excess_and_scratch(self):
+        output=self.state/'bounded-output';scratch=self.state/'bounded-scratch'
+        output.mkdir();scratch.mkdir()
+        (output/'one').write_bytes(b'1234');(scratch/'two').write_bytes(b'5678')
+        with patch.object(runner,'MAX_WORKER_STATE_BYTES',7), patch.object(runner,'MAX_WORKER_STATE_FILES',2):
+            observed=runner.finalize_worker_state(output,scratch,retain_output=True)
+        self.assertFalse(observed['within_limits'])
+        self.assertFalse(output.exists());self.assertFalse(scratch.exists())
+        self.assertTrue(observed['scratch_cleaned']);self.assertFalse(observed['output_retained'])
+
+    def test_worker_file_count_bound_removes_output_and_scratch(self):
+        output=self.state/'count-output';scratch=self.state/'count-scratch'
+        output.mkdir();scratch.mkdir()
+        (output/'one').write_bytes(b'1');(scratch/'two').write_bytes(b'2')
+        with patch.object(runner,'MAX_WORKER_STATE_BYTES',100), patch.object(runner,'MAX_WORKER_STATE_FILES',1):
+            observed=runner.finalize_worker_state(output,scratch,retain_output=True)
+        self.assertFalse(observed['within_limits'])
+        self.assertFalse(output.exists());self.assertFalse(scratch.exists())
+        self.assertEqual(observed['usage']['files'],2)
+
+    def test_worker_state_bounds_retain_valid_output_but_clean_scratch(self):
+        output=self.state/'valid-output';scratch=self.state/'valid-scratch'
+        output.mkdir();scratch.mkdir()
+        (output/'one').write_bytes(b'1234');(scratch/'two').write_bytes(b'5678')
+        observed=runner.finalize_worker_state(output,scratch,retain_output=True)
+        self.assertTrue(observed['within_limits'])
+        self.assertTrue(output.exists());self.assertFalse(scratch.exists())
+        self.assertTrue(observed['output_retained'])
 
 
 if __name__=='__main__':unittest.main()

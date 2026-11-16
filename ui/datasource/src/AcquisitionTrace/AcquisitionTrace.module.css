@@ -1,0 +1,24 @@
+.trace { display: grid; gap: 1.5rem; min-width: 0; }
+.heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.heading p { margin-block: .35rem 0; }
+.identities, .details { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .75rem; margin: 0; }
+.identities > div, .details > div { min-width: 0; padding: .75rem; border: 1px solid var(--border); border-radius: .5rem; }
+.identities dt, .details dt { color: var(--muted); font-size: .78rem; }
+.identities dd, .details dd { margin: .3rem 0 0; overflow-wrap: anywhere; }
+.accounting { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .75rem; }
+.accounting article { display: grid; gap: .35rem; padding: 1rem; border: 1px solid var(--border); border-radius: .75rem; }
+.accounting span { color: var(--muted); font-size: .8rem; }
+.accounting strong { font-size: 1.25rem; }
+.stack { display: grid; gap: .75rem; }
+.card { min-width: 0; padding: 1rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--surface); overflow-wrap: anywhere; }
+.card summary { cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; }
+.card summary > span { display: grid; gap: .25rem; min-width: 0; }
+.card blockquote { margin-inline: 0; padding-inline-start: 1rem; border-inline-start: .2rem solid var(--border); overflow-wrap: anywhere; }
+.arguments { max-width: 100%; overflow: auto; padding: .75rem; border-radius: .5rem; background: var(--surface-subtle); white-space: pre-wrap; overflow-wrap: anywhere; }
+.hash { overflow-wrap: anywhere; }
+.gates { display: grid; gap: .6rem; padding: 0; list-style: none; }
+.gates li { display: flex; align-items: flex-start; gap: .75rem; padding: .75rem; border: 1px solid var(--border); border-radius: .5rem; }
+.gates span { display: grid; gap: .25rem; min-width: 0; }
+.gates small { overflow-wrap: anywhere; }
+.unavailable { padding: .75rem; border-inline-start: .2rem solid var(--border); color: var(--muted); }
+@media (max-width: 36rem) { .heading, .card summary { align-items: stretch; flex-direction: column; } }

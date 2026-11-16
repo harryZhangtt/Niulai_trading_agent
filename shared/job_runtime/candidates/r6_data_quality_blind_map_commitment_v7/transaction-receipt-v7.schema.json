@@ -1,0 +1,165 @@
+{
+  "$id": "r6-data-quality-blind-map-transaction-v7",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "device": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "inode": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "device",
+        "inode"
+      ],
+      "type": "object"
+    },
+    "commitment_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "device": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "inode": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "device",
+        "inode"
+      ],
+      "type": "object"
+    },
+    "commitment_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "sanitized-commitment-v7.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "complete": {
+      "const": true
+    },
+    "map_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "device": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "inode": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "device",
+        "inode"
+      ],
+      "type": "object"
+    },
+    "map_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "owner-private-canonical-map-v7.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "map_workspace_relative_path": {
+      "const": "runtime/r6_data_quality_blind_map_commitment_v7/owner-private-canonical-map-v7.json"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-transaction-v7"
+    },
+    "scope_root_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "device": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "inode": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "device",
+        "inode"
+      ],
+      "type": "object"
+    },
+    "scope_root_relative": {
+      "const": "runtime/r6_data_quality_blind_map_commitment_v7"
+    },
+    "transaction_id": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "version": {
+      "const": 7
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "transaction_id",
+    "artifact_identity",
+    "map_ref",
+    "map_identity",
+    "commitment_ref",
+    "commitment_identity",
+    "complete",
+    "scope_root_relative",
+    "scope_root_identity",
+    "map_workspace_relative_path"
+  ],
+  "type": "object"
+}

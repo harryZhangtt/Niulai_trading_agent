@@ -1,0 +1,6 @@
+event: message
+data: {"delta":"alpha"}
+
+event: message
+data: {"delta":"beta"}
+

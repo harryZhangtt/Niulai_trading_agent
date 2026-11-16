@@ -1,0 +1,965 @@
+{
+  "$defs": {
+    "checks_enabled_dq_checks_conditional": {
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "dq_checks": {
+                "items": false,
+                "maxItems": 6,
+                "minItems": 6,
+                "prefixItems": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "source_catalog_freshness"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "evidence_metadata_completeness"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "lineage_metadata_completeness"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "official_evidence_conflict"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "duplicate_fact_citation"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      },
+                      "name": {
+                        "const": "dq_publication_quality"
+                      },
+                      "status": {
+                        "const": "NOT_RUN_TREATMENT_DISABLED"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "checks_enabled": {
+                "const": true
+              }
+            },
+            "required": [
+              "checks_enabled"
+            ]
+          },
+          "then": {
+            "properties": {
+              "dq_checks": {
+                "items": false,
+                "maxItems": 6,
+                "minItems": 6,
+                "prefixItems": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "source_catalog_freshness"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "evidence_metadata_completeness"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "lineage_metadata_completeness"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "official_evidence_conflict"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "duplicate_fact_citation"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "const": "dq_publication_quality"
+                      },
+                      "status": {
+                        "enum": [
+                          "PASS",
+                          "FAIL",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "status",
+                      "code"
+                    ],
+                    "type": "object"
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "checks_enabled": {
+          "type": "boolean"
+        },
+        "dq_checks": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "checks_enabled",
+        "dq_checks"
+      ],
+      "type": "object"
+    },
+    "disabled_six_dq_checks": {
+      "items": false,
+      "maxItems": 6,
+      "minItems": 6,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "source_catalog_freshness"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "evidence_metadata_completeness"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "lineage_metadata_completeness"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "official_evidence_conflict"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "duplicate_fact_citation"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            },
+            "name": {
+              "const": "dq_publication_quality"
+            },
+            "status": {
+              "const": "NOT_RUN_TREATMENT_DISABLED"
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    },
+    "enabled_six_dq_checks": {
+      "items": false,
+      "maxItems": 6,
+      "minItems": 6,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "source_catalog_freshness"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "evidence_metadata_completeness"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "lineage_metadata_completeness"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "official_evidence_conflict"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "duplicate_fact_citation"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$",
+              "type": "string"
+            },
+            "name": {
+              "const": "dq_publication_quality"
+            },
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "status",
+            "code"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    },
+    "fact_citation_source_tuple": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "claim_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "document_identity_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "fact_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "literal_location": {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        "quote_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "source_cutoff_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "url": {
+          "maxLength": 2048,
+          "pattern": "^https://",
+          "type": "string"
+        },
+        "value": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "fact_id",
+        "claim_id",
+        "value",
+        "citation_id",
+        "source_id",
+        "literal_location",
+        "quote_sha256",
+        "url",
+        "document_identity_sha256",
+        "source_cutoff_sha256"
+      ],
+      "type": "object"
+    },
+    "owner_uid_bound_artifact_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "maximum": 1048576,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "canonical_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "nofollow": {
+          "const": true
+        },
+        "owner_private": {
+          "const": true
+        },
+        "owner_uid": {
+          "const": 501
+        },
+        "regular": {
+          "const": true
+        },
+        "relative_ref": {
+          "maxLength": 512,
+          "minLength": 3,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relative_ref",
+        "bytes",
+        "sha256",
+        "canonical_sha256",
+        "mode",
+        "owner_uid",
+        "regular",
+        "nofollow",
+        "owner_private"
+      ],
+      "type": "object"
+    },
+    "public_caller_input_no_provider_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "canonical_engine_readback_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "cell_id": {
+          "enum": [
+            "R6DQ-7F2C91A4",
+            "R6DQ-1B8E43D7",
+            "R6DQ-C4A7095E",
+            "R6DQ-92D6F0B3"
+          ]
+        },
+        "job_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "operation_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "prompt_binding_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "slot_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "cell_id",
+        "job_id",
+        "slot_id",
+        "attempt_id",
+        "operation_id",
+        "prompt_binding_sha256",
+        "canonical_engine_readback_digest"
+      ],
+      "type": "object"
+    },
+    "runner_v2_public_predecessor_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "const": 39451
+        },
+        "history_status": {
+          "const": "OPEN"
+        },
+        "path": {
+          "const": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/runner.py"
+        },
+        "sha256": {
+          "const": "bc45fceff79a1106ef66c09376075f3bb72a235ac4a23ca69b7344f914ff0bff"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "history_status"
+      ],
+      "type": "object"
+    },
+    "sealed_provider_binding": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "adapter_type": {
+              "const": "ClaudeAttemptAdapterV9"
+            },
+            "blind_provider_label": {
+              "const": "ARM-A"
+            },
+            "provider_schema": {
+              "const": "claude-evidence-v1"
+            },
+            "publication_driver": {
+              "const": "claude_publish_public"
+            },
+            "publication_driver_identity_sha256": {
+              "const": "1ae0b76d43fcc2371042d78cefadcb89f972c14c7aac80f251b7a61ff9d5dd25"
+            },
+            "research_material_profile_sha256": {
+              "const": "95fd61d9271ed5659d75fa036393724c11a9fe7e22f46ca226294c2fb9311468"
+            }
+          },
+          "required": [
+            "blind_provider_label",
+            "provider_schema",
+            "adapter_type",
+            "publication_driver",
+            "publication_driver_identity_sha256",
+            "research_material_profile_sha256"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "adapter_type": {
+              "const": "CodexAttemptAdapterV9"
+            },
+            "blind_provider_label": {
+              "const": "ARM-B"
+            },
+            "provider_schema": {
+              "const": "stage-b-execution-v3"
+            },
+            "publication_driver": {
+              "const": "AtomicPublisher.publish"
+            },
+            "publication_driver_identity_sha256": {
+              "const": "15c4baba5461bf501f08b713be9dddfeb881e31832e09bd66bc04e3b9099d3a6"
+            },
+            "research_material_profile_sha256": {
+              "const": "99d77ac9cc71d9f2fed80c65b956d2c15af32e327e8a6abb9b47f52051c9a9c3"
+            }
+          },
+          "required": [
+            "blind_provider_label",
+            "provider_schema",
+            "adapter_type",
+            "publication_driver",
+            "publication_driver_identity_sha256",
+            "research_material_profile_sha256"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "terminal_crash_restart_no_replay_fence": {
+      "additionalProperties": false,
+      "properties": {
+        "crash_disposition": {
+          "enum": [
+            "EXACT_RECEIPT_RECONCILED_NO_REPLAY",
+            "UNKNOWN_NO_REPLAY",
+            "STOP_NO_REPLAY"
+          ]
+        },
+        "denominator_member": {
+          "const": true
+        },
+        "replay_allowed": {
+          "const": false
+        },
+        "retained": {
+          "const": true
+        },
+        "retry_allowed": {
+          "const": false
+        },
+        "status_query_allowed": {
+          "const": false
+        },
+        "terminal_state": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "STOP",
+            "MALFORMED",
+            "MISSING",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "required": [
+        "terminal_state",
+        "retained",
+        "denominator_member",
+        "replay_allowed",
+        "retry_allowed",
+        "status_query_allowed",
+        "crash_disposition"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:trading-agent:r6:p0-attempt-envelope:v10:design-schemas",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "not_implementation": true,
+  "required_successor_projection_sites": [
+    {
+      "json_pointer": "$",
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/dq-attempt-envelope-v1.schema.json"
+    },
+    {
+      "json_pointer": "$/properties/envelope",
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/attempt-bundle-v1.schema.json"
+    }
+  ],
+  "schema_migration_rule": "Successor Draft 2020-12 schemas must apply $defs/checks_enabled_dq_checks_conditional at every listed projection without weakening existing object closure, order, names, count, or field bounds.",
+  "semantic_cross_checks_not_expressible_as_local_shape": [
+    "Every fact citation_id resolves exactly one citation with equal claim_id and source_id.",
+    "Every citation source_id resolves exactly one eligible source with the same source_cutoff_sha256.",
+    "Provider binding is derived from the sealed cell map; caller bytes never contain provider identity, adapter, driver, or material profile.",
+    "owner_uid equals the trusted process UID and every path component is opened nofollow beneath the fixed owner root.",
+    "Runner-v2 public PREDECESSOR must equal the frozen internal identity, reopen/rehash the exact regular source before reservation admission, and be bound into the reservation key; caller replacement is forbidden."
+  ],
+  "status": "DESIGN_ONLY_PENDING_SUCCESSOR_BYTES_AND_INDEPENDENT_REVIEW",
+  "version": "r6-data-quality-attempt-envelope-v10-design-schemas-1"
+}

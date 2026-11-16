@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "scope": "development_smoke_only",
+  "status": "blocked_by_host_permission",
+  "attempted_action": "Run live_smoke_v1.py --live using Bash",
+  "observed_host_reason": "Permission for this action was denied by the Claude Code auto mode classifier. Reason: [Data Exfiltration].",
+  "action_executed": false,
+  "native_cli_dispatches": 0,
+  "native_model_calls": 0,
+  "live_cost_usd": 0.0,
+  "unknown_live_cost_usd": 0.0,
+  "retry_attempted": false,
+  "alternate_session_attempted": false,
+  "permission_configuration_modified": false,
+  "independent_remaining_work": "Provider-free adapter tests, frozen validation and read-only budget reconciliation",
+  "required_next_action": "User/host review and permission for this exact development smoke action; do not bypass the denial or automatically replay",
+  "live_pass_criteria": {
+    "native_skill_load": "passed in this thread",
+    "both_exact_served_models_and_usage": "unverified: no calls executed",
+    "four_solver_outputs_pass_frozen_schema_and_identity_checks": "unverified: no model outputs",
+    "six_terminal_call_receipts": "not met: zero calls",
+    "budget": "no new spend",
+    "protected_data_or_production_effects": "none performed"
+  },
+  "quality_verdict": "inconclusive",
+  "production_acceptance": false,
+  "protected_independent_custody_established": false
+}

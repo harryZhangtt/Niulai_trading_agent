@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "experiment_id": "replace-me",
+  "version": 1,
+  "mode": "confirmatory",
+  "parent_protocol_sha256": null,
+  "hypothesis": "State one falsifiable predictive and economic claim.",
+  "economic_rationale": "State the finance mechanism and a result that would contradict it.",
+  "data": {
+    "dataset_id": "replace-me",
+    "snapshot_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "availability_policy": "State event-time, available-at, revision and execution-cutoff rules.",
+    "splits": [
+      {
+        "name": "development",
+        "role": "development",
+        "start": "2000-01-01",
+        "end": "2015-01-01",
+        "fingerprint_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      {
+        "name": "validation",
+        "role": "validation",
+        "start": "2015-01-01",
+        "end": "2022-01-01",
+        "fingerprint_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      },
+      {
+        "name": "protected",
+        "role": "protected",
+        "start": "2022-01-01",
+        "end": "2025-01-01",
+        "fingerprint_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+      }
+    ]
+  },
+  "factors": [
+    {
+      "id": "replace-me",
+      "family": "replace-me",
+      "transformation": "Exact point-in-time formula and lag",
+      "max_degrees_of_freedom": 1
+    }
+  ],
+  "model": {
+    "type": "replace-me",
+    "hyperparameters": {}
+  },
+  "execution": {
+    "signal_lag_sessions": 1,
+    "rebalance": "monthly",
+    "cost_bps": 0,
+    "cash_interest": "State the point-in-time cash return source and timing"
+  },
+  "evaluation": {
+    "target": "forward-excess-return",
+    "horizon_sessions": 126,
+    "purge_sessions": 126,
+    "embargo_sessions": 21,
+    "baseline": "matched-exposure"
+  },
+  "multiplicity": {
+    "family_id": "replace-me",
+    "method": "replace-me",
+    "alpha": 0.05,
+    "max_variants": 1
+  },
+  "budget": {
+    "max_attempts": 1,
+    "max_variants": 1,
+    "max_protected_uses": 1
+  },
+  "promotion_gate": [
+    {
+      "id": "replace-me",
+      "metric": "replace-me",
+      "operator": "gt",
+      "threshold": 0.0,
+      "period": "protected"
+    }
+  ],
+  "stopping_rule": "Stop after the declared variants and one protected use; preserve failures.",
+  "overfit_triggers": [
+    {
+      "id": "specification-sensitivity",
+      "metric": "sign-flip-rate",
+      "operator": "gt",
+      "threshold": 0.25,
+      "action": "quarantine"
+    }
+  ]
+}

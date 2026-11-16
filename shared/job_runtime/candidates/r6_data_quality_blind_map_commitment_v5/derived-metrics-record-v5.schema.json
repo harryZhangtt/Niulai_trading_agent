@@ -1,0 +1,1146 @@
+{
+  "$id": "r6-data-quality-blind-map-derived-metrics-record-v5",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "else": {
+        "properties": {
+          "cells": {
+            "items": false,
+            "maxItems": 4,
+            "minItems": 4,
+            "prefixItems": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "blind_alias": {
+                    "pattern": "^[0-9a-f]{32}$",
+                    "type": "string"
+                  },
+                  "cell_id": {
+                    "const": "R6DQ-7F2C91A4"
+                  },
+                  "grade_record_refs": {
+                    "items": false,
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "prefixItems": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-7F2C91A4-g1-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-7F2C91A4-g2-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "packet_record_ref": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "bytes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "mode": {
+                        "const": "0600"
+                      },
+                      "path": {
+                        "const": "chronology/evaluation-packet-R6DQ-7F2C91A4-v5.json"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "bytes",
+                      "sha256",
+                      "mode"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "blind_alias",
+                  "packet_record_ref",
+                  "grade_record_refs"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "blind_alias": {
+                    "pattern": "^[0-9a-f]{32}$",
+                    "type": "string"
+                  },
+                  "cell_id": {
+                    "const": "R6DQ-1B8E43D7"
+                  },
+                  "grade_record_refs": {
+                    "items": false,
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "prefixItems": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-1B8E43D7-g1-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-1B8E43D7-g2-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "packet_record_ref": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "bytes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "mode": {
+                        "const": "0600"
+                      },
+                      "path": {
+                        "const": "chronology/evaluation-packet-R6DQ-1B8E43D7-v5.json"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "bytes",
+                      "sha256",
+                      "mode"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "blind_alias",
+                  "packet_record_ref",
+                  "grade_record_refs"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "blind_alias": {
+                    "pattern": "^[0-9a-f]{32}$",
+                    "type": "string"
+                  },
+                  "cell_id": {
+                    "const": "R6DQ-C4A7095E"
+                  },
+                  "grade_record_refs": {
+                    "items": false,
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "prefixItems": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-C4A7095E-g1-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-C4A7095E-g2-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "packet_record_ref": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "bytes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "mode": {
+                        "const": "0600"
+                      },
+                      "path": {
+                        "const": "chronology/evaluation-packet-R6DQ-C4A7095E-v5.json"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "bytes",
+                      "sha256",
+                      "mode"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "blind_alias",
+                  "packet_record_ref",
+                  "grade_record_refs"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "blind_alias": {
+                    "pattern": "^[0-9a-f]{32}$",
+                    "type": "string"
+                  },
+                  "cell_id": {
+                    "const": "R6DQ-92D6F0B3"
+                  },
+                  "grade_record_refs": {
+                    "items": false,
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "prefixItems": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-92D6F0B3-g1-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-92D6F0B3-g2-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "packet_record_ref": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "bytes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "mode": {
+                        "const": "0600"
+                      },
+                      "path": {
+                        "const": "chronology/evaluation-packet-R6DQ-92D6F0B3-v5.json"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "bytes",
+                      "sha256",
+                      "mode"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "blind_alias",
+                  "packet_record_ref",
+                  "grade_record_refs"
+                ],
+                "type": "object"
+              }
+            ],
+            "type": "array",
+            "uniqueItems": true
+          },
+          "produced_sequence": {
+            "const": 23
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "g3_required": {
+            "const": true
+          }
+        },
+        "required": [
+          "g3_required"
+        ]
+      },
+      "then": {
+        "properties": {
+          "cells": {
+            "items": false,
+            "maxItems": 4,
+            "minItems": 4,
+            "prefixItems": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "blind_alias": {
+                    "pattern": "^[0-9a-f]{32}$",
+                    "type": "string"
+                  },
+                  "cell_id": {
+                    "const": "R6DQ-7F2C91A4"
+                  },
+                  "grade_record_refs": {
+                    "items": false,
+                    "maxItems": 3,
+                    "minItems": 3,
+                    "prefixItems": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-7F2C91A4-g1-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-7F2C91A4-g2-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-7F2C91A4-g3-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "packet_record_ref": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "bytes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "mode": {
+                        "const": "0600"
+                      },
+                      "path": {
+                        "const": "chronology/evaluation-packet-R6DQ-7F2C91A4-v5.json"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "bytes",
+                      "sha256",
+                      "mode"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "blind_alias",
+                  "packet_record_ref",
+                  "grade_record_refs"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "blind_alias": {
+                    "pattern": "^[0-9a-f]{32}$",
+                    "type": "string"
+                  },
+                  "cell_id": {
+                    "const": "R6DQ-1B8E43D7"
+                  },
+                  "grade_record_refs": {
+                    "items": false,
+                    "maxItems": 3,
+                    "minItems": 3,
+                    "prefixItems": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-1B8E43D7-g1-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-1B8E43D7-g2-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-1B8E43D7-g3-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "packet_record_ref": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "bytes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "mode": {
+                        "const": "0600"
+                      },
+                      "path": {
+                        "const": "chronology/evaluation-packet-R6DQ-1B8E43D7-v5.json"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "bytes",
+                      "sha256",
+                      "mode"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "blind_alias",
+                  "packet_record_ref",
+                  "grade_record_refs"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "blind_alias": {
+                    "pattern": "^[0-9a-f]{32}$",
+                    "type": "string"
+                  },
+                  "cell_id": {
+                    "const": "R6DQ-C4A7095E"
+                  },
+                  "grade_record_refs": {
+                    "items": false,
+                    "maxItems": 3,
+                    "minItems": 3,
+                    "prefixItems": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-C4A7095E-g1-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-C4A7095E-g2-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-C4A7095E-g3-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "packet_record_ref": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "bytes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "mode": {
+                        "const": "0600"
+                      },
+                      "path": {
+                        "const": "chronology/evaluation-packet-R6DQ-C4A7095E-v5.json"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "bytes",
+                      "sha256",
+                      "mode"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "blind_alias",
+                  "packet_record_ref",
+                  "grade_record_refs"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "blind_alias": {
+                    "pattern": "^[0-9a-f]{32}$",
+                    "type": "string"
+                  },
+                  "cell_id": {
+                    "const": "R6DQ-92D6F0B3"
+                  },
+                  "grade_record_refs": {
+                    "items": false,
+                    "maxItems": 3,
+                    "minItems": 3,
+                    "prefixItems": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-92D6F0B3-g1-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-92D6F0B3-g2-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bytes": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "mode": {
+                            "const": "0600"
+                          },
+                          "path": {
+                            "const": "chronology/human-grade-R6DQ-92D6F0B3-g3-v5.json"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "bytes",
+                          "sha256",
+                          "mode"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "packet_record_ref": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "bytes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "mode": {
+                        "const": "0600"
+                      },
+                      "path": {
+                        "const": "chronology/evaluation-packet-R6DQ-92D6F0B3-v5.json"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "bytes",
+                      "sha256",
+                      "mode"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "blind_alias",
+                  "packet_record_ref",
+                  "grade_record_refs"
+                ],
+                "type": "object"
+              }
+            ],
+            "type": "array",
+            "uniqueItems": true
+          },
+          "produced_sequence": {
+            "const": 27
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "cells": {
+      "items": {},
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "commitment_binding": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "canonical_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "commitment_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "sanitized-commitment-v5.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        "receipt_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "0600"
+            },
+            "path": {
+              "const": "transaction-receipt-v5.json"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "mode"
+          ],
+          "type": "object"
+        },
+        "transaction_id": {
+          "pattern": "^[0-9a-f]{32}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "transaction_id",
+        "receipt_ref",
+        "commitment_ref",
+        "canonical_digest",
+        "canonical_bytes"
+      ],
+      "type": "object"
+    },
+    "derived_metric_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "const": "0600"
+        },
+        "path": {
+          "const": "chronology/derived-metric-artifact-v5.json"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "g3_required": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "const": true
+    },
+    "metrics_record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "produced_sequence": {
+      "type": "integer"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-derived-metrics-record-v5"
+    },
+    "version": {
+      "const": 5
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "metrics_record_id",
+    "commitment_binding",
+    "g3_required",
+    "cells",
+    "derived_metric_ref",
+    "produced_sequence",
+    "immutable"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"synthetic-factor-evaluator-request-v1",
+  "$defs":{
+    "sha":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "splits":{"type":"object","additionalProperties":false,"required":["development","validation","protected"],"properties":{"development":{"$ref":"#/$defs/sha"},"validation":{"$ref":"#/$defs/sha"},"protected":{"$ref":"#/$defs/sha"}}},
+    "artifact":{"type":"object","additionalProperties":false,"required":["schema_version","kind","worker_version","request_sha256","builder_receipt_sha256","observation_set_sha256","feature_snapshot_sha256","evaluation_population_sha256","split_fingerprints","outcome_accessed","protected_labels_accessed","performance_claim"],"properties":{"schema_version":{"const":1},"kind":{"const":"synthetic_authority_binding_proof"},"worker_version":{"const":"rdagent-v2-fixed-structural-worker-v1"},"request_sha256":{"$ref":"#/$defs/sha"},"builder_receipt_sha256":{"$ref":"#/$defs/sha"},"observation_set_sha256":{"$ref":"#/$defs/sha"},"feature_snapshot_sha256":{"$ref":"#/$defs/sha"},"evaluation_population_sha256":{"$ref":"#/$defs/sha"},"split_fingerprints":{"$ref":"#/$defs/splits"},"outcome_accessed":{"const":false},"protected_labels_accessed":{"const":false},"performance_claim":{"const":"withheld"}}}
+  },
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","kind","evaluation_id","runner_event_sha256","runner_request","runner_receipt","runner_artifact"],
+  "properties":{"schema_version":{"const":1},"kind":{"const":"synthetic_factor_evaluator_request"},"evaluation_id":{"type":"string","pattern":"^[a-z0-9][a-z0-9_.-]{0,95}$"},"runner_event_sha256":{"$ref":"#/$defs/sha"},"runner_request":{"$ref":"../../../investment/factor_mining/rdagent_adapter/v2/request-v2.schema.json"},"runner_receipt":{"$ref":"../../../investment/factor_mining/rdagent_adapter/v2/receipt-v2.schema.json"},"runner_artifact":{"$ref":"#/$defs/artifact"}}
+}

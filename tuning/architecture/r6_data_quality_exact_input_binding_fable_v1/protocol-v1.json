@@ -1,0 +1,42 @@
+{
+  "version": "r6-data-quality-exact-input-binding-protocol-v1",
+  "status": "FROZEN_BEFORE_PRODUCER_VERIFICATION",
+  "default": "DENY",
+  "sequence": [
+    "strictly decode UTF-8 and reject duplicate keys or non-finite numbers",
+    "rehash exact current mentor-authority bytes without consulting stale runtime evidence",
+    "validate prompt bytes/hash and exact source-cutoff binding",
+    "validate rubric, thresholds and evidence-schema cross-bindings",
+    "derive one canonical common-input binding",
+    "require all four opaque cells to contain byte-identical canonical input bindings",
+    "deny identity, treatment, addon or call-order leakage in prompt and cell bindings",
+    "deny private/internal/bytedcli source dependency",
+    "deny financial-return metrics or specific-provider preferences in rubric/thresholds",
+    "require unresolved tool-roster, time-window and final-grant pins",
+    "require owner-private package root and manifest",
+    "publish provider-free producer evidence; remain noncountable"
+  ],
+  "canonicalization": "UTF-8 JSON, sorted keys, compact separators, ensure_ascii=false, allow_nan=false",
+  "cell_policy": {
+    "exact_cells": ["R6DQ-7F2C91A4", "R6DQ-1B8E43D7", "R6DQ-C4A7095E", "R6DQ-92D6F0B3"],
+    "mapping": "not present",
+    "call_order": "not present",
+    "common_input": "exactly one canonical binding across all cells"
+  },
+  "pending_fences": {
+    "tool_roster": "exact read-only roster, versions, call ceilings and blocked-effect list remain unsealed",
+    "time_window": "exact common start/end and per-cell deadline semantics remain unsealed",
+    "final_grants": "exact four-cell execution authority, budgets, attempt counts, final inference grants and clean reviews remain absent"
+  },
+  "effects": {
+    "provider": false,
+    "network": false,
+    "account": false,
+    "private_state": false,
+    "email": false,
+    "business": false,
+    "host": false,
+    "scheduler": false
+  },
+  "countable": false
+}

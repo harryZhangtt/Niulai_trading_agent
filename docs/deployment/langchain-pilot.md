@@ -6,6 +6,8 @@ the unchanged Decimal calculator in
 `shared/calculation/legacy/valuation/valuation_core.py`. All inputs are synthetic.
 It has no trading, account, source-acquisition, email, shell or scheduler tools.
 It does not activate a production integration or replace existing services.
+The separate atomic capability lab below adds fixed public calculator and pure
+synthetic holdings entry points without replacing this original pilot.
 
 ## Dependencies and paths
 
@@ -282,6 +284,187 @@ applicable atomic capabilities and model-session tracing are exercised. Managed
 online/LLM evaluators and actual holdings were not activated. Legacy SDK read helpers currently emit a deprecation
 notice for removal after 2027-01-31; changing those pinned interfaces is a separate
 source/runtime check, not a reason to replace the environment globally.
+
+## Atomic capability lab — staged candidate
+
+The atomic lab uses the same locked environment and the separate
+[`atomic-langgraph.json`](../../tuning/langchain_pilot/atomic-langgraph.json).
+Its [frozen acceptance contract](../../tuning/langchain_pilot/ATOMIC_ACCEPTANCE.md),
+[independent semantic cases](../../tuning/langchain_pilot/tests/atomic_contract_cases.json)
+and [independent verification report](../../tuning/langchain_pilot/VERIFICATION.md)
+define the scoped gate. The final recorded candidate has 339 local tests with zero
+skips, failures or errors, including 80 independent checks and all sixty
+HOLD cases. The 196 designed cases are not a count of automatically executed
+tests. Later source/configuration changes need applicable new evidence.
+
+| Registered graph ID | Capability | Execution boundary |
+| --- | --- | --- |
+| `calculator` | Deterministic existing Decimal calculator through an actual LangChain tool | Tool-only; no model inference |
+| `trading_pilot` | Existing calculator agent with real cooperative `SessionChatModel` | Host supplies assistant messages; actual tool executes in LangChain; persisted logical cap of three model requests |
+| `holdings` | Pure `investment/portfolio` snapshot adapter and maintained holdings analytics | Synthetic receipts only; actual `portfolio_analysis_tool`; no acquisition, credentials or model inference |
+
+The cooperative graph admits public tool-only replies with no prose, or a final
+numeric JSON answer containing only `per_share` and `synthetic: true`. The final
+receipt/schema and exact arithmetic gate still apply. Declared host/model labels
+are not authenticated backend identity. There is no unattended dispatcher or
+provider fallback in this lab.
+
+In Studio **View Raw**, use the outer public envelope:
+
+```json
+{"request":{"case_id":"nominal"}}
+```
+
+In Studio's **Request** field, use only `{"case_id":"nominal"}`. Each graph's
+schema publishes its exact fixed selector enum; arbitrary valuation/account
+objects, paths, URLs, extra fields and unknown selectors are rejected before
+exporting child callbacks. Calculator `nominal` expects per-share `10`, historical
+`debt` expects `15`, and the independent `public-calc-debt` expects `7` from its
+different declared inputs. `invalid-shares` is an expected invalid-input result.
+Do not substitute similarly named fixtures or edit failed expected outputs.
+
+The holdings roster has 26 fixed selectors, including the six independent public
+HOLD aliases. It distinguishes confirmed requested-scope empty from failed,
+partial and unknown reads, and preserves account/currency/type scope. Partial
+type retrieval rejects with explicit missing-type gaps. Monetary strings remain
+exact; the public projection rounds rate/percentage metrics to twelve decimal
+places with ROUND_HALF_EVEN. Query age and optional caller-supplied quote cutoff
+are separate. Missing quote time and daily PnL remain unknown; matching account
+labels and hashes do not prove authentication, a live read or lease release.
+
+The port-2026 staging process is stopped. The separately verified self-test endpoint is
+`http://127.0.0.1:2025`; the original port-2024 process/configuration and the
+datasource app on 7270 are preserved. The intended Studio URL is
+`https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2025`.
+Actual ownership/discovery/schema/run/state for that endpoint passed. Browser
+connection stability remains unverified; a printed URL or API health is not
+browser evidence. Use Graph mode, select `calculator`, `holdings` or
+`trading_pilot`, then select and activate its assistant in Settings / Manage
+Assistants. Do not use the original port2024 to find the separate atomic roster.
+Exact `/assistants/<resolved-id>/graph?xray=true` readback confirmed holdings
+`snapshot_admission -> portfolio_analysis` and the cooperative calculator's
+validation/model/tools subgraphs. Deterministic calculator uses an actual tool
+runnable and has no model subgraph. Chrome Local Network Access permission can
+prevent Studio from connecting even when the local API works; see
+[official connection guidance](https://docs.langchain.com/langsmith/troubleshooting-studio).
+
+Launch the owned local candidate from the workspace root after selecting and
+checking its explicit port:
+
+```sh
+LANGCHAIN_PILOT_ENGINE=session PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.serve \
+    --atomic --port 2025 --allow-blocking
+```
+
+Atomic launch uses `strict_cli.py`, which checks locked Agent Server 0.18.0 and
+refuses automatic port fallback even if a bind race occurs after the initial
+probe. One worker, no hot reload/browser, local CLI analytics disabled, and local
+cache/temp confinement apply. `--allow-blocking` is the development compatibility
+flag; it is not a production acceptance waiver. The lab's dev persistence is
+`.langchain-pilot/runtime/atomic-server/`, separate from the original
+`.langchain-pilot/runtime/server/`. Cooperative binding history and per-request
+receipts retain the existing session-engine owner and must not be deleted to
+clear a failure.
+Start atomic runs through Studio's fixed selector or the matching public API
+envelope. For host servicing, pass the chosen lab endpoint explicitly to
+`session_engine --url http://127.0.0.1:2025 pending` and `respond`, together with
+the exact thread/request/binding identities described above. The CLI defaults
+to the original port 2024; its raw `start --case-file` input belongs to the
+original graph and is not the atomic fixed-selector ingress.
+
+Cloud tracing remains off globally, including on the original server. Only an
+explicit `--atomic --cloud-tracing` launch attaches exporting callbacks to the
+already admitted fixed synthetic capability child. It requires a verified local
+profile for the selected kind. The existing owner-private LangSmith credential
+contract above applies; no credential, real holdings or provider API input is
+needed for the deterministic calculator/holdings capability itself.
+
+The separate `atomic_cloud` CLI supports kinds `calculator`, `calculator_session`
+and `holdings`. Profiles, pinned prompt commit, dataset version/as-of, exact cloud
+identities, evaluation claims and trace attempts stay under
+`.langchain-pilot/runtime/atomic/<source-fingerprint-prefix16>/<kind>/`.
+Changing the source closure selects a new candidate directory; do not copy an old
+profile into it or alter receipts to bypass source/roster drift checks.
+
+The following are bounded synthetic entry points. Retain exact candidate-owned
+receipts; do not repeat bootstrap/evaluation to obtain cleaner evidence:
+
+```sh
+LANGSMITH_TRACING=false PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.atomic_cloud \
+    bootstrap --kind calculator
+LANGSMITH_TRACING=false PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.atomic_cloud \
+    bootstrap --kind holdings
+LANGSMITH_TRACING=false PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.atomic_cloud \
+    bootstrap --kind calculator_session
+LANGCHAIN_PILOT_ENGINE=session PYTHONDONTWRITEBYTECODE=1 \
+  .langchain-pilot/.venv/bin/python -B -m tuning.langchain_pilot.serve \
+    --atomic --cloud-tracing --port 2025 --allow-blocking
+```
+
+Use `evaluate --kind calculator` or `evaluate --kind holdings` once per owned
+candidate trial, then `check-evaluation --kind <kind>` for exact stored
+run/example/output and `atomic_contract_correct` feedback readback. The CLI
+deliberately refuses unattended `evaluate --kind calculator_session`; cooperative
+evaluation requires the owner/host to service model interrupts. No automatic host
+service or successful cooperative cloud evaluation is claimed here.
+
+Unknown bootstrap writes are fenced. Use `reconcile-bootstrap --kind <kind>` to
+read the saved exact IDs/content; it never recreates missing objects. Native
+callback copies share the exact attempt delivery-error and span-ID ledger.
+Unknown trace export blocks another invocation/resume on the same thread until
+`check-trace --kind <kind> --attempt <owned-UUID>.json` performs exact readback.
+The attempt argument is an owned filename under that candidate/kind's `traces/`,
+not an arbitrary filesystem path. Readback verifies the actual root/children,
+parents, outcome and local result; it does not rerun the capability. Preserve
+unknown evaluation claims and use `check-evaluation` to reconcile stored outcomes
+instead of repeating an uncertain write. Honor service read windows/429 delays.
+
+Cloud pacing and read retries are configured in
+`tuning/langchain_pilot/cloud-read-policy.json`. Defaults are a 0.5-second read
+interval, 15 seconds between read-only query requests, 0.05 seconds between
+writes, at most three read attempts and a 180-second total wait budget. These
+are conservative pilot settings, not a statement of the account's quota.
+Warmup performs a delayed read-only `/info` request before the owned operation.
+The project-local `rate_policy.py` records warmup, pacing waits, dispatch,
+acknowledgement, 429, scheduled retry and exhaustion under private
+`.langchain-pilot/runtime/cloud-rate/attempts/`. Records contain endpoint shapes,
+attempt numbers, delays and resolved policy, never bodies, keys or headers.
+Numeric and HTTP-date `Retry-After` values take precedence over bounded fallback
+backoff. A delay exceeding the remaining budget stops the read. Write requests
+execute once; unknown writes retain their owning bootstrap/trace/evaluation
+fence. Read and query clocks are distinct, so a write cannot reset query pacing.
+Changing policy changes the candidate fingerprint; use a controlled restart and
+new owned candidate profile rather than copying old receipts.
+
+The 2026-11-16 live trial observed `/runs/query` throttling. Exact-ID GET reads
+can reconcile immutable roots and their actual `child_run_ids` without that
+query route; verify the returned set and actual parents before reconstructing
+the tree. This is readback, never re-execution. LangSmith supplies the public
+default `dataset_split: ["base"]`; admission permits that exact value or absence
+and rejects other split metadata before evaluation/export.
+
+On candidate7459ededd5d206d3, all nine owned native trace readbacks passed,
+including cooperative model/tool segments and a controlled holdings failure.
+Calculator cloud evaluation is verified7/7 after read-only reconciliation of
+delayed ingestion; it was not rerun. Holding26-case evaluation is verified26/26
+after a preserved first unknown and read-only reconciliation; it was not rerun.
+Historical three-case calculator cloud proof above
+belongs to its earlier canary and does not certify these new resources. Local conformance
+does not establish URL readiness, live account/quote freshness, autonomous model
+dispatch or production durability. No real holdings, provider API dispatch,
+trading/order, email or scheduler effect is authorized by the lab. Major-runtime
+acceptance remains unverified under [runtime-acceptance.md](runtime-acceptance.md).
+
+The new isolated client performs the same calculator/holdings operations over
+the server's existing `/mcp` endpoint and reads exact traces over hosted
+LangSmith Remote MCP. The cooperative inspection agent, rate/resource controls,
+private snapshot and setup are documented in [LangChain MCP](langchain-mcp.md).
+Native-host MCP registration stays disabled; no provider inference, real holdings
+retrieval or scheduled business acceptance is implied by that isolated proof.
 
 ## Stop, recover and acceptance
 

@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "hash_chain_valid": true,
+    "no_replay": true,
+    "no_unknown_write": true,
+    "protected_outcomes_accessed": false,
+    "registered_before_labels_consistent": true,
+    "result_digest_matches": true,
+    "temp_cache_empty": true
+  },
+  "claim_limits": [
+    "development_only",
+    "inconclusive",
+    "no alpha/generalization/probability/promotion/action claim"
+  ],
+  "grant": {
+    "bytes": 1732,
+    "path": "tuning/probabilistic_manifold/artifacts/development-run-grant.v2.json",
+    "sha256": "08b759e88f32566e01503908d4a1d4c19bbc1c9df3c0d31f94e0027017ede830"
+  },
+  "ledger": {
+    "bytes": 5585,
+    "events": 2,
+    "head": "c8f7f05a8d547d0c0603e4ad96790d480bcaf79028db7d6b06cd79e5cb702694",
+    "path": "tuning/probabilistic_manifold/artifacts/rolling-attempt-ledger.v7.json",
+    "sha256": "0c9eba1edd99923c2b1bf4e3f73c8101332c721d54ea17532c20aa6bb8cd354e",
+    "terminal": "completed"
+  },
+  "result": {
+    "bytes": 959,
+    "decision": "inconclusive",
+    "evaluated_n": 6,
+    "path": "tuning/probabilistic_manifold/artifacts/development-result.v7.json",
+    "retained_n": 5,
+    "sha256": "9016ba1bc8c8e320d7071688c0e323f0bddcb79d5c3485b77b0d545e88fda26d"
+  },
+  "source": "in_session_independent_read_only_review",
+  "status": "development_only_inconclusive_safe_to_report",
+  "verdict": "PASS",
+  "version": "tqqq-development-custody-final-review-v1"
+}

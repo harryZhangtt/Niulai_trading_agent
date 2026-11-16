@@ -1,0 +1,300 @@
+{
+  "version": "r6-claude-current-readiness-decision-v1",
+  "terminal_status": "BLOCKED_PENDING_CLAUDE_V8_REVIEW",
+  "evaluated_at": "2026-11-13T00:00:00+00:00",
+  "owner": "tuning/architecture/r6_claude_current_readiness_audit_v1",
+  "owner_private": true,
+  "activation": false,
+  "countable": false,
+  "protocol_identity": {
+    "path": "tuning/architecture/r6_claude_current_readiness_audit_v1/protocol-v1.json",
+    "bytes": 6073,
+    "sha256": "3f121d4e334c79081856aa448f32c3269b810fa94e937e18003992aac7fc06fc"
+  },
+  "evidence_classification": {
+    "frozen_membership_interpretation": {
+      "status": "CURRENT_SUFFICIENT",
+      "class": "IMMUTABLE_HISTORICAL_MEMBERSHIP_EVIDENCE",
+      "finding": "The exact frozen terminal-result interpretation and independent review remain CLEAN for historical membership: exact display token Opus 5.5 occurred once in the sole authoritative terminal result; two assistant-stream copies were ignored.",
+      "limits": "Not current entitlement, account readiness, inference success, routing, countability, or runtime acceptance."
+    },
+    "current_local_binary_identity": {
+      "status": "CURRENT_SUFFICIENT",
+      "class": "REHASHED_LOCAL_FILE_IDENTITY_ONLY",
+      "finding": "The non-executed local file /Users/bytedance/.local/share/claude/versions/2.1.321 rehashed to 323686048 bytes and SHA-256 abc9feeeca8091d51b623291e044cf0528c2f6b74e0c1d6ef671d52c73f7cd3c, matching its CLEAN review.",
+      "limits": "Not account readiness, membership, provider availability, inference, or execution authority."
+    },
+    "account_session_readiness": {
+      "status": "REFRESH_REQUIRED",
+      "class": "FRESHNESS_BOUNDED_HISTORICAL_READY_STALE",
+      "finding": "The newest located READY receipt was valid only until 2026-11-10T06:34:58.108114+00:00 and is stale at evaluated_at.",
+      "limits": "Must be classified CLEAN_HISTORICAL_READY_STALE_RECHECK_REQUIRED; absence of a provider login-expiry field does not extend the audit window."
+    },
+    "catalog_membership_request_authority": {
+      "status": "REFRESH_REQUIRED",
+      "class": "CONSUMED_AND_EXPIRED_SINGLE_REQUEST_GRANT",
+      "finding": "The independently CLEAN grant authorized one catalog request; the execution receipt records one catalog process and one provider catalog metadata read. Remaining authorized requests are zero, and the deadline expired 2026-11-10T05:46:43.008165+00:00.",
+      "limits": "The later CLEAN frozen interpretation changes evidentiary interpretation only; it does not restore request authority or change the preserved STOP_CATALOG_PREFLIGHT execution status."
+    },
+    "claude_v8": {
+      "status": "BLOCKED_PENDING_CLAUDE_V8_REVIEW",
+      "class": "INACTIVE_PROVIDER_FREE_PRODUCER_EVIDENCE",
+      "finding": "v8 is producer-verified only, disabled and unregistered, with fresh independent review false, P0 v10 reclosure required, and intended-runtime execution/email acceptance pending.",
+      "limits": "No active Claude execution path and no live or countable authority."
+    }
+  },
+  "freshness_bounded_evidence": {
+    "account_readiness": {
+      "checked_at": "2026-11-10T06:04:58.108114+00:00",
+      "fresh_until": "2026-11-10T06:34:58.108114+00:00",
+      "window_semantics": "checked_at <= trusted_now < fresh_until",
+      "fresh_at_evaluated_at": false,
+      "expired_classification": "CLEAN_HISTORICAL_READY_STALE_RECHECK_REQUIRED"
+    },
+    "catalog_grant": {
+      "not_before": "2026-11-10T05:40:43.008165+00:00",
+      "deadline_at": "2026-11-10T05:46:43.008165+00:00",
+      "window_semantics": "not_before <= trusted_now < deadline_at",
+      "fresh_at_evaluated_at": false
+    }
+  },
+  "consumed_request_accounting": {
+    "authorization_scope": "one Claude membership/catalog request",
+    "authorized_at": "2026-11-10T05:40:43.008165+00:00",
+    "deadline_at": "2026-11-10T05:46:43.008165+00:00",
+    "authorized_requests": 1,
+    "observed_requests": 1,
+    "catalog_processes": 1,
+    "provider_catalog_metadata_reads": 1,
+    "inference_requests": 0,
+    "remaining_requests": 0,
+    "consumed": true,
+    "expired": true,
+    "retry": 0,
+    "replay": 0,
+    "second_catalog_request_authorized": false,
+    "preserved_execution_status": "STOP_CATALOG_PREFLIGHT",
+    "frozen_interpretation_verdict": "CLEAN_FROZEN_MEMBERSHIP_EVIDENCE"
+  },
+  "inference_readback": {
+    "terminal_model_attribution_possible": true,
+    "terminal_model_attribution_scope": "A sealed real response can show that the sole successful result event reported model claude-opus-5-5.",
+    "account_readback_in_inference": false,
+    "membership_or_entitlement_proven_by_result_model_field": false,
+    "engine_readback_is_provider_readback": false,
+    "engine_readback_scope": "local SQLite scheduler/job/slot/attempt/native-prompt binding",
+    "separate_catalog_required": true,
+    "separate_account_status_required": true,
+    "conclusion": "The intended live inference boundary cannot prove account identity/equality and cannot replace the separately required catalog membership-entitlement preflight."
+  },
+  "claude_v8": {
+    "status": "OPEN_PROVIDER_FREE_V8_PRODUCER_VERIFIED_PENDING_FRESH_INDEPENDENT_REVIEW_AND_P0_V10_RECLOSURE",
+    "fresh_independent_review": false,
+    "p0_v10_reclosure": "REQUIRED",
+    "registration": false,
+    "active_execution_path": false,
+    "runtime_acceptance_execution": "PENDING",
+    "runtime_acceptance_email": "PENDING",
+    "producer_source_closure_artifacts": 33,
+    "producer_source_closure_aggregate_sha256": "3ee1bf1079c5170a588efea2d573be0c25f2fcab311c81a287a75ad53a01a16c"
+  },
+  "minimal_new_preflight": {
+    "timing": "immediately before final inference grants, after CLEAN v8 independent review and CLEAN P0 v10 reclosure",
+    "steps": [
+      "one newly authorized Claude auth-status metadata read producing a READY receipt with a new checked_at/fresh_until and independent CLEAN review",
+      "one newly authorized Claude /model metadata request producing exact Opus 5.5 membership/entitlement evidence from the sole terminal result and independent CLEAN interpretation review",
+      "bind both new receipts/reviews plus the rehashed current binary, exact driver/adapter identities, owner-private custody, final cell grant, and overlapping half-open validity window"
+    ],
+    "metadata_only": true,
+    "inference": 0,
+    "provider_catalog_requests_max": 1,
+    "account_status_reads_max": 1,
+    "ordering": "sequential",
+    "concurrency": 1,
+    "request_retries": 0,
+    "replay": false,
+    "status_after_unknown": 0,
+    "second_catalog_request": false,
+    "bytedcli": "FORBIDDEN",
+    "failure_rule": "Any stale time, byte drift, ambiguity, unknown outcome, non-CLEAN review, or account/catalog mismatch is terminal STOP with no retry, replay, status query, inference, or second catalog request."
+  },
+  "evidence_identities": {
+    "membership": [
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-membership-interpretation-receipt.json",
+        "bytes": 1659,
+        "sha256": "9f492a296ab261e7b7c7a2373a287f6a473577318300e35bba220e7bd3e3688c"
+      },
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-membership-interpretation-independent-review.json",
+        "bytes": 4216,
+        "sha256": "f1b42f2cb81b3fd09ca5749813c7404e1057bb07055109e87239ebdb15432d27"
+      }
+    ],
+    "binary": [
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-provider-binary-identity-current-20261111.json",
+        "bytes": 1788,
+        "sha256": "d1307d8dc05cfb543ac2abc3e044f6de390d1bd7bd017538cbfa2a527a43d848"
+      },
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-provider-binary-identity-current-20261111-independent-review-fable-20261111T085348Z.json",
+        "bytes": 5166,
+        "sha256": "3af2710961a409f3c50077bf919b2c851422b185955572355254141d8cd5b40b"
+      },
+      {
+        "path": "/Users/bytedance/.local/share/claude/versions/2.1.321",
+        "bytes": 323686048,
+        "sha256": "abc9feeeca8091d51b623291e044cf0528c2f6b74e0c1d6ef671d52c73f7cd3c"
+      }
+    ],
+    "account_readiness": [
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-account-readiness-fresh-r5-receipt.json",
+        "bytes": 2146,
+        "sha256": "edb4bd9c2348656feff28db69523d9dc378b92520826cbabfc0a6a6382214c0e"
+      },
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-account-readiness-independent-review.json",
+        "bytes": 9158,
+        "sha256": "04c3ccd9a3ad2c86022a9fe24617618b999187db13b2e53f43d1fe35a84b7a78"
+      }
+    ],
+    "catalog_authority_and_consumption": [
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-dual-provider-user-live-authorization-v2.json",
+        "bytes": 3948,
+        "sha256": "546ad2ac707bcd21370f55783144a51f2b65d0b98175e709d5861cecc0ca9a28"
+      },
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-preflight-r6-final-grant.json",
+        "bytes": 6874,
+        "sha256": "adbe4a120b55683ae4913ab6a509a14cf23e2d27f2ba368bfc86f4dfb192ee1a"
+      },
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-preflight-r6-final-independent-review.json",
+        "bytes": 7894,
+        "sha256": "52144a36844911403aac79f9b22937686eea4ee48555a4517453223754fbafdc"
+      },
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-catalog-preflight-r6-execution-receipt.json",
+        "bytes": 2603,
+        "sha256": "b0b7312fe4bb6e451835f3c97288b560f53836f92cb69a1784f00ed324d44dc1"
+      }
+    ],
+    "four_cell_scope": [
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v4-no-bytedcli-addendum.json",
+        "bytes": 2920,
+        "sha256": "4c00d39ff71ec20be18f91f8882a58f0ac54ae83a571940de060b44849a41dec"
+      },
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-four-cell-user-authorization-v4-no-bytedcli-addendum-independent-review-fable-20261111.json",
+        "bytes": 8947,
+        "sha256": "fbdc1eb36dcb04af06c42edf2a809925508306e80fea4192d5c113a949df8ac1"
+      }
+    ],
+    "driver_and_adapter": [
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-driver-design.json",
+        "bytes": 23525,
+        "sha256": "443b3b865b171a7202e5cb7dd23ab1fc3c2b47d178e6f35e7ab077ee0b128f10"
+      },
+      {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-o1-claude-live-driver-provider-free-successor-v2-independent-review.json",
+        "bytes": 11601,
+        "sha256": "d3bf74efbf46806bee88b7b4e08ffd2164039ba8a996e1688fb47f11d636a7fd"
+      },
+      {
+        "path": "shared/job_runtime/candidates/r6_one_off_claude_live_driver_v1/contracts.py",
+        "bytes": 9102,
+        "sha256": "cd3aa59e240075c85d5407e0dcdd9c1b4d23e38631ebdec1a8c644d682db3ce6"
+      },
+      {
+        "path": "shared/job_runtime/candidates/r6_one_off_claude_live_driver_v1/preflight.py",
+        "bytes": 2833,
+        "sha256": "3efc6ca978b81c48611f536493ffd5f99da7d6dee29f2312011a74d70af093f5"
+      },
+      {
+        "path": "shared/job_runtime/candidates/r6_one_off_claude_live_driver_v1/terminal.py",
+        "bytes": 462,
+        "sha256": "7ed0a303cd54fd589bf3e78d310e95b9053dc28f8d3becbf7f5993bbbc410390"
+      },
+      {
+        "path": "shared/job_runtime/providers/claude_host.py",
+        "bytes": 28572,
+        "sha256": "4c8b3975d06fd6d543885b1a2bbff7dee6adf3b17b0aa9ca4f61f7ab19da56c1"
+      },
+      {
+        "path": "shared/job_runtime/provider_contract.py",
+        "bytes": 19663,
+        "sha256": "9de31552df5b1474bf3b29e36ce07278264e71a19f05b45cc1c09213d6873333"
+      }
+    ],
+    "claude_v8": [
+      {
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/decision-v8.json",
+        "bytes": 2806,
+        "sha256": "90e3156c81c899c299ac582b10c2171e15bf64943b051b975e4a070489afc83e"
+      },
+      {
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/producer-verification-v8-final.json",
+        "bytes": 6065,
+        "sha256": "50afaea5d2974b876a8bc1a237bfba22a25a288ea5fc9726d25cc0a7c378ce55"
+      },
+      {
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/source-closure-v8.json",
+        "bytes": 8519,
+        "sha256": "a8946dc8a69a3787be82fa631ad129d4d473cdca40569f6175eb7bac081db3a9"
+      },
+      {
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/lineage-v8.json",
+        "bytes": 1230,
+        "sha256": "3da506ea182c88639eb68983c152f330918bda5bceb4e3d5bd5af2219948914c"
+      },
+      {
+        "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/protocol-v8.json",
+        "bytes": 4930,
+        "sha256": "ea5c6df13ad3f09f50bddf92b2f83748de7ddd756f27b721710062eb35f3febc"
+      },
+      {
+        "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/contracts.py",
+        "bytes": 20151,
+        "sha256": "58183c80f9e0d2d66919a724f1695e3210fef2f9e5b95f7c3d95295ea4a1035c"
+      },
+      {
+        "path": "shared/job_runtime/candidates/r6_one_off_claude_live_integration_v8/runner.py",
+        "bytes": 22453,
+        "sha256": "9c8f1e70117208bc1b161a9afdceb5a78d0bd5d815c965a10b108fa47d664495"
+      }
+    ],
+    "audit_tools": [
+      {
+        "path": "tuning/architecture/r6_claude_current_readiness_audit_v1/verifier.py",
+        "bytes": 6499,
+        "sha256": "bd43d619afe2cb7503ae59f3b88a54a476168b156702a9db54b19232f9ce458d"
+      },
+      {
+        "path": "tuning/architecture/r6_claude_current_readiness_audit_v1/test_verifier.py",
+        "bytes": 3333,
+        "sha256": "f766a24be0986cf1ded1faf4cea4023dfb2ca55ac4cecd3ea2b865a3a45f1c1f"
+      }
+    ]
+  },
+  "effects": {
+    "account": 0,
+    "browser": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "catalog": 0,
+    "claude_binary_execution": 0,
+    "credential_read": 0,
+    "email": 0,
+    "host_activation": 0,
+    "inference": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "allowed_claim": "Exact frozen membership remains CLEAN historical evidence and the current local Claude binary file identity rehashes CLEAN; account/session readiness and catalog authority require fresh metadata-only receipts, the prior one-request catalog grant is consumed and expired, and final grants remain blocked by pending fresh Claude-v8 independent review plus P0 v10 reclosure. No live readiness, inference, account equality, countable A/B evidence, or runtime acceptance is established."
+}

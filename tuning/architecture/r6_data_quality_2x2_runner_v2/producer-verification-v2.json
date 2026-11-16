@@ -1,0 +1,133 @@
+{
+  "activation": false,
+  "allowed_claim": "producer provider-free tests close the reproduced duplicate-boundary behavior for this exact additive subject; no final CLEAN or broader closure claim",
+  "countable": false,
+  "coverage": {
+    "crashes": [
+      "after reservation PREPARED",
+      "after ADMITTED",
+      "pre-first-boundary",
+      "inside first boundary",
+      "receipt stage fsync",
+      "receipt post-link"
+    ],
+    "destination_bypass": "alternate caller-selected bundle root collides with fixed execution key and fails exact claim binding before boundary",
+    "filesystem": [
+      "coherent forged binding",
+      "reservation symlink",
+      "destination symlink",
+      "event mode tamper",
+      "claim short write",
+      "cleanup residue"
+    ],
+    "identity": [
+      "active stale deadline no takeover",
+      "PID reuse token mismatch creates explicit predecessor-linked recovery claim"
+    ],
+    "preserved_runner_contracts": [
+      "fixed four-cell order",
+      "one attempt",
+      "zero retry/replay/status query",
+      "P0-v9 transformation",
+      "authenticated human/G3 finalization"
+    ],
+    "recovery": [
+      "PREPARED dead owner plus zero-effects proof recovers once",
+      "destination residue blocks recovery",
+      "completed exact receipt reconciles without replay"
+    ],
+    "true_multiprocess_competing_start": "two forked callers; one ADMITTED event; fixed four-cell boundary log; first boundary count exactly 1"
+  },
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "generated_at_utc": "2026-11-12T01:19:07Z",
+  "independent_review": {
+    "clean_claim": false,
+    "status": "PENDING"
+  },
+  "observed_first_boundary_count_max": 1,
+  "open_gates": [
+    "P0_V10_REQUIRED",
+    "remaining runner adjudication",
+    "fresh independent review",
+    "orchestrator rebind",
+    "future intended-runtime acceptance"
+  ],
+  "pinned_inputs": {
+    "p0_v9": {
+      "bytes": 5231,
+      "path": "shared/job_runtime/candidates/r6_data_quality_attempt_envelope_v1/p0-contract-v9.json",
+      "sha256": "51f36fb46eb7a74994abf0a23152ce5d1f3fd7f4e8687aa900d1328e3b9aae1e"
+    },
+    "p0_v9_clean_review": {
+      "bytes": 15534,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v9-independent-review-fable-20261111-clean.json",
+      "sha256": "0505e961774d325fdc6b89105215fd88cb0a71f8b942a78976d7ea1e8f49fbb2"
+    },
+    "runner_v1": {
+      "bytes": 39451,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_runner_v1/runner.py",
+      "sha256": "bc45fceff79a1106ef66c09376075f3bb72a235ac4a23ca69b7344f914ff0bff"
+    },
+    "runner_v8_open_review": {
+      "bytes": 6255,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v8-independent-review-fable-20261112-8e9a8076-open.json",
+      "sha256": "145265647df2a9231d7b64f3b7c70c7266403b38cb15ad98e38deef3a6d588f5"
+    }
+  },
+  "producer_role": "implementation and provider-free test producer; not independent reviewer",
+  "provider_free": true,
+  "records": {
+    "architecture": {
+      "bytes": 4563,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/architecture-v2.json",
+      "sha256": "e04f9bc38c1e761b192988d8b408902b89ab30305751242c414f74f16d4f730d"
+    },
+    "decision": {
+      "bytes": 2382,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/decision-v2.json",
+      "sha256": "331ef27092f12e034de14681ac69db760ed9b1711883cfc1d40ff7b32f009cbb"
+    },
+    "history": {
+      "bytes": 2376,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/history-index-v2.json",
+      "sha256": "afd3b722f15b232f3d8f332c7ab92f97c23f1925fd12762008cb5c5cfad6e39b"
+    },
+    "protocol": {
+      "bytes": 3526,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/protocol-v2.json",
+      "sha256": "ba6ef754f12595dc618c496720b749e1911a2103c0a2a49792d547b6adbeaa6f"
+    }
+  },
+  "registered": false,
+  "status": "PASS_PROVIDER_FREE_CONCURRENCY_CANDIDATE_PENDING_INDEPENDENT_REVIEW_P0_V10_AND_ORCHESTRATOR_REBIND",
+  "subject": {
+    "bytes": 4729,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/source-closure-v2.json",
+    "sha256": "106dc605648f385e5ec0431957f190fd51915462801059cff8898ee6e160b889"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_2x2_runner_v2.test_runner_v2",
+      "provider_free": true,
+      "result": "14 tests PASS"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_2x2_runner_v1.test_runner",
+      "interpretation": "regression evidence only; predecessor remains OPEN history",
+      "provider_free": true,
+      "result": "19 tests OK; 2 skipped because jsonschema unavailable"
+    }
+  ],
+  "verdict": "P0_V10_RECLOSURE_REQUIRED",
+  "version": "r6-data-quality-2x2-runner-producer-verification-v2"
+}

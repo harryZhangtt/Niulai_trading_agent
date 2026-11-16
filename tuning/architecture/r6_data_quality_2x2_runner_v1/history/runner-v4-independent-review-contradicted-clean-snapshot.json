@@ -1,0 +1,259 @@
+{
+  "version": "r6-data-quality-2x2-runner-v4-independent-review-1",
+  "review_scope": "INDEPENDENT_EXHAUSTIVE_STATIC_PROVIDER_FREE_R6_DATA_QUALITY_2X2_RUNNER_V4_REVIEW_WITH_ONE_AUTHORIZED_WRITE",
+  "status": "CLEAN_PROVIDER_FREE_2X2_RUNNER_V4",
+  "verdict": "CLEAN_PROVIDER_FREE_2X2_RUNNER_V4",
+  "impact_class": "INERT_LOCAL_DISABLED_UNREFERENCED_CANDIDATE",
+  "bindings": {
+    "producer_verification": {
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/producer-verification-v4.json",
+      "sha256": "305ef6d40673052041b3533dfb6d8fcaf502cb5da7fa8f62c78a7fb742fe5d3d",
+      "bytes": 3421,
+      "status": "PRODUCER_PASS_PROVIDER_FREE_V4_PENDING_INDEPENDENT_REVIEW"
+    },
+    "source_closure": {
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/source-closure-v4.json",
+      "sha256": "45f5823fb6070f69e9cd1ec2cb52d1c8c9e4497d0fa9f1529727aa9f046bc498",
+      "bytes": 6654,
+      "all_path_sha256_byte_rows_exact": true
+    },
+    "protocol": {
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/protocol-v4.json",
+      "sha256": "8b5c7cb966a92f778b9c637795bc41b4b8ab86bbae3c26ad1ed52f32bbf9632c",
+      "bytes": 1180
+    },
+    "decision": {
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/decision-v4.json",
+      "sha256": "c31b5f44567ccd9bb8a716364c685b50c1b434e11a374f024bc07daace02d634",
+      "bytes": 817
+    },
+    "grading_v3": {
+      "contract": {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json",
+        "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d",
+        "bytes": 9944
+      },
+      "producer": {
+        "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json",
+        "sha256": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea",
+        "bytes": 2588
+      },
+      "clean_review": {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json",
+        "sha256": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429",
+        "bytes": 10585,
+        "verdict": "CLEAN_PROVIDER_FREE_2X2_EVALUATION_V3"
+      },
+      "source_closure_all_rows_exact": true
+    },
+    "p0_v6": {
+      "producer": {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-producer-verification-v6.json",
+        "sha256": "2242c2caac942821e697308ed70df95472523ad0011b09584c4f83137cbe89a6",
+        "bytes": 9973
+      },
+      "clean_review": {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-attempt-envelope-v1-successor-v6-independent-review.json",
+        "sha256": "0fde238ba360411bd4b75d202f1cd378615b50283b01dc965d798135e7c4b867",
+        "bytes": 6657,
+        "verdict": "CLEAN_PRE_AB_P0_FINAL"
+      }
+    },
+    "design": {
+      "subject": {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design.json",
+        "sha256": "fcf096d0c641f373eab7163fa894e5d4f9605ab3ab36ff867e4b586bdcaf278e",
+        "bytes": 26277
+      },
+      "clean_review": {
+        "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design-independent-review.json",
+        "sha256": "0018e413e40371bb2703aecf3963433f1a883a93b1070e815dccc0dc61866d3f",
+        "bytes": 18741,
+        "verdict": "CLEAN"
+      }
+    }
+  },
+  "predecessor_history": {
+    "disposition": "V1_V2_V3_PRODUCER_RECORDS_REMAIN_OPEN_SUPERSEDED_PRESERVED_AND_ARE_NOT_COMPLETION_EVIDENCE",
+    "producer_v1": {
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/producer-verification-v1.json",
+      "sha256": "f89481c2384a017b8cb45781ea2c3be56462605ecfa51361ca1c9ae536010a44",
+      "bytes": 3531,
+      "verdict": "OPEN_SUPERSEDED_DO_NOT_USE_FOR_COMPLETION"
+    },
+    "producer_v2": {
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/producer-verification-v2.json",
+      "sha256": "0d0d9acf77d140f9511d6c582d3e08f77203386fcf92c5accc03aebd0c390351",
+      "bytes": 4561,
+      "verdict": "OPEN_SUPERSEDED_DO_NOT_USE_FOR_COMPLETION"
+    },
+    "producer_v3": {
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v1/producer-verification-v3.json",
+      "sha256": "1f6728b8805796ef5f43d456d097a7fe0e2d60393762be2094775107b8230226",
+      "bytes": 4434,
+      "verdict": "OPEN_SUPERSEDED_DO_NOT_USE_FOR_COMPLETION"
+    },
+    "source_closure_v1_v2_v3_and_protocol_decision_rows_reviewed": true,
+    "historical_source_paths_are_successor-mutated_by_design": true,
+    "historical_files_preserved": true
+  },
+  "source_rows": {
+    "all_v4_rows_exact": true,
+    "implementation": {
+      "package": "f9ad8c92465c9e151e84a5ec8728fc587eaf9af8ded85d5230c9270559d150e6/328",
+      "contracts": "356831883524c29a7079c56e9c48eca3777c62d8e3c8cabf24cc59e2fc3958f9/14575",
+      "runner": "a1571884c75afc79214b7382e5c44401e0d761bcce758bd4e5ef98f21f41f35f/9093"
+    },
+    "schemas": {
+      "blind_evaluation_packet": "ba6e4f76d83e6248a78c077ad239fca76524b24827f7419d7e658d4da095e47c/893",
+      "block_execution_v4": "8ec19279c4d66fc19f7fc96653eb5f2b9cc7c344298e67d08cd47df3a931cd81/1407",
+      "block_final_v4": "e9ff8115d0fbf442bbe6361e8d8219e3ef5a9184cff9dc2b26daa86471f4cfd0/529",
+      "block_grant": "f43014260597aebc6c4b280885c592f33428f2ec98e2b2d2cf0127d0717442c5/6888",
+      "block_result": "8cff56a699bc240b1e029c881a0da6fcaee3e5cf4aff9ffa610d1aceedf0068a/10809",
+      "cell_record": "daba634c521665fbd7a909ecc4fd00dad632c333d6fac2f7ac855d2d07def723/8877"
+    },
+    "verification": {
+      "fixture": "6173a4b220c056abc627c2180f8e4154ec8b049cd69739160c064ee3e0b9ee18/361",
+      "test_source": "c7f75bdaf1415b8dcedf4d4f981e9a1eae4c1093d07d8a9f41469c8581c1faa1/7484",
+      "protocol": "8b5c7cb966a92f778b9c637795bc41b4b8ab86bbae3c26ad1ed52f32bbf9632c/1180",
+      "decision": "c31b5f44567ccd9bb8a716364c685b50c1b434e11a374f024bc07daace02d634/817"
+    }
+  },
+  "static_review": {
+    "public_api": [
+      "execute_block",
+      "finalize_block"
+    ],
+    "two_stage_split": {
+      "result": "CLEAN",
+      "execute_never_accepts_grades": true,
+      "execute_returns_pending_human_grading_only_after_all_four_cells_are_valid": true,
+      "execute_countable_is_always_false": true,
+      "finalize_requires_exact_execution_seal_and_pending_status": true,
+      "finalize_rejects_registry_config_drift": true,
+      "finalize_requires_exact_four_packet_and_grade cell order": true
+    },
+    "callback_surface": {
+      "result": "CLEAN",
+      "arbitrary_authority_verifier_callback_absent": true,
+      "arbitrary_evaluation_provider_callback_absent": true,
+      "caller_metric_callback_absent": true,
+      "only_injected_runtime_boundary_is_the_declared_provider_attempt_boundary": true,
+      "human_grade_artifacts_are_data_validated_by_fixed_grading_v3_not_executable_callbacks": true
+    },
+    "pre_call_gates": {
+      "result": "CLEAN",
+      "fixed_grading_storage_preflight_before_first_provider_boundary": true,
+      "fixed_owner_rooted_registry_and_all_three_role_grant_review_pairs_before_first_provider_boundary": true,
+      "blind_map_commitment_loaded_and validated before first provider boundary": true,
+      "live_registry_review_pin_set_empty_and_live execution therefore fail_closed before provider calls": true,
+      "default_run_denies_missing_exact_grant_registry_or_owner_root": true,
+      "authority_provider_review_catalog_and frozen binding shapes closed": true,
+      "live_status_gates require exact four_cell authority final provider grants clean reviews and current ARM_B catalog evidence review": true,
+      "fixture grants are explicitly noncountable": true
+    },
+    "execution": {
+      "result": "CLEAN",
+      "exact_cell_order": [
+        "R6DQ-7F2C91A4",
+        "R6DQ-1B8E43D7",
+        "R6DQ-C4A7095E",
+        "R6DQ-92D6F0B3"
+      ],
+      "exactly_four_provider_boundary_invocations": true,
+      "exactly_four_p0_v6_atomic_attempt_bundles": true,
+      "exactly_four_owner_rooted_six_ref_blind_packets": true,
+      "one_attempt_zero_retry_replay_status_query_fences": true,
+      "tool_web_budget_window_and frozen_input_readbacks checked": true,
+      "provider_supplied_grades_metrics_metric_evidence_or_adjudication invalidates_cell": true,
+      "engine_digest_or_model_readback_mismatch invalidates_execution": true,
+      "invalid_execution_not_finalizable": true,
+      "valid_execution_status": "PENDING_HUMAN_GRADING",
+      "valid_execution_countable": false
+    },
+    "grading_and_finalization": {
+      "result": "CLEAN",
+      "fixed_reviewed_grading_v3_harness": true,
+      "exact_packet_refs_re_read_from_same_owner_root": true,
+      "exact_distinct_registry_bound_g1_g2_required": true,
+      "conditional_distinct_g3_exactly_when_predeclared_disagreement_rule_fires": true,
+      "fake_or_pair_unbound_grader_refs rejected": true,
+      "grant_and_review_pair canonical subject bindings checked": true,
+      "grade_packet_ref_role_human_timestamp_attestation_and artifact_seals checked": true,
+      "deterministic_hard_gate_failure not overridable": true,
+      "blind_mapping and nonce must open exact pre_call commitment": true,
+      "unblinding rejected until packets commitment and all required grades immutable": true,
+      "metrics derived only by fixed harness from exact owner_rooted evidence refs": true,
+      "caller and provider cannot submit metric results": true,
+      "cell_metrics within_factor contrasts provider_main_effect addon_main_effect and interaction derived": true,
+      "countability derived only after grading commitment opening metrics unknown check and all cell evaluations": true
+    },
+    "countability_and_effects": {
+      "result": "CLEAN",
+      "fixture_registry_and grants remain noncountable": true,
+      "fixture_finalize_status": "FIXTURE_NOT_COUNTABLE",
+      "current_live_registry": "NONE_PINNED_FAIL_CLOSED",
+      "countable_now": false,
+      "activation": false,
+      "provider_effects": 0,
+      "network_effects": 0,
+      "account_effects": 0,
+      "private_state_effects": 0,
+      "scheduler_effects": 0,
+      "subagent_effects": 0
+    },
+    "schemas_and_rows": {
+      "result": "CLEAN",
+      "runner_schemas": 6,
+      "grading_v3_schemas": 14,
+      "top_level_closed": true,
+      "nested_closed_where_contract_owned": true,
+      "all_fixture_rows reviewed": true,
+      "all_design_factor_cell_gate_metric_blinding_authority_and claim_limit rows reviewed": true,
+      "all_p0_v6 current artifact history and four cell rows reviewed": true,
+      "all_runner_v1_v3_v4 protocol decision closure and producer rows reviewed": true
+    }
+  },
+  "producer_evidence_reviewed_not_rerun": {
+    "provenance": "producer-recorded coordinator direct runs; independently inspected, not rerun by this review",
+    "interpreters": 3,
+    "runner_research_python_3_12": "PASS 34/34",
+    "runner_system_python_3_9": "PASS 7 passed 1 skipped of 8",
+    "runner_workspace_python_3_12": "PASS 7 passed 1 skipped of 8",
+    "grading_v3_draft_2020_12": "PASS 14/14 schemas",
+    "p0_v6_integration": "PASS_PROVIDER_FREE_COMPOSED_ATOMIC_ATTEMPT_BUNDLE"
+  },
+  "findings": [],
+  "claim_limits": {
+    "allowed": "Disabled provider-free v4 split-phase implementation and explicit noncountable fixture behavior only.",
+    "not_allowed": [
+      "live or countable four_cell execution or human grading",
+      "provider call authority",
+      "provider or DQ addon superiority",
+      "statistical generalization or promotion",
+      "production readiness or major runtime acceptance",
+      "business email scheduler credential account network or private_state effects"
+    ],
+    "single_block_metrics": "Descriptive for the exact frozen four_cell block only.",
+    "live_execution": "Fail_closed before provider boundaries because no trusted live grading registry review hash is pinned.",
+    "next_action_authorized": false
+  },
+  "no_action": {
+    "implementation_contract_producer_fixture_history_or bound source modified": false,
+    "tests_or_interpreters_run_by_reviewer": false,
+    "live_or_provider_calls": false,
+    "network_account_credential_or_private_state_access": false,
+    "agents_used": false,
+    "activation_changed": false,
+    "scheduler_hook_setting_daemon_mcp_email_or_business_effect": false,
+    "only_authorized_write": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v4-independent-review.json"
+  },
+  "final_disposition": {
+    "review": "CLEAN_PROVIDER_FREE_2X2_RUNNER_V4",
+    "producer": "PASS_REVIEWED_GRADING_V3_TWO_STAGE_RUNNER_PROVIDER_FREE",
+    "countable_now": false,
+    "activation": false,
+    "next_action_authorized": false,
+    "allowed_claim": "DISABLED_PROVIDER_FREE_V4_SPLIT_PHASE_IMPLEMENTATION_AND_EXPLICIT_NONCOUNTABLE_FIXTURE_BEHAVIOR_ONLY"
+  }
+}

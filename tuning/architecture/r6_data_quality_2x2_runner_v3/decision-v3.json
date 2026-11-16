@@ -1,0 +1,66 @@
+{
+  "activation": false,
+  "allowed_claim": "producer-side provider-free tests show the frozen v3 subject addresses the two confirmed v2 runner mechanisms while preserving one boundary and crash fences; fresh independent review, P0 v10 recclosure, and orchestrator rebind remain pending",
+  "basis": {
+    "architecture": {
+      "bytes": 7860,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/architecture-v3.json",
+      "sha256": "f4e0c888ce7edce70b52552e9932d6c1495a7444a716006416862c3f47421243"
+    },
+    "liveness_failure_matrix": "permission, transient, proc/ps error, incomplete token, ambiguous PID all INDETERMINATE and no takeover",
+    "protocol": {
+      "bytes": 4127,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/protocol-v3.json",
+      "sha256": "0afd21383e32ac0bb9462b5572d68215ef2dc4f87bff9569c2d81f267aae96d0"
+    },
+    "same_root_mutation_attack": {
+      "admissions": 1,
+      "claims": 1,
+      "first_boundary_count": 1
+    },
+    "source_closure": {
+      "bytes": 5020,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v3/source-closure-v3.json",
+      "sha256": "855f05be46c73d43e69d15eea52b54a155a0eefe607a5f824f8b30b787781bfc"
+    },
+    "v1_regression": "19/19 PASS",
+    "v2_regression": "14/14 PASS",
+    "v3_suite": "22/22 PASS"
+  },
+  "countable": false,
+  "decision": "ACCEPT_ADDITIVE_PROVIDER_FREE_RUNNER_V3_CANDIDATE_FOR_FRESH_INDEPENDENT_REVIEW_ONLY",
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "forbidden_claims": [
+    "final CLEAN",
+    "P0 v10 complete",
+    "all runner findings independently closed",
+    "live authority",
+    "countable cells",
+    "provider execution",
+    "orchestrator integration",
+    "scheduler/email/runtime acceptance"
+  ],
+  "generated_at_utc": "2026-11-13T14:21:25Z",
+  "history_disposition": "runner-v1 and runner-v2 source/evidence/reviews remain exact OPEN history; P0-v9 remains unchanged and its checks_enabled schema finding remains P0_V10_REQUIRED",
+  "provider_free": true,
+  "registered": false,
+  "status": "P0_V10_RECLOSURE_REQUIRED",
+  "unresolved": {
+    "OPEN-P0-V9-G3-SCHEMA-002": "P0_V10_REQUIRED",
+    "fresh_independent_review": "PENDING",
+    "intended_runtime_acceptance": "NOT_RUN_NO_ACTIVATION",
+    "orchestrator_rebind": "PENDING",
+    "runner_v3_consumer": "P0_V10_RECLOSURE_REQUIRED"
+  },
+  "version": "r6-data-quality-2x2-runner-decision-v3"
+}

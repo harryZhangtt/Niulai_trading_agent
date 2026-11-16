@@ -1,0 +1,535 @@
+{
+  "$defs": {
+    "endpoint_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "Statement": {
+          "items": {
+            "$ref": "#/$defs/resource_statement"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "Version": {
+          "const": "2012-10-17"
+        }
+      },
+      "required": [
+        "Version",
+        "Statement"
+      ],
+      "type": "object"
+    },
+    "iam_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "Statement": {
+          "items": {
+            "$ref": "#/$defs/iam_statement"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "Version": {
+          "const": "2012-10-17"
+        }
+      },
+      "required": [
+        "Version",
+        "Statement"
+      ],
+      "type": "object"
+    },
+    "iam_statement": {
+      "additionalProperties": false,
+      "properties": {
+        "Action": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "Condition": {
+          "type": "object"
+        },
+        "Effect": {
+          "enum": [
+            "Allow",
+            "Deny"
+          ]
+        },
+        "Resource": {
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "Sid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Sid",
+        "Effect",
+        "Action",
+        "Resource",
+        "Condition"
+      ],
+      "type": "object"
+    },
+    "resource_statement": {
+      "additionalProperties": false,
+      "properties": {
+        "Action": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "Condition": {
+          "type": "object"
+        },
+        "Effect": {
+          "const": "Allow"
+        },
+        "Principal": {
+          "additionalProperties": false,
+          "properties": {
+            "AWS": {
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "AWS"
+          ],
+          "type": "object"
+        },
+        "Resource": {
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "Sid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Sid",
+        "Effect",
+        "Principal",
+        "Action",
+        "Resource",
+        "Condition"
+      ],
+      "type": "object"
+    },
+    "task_definition": {
+      "additionalProperties": false,
+      "properties": {
+        "active_access": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "aggregate_only": {
+          "type": "boolean"
+        },
+        "command": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "container_count": {
+          "const": 1
+        },
+        "ecs_exec": {
+          "const": false
+        },
+        "execution_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "family": {
+          "type": "string"
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "launch_type": {
+          "const": "FARGATE"
+        },
+        "linux_capabilities_drop": {
+          "const": [
+            "ALL"
+          ]
+        },
+        "output_schema_id": {
+          "type": "string"
+        },
+        "platform_version": {
+          "const": "1.4.0"
+        },
+        "privileged": {
+          "const": false
+        },
+        "raw_joined_rows_output": {
+          "const": false
+        },
+        "readonly_root_filesystem": {
+          "const": true
+        },
+        "redaction_policy_id": {
+          "const": "factor-no-sensitive-output-v1"
+        },
+        "sensitive_logging": {
+          "const": false
+        },
+        "stdout_policy": {
+          "const": "structured-sanitized-only"
+        },
+        "task_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user": {
+          "const": "65532:65532"
+        }
+      },
+      "required": [
+        "family",
+        "launch_type",
+        "platform_version",
+        "container_count",
+        "image",
+        "task_role_arn",
+        "execution_role_arn",
+        "readonly_root_filesystem",
+        "user",
+        "privileged",
+        "ecs_exec",
+        "linux_capabilities_drop",
+        "command",
+        "output_schema_id",
+        "redaction_policy_id",
+        "stdout_policy",
+        "raw_joined_rows_output",
+        "sensitive_logging",
+        "aggregate_only",
+        "active_access"
+      ],
+      "type": "object"
+    },
+    "trust_pair": {
+      "additionalProperties": false,
+      "properties": {
+        "execution": {
+          "$ref": "#/$defs/trust_policy"
+        },
+        "task": {
+          "$ref": "#/$defs/trust_policy"
+        }
+      },
+      "required": [
+        "task",
+        "execution"
+      ],
+      "type": "object"
+    },
+    "trust_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "Statement": {
+          "items": {
+            "$ref": "#/$defs/trust_statement"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
+        "Version": {
+          "const": "2012-10-17"
+        }
+      },
+      "required": [
+        "Version",
+        "Statement"
+      ],
+      "type": "object"
+    },
+    "trust_statement": {
+      "additionalProperties": false,
+      "properties": {
+        "Action": {
+          "const": [
+            "sts:AssumeRole"
+          ]
+        },
+        "Condition": {
+          "additionalProperties": false,
+          "properties": {
+            "ArnLike": {
+              "type": "object"
+            },
+            "StringEquals": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "StringEquals",
+            "ArnLike"
+          ],
+          "type": "object"
+        },
+        "Effect": {
+          "const": "Allow"
+        },
+        "Principal": {
+          "const": {
+            "Service": "ecs-tasks.amazonaws.com"
+          }
+        },
+        "Sid": {
+          "const": "EcsTasksOnly"
+        }
+      },
+      "required": [
+        "Sid",
+        "Effect",
+        "Principal",
+        "Action",
+        "Condition"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "factor-aws-fargate-templates-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation": {
+      "const": {
+        "account_receipt_sha256": null,
+        "image_receipt_sha256": null,
+        "label_policy_receipt_sha256": null,
+        "network_receipt_sha256": null,
+        "production_retention_lock": false,
+        "protected_labels": false,
+        "publication": false,
+        "publication_policy_receipt_sha256": null,
+        "runtime_invocation": false
+      }
+    },
+    "endpoint_policies": {
+      "additionalProperties": false,
+      "properties": {
+        "dynamodb": {
+          "$ref": "#/$defs/endpoint_policy"
+        },
+        "ecr_api": {
+          "$ref": "#/$defs/endpoint_policy"
+        },
+        "ecr_dkr": {
+          "$ref": "#/$defs/endpoint_policy"
+        },
+        "kms": {
+          "$ref": "#/$defs/endpoint_policy"
+        },
+        "logs": {
+          "$ref": "#/$defs/endpoint_policy"
+        },
+        "provider_proxy": {
+          "$ref": "#/$defs/endpoint_policy"
+        },
+        "s3": {
+          "$ref": "#/$defs/endpoint_policy"
+        },
+        "states": {
+          "$ref": "#/$defs/endpoint_policy"
+        }
+      },
+      "required": [
+        "ecr_api",
+        "ecr_dkr",
+        "s3",
+        "logs",
+        "dynamodb",
+        "kms",
+        "states",
+        "provider_proxy"
+      ],
+      "type": "object"
+    },
+    "execution_role_policies": {
+      "additionalProperties": false,
+      "properties": {
+        "checker": {
+          "$ref": "#/$defs/iam_policy"
+        },
+        "controller": {
+          "$ref": "#/$defs/iam_policy"
+        },
+        "evaluator": {
+          "$ref": "#/$defs/iam_policy"
+        },
+        "executor": {
+          "$ref": "#/$defs/iam_policy"
+        },
+        "publisher": {
+          "$ref": "#/$defs/iam_policy"
+        }
+      },
+      "required": [
+        "controller",
+        "executor",
+        "evaluator",
+        "checker",
+        "publisher"
+      ],
+      "type": "object"
+    },
+    "kind": {
+      "const": "factor_aws_fargate_templates"
+    },
+    "network": {
+      "const": {
+        "controller": {
+          "private_ipv4": true,
+          "provider_proxy_only": true,
+          "public_ip": false
+        },
+        "custody": {
+          "label_bucket_endpoint_only": true,
+          "private_ipv4": true,
+          "public_ip": false
+        },
+        "executor": {
+          "default_egress": false,
+          "endpoint_only": true,
+          "internet_gateway": false,
+          "ipv6": false,
+          "nat_gateway": false,
+          "private_ipv4": true,
+          "public_ip": false
+        }
+      }
+    },
+    "profile_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "runnable": {
+      "const": false
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "task_definitions": {
+      "items": {
+        "$ref": "#/$defs/task_definition"
+      },
+      "maxItems": 5,
+      "minItems": 5,
+      "type": "array"
+    },
+    "task_role_policies": {
+      "additionalProperties": false,
+      "properties": {
+        "checker": {
+          "$ref": "#/$defs/iam_policy"
+        },
+        "controller": {
+          "$ref": "#/$defs/iam_policy"
+        },
+        "evaluator": {
+          "$ref": "#/$defs/iam_policy"
+        },
+        "executor": {
+          "$ref": "#/$defs/iam_policy"
+        },
+        "publisher": {
+          "$ref": "#/$defs/iam_policy"
+        }
+      },
+      "required": [
+        "controller",
+        "executor",
+        "evaluator",
+        "checker",
+        "publisher"
+      ],
+      "type": "object"
+    },
+    "trust_policies": {
+      "additionalProperties": false,
+      "properties": {
+        "checker": {
+          "$ref": "#/$defs/trust_pair"
+        },
+        "controller": {
+          "$ref": "#/$defs/trust_pair"
+        },
+        "evaluator": {
+          "$ref": "#/$defs/trust_pair"
+        },
+        "executor": {
+          "$ref": "#/$defs/trust_pair"
+        },
+        "publisher": {
+          "$ref": "#/$defs/trust_pair"
+        }
+      },
+      "required": [
+        "controller",
+        "executor",
+        "evaluator",
+        "checker",
+        "publisher"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "profile_sha256",
+    "runnable",
+    "activation",
+    "task_definitions",
+    "trust_policies",
+    "execution_role_policies",
+    "task_role_policies",
+    "endpoint_policies",
+    "network"
+  ],
+  "type": "object"
+}

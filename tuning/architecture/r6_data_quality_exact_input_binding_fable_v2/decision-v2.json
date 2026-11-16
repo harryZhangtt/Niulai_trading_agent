@@ -1,0 +1,36 @@
+{
+  "version": "r6-data-quality-exact-input-binding-decision-v2",
+  "status": "ACCEPT_PATH_BOUND_PROVIDER_FREE_NONCOUNTABLE_PENDING_INDEPENDENT_REVIEW",
+  "decision": "PASS_IMPLEMENTATION_CLOSES_OPEN_EXACT_BINDING_1",
+  "activation": false,
+  "countable": false,
+  "review_basis": {
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-exact-input-binding-fable-v1-independent-review-20261111.json",
+    "bytes": 11063,
+    "sha256": "c79a5efa79c110acc28a8f4a85ec3636ae7da1cb486536258c64000c292c1ace",
+    "finding": "OPEN-EXACT-BINDING-1"
+  },
+  "v1_disposition": "OPEN_PRODUCER_AND_REVIEW_HISTORY_PRESERVED_UNCHANGED",
+  "closed_by_v2": [
+    "five exact workspace-relative authority paths pinned under one fixed allowed root",
+    "exact ASCII NFC/NFKC locator identity",
+    "absolute, traversal, empty, dot, dotdot, double-slash, backslash, case and normalization variants denied",
+    "provider/model/addon/order/treatment/private/internal locator labels denied",
+    "component-wise no-follow reads from a held workspace descriptor",
+    "pinned owner and directory/file modes",
+    "symlink, nonregular, wrong-owner and wrong-mode paths denied",
+    "normalized path, mode, bytes, raw SHA-256 and canonical content SHA-256 included in common identity",
+    "complete common identity duplicated and exact in every cell",
+    "same-byte absolute, alternate relative, labeled relative, symlink, normalization and path/digest resealing adversaries denied"
+  ],
+  "tests": {
+    "v2_adversarial": {"passed": 15, "total": 15, "result": "PASS_DENIED_ALL"},
+    "v1_regression": {"passed": 10, "total": 10, "result": "PASS"},
+    "evaluation_v3": {"run": 12, "passed": 11, "skipped_optional_jsonschema": 1, "failed": 0, "result": "PASS"},
+    "blind_map_v1_v2": {"run": 20, "passed": 19, "skipped_optional_jsonschema": 1, "failed": 0, "result": "PASS"}
+  },
+  "unresolved": ["tool_roster pin", "common time-window pin", "final four-cell grants and CLEAN reviews"],
+  "effects": {"provider": false, "network": false, "account": false, "private_state": false, "email": false, "business": false, "host": false, "scheduler": false, "bytedcli": false},
+  "allowed_claim": "The v2 provider-free implementation closes OPEN-EXACT-BINDING-1 for exact current path/content identity and remains noncountable pending a distinct independent review.",
+  "forbidden_claims": ["independent CLEAN review", "live or countable authority", "sealed tool roster or time window", "final inference grants", "provider or addon superiority", "financial-return improvement", "production readiness or runtime acceptance"]
+}

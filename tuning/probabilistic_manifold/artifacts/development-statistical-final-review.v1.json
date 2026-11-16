@@ -1,0 +1,55 @@
+{
+  "allowed_claim": "development-only observed Brier difference is inconclusive; no alpha, generalization, probability improvement, promotion or action claim",
+  "checks": {
+    "bootstrap_seed_1262024_recomputed": true,
+    "diagnostics_not_selective": true,
+    "five_retained_ids_match": true,
+    "macro_not_executed": true,
+    "no_retune_or_replay_in_bound_record": true,
+    "protected_outcomes_accessed": false,
+    "secondary_not_executed": true,
+    "six_folds_recomputed": true
+  },
+  "exploratory": {
+    "empirical_crps": 0.27827594319453897,
+    "interval_coverage": 0.6,
+    "return_mae": 0.3638223455108056,
+    "return_rmse_fold_average": 0.3638223455108056,
+    "tail_fold_count": 1,
+    "tail_mae": 0.8754284868436459
+  },
+  "ledger": {
+    "head": "c8f7f05a8d547d0c0603e4ad96790d480bcaf79028db7d6b06cd79e5cb702694",
+    "path": "tuning/probabilistic_manifold/artifacts/rolling-attempt-ledger.v7.json",
+    "sha256": "0c9eba1edd99923c2b1bf4e3f73c8101332c721d54ea17532c20aa6bb8cd354e"
+  },
+  "limitations": [
+    "five retained folds only",
+    "confidence interval crosses zero",
+    "shared expanding training history",
+    "current-vintage adjusted market prices",
+    "no protected or prospective evidence"
+  ],
+  "primary": {
+    "baseline_brier": 0.26464727585934245,
+    "candidate_brier": 0.26256056248244225,
+    "ci95": [
+      -0.011463277340286826,
+      0.00606359474647925
+    ],
+    "decision": "inconclusive",
+    "delta_brier": -0.002086713376900201,
+    "metric": "brier_delta_vs_unconditional_prevalence"
+  },
+  "result": {
+    "bytes": 959,
+    "evaluated_n": 6,
+    "path": "tuning/probabilistic_manifold/artifacts/development-result.v7.json",
+    "retained_n": 5,
+    "sha256": "9016ba1bc8c8e320d7071688c0e323f0bddcb79d5c3485b77b0d545e88fda26d"
+  },
+  "source": "independent_read_only_statistical_recomputation",
+  "status": "development_result_inconclusive",
+  "verdict": "PASS",
+  "version": "tqqq-development-statistical-final-review-v1"
+}

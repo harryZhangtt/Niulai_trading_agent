@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "r6-human-grader-validation-report-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "activation", "provider_calls_permitted", "countable", "decision", "g3_triggered", "validated_roles", "human_attestation_claim", "effects"],
+  "properties": {
+    "version": {"const": "r6-human-grader-validation-report-v1"},
+    "activation": {"const": false},
+    "provider_calls_permitted": {"const": false},
+    "countable": {"const": false},
+    "decision": {"const": "VALIDATED_FOR_SEPARATE_EXPLICIT_PINNING_NOT_LIVE"},
+    "g3_triggered": {"type": "boolean"},
+    "validated_roles": {"type": "array", "items": {"enum": ["G1", "G2", "G3"]}, "minItems": 2, "maxItems": 3},
+    "human_attestation_claim": {"const": "DECLARED_AND_INDEPENDENTLY_REVIEWED_NOT_CRYPTOGRAPHIC_IDENTITY_PROOF"},
+    "effects": {
+      "type": "object", "additionalProperties": false,
+      "required": ["account", "business", "credential", "email", "live", "network", "private_state", "provider", "scheduler", "subagent"],
+      "properties": {
+        "account": {"const": 0}, "business": {"const": 0}, "credential": {"const": 0}, "email": {"const": 0}, "live": {"const": 0}, "network": {"const": 0}, "private_state": {"const": 0}, "provider": {"const": 0}, "scheduler": {"const": 0}, "subagent": {"const": 0}
+      }
+    }
+  }
+}

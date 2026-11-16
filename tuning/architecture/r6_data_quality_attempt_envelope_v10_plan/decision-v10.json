@@ -1,0 +1,112 @@
+{
+  "activation": false,
+  "allowed_claim": "Exact design bytes are frozen; Codex-v6 is a CLEAN consumer, while runner-v2, blind-map-v5, and Claude-v8 remain exact OPEN history requiring runner-v3 CLEAN, blind-map-v6 CLEAN, and evidence-only Claude-v9 CLEAN. Execution-window-v2 and final P0-v10 bytes remain unresolved; no implementation/review/activation is claimed.",
+  "authority_last": true,
+  "blind_map_disposition": {
+    "historical_clean": "CONTRADICTED_HISTORY_ONLY",
+    "required_successor": "BLIND_MAP_V6_CLEAN_FINAL_CLOSURE_LAST",
+    "revoking_open_review": {
+      "bytes": 23467,
+      "finding_count": 13,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-open-v1-fable-20261113.json",
+      "sha256": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8",
+      "verdict": "OPEN"
+    }
+  },
+  "claude_disposition": {
+    "open_reason": "CLOSURE_DESCRIPTOR_MISLABEL",
+    "required_successor": "EVIDENCE_ONLY_CLAUDE_V9_CLEAN_FINAL_CLOSURE_LAST",
+    "technical_parity": "PASS",
+    "v8_open_review": {
+      "bytes": 10896,
+      "finding_count": 1,
+      "open_reason": "CLOSURE_DESCRIPTOR_MISLABEL",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v8-independent-review-open-fable-20261113-8e9a8076.json",
+      "sha256": "65e425cab9b0fd7ed9381e0f8019360fad0e5c0f2da432c3b5c4e4c27c16df0d",
+      "technical_parity": "PASS",
+      "verdict": "OPEN"
+    }
+  },
+  "closure_last": true,
+  "codex_v6_disposition": {
+    "not_authority_for": "P0_V10_FINAL_CLOSURE",
+    "review": {
+      "bytes": 11249,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-codex-live-integration-v6-independent-review-clean-fable-20261113-8e9a8076.json",
+      "sha256": "a612f581be86741f49be7ee2e511fdf9526b2ac6481da65a3e4bd069e602221b",
+      "verdict": "CLEAN_CODEX_LIVE_BOUNDARY_V6_PENDING_P0_V10"
+    },
+    "status": "CLEAN_CONSUMER_READY_FOR_FINAL_CLOSURE_LAST"
+  },
+  "countable": false,
+  "decision": "ACCEPT_FROZEN_DESIGN_AND_SOURCE_GRAPH_ONLY",
+  "effects": {
+    "account": false,
+    "activation": false,
+    "business": false,
+    "bytedcli": false,
+    "credential": false,
+    "email": false,
+    "host": false,
+    "live": false,
+    "network": false,
+    "provider": false,
+    "publication": false,
+    "scheduler": false
+  },
+  "forbidden_claims": [
+    "implemented",
+    "CLEAN_P0_V10",
+    "runner_v2_clean",
+    "codex_v6_p0_v10_closed",
+    "claude_v8_clean",
+    "active",
+    "countable",
+    "provider_ready",
+    "inference_ready",
+    "intended_runtime_accepted",
+    "blind_map_v5_clean_or_authoritative",
+    "execution_window_v2_pinned",
+    "runner_v2_public_predecessor_hardened",
+    "claude_v8_clean_or_authoritative",
+    "runner_v2_clean_or_authoritative"
+  ],
+  "implementation_claimed": false,
+  "predecessor_disposition": "P0-v9 CLEAN is preserved; embedded P0-v8 and runner-v8 remain OPEN; blind-map-v5 historical CLEAN is contradicted history only under exact 13-finding OPEN review; execution-window-v1 is predecessor only, not v2.",
+  "runner_disposition": {
+    "p0_schema_finding": "OPEN-P0-V9-G3-SCHEMA-002_PRESERVED",
+    "required_successor": "RUNNER_V3_CLEAN_FINAL_CLOSURE_LAST",
+    "v2_open_review": {
+      "bytes": 13206,
+      "finding_count": 3,
+      "findings": [
+        "OPEN-RUNNER-V2-MUTABLE-KEY-AUTHORITY-001",
+        "OPEN-RUNNER-V2-LIVENESS-UNKNOWN-002",
+        "OPEN-P0-V9-G3-SCHEMA-002"
+      ],
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v2-independent-review-fable-20261113-8e9a8076-open.json",
+      "sha256": "c2669dec8fd1e32f616a6d97ce1e75f6de9a736d106814db1c99f8328215cff1",
+      "verdict": "OPEN"
+    }
+  },
+  "status": "DESIGN_ONLY_PENDING_SUCCESSOR_BYTES_AND_INDEPENDENT_REVIEW",
+  "unresolved_pins": [
+    "p0_v10_contract_bytes_sha256",
+    "p0_v10_dq_attempt_schema_bytes_sha256",
+    "p0_v10_attempt_bundle_schema_bytes_sha256",
+    "p0_v10_runtime_source_and_test_bytes",
+    "p0_v10_behavioral_closure_bytes_sha256",
+    "p0_v10_final_source_closure_bytes_sha256",
+    "p0_v10_producer_verification_bytes_sha256",
+    "p0_v10_fresh_independent_review_bytes_sha256",
+    "runner_v3_contract_closure_producer_and_clean_review_bytes_sha256",
+    "runner_v2_orchestrator_rebind_bytes_sha256",
+    "claude_boundary_v9_evidence_only_contract_closure_producer_and_clean_review_bytes_sha256",
+    "execution_window_v2_final_grant_and_review_bytes_sha256",
+    "provider_and_human_authority_bytes_sha256",
+    "future_intended_runtime_acceptance_and_email_receipt",
+    "blind_map_v6_contract_closure_producer_and_clean_review_bytes_sha256",
+    "execution_window_v2_template_closure_and_review_bytes_sha256"
+  ],
+  "version": "r6-data-quality-attempt-envelope-v10-decision-plan-1"
+}

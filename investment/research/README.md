@@ -1,5 +1,74 @@
 # Investment requirements and source coverage
 
+## Project-local investment review entrypoint
+
+The canonical instruction wrapper is
+[`investment-review`](../skills/investment-review/SKILL.md). Codex discovers it
+through the project-only link `.agents/skills/investment-review`; from this
+checkout, invoke it with a request such as:
+
+```text
+$investment-review NVDA, review through today and reuse existing research and sources
+```
+
+It routes the current agent through the preserved investment research adapter,
+bundled AI Berkshire/growth-aware policies, existing source tools and data
+cross-checks, independent review, and applicable maintained completion gates.
+For full company work, the route is `freeze` / `routes`, actual evidence/model
+work, `assess`, `pipeline.finalize`, then `pipeline.complete`. No extra executor,
+MCP server, package, global skill or hook is installed. Other instruments and
+explicitly narrow requests retain their applicable profile and completion scope.
+
+The investment component owns the wrapper. Before its discovery link is created
+it is a **staged host-impacting** instruction candidate; the link makes it
+**active session-impacting** for project skill selection. The affected scope is
+research sessions in this checkout and their authorized private artifacts.
+It cannot block prompt submission, diagnosis, notifications or recovery and adds
+no automatic external publication, email, trade, schedule or background process.
+Existing external-effect ownership and authorization continue to apply.
+
+For deployment on another device, deploy the canonical file with this repository
+and create the relative project discovery link only after validating the source:
+
+```sh
+mkdir -p .agents/skills
+ln -s ../../investment/skills/investment-review .agents/skills/investment-review
+```
+
+An existing destination must first be reconciled; never replace another skill.
+For rollback, verify that the destination is still the owned symlink resolving
+to `investment/skills/investment-review`, then unlink only that link. Preserve the
+canonical source and all research artifacts. Recheck native skill discovery
+after installation/removal; a file's presence alone does not prove discovery.
+The wrapper is not added to the separate maintained Claude dollar-alias catalog.
+
+Reuse `.research-sources/.venv` and the existing source-cache paths below. Research
+checkpoints, reports and evidence remain in new private directories under
+`.niulai-state/reports/investment-research/`, written by the existing artifact
+helpers. Do not modify historical quarantined artifacts or introduce a new
+dependency on user-global packages. A resumed run rechecks input hashes and
+invalidates affected downstream results.
+
+The entrypoint's validation/discovery evidence is recorded separately from actual
+research completion. Skill loading cannot establish that sources were obtained,
+AI Berkshire methods were executed, independent review passed, or a report was
+published. Full research and future-scheduled runtime/email acceptance remain
+unverified until their own actual evidence exists; earlier source-path acceptance
+below does not accept this new wrapper.
+
+Verification on 2026-11-15: the Skill Creator validator passed, all eight local
+references resolved, and a fresh isolated native Codex app-server discovered the
+installed canonical entrypoint enabled from the repository root, `investment/`
+and `investment/research/`. Disposable probes also verified ordinary session
+creation with an unrelated malformed skill present, owned-link removal/restoration
+and process cleanup. The first probe incorrectly expected native discovery to
+reject malformed description YAML; the diagnostic and corrected probe preserve
+that observation. The separate strict validator rejected the malformed fixture.
+Native discovery therefore does not replace installation preflight. A read-only
+independent instruction review found no material defect. These checks used no
+model turn, actual investment review or business delivery. Private probe and
+owned-installation receipts remain under ignored `investment/runtime/`.
+
 The unregistered runtime-information-catalog candidate is described in
 [the catalog and labeling design](../../docs/plans/runtime-information-catalog.md).
 It compiles question plans from current evidence/capability context and keeps
@@ -59,12 +128,28 @@ From the workspace root:
 umask 077
 mkdir -p .niulai-state/reports/investment-research/example
 PYTHONDONTWRITEBYTECODE=1 TMPDIR="$PWD/.niulai-state/reports/research-sources/tmp" \
-  .research-sources/.venv/bin/python -m investment.research freeze \
+  .research-sources/.venv/bin/python -c \
+  'import sys; from investment.research.pipeline import publish_contract_pointer; publish_contract_pointer(sys.argv[1], sys.argv[2:])' \
+  "$PWD/.niulai-state/reports/investment-research/example/contract.json" \
+  "$PWD/.research-sources/.venv/bin/python" -m investment.research freeze \
   --request investment/research/examples/nvda-question.json \
-  --out "$PWD/.niulai-state/reports/investment-research/example" > .niulai-state/reports/investment-research/example/contract.json
+  --out "$PWD/.niulai-state/reports/investment-research/example"
 PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python -m investment.research routes \
   --request .niulai-state/reports/investment-research/example/contract.json
 ```
+
+The outer helper first buffers producer stdout in an owner-private `0600` file
+under the approved destination directory. It requires a zero producer exit, parses
+one strict JSON value, validates the complete requirements contract and referenced
+snapshot, and only then atomically switches `contract.json`. Producer, validation,
+or pre-replace failures preserve the previous pointer. A post-publication directory
+fsync failure is an unknown outcome that must be reconciled from the attached
+readback evidence; do not blindly rerun it.
+
+SQLite primary-mode coverage below applies to newly created databases only. The
+existing `Store` implementation owns reopen/chmod and journal/WAL policy; this
+artifact hardening does not claim to preserve the mode of a pre-existing database
+or govern transient SQLite sidecars.
 
 Routing lists candidate capabilities, not successful queries or satisfied needs.
 Use web search for broad discovery/contrary evidence, OpenAlex for structured

@@ -1,0 +1,158 @@
+{
+  "activation": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "live": 0,
+    "network": 0,
+    "private_state": 0,
+    "provider": 0,
+    "scheduler": 0,
+    "subagent": 0
+  },
+  "excluded": [
+    "producer-verification-v3.json",
+    "future independent review",
+    "live artifacts"
+  ],
+  "independent_review_created_by_producer": false,
+  "old_files_modified": false,
+  "predecessors": {
+    "v1_contract": {
+      "bytes": 21151,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v1.json",
+      "sha256": "18c865850f03d959d361b5d7f481c78e0e6d406fe4bfb5915c1008f5ff97f361"
+    },
+    "v1_producer": {
+      "bytes": 2970,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v1/producer-verification-v1.json",
+      "sha256": "49f899eda70da60e6e6268ab92381b8245683aa96a9a261660340c7f92f86b79"
+    },
+    "v2_contract": {
+      "bytes": 8442,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v2.json",
+      "sha256": "20ff8382756fa18e1fcbda05d6d254e6dc7f7973925b15b1705682cd788c75cf"
+    },
+    "v2_producer": {
+      "bytes": 2408,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v2/producer-verification-v2.json",
+      "sha256": "2118d9553b4934d8ea7971107b0df09cc6d1e1f8495b594ea5900ce1c4038e03"
+    }
+  },
+  "sources": {
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json": {
+      "bytes": 9944,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json",
+      "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/__init__.py": {
+      "bytes": 93,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/__init__.py",
+      "sha256": "4d1c8710b61bc2c17eae24e9bb164e219c23a4be8d077ae02c0be0eae790a4d5"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/artifact-ref-v3.schema.json": {
+      "bytes": 738,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/artifact-ref-v3.schema.json",
+      "sha256": "eca2b95180ac61ec2883f5948e1bff529c97889821ab23c1c2fde004c463da0a"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/blind-map-commitment-v3.schema.json": {
+      "bytes": 438,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/blind-map-commitment-v3.schema.json",
+      "sha256": "f2fa91e473d79aba36b35501fa80cc3b6c1d644ff83ff3ca84fe89ea6d84425f"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/blind-packet-v3.schema.json": {
+      "bytes": 2402,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/blind-packet-v3.schema.json",
+      "sha256": "458f621d456e41ff407dd24c5fb612da07bffadcb6209ca43f0c7554d4870611"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/citation-inventory-v3.schema.json": {
+      "bytes": 548,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/citation-inventory-v3.schema.json",
+      "sha256": "516881caba2fe682e7cce20987f213af2c055f58385259a445bc3d5e73bb3cfe"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/deterministic-gate-report-v3.schema.json": {
+      "bytes": 1273,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/deterministic-gate-report-v3.schema.json",
+      "sha256": "54460520b79ebfdb805c7221918306d1e86eaaae6caa17bba147e01473b42837"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/evaluation-storage-v3.schema.json": {
+      "bytes": 544,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/evaluation-storage-v3.schema.json",
+      "sha256": "0cb2042c965e468b6cc076c1dcce5e037f371bae6f3fb84959c49f19c9d629a5"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/evidence-record-v3.schema.json": {
+      "bytes": 3244,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/evidence-record-v3.schema.json",
+      "sha256": "a3afe5d36adbd498b2359024ee8d3b328113c2df8dc8aae179cfbd4fbcb70ab1"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/grade-record-v3.schema.json": {
+      "bytes": 7726,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/grade-record-v3.schema.json",
+      "sha256": "154244b6edd624fbb638415e657edb4d4091461d627f79bbadd9a25800e189da"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/grader-grant-v3.schema.json": {
+      "bytes": 548,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/grader-grant-v3.schema.json",
+      "sha256": "0e9d4fd1ac8a4d99b34641cd4d761c9c2acba8f706018e80d7ad5b6a556f4338"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/grader-registry-v3.schema.json": {
+      "bytes": 594,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/grader-registry-v3.schema.json",
+      "sha256": "36f389984ff78464351f10ce039a5bcf01b8d7ebcef867ef61bfe9339a88b064"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/grader-review-v3.schema.json": {
+      "bytes": 447,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/grader-review-v3.schema.json",
+      "sha256": "ebb84a37a6615fe67fd59a0b4746558767761a0dd9a21cb0458a7f49f6a5a51b"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/harness.py": {
+      "bytes": 31895,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/harness.py",
+      "sha256": "a42f1d0303857f443b5352ed7cfd244551767d347168e3ada6b7f8042cdaa7e4"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/raw-custody-receipt-v3.schema.json": {
+      "bytes": 389,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/raw-custody-receipt-v3.schema.json",
+      "sha256": "83a3341d849ac4757f232fc794d04479e627f62851bd4bd551f42f6c36c33f94"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/sanitized-output-v3.schema.json": {
+      "bytes": 302,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/sanitized-output-v3.schema.json",
+      "sha256": "180ace1fb3782fef738314b8c657e606a3b842c75caee4eadbfa6a8807561b3c"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/source-inventory-v3.schema.json": {
+      "bytes": 519,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/source-inventory-v3.schema.json",
+      "sha256": "6b8b69a5183eb5f31393e401a90dc30e2b832fede6f49865f39b6c4d9fd9f2af"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v3/__init__.py": {
+      "bytes": 0,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v3/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v3/test_evaluation_v3.py": {
+      "bytes": 13436,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_2x2_evaluation_v3/test_evaluation_v3.py",
+      "sha256": "d50cb76c46f293029972054c7f7265583fb627358683246357495d0277a3ae07"
+    },
+    "shared/job_runtime/tests/fixtures/r6_data_quality_2x2_evaluation_v3/cases.json": {
+      "bytes": 527,
+      "path": "shared/job_runtime/tests/fixtures/r6_data_quality_2x2_evaluation_v3/cases.json",
+      "sha256": "19182713ab03b1676f8996c6bb88f9dfb4429570ff7758094b676d8cc2edaf72"
+    },
+    "tuning/architecture/r6_data_quality_2x2_evaluation_v3/decision-v3.json": {
+      "bytes": 1009,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/decision-v3.json",
+      "sha256": "2ee4b247c536301c6003e9e5e03a9652fd5b4c22ae3ba042b291a810b22aa6fe"
+    },
+    "tuning/architecture/r6_data_quality_2x2_evaluation_v3/protocol-v3.json": {
+      "bytes": 986,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/protocol-v3.json",
+      "sha256": "b04b2ad40d749653439ad24813e1083408590d96b55399ffc88388c237bbd8a5"
+    }
+  },
+  "status": "FROZEN_ADDITIVE_PROVIDER_FREE_SOURCE_CLOSURE_V3",
+  "version": "r6-data-quality-2x2-evaluation-source-closure-v3"
+}

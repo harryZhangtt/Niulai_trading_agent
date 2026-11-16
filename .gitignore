@@ -33,6 +33,7 @@ alerts.json
 project_checkpoint.json
 
 # Machine-local dependencies and incidental diagnostic artifacts.
+/.c/
 .DS_Store
 __pycache__/
 *.pyc
@@ -42,6 +43,7 @@ node_modules/
 /.codex/*
 !/.codex/config.toml
 !/.codex/hooks.json
+/.claude/settings.local.json
 /Niulai_Migration_Report_*.html
 
 # Historical evidence, private audit metadata and snapshot inventory stay local.
@@ -59,9 +61,12 @@ node_modules/
 # Isolated research-source dependencies, public-paper cache and probe state.
 /.research-sources/
 
+# Isolated LangChain/LangGraph pilot dependencies and execution evidence.
+/.langchain-pilot/
+
 # Generated portable skill distributions; rebuild from ui/portable source.
 /ui/portable/candidate/
 /ui/portable/ui-skill-router/
 
-# Isolated LangChain/LangGraph pilot dependencies and execution evidence.
-/.langchain-pilot/
+# Confidential browser and UI acceptance evidence stays local.
+/ui/artifacts

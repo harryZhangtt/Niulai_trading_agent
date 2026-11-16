@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dual-host-runtime-packet.schema.json",
+  "title": "Generated private dual-host runtime packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "host", "case_ref", "protocol_ref", "binding", "unknown_outcome_fence", "fallback", "mcp", "credential_value_present"],
+  "properties": {
+    "schema_version": {"const": "dual-host-live-e2e-1"},
+    "host": {"enum": ["codex", "claude"]},
+    "case_ref": {"$ref": "#/$defs/hashRef"},
+    "protocol_ref": {"$ref": "#/$defs/hashRef"},
+    "binding": {
+      "type": "object",
+      "description": "Sanitized HostExecutionBinding.to_public_dict output. Credential references are allowed; credential material is not."
+    },
+    "unknown_outcome_fence": {"type": "string", "minLength": 1},
+    "fallback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host", "cross_host", "provider_switch"],
+      "properties": {
+        "host": {"enum": ["codex", "claude"]},
+        "cross_host": {"const": false},
+        "provider_switch": {"const": false}
+      }
+    },
+    "mcp": {"const": "not_used"},
+    "credential_value_present": {"const": false}
+  },
+  "$defs": {
+    "hashRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packet_sha256"],
+      "properties": {
+        "packet_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "classification": "normalized_runner_fixture_supported_current_tests",
+  "derived_from": "provider-neutral translation of shared/job_runtime/tests/test_model.py synthetic expectations",
+  "normalized_schema": "normalized_codex_runner_v1",
+  "direct_codex_event_semantics_claim": false,
+  "codex_source_proof": false,
+  "live_conformance_proof": false,
+  "provider_invocation_performed": false,
+  "production_codex_0_166_translation_present": false,
+  "activation_blocked": true,
+  "activation_requires": ["pinned_source_conformance", "sanitized_capture_conformance"]
+}

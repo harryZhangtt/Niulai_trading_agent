@@ -214,6 +214,42 @@ export interface Cohort {
   unknowns: unknown;
 }
 
+export interface AcquisitionDriverTrace {
+  id: string;
+  experiment_id: string;
+  execution_id: string;
+  trace_id: string;
+  driver_sha256: string;
+  checker_verdict: 'pass';
+  checker_verdict_sha256: string;
+  checker_gates: Array<{ id: string; status: 'pass'; reasons: string[] }>;
+  case_id: string | null;
+  questions: Array<{ id: string; question: string | null }>;
+  operations: Array<{
+    operation_id: string; question_ids: string[]; proposal_sha256: string; arguments_sha256: string;
+    arguments: Record<string, unknown>; attempt_id: string | null; dispatch_id: string | null;
+    states: string[]; provider_route: string | null; cache_hit: boolean | null; fetch_executed: boolean | null;
+    status: string; failure_code: string | null; started_at: string | null; finished_at: string | null;
+    receipt_sha256: string;
+  }>;
+  accounting: {
+    logical_operations: number; reserved_provider_items: number | null; actual_dispatches: number;
+    cache_hits: number; fallbacks: number; complete_chains: 1; credited_units: 1;
+  };
+  units: Array<{
+    unit_id: string; question_id: string; operation_id: string; assessment_sha256: string; unit_sha256: string;
+    source_id: string; source_sha256: string; raw_sha256: string | null; text_sha256: string | null;
+    source_version: string | null; quote: string | null; quote_truncated: boolean; review_id: string;
+    review_sha256: string; reviewer_id: string; review_disposition: 'approve';
+    review_checks: Record<string, boolean>; review_reason: string | null;
+    lineage: { canonical_disclosure_id: string | null; representation_kind: string | null; representation_relationship: string | null };
+    times: { published_at: string | null; modified_at: string | null; available_at: string | null; first_observed_at: string | null; retrieved_at: string | null; screened_at: string | null; exposed_at: string | null };
+  }>;
+  missing_links: [];
+  limitations: string[];
+  scope: 'checker_approved_structural_trace_not_quality_evidence';
+}
+
 export interface Comparison {
   id: string;
   title: string;
@@ -245,6 +281,7 @@ export interface Comparison {
   }>;
   limitations: string[];
   acquisition?: AcquisitionComparison;
+  driver_trace?: AcquisitionDriverTrace;
 }
 
 export interface AcquisitionComparison {
@@ -301,11 +338,21 @@ export interface CapturedSummary {
   unproved_links: string[];
 }
 
+export interface SourceCounts {
+  total: number;
+  by_scope: Record<string, number>;
+  by_publisher: Record<string, number>;
+  by_document_type: Record<string, number>;
+  persisted_labels: number;
+  unknown_available_at: number;
+}
+
 export interface DatasourceResponse {
   schema_version: 1;
   generated_at: string;
   snapshot_id: string;
   status: 'ok' | 'partial' | 'unavailable';
+  projection_state?: 'fresh' | 'stale';
   warnings: Array<{ code: string; count: number }>;
   subject: string;
   pagination: { offset: number; limit: number; total_sources: number; total_runs: number; total_batches?: number; total_native_collections?: number; next_offset: number | null };
@@ -313,7 +360,7 @@ export interface DatasourceResponse {
   sources: Source[];
   runs: Run[];
   batches?: AcquisitionBatch[];
-  aggregates: { cohorts: Cohort[]; unknowns: unknown; batch_counts?: BatchCounts; retention_counts?: RetentionCounts & { scope: string; snapshots: string; cache_is_disposable_index: boolean } };
+  aggregates: { cohorts: Cohort[]; unknowns: unknown; batch_counts?: BatchCounts; source_counts?: SourceCounts; retention_counts?: RetentionCounts & { scope: string; snapshots: string; cache_is_disposable_index: boolean } };
   comparisons: Comparison[];
   temporal?: Details | null;
 }

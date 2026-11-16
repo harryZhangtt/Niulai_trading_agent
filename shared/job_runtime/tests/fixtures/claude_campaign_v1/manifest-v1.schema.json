@@ -1,0 +1,276 @@
+{
+  "$id": "claude-campaign-manifest-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "properties": {
+        "campaign_id": {
+          "const": "R6"
+        },
+        "execution": {
+          "properties": {
+            "max_attempts": {
+              "const": 1
+            }
+          }
+        },
+        "replay_contract": {
+          "properties": {
+            "automatic_phases": {
+              "const": []
+            },
+            "slot_operation_scope": {
+              "const": "claude-campaign-v1/r6/slot-operation"
+            }
+          }
+        },
+        "scenario": {
+          "const": "nominal"
+        }
+      }
+    },
+    {
+      "properties": {
+        "campaign_id": {
+          "const": "R7"
+        },
+        "execution": {
+          "properties": {
+            "max_attempts": {
+              "const": 2
+            }
+          }
+        },
+        "replay_contract": {
+          "properties": {
+            "automatic_phases": {
+              "const": [
+                "connecting"
+              ]
+            },
+            "slot_operation_scope": {
+              "const": "claude-campaign-v1/r7/slot-operation"
+            }
+          }
+        },
+        "scenario": {
+          "const": "pre_forward_transient_restart"
+        }
+      }
+    },
+    {
+      "properties": {
+        "campaign_id": {
+          "const": "R8"
+        },
+        "execution": {
+          "properties": {
+            "max_attempts": {
+              "const": 1
+            }
+          }
+        },
+        "replay_contract": {
+          "properties": {
+            "automatic_phases": {
+              "const": []
+            },
+            "slot_operation_scope": {
+              "const": "claude-campaign-v1/r8/slot-operation"
+            }
+          }
+        },
+        "scenario": {
+          "const": "post_forward_cut_unknown"
+        }
+      }
+    }
+  ],
+  "properties": {
+    "bindings": {
+      "additionalProperties": false,
+      "properties": {
+        "config_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "prompt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prompt_sha256",
+        "source_sha256",
+        "config_sha256"
+      ],
+      "type": "object"
+    },
+    "campaign_id": {
+      "enum": [
+        "R6",
+        "R7",
+        "R8"
+      ]
+    },
+    "enabled": {
+      "const": false
+    },
+    "execution": {
+      "additionalProperties": false,
+      "properties": {
+        "max_attempts": {
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "max_workers": {
+          "const": 1
+        }
+      },
+      "required": [
+        "max_workers",
+        "max_attempts"
+      ],
+      "type": "object"
+    },
+    "live": {
+      "additionalProperties": false,
+      "properties": {
+        "network": {
+          "const": false
+        },
+        "process": {
+          "const": false
+        },
+        "provider": {
+          "const": false
+        }
+      },
+      "required": [
+        "provider",
+        "network",
+        "process"
+      ],
+      "type": "object"
+    },
+    "prompt_custody": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "const": "native_v1"
+        },
+        "raw_prompt_forbidden": {
+          "const": true
+        },
+        "schema_version": {
+          "const": 2
+        }
+      },
+      "required": [
+        "schema_version",
+        "mode",
+        "raw_prompt_forbidden"
+      ],
+      "type": "object"
+    },
+    "replay_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "automatic_phases": {
+          "items": {
+            "const": "connecting"
+          },
+          "maxItems": 1,
+          "type": "array"
+        },
+        "effect": {
+          "const": "reconcile_before_replay"
+        },
+        "reconciliation_adapter": {
+          "const": "claude_campaign_v1.named_unknown_reconciliation"
+        },
+        "slot_operation_scope": {
+          "type": "string"
+        },
+        "version": {
+          "const": 1
+        }
+      },
+      "required": [
+        "version",
+        "effect",
+        "automatic_phases",
+        "slot_operation_scope",
+        "reconciliation_adapter"
+      ],
+      "type": "object"
+    },
+    "scenario": {
+      "enum": [
+        "nominal",
+        "pre_forward_transient_restart",
+        "post_forward_cut_unknown"
+      ]
+    },
+    "schema_version": {
+      "const": "claude-campaign-v1"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_integration": {
+          "const": false
+        },
+        "kind": {
+          "const": "candidate_local"
+        }
+      },
+      "required": [
+        "kind",
+        "canonical_integration"
+      ],
+      "type": "object"
+    },
+    "unknown_fence": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_slots": {
+          "const": 2
+        },
+        "reconciliation_adapter": {
+          "const": "claude_campaign_v1.named_unknown_reconciliation"
+        },
+        "scope": {
+          "const": "campaign"
+        }
+      },
+      "required": [
+        "scope",
+        "blocked_slots",
+        "reconciliation_adapter"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scope",
+    "campaign_id",
+    "scenario",
+    "enabled",
+    "prompt_custody",
+    "execution",
+    "bindings",
+    "replay_contract",
+    "unknown_fence",
+    "live"
+  ],
+  "type": "object"
+}

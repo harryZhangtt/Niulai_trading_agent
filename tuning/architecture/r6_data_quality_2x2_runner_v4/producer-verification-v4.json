@@ -1,0 +1,181 @@
+{
+  "activation": false,
+  "allowed_claim": "producer-side provider-free tests show the exact v4 subject addresses the two controlling v3 package-reachable authority mechanisms and preserves crash/no-replay/durable-receipt/human-finalization contracts; fresh exact-subject review, P0 v10 reclosure, and orchestrator rebind remain pending",
+  "countable": false,
+  "coverage": {
+    "durability": [
+      "child exit 43 pre-admission exact-dead zero-effects recovery",
+      "destination residue fail-close",
+      "exit 43 post-admission durable unknown",
+      "exit 42 after first boundary no replay",
+      "receipt stage-fsync and post-link reconciliation",
+      "post-child durable receipt tamper rejection"
+    ],
+    "execution": [
+      "fixed four-cell order",
+      "one attempt per cell",
+      "zero retries",
+      "zero replays",
+      "zero status queries",
+      "authenticated human finalization and missing-grade rejection"
+    ],
+    "isolation": [
+      "parent boundary callable never executes",
+      "closure-cell fake child cannot skip durable readback",
+      "function-global/package/sys.modules mutations cannot replace child",
+      "alias and reload competitors share one reservation",
+      "malformed direct child request exits 70",
+      "malformed/forged response rejected"
+    ],
+    "source_closure": [
+      "exclusive on-disk source drift fails before claim",
+      "try/finally exact restoration asserted",
+      "19 transitive child dependencies rehashed",
+      "controlling 22021-byte review exact",
+      "four frozen 78-history records exact"
+    ],
+    "v3_findings": [
+      "true multiprocess package-reachable key-split competitor: one claim/admission/four effects",
+      "true multiprocess forged-liveness competitor against SIGSTOP-live isolated child: no takeover/recovery"
+    ]
+  },
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "generated_at_utc": "2026-11-14T23:35:18Z",
+  "history_preservation": {
+    "frozen_78_records": [
+      {
+        "bytes": 713,
+        "name": "frozen_78_history",
+        "path": "tuning/architecture/r6_data_quality_fable_allocation_design_v1/decision-v1.json",
+        "sha256": "363979805bcde0e4241fdaf85fedce33ae3846f0e548e80241f5a603d92f1563"
+      },
+      {
+        "bytes": 1488,
+        "name": "frozen_78_history",
+        "path": "tuning/architecture/r6_data_quality_fable_allocation_design_v1/producer-verification-v1.json",
+        "sha256": "536a9793b752ee4bd761d51022cc99cb48463d7e719e6a1a130f3e557ce65ea3"
+      },
+      {
+        "bytes": 2966,
+        "name": "frozen_78_history",
+        "path": "tuning/architecture/r6_data_quality_fable_allocation_design_v1/protocol-v1.json",
+        "sha256": "b307ad0a8550b77d7de9ed42cca92f5f2fa66677223278826c89e3bdf0257214"
+      },
+      {
+        "bytes": 1604,
+        "name": "frozen_78_history",
+        "path": "tuning/architecture/r6_data_quality_fable_allocation_design_v1/source-closure-v1.json",
+        "sha256": "b3ac5d54e652d6fc2a6e0ec0147311be5b89a6130e9f0a8e2e975efaa3079b5e"
+      }
+    ],
+    "history_rewrite": false,
+    "mismatches": 0
+  },
+  "independent_review": {
+    "clean_claim": false,
+    "status": "PENDING_FRESH_EXACT_SUBJECT_REVIEW"
+  },
+  "observations": {
+    "first_boundary_count_max": 1,
+    "four_cell_effect_sets_max": 1,
+    "live_or_bytedcli_effects": 0,
+    "replays": 0,
+    "reservation_admissions_max": 1,
+    "reservation_claims_max": 1,
+    "retries": 0,
+    "status_queries": 0
+  },
+  "open_gates": {
+    "activation": false,
+    "countable": false,
+    "fresh_independent_review": "PENDING_FRESH_EXACT_SUBJECT_REVIEW",
+    "intended_runtime_acceptance": "NOT_RUN_NO_ACTIVATION",
+    "orchestrator_rebind": "PENDING",
+    "p0_schema_status": "P0_V10_REQUIRED",
+    "runner_consumer_status": "P0_V10_RECLOSURE_REQUIRED"
+  },
+  "producer_role": "implementation and provider-free test producer; not fresh independent reviewer",
+  "provider_free": true,
+  "records": {
+    "architecture": {
+      "bytes": 12080,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/architecture-v4.json",
+      "sha256": "9d5066d47ebc4a11567663917de85ca464ba8e3b806f86a2bae718a6f52fba8e"
+    },
+    "decision": {
+      "bytes": 2958,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/decision-v4.json",
+      "sha256": "2b2a55bb75c3203f53619e92bab1ee734a9294bf23e50959d61a88c0d54bd436"
+    },
+    "protocol": {
+      "bytes": 3320,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/protocol-v4.json",
+      "sha256": "8f7ea5dc920fe02a3209dcb3e34864840fe20c8e31d19fe706281acbe2a7e81a"
+    },
+    "source_closure": {
+      "bytes": 9757,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/source-closure-v4.json",
+      "sha256": "38e0ad1c5c71572be4784a066d502a0d03bca066c4d510dc852a7bb81109af81"
+    }
+  },
+  "registered": false,
+  "review_basis": {
+    "bytes": 22021,
+    "finding_ids": [
+      "OPEN-RUNNER-V3-PACKAGE-REACHABLE-KEY-AUTHORITY-001",
+      "OPEN-RUNNER-V3-PACKAGE-REACHABLE-LIVENESS-AUTHORITY-002",
+      "OPEN-P0-V9-G3-SCHEMA-002"
+    ],
+    "name": "runner_v3_open_review",
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v3-independent-review-fable-20261113-8e9a8076-open.json",
+    "sha256": "e11ca7dd9b35a21e8d57ef9398c4aa713a77c45d00986b3f4c3d1ca693b06afe",
+    "verdict": "OPEN"
+  },
+  "status": "PASS_EXACT_V4_PRODUCER_TESTS_PENDING_FRESH_INDEPENDENT_REVIEW_P0_V10_RECLOSURE_AND_ORCHESTRATOR_REBIND",
+  "subject": {
+    "bytes": 9757,
+    "path": "tuning/architecture/r6_data_quality_2x2_runner_v4/source-closure-v4.json",
+    "sha256": "38e0ad1c5c71572be4784a066d502a0d03bca066c4d510dc852a7bb81109af81"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 .research-sources/.venv/bin/python3.12 -m unittest -v shared.job_runtime.tests.candidates.r6_data_quality_2x2_runner_v4.test_runner_v4",
+      "duration_seconds": 4.013,
+      "errors": 0,
+      "executed": 23,
+      "failed": 0,
+      "passed": 23,
+      "provider_free": true,
+      "skipped": 0
+    },
+    {
+      "breakdown": {
+        "v1": 19,
+        "v2": 14,
+        "v3": 22,
+        "v4": 23
+      },
+      "command": "schema-enabled combined unittest loader under .research-sources/.venv/bin/python3.12",
+      "duration_seconds": 9.479,
+      "errors": 0,
+      "executed": 78,
+      "failed": 0,
+      "jsonschema": "4.25.1",
+      "passed": 78,
+      "provider_free": true,
+      "skipped": 0
+    }
+  ],
+  "verdict": "P0_V10_RECLOSURE_REQUIRED",
+  "version": "r6-data-quality-2x2-runner-producer-verification-v4"
+}

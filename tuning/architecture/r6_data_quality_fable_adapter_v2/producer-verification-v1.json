@@ -1,0 +1,1 @@
+{"manifest_sha256":"5561430bfb65394468ee8fbb792493fc07c60a61cd1351af2a42df79970cfff5","provider_free":true,"source_closure_sha256":"04b6be9f2be3f171c5072da90e8b1b43f45e4c6684191d08d7c29c420e425242","status":"PENDING_INDEPENDENT_REVIEW","tests":{"python3.12":{"passed":2,"result":"PASS"},"python3.9":{"passed":2,"result":"PASS"}},"version":"r6_data_quality_fable_adapter_v2"}

@@ -1,0 +1,34 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"urn:trading-agent:r6-one-off-evidence-v1:grant",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["version","kind","logical_job_id","preflight_nonce","created_at","slot_at","deadline_at","scenario","config_sha256","allocation_sha256","prompt_sha256","treatment_fingerprint","source_generation_sha256","custody","max_workers","max_attempts","request_retries","stream_retries","replay_safe","enabled","capability_open","provider_authorized","countable","effects"],
+  "properties":{
+    "version":{"const":1},
+    "kind":{"const":"PROVIDER_FREE_PERMANENTLY_NONAUTHORIZING"},
+    "logical_job_id":{"type":"string","pattern":"^r6o1-[a-f0-9]{32}$"},
+    "preflight_nonce":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "created_at":{"type":"string","format":"date-time"},
+    "slot_at":{"type":"string","format":"date-time"},
+    "deadline_at":{"type":"string","format":"date-time"},
+    "scenario":{"enum":["nominal","post_admission_unknown","pre_dispatch_stop"]},
+    "config_sha256":{"$ref":"#/$defs/digest"},
+    "allocation_sha256":{"$ref":"#/$defs/digest"},
+    "prompt_sha256":{"$ref":"#/$defs/digest"},
+    "treatment_fingerprint":{"$ref":"#/$defs/digest"},
+    "source_generation_sha256":{"$ref":"#/$defs/digest"},
+    "custody":{"type":"array","minItems":5,"maxItems":5,"items":{"$ref":"#/$defs/descriptor"}},
+    "max_workers":{"const":1},"max_attempts":{"const":1},
+    "request_retries":{"const":0},"stream_retries":{"const":0},
+    "replay_safe":{"const":false},"enabled":{"const":false},
+    "capability_open":{"const":false},"provider_authorized":{"const":false},
+    "countable":{"const":false},
+    "effects":{"$ref":"#/$defs/effects"}
+  },
+  "$defs":{
+    "digest":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "descriptor":{"type":"object","additionalProperties":false,"required":["role","name","sha256","bytes"],"properties":{"role":{"enum":["binary","argv","config","parser","prompt"]},"name":{"type":"string","pattern":"^[A-Za-z0-9][A-Za-z0-9._-]{0,95}$"},"sha256":{"$ref":"#/$defs/digest"},"bytes":{"type":"integer","minimum":1,"maximum":65536}}},
+    "effects":{"type":"object","additionalProperties":false,"required":["provider","network","account","login","private_live_root","email","socket","subprocess","host"],"properties":{"provider":{"const":false},"network":{"const":false},"account":{"const":false},"login":{"const":false},"private_live_root":{"const":false},"email":{"const":false},"socket":{"const":false},"subprocess":{"const":false},"host":{"const":false}}}
+  }
+}

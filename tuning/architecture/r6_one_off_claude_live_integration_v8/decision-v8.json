@@ -1,0 +1,71 @@
+{
+  "activation": false,
+  "allowed_claim": "Additive provider-free v8 source, schemas, fixed ledger, recursive closure, and producer tests pass; OPEN-CLAUDE-V7-001 is closed at the v8 producer boundary. Fresh independent review, P0 v10 reclosure, and major-runtime acceptance remain pending.",
+  "architecture": {
+    "bytes": 3344,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/architecture-v8.json",
+    "sha256": "9e08e851a1eb66763bab7d057e16d7a0e3fcedf87ddada76582c83bef3cf9fc1"
+  },
+  "artifact_type": "decision",
+  "countable": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "history_disposition": "v1-v7 source/evidence/reviews remain byte-preserved OPEN or contradicted history; no earlier PASS claim is promoted",
+  "lineage": {
+    "bytes": 1230,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/lineage-v8.json",
+    "sha256": "3da506ea182c88639eb68983c152f330918bda5bceb4e3d5bd5af2219948914c"
+  },
+  "open_v7_finding": {
+    "id": "OPEN-CLAUDE-V7-001",
+    "producer_resolution": "CLOSED_PRECISE_RUNTIME_SCHEMA_PARITY",
+    "review_resolution": "PENDING_FRESH_INDEPENDENT_REVIEW"
+  },
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "protocol": {
+    "bytes": 4930,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/protocol-v8.json",
+    "sha256": "ea5c6df13ad3f09f50bddf92b2f83748de7ddd756f27b721710062eb35f3febc"
+  },
+  "registration": false,
+  "review_binding": {
+    "bytes": 10536,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v7-independent-review-open-fable-20261112-8e9a8076.json",
+    "sha256": "3ebc954c253ae104f97ef5fe52e0fb96ac6d70a0eb273677e022145962dc258a",
+    "verdict": "OPEN"
+  },
+  "runtime_acceptance": {
+    "email": "PENDING",
+    "execution": "PENDING"
+  },
+  "source_closure": {
+    "aggregate_sha256": "3ee1bf1079c5170a588efea2d573be0c25f2fcab311c81a287a75ad53a01a16c",
+    "artifact_count": 33,
+    "bytes": 8519,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/source-closure-v8.json",
+    "sha256": "a8946dc8a69a3787be82fa631ad129d4d473cdca40569f6175eb7bac081db3a9"
+  },
+  "status": "OPEN_PROVIDER_FREE_V8_PRODUCER_VERIFIED_PENDING_FRESH_INDEPENDENT_REVIEW_AND_P0_V10_RECLOSURE",
+  "test_totals": {
+    "errors": 0,
+    "failures": 0,
+    "preserved_v5_methods": 16,
+    "preserved_v6_methods": 17,
+    "preserved_v7_methods": 12,
+    "shared_evidence_methods": 15,
+    "v8_methods": 12,
+    "v8_p0_mutation_cases": 288
+  },
+  "verdict": "PROVIDER_FREE_V8_PRODUCER_TESTS_PASS_NOT_INDEPENDENT_OR_LIVE_ACCEPTANCE",
+  "version": 8
+}

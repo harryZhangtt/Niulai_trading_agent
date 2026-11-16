@@ -1,0 +1,158 @@
+{
+  "activation": false,
+  "architecture": {
+    "bytes": 3344,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/architecture-v8.json",
+    "sha256": "9e08e851a1eb66763bab7d057e16d7a0e3fcedf87ddada76582c83bef3cf9fc1"
+  },
+  "artifact_type": "protocol",
+  "authority": {
+    "fixed_root": true,
+    "full_writes": true,
+    "hash_chained": true,
+    "ledger_mode": "0600",
+    "no_pathname_reopen": true,
+    "parent_creation_fsync": true,
+    "protocol": "LOCKED_APPEND_ONLY_HASH_CHAIN_V1",
+    "truncated_tail_denies": true
+  },
+  "countable": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "fault_matrix": [
+    "caller root positional and keyword rejection",
+    "caller effect and scenario rejection",
+    "provider effect subclass rejection",
+    "component symlink and wrong-mode rejection",
+    "held-dirfd rename/symlink race",
+    "ledger symlink and 0600 checks",
+    "short and zero writes",
+    "truncated ledger tail repeated denial",
+    "illegal PASS-to-UNKNOWN and POISONED-to-PASS transitions",
+    "terminal mismatch rejection",
+    "poison post-commit ambiguity plus repeated-read denial",
+    "compound projection revoke failures",
+    "recovery before freshness",
+    "actual projection-without-authority recover output Draft 2020-12 parity",
+    "288-case status/authority/durability/identity mutation matrix",
+    "nested schema extras and impossible cross-branch combinations",
+    "recursive import and dynamic executable closure"
+  ],
+  "lineage": {
+    "bytes": 1230,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/lineage-v8.json",
+    "sha256": "3da506ea182c88639eb68983c152f330918bda5bceb4e3d5bd5af2219948914c"
+  },
+  "p0_contract": {
+    "accepted_branches": [
+      "PASS/PASS/NOT_APPLICABLE/non-null cell/claude_host/non-null digest",
+      "STOP/ABSENT/NOT_APPLICABLE/null cell/null provider/null digest",
+      "UNKNOWN/ABSENT/NON_DURABLE/null cell/null provider/null digest",
+      "UNKNOWN/UNKNOWN/DURABLE/non-null cell/claude_host/non-null digest",
+      "UNKNOWN/POISONED/DURABLE/non-null cell/claude_host/non-null digest"
+    ],
+    "all_other_cross_branch_combinations": "REJECT",
+    "draft": "2020-12",
+    "runtime_projection_without_authority_parity": true
+  },
+  "p0_v10_reclosure": "P0_V10_RECLOSURE_REQUIRED",
+  "public_boundary": {
+    "callable_injection": false,
+    "callables": [
+      "run"
+    ],
+    "signature": "run() -> dict",
+    "source_pinned_provider": true
+  },
+  "registration": false,
+  "review_binding": {
+    "bytes": 10536,
+    "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v7-independent-review-open-fable-20261112-8e9a8076.json",
+    "sha256": "3ebc954c253ae104f97ef5fe52e0fb96ac6d70a0eb273677e022145962dc258a",
+    "verdict": "OPEN"
+  },
+  "review_finding_resolution": {
+    "id": "OPEN-CLAUDE-V7-001",
+    "independent_status": "PENDING_FRESH_REVIEW",
+    "producer_status": "CLOSED_BY_V8_RUNTIME_SCHEMA_PARITY"
+  },
+  "runtime_acceptance": {
+    "email": "PENDING",
+    "execution": "PENDING",
+    "reason": "provider-free source evidence cannot replace a future scheduled intended-runtime run"
+  },
+  "schemas": [
+    "post-run-seal-v8.schema.json",
+    "pending-publication-v8.schema.json",
+    "unknown-fence-v8.schema.json",
+    "p0-output-v8.schema.json"
+  ],
+  "source_closure": {
+    "aggregate_sha256": "3ee1bf1079c5170a588efea2d573be0c25f2fcab311c81a287a75ad53a01a16c",
+    "artifact_count": 33,
+    "bytes": 8519,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v8/source-closure-v8.json",
+    "sha256": "a8946dc8a69a3787be82fa631ad129d4d473cdca40569f6175eb7bac081db3a9"
+  },
+  "state_graph": {
+    "allowed": [
+      "ABSENT->UNKNOWN",
+      "UNKNOWN->PASS",
+      "UNKNOWN->POISONED",
+      "PASS->POISONED",
+      "PASS->PASS exact idempotent",
+      "POISONED->POISONED exact idempotent"
+    ],
+    "forbidden": [
+      "PASS->UNKNOWN",
+      "POISONED->UNKNOWN",
+      "POISONED->PASS",
+      "same-state terminal replacement"
+    ]
+  },
+  "status": "OPEN_PROTOCOL_V8_PRODUCER_VERIFIED_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "tests": {
+    "preserved_v5": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 16,
+      "result": "PASS"
+    },
+    "preserved_v6": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 17,
+      "result": "PASS"
+    },
+    "preserved_v7": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 12,
+      "result": "PASS"
+    },
+    "shared_evidence": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 15,
+      "result": "PASS"
+    },
+    "v8": {
+      "errors": 0,
+      "failures": 0,
+      "methods": 12,
+      "mutation_cases": 288,
+      "result": "PASS"
+    }
+  },
+  "version": 8
+}

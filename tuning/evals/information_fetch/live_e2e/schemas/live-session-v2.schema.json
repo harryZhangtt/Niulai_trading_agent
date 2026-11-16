@@ -1,0 +1,174 @@
+{
+  "$id": "urn:trading-agent:live-session-v2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "credential_readiness_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "custody_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "host_adapter": {
+      "enum": [
+        "codex_native_web",
+        "claude_code_web"
+      ]
+    },
+    "host_binding_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "host_identity": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+      "type": "string"
+    },
+    "host_materialization_manifest_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "host_profile_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "identities": {
+      "additionalProperties": false,
+      "properties": {
+        "execution_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "experiment_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+          "type": "string"
+        },
+        "trace_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "experiment_id",
+        "execution_id",
+        "trace_id"
+      ],
+      "type": "object"
+    },
+    "model_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "provider_call_seconds": {
+      "maximum": 600,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "readiness_envelope": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_wall_seconds": {
+      "maximum": 600,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "acquisition-live-session-2"
+    },
+    "tool_identity": {
+      "enum": [
+        "native_tools.web__run",
+        "claude_code.web"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "readiness_envelope",
+    "identities",
+    "model_sha256",
+    "host_adapter",
+    "host_identity",
+    "tool_identity",
+    "host_profile_ref",
+    "credential_readiness_ref",
+    "host_binding_ref",
+    "run_wall_seconds",
+    "provider_call_seconds",
+    "host_materialization_manifest_ref",
+    "custody_ref"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-11-04",
+  "execution_status": "source-only-not-installed-not-executed",
+  "sources": [
+    {
+      "id": "rd-agent",
+      "repository": "https://github.com/microsoft/RD-Agent.git",
+      "release": "v1.0.0",
+      "revision": "484776c211e4fbbeef03e0ec00d6bbee7362a4f4",
+      "tree": "d4444284fb4554f75f352ecb1f072cedbf4c6421",
+      "tracked_file_count": 920,
+      "runtime_path": "factor/runtime/upstream/rd-agent-v1.0.0",
+      "license_path": "LICENSE",
+      "license_sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "profile": "factor-proposal-and-feedback",
+      "required_qlib_profile": "qlib-rdagent-compatible",
+      "upstream_pin_evidence": [
+        "rdagent/scenarios/qlib/docker/Dockerfile",
+        "rdagent/utils/env.py"
+      ]
+    },
+    {
+      "id": "qlib-rdagent-compatible",
+      "repository": "https://github.com/microsoft/qlib.git",
+      "release": null,
+      "revision": "2fb9380b342556ddb50a4b24e4fe8655d548b2b8",
+      "tree": "0f541590a9efecb9bfb5342155be50461ad7d002",
+      "tracked_file_count": 618,
+      "runtime_path": "factor/runtime/upstream/qlib-rdagent-2fb9380",
+      "license_path": "LICENSE",
+      "license_sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "profile": "rd-agent-v1.0.0-compatibility",
+      "required_qlib_profile": null,
+      "upstream_pin_evidence": []
+    },
+    {
+      "id": "qlib-standalone-candidate",
+      "repository": "https://github.com/microsoft/qlib.git",
+      "release": "v0.9.8",
+      "revision": "54355232463878d2eebb91fe0ee5fa7fa1f5976c",
+      "tree": "10b09ec09f15c1163b1b9ebd715e64dcbfc06c61",
+      "tracked_file_count": 643,
+      "runtime_path": "factor/runtime/upstream/qlib-v0.9.8",
+      "license_path": "LICENSE",
+      "license_sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "profile": "standalone-compatibility-candidate-not-approved-for-rd-agent",
+      "required_qlib_profile": null,
+      "upstream_pin_evidence": []
+    }
+  ]
+}

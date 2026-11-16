@@ -1,0 +1,193 @@
+{
+  "allowed_terminal_status": "DESIGN_ONLY_PENDING_SUCCESSOR_BYTES_AND_INDEPENDENT_REVIEW",
+  "artifact_role": "UNIQUE_MENTOR_REVIEWABLE_DESIGN_ARTIFACT",
+  "blind_map_adjudication": {
+    "future_gate": "BLIND_MAP_V6_CLEAN_FINAL_CLOSURE_LAST",
+    "historical_clean": "CONTRADICTED_HISTORY_ONLY",
+    "revoking_open_review": {
+      "bytes": 23467,
+      "finding_count": 13,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/claude-r6-data-quality-blind-map-commitment-v5-independent-review-open-v1-fable-20261113.json",
+      "sha256": "a76216d40b8af7617e7169f0969ab15bd69e3333dce6b6e9543af77612f783e8",
+      "verdict": "OPEN"
+    }
+  },
+  "claude_adjudication": {
+    "future_gate": "EVIDENCE_ONLY_CLAUDE_V9_CLEAN_FINAL_CLOSURE_LAST",
+    "technical_parity": "PASS",
+    "v8_open_review": {
+      "bytes": 10896,
+      "finding_count": 1,
+      "open_reason": "CLOSURE_DESCRIPTOR_MISLABEL",
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-claude-live-integration-v8-independent-review-open-fable-20261113-8e9a8076.json",
+      "sha256": "65e425cab9b0fd7ed9381e0f8019360fad0e5c0f2da432c3b5c4e4c27c16df0d",
+      "technical_parity": "PASS",
+      "verdict": "OPEN"
+    }
+  },
+  "codex_v6_clean_consumer": {
+    "independent_review": {
+      "bytes": 11249,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-one-off-codex-live-integration-v6-independent-review-clean-fable-20261113-8e9a8076.json",
+      "sha256": "a612f581be86741f49be7ee2e511fdf9526b2ac6481da65a3e4bd069e602221b",
+      "verdict": "CLEAN_CODEX_LIVE_BOUNDARY_V6_PENDING_P0_V10"
+    },
+    "producer": {
+      "bytes": 5284,
+      "path": "tuning/architecture/r6_one_off_codex_live_integration_v1/distinct-producer-verification-v6.json",
+      "sha256": "b5c872ce8f962e2725ab75e7a6e4158fb5763c1c027a31645ba246f7f8304a27",
+      "status": "UNTRUSTED_PRODUCER_SUPPORTING_EVIDENCE"
+    },
+    "source_closure": {
+      "bytes": 9745,
+      "path": "tuning/architecture/r6_one_off_codex_live_integration_v1/source-closure-v6.json",
+      "sha256": "1dedbc090dab5abc64e9d3c1e7fcda99fe77deb7c566ab7f85a3f1c982fd0345",
+      "status": "FROZEN_EXACT_CODEX_V6_CONSUMER"
+    },
+    "status": "READY_FOR_FINAL_CLOSURE_LAST"
+  },
+  "falsifiers": [
+    {
+      "condition": "Draft validation accepts checks_enabled=false with any non-disabled status/code pair.",
+      "id": "F01_SCHEMA_OFF_WITH_ENABLED_STATUS"
+    },
+    {
+      "condition": "Draft validation accepts checks_enabled=true with NOT_RUN_TREATMENT_DISABLED status or code.",
+      "id": "F02_SCHEMA_ON_WITH_DISABLED_PAIR"
+    },
+    {
+      "condition": "Draft and runtime disagree for any of the six ordered checks or any projection site.",
+      "id": "F03_SCHEMA_RUNTIME_DRIFT"
+    },
+    {
+      "condition": "Any caller can provide/select provider schema, adapter type, publication driver, driver identity, material profile, provider root, or executable.",
+      "id": "F04_CALLER_PROVIDER_IDENTITY"
+    },
+    {
+      "condition": "Adapter/driver/material-profile bytes differ from the two exact sealed bindings without a new design and review.",
+      "id": "F05_PROVIDER_BINDING_DRIFT"
+    },
+    {
+      "condition": "Owner UID is not exact, or symlink/non-regular/wrong-mode/path substitution can satisfy custody.",
+      "id": "F06_OWNER_UID_OR_PATH_DRIFT"
+    },
+    {
+      "condition": "Any fact lacks exactly resolved citation/source lineage or any tuple field can be omitted/substituted.",
+      "id": "F07_LINEAGE_TUPLE_OPEN"
+    },
+    {
+      "condition": "A direct/transitive production or test consumer, hash claim, path claim, or schema projection is absent from the registered graph.",
+      "id": "F08_SEMANTIC_CLOSURE_GAP"
+    },
+    {
+      "condition": "Crash/restart/STOP/UNKNOWN/ambiguous commit permits provider replay, retry, status query, optimistic PASS, or denominator removal.",
+      "id": "F09_CRASH_REPLAY"
+    },
+    {
+      "condition": "Final closure, producer evidence, or independent review is emitted before all consumer bytes and semantic edges are stable.",
+      "id": "F10_PREMATURE_SEAL"
+    },
+    {
+      "condition": "P0-v9 CLEAN producer/review or embedded v8 OPEN history is mutated, relabeled, or silently invalidated.",
+      "id": "F11_PREDECESSOR_REWRITE"
+    },
+    {
+      "condition": "Design artifacts activate/register/count cells, call provider/network/bytedcli, mutate scheduler/email/business state, or claim intended-runtime acceptance.",
+      "id": "F12_AUTHORITY_OR_EFFECT"
+    },
+    {
+      "condition": "Runner-v2, Codex-v6, Claude-v8, or P0-v10 is represented CLEAN without a fresh exact-byte independent review.",
+      "id": "F13_REVIEW_PROMOTION"
+    },
+    {
+      "condition": "Catalog membership evidence is treated as inference readiness or later STOP history is erased.",
+      "id": "F14_CATALOG_OVERCLAIM"
+    },
+    {
+      "condition": "The contradicted blind-map-v5 CLEAN receipt is used as current authority, the exact 13-finding OPEN review is omitted, or final closure proceeds without future blind-map-v6 exact contract/closure/producer and CLEAN review.",
+      "id": "F15_REVOKED_BLIND_MAP_AUTHORITY"
+    },
+    {
+      "condition": "Execution-window-v1 bytes are represented as current execution-window-v2, or v2 template/closure/review is sealed without exact bytes.",
+      "id": "F16_EXECUTION_WINDOW_VERSION_SUBSTITUTION"
+    },
+    {
+      "condition": "Runner-v2 public PREDECESSOR is mutable, differs from internal binding, is not exact-source rehashed/reservation-key bound, is caller-replaceable, or lacks fresh review.",
+      "id": "F17_PUBLIC_PREDECESSOR_IDENTITY"
+    },
+    {
+      "condition": "Claude-v8 OPEN review is promoted to CLEAN despite its closure descriptor mislabel, its exact OPEN history is rewritten, or final closure proceeds without future evidence-only Claude-v9 CLEAN.",
+      "id": "F18_CLAUDE_V8_OPEN_PROMOTION"
+    },
+    {
+      "condition": "Runner-v2 OPEN is promoted to CLEAN, mutable exported identity can split reservation keys, indeterminate process observation can permit takeover, the P0 checks_enabled schema finding is dropped, or final closure proceeds without runner-v3 CLEAN.",
+      "id": "F19_RUNNER_V2_OPEN_PROMOTION"
+    }
+  ],
+  "impact_class": "INERT_LOCAL_DESIGN_ONLY",
+  "mandatory_review_order": [
+    "schemas-v10.json",
+    "source-graph-v10.json",
+    "protocol-v10.json",
+    "acceptance-v10.json",
+    "architecture-v10.json",
+    "decision-v10.json"
+  ],
+  "mentor_initialization": "UNVERIFIED_CURRENT_HOST_EVENT_DIRECT_POLICY_FALLBACK_USED",
+  "no_implementation_or_activation": true,
+  "problem_benefit_cost": {
+    "benefit": "One frozen graph and falsifiable protocol prevent silent lineage gaps, provider-identity substitution, duplicate boundary effects, and false CLEAN promotion.",
+    "cost": "Local JSON/Python design artifacts and deterministic hashing only; no runtime edits or effects.",
+    "problem": "Runner-v2 OPEN confirms mutable key authority, unsafe liveness-UNKNOWN takeover, and preserved P0 schema drift; blind-map-v5 and Claude-v8 are also OPEN. Missing runner-v3/blind-map-v6/Claude-v9 CLEAN and execution-window-v2 bytes prevent final closure."
+  },
+  "review_questions": [
+    "Does the conditional schema exactly reject both confirmed impossible combinations at both projection sites?",
+    "Are provider bindings sealed and absent from caller input?",
+    "Does the graph enumerate every existing direct/transitive production and test consumer plus additive runner/Codex/Claude consumers?",
+    "Do crash/restart/STOP/UNKNOWN paths remain retained and no-replay?",
+    "Is P0-v9 CLEAN preserved rather than silently invalidated?",
+    "Can any closure/producer/review be sealed before consumer bytes stabilize?",
+    "Is blind-map-v5 historical CLEAN evidence preserved only as contradicted history under the exact 13-finding OPEN review, with blind-map-v6 CLEAN required final-closure-last?",
+    "Is execution-window-v1 only a predecessor, with execution-window-v2 exact bytes/review unresolved?",
+    "Does runner-v2 public PREDECESSOR have closed immutable identity, exact source rehash, reservation-key binding, caller-substitution denial, and future review?",
+    "Is CLEAN Codex-v6 treated strictly as an exact consumer input ready for closure-last, never as P0-v10 final authority?",
+    "Is Claude-v8 preserved exactly OPEN for descriptor mislabel despite technical parity PASS, with evidence-only Claude-v9 CLEAN required final-closure-last?",
+    "Is runner-v2 preserved exact OPEN for mutable key authority, liveness UNKNOWN takeover, and P0 schema drift, with runner-v3 CLEAN required final-closure-last?"
+  ],
+  "runner_adjudication": {
+    "future_gate": "RUNNER_V3_CLEAN_FINAL_CLOSURE_LAST",
+    "p0_schema_finding": "PRESERVED",
+    "v2_open_review": {
+      "bytes": 13206,
+      "finding_count": 3,
+      "findings": [
+        "OPEN-RUNNER-V2-MUTABLE-KEY-AUTHORITY-001",
+        "OPEN-RUNNER-V2-LIVENESS-UNKNOWN-002",
+        "OPEN-P0-V9-G3-SCHEMA-002"
+      ],
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-runner-v2-independent-review-fable-20261113-8e9a8076-open.json",
+      "sha256": "c2669dec8fd1e32f616a6d97ce1e75f6de9a736d106814db1c99f8328215cff1",
+      "verdict": "OPEN"
+    }
+  },
+  "status": "DESIGN_ONLY_PENDING_SUCCESSOR_BYTES_AND_INDEPENDENT_REVIEW",
+  "unresolved_pins": [
+    "p0_v10_contract_bytes_sha256",
+    "p0_v10_dq_attempt_schema_bytes_sha256",
+    "p0_v10_attempt_bundle_schema_bytes_sha256",
+    "p0_v10_runtime_source_and_test_bytes",
+    "p0_v10_behavioral_closure_bytes_sha256",
+    "p0_v10_final_source_closure_bytes_sha256",
+    "p0_v10_producer_verification_bytes_sha256",
+    "p0_v10_fresh_independent_review_bytes_sha256",
+    "runner_v3_contract_closure_producer_and_clean_review_bytes_sha256",
+    "runner_v2_orchestrator_rebind_bytes_sha256",
+    "claude_boundary_v9_evidence_only_contract_closure_producer_and_clean_review_bytes_sha256",
+    "execution_window_v2_final_grant_and_review_bytes_sha256",
+    "provider_and_human_authority_bytes_sha256",
+    "future_intended_runtime_acceptance_and_email_receipt",
+    "blind_map_v6_contract_closure_producer_and_clean_review_bytes_sha256",
+    "execution_window_v2_template_closure_and_review_bytes_sha256"
+  ],
+  "version": "r6-data-quality-attempt-envelope-v10-mentor-reviewable-design-20261112-1"
+}

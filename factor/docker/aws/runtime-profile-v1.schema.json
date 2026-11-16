@@ -1,0 +1,1223 @@
+{
+  "$defs": {
+    "checker": {
+      "additionalProperties": false,
+      "properties": {
+        "account": {
+          "const": "custody"
+        },
+        "active_access": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "aggregate_only": {
+          "const": true
+        },
+        "assign_public_ip": {
+          "const": false
+        },
+        "capabilities_drop": {
+          "const": [
+            "ALL"
+          ]
+        },
+        "capability_intent": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": true,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "command": {
+          "const": [
+            "factor-checker",
+            "recompute"
+          ]
+        },
+        "containers": {
+          "const": 1
+        },
+        "docker_socket": {
+          "const": false
+        },
+        "ecs_exec": {
+          "const": false
+        },
+        "endpoints": {
+          "const": [
+            "ecr.api",
+            "ecr.dkr",
+            "s3",
+            "logs",
+            "kms"
+          ]
+        },
+        "execution_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ipv6": {
+          "const": false
+        },
+        "name": {
+          "const": "checker"
+        },
+        "output_schema_id": {
+          "const": "factor-checker-aggregate-v1"
+        },
+        "platform_version": {
+          "const": "1.4.0"
+        },
+        "privileged": {
+          "const": false
+        },
+        "raw_joined_rows_output": {
+          "const": false
+        },
+        "read_only_root": {
+          "const": true
+        },
+        "redaction_policy_id": {
+          "const": "factor-no-sensitive-output-v1"
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "security_group_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sensitive_logging": {
+          "const": false
+        },
+        "stdout_policy": {
+          "const": "structured-sanitized-only"
+        },
+        "subnet_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "task_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user": {
+          "const": "65532:65532"
+        }
+      },
+      "required": [
+        "name",
+        "account",
+        "region",
+        "image",
+        "task_role_arn",
+        "execution_role_arn",
+        "subnet_ids",
+        "security_group_ids",
+        "assign_public_ip",
+        "ipv6",
+        "platform_version",
+        "containers",
+        "read_only_root",
+        "user",
+        "privileged",
+        "ecs_exec",
+        "capabilities_drop",
+        "docker_socket",
+        "endpoints",
+        "command",
+        "output_schema_id",
+        "redaction_policy_id",
+        "stdout_policy",
+        "raw_joined_rows_output",
+        "sensitive_logging",
+        "aggregate_only",
+        "capability_intent",
+        "active_access"
+      ],
+      "type": "object"
+    },
+    "controller": {
+      "additionalProperties": false,
+      "properties": {
+        "account": {
+          "const": "compute"
+        },
+        "active_access": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "aggregate_only": {
+          "const": false
+        },
+        "assign_public_ip": {
+          "const": false
+        },
+        "capabilities_drop": {
+          "const": [
+            "ALL"
+          ]
+        },
+        "capability_intent": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": true,
+            "publication": false
+          }
+        },
+        "command": {
+          "const": [
+            "factor-controller",
+            "run"
+          ]
+        },
+        "containers": {
+          "const": 1
+        },
+        "docker_socket": {
+          "const": false
+        },
+        "ecs_exec": {
+          "const": false
+        },
+        "endpoints": {
+          "const": [
+            "ecr.api",
+            "ecr.dkr",
+            "s3",
+            "logs",
+            "provider-proxy-internal"
+          ]
+        },
+        "execution_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ipv6": {
+          "const": false
+        },
+        "name": {
+          "const": "controller"
+        },
+        "output_schema_id": {
+          "const": "factor-controller-receipt-v1"
+        },
+        "platform_version": {
+          "const": "1.4.0"
+        },
+        "privileged": {
+          "const": false
+        },
+        "raw_joined_rows_output": {
+          "const": false
+        },
+        "read_only_root": {
+          "const": true
+        },
+        "redaction_policy_id": {
+          "const": "factor-no-sensitive-output-v1"
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "security_group_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sensitive_logging": {
+          "const": false
+        },
+        "stdout_policy": {
+          "const": "structured-sanitized-only"
+        },
+        "subnet_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "task_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user": {
+          "const": "65532:65532"
+        }
+      },
+      "required": [
+        "name",
+        "account",
+        "region",
+        "image",
+        "task_role_arn",
+        "execution_role_arn",
+        "subnet_ids",
+        "security_group_ids",
+        "assign_public_ip",
+        "ipv6",
+        "platform_version",
+        "containers",
+        "read_only_root",
+        "user",
+        "privileged",
+        "ecs_exec",
+        "capabilities_drop",
+        "docker_socket",
+        "endpoints",
+        "command",
+        "output_schema_id",
+        "redaction_policy_id",
+        "stdout_policy",
+        "raw_joined_rows_output",
+        "sensitive_logging",
+        "aggregate_only",
+        "capability_intent",
+        "active_access"
+      ],
+      "type": "object"
+    },
+    "evaluator": {
+      "additionalProperties": false,
+      "properties": {
+        "account": {
+          "const": "custody"
+        },
+        "active_access": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "aggregate_only": {
+          "const": true
+        },
+        "assign_public_ip": {
+          "const": false
+        },
+        "capabilities_drop": {
+          "const": [
+            "ALL"
+          ]
+        },
+        "capability_intent": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": true,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "command": {
+          "const": [
+            "factor-evaluator",
+            "aggregate"
+          ]
+        },
+        "containers": {
+          "const": 1
+        },
+        "docker_socket": {
+          "const": false
+        },
+        "ecs_exec": {
+          "const": false
+        },
+        "endpoints": {
+          "const": [
+            "ecr.api",
+            "ecr.dkr",
+            "s3",
+            "logs",
+            "kms"
+          ]
+        },
+        "execution_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ipv6": {
+          "const": false
+        },
+        "name": {
+          "const": "evaluator"
+        },
+        "output_schema_id": {
+          "const": "factor-evaluator-aggregate-v1"
+        },
+        "platform_version": {
+          "const": "1.4.0"
+        },
+        "privileged": {
+          "const": false
+        },
+        "raw_joined_rows_output": {
+          "const": false
+        },
+        "read_only_root": {
+          "const": true
+        },
+        "redaction_policy_id": {
+          "const": "factor-no-sensitive-output-v1"
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "security_group_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sensitive_logging": {
+          "const": false
+        },
+        "stdout_policy": {
+          "const": "structured-sanitized-only"
+        },
+        "subnet_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "task_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user": {
+          "const": "65532:65532"
+        }
+      },
+      "required": [
+        "name",
+        "account",
+        "region",
+        "image",
+        "task_role_arn",
+        "execution_role_arn",
+        "subnet_ids",
+        "security_group_ids",
+        "assign_public_ip",
+        "ipv6",
+        "platform_version",
+        "containers",
+        "read_only_root",
+        "user",
+        "privileged",
+        "ecs_exec",
+        "capabilities_drop",
+        "docker_socket",
+        "endpoints",
+        "command",
+        "output_schema_id",
+        "redaction_policy_id",
+        "stdout_policy",
+        "raw_joined_rows_output",
+        "sensitive_logging",
+        "aggregate_only",
+        "capability_intent",
+        "active_access"
+      ],
+      "type": "object"
+    },
+    "executor": {
+      "additionalProperties": false,
+      "properties": {
+        "account": {
+          "const": "compute"
+        },
+        "active_access": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "aggregate_only": {
+          "const": false
+        },
+        "assign_public_ip": {
+          "const": false
+        },
+        "capabilities_drop": {
+          "const": [
+            "ALL"
+          ]
+        },
+        "capability_intent": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "command": {
+          "const": [
+            "factor-executor",
+            "run"
+          ]
+        },
+        "containers": {
+          "const": 1
+        },
+        "docker_socket": {
+          "const": false
+        },
+        "ecs_exec": {
+          "const": false
+        },
+        "endpoints": {
+          "const": [
+            "ecr.api",
+            "ecr.dkr",
+            "s3",
+            "logs",
+            "dynamodb",
+            "kms"
+          ]
+        },
+        "execution_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ipv6": {
+          "const": false
+        },
+        "name": {
+          "const": "executor"
+        },
+        "output_schema_id": {
+          "const": "factor-executor-structural-v1"
+        },
+        "platform_version": {
+          "const": "1.4.0"
+        },
+        "privileged": {
+          "const": false
+        },
+        "raw_joined_rows_output": {
+          "const": false
+        },
+        "read_only_root": {
+          "const": true
+        },
+        "redaction_policy_id": {
+          "const": "factor-no-sensitive-output-v1"
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "security_group_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sensitive_logging": {
+          "const": false
+        },
+        "stdout_policy": {
+          "const": "structured-sanitized-only"
+        },
+        "subnet_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "task_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user": {
+          "const": "65532:65532"
+        }
+      },
+      "required": [
+        "name",
+        "account",
+        "region",
+        "image",
+        "task_role_arn",
+        "execution_role_arn",
+        "subnet_ids",
+        "security_group_ids",
+        "assign_public_ip",
+        "ipv6",
+        "platform_version",
+        "containers",
+        "read_only_root",
+        "user",
+        "privileged",
+        "ecs_exec",
+        "capabilities_drop",
+        "docker_socket",
+        "endpoints",
+        "command",
+        "output_schema_id",
+        "redaction_policy_id",
+        "stdout_policy",
+        "raw_joined_rows_output",
+        "sensitive_logging",
+        "aggregate_only",
+        "capability_intent",
+        "active_access"
+      ],
+      "type": "object"
+    },
+    "publisher": {
+      "additionalProperties": false,
+      "properties": {
+        "account": {
+          "const": "custody"
+        },
+        "active_access": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": false,
+            "publication": false
+          }
+        },
+        "aggregate_only": {
+          "const": false
+        },
+        "assign_public_ip": {
+          "const": false
+        },
+        "capabilities_drop": {
+          "const": [
+            "ALL"
+          ]
+        },
+        "capability_intent": {
+          "const": {
+            "kms_sign": false,
+            "protected_labels": false,
+            "provider_proxy": false,
+            "publication": true
+          }
+        },
+        "command": {
+          "const": [
+            "factor-publisher",
+            "append"
+          ]
+        },
+        "containers": {
+          "const": 1
+        },
+        "docker_socket": {
+          "const": false
+        },
+        "ecs_exec": {
+          "const": false
+        },
+        "endpoints": {
+          "const": [
+            "ecr.api",
+            "ecr.dkr",
+            "s3",
+            "logs",
+            "states"
+          ]
+        },
+        "execution_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ipv6": {
+          "const": false
+        },
+        "name": {
+          "const": "publisher"
+        },
+        "output_schema_id": {
+          "const": "factor-publication-catalog-v1"
+        },
+        "platform_version": {
+          "const": "1.4.0"
+        },
+        "privileged": {
+          "const": false
+        },
+        "raw_joined_rows_output": {
+          "const": false
+        },
+        "read_only_root": {
+          "const": true
+        },
+        "redaction_policy_id": {
+          "const": "factor-no-sensitive-output-v1"
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "security_group_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sensitive_logging": {
+          "const": false
+        },
+        "stdout_policy": {
+          "const": "structured-sanitized-only"
+        },
+        "subnet_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "task_role_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user": {
+          "const": "65532:65532"
+        }
+      },
+      "required": [
+        "name",
+        "account",
+        "region",
+        "image",
+        "task_role_arn",
+        "execution_role_arn",
+        "subnet_ids",
+        "security_group_ids",
+        "assign_public_ip",
+        "ipv6",
+        "platform_version",
+        "containers",
+        "read_only_root",
+        "user",
+        "privileged",
+        "ecs_exec",
+        "capabilities_drop",
+        "docker_socket",
+        "endpoints",
+        "command",
+        "output_schema_id",
+        "redaction_policy_id",
+        "stdout_policy",
+        "raw_joined_rows_output",
+        "sensitive_logging",
+        "aggregate_only",
+        "capability_intent",
+        "active_access"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "factor-aws-fargate-profile-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accounts": {
+      "additionalProperties": false,
+      "properties": {
+        "compute": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "custody": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "recovery": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "compute",
+        "custody",
+        "recovery"
+      ],
+      "type": "object"
+    },
+    "activation": {
+      "const": {
+        "account_receipt_sha256": null,
+        "image_receipt_sha256": null,
+        "label_policy_receipt_sha256": null,
+        "network_receipt_sha256": null,
+        "production_retention_lock": false,
+        "protected_labels": false,
+        "publication": false,
+        "publication_policy_receipt_sha256": null,
+        "runtime_invocation": false
+      }
+    },
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "controls": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "kind": {
+      "const": "factor_aws_fargate_profile"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "network": {
+      "const": {
+        "controller": {
+          "private_ipv4": true,
+          "provider_proxy_only": true,
+          "public_ip": false
+        },
+        "custody": {
+          "label_bucket_endpoint_only": true,
+          "private_ipv4": true,
+          "public_ip": false
+        },
+        "executor": {
+          "default_egress": false,
+          "endpoint_only": true,
+          "internet_gateway": false,
+          "ipv6": false,
+          "nat_gateway": false,
+          "private_ipv4": true,
+          "public_ip": false
+        }
+      }
+    },
+    "platform": {
+      "const": {
+        "cpu_architectures": [
+          "X86_64",
+          "ARM64"
+        ],
+        "launch_type": "FARGATE",
+        "os": "LINUX",
+        "platform_version": "1.4.0"
+      }
+    },
+    "profile_id": {
+      "const": "factor-aws-fargate-v1"
+    },
+    "regions": {
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "recovery": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "primary",
+        "recovery"
+      ],
+      "type": "object"
+    },
+    "resources": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoint_bucket_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dataset_kms_key_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dynamodb_table_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ecr_layer_bucket_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ecr_repository_arns": {
+          "additionalProperties": false,
+          "properties": {
+            "checker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "controller": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evaluator": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "executor": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "publisher": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "controller",
+            "executor",
+            "evaluator",
+            "checker",
+            "publisher"
+          ],
+          "type": "object"
+        },
+        "label_bucket_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "label_kms_key_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "label_object_version_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "log_group_arns": {
+          "additionalProperties": false,
+          "properties": {
+            "checker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "controller": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evaluator": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "executor": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "publisher": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "controller",
+            "executor",
+            "evaluator",
+            "checker",
+            "publisher"
+          ],
+          "type": "object"
+        },
+        "provider_proxy_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publication_state_machine_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "release_bucket_arn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "vpc_endpoint_ids": {
+          "additionalProperties": false,
+          "properties": {
+            "dynamodb": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "ecr_api": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "ecr_dkr": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "kms": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "logs": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provider_proxy": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "s3": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "states": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "ecr_api",
+            "ecr_dkr",
+            "s3",
+            "logs",
+            "dynamodb",
+            "kms",
+            "states",
+            "provider_proxy"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "ecr_repository_arns",
+        "log_group_arns",
+        "vpc_endpoint_ids",
+        "ecr_layer_bucket_arn",
+        "checkpoint_bucket_arn",
+        "label_bucket_arn",
+        "release_bucket_arn",
+        "dynamodb_table_arn",
+        "dataset_kms_key_arn",
+        "label_kms_key_arn",
+        "provider_proxy_arn",
+        "publication_state_machine_arn",
+        "label_object_version_id"
+      ],
+      "type": "object"
+    },
+    "runnable": {
+      "const": false
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "selected-disabled",
+        "synthetic-fixture"
+      ]
+    },
+    "tasks": {
+      "additionalProperties": false,
+      "properties": {
+        "checker": {
+          "$ref": "#/$defs/checker"
+        },
+        "controller": {
+          "$ref": "#/$defs/controller"
+        },
+        "evaluator": {
+          "$ref": "#/$defs/evaluator"
+        },
+        "executor": {
+          "$ref": "#/$defs/executor"
+        },
+        "publisher": {
+          "$ref": "#/$defs/publisher"
+        }
+      },
+      "required": [
+        "controller",
+        "executor",
+        "evaluator",
+        "checker",
+        "publisher"
+      ],
+      "type": "object"
+    },
+    "trust_class": {
+      "enum": [
+        "candidate_real",
+        "synthetic_fixture"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "profile_id",
+    "status",
+    "runnable",
+    "trust_class",
+    "platform",
+    "accounts",
+    "regions",
+    "activation",
+    "resources",
+    "network",
+    "tasks",
+    "controls",
+    "blockers",
+    "limitations"
+  ],
+  "type": "object"
+}

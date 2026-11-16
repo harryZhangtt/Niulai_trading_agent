@@ -1,0 +1,27 @@
+.list { min-width: 0; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); overflow: hidden; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px; border-bottom: 1px solid var(--border); }
+.heading h2 { margin: 0; color: var(--ink); font-size: 1rem; font-weight: 550; }
+.heading > span { color: var(--muted); font-size: .82rem; font-variant-numeric: tabular-nums; }
+.controls { padding: 18px 20px; border-bottom: 1px solid var(--border); display: grid; gap: 14px; background: var(--surface-subtle); }
+.controls label { display: grid; gap: 7px; font-size: .8rem; font-weight: 500; color: var(--muted); }
+.controls input, .controls select { min-width: 0; width: 100%; min-height: 44px; background: var(--surface); color: var(--ink); border: 1px solid var(--control-border); border-radius: 9px; }
+.controls input::placeholder { color: var(--muted); }
+.controls p { margin: 0; font-size: .78rem; color: var(--muted); }
+.list ul { margin: 0; padding: 0; list-style: none; }
+.list li + li { border-top: 1px solid var(--border); }
+.list li > button { width: 100%; display: grid; gap: 10px; padding: 20px; border: 0; background: var(--surface); color: var(--ink); text-align: start; cursor: pointer; min-width: 0; transition: background-color 160ms ease; }
+.list li > button:hover { background: var(--surface-subtle); }
+.list li > button:focus-visible { outline: 2px solid var(--blue); outline-offset: -4px; }
+.list li > button[aria-pressed='true'] { background: var(--blue-tint); }
+.meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: start; gap: 8px 12px; font-size: .74rem; color: var(--muted); }
+.title { display: flex; align-items: start; justify-content: space-between; gap: 12px; font-size: .91rem; line-height: 1.55; font-weight: 550; overflow-wrap: anywhere; }
+.title svg { flex: 0 0 auto; margin-top: 3px; color: var(--muted); }
+.list time, .gate { color: var(--muted); font-size: .79rem; line-height: 1.6; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .controls input, .controls select { font-size: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .list li > button { transition: none; } }
+@media (forced-colors: active) { .list, .controls, .list li + li { border-color: CanvasText; } .list li > button[aria-pressed='true'] { outline: 1px solid Highlight; outline-offset: -2px; } }
+@media (max-width: 760px) {
+  .controls label, .controls p, .meta, .list time, .gate { font-size: 14px; }
+  .controls input, .controls select { font-size: 16px; }
+  .list :global(.badge) { font-size: 14px; }
+}

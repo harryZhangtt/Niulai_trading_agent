@@ -1,0 +1,1 @@
+{"campaign_id":"R7","gateway_disposition":"rejected_before_forward","terminal_disposition":"absent","http_status":502,"upstream_forward_count":0,"submission":"not_submitted","typed_transient":true,"retry_after_seconds":30,"request_ordinal":1,"expected_route":"R7","expected_status":"retry_wait"}

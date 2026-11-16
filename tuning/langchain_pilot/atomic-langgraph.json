@@ -1,0 +1,8 @@
+{
+  "dependencies": ["../.."],
+  "graphs": {
+    "calculator": "tuning.langchain_pilot.atomic:calculator_graph",
+    "trading_pilot": "tuning.langchain_pilot.atomic:session_graph",
+    "holdings": "tuning.langchain_pilot.atomic:holdings_graph"
+  }
+}

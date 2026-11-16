@@ -1,0 +1,56 @@
+{
+  "activation": false,
+  "allowed_claim": "Additive provider-free v7 source, schemas, authority ledger, recursive closure, and producer tests pass; fresh independent review and major-runtime acceptance remain pending.",
+  "architecture": {
+    "bytes": 2422,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/architecture-v7.json",
+    "sha256": "b92f806f542015f458ee7cfd950c5ae719295abc70be538b67b21d697e637b77"
+  },
+  "artifact_type": "decision",
+  "countable": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "bytedcli": 0,
+    "email": 0,
+    "host_activation": 0,
+    "live": 0,
+    "login": 0,
+    "non_loopback_network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "history_disposition": "v1-v6 source/evidence/reviews remain byte-preserved OPEN or contradicted history; no earlier PASS claim is promoted",
+  "lineage": {
+    "bytes": 1002,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/lineage-v7.json",
+    "sha256": "6a3c358006dd185e91ef3889c5bc17a1ec2cbb49fa52a89c09a1eb2b77d65990"
+  },
+  "protocol": {
+    "bytes": 3588,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/protocol-v7.json",
+    "sha256": "d27467e10e04ac0529469b3f5c829afb33fd63886d1e2a634d863cdc24372a7e"
+  },
+  "registration": false,
+  "runtime_acceptance": {
+    "email": "PENDING",
+    "execution": "PENDING"
+  },
+  "source_closure": {
+    "artifact_count": 33,
+    "bytes": 8319,
+    "path": "tuning/architecture/r6_one_off_claude_live_integration_v7/source-closure-v7.json",
+    "sha256": "8e04fa3601b1b6fcf9e1419572501465c006bb824d07cd82861d9a0aaf134750"
+  },
+  "status": "OPEN_PROVIDER_FREE_V7_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "test_totals": {
+    "errors": 0,
+    "failures": 0,
+    "preserved_v5_methods": 16,
+    "preserved_v6_methods": 17,
+    "shared_evidence_methods": 15,
+    "v7_methods": 12
+  },
+  "verdict": "PROVIDER_FREE_V7_PRODUCER_TESTS_PASS_NOT_LIVE_ACCEPTANCE",
+  "version": 7
+}

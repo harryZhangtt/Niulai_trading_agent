@@ -1,0 +1,154 @@
+{
+  "$id": "https://local.invalid/p0-output-v7.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "PASS"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "cell_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "engine_provider": {
+            "const": "claude_host"
+          },
+          "engine_readback_digest": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "UNKNOWN"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "cell_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "engine_provider": {
+            "const": null
+          },
+          "engine_readback_digest": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "STOP"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "cell_id": {
+            "const": null
+          },
+          "engine_provider": {
+            "const": null
+          },
+          "engine_readback_digest": {
+            "const": null
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "cell_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "engine_provider": {
+      "enum": [
+        "claude_host",
+        null
+      ]
+    },
+    "engine_readback_digest": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "path_included": {
+      "const": false
+    },
+    "post_run_seal_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "raw_included": {
+      "const": false
+    },
+    "replay_allowed": {
+      "const": false
+    },
+    "schema": {
+      "const": "r6-one-off-claude-live-integration-v7"
+    },
+    "secret_included": {
+      "const": false
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "STOP",
+        "UNKNOWN"
+      ]
+    },
+    "version": {
+      "const": 7
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "cell_id",
+    "status",
+    "engine_provider",
+    "engine_readback_digest",
+    "post_run_seal_sha256",
+    "raw_included",
+    "path_included",
+    "secret_included",
+    "replay_allowed"
+  ],
+  "type": "object"
+}

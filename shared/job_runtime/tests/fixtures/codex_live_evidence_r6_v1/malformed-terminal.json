@@ -1,0 +1,1 @@
+{"fixture_kind":"synthetic-only","scenario":"malformed_terminal","observation":{"terminal_status":7,"process_exit":"bad","output":[]}}

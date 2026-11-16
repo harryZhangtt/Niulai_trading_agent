@@ -1,0 +1,111 @@
+COMMAND={"argv":["/usr/bin/python3","-W","error::ResourceWarning","-m","unittest","-v","shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging"],"cwd":"/Users/bytedance/Desktop/Trading Agent","duration_seconds":6.692914,"ended_at":"2026-11-11T08:40:29.665757+00:00","env_overrides":{"PYTHONDONTWRITEBYTECODE":"1"},"python_version":"Python 3.9.6","returncode":0,"started_at":"2026-11-11T08:40:22.972865+00:00"}
+STDOUT_BEGIN
+STDOUT_END
+STDERR_BEGIN
+test_custody_rejects_reopen_unknown_symlink_hardlink_sidecar_extra_and_malformed (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.BudgetTests) ... ok
+test_whitelist_caps_off_before_on_one_shot_nonce_and_bindings (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.BudgetTests) ... ok
+test_active_repository_state_unchanged_and_no_active_names (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_crash_after_claim_reopen_blocks_replay_and_prompt_tamper (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_descriptor_ancestor_and_full_inventory_mutations_fail_closed (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_dual_prompt_and_root_physical_closure (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_exhaustive_namespace_presence_classifier (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_frozen_source_closure_and_review_pending (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_isolated_materialized_root_e2e_matrix (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_materializer_physical_ledger_reuse_and_identity_bound_rollback (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_rollback_process_death_recovery_and_strict_journal (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+test_schema2_cas_engine_and_concurrent_reopen_dispatch_boundary (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 6.585s
+
+OK
+STDERR_END
+COMMAND={"argv":["/Users/bytedance/Desktop/Trading Agent/.job-runtime/python/cpython-3.12.16-macos-aarch64-none/bin/python3.12","-W","error::ResourceWarning","-m","unittest","-v","shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging"],"cwd":"/Users/bytedance/Desktop/Trading Agent","duration_seconds":6.178711,"ended_at":"2026-11-11T08:40:35.857680+00:00","env_overrides":{"PYTHONDONTWRITEBYTECODE":"1"},"python_version":"Python 3.12.16","returncode":0,"started_at":"2026-11-11T08:40:29.679100+00:00"}
+STDOUT_BEGIN
+STDOUT_END
+STDERR_BEGIN
+test_custody_rejects_reopen_unknown_symlink_hardlink_sidecar_extra_and_malformed (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.BudgetTests.test_custody_rejects_reopen_unknown_symlink_hardlink_sidecar_extra_and_malformed) ... ok
+test_whitelist_caps_off_before_on_one_shot_nonce_and_bindings (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.BudgetTests.test_whitelist_caps_off_before_on_one_shot_nonce_and_bindings) ... ok
+test_active_repository_state_unchanged_and_no_active_names (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_active_repository_state_unchanged_and_no_active_names) ... ok
+test_crash_after_claim_reopen_blocks_replay_and_prompt_tamper (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_crash_after_claim_reopen_blocks_replay_and_prompt_tamper) ... ok
+test_descriptor_ancestor_and_full_inventory_mutations_fail_closed (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_descriptor_ancestor_and_full_inventory_mutations_fail_closed) ... ok
+test_dual_prompt_and_root_physical_closure (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_dual_prompt_and_root_physical_closure) ... ok
+test_exhaustive_namespace_presence_classifier (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_exhaustive_namespace_presence_classifier) ... ok
+test_frozen_source_closure_and_review_pending (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_frozen_source_closure_and_review_pending) ... ok
+test_isolated_materialized_root_e2e_matrix (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_isolated_materialized_root_e2e_matrix) ... ok
+test_materializer_physical_ledger_reuse_and_identity_bound_rollback (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_materializer_physical_ledger_reuse_and_identity_bound_rollback) ... ok
+test_rollback_process_death_recovery_and_strict_journal (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_rollback_process_death_recovery_and_strict_journal) ... ok
+test_schema2_cas_engine_and_concurrent_reopen_dispatch_boundary (shared.job_runtime.tests.candidates.r6_data_quality_fable_provider_free_staging_v1.test_staging.StagingTests.test_schema2_cas_engine_and_concurrent_reopen_dispatch_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 6.039s
+
+OK
+STDERR_END
+COMMAND={"argv":["/usr/bin/python3","-W","error::ResourceWarning","-m","unittest","-v","shared.job_runtime.tests.test_prompt_custody","shared.job_runtime.tests.test_engine","shared.job_runtime.tests.test_operator_setup"],"cwd":"/Users/bytedance/Desktop/Trading Agent","duration_seconds":1.34745,"ended_at":"2026-11-11T08:40:37.218636+00:00","env_overrides":{"PYTHONDONTWRITEBYTECODE":"1"},"python_version":"Python 3.9.6","returncode":0,"started_at":"2026-11-11T08:40:35.871227+00:00"}
+STDOUT_BEGIN
+STDOUT_END
+STDERR_BEGIN
+test_capture_detects_mutation_even_with_size_and_mtime_restored (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_capture_publish_open_nominal_and_exact_modes (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_capture_rejects_path_modes_owner_types_utf8_size_and_links (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_capture_rejects_symlink_leaf_and_ancestor_swap (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_capture_requires_explicit_trailing_eof (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_contracts_are_frozen_redacted_and_path_free (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_created_directories_are_fsynced (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_existing_collision_corruption_and_nlink_fail_closed (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_gc_delete_unavailable_precedes_all_store_or_database_work (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_gc_dry_run_grace_and_delete_unavailable (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_gc_lock_contention_is_bounded_and_fixed_code (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_gc_rejects_corrupt_newer_missing_schema_and_unknown_store_entries (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_gc_rejects_schema_drift_and_unknown_status_database_rows (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_gc_requires_identical_double_mark (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_gc_retains_running_unknown_retry_and_reconciliation_attempts (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_gc_uses_escaped_mutable_database_uri_and_rejects_catalog_conflict (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_lease_bounds_close_and_control_exception (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_lease_detects_replace_truncate_and_growth (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_publish_fsync_link_and_unlink_failures_are_fixed_codes (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_publish_handles_short_writes (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_publish_is_idempotent_and_concurrent (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_publish_lock_and_failure_cleanup (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_publish_post_fsync_rechecks_nlink_and_shard_identity (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_rejected_intermediate_directory_fd_is_closed (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_workspace_binding_permissions_and_raw_path_ambiguity (shared.job_runtime.tests.test_prompt_custody.PromptCustodyTests) ... ok
+test_ambiguous_dst_wall_time_executes_once_and_nonexistent_is_missed (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_competing_processes_cannot_overlap_same_job (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_daily_first_wake_records_today_missed_and_admits_only_in_grace (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_daily_new_york_dst_keeps_wall_clock_slot (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_delivery_reconciliation_is_idempotent_and_conflicting_evidence_rejected (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_delivery_reconciliation_receipt_is_bounded_by_utf8_bytes (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_delivery_reconciliation_rejects_cycles_and_1500_level_receipts (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_disabled_job_and_clock_reversal_do_not_dispatch (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_duplicate_tick_and_second_process_cannot_dispatch_completed_slot (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_explicit_safe_error_retries_bounded_with_persisted_backoff (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_independent_delivery_reconciliation_preserves_failed_attempt_and_never_redispatches (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_independent_jobs_dispatch_concurrently_with_central_limit (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_interval_outage_is_coalesced_not_replayed_as_many_calls (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_manual_reconciliation_receipts_use_strict_json_byte_bounds (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_manual_reconciliation_rejects_cycles_and_1500_level_receipts (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_non_replay_safe_job_is_never_automatically_retried (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_one_time_wake_not_early_and_never_repeated (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_private_paths_and_schedule_mutation_fail_closed (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_receipts_reject_non_finite_json_and_bound_utf8_bytes (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_recursive_and_deep_receipts_fail_without_leaving_attempt_running (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_restart_recovery_never_releases_unknown_for_blind_retry (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_shared_resources_queue_without_claim_or_retry_while_independent_group_runs (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_success_requires_external_dispatch_receipt (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_unknown_exception_blocks_later_slots_until_operator_reconciles (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_unrelated_failure_or_incomplete_transport_cannot_be_promoted (shared.job_runtime.tests.test_engine.EngineTests) ... ok
+test_atomic_add_and_enable_never_open_database (shared.job_runtime.tests.test_operator_setup.OperatorSetupTests) ... ok
+test_bootstrap_rejects_replaced_interpreter_and_malformed_receipt (shared.job_runtime.tests.test_operator_setup.OperatorSetupTests) ... ok
+test_bootstrap_uses_workspace_local_commands_and_receipt (shared.job_runtime.tests.test_operator_setup.OperatorSetupTests) ... ok
+test_claude_is_primary_schema2_setup_and_repeat_preserves_bytes (shared.job_runtime.tests.test_operator_setup.OperatorSetupTests) ... ok
+test_host_materializer_copies_no_credentials_or_links (shared.job_runtime.tests.test_operator_setup.OperatorSetupTests) ... ok
+test_host_materializer_keeps_mixed_provider_auth_homes_separate (shared.job_runtime.tests.test_operator_setup.OperatorSetupTests) ... ok
+test_host_materializer_rejects_traversal_and_stale_deployment (shared.job_runtime.tests.test_operator_setup.OperatorSetupTests) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 1.255s
+
+OK
+STDERR_END

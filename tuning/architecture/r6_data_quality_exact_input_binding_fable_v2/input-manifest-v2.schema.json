@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "r6-data-quality-exact-input-manifest-v2.schema.json",
+  "title": "R6 four-cell path-bound exact current input manifest v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "status", "current_as_of", "authority", "common_binding", "cell_bindings", "semantic_audit", "unresolved_pins", "dependencies", "countable", "effects"],
+  "properties": {
+    "version": {"const": "r6-data-quality-exact-input-manifest-v2"},
+    "status": {"const": "CURRENT_PATH_BOUND_REHASHED_PROVIDER_FREE_NONCOUNTABLE"},
+    "current_as_of": {"const": "2026-11-11"},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_root", "allowed_root_component_modes", "source_kind", "rehash_required", "stale_snapshot_excluded", "v1_disposition"],
+      "properties": {
+        "allowed_root": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107"},
+        "allowed_root_component_modes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mentor", "mentor/runtime", "mentor/runtime/scheduler-midresponse-recovery-20261107"],
+          "properties": {
+            "mentor": {"const": "0755"},
+            "mentor/runtime": {"const": "0755"},
+            "mentor/runtime/scheduler-midresponse-recovery-20261107": {"const": "0700"}
+          }
+        },
+        "source_kind": {"const": "EXACT_NORMALIZED_PATH_AND_CONTENT_AUTHORITY"},
+        "rehash_required": {"const": true},
+        "stale_snapshot_excluded": {"const": "runtime/data-quality-r6-window-20261111-v1/snapshot-and-first-evidence.json"},
+        "v1_disposition": {"const": "OPEN_HISTORY_PRESERVED_UNCHANGED"}
+      }
+    },
+    "common_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical_utf8_bytes", "canonical_sha256", "identity"],
+      "properties": {
+        "canonical_utf8_bytes": {"const": 2417},
+        "canonical_sha256": {"const": "4a3e3ecc0aec340d3e7d760c70a4671878f77f1a23348d5a520425e417bf24ec"},
+        "identity": {"$ref": "#/$defs/commonIdentity"}
+      }
+    },
+    "cell_bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["R6DQ-7F2C91A4", "R6DQ-1B8E43D7", "R6DQ-C4A7095E", "R6DQ-92D6F0B3"],
+      "properties": {
+        "R6DQ-7F2C91A4": {"$ref": "#/$defs/cellBinding"},
+        "R6DQ-1B8E43D7": {"$ref": "#/$defs/cellBinding"},
+        "R6DQ-C4A7095E": {"$ref": "#/$defs/cellBinding"},
+        "R6DQ-92D6F0B3": {"$ref": "#/$defs/cellBinding"}
+      }
+    },
+    "semantic_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["research_case_suitable", "official_sources_only", "cutoff_exact", "no_identity_treatment_or_order_leakage", "no_locator_leakage", "no_private_or_internal_source_dependency", "rubric_measures_data_quality", "thresholds_measure_data_quality", "no_financial_return_metric", "no_specific_provider_preference"],
+      "properties": {
+        "research_case_suitable": {"const": true},
+        "official_sources_only": {"const": true},
+        "cutoff_exact": {"const": true},
+        "no_identity_treatment_or_order_leakage": {"const": true},
+        "no_locator_leakage": {"const": true},
+        "no_private_or_internal_source_dependency": {"const": true},
+        "rubric_measures_data_quality": {"const": true},
+        "thresholds_measure_data_quality": {"const": true},
+        "no_financial_return_metric": {"const": true},
+        "no_specific_provider_preference": {"const": true}
+      }
+    },
+    "unresolved_pins": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/pendingPin"}},
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["network", "account", "private_state", "bytedcli", "external_python_packages"],
+      "properties": {"network": {"const": false}, "account": {"const": false}, "private_state": {"const": false}, "bytedcli": {"const": false}, "external_python_packages": {"const": false}}
+    },
+    "countable": {"const": false},
+    "effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "network", "account", "private_state", "email", "business", "host", "scheduler"],
+      "properties": {"provider": {"const": false}, "network": {"const": false}, "account": {"const": false}, "private_state": {"const": false}, "email": {"const": false}, "business": {"const": false}, "host": {"const": false}, "scheduler": {"const": false}}
+    }
+  },
+  "$defs": {
+    "payloadRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "normalized_path", "mode", "bytes", "sha256", "content_sha256", "prompt_utf8_bytes", "prompt_sha256"],
+      "properties": {
+        "path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json"},
+        "normalized_path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-payload-v1.json"},
+        "mode": {"const": "0644"}, "bytes": {"const": 2065},
+        "sha256": {"const": "26d9a937f50dc22dade3251831e7860b4a7188c3001d5717ed4aac4d4ccac01a"},
+        "content_sha256": {"const": "b1941934d2aa879c52e42bbce5b2d0c49001732342aa5f6b25f1dc6c66b2cd5c"},
+        "prompt_utf8_bytes": {"const": 526},
+        "prompt_sha256": {"const": "3c75beab1bca33029e8de266e36468543d5d3ef2910916d66cc7c4d9bbc0df6b"}
+      }
+    },
+    "cutoffRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "normalized_path", "mode", "bytes", "sha256", "content_sha256", "cutoff_at"],
+      "properties": {
+        "path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json"},
+        "normalized_path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-source-cutoff-v1.json"},
+        "mode": {"const": "0644"}, "bytes": {"const": 1044},
+        "sha256": {"const": "32f28a6cea0b1053321a52782abe40d6fd8a2d58b95bb954f90794ec5b733072"},
+        "content_sha256": {"const": "2c4f69d233e90b7047dbf23d70167a5e4d59366a4d83ea1a1aa959ec06633f9c"},
+        "cutoff_at": {"const": "2026-11-09T00:00:00Z"}
+      }
+    },
+    "rubricRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "normalized_path", "mode", "bytes", "sha256", "content_sha256"],
+      "properties": {
+        "path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json"},
+        "normalized_path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-rubric.json"},
+        "mode": {"const": "0600"}, "bytes": {"const": 2259},
+        "sha256": {"const": "81069b2ce57f30e56d70e7a2edd4672991838ebce1e2369b48effb8adde53d8f"},
+        "content_sha256": {"const": "35c155ab610cdc8bb6dc9ea639fce16ca51256b5703b99d0849279831685f790"}
+      }
+    },
+    "thresholdsRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "normalized_path", "mode", "bytes", "sha256", "content_sha256"],
+      "properties": {
+        "path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json"},
+        "normalized_path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-thresholds-v2.json"},
+        "mode": {"const": "0644"}, "bytes": {"const": 3597},
+        "sha256": {"const": "41bbb8c07c26aadb9fe0e795b1ac8e5d3a17c88d60cba77692845b135dd4b95b"},
+        "content_sha256": {"const": "98ca21509f9a920f42fa79bda31696023422575d49040070c696519183e1d8e9"}
+      }
+    },
+    "schemaRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "normalized_path", "mode", "bytes", "sha256", "content_sha256"],
+      "properties": {
+        "path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json"},
+        "normalized_path": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107/schema9-isolated-canary-q1-ab-evidence-schema.json"},
+        "mode": {"const": "0600"}, "bytes": {"const": 1876},
+        "sha256": {"const": "8f28c800b70c968af9ee02ec8ddbd897d33a253474273d20e7f9f5b4868b74d5"},
+        "content_sha256": {"const": "cafbfe18e695e4dfa2ff9bf2cfab0d0b29ff89c8e58a34bf3c42f8c9a6676f9c"}
+      }
+    },
+    "commonIdentity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["allowed_root", "artifacts"],
+      "properties": {
+        "allowed_root": {"const": "mentor/runtime/scheduler-midresponse-recovery-20261107"},
+        "artifacts": {
+          "type": "object", "additionalProperties": false,
+          "required": ["payload", "source_cutoff", "rubric", "thresholds", "evaluation_schema"],
+          "properties": {"payload": {"$ref": "#/$defs/payloadRef"}, "source_cutoff": {"$ref": "#/$defs/cutoffRef"}, "rubric": {"$ref": "#/$defs/rubricRef"}, "thresholds": {"$ref": "#/$defs/thresholdsRef"}, "evaluation_schema": {"$ref": "#/$defs/schemaRef"}}
+        }
+      }
+    },
+    "cellBinding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["canonical_utf8_bytes", "canonical_sha256", "identity"],
+      "properties": {"canonical_utf8_bytes": {"const": 2417}, "canonical_sha256": {"const": "4a3e3ecc0aec340d3e7d760c70a4671878f77f1a23348d5a520425e417bf24ec"}, "identity": {"$ref": "#/$defs/commonIdentity"}}
+    },
+    "pendingPin": {
+      "type": "object", "additionalProperties": false,
+      "required": ["pin", "status", "required_before"],
+      "properties": {"pin": {"enum": ["tool_roster", "time_window", "final_grants"]}, "status": {"const": "PENDING_NOT_AUTHORIZED_OR_SEALED"}, "required_before": {"const": "ANY_LIVE_OR_COUNTABLE_CELL"}}
+    }
+  }
+}

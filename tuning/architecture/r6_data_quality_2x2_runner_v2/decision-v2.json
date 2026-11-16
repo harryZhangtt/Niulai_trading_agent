@@ -1,0 +1,60 @@
+{
+  "activation": false,
+  "allowed_claim": "producer-side provider-free evidence shows the additive v2 reservation prevents the reproduced duplicate first boundary and fences crash uncertainty; independent review and all named gates remain pending",
+  "basis": {
+    "architecture": {
+      "bytes": 4563,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/architecture-v2.json",
+      "sha256": "e04f9bc38c1e761b192988d8b408902b89ab30305751242c414f74f16d4f730d"
+    },
+    "first_boundary_count": "<=1 in true two-process competing-start test",
+    "pinned_v1_regression": "19/19 OK with 2 environment skips because jsonschema is unavailable",
+    "producer_v2_suite": "14/14 PASS",
+    "protocol": {
+      "bytes": 3526,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/protocol-v2.json",
+      "sha256": "ba6ef754f12595dc618c496720b749e1911a2103c0a2a49792d547b6adbeaa6f"
+    },
+    "reproduced_finding": "OPEN-RUNNER-V8-CONCURRENCY-001",
+    "source_closure": {
+      "bytes": 4729,
+      "path": "tuning/architecture/r6_data_quality_2x2_runner_v2/source-closure-v2.json",
+      "sha256": "106dc605648f385e5ec0431957f190fd51915462801059cff8898ee6e160b889"
+    }
+  },
+  "countable": false,
+  "decision": "ACCEPT_ADDITIVE_PROVIDER_FREE_CONCURRENCY_RECLOSURE_CANDIDATE_ONLY",
+  "effects": {
+    "account": false,
+    "business": false,
+    "bytedcli": false,
+    "email": false,
+    "host": false,
+    "network": false,
+    "private_live_state": false,
+    "provider": false,
+    "scheduler": false
+  },
+  "forbidden_claims": [
+    "final CLEAN",
+    "P0 v10 complete",
+    "all runner findings closed",
+    "live authority",
+    "countable cells",
+    "provider execution",
+    "orchestrator integration",
+    "scheduler/email/runtime acceptance"
+  ],
+  "generated_at_utc": "2026-11-12T01:19:07Z",
+  "history_disposition": "runner-v8 review and evidence remain exact OPEN history; no predecessor is rewritten, superseded to CLEAN, or promoted",
+  "registered": false,
+  "status": "P0_V10_RECLOSURE_REQUIRED",
+  "unresolved": {
+    "OPEN-P0-V9-G3-SCHEMA-002": "P0_V10_REQUIRED",
+    "fresh_independent_review": "PENDING",
+    "intended_runtime_acceptance": "NOT_RUN_NO_ACTIVATION",
+    "orchestrator_rebind": "PENDING",
+    "remaining_runner_findings": "PENDING_ADJUDICATION_NOT_DISPROVED"
+  },
+  "version": "r6-data-quality-2x2-runner-decision-v2"
+}

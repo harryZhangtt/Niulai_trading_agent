@@ -1,0 +1,130 @@
+{
+  "activation": false,
+  "allowed_claim": "Exact disabled provider-free source closure and ignored runtime commitment evidence only; no activation, countability, live result, or provider/add-on conclusion.",
+  "countable": false,
+  "effects": {
+    "account": 0,
+    "business": 0,
+    "credential": 0,
+    "email": 0,
+    "host": 0,
+    "live": 0,
+    "network": 0,
+    "provider": 0,
+    "scheduler": 0
+  },
+  "excluded": [
+    "source-closure-v1.json self",
+    "producer-verification-v1.json",
+    "future independent review",
+    "future final block authority",
+    "private-map content and opaque label values",
+    "live/provider artifacts"
+  ],
+  "final_block_authority": "REQUIRED_PENDING",
+  "fixed_predecessor_bindings": {
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json": {
+      "bytes": 9944,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-contract-v3.json",
+      "sha256": "8bef52f4f1c7511ec8897b17dbee2f542b0a822acaf22ebbe2e0e267d7c6714d"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json": {
+      "bytes": 10585,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-2x2-evaluation-v3-independent-review.json",
+      "sha256": "da36e2ae03c7a74ef7b5dce91eb7fc7e627b3cb431a0064c6efde37ef744b429"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design-independent-review.json": {
+      "bytes": 18741,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design-independent-review.json",
+      "sha256": "0018e413e40371bb2703aecf3963433f1a883a93b1070e815dccc0dc61866d3f"
+    },
+    "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design.json": {
+      "bytes": 26277,
+      "path": "mentor/runtime/scheduler-midresponse-recovery-20261107/r6-data-quality-addon-2x2-ab-design.json",
+      "sha256": "fcf096d0c641f373eab7163fa894e5d4f9605ab3ab36ff867e4b586bdcaf278e"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/harness.py": {
+      "bytes": 31895,
+      "path": "shared/job_runtime/candidates/r6_data_quality_2x2_evaluation_v3/harness.py",
+      "sha256": "a42f1d0303857f443b5352ed7cfd244551767d347168e3ada6b7f8042cdaa7e4"
+    },
+    "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json": {
+      "bytes": 2588,
+      "path": "tuning/architecture/r6_data_quality_2x2_evaluation_v3/producer-verification-v3.json",
+      "sha256": "2df4cae89b8942a8eb38b766608381f4bc41aeb8f4c984a9d32aa677068718ea"
+    }
+  },
+  "history": {
+    "candidate_is_additive": true,
+    "evaluation_v3_modified": false,
+    "predecessor_history_modified": false,
+    "runner_modified": false
+  },
+  "independent_review": "REQUIRED_PENDING",
+  "independent_review_created_by_producer": false,
+  "runtime_evidence": {
+    "owner_private_map": {
+      "bytes": 807,
+      "content_and_labels_excluded": true,
+      "git_ignored": true,
+      "mode": "0600",
+      "path": "runtime/r6_data_quality_blind_map_commitment_v1/owner-private-canonical-map-v1.json",
+      "sha256": "fd7d7adfe3e7c53d5b4293426ae6d07c1fdd2aa1fbbe39d031183e2587862e7a"
+    },
+    "sanitized_commitment": {
+      "bytes": 161,
+      "git_ignored": true,
+      "path": "runtime/r6_data_quality_blind_map_commitment_v1/sanitized-commitment-v1.json",
+      "sha256": "1209f4a14655d6b7ae9d8ddcbe98f5af245d62f83eeea780ddcdcaa5a367d23c"
+    }
+  },
+  "sources": {
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1/__init__.py": {
+      "bytes": 328,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1/__init__.py",
+      "sha256": "022da4fd46e12d301522be6fee3ec79bd96de2be398b90f5e2e775b4643c3468"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1/blind-map-commitment-v1.schema.json": {
+      "bytes": 484,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1/blind-map-commitment-v1.schema.json",
+      "sha256": "33ec4ac05188c511cc2f85fb8f93c6984deb7bddb10f12795c4d42d20ef84f10"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1/blind-map-v1.schema.json": {
+      "bytes": 1498,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1/blind-map-v1.schema.json",
+      "sha256": "7236460117cd6eccdddeef29261662eb65f53b0711a901f57a288a330965fd6d"
+    },
+    "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1/commitment.py": {
+      "bytes": 16172,
+      "path": "shared/job_runtime/candidates/r6_data_quality_blind_map_commitment_v1/commitment.py",
+      "sha256": "f7ba81fdb6653fedbedb1071f855cc3feecccb300fbe3a2fe280ef6c7b5f508f"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_blind_map_commitment_v1/__init__.py": {
+      "bytes": 0,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_blind_map_commitment_v1/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "shared/job_runtime/tests/candidates/r6_data_quality_blind_map_commitment_v1/test_commitment.py": {
+      "bytes": 13380,
+      "path": "shared/job_runtime/tests/candidates/r6_data_quality_blind_map_commitment_v1/test_commitment.py",
+      "sha256": "f0f28e0c5463905aff880ecfe266edaa5197543d4d20571d894e313cf80453c7"
+    },
+    "tuning/architecture/r6_data_quality_blind_map_commitment_v1/architecture-v1.json": {
+      "bytes": 3784,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v1/architecture-v1.json",
+      "sha256": "da0f4ac42a1fda9e042c088ad586f007ed66340d3d0ead541388b6b579185077"
+    },
+    "tuning/architecture/r6_data_quality_blind_map_commitment_v1/decision-v1.json": {
+      "bytes": 2359,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v1/decision-v1.json",
+      "sha256": "77a5776db49b7fc3096704a2d775237699b4ced57843c3d323bef79a0f6e8025"
+    },
+    "tuning/architecture/r6_data_quality_blind_map_commitment_v1/protocol-v1.json": {
+      "bytes": 3417,
+      "path": "tuning/architecture/r6_data_quality_blind_map_commitment_v1/protocol-v1.json",
+      "sha256": "9bdc7251b141e2cff0254e28a7c8de453d8809e005a92d67f34c380aa3c183c8"
+    }
+  },
+  "status": "FROZEN_ADDITIVE_PROVIDER_FREE_SOURCE_CLOSURE_V1",
+  "version": "r6-data-quality-blind-map-commitment-source-closure-v1"
+}

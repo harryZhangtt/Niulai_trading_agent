@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "factor-dataset-label-authority-receipt-v1",
+  "title": "Synthetic label authority receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "authority_id", "authority_kind", "label_roster_sha256", "label_commitment_sha256", "target_definition_sha256", "limitations"],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_.-]{0,95}$"},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "properties": {
+    "schema_version": {"const": 1}, "authority_id": {"$ref": "#/$defs/id"},
+    "authority_kind": {"const": "synthetic_fixture"},
+    "label_roster_sha256": {"$ref": "#/$defs/sha256"},
+    "label_commitment_sha256": {"$ref": "#/$defs/sha256"},
+    "target_definition_sha256": {"$ref": "#/$defs/sha256"},
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 500}}
+  }
+}

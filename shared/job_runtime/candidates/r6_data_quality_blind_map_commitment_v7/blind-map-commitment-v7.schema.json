@@ -1,0 +1,53 @@
+{
+  "$id": "r6-data-quality-blind-map-commitment-v7",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "device": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "inode": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "device",
+        "inode"
+      ],
+      "type": "object"
+    },
+    "canonical_bytes": {
+      "maximum": 4096,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "canonical_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "r6-data-quality-blind-map-commitment-v7"
+    },
+    "transaction_id": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "version": {
+      "const": 7
+    }
+  },
+  "required": [
+    "version",
+    "schema",
+    "transaction_id",
+    "artifact_identity",
+    "canonical_digest",
+    "canonical_bytes"
+  ],
+  "type": "object"
+}

@@ -5,7 +5,7 @@ test('matched-case controls visibly identify the selected metric and distinguish
   const comparison = data.comparisons.find(item => item.id === 'now_captured_regrade_1.0.2');
   expect(comparison?.rows.length).toBe(8);
   await page.goto('/datasource');
-  await page.getByRole('button', { name: /A\/B evaluation/ }).click();
+  await page.getByRole('navigation', { name: 'Research observability views' }).getByRole('link', { name: /Comparisons/ }).click();
   await page.getByLabel('Comparison', { exact: true }).selectOption(comparison.id);
   const metric = page.getByLabel('Metric', { exact: true });
   await metric.selectOption('baseline_novelty');
@@ -33,7 +33,7 @@ test('matched-case controls visibly identify the selected metric and distinguish
 
 test('captured review passes remain distinct from blocked executions and review-order disagreements', async ({ page }) => {
   await page.goto('/datasource');
-  await page.getByRole('button', { name: /A\/B evaluation/ }).click();
+  await page.getByRole('navigation', { name: 'Research observability views' }).getByRole('link', { name: /Comparisons/ }).click();
   await page.getByLabel('Comparison', { exact: true }).selectOption('now_captured_regrade_1.0.2');
   await expect(page.locator('.comparison-section > .section-heading')).toContainText('Limited comparison');
   const margin = page.locator('.comparison-table tbody tr').filter({ has: page.getByRole('rowheader', { name: 'margin_counterevidence', exact: true }) });
